@@ -816,6 +816,27 @@ p.intro .linkbtn{color:var(--primary-dark);text-decoration:underline;text-underl
   body{padding-bottom:64px}.toast{bottom:84px}
 }
 
+/* the top bar has nine links: on laptop widths the two longest labels use their short form (מקצועות, שאלות) so nothing is pushed off the screen */
+.lb-s{display:none}
+@media(min-width:1081px) and (max-width:1499px){.lb-f{display:none}.lb-s{display:inline}}
+/* the bottom bar: six equal places, an icon over a short label (the old text-only bar would have scrolled sideways with a sixth link) */
+.botnav .link.bn{flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:3px;padding:7px 2px 6px;font-size:12px;line-height:1.15;font-weight:500;white-space:normal;text-align:center;border-radius:14px;color:var(--nav)}
+.botnav .link.bn .bl{max-width:100%;text-wrap:balance;overflow-wrap:anywhere}
+.botnav .link.bn .bi{position:relative;display:grid;place-items:center;width:46px;height:28px;border-radius:14px;transition:background .25s,color .25s}
+.botnav .link.bn .bi svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.botnav .link.bn .bi svg circle[r="1.3"]{fill:currentColor}
+.botnav .link.bn[aria-current="true"]{color:var(--ink);font-weight:700}
+.botnav .link.bn[aria-current="true"] .bi{background:var(--primary-soft);color:var(--accent-ink)}
+.botnav .link.bn.path-l{color:var(--accent-ink);font-weight:700}
+.botnav .link.bn .nring{position:absolute;top:-3px;inset-inline-start:5px;margin:0;width:13px;height:13px}
+.botnav .link.bn .nring::after{inset:2.5px}
+.botnav .link.bn .cnt{position:absolute;top:-4px;inset-inline-start:3px;margin:0;min-width:16px;height:16px;font-size:10px;padding-inline:4px}
+@media(max-width:1080px){body{padding-bottom:calc(86px + env(safe-area-inset-bottom,0px))}.toast{bottom:calc(98px + env(safe-area-inset-bottom,0px))}.tray{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}.to-top{bottom:100px}}
+/* the search mode switch has three places (degrees, occupations, technicians): on a phone they share one row and the icons step aside */
+@media(max-width:620px){.modesw{display:flex;width:100%;box-sizing:border-box;gap:4px;padding:4px}.modesw button{flex:1 1 0;min-width:0;justify-content:center;padding:10px 4px;font-size:14px;line-height:1.2;text-align:center}.modesw button svg{display:none}}
+.sugg .sg-h{padding:8px 10px 2px;font-size:13px;color:var(--muted);font-family:var(--head);font-weight:600}
+.sugg .sg-none{padding:12px 14px;color:var(--muted)}
+
 /* common questions answered by the site team */
 .dtag.faq{background:#FFF1EA;color:var(--primary-dark);border:1px solid #FFD0C3}
 .av.team{background:#fff;padding:0;overflow:hidden}.av.team svg{width:100%;height:100%;display:block}
@@ -1215,7 +1236,16 @@ input[type=range]{accent-color:var(--primary);height:28px}
 .golinks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
 .golinks .golink-in{width:100%;height:100%}
 @media(max-width:980px){.golinks{grid-template-columns:1fr}}
-.golink-in.feat{background:linear-gradient(120deg,#FFF1EA,#FFE3D6);box-shadow:0 0 0 1.5px #FFC2AE inset}
+/* the three entry links of the home page share one look: the brand's filled coral with white text. The first two used to be pale peach with white text (1.1:1, unreadable) and the third coral.
+   Every part of the surface keeps 4.5:1 or better: the small text is solid white and the decorative disc is darker than the surface, so it can only raise the contrast behind the text */
+.golinks .golink-in{background:var(--cta-grad);color:#fff;box-shadow:0 12px 28px rgba(214,64,29,.26);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,filter .25s}
+.golinks .golink-in::after{inset-inline-start:auto;inset-inline-end:-46px;top:auto;bottom:-72px;width:150px;height:150px;background:rgba(70,10,0,.16);pointer-events:none}
+.golinks .golink-in b{color:#fff}
+.golinks .golink-in small{color:#fff;opacity:1}
+.golinks .golink-in .gi{background:#fff;color:var(--cta)}
+.golinks .golink-in:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(185,54,26,.34);filter:brightness(.96)}
+.golinks .golink-in:active{transform:translateY(-1px) scale(.99);transition-duration:.08s}
+.golinks .golink-in:focus-visible{outline-offset:4px;border-radius:20px}
 .more-sheet .unis{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
 
 
@@ -2025,7 +2055,7 @@ function ill(d){
   return `<svg class="ill" viewBox="0 0 240 160" aria-hidden="true" style="${cv(d)}"><rect width="240" height="160" class="f3"/><circle cx="${bx}" cy="${by}" r="${br}" class="f2" opacity=".22"/>${dots}<ellipse cx="120" cy="140" rx="78" ry="7" class="f1" opacity=".1"/>${ILL[k]||''}</svg>`;
 }
 
-const IC={book:'<path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1zM12 6v14"/>',bag:'<rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18"/>'};
+const IC={book:'<path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1zM12 6v14"/>',bag:'<rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18"/>',tool:'<path d="M20.2 6.9a5 5 0 0 1-6.9 6.1L6.4 19.9a2.2 2.2 0 1 1-3.1-3.1L10.2 9.9A5 5 0 0 1 16.3 3l-3 3 .4 2.6 2.6.4z"/>'};
 /* ================= CAREER & SALARY (Avodata — Ministry of Labor, based on CBS data) ================= */
 const AF=DATA.af||{}, OC=DATA.oc||{};
 const AVURL='https://avodata.labor.gov.il';
@@ -2501,7 +2531,10 @@ function admBlock(iid,d){
 function sect_match(a,b){const n=s=>s.replace(/[()"'״׳.,:–-]/g,' ').replace(/\s+/g,' ').trim();a=n(a);b=n(b);return a===b||b.startsWith(a+' ')||a.startsWith(b+' ')}
 
 /* ================= PRACTICAL ENGINEERS & TECHNICIANS (MAHAT) ================= */
-const MAHAT=DATA.mahat||[], MAV=DATA.mahatAv||[];
+/* a name in the source that keeps an English word in visual (reversed) order: only a name checked by hand is corrected here ("deddebme" is "embedded" backwards).
+   The other one ("ogem", in "הנדסת תוכנה-ogem") cannot be checked without the source page and is shown as it came */
+const MH_FIX={'הנדסת תוכנה-התמחות deddebme':'הנדסת תוכנה - התמחות Embedded'};
+const MAHAT=(DATA.mahat||[]).map(m=>Object.prototype.hasOwnProperty.call(MH_FIX,m.n)?{...m,n:MH_FIX[m.n]}:m), MAV=DATA.mahatAv||[]; /* (own() is defined further down) */
 const MAHAT_SRC='https://mahatcolleges.labor.gov.il/', MAHAT_LIST='https://www.gov.il/he/Departments/DynamicCollectors/mahat-courses-list';
 const mahatPage=pid=>pid?`https://www.gov.il/he/pages/megamaid-${pid}`:null;
 function mahatAvFor(m){const k=m.n.replace(/^הנדסת |^הנדסה /,'').split(/[-–]/)[0].trim();return MAV.find(a=>a.n.includes(k))}
@@ -4077,10 +4110,27 @@ function mhFit(m){
   return {s:s+Math.min(m.col.length,60)/4,why};
 }
 const mhText=m=>{const p=m.page||{};return [m.n,p.a,p.s,p.j,...(p.sub||[])].filter(Boolean).join(' ')};
+/* a search that understands how people ask: "הנדסאי תוכנה", "טכנאי רכב", "חשמלאי". The words הנדסאי / טכנאי / מכינה only prefer that kind; every other word has to be found, in the name first and in the program's text second.
+   A one-letter Hebrew prefix (ו ה ב ל מ ש כ) is ignored, and a few everyday words point at the official name of the track */
+const MH_KINDW={'הנדסאי':'הנדסאי','הנדסאית':'הנדסאי','הנדסאים':'הנדסאי','הנדסאיות':'הנדסאי','טכנאי':'טכנאי','טכנאית':'טכנאי','טכנאים':'טכנאי','טכנאיות':'טכנאי','מכינה':'מכינה','מכינות':'מכינה'};
+const MH_KIND={'הנדסאי':'הנדסאי','טכנאי':'טכנאי מוסמך','מכינה':'מכינה טכנולוגית'};
+const MH_SYN={'מתכנת':'תוכנה','מתכנתת':'תוכנה','תכנות':'תוכנה','פיתוח':'תוכנה','חשמלאי':'חשמל','חשמלאית':'חשמל','מכונאי':'מכונות','מכונאית':'מכונות','בנייה':'אזרחית','בניין':'אזרחית','בנאי':'אזרחית','גרפיקה':'תקשורת חזותית','גרפי':'תקשורת חזותית','רובוטיקה':'מכטרוניקה','ביוטק':'ביוטכנולוגיה','אדריכל':'אדריכלות','אדריכלית':'אדריכלות','מעצב':'עיצוב','מעצבת':'עיצוב','לוגיסטי':'לוגיסטיקה'};
+const mhWords=s=>String(s||'').replace(/[()"'״׳.,:–\-/]/g,' ').split(/\s+/).filter(Boolean);
+const mhStem=w=>w.length>3&&/^[והבלמשכ]/.test(w)?w.slice(1):w;
+function mhScore(m,q){
+  const toks=mhWords(q.split(/\s+/).map(t=>MH_SYN[t]||t).join(' ')),kinds=new Set(),rest=[];
+  toks.forEach(t=>{if(MH_KINDW[t])kinds.add(MH_KINDW[t]);else rest.push(t)});
+  if(!rest.length)return kinds.has(m.kind)?5:0; /* only "הנדסאי" or "טכנאי": that kind */
+  const nm=mhWords(m.n),tx=mhWords(mhText(m));let s=kinds.has(m.kind)?15:0;
+  for(const t of rest){const ts=[t,mhStem(t)],st=w=>ts.some(x=>x.length>1&&w.startsWith(x));
+    if(nm.some(st))s+=30;else if(t.length>=3&&m.n.includes(t))s+=22;else if(tx.some(st))s+=8;else if(t.length>=3&&mhText(m).includes(t))s+=5;else return 0}
+  if(m.n.startsWith(rest[0]))s+=10;
+  return s}
+const mhSearch=q=>MAHAT.map((m,i)=>({m,i,r:mhScore(m,q)})).filter(x=>x.r).sort((a,b)=>b.r-a.r||b.m.col.length-a.m.col.length);
 function techPool(){
   let L=MAHAT.map((m,i)=>({m,i}));
   const q=TF.q.trim();
-  if(q){L=L.map(x=>({...x,r:x.m.n.includes(q)?3:mhText(x.m).includes(q)?1:0})).filter(x=>x.r)}
+  if(q){L=L.map(x=>({...x,r:mhScore(x.m,q)})).filter(x=>x.r)}
   if(TF.kind)L=L.filter(x=>x.m.kind===TF.kind);
   if(TF.area)L=L.filter(x=>x.m.col.some(c=>c.area===TF.area));
   const k=TF.sort||(q?'rel':'fit');
@@ -4233,11 +4283,12 @@ function needLogin(reason,then){if(!FM.local||ACC.cur())return false;openAuth({t
 
 /* ---------- events ---------- */
 document.addEventListener('click',e=>{
-  const el=e.target.closest('[data-mode],[data-jobsq],[data-shelfall],[data-jg],[data-jt],[data-jclear],[data-jclearq],[data-jmore],[data-tk],[data-tclear],[data-tclearq],[data-atab],[data-am],[data-eye],[data-auth],[data-signout],[data-acctdel],#acctBtn');
+  const el=e.target.closest('[data-mode],[data-techq],[data-jobsq],[data-shelfall],[data-jg],[data-jt],[data-jclear],[data-jclearq],[data-jmore],[data-tk],[data-tclear],[data-tclearq],[data-atab],[data-am],[data-eye],[data-auth],[data-signout],[data-acctdel],#acctBtn');
   if(!el)return;const ds=el.dataset;
   if(el.id==='acctBtn'){ACC.cur()?openAcct():openAuth({tab:'login'})}
   else if(ds.mode!==undefined){if(S.mode===ds.mode)return;const v=($('#q')||{}).value||'';S.mode=ds.mode;store.set('mode',S.mode);
     if(S.q){S.q='';S.shown=48}render();const q=$('#q');if(q){q.value=v;if(v){q.focus({preventScroll:true});q.dispatchEvent(new Event('input'))}}}
+  else if(ds.techq!==undefined){TF.q=(($('#q')||{}).value||'').trim();TF.kind='';go('tech')}
   else if(ds.jobsq!==undefined){JOBF.q=(($('#q')||{}).value||'').trim();JOBF.sort='';JOBF.shown=36;go('jobs')}
   else if(ds.shelfall!==undefined){shelfAll(ds.shelfall)}
   else if(ds.jg!==undefined){JOBF.g=ds.jg;JOBF.shown=36;refreshJobs()}
@@ -6607,7 +6658,7 @@ function paint(names){
   if(hero){const h=$('#kpHero');if(h)h.innerHTML=safe(()=>heroHTML(pl))}
   if(tab){const b=$('#kpTab');if(b){b.innerHTML=tabInner(pl);afterTab()}}
   safe(updateRing)}
-function updateRing(){const n=$('#links .path-l');if(n)n.innerHTML='המסלול שלי'+navRing()}
+function updateRing(){document.querySelectorAll('#links .path-l,#botnav .path-l').forEach(n=>{const r=n.querySelector('.nring'),h=navRing();if(r)r.outerHTML=h;else if(h)(n.querySelector('.bi')||n).insertAdjacentHTML('beforeend',h)})}
 function jump(id,smooth=true){const e=$('#'+id);if(!e)return;const y=e.getBoundingClientRect().top+scrollY-(innerWidth<760?116:150);window.scrollTo({top:Math.max(0,y),behavior:smooth&&!RM()?'smooth':'instant'})}
 function gotoTab(k,o={}){
   if(!TABS.some(t=>t[0]===k))k='now';
@@ -7282,7 +7333,7 @@ const NORM={
     if(isObj(v.a))Object.keys(v.a).slice(0,300).forEach(k=>{if(/^[\w-]{1,20}$/.test(k)&&nin(v.a[k],-100,100))o.a[k]=v.a[k]});
     if(nin(v.done,1,1e14))o.done=v.done;return o},
   uni:v=>typeof v==='string'&&own(INST,v)?v:null,
-  mode:v=>v==='deg'||v==='occ'?v:undefined,
+  mode:v=>v==='deg'||v==='occ'||v==='tech'?v:undefined,
   /* path and sch are cleaned in full where they are read (pth, schParse); here only their outer shape, so a wrong type never gets that far */
   path:v=>isObj(v)&&(v.targets===undefined||Array.isArray(v.targets))&&(v.dates===undefined||Array.isArray(v.dates))?v:undefined,
   sch:v=>isObj(v)?v:undefined};
@@ -7426,24 +7477,25 @@ function refreshExplore(){
   if(f&&!flip){const dy=f.getBoundingClientRect().top-top0;if(Math.abs(dy)>1)window.scrollBy({top:dy,behavior:'instant'})}
 }
 const exploreHead=()=>`<div><h2>${S.q?'תוצאות החיפוש':'כל התארים'}</h2><p>${S.q?'התארים שמתאימים למה שחיפשתי. אפשר לסנן ולמיין.':'כל התארים הראשונים בישראל. אפשר לחפש, לסנן ולמיין.'}</p></div>`;
-const MODE_PH={deg:'למשל: פסיכולוגיה, הנדסת חשמל, מדעי המחשב…',occ:'למשל: מפתח תוכנה, אחות, מעצב גרפי, רואה חשבון…'};
+const MODE_PH={deg:'למשל: פסיכולוגיה, הנדסת חשמל, מדעי המחשב…',occ:'למשל: מפתח תוכנה, אחות, מעצב גרפי, רואה חשבון…',tech:'למשל: הנדסאי תוכנה, טכנאי רכב, חשמל, אדריכלות…'};
 function renderHome(){
   const acad=DEG.length, progs=DEG.reduce((a,d)=>a+d.of.length,0);
   const pick=[...DEG].sort((a,b)=>b.of.length-a.of.length).filter(d=>['cs','psych','law','med','ee','nursing','econ','arch'].includes(illKey(d))).slice(0,3);
-  const md=S.mode==='occ'?'occ':'deg';
+  const md=S.mode==='occ'||S.mode==='tech'?S.mode:'deg';
   let h=`<section class="hero"><div class="wrap hero-in">
     <div>
       <span class="kicker">כל התארים והמקצועות בישראל, ממקורות רשמיים</span>
       <h1>מה אני רוצה לעשות <em>בעתיד?</em></h1>
-      <p class="sub">כל תוכניות התואר הראשון שאושרו על ידי המועצה להשכלה גבוהה ומאות מקצועות לפי משרד העבודה: איפה לומדים, מה ספי הקבלה, כמה מרוויחים ואיך מגיעים לכל מקצוע.</p>
+      <p class="sub">כל תוכניות התואר הראשון שאושרו על ידי המועצה להשכלה גבוהה, מסלולי הנדסאים וטכנאים ומאות מקצועות לפי משרד העבודה: איפה לומדים, מה ספי הקבלה, כמה מרוויחים ואיך מגיעים לכל מקצוע.</p>
       <div class="modesw" role="group" aria-label="מה אני מחפש">
         <button data-mode="deg" aria-pressed="${md==='deg'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">${IC.book}</svg>חיפוש תואר</button>
-        <button data-mode="occ" aria-pressed="${md==='occ'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">${IC.bag}</svg>חיפוש מקצוע</button></div>
+        <button data-mode="occ" aria-pressed="${md==='occ'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">${IC.bag}</svg>חיפוש מקצוע</button>
+        <button data-mode="tech" aria-pressed="${md==='tech'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">${IC.tool}</svg>הנדסאים וטכנאים</button></div>
       <div class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input id="q" type="search" autocomplete="off" placeholder="${MODE_PH[md]}" aria-label="${md==='occ'?'חיפוש מקצוע':'חיפוש תואר או מוסד'}" value="${esc(md==='deg'?S.q:'')}"><div class="sugg" id="sugg" hidden></div></div>
+        <input id="q" type="search" autocomplete="off" placeholder="${MODE_PH[md]}" aria-label="${md==='occ'?'חיפוש מקצוע':md==='tech'?'חיפוש הנדסאים וטכנאים':'חיפוש תואר או מוסד'}" value="${esc(md==='deg'?S.q:'')}"><div class="sugg" id="sugg" hidden></div></div>
       <div class="golinks">
-        <button class="golink-in feat" data-go="dir"><span class="gi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span><b>מה הכיוון שלי?</b><small>${dirDone()?'התחומים, המקצועות והתארים שהכי מתאימים לי':'שאלון התאמה: מה מעניין אותי, מה חשוב לי ובמה אני חזק'}</small></span></button>
-        <button class="golink-in feat" data-go="path"><span class="gi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg></span><span><b>המסלול שלי</b><small>${hasGoal()?pathBlurb():'בוחרים תואר או כמה, ומקבלים מפה צעד אחר צעד'}</small></span></button>
+        <button class="golink-in" data-go="dir"><span class="gi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span><b>מה הכיוון שלי?</b><small>${dirDone()?'התחומים, המקצועות והתארים שהכי מתאימים לי':'שאלון התאמה: מה מעניין אותי, מה חשוב לי ובמה אני חזק'}</small></span></button>
+        <button class="golink-in" data-go="path"><span class="gi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg></span><span><b>המסלול שלי</b><small>${hasGoal()?pathBlurb():'בוחרים תואר או כמה, ומקבלים מפה צעד אחר צעד'}</small></span></button>
         <button class="golink-in" data-go="me"><span class="gi" aria-hidden="true">${ICON.check}</span><span><b>מה אני יכול ללמוד?</b><small>${profileOK()?'התארים שאני יכול להתקבל אליהם לפי הפרופיל שלי':'אראה לאן אני יכול להתקבל, גם בלי בגרות או פסיכומטרי'}</small></span></button></div>
       <div class="stats-strip num"><span><b>${fmt(acad)}</b>תארים</span><span><b>${fmt(progs)}</b>תוכניות</span><span><b>${DATA.inst.length}</b>מוסדות</span></div>
     </div>
@@ -8070,12 +8122,18 @@ function schSrcNote(){const n=SCH.length,c=SCH.reduce((a,r)=>(a[r.status]=(a[r.s
   return `<div class="srcnote">${ICON.check}<div><b>מלגות וזכויות:</b> ${n} רשומות שנאספו בחיפוש (${c.verified||0} הוצלבו מול כמה מקורות, ${c.unverified||0} לא אומתו, ${c.conflict||0} עם מקורות סותרים), ועוד רשומה לכל מוסד שמפנה לאתר שלו. סכום מוצג רק ב-${m} רשומות שהוצלבו, עם המחזור שלו כשהוא צוין במקור. מועד הגשה מוצג רק כשהוצלב: ${w?w===1?'כרגע ברשומה אחת':`כרגע ב-${w} רשומות`:'כרגע באף רשומה'}. הבדיקה בוצעה בחיפוש ולא בקריאה של הדפים הרשמיים, ולכן לפני הגשה בודקים בדף של הגוף. <button type="button" class="linkbtn" data-go="sch">למרכז המלגות</button></div></div>`}
 
 /* ================= CHROME ================= */
+/* icons of the bottom bar (the top bar has text only) */
+const BI={deg:KI.cap,job:IC.bag,tech:IC.tool,path:'<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M12 19h4.5a3.5 3.5 0 0 0 0-7h-8a3.5 3.5 0 0 1 0-7H12"/>',chat:KI.chat,more:'<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>'};
 function renderChrome(){
-  const v=S.route.v;
-  const lk=(k,l,x='')=>`<button class="link ${k==='path'?'path-l':''}" data-go="${k}" aria-current="${v===k}">${l}${x}</button>`;
+  const v=S.route.v,sect={deg:'home',sp:'home',specs:'home',occ:'jobs',mh:'tech',q:'forum'}[v]||v; /* the section a page belongs to */
+  /* lk(page, label, extra, short): on laptop widths the longest labels have a short form (CSS .lb-f / .lb-s), so one more link fits next to the tools */
+  const lk=(k,l,x='',s='')=>`<button class="link ${k==='path'?'path-l':''}" data-go="${k}" aria-current="${sect===k}">${s?`<span class="lb-f">${l}</span><span class="lb-s">${s}</span>`:l}${x}</button>`;
   const cnt=S.list.size?`<span class="cnt num">${S.list.size}</span>`:'', more=on=>`<button class="link" data-navmore aria-current="${on}">עוד${cnt}</button>`;
-  $('#links').innerHTML=[lk('home','תארים'),lk('jobs','מקצועות וקריירה'),lk('dir','מה הכיוון שלי?'),lk('path','המסלול שלי',navRing()),lk('sch','מלגות'),lk('me','מה אני יכול ללמוד'),lk('forum','שאלות ותשובות'),more(['tech','list','calc','terms','a11y'].includes(v))].join('');
-  $('#botnav').innerHTML=[lk('home','תארים'),lk('jobs','מקצועות'),lk('path','המסלול שלי',navRing()),lk('forum','שאלות'),more(['tech','list','calc','terms','a11y','me','dir','sch'].includes(v))].join('');
+  /* the bottom bar (phones and tablets): an icon over a short label, six equal places, nothing to scroll sideways */
+  const bk=(k,l,ic,x='')=>`<button class="link bn ${k==='path'?'path-l':''}" data-go="${k}" aria-current="${sect===k}"><span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ic}</svg>${x}</span><span class="bl">${l}</span></button>`;
+  const bmore=on=>`<button class="link bn" data-navmore aria-current="${on}"${S.list.size?` aria-label="עוד, ${S.list.size} תארים ברשימה שלי"`:''}><span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${BI.more}</svg>${cnt}</span><span class="bl">עוד</span></button>`;
+  $('#links').innerHTML=[lk('home','תארים'),lk('jobs','מקצועות וקריירה','','מקצועות'),lk('tech','הנדסאים וטכנאים'),lk('dir','מה הכיוון שלי?'),lk('path','המסלול שלי',navRing()),lk('sch','מלגות'),lk('me','מה אני יכול ללמוד'),lk('forum','שאלות ותשובות','','שאלות'),more(['list','calc','terms','a11y'].includes(v))].join('');
+  $('#botnav').innerHTML=[bk('home','תארים',BI.deg),bk('jobs','מקצועות',BI.job),bk('tech','הנדסאים וטכנאים',BI.tech),bk('path','המסלול שלי',BI.path,navRing()),bk('forum','שאלות',BI.chat),bmore(['list','calc','terms','a11y','me','dir','sch'].includes(v))].join('');
   const stx=$('#tbarTxt');if(stx)stx.textContent=`נתוני התארים והמוסדות: המל"ג ואתרי המוסדות, נאספו ב-${dLong(DATA.built)}`;
   $('#uniLabel').textContent=S.uni?INST[S.uni].n:'כל המוסדות';
   $('#quizLabel').textContent=profileOK()?'הפרופיל שלי':'מילוי פרופיל';
@@ -8083,7 +8141,7 @@ function renderChrome(){
   $('#counts').textContent=`${fmt(DEG.length)} תארים ו-${fmt(DEG.reduce((a,d)=>a+d.of.length,0))} תוכניות ב-${DATA.inst.length} מוסדות, לפי המל"ג.`;
 }
 function openMore(){
-  const it=[['dir','מה הכיוון שלי?','שאלון התאמה: תחומי עניין, ערכים וחוזקות'],['me','מה אני יכול ללמוד','התארים שאני יכול להתקבל אליהם'],['tech','הנדסאים וטכנאים','לימודי מה"ט במכללות הטכנולוגיות'],
+  const it=[['dir','מה הכיוון שלי?','שאלון התאמה: תחומי עניין, ערכים וחוזקות'],['me','מה אני יכול ללמוד','התארים שאני יכול להתקבל אליהם'],
     ['list','הרשימה שלי',S.list.size?S.list.size+' תארים שמורים':'התארים ששמרתי'],['calc','מחשבון ממוצע בגרות','לפי הכללים של כל אוניברסיטה'],['sch','מלגות וזכויות','מלגות, הטבות ומועדי הגשה, עם מקור לכל אחת'],['terms','תקנון','תנאי שימוש, פרטיות ומקורות הנתונים'],['a11y','הצהרת נגישות','התאמות, מגבלות ואיך לפנות']];
   openOv(`<h2>עוד באתר</h2><div class="unis">${it.map(([k,l,s])=>`<button class="uni ${S.route.v===k?'on':''}" data-go="${k}"><b>${l}</b><span>${s}</span></button>`).join('')}</div>${motionHTML()}`,'more-sheet');
 }
@@ -8172,7 +8230,13 @@ function bindSearch(){
     box.innerHTML=(R.length?R.map(o=>`<button data-occ="${o.id}"><span class="mini">${ocIll(o)}</span><span><b>${esc(o.n)}</b><small>${esc(ocWhy(o,v)||OGN[ocGroup(o.id)])}${o.sal?' · ₪'+fmt(o.sal)+' בחודש':''}</small></span></button>`).join(''):`<p style="padding:12px 14px;color:var(--muted)">לא נמצא מקצוע בשם "${esc(v)}". אפשר לנסות מילה אחרת.</p>`)+
       `<button class="all" data-jobsq>לכל המקצועות שמתאימים לחיפוש</button>`;
     if(box.hidden)box._y0=scrollY;box.hidden=false};
-  const show=()=>{if(S.mode==='occ')return showOcc();const v=q.value.trim();sugIdx=-1;live(v);
+  const showTech=()=>{const v=q.value.trim();sugIdx=-1;
+    const R=v?mhSearch(v):MAHAT.map((m,i)=>({m,i})).sort((a,b)=>b.m.col.length-a.m.col.length).slice(0,6);
+    const row=({m,i})=>{const sal=mhSal(m);return `<button data-mh="${i}"><span class="mini">${ill({id:'mh'+i,n:m.n,c:mhCat(m)})}</span><span><b>${esc(m.n)}</b><small>${esc(MH_KIND[m.kind]||m.kind)} · ${m.col.length===1?'מכללה אחת':m.col.length+' מכללות'}${sal?' · שכר בוגרים ₪'+fmt(Math.round(sal/100)/10,1)+'K לחודש':''}</small></span></button>`};
+    box.innerHTML=(v?'':'<p class="sg-h">המגמות שנלמדות ביותר מכללות</p>')+(R.length?R.slice(0,7).map(row).join(''):`<p class="sg-none">לא נמצאה מגמה בשם "${esc(v)}". אפשר לנסות תחום כמו חשמל, תוכנה או אדריכלות.</p>`)+
+      `<button class="all" data-techq>${v?'לכל המגמות שמתאימות לחיפוש':'לכל '+MAHAT.length+' המגמות'}</button>`;
+    if(box.hidden)box._y0=scrollY;box.hidden=false};
+  const show=()=>{if(S.mode==='tech')return showTech();if(S.mode==='occ')return showOcc();const v=q.value.trim();sugIdx=-1;live(v);
     if(!v){box.hidden=true;return}
     const R=matches(v);
     const SH=[];
@@ -8181,11 +8245,11 @@ function bindSearch(){
       SHH+`<button class="all" data-seeall>לכל התוצאות${R.length?'':' (כולל מוסדות)'}</button>`;
     if(box.hidden)box._y0=scrollY;box.hidden=false};
   q.addEventListener('input',show);
-  q.addEventListener('focus',()=>{if(q.value.trim())show()});
+  q.addEventListener('focus',()=>{if(q.value.trim()||S.mode==='tech')show()});
   q.addEventListener('keydown',e=>{
     const items=[...box.querySelectorAll('button')];
     if(e.key==='ArrowDown'||e.key==='ArrowUp'){if(box.hidden||!items.length)return;e.preventDefault();sugIdx=(sugIdx+(e.key==='ArrowDown'?1:-1)+items.length)%items.length;items.forEach((b,i)=>b.classList.toggle('act',i===sugIdx))}
-    else if(e.key==='Enter'){e.preventDefault();if(sugIdx>=0&&items[sugIdx]){items[sugIdx].click()}else if(S.mode==='occ'){JOBF.q=q.value.trim();go('jobs')}else seeAll()}
+    else if(e.key==='Enter'){e.preventDefault();if(sugIdx>=0&&items[sugIdx]){items[sugIdx].click()}else if(S.mode==='tech'){TF.q=q.value.trim();go('tech')}else if(S.mode==='occ'){JOBF.q=q.value.trim();go('jobs')}else seeAll()}
     else if(e.key==='Escape'){box.hidden=true}
   });
 }
