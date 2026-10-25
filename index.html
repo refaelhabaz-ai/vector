@@ -1962,6 +1962,21 @@ button.rz-c:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
 @media(max-width:820px){.rz-body{grid-template-columns:minmax(0,1fr)}.rz-fig{max-width:360px;width:100%;margin-inline:auto}}
 @media(max-width:560px){.rz-hl{grid-template-columns:minmax(0,1fr)}.rz-detw dl{grid-template-columns:minmax(0,1fr)}.rz-seg{display:flex;width:100%}.rz-seg button{flex:1 1 0;justify-content:center;padding:10px 6px;font-size:14px;line-height:1.2}.rz-seg button svg{display:none}.rz-rw{grid-template-columns:minmax(72px,92px) minmax(0,1fr) minmax(56px,auto);gap:8px;padding:10px}}
 html.hc .rz-r{stroke:#000}
+/* ---------- who employs the graduates (em-): names only, no logos ---------- */
+.em .intro{max-width:72ch}
+.em-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.em-c{background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:18px 20px;display:flex;flex-direction:column;gap:12px;border-top:4px solid var(--c1);transition:transform .25s,box-shadow .25s}
+.em-c:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
+.em-c header{display:flex;align-items:center;gap:14px}
+.em-p{flex:none;font-family:var(--head);font-weight:700;font-size:30px;line-height:1;color:var(--ink)}
+.em-c h3{font-size:18px;margin:0}
+.em-c small{color:var(--muted);font-size:13.5px}
+.em-l{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.em-l li{padding:6px 12px;border-radius:999px;background:var(--c3);color:var(--ink);font-size:14.5px;font-weight:500}
+.em-l a{color:inherit;text-decoration:underline;text-decoration-color:rgba(31,37,68,.35);text-underline-offset:3px}
+.em-l a:hover{text-decoration-color:currentColor}
+.em-fine{margin-top:16px;color:var(--muted);font-size:14px;line-height:1.7;max-width:90ch}
+.tile .val.em-tv{font-size:19px;line-height:1.35}
 .hdr::after{content:"";position:absolute;inset-inline-start:0;bottom:-1px;height:3px;width:var(--sp,0%);background:linear-gradient(to left,var(--primary),#FFC53D);border-radius:0 3px 3px 0;opacity:0;transition:opacity .25s;pointer-events:none}
 .hdr.scrolled::after{opacity:1}
 .hero::before{transform:translateY(calc(var(--sy,0)*.08px))}.hero::after{transform:translateY(calc(var(--sy,0)*-.05px))}
@@ -2178,6 +2193,7 @@ function careerSections(d){
       ${(f.anaf||[]).length?`<h3>באילו ענפים עובדים הבוגרים</h3><div class="salbox">${hbars(f.anaf.map(a=>({x:a.n,v:a.p})),{max:100,fmtv:v=>v+'%'})}</div>`:''}
       ${AVSRC('Academic/'+d.av)}</section>
 
+    ${safe(()=>empDegHTML(d),'')}
     ${safe(()=>rzHTML(rzSrcDeg(d)),'')}
 
     ${inst.length?`<section class="blk"><h2>השוואה בין מוסדות</h2><p class="intro">נתוני הבוגרים והמתקבלים לפי מוסד. כוכבית מסמנת נתון שמבוסס על מספר קטן של מקרים.</p>
@@ -2635,9 +2651,10 @@ function renderMahat(i){
     ${pg.a?`<p class="dp-lead">${esc(pg.a)}</p>`:''}</div><div class="dp-art">${ill({id:'mh'+i,n:m.n,c:'eng'})}</div></div></section>
   <div class="wrap dp-body">
     <div class="tiles num"><div class="tile"><span class="lbl">נלמד ב</span><span class="val">${m.col.length} מכללות</span></div>
-      ${(pg.w||[]).map(w=>{const mm=w.match(/^(.*?):\s*(.*)$/);return `<div class="tile"><span class="lbl">${esc(mm?mm[1]:'שכר')}</span><span class="val">${esc((mm?mm[2]:w).replace(/\.$/,''))}</span><span class="hint">סקר בוגרי מה"ט</span></div>`}).join('')}${safe(()=>rzTiles(rzSrcMh(m,i)),'')}</div>
+      ${(pg.w||[]).map(w=>{const mm=w.match(/^(.*?):\s*(.*)$/);return `<div class="tile"><span class="lbl">${esc(mm?mm[1]:'שכר')}</span><span class="val">${esc((mm?mm[2]:w).replace(/\.$/,''))}</span><span class="hint">סקר בוגרי מה"ט</span></div>`}).join('')}${safe(()=>empTile(empMhRows(rzSrcMh(m,i))),'')}${safe(()=>rzTiles(rzSrcMh(m,i)),'')}</div>
     ${pg.s?`<section class="blk"><h2>מה לומדים</h2><div class="courses">${pg.s.split(/,\s*/).map(x=>`<div class="course"><i><svg viewBox="0 0 24 24">${IC.book}</svg></i>${esc(x.replace(/\.$/,''))}</div>`).join('')}</div></section>`:''}
     ${pg.j?`<section class="blk"><h2>אפשרויות תעסוקה</h2><p class="big">${esc(pg.j)}</p></section>`:''}
+    ${safe(()=>empMhHTML(m,i),'')}
     ${safe(()=>rzHTML(rzSrcMh(m,i)),'')}
     ${(pg.sub||[]).length?`<section class="blk"><h2>מגמות משנה</h2><div class="linkrow">${pg.sub.map(x=>`<span class="tag" style="font-size:15px">${esc(x)}</span>`).join('')}</div></section>`:''}
     ${av&&av.curve&&av.curve.length?`<section class="blk"><h2>שכר הבוגרים לפי שנים מסיום הלימודים</h2><div class="salbox">${hbars(av.curve.map(x=>({x:'אחרי '+x.y,v:x.v})))}</div>${AVSRC('MahatEducation/'+av.id)}</section>`:''}
@@ -2942,12 +2959,12 @@ function degreeTiles(d){
     if(s&&s.emp)h+=t('שיעור תעסוקה',s.emp+'%','3–4 שנים אחרי התואר'+near);
   }
   if(g&&!d.pro)h+=t('ביקוש בשוק','חם בשוק','לפי עבודאטה: '+esc(g.map(o=>o.n).slice(0,2).join(', ')),'hot');
+  h+=safe(()=>{const f=fieldOf(d);return f?empTile((f.anaf||[]).map(a=>({n:a.n,p:a.p}))):''},'')+safe(()=>rzTiles(rzSrcDeg(d)),''); /* who employs them, where the demand is, where the pay is */
   const nI=new Set(d.of.map(o=>o.i)).size;
   h+=t('נלמד ב',nI===1?'מוסד אחד':nI+' מוסדות',d.of.filter(o=>INST[o.i].k==='u').length+' אוניברסיטאות'+(d.of.some(o=>o.i==='open')?' · כולל הפתוחה':''));
   if(s&&s.psy&&(exact||d.pro==='md'||d.pro==='dmd'))h+=t('פסיכומטרי ממוצע של המתקבלים',fmt(s.psy),(s.bagrut?'ממוצע בגרות משוקלל '+s.bagrut+' (יכול לעלות על 100 בגלל בונוסים) · ':'')+'עבודאטה'+(s.bagrut?factChip('avodata.bagrut'):''));
   if(profileOK()){const ok=d.of.filter(o=>{const c=instChecklist(d,o.i);return c&&c.s==='yes'}).length /* the same rule as the "אפשר להתקבל ל-N מוסדות" line below (the checklists), so the tile and the line never disagree */;h+=t('אפשר להתקבל',ok?`ל-${ok} מתוך ${nI}`:'עוד לא',ok?'לפי הפרופיל שלי':'מה צריך להשלים: ראו למטה',ok?'good':'')}
   if(!s&&!d.pro)h+=t('שכר ותעסוקה','אין נתון רשמי','לתואר אין עמוד תואם בעבודאטה');
-  h+=safe(()=>rzTiles(rzSrcDeg(d)),'');
   return h;
 }
 
@@ -4200,6 +4217,79 @@ function rzSrcMh(m,i){
   return {key:'m:'+i,kind:'mh',c:CATS.eng.c,occ,
     intro:'למסלול אין פירוט אזורי משלו. המפה מחושבת מהמקצועות שבהם עובדים הבוגרים לפי עבודאטה, כל מקצוע לפי מספר העוסקים בו. אפשר לבחור מקצוע ולראות את הנתונים שלו כפי שפורסמו.',
     none:'עבודאטה לא פרסמה פירוט לפי אזור למקצועות של המסלול הזה.',cite:av?AVSRC('MahatEducation/'+av.id):''}}
+/* ---------- who employs the graduates: text only (no logos, no trademarks, no endorsement) ----------
+   Level 1 is official: the industries in which the graduates of a field work, and their share (Avodata, Ministry of Labor). Level 2 is ours: examples of large organisations in Israel that work in that industry,
+   written from general public knowledge. It was NOT checked against each organisation's own site, so it is marked "לא אומת" like every unverified fact of the site, and it says it is a list of examples:
+   not complete, not a ranking, not a recommendation, and no promise that an organisation takes graduates of a degree or an institution. Names are text; a name links to the organisation's own home page when we are sure of it. */
+const EMP_FACT='emp.examples';
+const EMP_IND={
+ 'חינוך':{s:'מערכת החינוך',e:[['משרד החינוך','https://www.gov.il/he/departments/ministry_of_education'],['רשויות מקומיות (בתי ספר וגני ילדים)'],['רשת אורט','https://www.ort.org.il/'],['מוסדות להשכלה גבוהה']]},
+ 'תכנות מחשבים, ייעוץ בתחום המחשבים ושירותים נלווים אחרים':{s:'תוכנה ושירותי מחשוב',e:[['צ\'ק פוינט','https://www.checkpoint.com/'],['Wix','https://www.wix.com/'],['monday.com','https://monday.com/'],['אמדוקס','https://www.amdocs.com/'],['NICE','https://www.nice.com/'],['מיקרוסופט ישראל','https://www.microsoft.com/'],['גוגל ישראל'],['אמזון (AWS)','https://aws.amazon.com/']]},
+ 'שירותי בריאות':{s:'שירותי בריאות',e:[['כללית','https://www.clalit.co.il/'],['מכבי שירותי בריאות','https://www.maccabi4u.co.il/'],['מאוחדת','https://www.meuhedet.co.il/'],['לאומית','https://www.leumit.co.il/'],['שיבא','https://www.sheba.co.il/'],['הדסה','https://www.hadassah.org.il/'],['רמב"ם','https://www.rambam.org.il/'],['משרד הבריאות','https://www.gov.il/he/departments/ministry_of_health']]},
+ 'מחקר מדעי ופיתוח':{s:'מחקר ופיתוח',e:[['מכון ויצמן למדע','https://www.weizmann.ac.il/'],['הטכניון','https://www.technion.ac.il/'],['האוניברסיטה העברית','https://www.huji.ac.il/'],['אוניברסיטת תל אביב','https://www.tau.ac.il/'],['מרכזי מחקר ופיתוח של חברות תעשייה והיי-טק']]},
+ 'מינהל ציבורי וביטחון; ביטוח לאומי חובה':{s:'מינהל ציבורי וביטחון',e:[['משרדי הממשלה','https://www.gov.il/'],['משרד הביטחון','https://www.mod.gov.il/'],['משטרת ישראל','https://www.police.gov.il/'],['המוסד לביטוח לאומי','https://www.btl.gov.il/'],['רשות המסים','https://www.gov.il/he/departments/israel_tax_authority'],['הכנסת','https://main.knesset.gov.il/']]},
+ 'מינהל מקומי':{s:'רשויות מקומיות',e:[['עיריית תל אביב-יפו','https://www.tel-aviv.gov.il/'],['עיריית ירושלים','https://www.jerusalem.muni.il/'],['עיריית חיפה','https://www.haifa.muni.il/'],['עיריית באר שבע','https://www.beer-sheva.muni.il/'],['מועצות אזוריות ומקומיות']]},
+ 'ייצור מחשבים, מכשור אלקטרוני ואופטי':{s:'אלקטרוניקה ושבבים',e:[['אינטל ישראל','https://www.intel.com/'],['אנבידיה','https://www.nvidia.com/'],['טאואר סמיקונדקטור','https://towersemi.com/'],['אלביט מערכות','https://elbitsystems.com/'],['רפאל','https://www.rafael.co.il/'],['התעשייה האווירית','https://www.iai.co.il/'],['מובילאיי','https://www.mobileye.com/']]},
+ 'שירותי אדריכלות והנדסה; בדיקות טכניות וניתוח נתונים טכניים':{s:'הנדסה, אדריכלות ובדיקות',e:[['משרדי אדריכלים ומהנדסים'],['חברות ייעוץ ותכנון הנדסי'],['מכון התקנים הישראלי','https://www.sii.org.il/']]},
+ 'שירותי רווחה וסעד ללא מגורים':{s:'שירותי רווחה',e:[['משרד הרווחה והביטחון החברתי','https://www.gov.il/he/departments/ministry_of_welfare_and_social_affairs'],['מחלקות רווחה ברשויות מקומיות'],['עמותות ושירותים חברתיים']]},
+ 'שירותים משפטיים ושירותי חשבונאות':{s:'משפט וחשבונאות',e:[['משרדי עורכי דין'],['EY ישראל (קוסט פורר גבאי את קסירר)'],['KPMG ישראל (סומך חייקין)'],['PwC ישראל (קסלמן וקסלמן)'],['דלויט ישראל (בריטמן אלמגור זוהר)']]},
+ 'שירותים פיננסיים, פרט לביטוח ולקרנות פנסיה':{s:'בנקים ושירותים פיננסיים',e:[['בנק הפועלים','https://www.bankhapoalim.co.il/'],['בנק לאומי','https://www.leumi.co.il/'],['בנק דיסקונט','https://www.discountbank.co.il/'],['בנק מזרחי-טפחות','https://www.mizrahi-tefahot.co.il/'],['בנק ישראל','https://www.boi.org.il/'],['הבורסה לניירות ערך בתל אביב','https://www.tase.co.il/']]},
+ 'ביטוח, ביטוח משנה וקרנות פנסיה, פרט לביטוח לאומי חובה':{s:'ביטוח ופנסיה',e:[['הראל','https://www.harel-group.co.il/'],['מגדל','https://www.migdal.co.il/'],['הפניקס','https://www.fnx.co.il/'],['כלל ביטוח','https://www.clalinsurance.co.il/']]},
+ 'ייצור תרופות קונבנציונליות ותרופות הומאופתיות':{s:'תעשיית התרופות',e:[['טבע','https://www.tevapharm.com/'],['תרו (Taro)','https://www.taro.com/']]},
+ 'ייצור מוצרי מזון':{s:'תעשיית המזון',e:[['שטראוס','https://www.strauss-group.com/'],['תנובה','https://www.tnuva.co.il/'],['אוסם','https://www.osem.co.il/']]},
+ 'בניית מבנים ובניינים':{s:'בנייה',e:[['שיכון ובינוי'],['אלקטרה']]},
+ 'עבודות הנדסה אזרחית':{s:'תשתיות והנדסה אזרחית',e:[['נתיבי ישראל','https://www.iroads.co.il/'],['רכבת ישראל','https://www.rail.co.il/'],['מקורות','https://www.mekorot.co.il/'],['חברת החשמל','https://www.iec.co.il/']]},
+ 'יצירה, אמנות ובידור':{s:'תרבות ואמנות',e:[['תאגיד השידור הציבורי "כאן"','https://www.kan.org.il/'],['רשת 13','https://13tv.co.il/'],['קשת 12'],['התיאטרון הלאומי הבימה','https://www.habima.co.il/'],['התזמורת הפילהרמונית הישראלית','https://www.ipo.co.il/']]},
+ 'הפעלת ספריות, ארכיונים, מוזאונים ופעילויות תרבות אחרות':{s:'ספריות, מוזיאונים ותרבות',e:[['הספרייה הלאומית','https://www.nli.org.il/'],['מוזיאון ישראל','https://www.imj.org.il/'],['יד ושם','https://www.yadvashem.org/'],['רשות העתיקות','https://www.iaa.org.il/']]},
+ 'ייצור כימיקלים ומוצריהם':{s:'תעשיית הכימיקלים',e:[['כיל (ICL)','https://www.icl-group.com/'],['בז"ן','https://www.bazan.co.il/'],['חיפה כימיקלים','https://www.haifa-group.com/']]},
+ /* the coarser sectors of an occupation page (Avodata lists nineteen) */
+ 'תעשייה וחרושת':{s:'תעשייה',e:[['אינטל ישראל','https://www.intel.com/'],['טבע','https://www.tevapharm.com/'],['אלביט מערכות','https://elbitsystems.com/'],['רפאל','https://www.rafael.co.il/'],['התעשייה האווירית','https://www.iai.co.il/'],['שטראוס','https://www.strauss-group.com/']]},
+ 'מידע ותקשורת':{s:'מידע ותקשורת',e:[['צ\'ק פוינט','https://www.checkpoint.com/'],['Wix','https://www.wix.com/'],['אמדוקס','https://www.amdocs.com/'],['NICE','https://www.nice.com/'],['בזק','https://www.bezeq.co.il/'],['סלקום','https://www.cellcom.co.il/'],['פרטנר','https://www.partner.co.il/']]},
+ 'בינוי':{s:'בינוי',e:[['שיכון ובינוי'],['אלקטרה']]},
+ 'אנרגיה ומיזוג אוויר':{s:'אנרגיה',e:[['חברת החשמל','https://www.iec.co.il/'],['אורמת','https://www.ormat.com/']]},
+ 'בריאות ורווחה':{s:'בריאות ורווחה',e:[['כללית','https://www.clalit.co.il/'],['מכבי שירותי בריאות','https://www.maccabi4u.co.il/'],['שיבא','https://www.sheba.co.il/'],['הדסה','https://www.hadassah.org.il/'],['משרד הבריאות','https://www.gov.il/he/departments/ministry_of_health']]},
+ 'מינהל מקומי וציבורי':{s:'מינהל מקומי וציבורי',e:[['משרדי הממשלה','https://www.gov.il/'],['עיריית תל אביב-יפו','https://www.tel-aviv.gov.il/'],['עיריית ירושלים','https://www.jerusalem.muni.il/'],['עיריית חיפה','https://www.haifa.muni.il/']]},
+ 'פיננסים וביטוח':{s:'פיננסים וביטוח',e:[['בנק הפועלים','https://www.bankhapoalim.co.il/'],['בנק לאומי','https://www.leumi.co.il/'],['בנק דיסקונט','https://www.discountbank.co.il/'],['הראל','https://www.harel-group.co.il/'],['מגדל','https://www.migdal.co.il/']]},
+ 'תחבורה, לוגיסטיקה ושילוח':{s:'תחבורה ולוגיסטיקה',e:[['רכבת ישראל','https://www.rail.co.il/'],['אל על','https://www.elal.com/'],['צים','https://www.zim.com/'],['חברת נמל אשדוד','https://www.ashdodport.co.il/']]},
+ 'אמנות, בידור ופנאי':{s:'אמנות, בידור ופנאי',e:[['תאגיד השידור הציבורי "כאן"','https://www.kan.org.il/'],['רשת 13','https://13tv.co.il/'],['קשת 12'],['התיאטרון הלאומי הבימה','https://www.habima.co.il/']]}
+};
+/* ---------- who employs the graduates (see EMP_IND above) ---------- */
+/* rows: [{n: industry name as Avodata writes it, p: share in %}] -> the industries that have examples: the biggest ones (10% and more, and always the top two), at most four */
+const empRows=rows=>(rows||[]).filter(a=>a&&own(EMP_IND,a.n)&&a.p>0).sort((a,b)=>b.p-a.p).filter((a,i)=>a.p>=10||i<2).slice(0,4);
+function empHTML(rows,o){
+  const R=empRows(rows);if(!R.length)return '';
+  const card=a=>{const g=EMP_IND[a.n];
+    return `<article class="em-c"><header><b class="em-p num">${Math.round(a.p)}%</b><div><h3>${esc(g.s)}</h3><small>${o.of}</small></div></header>
+      <ul class="em-l">${g.e.map(([n,u])=>`<li>${u&&httpUrl(u)?`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(n)}</a>`:esc(n)}</li>`).join('')}</ul></article>`};
+  return `<section class="blk em" id="employers"><h2>${o.h}</h2><p class="intro">${o.intro}</p><div class="em-grid">${R.map(card).join('')}</div>
+    <p class="em-fine">${factChip(EMP_FACT)} שמות ארגונים כטקסט בלבד, לצורך מידע: בלי לוגואים, ובלי קשר, חסות או המלצה מצד הארגונים. אלה דוגמאות ולא רשימה מלאה או דירוג, ואין הבטחה שארגון מסוים מקבל בוגרים של תואר או של מוסד מסוים. לבדיקת משרות פנויות, באתר הארגון. מייצגים ארגון ורוצים לתקן או להסיר אזכור? <button type="button" class="linkbtn" data-go="contact">פנו אלינו</button>.</p></section>`}
+const EMP_INTRO='הענפים שבהם עובדים רוב';
+/* a degree: the industries of its field, as Avodata lists them */
+function empDegHTML(d){
+  if(d.pro==='dmd'&&!fieldOf(d))return '';
+  const f=fieldOf(d);if(!f)return '';
+  return empHTML((f.anaf||[]).map(a=>({n:a.n,p:a.p})),{h:'איפה עובדים הבוגרים, ואילו ארגונים גדולים פועלים שם',of:'מהבוגרים עובדים בענף',
+    intro:`${EMP_INTRO} הבוגרים של התחום${d.avHow&&d.avHow!=='exact'&&!d.pro?` "${esc(f.n)}", התחום הרשמי הקרוב ביותר לתואר`:''}, לפי עבודאטה (משרד העבודה). ליד כל ענף יש דוגמאות לארגונים גדולים בישראל שפועלים בו.`})}
+/* an occupation: its sectors */
+function empOccHTML(o){
+  const A=(o.g&&o.g.Anaf)||[];
+  return empHTML(A.filter(x=>x.v>0).map(x=>({n:x.x,p:x.p})),{h:'באילו ענפים עובדים, ואילו ארגונים גדולים פועלים שם',of:'מהעוסקים במקצוע עובדים בענף',
+    intro:`${EMP_INTRO} העוסקים במקצוע, לפי עבודאטה (משרד העבודה). ליד כל ענף יש דוגמאות לארגונים גדולים בישראל שפועלים בו.`})}
+/* a technician track: the sectors of the occupations its graduates work in, each counted by the people employed in it */
+function empMhRows(src){
+  const acc={};let W=0;
+  src.occ.forEach(x=>{const A=(x.o.g&&x.o.g.Anaf)||[],w=rzW(x.o)||1;W+=w;A.forEach(a=>{if(a.v>0)acc[a.x]=(acc[a.x]||0)+w*(a.p||0)})});
+  return W?Object.entries(acc).map(([n,s])=>({n,p:s/W})):[]}
+function empMhHTML(m,i){
+  return empHTML(empMhRows(rzSrcMh(m,i)),{h:'באילו ענפים עובדים הבוגרים, ואילו ארגונים גדולים פועלים שם',of:'מהעוסקים במקצועות המסלול עובדים בענף',
+    intro:`${EMP_INTRO} העוסקים במקצועות שבהם עובדים בוגרי המסלול, כל מקצוע לפי מספר העוסקים בו (לפי עבודאטה, משרד העבודה). ליד כל ענף יש דוגמאות לארגונים גדולים בישראל שפועלים בו.`})}
+/* a quick fact for the top of a page: a few of the examples, and a link to the list */
+function empTile(rows){
+  const R=empRows(rows);if(!R.length)return '';
+  const g=EMP_IND[R[0].n],names=g.e.map(x=>x[0]).filter(n=>!/^(משרדי|חברות|מחלקות|עמותות|מועצות|מוסדות|מרכזי|רשויות)/.test(n)).slice(0,3);
+  if(!names.length)return '';
+  return `<div class="tile"><span class="lbl">ארגונים גדולים בענף של רוב הבוגרים</span><span class="val em-tv">${names.map(esc).join(', ')}</span><span class="hint">בענף "${esc(g.s)}" (${Math.round(R[0].p)}%) · דוגמאות בלבד · <button type="button" class="linkbtn" data-scroll="employers">לכל הענפים</button></span></div>`}
+
 function renderOcc(id){
   const o=OC[id]; if(!o) return `<section class="sec"><div class="wrap"><div class="empty"><h3>העמוד לא נמצא</h3></div></div></section>`;
   const {tiles,facts}=snapParts(o.snap||[]), g=o.g||{}, grp=ocGroup(id), cat=OGCAT[grp];
@@ -4229,12 +4319,12 @@ function renderOcc(id){
     ${dirBadge('occ',id)}
   </div><div class="dp-art">${ocIll(o)}</div></div></section>
   <div class="wrap dp-body">
-    ${tiles.length?`<div class="tiles num">${tiles.map(t=>`<div class="tile"><span class="lbl">${esc(t.l)}</span><span class="val">${esc(t.v)}</span>${t.h?`<span class="hint">${esc(t.h)}</span>`:''}</div>`).join('')}${occHot(o)?`<div class="tile"><span class="lbl">ביקוש בשוק</span><span class="val hot">חם בשוק</span><span class="hint">${esc(hotLine(o))}</span></div>`:''}${safe(()=>rzTiles(rzSrcOcc(id,o,cat)),'')}</div>`:''}
+    ${tiles.length?`<div class="tiles num">${tiles.map(t=>`<div class="tile"><span class="lbl">${esc(t.l)}</span><span class="val">${esc(t.v)}</span>${t.h?`<span class="hint">${esc(t.h)}</span>`:''}</div>`).join('')}${occHot(o)?`<div class="tile"><span class="lbl">ביקוש בשוק</span><span class="val hot">חם בשוק</span><span class="hint">${esc(hotLine(o))}</span></div>`:''}${safe(()=>empTile(((o.g||{}).Anaf||[]).filter(x=>x.v>0).map(x=>({n:x.x,p:x.p}))),'')}${safe(()=>rzTiles(rzSrcOcc(id,o,cat)),'')}</div>`:''}
     ${occTrendHTML(o)}
     ${facts.length?`<div class="linkrow">${facts.filter(t=>!/צומח/.test(t)).map(t=>`<span class="tag" style="font-size:15px;padding:8px 14px;background:#fff;box-shadow:var(--shadow)">${esc(t)}</span>`).join('')}</div>`:''}
     ${(o.tasks||[]).length?`<section class="blk"><h2>מה עושים בעבודה</h2><div class="courses">${o.tasks.map(t=>`<div class="course" style="font-weight:500"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>${esc(t)}</div>`).join('')}</div></section>`:''}
     ${road}
-    ${safe(()=>rzHTML(rzSrcOcc(id,o,cat)),'')}
+    ${safe(()=>empOccHTML(o),'')}${safe(()=>rzHTML(rzSrcOcc(id,o,cat)),'')}
     ${trend.length?`<section class="blk"><h2>השכר והמועסקים לאורך השנים</h2><div class="two"><div class="offer"><h3 style="margin:0">שכר חודשי ממוצע</h3>${hbars(trend,{max:Math.max(...trend.map(x=>x.v))*1.1})}</div>
       ${emp.length?`<div class="offer"><h3 style="margin:0">מספר המועסקים בתחום</h3>${hbars(emp,{fmtv:v=>fmt(v),max:Math.max(...emp.map(x=>x.v))*1.1})}</div>`:''}</div></section>`:''}
     ${OCC_SECTIONS.some(s=>g[s[0]]&&g[s[0]].s&&g[s[0]].s.some(x=>x.v))?`<section class="blk"><h2>השוואות בתוך המקצוע</h2><div class="offers">${OCC_SECTIONS.map(sect).join('')}</div>
@@ -5144,6 +5234,7 @@ const CONTACT_EMAIL=''; /* the owner can fill an address: error reports then als
 const RPT_LEAD=()=>/^[^\s@<>"']+@[^\s@<>"']+$/.test(CONTACT_EMAIL)?'מצאת טעות? אפשר לשלוח לנו.':'מצאת טעות? אפשר להעתיק נוסח דיווח מוכן ולשלוח אותו למי שמתחזק את האתר.';
 const FT_D='2026-10-19';
 const FACTS=[
+ {id:'emp.examples',t:'דוגמאות לארגונים גדולים שמעסיקים אנשים בכל ענף',v:'שמות ארגונים בלבד, לפי ידע ציבורי כללי',scope:'דוגמאות, לא רשימה מלאה ולא המלצה',src:'',srcType:'',status:'unverified',checked:'2026-10-25',col:1,note:'הענפים ושיעורי העוסקים בכל ענף הם נתוני עבודאטה (משרד העבודה). שמות הארגונים נכתבו מידע ציבורי כללי ולא נבדקו מול האתר של כל ארגון. אין הבטחה שארגון מסוים מקבל בוגרים של תואר או של מוסד מסוים.'},
  {id:'psy.range',t:'טווח הציון הכללי בפסיכומטרי',v:'200–800',by:'מאל"ו',scope:'גם בבחינה הדו-תחומית (מדצמבר 2026)',src:'https://www.nite.org.il/two-domain-psychometric-entrance-test/faqs/?lang=en',srcType:'official',status:'verified',checked:FT_D},
  {id:'psy.format',t:'מבנה הבחינה הפסיכומטרית מדצמבר 2026',v:'דו-תחומית: חשיבה מילולית וחשיבה כמותית, ציון כללי בסולם 200–800',by:'מאל"ו',scope:'מדצמבר 2026 (תשפ"ז)',src:'https://www.nite.org.il/two-domain-psychometric-entrance-test/?lang=en',srcType:'official',status:'verified',checked:FT_D,note:'האנגלית יוצאת מהבחינה ונבדקת בנפרד באמירנט.'},
  {id:'psy.rename',t:'שם הבחינה הפסיכומטרית לפני ואחרי דצמבר 2026',v:'עד סתיו 2026 רב-תחומית (עם אנגלית), מדצמבר 2026 דו-תחומית',by:'מאל"ו',scope:'מדצמבר 2026',src:'https://www.nite.org.il/news/notice-15022026/?lang=en',srcType:'official',status:'verified',checked:FT_D,note:'ציונים שהתקבלו בפורמט הישן נשארים תקפים, בדרך כלל לפחות 7 שנים, לפי מדיניות המוסד.'},
@@ -7787,7 +7878,7 @@ function renderDegree(d){
     ${hotWhyHTML(d)}
 
     ${proPathHTML(d)}
-    ${d.pro==='md'?mdSections(d)+safe(()=>rzHTML(rzSrcDeg(d)),''):d.pro==='dmd'?dmdSections(d)+safe(()=>rzHTML(rzSrcDeg(d)),''):careerSections(d)}
+    ${d.pro==='md'?mdSections(d)+safe(()=>empDegHTML(d),'')+safe(()=>rzHTML(rzSrcDeg(d)),''):d.pro==='dmd'?dmdSections(d)+safe(()=>empDegHTML(d),'')+safe(()=>rzHTML(rzSrcDeg(d)),''):careerSections(d)}
 
     <section class="blk"><h2>איפה לומדים ומה הסף</h2>
       <p class="intro">${profileOK()?'המוסדות מסודרים לפי הפרופיל שלי: קודם אלה שאפשר להתקבל אליהם (בירוק), ואחריהם אלה שצריך להשלים בשבילם משהו (באדום), עם מה צריך ואיך. ':''}כל המוסדות שמציעים את התואר לפי המועצה להשכלה גבוהה. ספי הקבלה נלקחו מהאתרים הרשמיים של המוסדות לשנת תשפ"ז, ומוצגים בשמות המסלולים כפי שהם מופיעים שם.</p>
@@ -7846,7 +7937,7 @@ function srcSection(){
    a field that is still empty is shown as "not entered yet", never as a made-up name, phone number or address. */
 const OPERATOR={name:'',phone:'',address:''};
 const A11Y_COORD={name:'',email:'',phone:'',address:''};
-const LEGAL_UPDATED='2026-10-22',A11Y_CHECKED='2026-10-22'; /* update the first whenever a legal text changes; the second only when the checks are run again */
+const LEGAL_UPDATED='2026-10-25',A11Y_CHECKED='2026-10-22'; /* update the first whenever a legal text changes; the second only when the checks are run again */
 const lgConsent=w=>`<p class="fine lg-cons">${w} אתם מסכימים ל<a href="#terms" target="_blank" rel="noopener">תקנון</a> ול<a href="#privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> של האתר.</p>`;
 const lgMail=e=>/^[^\s@<>"']+@[^\s@<>"']+$/.test(e||'')?`<a href="mailto:${esc(e)}" dir="ltr">${esc(e)}</a>`:'';
 const lgTel=p=>String(p||'').replace(/[^\d+]/g,'').length>=7?`<a href="tel:${esc(String(p).replace(/[^\d+]/g,''))}" dir="ltr">${esc(p)}</a>`:'';
@@ -7871,7 +7962,7 @@ function lgSections(){return [
   <p>אין באמור כדי לפטור מאחריות במקרים שבהם הדין אינו מתיר פטור, ובכלל זה נזק שנגרם בכוונה, וכן ברשלנות חמורה ככל שהדין קובע כך, ואין בו כדי לגרוע מזכויות שאינן ניתנות להתנאה לפי דין.</p>`],
  ['t-5','קישורים לאתרים אחרים',`<p>האתר כולל קישורים לאתרים של צדדים שלישיים, לנוחותכם. אין לנו שליטה בתוכנם, בזמינותם או במדיניות הפרטיות שלהם, ואין בקישור משום המלצה או אישור. השימוש באתרים אלה על אחריותכם ובכפוף לתנאיהם.</p>`],
  ['t-6','קניין רוחני, נתוני צד שלישי ורישיונות',`<p>עיצוב האתר, הקוד והטקסטים שנכתבו עבורו שייכים למפעיל האתר או לבעלי הרישיון שלו, בכפוף לזכויות של צדדים שלישיים, ומוגנים לפי דיני זכויות היוצרים. מותר להשתמש בהם לשימוש אישי ובלתי מסחרי, תוך ציון המקור ("וקטור"). העתקה, הפצה או שימוש מסחרי בתכנים או בקוד, ובכלל זה איסוף אוטומטי רחב היקף של תכני האתר, טעונים אישור מראש ובכתב.</p>
-  <p>מידע שמקורו בגופים אחרים (בהם המועצה להשכלה גבוהה, מוסדות הלימוד, משרד העבודה ועבודאטה, הלשכה המרכזית לסטטיסטיקה, המרכז הארצי לבחינות והערכה ומשרדי ממשלה נוספים) שייך לגופים אלה או לבעלי הזכויות בו. הוא מוצג באתר לצורך מידע והכוונה, עם ציון המקור וקישור אליו. אין בהצגתו כדי לרמוז על אישור, חסות או קשר בין הגוף לבין האתר. שמות וסימנים מסחריים של מוסדות וגופים שמופיעים באתר שייכים לבעליהם ומשמשים לזיהוי בלבד.</p>
+  <p>מידע שמקורו בגופים אחרים (בהם המועצה להשכלה גבוהה, מוסדות הלימוד, משרד העבודה ועבודאטה, הלשכה המרכזית לסטטיסטיקה, המרכז הארצי לבחינות והערכה ומשרדי ממשלה נוספים) שייך לגופים אלה או לבעלי הזכויות בו. הוא מוצג באתר לצורך מידע והכוונה, עם ציון המקור וקישור אליו. אין בהצגתו כדי לרמוז על אישור, חסות או קשר בין הגוף לבין האתר. שמות וסימנים מסחריים של מוסדות וגופים שמופיעים באתר שייכים לבעליהם ומשמשים לזיהוי בלבד. שמות של חברות וארגונים מעסיקים מוצגים כטקסט בלבד, כדוגמאות לצורך מידע, בלי לוגואים או סימנים גרפיים. אין בהם משום קשר, חסות, אישור או המלצה, ואין בהם התחייבות שהארגון מקבל בוגרים של תואר או של מוסד מסוים. ארגון שמבקש לתקן או להסיר אזכור מוזמן לפנות אלינו לפי הפרטים בסעיף "יצירת קשר".</p>
   <p>בכלי "מה הכיוון שלי?" נעשה שימוש במידע ממאגר O*NET של משרד העבודה האמריקאי (USDOL/ETA), ברישיון CC BY 4.0. וקטור שינה את המידע (תרגום, קישור למקצועות בישראל ושקלול), ו-USDOL/ETA לא אישר או בדק את השינויים. O*NET® הוא סימן מסחרי של USDOL/ETA.</p>
   <p>הגופנים Rubik ו-Heebo מוטמעים באתר ברישיון SIL Open Font License 1.1, ואינם נטענים משירות חיצוני.</p>
   <p>סברתם שתוכן באתר פוגע בזכויות שלכם? פנו אלינו לפי הפרטים בסעיף "יצירת קשר" עם פירוט התוכן והקישור אליו, ונשתדל לבדוק את הפנייה ולהשיב בהקדם האפשרי.</p>`],
@@ -8397,6 +8488,7 @@ function parse(){let h=location.hash.slice(1);try{h=decodeURIComponent(h)}catch(
   if(h.startsWith('q-'))return{v:'q',id:h.slice(2)};
   if(h==='calc'||h==='tech'||h==='me'||h==='dir'||h==='path'||h==='sch')return{v:h};
   if(h==='list')return{v:h};
+  if(h==='contact')return{v:'terms',sec:'t-12'}; /* the contact details, from the "פנו אלינו" links */
   if(h==='src'||h==='terms')return{v:'terms'};if(h==='privacy')return{v:'terms',sec:'t-privacy'};if(h==='a11y')return{v:'a11y'};
   return{v:'home'}}
 /* history stack: "חזרה" always returns to the screen you came from, at the same scroll position */
