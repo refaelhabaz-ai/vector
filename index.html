@@ -7540,13 +7540,14 @@ function whyHTML(pl){
 
 /* ---------- dates: the exams and deadlines that are real, and mine ---------- */
 function timeline(pl){
-  const P=pth(),L=[],lgk=myLang()==='x'?'he':myLang(),Xs=pl?(tList().length>1?tInfos().map(x=>x.X):[pl.X]):[],
+  const P=pth(),L=[],lp=new Set((P&&P.dates||[]).filter(x=>x.src==='lab'&&String(x.bk||'').startsWith('psy-')).map(x=>x.d)),lgk=myLang()==='x'?'he':myLang(),Xs=pl?(tList().length>1?tInfos().map(x=>x.X):[pl.X]):[],
     needPsy=!pl||Xs.some(X=>X.q.tier>0&&!(X.hasP&&X.V.ok===true)); /* the exam is on my dates while a target still needs it, in a sitting offered in my language (the one I picked stays) */
   PSYD.forEach(z=>{const pick=P&&P.sess===z.id;if(!pick&&!(needPsy&&z.lg.split(',').includes(lgk)))return;
-    L.push({id:'psyreg-'+z.id,d:z.reg,k:'psy',reg:1,pick,t:`סגירת ההרשמה הרגילה לפסיכומטרי (מועד ${z.lbl})`,sub:'לפי לוח המועדים של מאל"ו.',f:'psy.date.'+z.id,sub2:`הרשמה רגילה: ${fact('psy.fee.reg')} (מאל"ו, מדצמבר 2026).`,f2:'psy.fee.reg',src:NITE.td});
-    L.push({id:'psy-'+z.id,d:z.d,d2:z.d2,k:'psy',pick,t:`בחינה פסיכומטרית: ${z.days}`,sub:'לפי לוח המועדים של מאל"ו.',f:'psy.date.'+z.id,src:NITE.td});
+    if(!lp.has(z.reg))L.push({id:'psyreg-'+z.id,d:z.reg,k:'psy',reg:1,pick,t:`סגירת ההרשמה הרגילה לפסיכומטרי (מועד ${z.lbl})`,sub:'לפי לוח המועדים של מאל"ו.',f:'psy.date.'+z.id,sub2:`הרשמה רגילה: ${fact('psy.fee.reg')} (מאל"ו, מדצמבר 2026).`,f2:'psy.fee.reg',src:NITE.td});
+    if(!lp.has(z.d))L.push({id:'psy-'+z.id,d:z.d,d2:z.d2,k:'psy',pick,t:`בחינה פסיכומטרית: ${z.days}`,sub:'לפי לוח המועדים של מאל"ו.',f:'psy.date.'+z.id,src:NITE.td});
     if(z.res)L.push({id:'psyres-'+z.id,d:z.res,k:'psy',t:`תחזית לפרסום הציונים (מועד ${z.lbl})`,f:'psy.results',src:NITE.td})});
-  const bg=pl?bagOf(pl).filter(c=>c.cal):[];bg.forEach(c=>c.sits.forEach(e=>L.push(e))); /* every sitting of a subject I still need, want to improve, or sit this year */
+  const bg=pl?bagOf(pl).filter(c=>c.cal):[],own=(P&&P.dates||[]).filter(x=>x.src==='lab'&&String(x.bk||'').startsWith('bag-')); /* a sitting I already made a step of ("להפוך לתוכנית") is not listed twice */
+  bg.forEach(c=>c.sits.forEach(e=>{if(!own.some(x=>x.d===e.d&&String(x.bk).includes('-'+e.sk+'-')))L.push(e)})); /* every sitting of a subject I still need, want to improve, or sit this year */
   if(stageNow()==='g12'&&!bg.length)[['2027-01-04','תחילת בחינות הבגרות: מועד חורף',EDU.win],['2027-05-05','תחילת בחינות הבגרות: מועד קיץ',EDU.sum]].forEach(([d,t,src])=>L.push({id:'bagstart-'+d,d,k:'bag',t,sub:'לפי טיוטת לוח הבחינות של משרד החינוך. את המועדים של המקצועות שלי רואים בלוח.',f:'bagrut.2027',src}));
   /* registration of each of my targets, estimated from the last published cycle: shown, but never put in the calendar file */
   if(pl){const many=tList().length>1,seen=new Set();
