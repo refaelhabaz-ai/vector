@@ -172,11 +172,11 @@ main{padding-bottom:80px}
 .heart svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:2}
 .heart.on svg{fill:var(--primary);stroke:var(--primary)}
 .heart.pop{animation:pop .4s}
-@keyframes pop{50%{transform:scale(1.35)}}
+@keyframes pop{50%{transform:scale(calc(1 + .35*var(--fx,1)))}}
 .rank{position:absolute;top:12px;right:12px;z-index:2;font-family:var(--head);font-weight:700;font-size:15px;background:var(--ink);color:#fff;border-radius:999px;padding:3px 11px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:24px}
 .grid .card{animation:up .45s cubic-bezier(.2,.8,.2,1) both}
-@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes up{from{opacity:0;transform:translateY(calc(14px*var(--fx,1)))}to{opacity:1;transform:none}}
 
 /* chips (category filter) */
 .filters{position:sticky;top:calc(var(--hh) + env(safe-area-inset-top,0px));z-index:30;background:rgba(245,246,251,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-block:12px;margin-bottom:18px}
@@ -246,7 +246,7 @@ main{padding-bottom:80px}
 .bar{position:relative;height:52px;background:var(--bg);border-radius:16px}
 .bar b{position:absolute;inset-block:0;right:0;border-radius:16px;background:linear-gradient(to left,var(--c2),var(--c1));display:flex;align-items:center;padding-inline:16px;color:#fff;font-family:var(--head);font-weight:600;font-size:18px;white-space:nowrap;min-width:max-content;transform-origin:right;animation:grow .9s cubic-bezier(.2,.8,.2,1) both}
 .bar .avg{position:absolute;top:-6px;bottom:-6px;border-inline-start:2px dashed #9AA1BD;z-index:1}
-@keyframes grow{from{transform:scaleX(.15);opacity:.3}to{transform:none;opacity:1}}
+@keyframes grow{from{transform:scaleX(calc(1 - .85*var(--fx,1)));opacity:.3}to{transform:none;opacity:1}}
 .legend{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:20px;color:var(--muted);font-size:15px}
 .legend span{display:inline-flex;align-items:center;gap:8px}
 .legend i{width:0;height:18px;border-inline-start:2px dashed #9AA1BD}
@@ -279,7 +279,7 @@ main{padding-bottom:80px}
 /* ---------- overlays ---------- */
 .ov{position:fixed;inset:0;z-index:60;background:rgba(31,37,68,.38);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);overflow-y:auto;padding-block:calc(24px + env(safe-area-inset-top,0px)) 40px;padding-inline:12px;opacity:0;transition:opacity .25s}
 .ov.show{opacity:1}
-.sheet{position:relative;max-width:760px;margin-inline:auto;background:#fff;border-radius:30px;box-shadow:0 40px 90px rgba(31,37,68,.25);transform:translateY(24px) scale(.97);transition:transform .35s cubic-bezier(.2,.8,.2,1);padding:clamp(24px,4vw,44px)}
+.sheet{position:relative;max-width:760px;margin-inline:auto;background:#fff;border-radius:30px;box-shadow:0 40px 90px rgba(31,37,68,.25);transform:translateY(calc(24px*var(--fx,1))) scale(calc(1 - .03*var(--fx,1)));transition:transform .35s cubic-bezier(.2,.8,.2,1);padding:clamp(24px,4vw,44px)}
 .ov.show .sheet{transform:none}
 .sheet.wide{max-width:1000px}
 .x{position:absolute;top:18px;left:18px;width:42px;height:42px;border-radius:50%;background:var(--bg);display:grid;place-items:center;transition:background .2s}
@@ -319,7 +319,7 @@ td.best{color:var(--good);font-weight:700}
 .tray-in .t button{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.18);font-size:12px}
 .tray-in .go{background:var(--cta);color:#fff;border-radius:999px;padding:9px 18px;font-family:var(--head);font-weight:600}
 .tray-in .go[aria-disabled="true"]{opacity:.55;cursor:default}
-.toast{position:fixed;bottom:calc(28px + env(safe-area-inset-bottom,0px));left:50%;transform:translate(-50%,20px);background:var(--ink);color:#fff;font-weight:600;padding:12px 22px;border-radius:999px;opacity:0;transition:.3s;z-index:80;pointer-events:none;font-size:15px;max-width:calc(100% - 32px);text-align:center}
+.toast{position:fixed;bottom:calc(28px + env(safe-area-inset-bottom,0px));left:50%;transform:translate(-50%,calc(20px*var(--fx,1)));background:var(--ink);color:#fff;font-weight:600;padding:12px 22px;border-radius:999px;opacity:0;transition:.3s;z-index:80;pointer-events:none;font-size:15px;max-width:calc(100% - 32px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden}
 .confetti i{position:absolute;top:-12px;width:10px;height:14px;border-radius:3px;animation:fall 1.6s cubic-bezier(.3,.6,.5,1) forwards}
@@ -327,9 +327,9 @@ td.best{color:var(--good);font-weight:700}
 footer{border-top:1px solid var(--line);padding-block:36px 100px;color:var(--muted);font-size:15px}
 footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px}
 @media(max-width:1080px){footer{padding-bottom:170px}} /* the last footer links stay clear of the back-to-top button */
-footer h4{font-family:var(--head);color:var(--ink);font-size:16px;margin:0 0 8px}
+footer h2{font-family:var(--head);font-weight:700;line-height:1.3;color:var(--ink);font-size:16px;margin:0 0 8px}
 .view{animation:viewin .45s cubic-bezier(.2,.8,.2,1) both}
-@keyframes viewin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes viewin{from{opacity:0;transform:translateY(calc(10px*var(--fx,1)))}to{opacity:1;transform:none}}
 
 /* ---------- illustrations ---------- */
 .ill .f1{fill:var(--c1)}.ill .f2{fill:var(--c2)}.ill .f3{fill:var(--c3)}.ill .fw{fill:#fff}.ill .fa{fill:var(--sun)}.ill .fc{fill:var(--coral)}.ill .fk{fill:var(--ink)}.ill .fl{fill:var(--leaf)}
@@ -362,7 +362,7 @@ footer h4{font-family:var(--head);color:var(--ink);font-size:16px;margin:0 0 8px
   .sal-row{grid-template-columns:minmax(0,1fr);gap:8px}
   .tiles{margin-top:-24px}
 }
-html.rm,html.rm *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html.rm,html.rm *,html.rm *::before,html.rm *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 /* ---------- v3: official data components ---------- */
 .srcnote{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:20px;padding:16px 20px;box-shadow:var(--shadow);font-size:15px;color:var(--muted)}
 .srcnote b{color:var(--ink)}
@@ -732,7 +732,7 @@ p.intro .linkbtn{color:var(--primary-dark);text-decoration:underline;text-underl
 .blk h3{font-size:19px;margin:6px 0 14px}
 /* profile: one question at a time */
 .pstep.reveal{animation:pin .35s cubic-bezier(.2,.8,.2,1)}
-@keyframes pin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes pin{from{opacity:0;transform:translateY(calc(-8px*var(--fx,1)))}to{opacity:1;transform:none}}
 .sub-f{margin-top:12px;display:flex;flex-direction:column;gap:6px}.sub-f label{font-size:15px}
 #pform .chip{border:1.5px solid #FFE1D6;box-shadow:none;padding:10px 18px;font-size:15px}
 #pform .chip[aria-pressed="true"]{background:var(--cta-grad);border-color:transparent;color:#fff}
@@ -875,10 +875,10 @@ body:has(.tray) .qa-fab{bottom:96px}
 @media(max-width:720px){.qa-fab span{display:none}.qa-fab{padding:13px 15px}}
 html.flying .qa-fab{transform:scale(.85);opacity:.6}
 .qa-land .qa-band{animation:qaPop 1s cubic-bezier(.2,1.4,.4,1)}
-@keyframes qaPop{0%{transform:scale(.95);box-shadow:0 0 0 0 rgba(255,107,74,.55)}35%{transform:scale(1.02)}100%{transform:none;box-shadow:0 0 0 26px rgba(255,107,74,0)}}
+@keyframes qaPop{0%{transform:scale(calc(1 - .05*var(--fx,1)));box-shadow:0 0 0 0 rgba(255,107,74,.55)}35%{transform:scale(calc(1 + .02*var(--fx,1)))}100%{transform:none;box-shadow:0 0 0 26px rgba(255,107,74,0)}}
 .qa-land .qrowl{animation:qaIn .55s cubic-bezier(.2,.8,.2,1) both}
 .qa-land .qrowl:nth-child(2){animation-delay:.08s}.qa-land .qrowl:nth-child(3){animation-delay:.16s}.qa-land .qrowl:nth-child(4){animation-delay:.24s}
-@keyframes qaIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes qaIn{from{opacity:0;transform:translateY(calc(16px*var(--fx,1)))}to{opacity:1;transform:none}}
 /* comparison */
 .sheet.cmpsheet{max-width:980px}
 .cmp-head{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:12px;position:sticky;top:-1px;z-index:3;background:#fff;padding:10px 0 12px;margin-top:8px}
@@ -929,13 +929,13 @@ html{overflow-x:clip}body{overflow-x:clip}
 .btn.qa-jump.launch svg,.qa-fab.launch svg:first-child{animation:launch .7s cubic-bezier(.5,0,.3,1)}
 @keyframes launch{30%{transform:translateY(-5px) scale(1.15)}100%{transform:translateY(26px) scale(.6);opacity:0}}
 .land{animation:landPop .9s cubic-bezier(.2,1.4,.4,1)}
-@keyframes landPop{0%{transform:scale(.985);box-shadow:0 0 0 0 rgba(255,107,74,.45)}40%{transform:scale(1.008)}100%{transform:none;box-shadow:0 0 0 22px rgba(255,107,74,0)}}
+@keyframes landPop{0%{transform:scale(calc(1 - .015*var(--fx,1)));box-shadow:0 0 0 0 rgba(255,107,74,.45)}40%{transform:scale(calc(1 + .008*var(--fx,1)))}100%{transform:none;box-shadow:0 0 0 22px rgba(255,107,74,0)}}
 .qa-land .qa-band::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(circle at 85% 30%,rgba(255,197,61,.45),transparent 60%);animation:glow 1.3s ease-out both}
 .qa-band{position:relative}
 @keyframes glow{from{opacity:1}to{opacity:0}}
 
 /* reveal on scroll */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
+.rv{opacity:0;transform:translateY(calc(22px*var(--fx,1)));transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
 .rv.in{opacity:1;transform:none}
 
 /* screens: a new screen fades in; going back shows the previous screen exactly as I left it, with no animation */
@@ -947,7 +947,7 @@ html{overflow-x:clip}body{overflow-x:clip}
 @keyframes rbar{0%{transform:scaleX(0);opacity:1}70%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
 
 /* back to top */
-.to-top{position:fixed;z-index:42;inset-inline-start:22px;bottom:24px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--primary-dark);box-shadow:0 10px 26px rgba(31,37,68,.16);transform:translateY(120%) scale(.8);opacity:0;pointer-events:none;transition:transform .4s cubic-bezier(.2,1.3,.4,1),opacity .25s}
+.to-top{position:fixed;z-index:42;inset-inline-start:22px;bottom:24px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--primary-dark);box-shadow:0 10px 26px rgba(31,37,68,.16);transform:translateY(calc(120%*var(--fx,1))) scale(calc(1 - .2*var(--fx,1)));opacity:0;pointer-events:none;transition:transform .4s cubic-bezier(.2,1.3,.4,1),opacity .25s}
 .to-top.show{transform:none;opacity:1;pointer-events:auto}.to-top svg{width:22px;height:22px}
 .to-top:hover{background:var(--primary-soft)}
 @media(max-width:1080px){.to-top{bottom:80px}}
@@ -972,6 +972,7 @@ html{overflow-x:clip}body{overflow-x:clip}
 
 html.rm .rv{opacity:1;transform:none}html.rm #glide{display:none}
 .mset{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}.mset b{font-family:var(--head);margin-inline-end:6px}
+.mset-b{display:flex;flex-wrap:wrap;gap:8px}.mset-n{flex:1 1 100%;margin:2px 0 0;max-width:62ch}
 
 /* nothing gets cut at the screen edge on phones */
 .fprow{flex-wrap:wrap;min-width:0}.fbtns{min-width:0;flex:1 1 auto;max-width:100%}
@@ -1007,10 +1008,10 @@ html.rm .rv{opacity:1;transform:none}html.rm #glide{display:none}
 .dq-card::before{content:"";position:absolute;inset-inline:0;top:0;height:6px;background:var(--sc)}
 .dq-card.in{animation:dqIn .32s cubic-bezier(.2,.8,.2,1) both}.dq-card.inb{animation:dqInB .32s cubic-bezier(.2,.8,.2,1) both}
 .dq-card.out{animation:dqOut .17s ease-in both}.dq-card.outb{animation:dqOutB .17s ease-in both}
-@keyframes dqIn{from{opacity:0;transform:translateX(-46px) rotate(-1.5deg)}to{opacity:1;transform:none}}
-@keyframes dqInB{from{opacity:0;transform:translateX(46px) rotate(1.5deg)}to{opacity:1;transform:none}}
-@keyframes dqOut{to{opacity:0;transform:translateX(46px) scale(.97)}}
-@keyframes dqOutB{to{opacity:0;transform:translateX(-46px) scale(.97)}}
+@keyframes dqIn{from{opacity:0;transform:translateX(calc(-46px*var(--fx,1))) rotate(calc(-1.5deg*var(--fx,1)))}to{opacity:1;transform:none}}
+@keyframes dqInB{from{opacity:0;transform:translateX(calc(46px*var(--fx,1))) rotate(calc(1.5deg*var(--fx,1)))}to{opacity:1;transform:none}}
+@keyframes dqOut{to{opacity:0;transform:translateX(calc(46px*var(--fx,1))) scale(calc(1 - .03*var(--fx,1)))}}
+@keyframes dqOutB{to{opacity:0;transform:translateX(calc(-46px*var(--fx,1))) scale(calc(1 - .03*var(--fx,1)))}}
 .dq-sec{font-size:13px;font-weight:700;color:var(--muted)}
 .dq-ask{margin:12px 0 4px;color:var(--muted);font-size:16px}
 .dq-t{font-size:clamp(24px,3.6vw,34px);line-height:1.3;margin-bottom:24px}
@@ -1035,7 +1036,7 @@ html.rm .rv{opacity:1;transform:none}html.rm #glide{display:none}
 .radar{width:100%;height:auto;overflow:visible}
 .radar .rg{fill:none;stroke:#E1E4EF;stroke-width:1}
 .radar .rp{fill:rgba(255,107,74,.2);stroke:#FF6B4A;stroke-width:2.5;stroke-linejoin:round;animation:radarIn .9s cubic-bezier(.2,.8,.2,1) both;transform-origin:150px 150px}
-@keyframes radarIn{from{transform:scale(.2);opacity:0}to{transform:none;opacity:1}}
+@keyframes radarIn{from{transform:scale(calc(1 - .8*var(--fx,1)));opacity:0}to{transform:none;opacity:1}}
 .radar text{font-family:var(--head);font-weight:700;font-size:14px}
 .me-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 @media(max-width:980px){.me-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.me-grid{grid-template-columns:1fr}}
@@ -1099,7 +1100,7 @@ html.rm .rv{opacity:1;transform:none}html.rm #glide{display:none}
 .pp-in b{font-family:var(--head);font-size:34px;font-weight:800;line-height:1}.pp-in small{font-size:12.5px;color:var(--muted);margin-top:4px;max-width:90px}
 .ring{transform:rotate(-90deg);display:block}.ring .rbg{fill:none;stroke:#EEF0F6}
 .ring .rfg{fill:none;stroke:var(--primary);stroke-linecap:round;animation:ringIn 1.2s cubic-bezier(.2,.8,.2,1) both}
-@keyframes ringIn{from{stroke-dashoffset:var(--c)}}
+@keyframes ringIn{from{stroke-dashoffset:var(--c0,var(--c))}}
 .ring.big .rfg{stroke:#FF6B4A;filter:drop-shadow(0 4px 10px rgba(255,107,74,.35))}
 @media(max-width:720px){.pth-top{grid-template-columns:1fr}.pth-prog{margin-inline:auto}}
 .pth-next{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
@@ -1360,7 +1361,7 @@ input[type=range]{accent-color:var(--primary);height:28px}
 .kp-f{margin-bottom:20px}.kp-f:last-child{margin-bottom:0}
 .kp-fh{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.kp-fh label{font-family:var(--head);font-weight:600;font-size:16px}.kp-fh b{font-family:var(--head);font-size:32px;color:var(--primary-dark);line-height:1}
 .kp-rng{direction:ltr;margin-top:6px}.kp-rng input[type=range]{width:100%;height:30px;accent-color:var(--primary);cursor:pointer}
-.kp-ticks{display:flex;justify-content:space-between;font-size:12px;color:#8A91AC;margin-top:-2px;padding-inline:2px}
+.kp-ticks{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:-2px;padding-inline:2px}
 .kp-opts{display:grid;gap:10px;margin-top:12px}.kp-opts>div{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px}.kp-opts span{font-size:14.5px;font-weight:600}
 .kp-seg{display:inline-flex;background:#F0F1F6;border-radius:999px;padding:3px}.kp-seg button{font-family:var(--head);font-weight:600;font-size:13.5px;border-radius:999px;padding:5px 12px;color:#4A5068;transition:background .2s}.kp-seg button.on{background:var(--ink);color:#fff}
 .kp-rows{display:grid;gap:2px;margin:8px 0}.kp-row{display:grid;grid-template-columns:minmax(0,1.5fr) 62px 76px 28px;gap:8px;align-items:center;padding:5px 0;border-bottom:1px solid #F0F1F6}
@@ -1708,7 +1709,7 @@ button.tr-b:hover .tr-c{transform:translateY(-3px)}
 .tr-trav.mp{transition:offset-distance 1.9s cubic-bezier(.45,0,.2,1) .4s}
 .tr-tp{position:absolute;left:0;top:0;transform:translate(-50%,calc(var(--r)*-1 - 40px));display:inline-flex;align-items:center;gap:5px;white-space:nowrap;background:var(--cta);color:#fff;font-family:var(--head);font-weight:600;font-size:13.5px;padding:5px 12px 5px 9px;border-radius:999px;box-shadow:0 8px 18px rgba(214,64,29,.35);animation:trb 2.4s ease-in-out infinite}
 .tr.go .tr-tp{animation:trin .7s cubic-bezier(.2,.9,.3,1.2) .5s both,trb 2.4s ease-in-out 1.3s infinite}
-@keyframes trin{from{opacity:0;margin-top:-24px}to{opacity:1;margin-top:0}}
+@keyframes trin{from{opacity:0;margin-top:calc(-24px*var(--fx,1))}to{opacity:1;margin-top:0}}
 .tr-tp::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:10px;background:var(--cta);transform:translateX(-50%) rotate(45deg);border-radius:2px}
 .tr-tp svg{width:15px;height:15px}
 @keyframes trb{0%,100%{margin-top:0}50%{margin-top:-4px}}
@@ -1848,7 +1849,7 @@ html.rm .kp-mbar i{transition:none}
 .tn-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:16px}
 .tn-c{background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:18px 20px;display:flex;flex-direction:column;gap:8px}
 .tn-c p{margin:0;font-size:15.5px;line-height:1.65}.tn-c .btn{align-self:flex-start;margin-top:4px}
-.tn-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.tn-h h4{font-size:18px;line-height:1.3;margin:0}
+.tn-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.tn-h h3{font-size:18px;line-height:1.3;margin:0}
 .tn-by{color:var(--muted)}
 .tn-ok{flex:none;font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 10px}.tn-ok.y{background:#DDF7EE;color:#0B6B49}.tn-ok.n{background:#FFF3C4;color:#5A4300}
 .tn-cl{background:#FFF3C4;border-radius:12px;padding:8px 12px}
@@ -1927,7 +1928,7 @@ button.rz-c:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
 .rz-fn{color:var(--muted);font-size:14px;margin:12px 0 0}
 .rz-an{margin:12px 0 0;padding-top:10px;border-top:1px dashed var(--line);font-size:15px}
 .rz-fx{animation:rzIn .45s cubic-bezier(.2,.8,.2,1)}
-@keyframes rzIn{from{opacity:.35;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes rzIn{from{opacity:.35;transform:translateY(calc(6px*var(--fx,1)))}to{opacity:1;transform:none}}
 .rz-how{margin-top:18px}
 @media(max-width:820px){.rz-body{grid-template-columns:minmax(0,1fr)}.rz-fig{max-width:360px;width:100%;margin-inline:auto}}
 @media(max-width:560px){.rz-hl{grid-template-columns:minmax(0,1fr)}.rz-detw dl{grid-template-columns:minmax(0,1fr)}.rz-seg{display:flex;width:100%}.rz-seg button{flex:1 1 0;justify-content:center;padding:10px 6px;font-size:14px;line-height:1.2}.rz-seg button svg{display:none}.rz-rw{grid-template-columns:minmax(72px,92px) minmax(0,1fr) minmax(56px,auto);gap:8px;padding:10px}}
@@ -1981,10 +1982,10 @@ html.hc .rz-r{stroke:#000}
 .kp-back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 18px;border-radius:999px;background:var(--ink);color:#fff;font:600 14.5px var(--head);cursor:pointer;animation:kpBack .35s cubic-bezier(.2,.8,.2,1)}
 .kp-back svg{width:16px;height:16px;flex:none}
 .kp-back[hidden]{display:none}
-@keyframes kpBack{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+@keyframes kpBack{from{opacity:0;transform:translateX(calc(10px*var(--fx,1)))}to{opacity:1;transform:none}}
 /* a view that opens fades in from below */
 .kp-swap>.kp-sec{animation:kpSwap .45s cubic-bezier(.2,.8,.2,1)}
-@keyframes kpSwap{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes kpSwap{from{opacity:0;transform:translateY(calc(14px*var(--fx,1)))}to{opacity:1;transform:none}}
 #kp-now,#kp-prog,#kp-cal,#kp-lab,#kp-opt,#kp-more{padding-top:14px}
 
 /* ===== the progress view: one column per stage ===== */
@@ -2007,10 +2008,11 @@ html.hc .rz-r{stroke:#000}
 .pg-i{margin-top:10px;width:clamp(30px,3.4vw,38px);height:clamp(30px,3.4vw,38px);border-radius:12px;display:grid;place-items:center;background:var(--zb);color:var(--zc)}
 .pg-i svg{width:55%;height:55%}
 .pg-c.done .pg-i{background:#12A26B;color:#fff}
-.pg-n{margin-top:6px;font:600 clamp(12.5px,1.35vw,15px)/1.25 var(--head);text-align:center}
+.pg-n{margin-top:6px;font:600 clamp(12.5px,1.35vw,15px)/1.25 var(--head);text-align:center}.pg-ns{display:none}
+@media(max-width:900px){.pg-nl{display:none}.pg-ns{display:inline}}
 .pg-b small{margin-top:2px;color:var(--muted);font-size:12px}
 .pg-fx{animation:pgIn .4s cubic-bezier(.2,.8,.2,1)}
-@keyframes pgIn{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pgIn{from{opacity:.4;transform:translateY(calc(8px*var(--fx,1)))}to{opacity:1;transform:none}}
 .pg .tr-panel{margin-bottom:0}
 .pg-bd{margin-top:22px}
 @media(max-width:620px){.pg-y{font-size:11px}.pg-b{padding-inline:0}.pg-pin{font-size:11px;padding:4px 8px}}
@@ -2111,10 +2113,66 @@ html.hc .rz-r{stroke:#000}
 .kp-vh p{margin:0;flex:1;min-width:0;font-size:14.5px;line-height:1.6}
 .kp-vh .linkbtn{flex:none;min-height:44px;padding-inline:10px;font-weight:700;color:#2740A8;text-decoration:underline}
 @media(max-width:620px){.kp-vh{flex-wrap:wrap}.kp-vh p{flex:1 1 calc(100% - 40px)}.kp-vh .linkbtn{margin-inline-start:auto}}
+.kp-form input:focus-visible,.kp-form select:focus-visible{outline:3px solid #5C7CFA;outline-offset:2px;box-shadow:none}
 html.hc .kp-seg3{background:#fff;border:2px solid #000}html.hc .kp-ind{background:#000}
 html.hc .pg-chart,html.hc .cl-cal,html.hc .cl-r,html.hc .bg-c,html.hc .cl-day,html.hc .kp-tool{border:2px solid #000}
 html.hc .cl-d{border:1.5px solid #000;background:#fff}html.hc .cl-d.sel{background:#000}
 html.hc .pg-t{box-shadow:inset 0 0 0 2px #000}html.hc .pg-f{background:#000!important}
+/* ===== gentle motion (html.rg) =====
+   The computer asks to reduce motion, or I chose "gentle". Nothing moves across the screen and nothing loops: what stays is fading, changes of colour and shadow, and the fill of
+   progress bars and rings. The keyframes of the site read --fx (1 = full, 0 = no displacement), so the very same animations become fades. */
+html.rg{--fx:0;scroll-behavior:auto}
+html.rg *,html.rg *::before,html.rg *::after{transition-property:opacity,color,background-color,border-color,box-shadow,fill,stroke,stroke-dashoffset,filter,width,height,outline-color,text-decoration-color!important}
+html.rg .collage .pc,html.rg .ill .blink,html.rg .qa-fab .arr,html.rg .tl-i.soon .tl-dot,html.rg .kp-focus.soon,html.rg .kp-next.soon,html.rg .tr-n.cur .tr-c::after,html.rg .tr-n.nxt .tr-c::after,html.rg .tr-tp,html.rg .tr.go .tr-tp,html.rg .kp-hero::before,html.rg .kp-hero::after,html.rg .kp-bnext .kp-nx .btn.primary,html.rg .btn.primary::after{animation:none!important}
+html.rg .btn.primary::after{display:none}
+html.rg .hdr.tuck{transform:none}
+html.rg #hdr{view-transition-name:none}
+html.rg .to-top{transform:none}
+html.rg #glide{display:none}
+html.rg .pillbtn:hover,html.rg .tools .pillbtn.hot:hover,html.rg .btn.primary:hover,html.rg .btn.soft:hover,html.rg .arrows button:hover,html.rg .card:hover,html.rg .card:hover .pic svg,html.rg .heart:hover,html.rg .chip:hover,html.rg .inst:hover,html.rg .qopt:hover,html.rg .lk:hover,html.rg .golink-in:hover,html.rg .hcard:hover,html.rg .qrowl:hover,html.rg .fb2:hover,html.rg .hbo-i:hover,html.rg .btn:active,html.rg .chip:active,html.rg .pillbtn:active,html.rg .link:active,html.rg .dq-o:hover,html.rg .pq-b:hover,html.rg .pth-home:hover,html.rg .golinks .golink-in:hover,html.rg .golinks .golink-in:active,html.rg .kp-cp:hover,html.rg .kp-step:hover,html.rg .kp-b:hover,html.rg .sgc:hover,html.rg .kp-pi:hover,html.rg .kp-tc:hover,html.rg .kp-hc.add:hover,html.rg .kp-q button:hover,html.rg button.tr-b:hover .tr-c,html.rg .tr-n.cur button.tr-b:hover .tr-c,html.rg .rz-oc button:hover:not([disabled]),html.rg button.rz-c:hover,html.rg .kp-mc:hover>svg:last-child,html.rg .kp-tool:hover,html.rg .cl-nb:hover,html.rg .cl-d:hover,html.rg .em-c:hover,html.rg .fb2:active{transform:none!important}
+
+/* ===== alive and flowing (fx) =====
+   Small things that make the page feel like it breathes. Each one is a fade or a soft glow first; the movement part reads --fx, so gentle mode keeps the fade. */
+/* a new screen: the old one fades into the new one where the browser can (View Transitions); a screen drawn again in place only softens */
+html.vt .view{animation:none}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.34s;animation-timing-function:cubic-bezier(.2,.8,.2,1)}
+#hdr{view-transition-name:hdr}
+::view-transition-group(hdr){animation-duration:0s}
+.view.vw-same{animation:viewSame .24s ease-out both}
+@keyframes viewSame{from{opacity:.6}to{opacity:1}}
+/* an accordion opens with a soft fade-down */
+details[open]>:not(summary){animation:up .4s cubic-bezier(.2,.8,.2,1) both}
+/* the main button: a light sweep when the pointer arrives (devices with a pointer only) */
+@media(hover:hover){
+  .btn.primary{position:relative;overflow:hidden;isolation:isolate}
+  .btn.primary::after{content:"";position:absolute;inset-block:0;inset-inline-start:-70%;width:45%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.34),transparent);transform:skewX(-18deg) translateX(0);transition:none;pointer-events:none;z-index:-1}
+  .btn.primary:hover::after{animation:sheen .85s cubic-bezier(.3,.7,.3,1)}
+}
+@keyframes sheen{from{transform:skewX(-18deg) translateX(0)}to{transform:skewX(-18deg) translateX(-480%)}}
+/* the road: the top breathes (two soft lights drift slowly), the next-step button glows a few times, the ring glows when my percent rises */
+.kp-hero{isolation:isolate}
+.kp-hero::before,.kp-hero::after{content:"";position:absolute;pointer-events:none;border-radius:50%;z-index:-1}
+.kp-hero::before{width:460px;height:460px;inset-block-start:-200px;inset-inline-end:-70px;background:radial-gradient(closest-side,rgba(255,197,61,.42),transparent);animation:drift 26s ease-in-out infinite alternate}
+.kp-hero::after{width:420px;height:420px;inset-block-end:-220px;inset-inline-start:-90px;background:radial-gradient(closest-side,rgba(116,167,255,.28),transparent);animation:drift2 32s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(calc(-46px*var(--fx,1)),calc(34px*var(--fx,1))) scale(calc(1 + .12*var(--fx,1)))}}
+@keyframes drift2{from{transform:translate(0,0) scale(1)}to{transform:translate(calc(54px*var(--fx,1)),calc(-26px*var(--fx,1))) scale(calc(1 + .1*var(--fx,1)))}}
+.kp-bnext .kp-nx .btn.primary{animation:ctaGlow 3.4s ease-in-out 1.4s 4}
+@keyframes ctaGlow{0%,100%{box-shadow:0 10px 24px rgba(214,64,29,.28)}50%{box-shadow:0 10px 24px rgba(214,64,29,.28),0 0 0 9px rgba(214,64,29,.13)}}
+.kp-ring.bump{animation:ringBump .95s cubic-bezier(.2,.8,.2,1)}
+@keyframes ringBump{0%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(255,107,74,0))}35%{transform:scale(calc(1 + .07*var(--fx,1)));filter:drop-shadow(0 0 18px rgba(255,107,74,.6))}100%{transform:none;filter:drop-shadow(0 0 0 rgba(255,107,74,0))}}
+.kp-miss li{animation:up .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*70ms + 120ms)}
+/* a month slides in from the side it came from; the lists of a view that just opened come in one after the other */
+.cl-g.sl-n{animation:clN .42s cubic-bezier(.2,.8,.2,1)}.cl-g.sl-p{animation:clP .42s cubic-bezier(.2,.8,.2,1)}.cl-g.sl-t{animation:pgIn .4s ease-out}
+@keyframes clN{from{opacity:0;transform:translateX(calc(32px*var(--fx,1)))}to{opacity:1;transform:none}}
+@keyframes clP{from{opacity:0;transform:translateX(calc(-32px*var(--fx,1)))}to{opacity:1;transform:none}}
+.kp-swap .cl-l>li,.kp-swap .bg-grid>.bg-c,.kp-swap .pg-chart,.kp-swap .tr-panel{animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+.kp-swap .cl-l>li:nth-child(2),.kp-swap .bg-grid>.bg-c:nth-child(2){animation-delay:55ms}
+.kp-swap .cl-l>li:nth-child(3),.kp-swap .bg-grid>.bg-c:nth-child(3){animation-delay:110ms}
+.kp-swap .cl-l>li:nth-child(4),.kp-swap .bg-grid>.bg-c:nth-child(4){animation-delay:165ms}
+.kp-swap .cl-l>li:nth-child(5),.kp-swap .bg-grid>.bg-c:nth-child(5){animation-delay:220ms}
+.kp-swap .cl-l>li:nth-child(6),.kp-swap .bg-grid>.bg-c:nth-child(6){animation-delay:275ms}
+.kp-swap .cl-l>li:nth-child(7),.kp-swap .bg-grid>.bg-c:nth-child(7){animation-delay:330ms}
+.kp-swap .cl-l>li:nth-child(8),.kp-swap .bg-grid>.bg-c:nth-child(8){animation-delay:385ms}
 /* ---------- who employs the graduates (em-): names only, no logos ---------- */
 .em .intro{max-width:72ch}
 .em-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
@@ -2164,10 +2222,10 @@ html.rm .tr-trav.mp{transition:none}
 
 <footer>
   <div class="wrap">
-    <div><h4>וקטור</h4><p>עוזרים לענות על השאלה "מה אני רוצה לעשות בעתיד?" עם מידע מגופים רשמיים. אנחנו מציינים מקור לנתונים ומסמנים נתון שלא אומת. <span id="counts" class="num"></span></p></div>
-    <div><h4>מקורות</h4><p>רשימת התארים והמוסדות: המועצה להשכלה גבוהה. ספי קבלה ונוסחאות: האתרים הרשמיים של המוסדות, תשפ"ז. <button class="linkbtn" data-go="terms" style="color:inherit;text-decoration:underline;text-underline-offset:3px">פירוט מלא</button></p></div>
-    <div><h4>חשוב לדעת</h4><p>ספי הקבלה משתנים במהלך ההרשמה, וכל מוסד מחשב ממוצע בגרות בדרכו. לפני החלטה יש לבדוק באתר המוסד. האיורים הם קישוט בלבד.</p></div>
-    <div><h4>תקנון ונגישות</h4><ul class="flinks"><li><button class="linkbtn" data-go="terms">תקנון ותנאי שימוש</button></li><li><button class="linkbtn" data-go="privacy">מדיניות פרטיות</button></li><li><button class="linkbtn" data-go="a11y">הצהרת נגישות</button></li><li><button class="linkbtn" id="a11yFoot">הגדרות נגישות</button></li></ul></div>
+    <div><h2>וקטור</h2><p>עוזרים לענות על השאלה "מה אני רוצה לעשות בעתיד?" עם מידע מגופים רשמיים. אנחנו מציינים מקור לנתונים ומסמנים נתון שלא אומת. <span id="counts" class="num"></span></p></div>
+    <div><h2>מקורות</h2><p>רשימת התארים והמוסדות: המועצה להשכלה גבוהה. ספי קבלה ונוסחאות: האתרים הרשמיים של המוסדות, תשפ"ז. <button class="linkbtn" data-go="terms" style="color:inherit;text-decoration:underline;text-underline-offset:3px">פירוט מלא</button></p></div>
+    <div><h2>חשוב לדעת</h2><p>ספי הקבלה משתנים במהלך ההרשמה, וכל מוסד מחשב ממוצע בגרות בדרכו. לפני החלטה יש לבדוק באתר המוסד. האיורים הם קישוט בלבד.</p></div>
+    <div><h2>תקנון ונגישות</h2><ul class="flinks"><li><button class="linkbtn" data-go="terms">תקנון ותנאי שימוש</button></li><li><button class="linkbtn" data-go="privacy">מדיניות פרטיות</button></li><li><button class="linkbtn" data-go="a11y">הצהרת נגישות</button></li><li><button class="linkbtn" id="a11yFoot">הגדרות נגישות</button></li></ul></div>
   </div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -2343,7 +2401,7 @@ function careerSections(d){
   if(!f) return `<section class="blk"><h2>שכר ותעסוקה</h2><div class="nodata">לתואר הזה אין עמוד תואם במאגר הלימודים של <a href="${AVURL}/education" target="_blank" rel="noopener">עבודאטה</a> (משרד העבודה), ולכן לא מוצגים כאן נתוני שכר ותעסוקה, ולא פירוט לפי אזור. לא השלמנו אותם בהערכה.</div></section>`;
   const label=d.avHow==='exact'?'':`<div class="srcnote" style="margin-bottom:18px">${ICON.doc}<div>הנתונים בעמוד הזה הם של התחום <b>"${esc(f.n)}"</b> במאגר עבודאטה, שהוא התחום הרשמי הקרוב ביותר לתואר הזה. ייתכנו הבדלים בין התוכנית הספציפית לבין התחום הכללי.</div></div>`;
   const st=f.stats||{};
-  const split=Object.keys(st).length>1?`<div class="thr" style="margin-top:16px"><table class="num"><thead><tr><th></th>${Object.keys(st).map(k=>`<th>${esc(k)}</th>`).join('')}</tr></thead><tbody>
+  const split=Object.keys(st).length>1?`<div class="thr" style="margin-top:16px"><table class="num"><thead><tr><th><span class="sr">נתון</span></th>${Object.keys(st).map(k=>`<th>${esc(k)}</th>`).join('')}</tr></thead><tbody>
     ${[['שכר חודשי ממוצע (5–6 שנים)','sal',shek],['שיעור תעסוקה (3–4 שנים)','emp',v=>v==null?'—':v+'%'],['פסיכומטרי ממוצע של המתקבלים','psy',v=>v==null?'—':fmt(v)],['ממוצע בגרות משוקלל','bagrut',v=>v==null?'—':v],['משך הלימודים','dur',v=>v?esc(v)+' שנים':'—'],['מסיימים בזמן','ontime',v=>v==null?'—':v+'%']]
       .filter(([l,k])=>d.avHow==='exact'||k==='sal'||k==='emp').map(([l,k,fn])=>`<tr><th scope="row">${l}</th>${Object.values(st).map(s=>`<td>${fn(s[k])}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:'';
   const curve=(f.curve||[]).filter(x=>x.v);
@@ -2392,7 +2450,7 @@ const OCC_SECTIONS=[
   ['Gender','שכר שעתי ממוצע לפי מגדר',v=>fmt(v)+' ₪ לשעה',true],
 ];
 function renderOcc(id){
-  const o=OC[id]; if(!o) return `<section class="sec"><div class="wrap"><div class="empty"><h3>העמוד לא נמצא</h3></div></div></section>`;
+  const o=OC[id]; if(!o) return `<section class="sec"><div class="wrap"><div class="empty"><h3 aria-level="2">העמוד לא נמצא</h3></div></div></section>`;
   const {tiles,facts}=snapParts(o.snap||[]);
   const g=o.g||{};
   const fromDeg=DEG.filter(d=>d.av&&(o.edu||[]).some(e=>e.kind==='Academic'&&e.id===d.av));
@@ -2717,7 +2775,7 @@ function refreshMe(){const f=$('#mefilters');if(!f)return;const top0=f.getBoundi
   const d=f.getBoundingClientRect().top-top0;if(Math.abs(d)>2)window.scrollBy({top:d,behavior:'instant'})}
 function renderMe(){
   if(!profileOK())return pageHead('התארים שאני יכול להתקבל אליהם','ממלאים כמה שאלות קצרות, ורואים רק את התארים שהנתונים שלי מספיקים להם.')+
-    `<section class="sec"><div class="wrap"><div class="empty"><h3>עוד לא מילאתי פרופיל</h3><p>זה לוקח פחות מדקה. גם מי שאין לו תעודה או פסיכומטרי יקבל כאן מסלול ברור להתחלה.</p><div style="margin-top:18px"><button class="btn primary" data-prof>מילוי הפרופיל</button></div></div></div></section>`;
+    `<section class="sec"><div class="wrap"><div class="empty"><h3 aria-level="2">עוד לא מילאתי פרופיל</h3><p>זה לוקח פחות מדקה. גם מי שאין לו תעודה או פסיכומטרי יקבל כאן מסלול ברור להתחלה.</p><div style="margin-top:18px"><button class="btn primary" data-prof>מילוי הפרופיל</button></div></div></div></section>`;
   const p=S.prof, sc=S.sc||{};
   const open=DEG.filter(d=>uniOK(d)&&d.of.some(o=>o.i==='open'));
   const lim=S.meShown||{};
@@ -2735,7 +2793,7 @@ function renderMe(){
     const n=meAdmit().length;
     main=n?`<section class="sec"><div class="wrap"><div class="sec-h"><div><h2>אני יכול להתקבל אליהם <span class="cnt-b num">${fmt(n)}</span></h2><p>תארים שבהם הציונים שלי עומדים בתנאים שפורסמו, לפחות במוסד אחד. בעמוד של כל תואר רואים באיזה מוסד בדיוק, ומה עוד צריך שם (אנגלית, יחידות מתמטיקה, ראיון וכו').</p></div></div>
       <div class="filters" id="mefilters">${meFiltersHTML()}</div><div id="meHost" class="gridhost">${meListHTML()}</div></div></section>`
-      :`<section class="sec"><div class="wrap"><div class="empty"><h3>${scored?'לא נמצאו תארים שבהם הציונים שלי עומדים בתנאים שנאספו':'כדי לבדוק לאן אפשר להתקבל, חסרים ציונים'}</h3><p>${scored?'אפשר לשפר בגרות או פסיכומטרי (ב"המסלול שלי" רואים בדיוק בכמה), להתחיל באוניברסיטה הפתוחה (למטה), או ללמוד הנדסאות. חשוב לדעת: לא מכל המוסדות נאספו ספים, ולכן כדאי לבדוק גם בעמוד של כל תואר.':(p.bag==='mechina'?'מוסדות ממירים ציוני מכינה לפי כללים משלהם, ולכן אפשר לבדוק כאן רק מסלולים שמפרסמים סף פסיכומטרי בלבד. מוסיפים ציון פסיכומטרי בפרופיל.':'מוסיפים בפרופיל ציון פסיכומטרי ו/או ממוצע בגרות. את הממוצע אפשר לחשב במחשבון שלנו.')}</p><div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn primary" data-prof>עריכת הפרופיל</button>${scored?'<button class="btn soft" data-go="path">למסלול שלי</button>':''}${p.bag==='full'&&!sc.b?'<button class="btn soft" data-go="calc">למחשבון הממוצע</button>':''}</div></div></div></section>`;
+      :`<section class="sec"><div class="wrap"><div class="empty"><h3 aria-level="2">${scored?'לא נמצאו תארים שבהם הציונים שלי עומדים בתנאים שנאספו':'כדי לבדוק לאן אפשר להתקבל, חסרים ציונים'}</h3><p>${scored?'אפשר לשפר בגרות או פסיכומטרי (ב"המסלול שלי" רואים בדיוק בכמה), להתחיל באוניברסיטה הפתוחה (למטה), או ללמוד הנדסאות. חשוב לדעת: לא מכל המוסדות נאספו ספים, ולכן כדאי לבדוק גם בעמוד של כל תואר.':(p.bag==='mechina'?'מוסדות ממירים ציוני מכינה לפי כללים משלהם, ולכן אפשר לבדוק כאן רק מסלולים שמפרסמים סף פסיכומטרי בלבד. מוסיפים ציון פסיכומטרי בפרופיל.':'מוסיפים בפרופיל ציון פסיכומטרי ו/או ממוצע בגרות. את הממוצע אפשר לחשב במחשבון שלנו.')}</p><div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn primary" data-prof>עריכת הפרופיל</button>${scored?'<button class="btn soft" data-go="path">למסלול שלי</button>':''}${p.bag==='full'&&!sc.b?'<button class="btn soft" data-go="calc">למחשבון הממוצע</button>':''}</div></div></div></section>`;
   } else {
     const first=p.bag==='handesai'?{t:'לבדוק הכרה בתעודת ההנדסאי',d:'מוסדות רבים מקבלים הנדסאים בתנאים מיוחדים. בעמוד של כל תואר, השורות שרלוונטיות להנדסאים מודגשות בתנאי הקבלה של כל מוסד.'}
       :p.bag==='foreign'?{t:'הכרה בתעודה מחו"ל',d:'בכל מוסד התנאים שונים, ובעמוד של כל תואר הם מודגשים עבורי.'}
@@ -3275,7 +3333,7 @@ function specsGrid(){
   let L=SPEC.filter(s=>(SPF.g==='all'||s.g===SPF.g)&&(!q||s.n.includes(q)||(s.req||'').includes(q)));
   const by={az:(a,b)=>a.n.localeCompare(b.n,'he'),many:(a,b)=>((b.moh||[0])[0])-((a.moh||[0])[0]),short:(a,b)=>(a.yrs||99)-(b.yrs||99),long:(a,b)=>(b.yrs||0)-(a.yrs||0)};
   L.sort(by[SPF.sort]);
-  if(!L.length)return `<div class="empty"><h3>לא נמצאה התמחות</h3><p>אפשר לנסות מילה אחרת, למשל "לב", "ילדים" או "כירורגיה".</p></div>`;
+  if(!L.length)return `<div class="empty"><h3 aria-level="2">לא נמצאה התמחות</h3><p>אפשר לנסות מילה אחרת, למשל "לב", "ילדים" או "כירורגיה".</p></div>`;
   const grp=g=>L.filter(s=>s.g===g);
   const sec=(g,t,p)=>grp(g).length?`<div class="sec-h" style="margin-top:18px"><div><h2>${t} <span class="cnt-b num">${grp(g).length}</span></h2><p>${p}</p></div></div><div class="grid">${grp(g).map(spCard).join('')}</div>`:'';
   return sec('base','מקצועות בסיס','מתמחים בהם ישר אחרי הרישיון')+sec('sub','תתי-התמחויות','ממשיכים אליהן אחרי תואר מומחה במקצוע בסיס');
@@ -4214,7 +4272,7 @@ function jobsFiltersHTML(){
 }
 function jobsGridHTML(){
   const P=jobsPool();
-  if(!P.length)return `<div class="empty"><h3>לא נמצאו מקצועות</h3><p>אפשר לנסות מילה אחרת, שם של תפקיד (למשל "מפתח" או "מעצב") או להסיר חלק מהסינונים.</p></div>`;
+  if(!P.length)return `<div class="empty"><h3 aria-level="2">לא נמצאו מקצועות</h3><p>אפשר לנסות מילה אחרת, שם של תפקיד (למשל "מפתח" או "מעצב") או להסיר חלק מהסינונים.</p></div>`;
   return `<div class="grid">${P.slice(0,JOBF.shown).map((o,i)=>ocCard(o,{delay:Math.min(i%36,12)*30})).join('')}</div>${P.length>JOBF.shown?`<div class="more"><button class="btn soft" data-jmore>להציג עוד (${P.length-JOBF.shown} נוספים)</button></div>`:''}`;
 }
 function refreshJobs(){const f=$('#jfilters'),top0=f?f.getBoundingClientRect().top:0;$('#jfilters').innerHTML=jobsFiltersHTML();$('#jHost').innerHTML=jobsGridHTML();
@@ -4230,7 +4288,7 @@ function renderJobs(){
     <div class="stats-strip num"><span><b>${fmt(OCLIST.length)}</b>מקצועות</span><span><b>${fmt(grow)}</b>חמים בשוק</span><span><b>${fmt(OCLIST.filter(o=>occDegs(o.id).main.length).length)}</b>עם מסלול אקדמי</span></div>
   </div></section>
   <section class="sec" style="padding-top:12px"><div class="wrap">
-    <div class="filters" id="jfilters">${jobsFiltersHTML()}</div><div id="jHost" class="gridhost">${jobsGridHTML()}</div>
+    <div class="filters" id="jfilters">${jobsFiltersHTML()}</div><h2 class="sr">רשימת המקצועות</h2><div id="jHost" class="gridhost">${jobsGridHTML()}</div>
     <p class="fine" style="margin-top:22px">המקצועות, התפקידים, השכר והחלוקות: <a href="${AVURL}/occupations" target="_blank" rel="noopener">עבודאטה</a> (משרד העבודה, לפי עיבוד נתוני הלמ"ס). החלוקה לתחומים לפי קוד הסיווג הבין-לאומי של המקצוע (ISCO). השכר הוא ממוצע של כל העוסקים בתחום.</p>
   </div></section>`;
 }
@@ -4463,7 +4521,7 @@ function empTile(rows){
   return `<div class="tile"><span class="lbl">ארגונים גדולים בענף של רוב הבוגרים</span><span class="val em-tv">${names.map(esc).join(', ')}</span><span class="hint">בענף "${esc(g.s)}" (${Math.round(R[0].p)}%) · דוגמאות בלבד · <button type="button" class="linkbtn" data-scroll="employers">לכל הענפים</button></span></div>`}
 
 function renderOcc(id){
-  const o=OC[id]; if(!o) return `<section class="sec"><div class="wrap"><div class="empty"><h3>העמוד לא נמצא</h3></div></div></section>`;
+  const o=OC[id]; if(!o) return `<section class="sec"><div class="wrap"><div class="empty"><h3 aria-level="2">העמוד לא נמצא</h3></div></div></section>`;
   const {tiles,facts}=snapParts(o.snap||[]), g=o.g||{}, grp=ocGroup(id), cat=OGCAT[grp];
   const trend=(g.salary||[]).filter(x=>x.v), emp=(g.employed||[]).filter(x=>x.v);
   const sect=([k,title,fn,share])=>{const s=g[k];if(!s||!s.s||!s.s.some(x=>x.v))return '';
@@ -4624,7 +4682,7 @@ function techFiltersHTML(){
     <div class="subbar"><span class="num">${TF.q?`<span class="qchip">חיפוש: ${esc(TF.q)}<button data-tclearq aria-label="ניקוי החיפוש">✕</button></span> · `:''}${fmt(n)} מגמות</span>
       <label>מיון: <select id="tsort">${sorts.map(([v,l])=>`<option value="${v}" ${k===v?'selected':''}>${l}</option>`).join('')}</select></label></div>`;
 }
-const techGridHTML=()=>{const L=techPool();return L.length?`<div class="grid">${L.map(x=>mahatCard(x.m,x.i)).join('')}</div>`:`<div class="empty"><h3>לא נמצאו מגמות</h3><p>אפשר לנסות מילה אחרת או להסיר חלק מהסינונים.</p></div>`};
+const techGridHTML=()=>{const L=techPool();return L.length?`<div class="grid">${L.map(x=>mahatCard(x.m,x.i)).join('')}</div>`:`<div class="empty"><h3 aria-level="2">לא נמצאו מגמות</h3><p>אפשר לנסות מילה אחרת או להסיר חלק מהסינונים.</p></div>`};
 function refreshTech(){const f=$('#tfilters'),top0=f?f.getBoundingClientRect().top:0;$('#tfilters').innerHTML=techFiltersHTML();$('#tHost').innerHTML=techGridHTML();
   if(f){const dy=f.getBoundingClientRect().top-top0;if(Math.abs(dy)>1)window.scrollBy({top:dy,behavior:'instant'})}}
 function renderTech(){
@@ -4635,7 +4693,7 @@ function renderTech(){
      <input id="tq" type="search" autocomplete="off" placeholder="למשל: תוכנה, חשמל, אדריכלות, רכב…" aria-label="חיפוש מגמה" value="${esc(TF.q)}"></div>
    ${noCert?`<div class="ck no band" style="margin:0"><span class="cki" aria-hidden="true">✕</span><div><b>לפי הפרופיל שלי חסרים לי מקצועות בבגרות</b><span class="sub">אפשר להתחיל במכינה טכנולוגית של מה"ט, ולכן היא מופיעה ראשונה ברשימה.</span></div></div>`:''}
    <div class="filters" id="tfilters">${techFiltersHTML()}</div>
-   <div id="tHost" class="gridhost">${techGridHTML()}</div>
+   <h2 class="sr">רשימת המגמות</h2><div id="tHost" class="gridhost">${techGridHTML()}</div>
    <div class="srcnote">${ICON.check}<div><b>תנאי קבלה בסיסיים ללימודי הנדסאים</b>, לפי עבודאטה (משרד העבודה): ציון עובר ב-3 יח"ל מתמטיקה, 3 יח"ל אנגלית ו-2 יח"ל עברית.${factChip('mahat.basic')} המכללות רשאיות להוסיף תנאים משלהן. מי שחסרים לו מקצועות יכול להתחיל ב<button class="linkbtn" data-mh="${MAHAT.findIndex(m=>m.kind==='מכינה')}" style="color:inherit;text-decoration:underline">מכינה טכנולוגית</button>. <a href="${AVURL}/MahatEducation/${(MAV[0]||{}).id||''}" target="_blank" rel="noopener">מקור</a></div></div>
    <p class="fine">מקורות: <a href="${MAHAT_SRC}" target="_blank" rel="noopener">אתר דירוג מכללות מה"ט</a> (רשימת המגמות, המכללות והאזורים), <a href="${MAHAT_LIST}" target="_blank" rel="noopener">עמודי המגמות באתר gov.il</a> (תוכן ושכר), <a href="${AVURL}" target="_blank" rel="noopener">עבודאטה</a>. ההתאמה לתחומי העניין לפי שם המגמה.</p>
   </div></section>`;
@@ -4900,12 +4958,25 @@ document.addEventListener('input',e=>{
 
 
 /* ================= v18: motion and flow ================= */
-/* motion follows the computer's setting, unless I choose otherwise on the site ("עוד" → אנימציות) */
-const RM=()=>document.documentElement.classList.contains('rm');
-function motionInit(){const m=store.get('motion','auto');document.documentElement.classList.toggle('rm',m==='off'||(m==='auto'&&matchMedia('(prefers-reduced-motion: reduce)').matches))}
-const motionHTML=()=>{const m=store.get('motion','auto');return `<div class="mset"><b>אנימציות ואפקטים</b>${[['auto','לפי הגדרות המחשב'],['on','פועלים'],['off','כבויים']].map(([k,l])=>`<button class="fb2" data-motion="${k}" aria-pressed="${m===k}">${l}</button>`).join('')}</div>`};
-document.addEventListener('click',e=>{const b=e.target.closest('[data-motion]');if(!b)return;store.set('motion',b.dataset.motion);motionInit();
-  document.querySelectorAll('[data-motion]').forEach(x=>x.setAttribute('aria-pressed',x===b));toast(b.dataset.motion==='off'?'האנימציות כבויות':b.dataset.motion==='on'?'האנימציות פועלות':'האנימציות לפי הגדרות המחשב')});
+/* Motion has three states. Full: every effect. Gentle (html.rg): nothing moves across the screen and nothing loops, what is left is fading, colour changes and progress fills.
+   None (html.rm): nothing. "Follow the computer" means full, unless the computer asks to reduce motion: then it is gentle, not none, so the site stays smooth without moving.
+   Chosen on the site: "עוד" → אנימציות, or the accessibility menu. */
+const MOTION=['auto','on','gentle','off'];
+const motionPref=()=>{const m=store.get('motion','auto');return MOTION.includes(m)?m:'auto'};
+const osReduce=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+const motionMode=()=>{const m=motionPref();return m==='off'?'off':m==='gentle'||(m==='auto'&&osReduce())?'gentle':'full'};
+const RM=()=>{const c=document.documentElement.classList;return c.contains('rm')||c.contains('rg')}; /* nothing moves across the screen (gentle or none) */
+const NM=()=>document.documentElement.classList.contains('rm'); /* no animation at all */
+function motionInit(){const m=motionMode(),h=document.documentElement;h.classList.toggle('rm',m==='off');h.classList.toggle('rg',m==='gentle')}
+try{matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',()=>{motionInit();document.querySelectorAll('.mset-n').forEach(n=>n.textContent=motionNow())})}catch(e){}
+const MOT_L={auto:'לפי הגדרות המחשב',on:'מלאים',gentle:'עדינים, בלי תנועה',off:'כבויים'};
+const motionNow=()=>{const m=motionMode(),p=motionPref();
+  return m==='off'?'האפקטים כבויים: שום דבר לא זז ולא מתעמעם.':m==='gentle'?(p==='auto'?'במחשב או בטלפון שלך מוגדרת הפחתת תנועה, ולכן האתר מתחלף בעמעום ובשינוי צבע, בלי הזזות ובלי תנועה חוזרת. אם נוח לך, אפשר לבחור "מלאים".':'האתר מתחלף בעמעום ובשינוי צבע, בלי הזזות ובלי תנועה חוזרת.')
+    :p==='auto'?'כל האפקטים פועלים. אם תגדירו הפחתת תנועה במחשב או בטלפון, האתר יעבור לאפקטים עדינים בלי תנועה.':'כל האפקטים פועלים.'};
+const motionHTML=()=>{const m=motionPref();return `<div class="mset"><b id="motL">אנימציות ואפקטים</b><div class="mset-b" role="group" aria-labelledby="motL">${MOTION.map(k=>`<button class="fb2" data-motion="${k}" aria-pressed="${m===k}">${MOT_L[k]}</button>`).join('')}</div><p class="fine mset-n" role="status">${motionNow()}</p></div>`};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-motion]');if(!b||!MOTION.includes(b.dataset.motion))return;store.set('motion',b.dataset.motion);motionInit();
+  document.querySelectorAll('[data-motion]').forEach(x=>x.setAttribute('aria-pressed',x===b));document.querySelectorAll('.mset-n').forEach(n=>n.textContent=motionNow());
+  toast({off:'האפקטים כבויים',gentle:'האפקטים עדינים, בלי תנועה',on:'כל האפקטים פועלים',auto:'האפקטים לפי הגדרות המחשב'}[b.dataset.motion])});
 
 /* ---------- accessibility settings: kivun3.a11y = {z:0-3 text size step, hc, hl, rf}; read defensively ---------- */
 const A11Z=[1,1.15,1.3,1.5];
@@ -4966,7 +5037,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('.btn.qa-jump,.qa
 /* ---------- sections float in as they reach the screen ---------- */
 let RVO=null;
 function revealInit(){
-  if(RM()||!('IntersectionObserver' in window))return;
+  if(NM()||!('IntersectionObserver' in window))return; /* gentle mode still reveals, with a fade */
   /* coming back to a screen: leave everything exactly as it was */
   if(document.querySelector('#app .view.vw-ret')){document.querySelectorAll('#app [data-rv],#app .tile .val,#app .stats-strip b,#app [data-count]').forEach(e=>{e.dataset.rv=1;e.dataset.cu=1});
     document.querySelectorAll('#app .view > section.sec, #app .view > div > section.sec, #app .view .blk, #app .view .shelf, #app .view .salbox, #app .view .dir-card, #app .view .pth-card').forEach(e=>{e.dataset.rv=1;e.dataset.cu=1});return}
@@ -5050,7 +5121,10 @@ function burst(x,y,n=26){
 /* everything that has to run after each screen is drawn */
 function afterRender(){requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
 /* a table that scrolls sideways can be reached and scrolled from the keyboard */
-function scrollRegions(){document.querySelectorAll('.thr').forEach(t=>{if(t.scrollWidth>t.clientWidth+1){t.tabIndex=0;t.setAttribute('role','region');t.setAttribute('aria-label','טבלה שאפשר לגלול לצדדים')}})}
+function scrollRegions(){const used=new Set(); /* every region has a name of its own: the heading above it, and a number when two share it */
+  document.querySelectorAll('.thr').forEach(t=>{if(t.scrollWidth>t.clientWidth+1){const b=t.closest('.blk,section'),h=b&&b.querySelector('h2,h3'),base=(h?h.textContent.replace(/\s+/g,' ').trim()+': ':'')+'טבלה שאפשר לגלול לצדדים';
+    let n=base,k=2;while(used.has(n))n=base+' '+(k++);used.add(n);t.tabIndex=0;t.setAttribute('role','region');t.setAttribute('aria-label',n)}});
+  document.querySelectorAll('.progtxt').forEach(t=>{if(t.scrollHeight>t.clientHeight+1){t.tabIndex=0;t.setAttribute('role','region');t.setAttribute('aria-label','תוכנית הלימודים, אפשר לגלול')}})}
 addEventListener('resize',()=>scrollRegions())
 
 
@@ -5233,7 +5307,7 @@ function dqInter(k){
 function dqShow(i,dir=1){
   const host=$('#dqStage');if(!host)return render();
   const old=host.firstElementChild;if(old){old.classList.add(dir>0?'out':'outb')}
-  setTimeout(()=>{host.innerHTML=dqCard(i,dir>0?'in':'inb');dqTop()},RM()?0:170);
+  setTimeout(()=>{host.innerHTML=dqCard(i,dir>0?'in':'inb');dqTop()},NM()?0:170);
 }
 function dqTop(){const st=dirS(),n=dqProgress(),q=DQ[Math.min(st.i,DQ.length-1)];const N=$('#dqN');if(N)N.textContent=`${n} / ${DQ.length}`;
   document.querySelectorAll('.dq-p').forEach((p,j)=>{const s=DSEC[j],L=DQ.filter(x=>x.sec===s.k),d=L.filter(x=>st.a[x.id]!=null).length;p.classList.toggle('cur',s.k===q.sec);p.classList.toggle('done',d===L.length);p.querySelector('b').style.width=Math.round(100*d/L.length)+'%'});
@@ -5246,8 +5320,8 @@ function dqAnswer(v){
   DQLOCK=true;setTimeout(()=>{DQLOCK=false;
     if(i>=DQ.length-1){dirFinish();return}
     st.i=i+1;dirSave();
-    if(DQ[i+1].sec!==q.sec){const host=$('#dqStage');host.firstElementChild.classList.add('out');setTimeout(()=>{host.innerHTML=dqInter(q.sec);dqTop()},RM()?0:170);return}
-    dqShow(st.i,1)},RM()?60:230);
+    if(DQ[i+1].sec!==q.sec){const host=$('#dqStage');host.firstElementChild.classList.add('out');setTimeout(()=>{host.innerHTML=dqInter(q.sec);dqTop()},NM()?0:170);return}
+    dqShow(st.i,1)},NM()?60:230);
 }
 function dirFinish(){
   const st=dirS();st.done=Date.now();st.i=0;dirSave();DIRV.mode='res';DIRR=null;
@@ -5348,7 +5422,7 @@ function dirResHTML(){
   </div></section>
   <section class="sec" id="dresDeg"><div class="wrap"><div class="sec-h"><div><h2>התארים שהכי מתאימים לי</h2><p>מסודרים לפי ההתאמה. תואר אחד מכל תחום, כדי לראות כיוונים שונים${S.uni?' · רק ב'+esc(INST[S.uni].n):''}</p></div></div>
     ${profileOK()?`<div class="frow" style="margin-bottom:14px"><button class="chip ftog" data-drf="adm" aria-pressed="${DRF.adm}"><i></i>רק תארים שאני יכול להתקבל אליהם</button></div>`:`<div class="cmp-prof"><span>רוצה לראות גם אם הציונים שלי מספיקים לכל תואר?</span><button class="btn soft sm" data-prof>מילוי פרופיל קצר</button></div>`}
-    <div class="dir-list">${(R.more=moreOf,degs.slice(0,DRF.shown).map((d,i)=>dDegCard(d,R,i+1)).join(''))||'<div class="empty"><h3>לא נמצאו תארים</h3><p>אפשר לבטל את הסינון.</p></div>'}</div>
+    <div class="dir-list">${(R.more=moreOf,degs.slice(0,DRF.shown).map((d,i)=>dDegCard(d,R,i+1)).join(''))||'<div class="empty"><h3 aria-level="2">לא נמצאו תארים</h3><p>אפשר לבטל את הסינון.</p></div>'}</div>
     ${degs.length>DRF.shown?`<div class="more"><button class="btn soft" data-drmore>להציג עוד תארים</button></div>`:''}
   </div></section>
   <section class="sec"><div class="wrap"><div class="sec-h"><div><h2>המקצועות שהכי מתאימים לי</h2><p>מתוך ${fmt(R.oRank.length)} המקצועות של משרד העבודה</p></div></div>
@@ -6642,14 +6716,14 @@ const KI={seed:'<path d="M12 21v-8"/><path d="M12 13c0-4 3-7 7-7 0 4-3 7-7 7z"/>
   bag:'<rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>',
   pin:'<path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/>'};
 const ki=(k,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${KI[k]||KI.star}</svg>`;
-const ring=(pct,sz=64,stroke=7,cls='')=>{const r=(sz-stroke)/2,c=2*Math.PI*r;return `<svg class="ring ${cls}" viewBox="0 0 ${sz} ${sz}" width="${sz}" height="${sz}" aria-hidden="true"><circle cx="${sz/2}" cy="${sz/2}" r="${r}" class="rbg" stroke-width="${stroke}"/><circle cx="${sz/2}" cy="${sz/2}" r="${r}" class="rfg" stroke-width="${stroke}" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c*(1-pct/100)).toFixed(1)}" style="--c:${c.toFixed(1)}"/></svg>`};
+const ring=(pct,sz=64,stroke=7,cls='',from=0)=>{const r=(sz-stroke)/2,c=2*Math.PI*r;return `<svg class="ring ${cls}" viewBox="0 0 ${sz} ${sz}" width="${sz}" height="${sz}" aria-hidden="true"><circle cx="${sz/2}" cy="${sz/2}" r="${r}" class="rbg" stroke-width="${stroke}"/><circle cx="${sz/2}" cy="${sz/2}" r="${r}" class="rfg" stroke-width="${stroke}" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c*(1-pct/100)).toFixed(1)}" style="--c:${c.toFixed(1)};--c0:${(c*(1-(from||0)/100)).toFixed(1)}"/></svg>`};
 const safe=(fn,fb='')=>{try{return fn()}catch(e){console.error('path:',e);return fb}};
 
 /* ---------- UI state (never saved) ----------
    tab: which question the page is answering. view: 'hub' (all my targets) or 'road' (one target); empty = decide by how many targets I have.
    fid: the step in focus. skip: steps I pushed to later. hist: steps I came from. rm: a target waiting for "are you sure". */
 const KP={open:new Set(),zt:{},wiz:{active:false,step:1,tq:'',d:'',i:'',change:false,add:false},
-  tab:'now',view:'',land:'',navT:0,fid:'',skip:new Set(),hist:[],rm:'',rst:false,back:'',hk:'',pgDone:false,zsel:''};
+  tab:'now',view:'',land:'',navT:0,fid:'',skip:new Set(),hist:[],rm:'',rst:false,back:'',hk:'',pgDone:false,zsel:'',lp:null};
 /* the page has three views (the map, the progress, the calendar) and three tools beside them: see "the three views" below */
 const curView=()=>KP.view||(tList().length>1?'hub':'road');
 
@@ -6725,9 +6799,9 @@ function journeyHTML(pl,t){
   const nodes=P.map((p,k)=>{const i=p.i,pt=pts[k],pos=`left:${pt.x}px;top:${pt.y}px`;
     if(i.k==='e')return `<li class="tr-n end" style="${pos};--cw:${c.gw}px;--r:${c.rg}px"><div class="tr-b"><span class="tr-c">${ki('cap')}</span><span class="tr-l"><b>היום הראשון</b></span></div></li>`;
     if(i.k==='g'){const z=i.z,s=trState(z,pl),open=z.id===fz;
-      return `<li class="tr-n ${s}${open?' pick':''}" style="${pos};--cw:${c.gw}px;--r:${c.rg}px"><button type="button" class="tr-b" data-kgate="${z.id}" aria-pressed="${open}" aria-label="${esc(z.t)}: ${trStateTxt[s]}, ${z.done} מתוך ${z.total} צעדים${open?'':'. לחיצה פותחת את השלב'}"><span class="tr-c">${arc(z)}${ki(z.ic)}${s==='done'?`<i class="tr-ok">${ki('check')}</i>`:''}</span><span class="tr-l"><b>${z.t}</b><em class="num">${z.done}/${z.total}</em></span></button></li>`}
+      return `<li class="tr-n ${s}${open?' pick':''}" style="${pos};--cw:${c.gw}px;--r:${c.rg}px"><button type="button" class="tr-b" data-kgate="${z.id}" aria-pressed="${open}"><span class="tr-c">${arc(z)}${ki(z.ic)}${s==='done'?`<i class="tr-ok">${ki('check')}</i>`:''}</span><span class="tr-l"><b>${z.t}</b><em class="num">${z.done}/${z.total}</em><span class="sr"> צעדים. ${trStateTxt[s]}${open?'':'. לחיצה פותחת את השלב'}</span></span></button></li>`}
     const q=i.t,on=q.id===sel,isNx=q.id===nx;
-    return `<li class="tr-n st${q.done?' done':''}${isNx?' nxt':''}${on?' pick':''}${q.soon&&!q.done?' soon':''}" style="${pos};--cw:${c.sw}px;--r:${c.rs}px"><button type="button" class="tr-b" data-kstop="${q.id}" aria-pressed="${on}"${isNx?' aria-current="step"':''} aria-label="${esc(q.t)}: ${q.done?'הושלם':isNx?'הצעד הבא':'עוד לא הושלם'}"><span class="tr-c">${q.done?ki('check'):ki(q.ic)}</span><span class="tr-l"><b>${esc(q.t)}</b></span>${isNx?'<span class="tr-nx">הבא</span>':''}</button></li>`}).join('');
+    return `<li class="tr-n st${q.done?' done':''}${isNx?' nxt':''}${on?' pick':''}${q.soon&&!q.done?' soon':''}" style="${pos};--cw:${c.sw}px;--r:${c.rs}px"><button type="button" class="tr-b" data-kstop="${q.id}" aria-pressed="${on}"${isNx?' aria-current="step"':''}><span class="tr-c">${q.done?ki('check'):ki(q.ic)}</span><span class="tr-l"><b>${esc(q.t)}</b></span>${isNx?'<span class="tr-nx">הבא</span>':''}<span class="sr">: ${q.done?'הושלם':isNx?'זה הצעד הבא שלי':'עוד לא הושלם'}</span></button></li>`}).join('');
   const here=pts[P.findIndex(p=>p.i.k==='g'&&p.i.z.id===pl.cur)]||pts[0];
   return `<div class="tr jn${KP.trGo?' go still':''}" id="kpTrail" style="--cw:${c.gw}px;--r:${c.rg}px"><div class="tr-view" id="trViewJ"><div class="tr-track" style="width:${W}px;height:${c.H}px">${plates}
     <svg class="tr-svg" width="${W}" height="${c.H}" viewBox="0 0 ${W} ${c.H}" aria-hidden="true" focusable="false">${base}${prog}</svg>
@@ -6763,7 +6837,7 @@ const TEEN=[
  {id:'wiz',n:'מכון דוידסון לחינוך מדעי (מכון ויצמן)',by:'מכון ויצמן למדע',fl:['science','tech','eng'],g:'לא צוין',t:'לפי תקציר חיפוש, הזרוע החינוכית של מכון ויצמן מפעילה מחנות וטורנירי מדע לנוער ותוכניות לבתי ספר. לא מצאנו רשימה עדכנית של התוכניות.',a:'לא נמצא מידע על השפעה על הקבלה.',j:'לא מצאנו פרטי הרשמה. הקישור הוא עמוד החינוך המדעי של המכון.',u:'https://www.weizmann.ac.il/pages/he/science-education',ok:0,y:''}];
 const TEEN_GAP={health:'לא מצאנו תוכנית חשיפה של פקולטות לרפואה לתלמידי תיכון, ולא תוכנית ישראלית להתנדבות נוער בבתי חולים. ייתכן שיש, ושווה לשאול ישירות את בתי החולים ואת הפקולטות.',design:'לא מצאנו תוכנית לנוער בעיצוב, באדריכלות או באמנויות. כדאי לשאול את מורי האמנות ואת המוסדות על ימים פתוחים ומכינות.',teach:'לא מצאנו תוכנית הוראה או חינוך לתלמידי תיכון. כדאי לשאול את תנועות הנוער, את בית הספר ואת מכללות החינוך.',biz:'לא מצאנו תוכנית של בית ספר לעסקים לתלמידי תיכון. מה שכן מצאנו הוא תוכניות יזמות.',hum:'לא מצאנו תוכנית ייעודית למדעי הרוח לתלמידי תיכון. המועצה הארצית ואקדמיה בתיכון הכי קרובות.',social:'',tech:'',eng:'',science:''};
 const tnOk=p=>`<span class="tn-ok ${p.ok?'y':'n'}">${p.ok?'נמצאה ביותר ממקור אחד':'מקור יחיד, לא אומת'}</span>`;
-function tnCard(p){return `<article class="tn-c"><div class="tn-h"><h4>${esc(p.n)}</h4>${tnOk(p)}</div><p class="tn-by">${esc(p.by)} · ${esc(p.g)}</p><p>${esc(p.t)}</p>${p.cl?`<p class="tn-cl"><b>שימו לב:</b> ${esc(p.cl)}</p>`:''}
+function tnCard(p){return `<article class="tn-c"><div class="tn-h"><h3>${esc(p.n)}</h3>${tnOk(p)}</div><p class="tn-by">${esc(p.by)} · ${esc(p.g)}</p><p>${esc(p.t)}</p>${p.cl?`<p class="tn-cl"><b>שימו לב:</b> ${esc(p.cl)}</p>`:''}
   <p class="tn-a"><b>נקודות קבלה?</b> ${esc(p.a)}</p><p><b>איך מצטרפים:</b> ${esc(p.j)}</p>${p.y?`<p class="tn-y">הפרסום האחרון שמצאנו: ${esc(p.y)}</p>`:''}${KA(p.u,'לאתר התוכנית')}</article>`}
 function teenList(f){const L=TEEN.filter(p=>f==='all'||p.fl.includes(f)).sort((a,b)=>(b.ok-a.ok)||(!!a.cl-!!b.cl));
   return L.length?`<div class="tn-g">${L.map(tnCard).join('')}</div>`:''}
@@ -6849,7 +6923,7 @@ function missingItems(pl){
   return L}
 const okLine=pl=>pl.stand.k==='ok'?`<p class="kp-okl">${ki('check')}${esc(pl.stand.h)}</p>`:'';
 const missHTML=(M,pl)=>M.length
-  ?`<div class="kp-miss"><h2 class="kp-mh">${ki('target')}מה עוד חסר לי</h2><ul>${M.map(m=>`<li><button type="button" class="kp-mc ${m.k}" ${m.id?`data-kstop="${esc(m.id)}"`:'data-ktab="lab"'}>${ki(m.ic)}<span>${esc(m.t)}</span>${ki('arrow')}</button></li>`).join('')}</ul>${okLine(pl)}</div>`
+  ?`<div class="kp-miss"><h2 class="kp-mh">${ki('target')}מה עוד חסר לי</h2><ul>${M.map((m,i)=>`<li style="--i:${i}"><button type="button" class="kp-mc ${m.k}" ${m.id?`data-kstop="${esc(m.id)}"`:'data-ktab="lab"'}>${ki(m.ic)}<span>${esc(m.t)}</span>${ki('arrow')}</button></li>`).join('')}</ul>${okLine(pl)}</div>`
   :(pl.stand.k==='ok'&&pl.done<pl.total?`<div class="kp-miss">${okLine(pl)}</div>`:'');
 /* the goal, the ring with my percent and a few words. On the map and the calendar it also says which stage I am in */
 function pcardHTML(pl,ban){
@@ -6858,7 +6932,7 @@ function pcardHTML(pl,ban){
     <div class="kp-goal"><span class="kp-pic">${ill(d)}</span>
       <div class="kp-gt"><small>היעד שלי</small><h1>${esc(d.n)}</h1><p>${esc(I.n)}${P.auto?' · <b>מוסד לדוגמה</b>':''}</p>${chipsHTML(X)}</div>
       <div class="kp-ged">${button('data-kinst','מוסד אחר')}${button('data-kchange','תואר אחר')}${button(`data-open="${d.id}"`,'עמוד התואר')}</div></div>
-    <div class="kp-prog"><div class="kp-ring xl">${ring(pl.pct,176,16,'lg')}<div class="kp-rin"><b class="num">${pl.pct}%</b><small>מהדרך</small></div></div>
+    <div class="kp-prog"><div class="kp-ring xl">${ring(pl.pct,176,16,'lg',KP.lp==null?0:KP.lp)}<div class="kp-rin"><b class="num">${pl.pct}%</b><small>מהדרך</small></div></div>
       <div class="kp-pt"><p class="kp-ph">${esc(mo[1])}</p><p class="kp-pd">${esc(mo[2])}</p>
         <div class="kp-pr"><p class="kp-pn2"><span><b class="num">${pl.done}</b> מתוך <b class="num">${pl.total}</b> צעדים${pl.part>0?' ועוד חלק מהסף':''}</span>${ban?`<span>שלב <b class="num">${zi+1}</b> מתוך <b class="num">${Z.length}</b>: ${esc(z.t)}</span>`:`<span><b class="num">${zd}</b> מתוך <b class="num">${Z.length}</b> שלבים הושלמו</span>`}</p>
           ${nm?`<p class="kp-pn">${ki('target')}<span>עוד ${pl.part>0?'כ-':''}${nm.k===1?'צעד אחד':nm.k+' צעדים'} ל-<b class="num">${nm.m}%</b></span></p>`:''}</div>
@@ -6881,7 +6955,17 @@ function dashHTML(pl){
 function bannerHTML(pl){return `<div class="kp-dash kp-ban">${pcardHTML(pl,true)}${nextCardHTML(pl)}</div>`}
 /* the progress view carries the full dashboard; the map and the calendar carry the banner */
 const heroKind=t=>t==='prog'?'dash':'ban';
-function heroHTML(pl){const k=heroKind(KP.tab);KP.hk=k;return `${switchHTML()}${k==='dash'?dashHTML(pl):bannerHTML(pl)}`}
+/* the percent I saw last (never saved): the ring and the number move from it to the new one, and a step that raised it gives the ring a little glow */
+function pctAnim(from,to,had){
+  const els=document.querySelectorAll('#kpHero .kp-rin b');if(!els.length)return;
+  if(had&&to>from)document.querySelectorAll('#kpHero .kp-ring.xl').forEach(r=>{r.classList.remove('bump');void r.offsetWidth;r.classList.add('bump')});
+  if(RM()||from===to)return;
+  const t0=performance.now(),dur=Math.min(1100,520+Math.abs(to-from)*14);
+  const step=ts=>{const p=Math.min(1,(ts-t0)/dur),v=Math.round(from+(to-from)*(1-Math.pow(1-p,3)));els.forEach(e=>{if(e.isConnected)e.textContent=v+'%'});if(p<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step)}
+function heroHTML(pl){
+  const k=heroKind(KP.tab),had=KP.lp!=null,from=had?KP.lp:0,h=`${switchHTML()}${k==='dash'?dashHTML(pl):bannerHTML(pl)}`;
+  KP.hk=k;KP.lp=pl.pct;requestAnimationFrame(()=>pctAnim(from,pl.pct,had));return h}
 
 /* ================= the progress view: one column per stage (pg-) =================
    Each column is a stage of the road, as tall as the part of it I already did. A tap on a column shows that stage's steps under the chart.
@@ -6890,10 +6974,10 @@ const ZSH={g10:'י\'',g11:'י"א',g12:'י"ב',svc:'שירות',prep:'הכנה',r
 const pgSel=pl=>{const Z=pl.zones;if(KP.zsel&&Z.some(z=>z.id===KP.zsel))return KP.zsel;return Z.some(z=>z.id===pl.focus)?pl.focus:Z[0].id};
 const pgPct=z=>z.total?Math.round(100*z.done/z.total):0;
 function pgCol(z,i,pl,sel,grow){
-  const th=ZTH[z.id]||ZTH.g10,p=pgPct(z),st=trState(z,pl),on=sel===z.id,lab=`${z.t}: ${trStateTxt[st]}, ${z.done} מתוך ${z.total} צעדים, ${p}%`;
-  return `<li class="pg-c ${st}${on?' on':''}" data-z="${z.id}" style="--zc:${th.c};--zb:${th.bg};--p:${grow?0:p}%;--k:${i}" data-p="${p}"><button type="button" class="pg-b" data-kpg="${z.id}" aria-pressed="${on}"${st==='cur'?' aria-current="step"':''} aria-label="${esc(lab)}">
-    <b class="pg-v num">${p}%</b><span class="pg-t"><i class="pg-f"></i></span>${st==='cur'?'<em class="pg-pin">אני כאן</em>':''}
-    <span class="pg-i">${st==='done'?ki('check'):ki(z.ic)}</span><span class="pg-n">${esc(ZSH[z.id]||z.t)}</span><small class="num">${z.done}/${z.total}</small></button></li>`}
+  const th=ZTH[z.id]||ZTH.g10,p=pgPct(z),st=trState(z,pl),on=sel===z.id;
+  return `<li class="pg-c ${st}${on?' on':''}" data-z="${z.id}" style="--zc:${th.c};--zb:${th.bg};--p:${grow?0:p}%;--k:${i}" data-p="${p}"><button type="button" class="pg-b" data-kpg="${z.id}" aria-pressed="${on}"${st==='cur'?' aria-current="step"':''}>
+    <b class="pg-v num">${p}%</b><span class="pg-t" aria-hidden="true"><i class="pg-f"></i></span>${st==='cur'?'<em class="pg-pin">אני כאן</em>':''}
+    <span class="pg-i">${st==='done'?ki('check'):ki(z.ic)}</span><span class="pg-n"><span class="pg-nl">${esc(z.t)}</span><span class="pg-ns" aria-hidden="true">${esc(ZSH[z.id]||z.t)}</span></span><small class="num">${z.done}/${z.total}</small><span class="sr">${trStateTxt[st]}: ${z.done} מתוך ${z.total} צעדים</span></button></li>`}
 function pgChart(pl,sel){
   const Z=pl.zones,grow=!KP.pgDone;
   return `<div class="pg-chart" id="pgChart"><div class="pg-y" aria-hidden="true"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0</span></div><ol class="pg-cols" style="--n:${Z.length}" aria-label="ההתקדמות שלי בכל שלב בדרך">${Z.map((z,i)=>pgCol(z,i,pl,sel,grow)).join('')}</ol></div>`}
@@ -6921,14 +7005,14 @@ function pgUpdate(pl){
     e.querySelector('.pg-i').innerHTML=st==='done'?ki('check'):ki(z.ic);
     const pin=b.querySelector('.pg-pin');if(st==='cur'&&!pin)b.insertAdjacentHTML('afterbegin','<em class="pg-pin">אני כאן</em>');else if(st!=='cur'&&pin)pin.remove();
     b.setAttribute('aria-pressed',on);if(st==='cur')b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');
-    b.setAttribute('aria-label',`${z.t}: ${trStateTxt[st]}, ${z.done} מתוך ${z.total} צעדים, ${p}%`)});
+    const sr=b.querySelector('.sr');if(sr)sr.textContent=`${trStateTxt[st]}: ${z.done} מתוך ${z.total} צעדים`});
   const pn=$('#kpPanel');if(pn)pn.outerHTML=panelHTML(pl);
   const bd=$('#pgBd');if(bd)bd.outerHTML=achieveHTML(pl);
   return true}
 /* a tap on a column: that stage's steps open under the chart */
 function pgSelect(id){const pl=safe(plan);if(!pl||!pl.zones.some(z=>z.id===id))return;KP.zsel=id;
   document.querySelectorAll('#pgChart .pg-c').forEach(c=>{const on=c.dataset.z===id;c.classList.toggle('on',on);const b=c.querySelector('[data-kpg]');if(b)b.setAttribute('aria-pressed',on)});
-  const p=$('#kpPanel');if(p){p.outerHTML=panelHTML(pl);const n=$('#kpPanel');if(n&&!RM()){n.classList.add('pg-fx');setTimeout(()=>n.classList.remove('pg-fx'),500)}}
+  const p=$('#kpPanel');if(p){p.outerHTML=panelHTML(pl);const n=$('#kpPanel');if(n){n.classList.add('pg-fx');setTimeout(()=>n.classList.remove('pg-fx'),500)}}
   const lv=$('#live');if(lv){const z=pl.zones.find(z=>z.id===id);lv.textContent=`נבחר השלב: ${z.t}, ${pgPct(z)}%`}}
 
 /* ---------- what to do now: one step at a time ---------- */
@@ -7159,7 +7243,7 @@ function renderPath(){
   if(KP.wiz.active)return safe(wizardHTML,'');
   safe(visitNote); /* F2a: the day of my last visit, decided once per page load */
   /* arriving from another page starts at the landing (all my targets when I have several); a redraw in place keeps where I am */
-  if(typeof NAVT!=='undefined'&&KP.navT!==NAVT){KP.navT=NAVT;KP.trGo=false;KP.trXf=null;KP.trXc=null;KP.zsel='';KP.pgDone=false;KP.back='';KP.qfx=null;KP.qpause=false;if(S.navDir!=='back'||KP.land){KP.view=KP.land;KP.tab='now'}KP.land=''}
+  if(typeof NAVT!=='undefined'&&KP.navT!==NAVT){KP.navT=NAVT;KP.trGo=false;KP.trXf=null;KP.trXc=null;KP.zsel='';KP.pgDone=false;KP.back='';KP.lp=null;KP.qfx=null;KP.qpause=false;if(S.navDir!=='back'||KP.land){KP.view=KP.land;KP.tab='now'}KP.land=''}
   /* the landing is decided once, on arrival; after that the view stays where I put it (adding a target from the options must not throw me to the hub) */
   if(!KP.view)KP.view=tList().length>1?'hub':'road';
   if(curView()==='hub')return safe(hubPageHTML,'');
@@ -7435,7 +7519,7 @@ function optHTML(pl){
         ${ckHTML({s:'na',t:'הנדסאים וטכנאים',d:'לימודי מה"ט במכללות הטכנולוגיות, כולל מכינה טכנולוגית למי שחסרים לו מקצועות.',go:'tech',gl:'להנדסאים וטכנאים'})}</div></div></div>
     ${sim.length?`<h3 class="kp-h3">תארים קרובים שהמספרים שלי מספיקים להם</h3><div class="grid kp-sg">${sim.slice(0,4).map((x,i)=>card(x.d,{delay:i*30,foot:foot(x)})).join('')}</div>`:''}
     <div class="sec-h" style="margin-top:28px"><div><h3 class="kp-h3" style="margin:0">מה אפשר ללמוד עם המספרים האלה? <span class="kp-cnt num">${fmt(reach.length)}</span></h3><p>דוגמאות מתוך כל התארים, לפי הנתונים שפורסמו. תחילה תחום היעד שלי.</p></div>${arrows('kp-strip')}</div>
-    ${reach.length?`<div class="strip" id="kp-strip">${reach.slice(0,16).map(x=>card(x.d,{foot:foot(x)})).join('')}</div>${hasReal()?`<div class="more" style="margin-top:12px"><button class="btn soft" data-go="me">לכל ${fmt(reach.length)} התארים</button></div>`:''}`:'<div class="empty"><h3>במספרים האלה עוד לא נמצאו תארים שנבדקו</h3><p>אפשר להזיז את המספרים בכלי "כמה חסר לי?", או להתחיל באוניברסיטה הפתוחה.</p></div>'}
+    ${reach.length?`<div class="strip" id="kp-strip">${reach.slice(0,16).map(x=>card(x.d,{foot:foot(x)})).join('')}</div>${hasReal()?`<div class="more" style="margin-top:12px"><button class="btn soft" data-go="me">לכל ${fmt(reach.length)} התארים</button></div>`:''}`:'<div class="empty"><h3 aria-level="2">במספרים האלה עוד לא נמצאו תארים שנבדקו</h3><p>אפשר להזיז את המספרים בכלי "כמה חסר לי?", או להתחיל באוניברסיטה הפתוחה.</p></div>'}
     <p class="fine">הרשימה מבוססת רק על תנאי קבלה שפורסמו ונאספו כאן. לא מכל המוסדות נאספו ספים (למשל בר-אילן), ולכן היא חלקית. עמידה בתנאים אינה מבטיחה קבלה.</p>${cycleNote()}
     ${typeof progsHTML==='function'?safe(()=>progsHTML(pl),''):''}`}
 
@@ -7563,7 +7647,7 @@ function clGrid(L){
   const cells=[];for(let i=0;i<lead;i++)cells.push('');
   for(let d=1;d<=days;d++){const iso=isoOf(Y,M,d),E=by[iso]||[],dow=(lead+d-1)%7;
     const nm=E.length?`${E.length===1?'אירוע אחד':E.length+' אירועים'}: ${E.slice(0,3).map(clShort).join(', ')}`:'אין אירועים';
-    cells.push(`<button type="button" class="cl-d${iso===tdy?' today':''}${iso===KC.sel?' sel':''}${E.length?' has':''}${dow>=5?' wk':''}" data-kcd="${iso}" aria-pressed="${iso===KC.sel}" aria-label="${d} ב${HMON[M-1]} ${Y}, יום ${HDOWL[dow]}, ${esc(nm)}${iso===tdy?', היום':''}"><b class="num">${d}</b>${E.length?`<span class="cl-ev" aria-hidden="true">${E.slice(0,2).map(x=>`<i class="${x.k}${x.approx?' approx':''}">${esc(clShort(x))}</i>`).join('')}${E.length>2?`<em>+${E.length-2}</em>`:''}</span><span class="cl-dots" aria-hidden="true">${[...new Set(E.map(x=>x.k))].slice(0,4).map(k=>`<s class="${k}"></s>`).join('')}</span>`:''}</button>`)}
+    cells.push(`<button type="button" class="cl-d${iso===tdy?' today':''}${iso===KC.sel?' sel':''}${E.length?' has':''}${dow>=5?' wk':''}" data-kcd="${iso}" aria-pressed="${iso===KC.sel}"><b class="num" aria-hidden="true">${d}</b><span class="sr">${d} ב${HMON[M-1]} ${Y}, יום ${HDOWL[dow]}${iso===tdy?', היום':''}. ${esc(nm)}</span>${E.length?`<span class="cl-ev" aria-hidden="true">${E.slice(0,2).map(x=>`<i class="${x.k}${x.approx?' approx':''}">${esc(clShort(x))}</i>`).join('')}${E.length>2?`<em>+${E.length-2}</em>`:''}</span><span class="cl-dots" aria-hidden="true">${[...new Set(E.map(x=>x.k))].slice(0,4).map(k=>`<s class="${k}"></s>`).join('')}</span>`:''}</button>`)}
   while(cells.length%7)cells.push('');
   const rows=[];for(let i=0;i<cells.length;i+=7)rows.push(`<tr>${cells.slice(i,i+7).map(c=>`<td>${c}</td>`).join('')}</tr>`);
   return `<table class="cl-g" aria-labelledby="clMon"><thead><tr>${HDOW.map((h,i)=>`<th scope="col" abbr="${HDOWL[i]}"${i>=5?' class="wk"':''}>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table>`}
@@ -7609,7 +7693,8 @@ function clRepaint(focusSel){const pl=safe(plan),r=$('#clMain');if(!pl||!r)retur
 function clMonth(v){
   const [Y,M]=(/^\d{4}-\d{2}$/.test(KC.m)?KC.m:isoD(today0()).slice(0,7)).split('-').map(Number);let y=Y,m=M;
   if(v==='today'){const t=today0();y=t.getFullYear();m=t.getMonth()+1}else{m+=+v;if(m<1){m=12;y--}if(m>12){m=1;y++}}
-  KC.m=y+'-'+String(m).padStart(2,'0');KC.sel='';clRepaint(`[data-kcm="${v}"]`)}
+  KC.m=y+'-'+String(m).padStart(2,'0');KC.sel='';clRepaint(`[data-kcm="${v}"]`);
+  const g=$('#clMain .cl-g');if(g)g.classList.add(v==='today'?'sl-t':+v>0?'sl-n':'sl-p')}
 /* the files: one event, the sittings of one subject, or everything the list shows */
 const ICS_T='text/calendar;charset=utf-8';
 function icsOne(id){const pl=safe(plan,null),x=calPool(pl).find(e=>e.id===id);if(!x)return;
@@ -8114,7 +8199,7 @@ function explorePool(){
 }
 function gridHTML(){
   const P=explorePool(), spb='';
-  if(!P.length)return spb+`<div class="empty"><h3>לא נמצאו תארים</h3><p>${Object.values(S.f).some(Boolean)?'אפשר להסיר חלק מהסינונים, או ':''}לנסות מילה אחרת, שם של מקצוע (למשל "מתכנת") או שם של מוסד.</p>${Object.values(S.f).some(Boolean)?'<div style="margin-top:14px"><button class="btn soft" data-fclear>ניקוי הסינון</button></div>':''}</div>`;
+  if(!P.length)return spb+`<div class="empty"><h3 aria-level="2">לא נמצאו תארים</h3><p>${Object.values(S.f).some(Boolean)?'אפשר להסיר חלק מהסינונים, או ':''}לנסות מילה אחרת, שם של מקצוע (למשל "מתכנת") או שם של מוסד.</p>${Object.values(S.f).some(Boolean)?'<div style="margin-top:14px"><button class="btn soft" data-fclear>ניקוי הסינון</button></div>':''}</div>`;
   const shown=P.slice(0,S.shown);
   return spb+`<div class="grid">${shown.map((d,i)=>card(d,{delay:Math.min(i%48,12)*30})).join('')}</div>${P.length>S.shown?`<div class="more"><button class="btn soft" data-more>להציג עוד (${P.length-S.shown} נוספים)</button></div>`:''}`;
 }
@@ -8200,7 +8285,7 @@ function thrTable(iid,rows,d){
       <td class="v num">${r.v!=null?fmt(r.v,DP[iid]&&r.v%1?DP[iid]:0):esc(r.txt||'—')}</td>
       ${sc?`<td class="num">${e&&e.score!=null?fmt(e.score,DP[iid]||0):'—'}</td><td>${verdict}</td>`:''}</tr>`;
   }).join('');
-  return `<div class="thr"><table class="num"><thead><tr><th>המסלול כפי שמופיע בטבלה הרשמית</th><th>סף (${esc(unit)})</th>${sc?'<th>הציון שלי</th><th></th>':''}</tr></thead><tbody>${body}</tbody></table></div>
+  return `<div class="thr"><table class="num"><thead><tr><th>המסלול כפי שמופיע בטבלה הרשמית</th><th>סף (${esc(unit)})</th>${sc?'<th>הציון שלי</th><th><span class="sr">מצב</span></th>':''}</tr></thead><tbody>${body}</tbody></table></div>
     ${rows.length>12?`<p class="cite">מוצגים 12 מתוך ${rows.length} מסלולים תואמים. הטבלה המלאה באתר המוסד.</p>`:''}
     <p class="cite">מקור: <a href="${esc(src.src)}" target="_blank" rel="noopener">${esc(siteHost(src.src))}</a>, ${esc(src.year)}${src.calc?` · <a href="${esc(src.calc)}" target="_blank" rel="noopener">המחשבון הרשמי</a>`:''}${src.sheet?` · <a href="${esc(src.sheet)}" target="_blank" rel="noopener">הטבלה המלאה</a>`:''}. עמידה בסף היא תנאי ראשון; לכל מסלול יש גם דרישות נוספות (אנגלית, מתמטיקה ועוד).</p>${cycleNote(iid)}<div class="ft-err"><button type="button" class="btn soft sm" data-ftr="thr|${iid}|${d.id}">מצאתי טעות בטבלה</button></div>`;
 }
@@ -8282,7 +8367,7 @@ const BACK=`<button class="back" data-back><svg viewBox="0 0 24 24" fill="none" 
 function pageHead(t,s){return `<section class="hero" style="padding-bottom:10px"><div class="wrap">${BACK}<h1 style="font-size:clamp(36px,5vw,56px);margin-block:8px 10px">${t}</h1><p class="sub">${s}</p></div></section>`}
 function renderList(){
   const L=[...S.list].map(id=>BY[id]).filter(Boolean);
-  return pageHead('הרשימה שלי','תארים ששמרת כדי לחזור אליהם ולהשוות ביניהם.')+`<section class="sec"><div class="wrap">${L.length?`<div class="grid">${L.map((d,i)=>card(d,{delay:i*40})).join('')}</div>`:`<div class="empty"><h3>הרשימה שלי מחכה</h3><p>לחיצה על הלב בכל כרטיס שומרת את התואר כאן.</p><div style="margin-top:18px"><button class="btn primary" data-go="home">לגלות תארים</button></div></div>`}</div></section>`;
+  return pageHead('הרשימה שלי','תארים ששמרת כדי לחזור אליהם ולהשוות ביניהם.')+`<section class="sec"><div class="wrap">${L.length?`<div class="grid">${L.map((d,i)=>card(d,{delay:i*40})).join('')}</div>`:`<div class="empty"><h3 aria-level="2">הרשימה שלי מחכה</h3><p>לחיצה על הלב בכל כרטיס שומרת את התואר כאן.</p><div style="margin-top:18px"><button class="btn primary" data-go="home">לגלות תארים</button></div></div>`}</div></section>`;
 }
 /* how old the data is, and (when the watch has run) what changed in the sources since */
 function freshHTML(){
@@ -8324,7 +8409,7 @@ function srcSection(){
    a field that is still empty is shown as "not entered yet", never as a made-up name, phone number or address. */
 const OPERATOR={name:'',phone:'',address:''};
 const A11Y_COORD={name:'',email:'',phone:'',address:''};
-const LEGAL_UPDATED='2026-10-25',A11Y_CHECKED='2026-10-22'; /* update the first whenever a legal text changes; the second only when the checks are run again */
+const LEGAL_UPDATED='2026-10-25',A11Y_CHECKED='2026-10-25'; /* update the first whenever a legal text changes; the second only when the checks are run again */
 const lgConsent=w=>`<p class="fine lg-cons">${w} אתם מסכימים ל<a href="#terms" target="_blank" rel="noopener">תקנון</a> ול<a href="#privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> של האתר.</p>`;
 const lgMail=e=>/^[^\s@<>"']+@[^\s@<>"']+$/.test(e||'')?`<a href="mailto:${esc(e)}" dir="ltr">${esc(e)}</a>`:'';
 const lgTel=p=>String(p||'').replace(/[^\d+]/g,'').length>=7?`<a href="tel:${esc(String(p).replace(/[^\d+]/g,''))}" dir="ltr">${esc(p)}</a>`:'';
@@ -8407,7 +8492,7 @@ function renderA11y(){
      <li>לכל מסך יש כותרת עמוד וכותרת ראשית, והמבנה מסומן באזורים (כותרת, ניווט, תוכן ראשי ותחתית).</li>
      <li>בכל מעבר בין מסכים המיקוד עובר לכותרת המסך, וכותרת הדפדפן מתעדכנת.</li>
      <li>לשדות הטפסים יש תוויות, ויש אזורי הודעה שמקריאים לקורא מסך עדכוני מצב.</li>
-     <li>אפשר להגדיל את התצוגה עד 150% בתפריט הנגישות (במסכים צרים ההגדלה מוגבלת כדי שהתוכן לא ייחתך, ואפשר להגדיל עוד בהגדרות הדפדפן), להפעיל ניגודיות גבוהה, להדגיש קישורים, לעבור לגופן פשוט ולכבות אנימציות. האתר מכבד גם את הגדרת "הפחתת תנועה" של מערכת ההפעלה.</li>
+     <li>אפשר להגדיל את התצוגה עד 150% בתפריט הנגישות (במסכים צרים ההגדלה מוגבלת כדי שהתוכן לא ייחתך, ואפשר להגדיל עוד בהגדרות הדפדפן), להפעיל ניגודיות גבוהה, להדגיש קישורים, לעבור לגופן פשוט ולכבות אנימציות. האתר מכבד גם את הגדרת "הפחתת תנועה" של מערכת ההפעלה: אז שום דבר לא זז על המסך ולא חוזר על עצמו, והמעברים נשארים בעמעום ובשינוי צבע עדינים (ואפשר גם לבחור אפקטים מלאים, עדינים או כבויים).</li>
      <li>מצב (נבחר, שגיאה, הושלם) מסומן בדרך כלל גם בטקסט או בסמל, ולא בצבע בלבד.</li>
      <li>אין שמע או וידאו שמתנגנים לבד, ואין הבהובים מהירים.</li>
      <li>ב-${esc(dLong(A11Y_CHECKED))} הורצה בדיקה אוטומטית לנגישות (axe-core) על המסכים הראשיים בתצוגת מחשב ובתצוגת טלפון, וגם סריקת מקלדת אוטומטית בחלק מהמסכים. בדיקה אוטומטית מזהה רק חלק מהליקויים.</li></ul>
@@ -8754,7 +8839,7 @@ function schBody(){
     ${grp('yes','מתאימות','לפי מה שסיפרתי, התנאים שאנחנו מכירים מתקיימים. ההכרעה בזכאות היא של הגוף המעניק.')}
     ${grp('maybe','כנראה מתאימות','חלק מהתנאים מתקיימים וחלק עוד לא ידועים או נבדקים רק מול הגוף.',8)}
     ${grp('check','לבדוק','אין לנו מספיק מידע כדי לדעת, או שיש תנאי שלא נראה שמתקיים. כדאי לקרוא את התנאים בדף של הגוף.',8)}
-    ${L.length?'':'<div class="empty"><h3>אין רשומות לסינון הזה</h3><p>אפשר לשנות את סוג המלגה או להציג את כל המוסדות.</p></div>'}
+    ${L.length?'':'<div class="empty"><h3 aria-level="2">אין רשומות לסינון הזה</h3><p>אפשר לשנות את סוג המלגה או להציג את כל המוסדות.</p></div>'}
     <section class="sc-g" aria-labelledby="scg-i"><h2 id="scg-i">מלגות וסיוע לפי מוסד <span class="num">(${I.length})</span></h2>
       <p class="sc-fine">כל מוסד מפרסם בעצמו מלגות והטבות. אין לנו כתובת מאומתת של עמוד המלגות בכל מוסד, ולכן הקישורים כאן הם לאתרי המוסדות, ושם מחפשים "מלגות" או "דיקנאט הסטודנטים".</p>
       ${SCF.inst?'':`<button type="button" class="btn soft sm" data-sch="insts">${SCF.insts?'הסתרת הרשימה':'הצגת כל המוסדות'}</button>`}
@@ -8856,7 +8941,7 @@ function render(){
   else if(r.v==='sch')html=renderSch();
   else html=renderHome();
   if(r.v==='deg'||r.v==='occ'||r.v==='mh')html+=qaFab();
-  app.innerHTML=`<div class="view ${S.navDir==='back'?'vw-ret':S.navDir==='fwd'?'vw-new':''}">${html}</div>`;S.navDir='';
+  app.innerHTML=`<div class="view ${S.navDir==='back'?'vw-ret':S.navDir==='fwd'?'vw-new':'vw-same'}">${html}</div>`;S.navDir='';
   renderTray();
   if(r.v==='home')bindSearch();
   if(r.v==='jobs')bindJobs();
@@ -8887,13 +8972,19 @@ function onRoute(){
   else if(st[st.length-1]!==h)st.push(h);
   const rest=back&&NAV.y[h]!=null;
   S.route=parse();S.navDir=rest?'back':'fwd';NAVT=Date.now();
-  if(rest&&S.route.v==='forum')FF.keep=true; /* going back to the Q&A keeps the filters I chose */if(S.route.v==='dir'&&DIRV.mode!=='q')DIRV.mode='';closeOv(true);routeBar();render();
-  if(S.route.v==='home'&&S.pendingExplore){S.pendingExplore=false;window.scrollTo({top:0,behavior:'instant'});requestAnimationFrame(()=>$('#explore')?.scrollIntoView({behavior:'smooth'}))}
-  /* back: the previous screen at the exact same place, set before it is painted (and once more after, in case something grew) */
-  else if(rest){const y=NAV.y[h];window.scrollTo({top:y,left:0,behavior:'instant'});requestAnimationFrame(()=>{if(Math.abs(scrollY-y)>2)window.scrollTo({top:y,left:0,behavior:'instant'})})}
-  else window.scrollTo({top:0,left:0,behavior:'instant'});
-  a11yRoute(newScreen);
-}
+  if(rest&&S.route.v==='forum')FF.keep=true; /* going back to the Q&A keeps the filters I chose */if(S.route.v==='dir'&&DIRV.mode!=='q')DIRV.mode='';
+  const swap=()=>{closeOv(true);routeBar();render();
+    if(S.route.v==='home'&&S.pendingExplore){S.pendingExplore=false;window.scrollTo({top:0,behavior:'instant'});requestAnimationFrame(()=>$('#explore')?.scrollIntoView({behavior:'smooth'}))}
+    /* back: the previous screen at the exact same place, set before it is painted (and once more after, in case something grew) */
+    else if(rest){const y=NAV.y[h];window.scrollTo({top:y,left:0,behavior:'instant'});requestAnimationFrame(()=>{if(Math.abs(scrollY-y)>2)window.scrollTo({top:y,left:0,behavior:'instant'})})}
+    else window.scrollTo({top:0,left:0,behavior:'instant'});
+    a11yRoute(newScreen)};
+  vtRun(swap,!rest&&newScreen)}
+/* a new screen replaces the old one with a cross-fade (View Transitions) where the browser has it. Going back, the same screen and the "no animation" setting swap at once */
+function vtRun(fn,ok){
+  const d=document,h=d.documentElement;
+  if(!ok||NM()||typeof d.startViewTransition!=='function'||d.hidden){fn();return}
+  try{h.classList.add('vt');const t=d.startViewTransition(()=>{fn()});const done=()=>h.classList.remove('vt');t.finished.then(done,done)}catch(e){h.classList.remove('vt');fn()}}
 let ROUTE_H=location.hash.slice(1);
 function go(h){
   NAV.y[location.hash.slice(1)]=scrollY;
