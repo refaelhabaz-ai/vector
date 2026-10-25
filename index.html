@@ -1886,12 +1886,82 @@ html.rm .kp-mbar i{transition:none}
 .tn-gap{margin-top:14px;padding:12px 16px;border-radius:14px;background:#F1F4FD}
 .sc-qw{margin:6px 0;font-size:15.5px;line-height:1.7}
 .sc-q .chip,.sc-me .chip,.kp-qc .chip{white-space:normal;max-width:100%;text-align:start;line-height:1.35;border-radius:18px;min-height:44px}
-.rg{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(18px,3vw,40px);align-items:center}
-.rg-f{margin:0}.rg-f svg{width:100%;height:auto;display:block;background:linear-gradient(180deg,#F1F4FD,#FFF7F2);border-radius:24px;padding:8px}
-.rg-f figcaption{color:var(--muted);font-size:14px;margin-top:8px}
-.rg-n{font:600 14px var(--head);fill:#1F2544}.rg-v{font:700 18px var(--head);fill:#1F2544}.rg-s{font:500 12.5px var(--body);fill:#3D4468}
-.rg-t p{margin:0 0 10px}.rg-w{color:var(--muted);font-size:15.5px}
-@media(max-width:700px){.rg{grid-template-columns:1fr}.rg-f{max-width:320px;margin-inline:auto}}
+/* ---------- salary and demand by area: a schematic map, two highlights, four rows (rz-) ---------- */
+.rz .intro{max-width:72ch}
+.rz-top{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin:4px 0 18px}
+.rz-seg{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:#fff;box-shadow:var(--shadow)}
+.rz-seg button{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-family:var(--head);font-weight:600;font-size:15px;color:var(--muted);transition:background .25s,color .25s,box-shadow .25s}
+.rz-seg button svg{width:18px;height:18px}
+.rz-seg button:hover{color:var(--ink)}
+.rz-seg button[aria-pressed="true"]{background:var(--cta-grad);color:#fff;box-shadow:0 8px 18px rgba(214,64,29,.28)}
+.rz-oc{display:flex;flex-wrap:wrap;gap:8px;min-width:0}
+.rz-oc button{padding:8px 14px;border-radius:999px;background:#fff;box-shadow:var(--shadow);font-size:14px;font-weight:600;color:var(--ink);border:2px solid transparent;transition:border-color .2s,transform .2s}
+.rz-oc button:hover:not([disabled]){transform:translateY(-1px)}
+.rz-oc button[aria-pressed="true"]{border-color:var(--ink)}
+.rz-oc button[disabled]{color:var(--muted);cursor:not-allowed;box-shadow:none;background:transparent;border:1.5px dashed var(--line)}
+.rz-body{display:grid;grid-template-columns:minmax(0,330px) minmax(0,1fr);gap:clamp(20px,3.5vw,44px);align-items:start}
+.rz-fig{margin:0;background:linear-gradient(180deg,#F1F4FD,#FFF8F4);border-radius:24px;padding:14px 12px 12px}
+.rz-fig figcaption{color:var(--muted);font-size:13.5px;margin-top:8px;text-align:center}
+.rz-svg{width:100%;height:auto;display:block;overflow:visible}
+.rz-r{stroke:#fff;stroke-width:3;stroke-linejoin:round;cursor:pointer;transition:fill .6s cubic-bezier(.2,.8,.2,1),stroke .25s,filter .25s}
+.rz-r:hover{filter:brightness(.94)}
+.rz-r.on{stroke:var(--ink);stroke-width:3.5}
+.rz-w{fill:#CFE5FF;opacity:.9;pointer-events:none}
+.rz-cy{fill:var(--ink);pointer-events:none}
+.rz-cn{font:600 10px var(--head);fill:#3D4468;paint-order:stroke;stroke:rgba(255,255,255,.9);stroke-width:3px;pointer-events:none}
+.rz-ld{stroke:var(--ink);stroke-width:1.5;stroke-dasharray:3 3;fill:none;pointer-events:none}
+.rz-dt{fill:var(--ink);pointer-events:none}
+.rz-b{cursor:pointer}
+.rz-b rect{fill:#fff;stroke:#C8CEE3;stroke-width:1.5;transition:fill .25s,stroke .25s}
+.rz-bn{font:600 11.5px var(--head);fill:#3D4468}
+.rz-bv{font:700 14px var(--head);fill:var(--ink)}
+.rz-b.none .rz-bv{font:500 12px var(--body);fill:var(--muted)}
+.rz-b.on rect{fill:var(--ink);stroke:var(--ink)}
+.rz-b.on .rz-bn{fill:#D9DDF0}
+.rz-b.on .rz-bv{fill:#fff}
+.rz-key{display:grid;gap:6px;margin-top:10px;font-size:12.5px;color:var(--muted)}
+.rz-lg i{display:block;height:10px;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(31,37,68,.08)}
+.rz-lt{display:flex;justify-content:space-between;gap:8px}
+.rz-lt span:nth-child(2){color:var(--ink);font-weight:600;text-align:center}
+.rz-lh{display:flex;align-items:center;gap:6px}
+.rz-lh i{width:14px;height:14px;border-radius:4px;flex:none;background:repeating-linear-gradient(45deg,#F1F3FA 0 3px,#D5DAEA 3px 6px);box-shadow:inset 0 0 0 1px #C8CEE3}
+.rz-pan{display:grid;gap:16px;min-width:0}
+.rz-hl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.rz-c{display:flex;gap:12px;align-items:flex-start;text-align:right;background:#fff;border-radius:20px;padding:14px 16px;box-shadow:var(--shadow);border:2px solid transparent;transition:transform .2s,box-shadow .2s,border-color .2s}
+button.rz-c:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
+.rz-c.none{box-shadow:none;border:1.5px dashed var(--line);background:transparent}
+.rz-ci{flex:none;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--c3);color:var(--ink)}
+.rz-ci svg{width:20px;height:20px}
+.rz-ct{display:grid;gap:1px;min-width:0}
+.rz-ct small{color:var(--muted);font-size:13px}
+.rz-ct b{font-family:var(--head);font-size:17px;line-height:1.25}
+.rz-ct em{font-style:normal;font-family:var(--head);font-weight:700;font-size:16px}
+.rz-ct span{color:var(--muted);font-size:13px}
+.rz-rows{display:grid;gap:8px}
+.rz-rw{display:grid;grid-template-columns:minmax(88px,130px) minmax(0,1fr) minmax(64px,auto);gap:12px;align-items:center;padding:10px 14px;border-radius:16px;background:#fff;box-shadow:var(--shadow);text-align:right;border:2px solid transparent;transition:border-color .2s,box-shadow .2s}
+.rz-rw:hover{box-shadow:var(--shadow-h)}
+.rz-rw.on{border-color:var(--ink)}
+.rz-rn{font-family:var(--head);font-weight:600;font-size:15px}
+.rz-rb{position:relative;height:12px;border-radius:8px;background:#EEF0F8;overflow:hidden}
+.rz-rb i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--c2),var(--c1));transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.rz-rw.none .rz-rb{background:repeating-linear-gradient(45deg,#F1F3FA 0 4px,#E1E5F2 4px 8px)}
+.rz-rw b{font-family:var(--head);font-size:15px;text-align:left}
+.rz-rw.none b{font-weight:500;color:var(--muted);font-size:13.5px}
+.rz-detw{background:#fff;border-radius:22px;padding:18px 20px;box-shadow:var(--shadow);min-height:120px}
+.rz-detw h3{margin:0 0 10px;font-size:20px}
+.rz-detw dl{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px}
+.rz-detw dl>div{display:grid;gap:2px;align-content:start}
+.rz-detw dt{color:var(--muted);font-size:14px}
+.rz-detw dd{margin:0;font-family:var(--head);font-weight:700;font-size:22px}
+.rz-detw dd small{display:block;font:500 13.5px var(--body);color:var(--muted)}
+.rz-fn{color:var(--muted);font-size:14px;margin:12px 0 0}
+.rz-an{margin:12px 0 0;padding-top:10px;border-top:1px dashed var(--line);font-size:15px}
+.rz-fx{animation:rzIn .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes rzIn{from{opacity:.35;transform:translateY(6px)}to{opacity:1;transform:none}}
+.rz-how{margin-top:18px}
+@media(max-width:820px){.rz-body{grid-template-columns:minmax(0,1fr)}.rz-fig{max-width:360px;width:100%;margin-inline:auto}}
+@media(max-width:560px){.rz-hl{grid-template-columns:minmax(0,1fr)}.rz-detw dl{grid-template-columns:minmax(0,1fr)}.rz-seg{display:flex;width:100%}.rz-seg button{flex:1 1 0;justify-content:center;padding:10px 6px;font-size:14px;line-height:1.2}.rz-seg button svg{display:none}.rz-rw{grid-template-columns:minmax(72px,92px) minmax(0,1fr) minmax(56px,auto);gap:8px;padding:10px}}
+html.hc .rz-r{stroke:#000}
 .hdr::after{content:"";position:absolute;inset-inline-start:0;bottom:-1px;height:3px;width:var(--sp,0%);background:linear-gradient(to left,var(--primary),#FFC53D);border-radius:0 3px 3px 0;opacity:0;transition:opacity .25s;pointer-events:none}
 .hdr.scrolled::after{opacity:1}
 .hero::before{transform:translateY(calc(var(--sy,0)*.08px))}.hero::after{transform:translateY(calc(var(--sy,0)*-.05px))}
@@ -2083,7 +2153,7 @@ function careerTiles(f){
 
 function careerSections(d){
   const f=fieldOf(d);
-  if(!f) return `<section class="blk"><h2>שכר ותעסוקה</h2><div class="nodata">לתואר הזה אין עמוד תואם במאגר הלימודים של <a href="${AVURL}/education" target="_blank" rel="noopener">עבודאטה</a> (משרד העבודה), ולכן לא מוצגים כאן נתוני שכר ותעסוקה. לא השלמנו אותם בהערכה.</div></section>`;
+  if(!f) return `<section class="blk"><h2>שכר ותעסוקה</h2><div class="nodata">לתואר הזה אין עמוד תואם במאגר הלימודים של <a href="${AVURL}/education" target="_blank" rel="noopener">עבודאטה</a> (משרד העבודה), ולכן לא מוצגים כאן נתוני שכר ותעסוקה, ולא פירוט לפי אזור. לא השלמנו אותם בהערכה.</div></section>`;
   const label=d.avHow==='exact'?'':`<div class="srcnote" style="margin-bottom:18px">${ICON.doc}<div>הנתונים בעמוד הזה הם של התחום <b>"${esc(f.n)}"</b> במאגר עבודאטה, שהוא התחום הרשמי הקרוב ביותר לתואר הזה. ייתכנו הבדלים בין התוכנית הספציפית לבין התחום הכללי.</div></div>`;
   const st=f.stats||{};
   const split=Object.keys(st).length>1?`<div class="thr" style="margin-top:16px"><table class="num"><thead><tr><th></th>${Object.keys(st).map(k=>`<th>${esc(k)}</th>`).join('')}</tr></thead><tbody>
@@ -2104,9 +2174,11 @@ function careerSections(d){
 
     <section class="blk"><h2>לאן זה מוביל</h2><p class="intro">התחומים שבהם עובדים רוב הבוגרים${f.occLink&&LINKW[f.occLink]?`. לפי עבודאטה, הקשר בין התואר לתחומי העיסוק <b>${LINKW[f.occLink]}</b>`:''}. לחיצה על תחום פותחת עמוד מפורט עליו.</p>
       ${occ.length?`<div class="jobs">${occ.map(o=>`<button class="job" data-occ="${o.id}" style="text-align:right;flex-direction:column;align-items:flex-start;gap:6px"><span style="display:flex;gap:12px;align-items:center"><i><svg viewBox="0 0 24 24">${IC.bag}</svg></i>${esc(o.n)}</span>${o.sal?`<span class="tag m num">שכר ממוצע בתחום: ${shek(o.sal)}</span>`:''}<span class="sub" style="font-weight:400;font-size:14px">${esc(o.d||'')}</span></button>`).join('')}</div>`:'<div class="nodata">לא פורסמו תחומי עיסוק עיקריים לתחום הזה.</div>'}
-      ${occ.length?`<p class="fine">שכר ומקום העבודה לפי אזור לא מתפרסמים לפי תואר, ולכן אין לנו נתון אזורי לתואר עצמו. לכל תחום עיסוק מהרשימה יש פירוט לפי אזור בעמוד התחום, כשעבודאטה פרסמה נתון.</p>`:''}
+      ${occ.length?`<p class="fine">שכר ומקום העבודה לפי אזור לא מתפרסמים לפי תואר. בהמשך העמוד יש תמונה אזורית שמחושבת מהמקצועות האלה, ולכל מקצוע יש פירוט משלו בעמוד המקצוע, כשעבודאטה פרסמה נתון.</p>`:''}
       ${(f.anaf||[]).length?`<h3>באילו ענפים עובדים הבוגרים</h3><div class="salbox">${hbars(f.anaf.map(a=>({x:a.n,v:a.p})),{max:100,fmtv:v=>v+'%'})}</div>`:''}
       ${AVSRC('Academic/'+d.av)}</section>
+
+    ${safe(()=>rzHTML(rzSrcDeg(d)),'')}
 
     ${inst.length?`<section class="blk"><h2>השוואה בין מוסדות</h2><p class="intro">נתוני הבוגרים והמתקבלים לפי מוסד. כוכבית מסמנת נתון שמבוסס על מספר קטן של מקרים.</p>
       <div class="thr"><table class="num"><thead><tr><th>מוסד</th><th>שכר (5–6 שנים)</th><th>תעסוקה</th><th>פסיכומטרי ממוצע</th><th>ממוצע בגרות משוקלל</th><th>מסיימים בזמן</th></tr></thead><tbody>
@@ -2563,9 +2635,10 @@ function renderMahat(i){
     ${pg.a?`<p class="dp-lead">${esc(pg.a)}</p>`:''}</div><div class="dp-art">${ill({id:'mh'+i,n:m.n,c:'eng'})}</div></div></section>
   <div class="wrap dp-body">
     <div class="tiles num"><div class="tile"><span class="lbl">נלמד ב</span><span class="val">${m.col.length} מכללות</span></div>
-      ${(pg.w||[]).map(w=>{const mm=w.match(/^(.*?):\s*(.*)$/);return `<div class="tile"><span class="lbl">${esc(mm?mm[1]:'שכר')}</span><span class="val">${esc((mm?mm[2]:w).replace(/\.$/,''))}</span><span class="hint">סקר בוגרי מה"ט</span></div>`}).join('')}</div>
+      ${(pg.w||[]).map(w=>{const mm=w.match(/^(.*?):\s*(.*)$/);return `<div class="tile"><span class="lbl">${esc(mm?mm[1]:'שכר')}</span><span class="val">${esc((mm?mm[2]:w).replace(/\.$/,''))}</span><span class="hint">סקר בוגרי מה"ט</span></div>`}).join('')}${safe(()=>rzTiles(rzSrcMh(m,i)),'')}</div>
     ${pg.s?`<section class="blk"><h2>מה לומדים</h2><div class="courses">${pg.s.split(/,\s*/).map(x=>`<div class="course"><i><svg viewBox="0 0 24 24">${IC.book}</svg></i>${esc(x.replace(/\.$/,''))}</div>`).join('')}</div></section>`:''}
     ${pg.j?`<section class="blk"><h2>אפשרויות תעסוקה</h2><p class="big">${esc(pg.j)}</p></section>`:''}
+    ${safe(()=>rzHTML(rzSrcMh(m,i)),'')}
     ${(pg.sub||[]).length?`<section class="blk"><h2>מגמות משנה</h2><div class="linkrow">${pg.sub.map(x=>`<span class="tag" style="font-size:15px">${esc(x)}</span>`).join('')}</div></section>`:''}
     ${av&&av.curve&&av.curve.length?`<section class="blk"><h2>שכר הבוגרים לפי שנים מסיום הלימודים</h2><div class="salbox">${hbars(av.curve.map(x=>({x:'אחרי '+x.y,v:x.v})))}</div>${AVSRC('MahatEducation/'+av.id)}</section>`:''}
     ${av&&av.adm&&av.adm.length&&!/לא ידוע/.test(av.adm[0])?`<section class="blk"><h2>תנאי קבלה בסיסיים</h2><div class="admin">${av.adm.map(x=>`<span class="tag" style="font-size:15px">${esc(x)}</span>`).join(' ')}</div>${AVSRC('MahatEducation/'+av.id)}</section>`:''}
@@ -2874,6 +2947,7 @@ function degreeTiles(d){
   if(s&&s.psy&&(exact||d.pro==='md'||d.pro==='dmd'))h+=t('פסיכומטרי ממוצע של המתקבלים',fmt(s.psy),(s.bagrut?'ממוצע בגרות משוקלל '+s.bagrut+' (יכול לעלות על 100 בגלל בונוסים) · ':'')+'עבודאטה'+(s.bagrut?factChip('avodata.bagrut'):''));
   if(profileOK()){const ok=d.of.filter(o=>{const c=instChecklist(d,o.i);return c&&c.s==='yes'}).length /* the same rule as the "אפשר להתקבל ל-N מוסדות" line below (the checklists), so the tile and the line never disagree */;h+=t('אפשר להתקבל',ok?`ל-${ok} מתוך ${nI}`:'עוד לא',ok?'לפי הפרופיל שלי':'מה צריך להשלים: ראו למטה',ok?'good':'')}
   if(!s&&!d.pro)h+=t('שכר ותעסוקה','אין נתון רשמי','לתואר אין עמוד תואם בעבודאטה');
+  h+=safe(()=>rzTiles(rzSrcDeg(d)),'');
   return h;
 }
 
@@ -3977,23 +4051,155 @@ function bindJobs(){
 }
 
 /* ---------- occupation page ---------- */
-/* ---------- salary and where people work, by area (occupation pages) ----------
-   Only Avodata's own area breakdown (g.Area): salary (v) and the share of the people employed in the occupation (p); an area with no published value
-   (v 0, marked grey by Avodata, usually a small sample) is shown as "no data" and never filled in. The four tiles are a schematic of where the areas lie,
-   not a map. This is where people work, not job openings: we have no official figure for vacancies by area. */
-const RG_TILES={'חיפה והצפון':{x:78,y:6,w:160,h:92},'ת"א והמרכז':{x:18,y:106,w:112,h:96},'ירושלים ויו"ש':{x:138,y:106,w:100,h:96},'דרום':{x:52,y:210,w:170,h:132}};
-function regMapHTML(o){const a=(o.g||{}).Area;if(!a||!a.s)return '';const R=a.s.filter(r=>RG_TILES[r.x]);if(!R.some(r=>r.v>0))return '';
-  const vals=R.filter(r=>r.v>0).map(r=>r.v),lo=Math.min(...vals),hi=Math.max(...vals);
-  const tile=r=>{const g=RG_TILES[r.x],has=r.v>0,t=has?(hi>lo?(r.v-lo)/(hi-lo):.6):0,fill=has?`color-mix(in srgb,#FF6B4A ${Math.round(18+t*62)}%,#fff)`:'url(#rgHatch)',cx=g.x+g.w/2;
-    return `<g><rect x="${g.x}" y="${g.y}" width="${g.w}" height="${g.h}" rx="22" fill="${fill}" stroke="${has?'#fff':'#B9BFD6'}" stroke-width="${has?3:1.5}" ${has?'':'stroke-dasharray="5 5"'}/>
-      <text x="${cx}" y="${g.y+g.h/2-(has?12:2)}" text-anchor="middle" class="rg-n">${esc(r.x)}</text>${has?`<text x="${cx}" y="${g.y+g.h/2+10}" text-anchor="middle" class="rg-v">${fmt(r.v)} ₪</text>${r.p?`<text x="${cx}" y="${g.y+g.h/2+30}" text-anchor="middle" class="rg-s">${fmt(r.p)}% מהעוסקים</text>`:''}`:`<text x="${cx}" y="${g.y+g.h/2+20}" text-anchor="middle" class="rg-s">אין נתון</text>`}</g>`};
-  const desc=R.map(r=>r.v>0?`${r.x}: שכר ממוצע ${fmt(r.v)} ₪${r.p?`, ${fmt(r.p)}% מהעוסקים`:''}`:`${r.x}: אין נתון`).join('. ');
-  const notes=Object.values(a.notes||{}).filter(v=>v&&v!=='לא ידוע').map(v=>esc(String(v).replace(/\$/g,' ')));
-  return `<section class="blk" id="regmap"><h2>איפה עובדים בתחום, ומה השכר בכל אזור</h2>
-    <div class="rg"><figure class="rg-f"><svg viewBox="0 0 250 350" role="img" aria-label="תרשים סכמטי של ארבעת האזורים. ${esc(desc)}"><defs><pattern id="rgHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#F1F3FA"/><line x1="0" y1="0" x2="0" y2="8" stroke="#D5DAEA" stroke-width="3"/></pattern></defs>${R.map(tile).join('')}</svg>
-      <figcaption>תרשים סכמטי של האזורים, לא מפה. ככל שהצבע כהה יותר, השכר בתחום הזה גבוה יותר באזור, ובאזור מקווקו אין נתון.</figcaption></figure>
-      <div class="rg-t"><p>${notes.length?notes.join(' · ')+'.':''}</p>
-        <p class="rg-w"><b>איך לקרוא:</b> השכר הוא ממוצע חודשי באזור, והאחוז הוא חלקו של האזור מכלל העוסקים בתחום. אלה נתוני עבודאטה לארבעה אזורים בלבד. אזור ללא נתון הוא אזור שעבודאטה לא פרסמה בו שכר, בדרך כלל כי המדגם קטן, ואנחנו לא משלימים אותו בהערכה. זה המקום שבו עובדים, ולא ביקוש: אין לנו נתון רשמי על משרות פנויות לפי אזור.</p></div></div></section>`}
+/* ---------- salary and where people work, by area (occupation pages, degree pages, technician track pages) ----------
+   The data is Avodata's own area breakdown of an occupation (g.Area): the monthly salary (v) and the share of the people employed in the occupation who work in the area (p).
+   An area Avodata did not publish (v and p are 0, marked grey: usually a small sample) is shown as "no data" and is never filled in.
+   DEMAND: there is no official figure for vacancies by area. What is shown, and said on the page, is where the people of the field work (their share by area), that is where most of its jobs are.
+   A degree or a technician track has no area breakdown of its own: it is built from the occupations its graduates work in (Avodata's own list), each counted by the number of people employed in it,
+   and the page says so; one occupation can be picked to see its own figures as published. The map is a schematic of the four areas Avodata uses, not a map of borders. */
+const RZ_NM={N:'חיפה והצפון',C:'תל אביב והמרכז',J:'ירושלים ויו"ש',S:'דרום'},RZ_SH={N:'צפון',C:'מרכז',J:'ירושלים',S:'דרום'},RZ_ID={'חיפה והצפון':'N','ת"א והמרכז':'C','ירושלים ויו"ש':'J','דרום':'S'},RZ_O=['N','C','J','S'];
+/* outlines of the four areas as longitude / latitude: a simplified schematic. The coast, the Sea of Galilee and the Dead Sea are for orientation only */
+const RZ_G={
+ N:[[35.10,33.09],[35.09,32.98],[35.06,32.90],[35.02,32.83],[34.96,32.82],[34.94,32.70],[34.91,32.55],[34.88,32.41],[34.98,32.47],[35.07,32.50],[35.32,32.54],[35.50,32.42],[35.55,32.40],[35.55,32.55],[35.57,32.69],[35.62,32.72],[35.80,32.70],[35.83,32.95],[35.85,33.15],[35.78,33.33],[35.62,33.28],[35.50,33.09],[35.33,33.07]],
+ C:[[34.88,32.41],[34.84,32.30],[34.79,32.16],[34.76,32.06],[34.71,31.95],[34.665,31.84],[34.85,31.82],[34.96,31.80],[34.99,31.85],[34.97,32.00],[34.97,32.19],[35.03,32.35],[35.07,32.50],[34.98,32.47]],
+ J:[[35.07,32.50],[35.32,32.54],[35.50,32.42],[35.55,32.40],[35.55,32.30],[35.54,32.00],[35.50,31.75],[35.44,31.55],[35.44,31.52],[35.30,31.45],[35.10,31.40],[34.95,31.45],[34.93,31.60],[34.95,31.72],[34.96,31.80],[34.99,31.85],[34.97,32.00],[34.97,32.19],[35.03,32.35]],
+ S:[[34.665,31.84],[34.56,31.66],[34.52,31.60],[34.56,31.56],[34.50,31.47],[34.40,31.37],[34.27,31.22],[34.40,30.88],[34.71,30.00],[34.89,29.51],[34.95,29.50],[35.00,29.55],[35.03,29.90],[35.15,30.40],[35.20,30.75],[35.40,31.05],[35.43,31.30],[35.44,31.52],[35.30,31.45],[35.10,31.40],[34.95,31.45],[34.93,31.60],[34.95,31.72],[34.96,31.80],[34.85,31.82]]};
+const rzXY=(lo,la)=>[(lo-33.95)*133,(33.5-la)*104];
+const RZ_PATH=Object.fromEntries(Object.entries(RZ_G).map(([k,a])=>[k,'M'+a.map(([lo,la])=>rzXY(lo,la).map(n=>n.toFixed(1)).join(' ')).join('L')+'Z']));
+/* where each label sits (b), and the point it points at when it stands outside its area (d) */
+const RZ_AN={N:{b:[35.45,32.97]},C:{b:[34.40,32.17],d:[34.84,32.15]},J:{b:[35.87,31.98],d:[35.28,32.0]},S:{b:[34.86,30.55]}};
+const RZ_CITY=[['חיפה',34.99,32.79],['תל אביב',34.78,32.08],['ירושלים',35.21,31.77],['באר שבע',34.79,31.25],['אילת',34.95,29.56]];
+/* one occupation: the areas Avodata published (v and p are both 0 in an area it did not) */
+function rzPick(o){const a=o&&o.g&&o.g.Area;if(!a||!a.s)return null;const r={};let any=false;
+  a.s.forEach(x=>{if(RZ_ID[x.x]&&x.v>0){r[RZ_ID[x.x]]={v:x.v,p:x.p||0};any=true}});return any?r:null}
+const rzW=o=>{const e=((o&&o.g&&o.g.employed)||[]).filter(x=>x.v);return e.length?e[e.length-1].v:0}; /* the people employed in the occupation, last year of the series */
+/* list: [{id,o}] -> the four areas. Salary of an area: the weighted average of the occupations that published it, shown only when they carry at least half of the weight.
+   Share of an area: the weighted share of the employed. hi is the most that share could be if the people nobody accounts for all worked in that area */
+function rzModel(list){
+  const rows=list.map(x=>({id:x.id,o:x.o,r:rzPick(x.o),w:rzW(x.o)})).filter(x=>x.r);
+  if(!rows.length)return null;
+  const known=rows.filter(x=>x.w>0),avg=known.length?known.reduce((a,x)=>a+x.w,0)/known.length:1;
+  rows.forEach(x=>{if(!(x.w>0))x.w=avg});
+  const W=rows.reduce((a,x)=>a+x.w,0),R={};
+  RZ_O.forEach(k=>{let ns=0,ds=0,sh=0,hid=0,n=0;
+    rows.forEach(x=>{const e=x.r[k];
+      if(e){ns+=x.w*e.v;ds+=x.w;sh+=x.w*e.p;n++}
+      else hid+=x.w*Math.max(0,100-RZ_O.reduce((a,j)=>a+(x.r[j]?x.r[j].p:0),0))});
+    R[k]={sal:ds/W>=.5?Math.round(ns/ds):0,share:Math.round(sh/W),lo:sh/W,hi:(sh+hid)/W,n}});
+  const pubS=RZ_O.filter(k=>R[k].sal>0).sort((a,b)=>R[b].sal-R[a].sal),pubD=RZ_O.filter(k=>R[k].lo>0).sort((a,b)=>R[b].lo-R[a].lo);
+  const topS=pubS[0]||'',topD=pubD[0]||'';
+  return {R,rows,n:rows.length,pubS,pubD,topS,topD,certD:!!topD&&RZ_O.every(k=>k===topD||R[topD].lo>=R[k].hi)}}
+/* ui state per page (never saved): m = what the map shows (sal | dem), r = the area in focus, o = one occupation, or all */
+const RZS={},RZR={};
+const rzSt=key=>RZS[key]||(RZS[key]={m:'sal',r:'',o:'all'});
+const rzList=(src,st)=>st.o!=='all'?src.occ.filter(x=>x.id===st.o):src.occ;
+function rzView(src,st){
+  const M=rzModel(rzList(src,st));if(!M)return null;
+  const v=st.m==='dem'?(k=>M.R[k].lo):(k=>M.R[k].sal),vals=RZ_O.map(v).filter(x=>x>0),lo=vals.length?Math.min(...vals):0,hi=vals.length?Math.max(...vals):0;
+  const t=k=>!(v(k)>0)?-1:hi>lo?(v(k)-lo)/(hi-lo):.6;
+  const has=k=>M.R[k].sal>0||M.R[k].lo>0;
+  const r=st.r&&has(st.r)?st.r:((st.m==='dem'?M.topD:M.topS)||M.topS||M.topD||'');
+  return {M,v,lo,hi,t,r,m:st.m,src}}
+const rzHex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const rzFill=(c,t)=>{if(t<0)return 'url(#rzHatch)';const a=rzHex(c[2]),b=rzHex(c[0]),u=.16+.84*t;return '#'+a.map((x,i)=>Math.round(x+(b[i]-x)*u).toString(16).padStart(2,'0')).join('')};
+const rzK=n=>fmt(Math.round(n/100)/10,1)+'K';
+const rzHas=(V,k)=>V.v(k)>0;
+const rzTxt=(V,k)=>!rzHas(V,k)?'אין נתון':V.m==='dem'?V.M.R[k].share+'%':'₪'+rzK(V.M.R[k].sal);
+function rzMap(V){
+  const [W,H]=rzXY(36.05,29.35),P=(lo,la)=>rzXY(lo,la).map(n=>n.toFixed(1)),c=V.src.c;
+  const reg=k=>`<path class="rz-r${V.r===k?' on':''}" data-rzr="${k}" d="${RZ_PATH[k]}" style="fill:${rzFill(c,V.t(k))}"/>`;
+  const badge=k=>{const a=RZ_AN[k],[x,y]=P(...a.b),lead=a.d?(([x2,y2])=>`<path class="rz-ld" d="M${x} ${y}L${x2} ${y2}"/><circle class="rz-dt" cx="${x2}" cy="${y2}" r="3.6"/>`)(P(...a.d)):'';
+    return `${lead}<g class="rz-b${V.r===k?' on':''}${rzHas(V,k)?'':' none'}" data-rzr="${k}" transform="translate(${x} ${y})"><rect x="-31" y="-19" width="62" height="38" rx="11"/><text class="rz-bn" y="-4" text-anchor="middle">${RZ_SH[k]}</text><text class="rz-bv" y="12" text-anchor="middle">${rzTxt(V,k)}</text></g>`};
+  const city=([n,lo,la])=>{const [x,y]=P(lo,la);return `<circle class="rz-cy" cx="${x}" cy="${y}" r="2.6"/><text class="rz-cn" x="${x}" y="${(+y+13).toFixed(1)}" text-anchor="middle">${n}</text>`};
+  const [gx,gy]=P(35.59,32.82),[dx,dy]=P(35.50,31.42);
+  return `<svg class="rz-svg" viewBox="-6 -6 ${(W+12).toFixed(0)} ${(H+12).toFixed(0)}" aria-hidden="true" focusable="false"><defs><pattern id="rzHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#F1F3FA"/><line x1="0" y1="0" x2="0" y2="8" stroke="#D5DAEA" stroke-width="3"/></pattern></defs>${RZ_O.filter(k=>k!==V.r).map(reg).join('')}${V.r?reg(V.r):''}<ellipse class="rz-w" cx="${gx}" cy="${gy}" rx="8" ry="11"/><ellipse class="rz-w" cx="${dx}" cy="${dy}" rx="8" ry="36"/>${RZ_CITY.map(city).join('')}${RZ_O.map(badge).join('')}</svg>`}
+function rzLegend(V){
+  const dem=V.m==='dem',f=x=>dem?Math.round(x)+'%':'₪'+rzK(x),c=V.src.c;
+  return `<span class="rz-lg" aria-hidden="true"><i style="background:linear-gradient(270deg,${rzFill(c,0)},${rzFill(c,1)})"></i></span><span class="rz-lt"><span>${V.hi>V.lo?f(V.lo):''}</span><span>${dem?'חלקם של העוסקים בתחום שעובדים באזור':'שכר חודשי ממוצע'}</span><span>${V.hi>0?f(V.hi):''}</span></span><span class="rz-lh"><i aria-hidden="true"></i>אזור שעבודאטה לא פרסמה: אין נתון</span>`}
+/* the two highlights: where the pay is highest, and where the demand is (where most of the people of the field work) */
+function rzHL(V){
+  const M=V.M,R=M.R;
+  const card=(cls,ic,lab,k,val,sub)=>k?`<button type="button" class="rz-c ${cls}" data-rzr="${k}"><span class="rz-ci">${ki(ic)}</span><span class="rz-ct"><small>${lab}</small><b>${RZ_NM[k]}</b><em class="num">${val}</em>${sub?`<span>${sub}</span>`:''}</span></button>`
+    :`<div class="rz-c ${cls} none"><span class="rz-ci">${ki(ic)}</span><span class="rz-ct"><small>${lab}</small><b>אין נתון</b><span>עבודאטה לא פרסמה אזורים לתחום הזה</span></span></div>`;
+  return card('cs','coin','השכר הגבוה ביותר',M.topS,M.topS?shek(R[M.topS].sal)+' בחודש':'',M.pubS.length>1?`מבין ${M.pubS.length} אזורים שפורסמו`:'')
+    +card('cd','pin','הביקוש הגבוה ביותר',M.topD,M.topD?R[M.topD].share+'% מהעוסקים בתחום עובדים שם':'',M.topD?(M.certD?'הריכוז הגבוה ביותר של העוסקים בתחום':'הגבוה ביותר מבין האזורים שפורסמו'):'')}
+function rzRowHTML(V,k){
+  const R=V.M.R,dem=V.m==='dem',has=rzHas(V,k),w=has?Math.max(6,Math.round(100*V.v(k)/(V.hi||1))):0,on=V.r===k;
+  return `<button type="button" class="rz-rw${on?' on':''}${has?'':' none'}" data-rzr="${k}" aria-pressed="${on}" aria-label="${esc(RZ_NM[k])}: ${has?(dem?R[k].share+'% מהעוסקים בתחום':shek(R[k].sal)+' בחודש'):'אין נתון'}"><span class="rz-rn">${RZ_NM[k]}</span><span class="rz-rb" aria-hidden="true"><i style="width:${w}%"></i></span><b class="num">${has?(dem?R[k].share+'%':shek(R[k].sal)):'אין נתון'}</b></button>`}
+/* the area in focus: both numbers at once, with where it stands, and Avodata's own sentences when one occupation is shown */
+function rzDet(V,st){
+  const M=V.M,R=M.R,k=V.r,src=V.src,one=src.kind==='occ'||st.o!=='all';if(!k)return '';
+  const rk=M.pubS.indexOf(k)+1,rd=M.pubD.indexOf(k)+1;
+  const notes=one?(()=>{const o=(rzList(src,st)[0]||{}).o,a=o&&o.g&&o.g.Area,n=a&&a.notes?Object.values(a.notes).filter(x=>x&&x!=='לא ידוע').map(x=>esc(String(x).replace(/\$/g,' '))):[];
+    return n.length?`<p class="rz-an"><b>לפי עבודאטה:</b> ${n.join('. ')}.</p>`:''})():'';
+  return `<h3>${RZ_NM[k]}</h3><dl>
+      <div><dt>שכר חודשי ממוצע</dt><dd class="num">${R[k].sal>0?shek(R[k].sal):'אין נתון'}${R[k].sal>0&&M.pubS.length>1?`<small>${rk===1?'הגבוה ביותר מבין האזורים שפורסמו':`מקום ${rk} מתוך ${M.pubS.length} אזורים שפורסמו`}</small>`:''}</dd></div>
+      <div><dt>חלקם של העוסקים בתחום שעובדים באזור</dt><dd class="num">${R[k].lo>0?R[k].share+'%':'אין נתון'}${R[k].lo>0&&M.pubD.length>1?`<small>${rd===1?(M.certD?'הריכוז הגבוה ביותר':'הגבוה ביותר מבין האזורים שפורסמו'):`מקום ${rd} מתוך ${M.pubD.length} אזורים שפורסמו`}</small>`:''}</dd></div></dl>
+    ${!one&&R[k].n>0&&R[k].n<M.n?`<p class="rz-fn">המספרים כאן מחושבים מ-${R[k].n} מתוך ${M.n} המקצועות שפרסמו נתון לאזור הזה.</p>`:''}
+    ${R[k].sal<=0&&R[k].lo<=0?'<p class="rz-fn">עבודאטה לא פרסמה נתון לאזור הזה, בדרך כלל כי המדגם קטן, ואנחנו לא משלימים אותו בהערכה.</p>':''}${notes}`}
+function rzHTML(src){
+  const st=rzSt(src.key);RZR[src.key]=src;
+  const V=rzView(src,st);
+  if(!V)return `<section class="blk rz" id="regmap"><h2>איפה עובדים ומה השכר בכל אזור</h2><div class="nodata">${src.none||'עבודאטה לא פרסמה פירוט לפי אזור לתחום הזה.'} לא השלמנו אותו בהערכה.</div></section>`;
+  st.r=V.r;
+  const chips=src.kind!=='occ'&&src.occ.length>1?`<div class="rz-oc" role="group" aria-label="לפי איזה מקצוע להציג"><button type="button" data-rzo="all" aria-pressed="${st.o==='all'}">כל המקצועות</button>${src.occ.map(x=>{const has=!!rzPick(x.o);return `<button type="button" data-rzo="${x.id}" aria-pressed="${st.o===x.id}"${has?'':' disabled'}>${esc(x.o.n)}${has?'':' · אין נתון אזורי'}</button>`}).join('')}</div>`:'';
+  const what=src.kind==='mh'?'מסלול':'תואר';
+  return `<section class="blk rz" id="regmap" data-k="${esc(src.key)}"><h2>איפה עובדים ומה השכר בכל אזור</h2>
+    <p class="intro">${src.intro}</p>
+    <div class="rz-top"><div class="rz-seg" role="group" aria-label="מה להציג על המפה"><button type="button" data-rzm="sal" aria-pressed="${st.m==='sal'}">${ki('coin')}שכר חודשי</button><button type="button" data-rzm="dem" aria-pressed="${st.m==='dem'}">${ki('pin')}ביקוש: איפה עובדים</button></div>${chips}</div>
+    <div class="rz-body"><figure class="rz-fig"><div class="rz-mp">${rzMap(V)}</div><div class="rz-key">${rzLegend(V)}</div><figcaption>תרשים סכמטי של ארבעת האזורים שעבודאטה משתמשת בהם, לא מפת גבולות.</figcaption></figure>
+      <div class="rz-pan"><div class="rz-hl">${rzHL(V)}</div><div class="rz-rows" role="group" aria-label="האזורים">${RZ_O.map(k=>rzRowHTML(V,k)).join('')}</div><div class="rz-detw" aria-live="polite" aria-atomic="true">${rzDet(V,st)}</div></div></div>
+    <details class="adm dmeth rz-how"><summary>איך קוראים את הנתונים, ומה זה "ביקוש"?</summary><div class="admb">
+      <p><b>שכר:</b> שכר חודשי ממוצע של העוסקים באזור, כפי שעבודאטה מפרסמת.</p>
+      <p><b>ביקוש:</b> אין נתון רשמי על משרות פנויות לפי אזור. הביקוש מוצג כאן לפי ריכוז העוסקים: האחוז מכלל העוסקים בתחום שעובדים באזור, כלומר איפה נמצאים רוב מקומות העבודה בתחום. זה מדד לגודל שוק העבודה באזור, ולא הבטחה למשרות פנויות.</p>
+      <p><b>אין נתון:</b> אזור שעבודאטה לא פרסמה בו נתון, בדרך כלל כי המדגם קטן, מסומן בקווים ולא מושלם בהערכה. הסכום של האחוזים יכול להיות נמוך מ-100, בגלל אזורים כאלה ובגלל עוסקים שהאזור שלהם לא ידוע.</p>
+      ${src.kind==='occ'?'':`<p><b>${what}:</b> עבודאטה לא מפרסמת פירוט אזורי ל${what} עצמו. החישוב כאן הוא שלנו, מנתוני המקצועות שבהם עובדים הבוגרים, כל מקצוע לפי מספר העוסקים בו. כדי לראות מקצוע אחד כפי שפורסם, בוחרים אותו מהרשימה.</p>`}</div></details>
+    ${src.cite||''}</section>`}
+/* a change of what is shown: the map is repainted in place (its colours glide), the rows keep their place (and the focus), the side text is redrawn */
+function rzApply(sec,full){
+  const key=sec.dataset.k,src=RZR[key],st=rzSt(key),V=src&&rzView(src,st);if(!V)return;st.r=V.r;
+  RZ_O.forEach(k=>{const r=sec.querySelector(`.rz-r[data-rzr="${k}"]`);if(r){r.style.fill=rzFill(src.c,V.t(k));r.classList.toggle('on',V.r===k)}
+    const b=sec.querySelector(`.rz-b[data-rzr="${k}"]`);if(b){b.classList.toggle('on',V.r===k);b.classList.toggle('none',!rzHas(V,k));const t=b.querySelector('.rz-bv');if(t)t.textContent=rzTxt(V,k)}});
+  const sel=sec.querySelector(`.rz-r[data-rzr="${V.r}"]`),svg=sec.querySelector('.rz-svg'),w=svg&&svg.querySelector('.rz-w');if(sel&&w)svg.insertBefore(sel,w); /* the area in focus is drawn on top of the others, under the labels */
+  if(full){const h=sec.querySelector('.rz-hl');if(h)h.innerHTML=rzHL(V)}
+  RZ_O.forEach(k=>{const old=sec.querySelector(`.rz-rw[data-rzr="${k}"]`);if(!old)return;
+    const t=document.createElement('div');t.innerHTML=rzRowHTML(V,k);const nw=t.firstChild;
+    old.className=nw.className;old.setAttribute('aria-pressed',nw.getAttribute('aria-pressed'));old.setAttribute('aria-label',nw.getAttribute('aria-label'));
+    old.querySelector('.rz-rb i').style.width=nw.querySelector('.rz-rb i').style.width;old.querySelector('b').textContent=nw.querySelector('b').textContent});
+  const rows=sec.querySelector('.rz-rows');if(rows)rows.setAttribute('aria-label',V.m==='dem'?'חלקם של העוסקים בכל אזור':'שכר חודשי ממוצע בכל אזור');
+  const dw=sec.querySelector('.rz-detw');if(dw){dw.innerHTML=rzDet(V,st);dw.classList.remove('rz-fx');void dw.offsetWidth;dw.classList.add('rz-fx')}
+  const kk=sec.querySelector('.rz-key');if(kk)kk.innerHTML=rzLegend(V);
+  sec.querySelectorAll('[data-rzm]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rzm===st.m));
+  sec.querySelectorAll('[data-rzo]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rzo===st.o))}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-rzm],[data-rzr],[data-rzo]');if(!b)return;const sec=b.closest('.rz');if(!sec)return;
+  const st=rzSt(sec.dataset.k),ds=b.dataset;let full=false;
+  if(ds.rzm!==undefined)st.m=ds.rzm==='dem'?'dem':'sal';
+  else if(ds.rzo!==undefined){st.o=ds.rzo;st.r='';full=true}
+  else if(ds.rzr!==undefined)st.r=ds.rzr;
+  rzApply(sec,full)});
+/* two quick facts for the top of a page (the default view: all the occupations) */
+function rzTiles(src){
+  const st={m:'sal',r:'',o:'all'},M=rzModel(src.occ);if(!M||(!M.topD&&!M.topS))return '';
+  const go=`<button type="button" class="linkbtn" data-scroll="regmap">למפה</button>`,t=(l,v,h)=>`<div class="tile"><span class="lbl">${l}</span><span class="val">${v}</span><span class="hint">${h}</span></div>`;
+  return (M.topD?t('הביקוש הגבוה ביותר',RZ_NM[M.topD],`${M.R[M.topD].share}% מהעוסקים בתחום עובדים שם${M.certD?'':' (מבין האזורים שפורסמו)'} · ${go}`):'')
+    +(M.topS?t('השכר הגבוה ביותר',RZ_NM[M.topS],`${shek(M.R[M.topS].sal)} בחודש · ${go}`):'')}
+/* what feeds the map on each kind of page */
+function rzSrcOcc(id,o,cat){
+  return {key:'o:'+id,kind:'occ',c:CATS[cat].c,occ:[{id,o}],intro:'שכר חודשי ממוצע וחלקם של העוסקים במקצוע בכל אחד מארבעת אזורי העבודה בישראל, לפי עבודאטה. לוחצים על אזור במפה או ברשימה כדי לראות את הפירוט שלו.',
+    cite:AVSRC('isco_group/'+id,o.src),none:'עבודאטה לא פרסמה פירוט לפי אזור למקצוע הזה.'}}
+/* the occupations a degree leads to, as Avodata lists them for the degree's field (medicine and dentistry: the physicians' and the dentists' own occupations) */
+function rzSrcDeg(d){
+  const f=fieldOf(d),ids=d.pro==='md'?['2211','2212','2213']:d.pro==='dmd'?['2261']:((f&&f.occ)||[]).map(x=>x.id);
+  const occ=ids.filter(id=>OC[id]).map(id=>({id,o:OC[id]})),n=occ.length,near=f&&d.avHow&&d.avHow!=='exact'&&!d.pro;
+  return {key:'d:'+d.id,kind:'deg',c:CATS[d.c].c,occ,
+    intro:`לתואר אין פירוט אזורי משלו. המפה מחושבת מ${n===1?'המקצוע':'המקצועות'} שבהם עובדים הבוגרים לפי עבודאטה, כל מקצוע לפי מספר העוסקים בו. אפשר לבחור מקצוע ולראות את הנתונים שלו כפי שפורסמו.${near?` המקצועות הם של התחום "${esc(f.n)}", התחום הרשמי הקרוב ביותר לתואר.`:''}`,
+    none:f||d.pro?'עבודאטה לא פרסמה פירוט לפי אזור למקצועות שבהם עובדים בוגרי התואר.':'לתואר אין עמוד תואם בעבודאטה, ולכן אין לנו נתון אזורי.',cite:d.av?AVSRC('Academic/'+d.av):''}}
+/* a technician track: the occupations that Avodata's own education lists tie to the track's official program */
+function rzSrcMh(m,i){
+  const av=mahatAvFor(m),occ=av?OCLIST.filter(o=>(o.edu||[]).some(e=>e.kind==='MahatEducation'&&e.id===av.id)).sort((a,b)=>rzW(b)-rzW(a)).slice(0,6).map(o=>({id:o.id,o})):[];
+  return {key:'m:'+i,kind:'mh',c:CATS.eng.c,occ,
+    intro:'למסלול אין פירוט אזורי משלו. המפה מחושבת מהמקצועות שבהם עובדים הבוגרים לפי עבודאטה, כל מקצוע לפי מספר העוסקים בו. אפשר לבחור מקצוע ולראות את הנתונים שלו כפי שפורסמו.',
+    none:'עבודאטה לא פרסמה פירוט לפי אזור למקצועות של המסלול הזה.',cite:av?AVSRC('MahatEducation/'+av.id):''}}
 function renderOcc(id){
   const o=OC[id]; if(!o) return `<section class="sec"><div class="wrap"><div class="empty"><h3>העמוד לא נמצא</h3></div></div></section>`;
   const {tiles,facts}=snapParts(o.snap||[]), g=o.g||{}, grp=ocGroup(id), cat=OGCAT[grp];
@@ -4023,12 +4229,12 @@ function renderOcc(id){
     ${dirBadge('occ',id)}
   </div><div class="dp-art">${ocIll(o)}</div></div></section>
   <div class="wrap dp-body">
-    ${tiles.length?`<div class="tiles num">${tiles.map(t=>`<div class="tile"><span class="lbl">${esc(t.l)}</span><span class="val">${esc(t.v)}</span>${t.h?`<span class="hint">${esc(t.h)}</span>`:''}</div>`).join('')}${occHot(o)?`<div class="tile"><span class="lbl">ביקוש בשוק</span><span class="val hot">חם בשוק</span><span class="hint">${esc(hotLine(o))}</span></div>`:''}</div>`:''}
+    ${tiles.length?`<div class="tiles num">${tiles.map(t=>`<div class="tile"><span class="lbl">${esc(t.l)}</span><span class="val">${esc(t.v)}</span>${t.h?`<span class="hint">${esc(t.h)}</span>`:''}</div>`).join('')}${occHot(o)?`<div class="tile"><span class="lbl">ביקוש בשוק</span><span class="val hot">חם בשוק</span><span class="hint">${esc(hotLine(o))}</span></div>`:''}${safe(()=>rzTiles(rzSrcOcc(id,o,cat)),'')}</div>`:''}
     ${occTrendHTML(o)}
     ${facts.length?`<div class="linkrow">${facts.filter(t=>!/צומח/.test(t)).map(t=>`<span class="tag" style="font-size:15px;padding:8px 14px;background:#fff;box-shadow:var(--shadow)">${esc(t)}</span>`).join('')}</div>`:''}
     ${(o.tasks||[]).length?`<section class="blk"><h2>מה עושים בעבודה</h2><div class="courses">${o.tasks.map(t=>`<div class="course" style="font-weight:500"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>${esc(t)}</div>`).join('')}</div></section>`:''}
     ${road}
-    ${safe(()=>regMapHTML(o),'')}
+    ${safe(()=>rzHTML(rzSrcOcc(id,o,cat)),'')}
     ${trend.length?`<section class="blk"><h2>השכר והמועסקים לאורך השנים</h2><div class="two"><div class="offer"><h3 style="margin:0">שכר חודשי ממוצע</h3>${hbars(trend,{max:Math.max(...trend.map(x=>x.v))*1.1})}</div>
       ${emp.length?`<div class="offer"><h3 style="margin:0">מספר המועסקים בתחום</h3>${hbars(emp,{fmtv:v=>fmt(v),max:Math.max(...emp.map(x=>x.v))*1.1})}</div>`:''}</div></section>`:''}
     ${OCC_SECTIONS.some(s=>g[s[0]]&&g[s[0]].s&&g[s[0]].s.some(x=>x.v))?`<section class="blk"><h2>השוואות בתוך המקצוע</h2><div class="offers">${OCC_SECTIONS.map(sect).join('')}</div>
@@ -7581,7 +7787,7 @@ function renderDegree(d){
     ${hotWhyHTML(d)}
 
     ${proPathHTML(d)}
-    ${d.pro==='md'?mdSections(d):d.pro==='dmd'?dmdSections(d):careerSections(d)}
+    ${d.pro==='md'?mdSections(d)+safe(()=>rzHTML(rzSrcDeg(d)),''):d.pro==='dmd'?dmdSections(d)+safe(()=>rzHTML(rzSrcDeg(d)),''):careerSections(d)}
 
     <section class="blk"><h2>איפה לומדים ומה הסף</h2>
       <p class="intro">${profileOK()?'המוסדות מסודרים לפי הפרופיל שלי: קודם אלה שאפשר להתקבל אליהם (בירוק), ואחריהם אלה שצריך להשלים בשבילם משהו (באדום), עם מה צריך ואיך. ':''}כל המוסדות שמציעים את התואר לפי המועצה להשכלה גבוהה. ספי הקבלה נלקחו מהאתרים הרשמיים של המוסדות לשנת תשפ"ז, ומוצגים בשמות המסלולים כפי שהם מופיעים שם.</p>
