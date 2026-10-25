@@ -1290,8 +1290,6 @@ input[type=range]{accent-color:var(--primary);height:28px}
 
 /* sticky section bar */
 .kp-nav{position:sticky;top:var(--hh);z-index:30;background:rgba(245,246,251,.92);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
-.kp-navin nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-block:8px}.kp-navin nav::-webkit-scrollbar{display:none}
-.kp-np{flex:none;display:inline-flex;align-items:center;gap:6px;font-family:var(--head);font-weight:500;font-size:14.5px;padding:7px 14px;border-radius:999px;color:var(--muted);transition:background .2s,color .2s}.kp-np:hover{background:#fff;color:var(--ink)}.kp-np svg{width:16px;height:16px}
 .kp-body{padding-block:10px 40px}.kp-sec{padding-block:clamp(22px,3vw,38px)}.kp-sec .sec-h h2{display:flex;align-items:center;gap:8px}.kp-sec .sec-h h2>svg{width:26px;height:26px;color:var(--primary-dark);flex:none}
 .kp-ld{padding:30px;text-align:center;color:var(--muted)}
 
@@ -1319,7 +1317,6 @@ input[type=range]{accent-color:var(--primary);height:28px}
 .kp-zh{display:flex;align-items:center;gap:12px;width:100%;padding:16px 20px;text-align:start}
 .kp-zt{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}.kp-zt b{font-family:var(--head);font-size:clamp(18px,2vw,21px);display:flex;align-items:center;gap:8px;flex-wrap:wrap}.kp-zt small{color:#3B4262;font-size:14.5px}.kp-zt em{font-style:normal;font-size:13px;color:var(--primary-dark);font-weight:600}
 .kp-prev{display:block;margin-top:4px;color:#6B7391;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
-.kp-np.act{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
 .kp-pin{position:absolute;top:-17px;inset-inline-start:0;z-index:2;font-family:var(--head);font-size:12px;font-weight:700;background:var(--ink);color:#fff;border-radius:999px;padding:2px 10px;white-space:nowrap}
 .kp-pin::after{content:"";position:absolute;top:100%;inset-inline-start:22px;border:5px solid transparent;border-top-color:var(--ink)}
 .kp-zn{flex:none;font-family:var(--head);font-weight:700;font-size:14px;background:#F5F6FB;border-radius:999px;padding:3px 12px}.kp-z.done .kp-zn{background:#DDF7EE;color:#0B5A3E}
@@ -1484,7 +1481,6 @@ input[type=range]{accent-color:var(--primary);height:28px}
 .kp-hc.add b{font-family:var(--head);font-size:19px}.kp-hc.add small{color:var(--muted);max-width:30ch;font-size:14px}
 
 /* v5: the tabs, the step in focus, what comes next */
-.kp-np{white-space:nowrap;font-size:15px;padding:8px 16px}.kp-np.act{background:var(--ink);color:#fff;box-shadow:none}.kp-np.act:hover{background:var(--ink);color:#fff}
 #kp-now{padding-top:14px}
 .kp-focus{position:relative;background:#fff;border-radius:30px;box-shadow:var(--shadow-h);padding:clamp(18px,3vw,30px);margin-top:16px;border-inline-start:8px solid var(--primary)}
 .kp-focus.soon{border-color:#F2502F;animation:kpPulse2 2.6s ease-in-out infinite}@keyframes kpPulse2{50%{box-shadow:0 12px 36px rgba(242,80,47,.28)}}
@@ -1515,9 +1511,8 @@ input[type=range]{accent-color:var(--primary);height:28px}
 .kp-chg{list-style:none;margin:0;padding:0;display:grid;gap:4px}.kp-chg li{display:flex;align-items:baseline;gap:8px;font-size:15px}.kp-chg li>span{min-width:96px;color:var(--muted)}
 .kp-chg s{color:#8A91AC}.kp-chg i{font-style:normal;color:#8A91AC}.kp-chg b{font-family:var(--head);font-size:18px;color:var(--primary-dark)}.kp-chg em{font-style:normal;font-size:12px;background:#E3F7EE;color:#0B5A3E;border-radius:999px;padding:1px 8px}
 .kp-saved{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#E3F7EE;color:#0B5A3E;border-radius:14px;padding:10px 14px;font-weight:600;margin:0}.kp-saved svg{width:20px;height:20px;flex:none}.kp-saved .linkbtn{color:#0B5A3E;text-decoration:underline;font-weight:700}
-.kp-tl-s{display:none}.kp-gauge{padding-top:20px}
+.kp-gauge{padding-top:20px}
 @media(max-width:620px){
-  .kp-tl-l{display:none}.kp-tl-s{display:inline}.kp-np{font-size:14.5px;padding:8px 13px}
   .kp-sw{flex-wrap:wrap;gap:0}.kp-swc{flex:1 1 100%}.kp-swall{margin-inline-start:auto;margin-bottom:6px}
   .kp-pic{width:58px;border-radius:14px}.kp-gt h1{font-size:25px}
   .kp-cp:not(.empty){display:none}.kp-sh span{display:none}.kp-gauge{padding-top:16px}
@@ -1763,7 +1758,7 @@ html.rm .tr-n.nxt .tr-c::after{animation:none}
    Top: a big ring with my percent and a few words, one tile per stage with its own percent, and where I stand against the threshold.
    Below the map: the step in focus in a narrow, quiet card, the encouragement beside it. */
 .kp-hero.hero:not(.kp-hubhero){padding-block:12px 20px}
-.kp-dash{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(290px,1fr);grid-template-areas:"p s" "m m";gap:16px;margin-top:8px;align-items:stretch}
+.kp-dash{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(290px,1fr);grid-template-areas:"p s";gap:16px;margin-top:8px;align-items:stretch}
 .kp-pcard{grid-area:p;background:#fff;border-radius:32px;box-shadow:var(--shadow-h);padding:clamp(18px,2.2vw,26px);display:grid;gap:clamp(12px,1.4vw,16px);align-content:start;min-width:0}
 .kp-pcard .kp-goal{margin:0;align-items:center}
 .kp-pcard .kp-pic{width:clamp(60px,6vw,76px);border-radius:18px;box-shadow:none}
@@ -1781,20 +1776,6 @@ html.rm .tr-n.nxt .tr-c::after{animation:none}
 .kp-pn2{display:flex;flex-wrap:wrap;gap:2px 18px;margin:0;font-size:15px;color:#3B4262}.kp-pn2 b{font-family:var(--head);color:var(--ink);font-size:17px}
 .kp-pn{display:inline-flex;align-items:center;gap:8px;margin:0;background:#fff;border-radius:999px;padding:7px 14px;font-size:14.5px;box-shadow:var(--shadow)}.kp-pn svg{width:18px;height:18px;color:var(--primary-dark);flex:none}.kp-pn b{font-family:var(--head)}
 .kp-pfine{margin:8px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5}
-/* one tile per stage */
-.kp-ms{grid-area:m;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:12px}
-.kp-m{min-width:0}
-.kp-mb{position:relative;width:100%;height:100%;display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:start;padding:12px 14px 10px;border-radius:22px;background:#fff;border:2px solid transparent;box-shadow:var(--shadow);font:inherit;color:var(--ink);cursor:pointer;transition:transform .15s,box-shadow .2s,border-color .2s}
-.kp-mb:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
-.kp-mt{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%}
-.kp-mi{width:38px;height:38px;border-radius:13px;background:var(--zb);color:var(--zc);display:grid;place-items:center;flex:none}.kp-mi svg{width:21px;height:21px}
-.kp-mp{font:800 clamp(22px,2.2vw,28px)/1 var(--head)}
-.kp-mn{font:600 15px/1.3 var(--head)}
-.kp-mbar{display:block;width:100%;height:8px;border-radius:99px;background:#EEF0F6;overflow:hidden}.kp-mbar i{display:block;height:100%;width:var(--zp);min-width:0;border-radius:99px;background:var(--zc);transition:width .6s cubic-bezier(.2,.8,.2,1)}
-.kp-mb small{font-size:12.5px;color:var(--muted);line-height:1.3}
-.kp-m.cur .kp-mb{border-color:var(--zc);box-shadow:0 8px 22px color-mix(in srgb,var(--zc) 22%,transparent)}
-.kp-m.fo .kp-mb{border-color:color-mix(in srgb,var(--zc) 50%,transparent);border-style:dashed}
-.kp-m.done .kp-mb{background:#F2FBF6}.kp-m.done .kp-mi{background:#12A26B;color:#fff}.kp-m.done .kp-mbar i{background:#12A26B}
 /* where I stand against the threshold */
 .kp-dash .kp-stand{grid-area:s;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:12px;margin:0;padding:clamp(18px,2.4vw,28px);border-radius:32px;border:0;border-top:6px solid #3B5BDB}
 .kp-dash .kp-stand.ok{border-top-color:#12A26B}.kp-dash .kp-stand.near{border-top-color:#FFC53D}.kp-dash .kp-stand.mid{border-top-color:#FF9A6C}.kp-dash .kp-stand.far{border-top-color:#F2502F}.kp-dash .kp-stand.open{border-top-color:#3B5BDB}
@@ -1803,10 +1784,6 @@ html.rm .tr-n.nxt .tr-c::after{animation:none}
 .kp-nx{display:grid;gap:4px;margin-top:4px;padding-top:14px;border-top:1.5px dashed var(--line);justify-items:start}
 .kp-nx small{color:var(--muted);font-size:13px;font-weight:600}.kp-nx b{font:700 17px/1.35 var(--head)}.kp-nxd{font-size:13.5px;color:var(--primary-dark);font-weight:600}
 .kp-nx .btn{margin-top:6px}
-/* the other tabs: the same top, smaller */
-.kp-hero:not([data-tab="now"]) .kp-dash{grid-template-areas:"p s"}
-.kp-hero:not([data-tab="now"]) .kp-ms,.kp-hero:not([data-tab="now"]) .kp-nx,.kp-hero:not([data-tab="now"]) .kp-pn,.kp-hero:not([data-tab="now"]) .kp-pfine,.kp-hero:not([data-tab="now"]) .kp-pd{display:none}
-.kp-hero:not([data-tab="now"]) .kp-ring.xl{width:112px;height:112px}
 /* the step in focus: narrow, quiet, one thing at a time */
 .kp-nowg{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,330px);gap:22px;align-items:start;margin-top:20px}
 .kp-nowg .kp-focus{margin-top:0}
@@ -1840,17 +1817,10 @@ html.rm .tr-n.nxt .tr-c::after{animation:none}
 .kp-ftip{background:#F4F7FF;border-radius:18px;margin-top:18px}
 .kp-nowg+.kp-qc,.jn-sec~.kp-qc{max-width:860px}
 @media(max-width:1000px){.kp-nowg{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:900px){.kp-dash,.kp-hero:not([data-tab="now"]) .kp-dash{grid-template-columns:minmax(0,1fr);grid-template-areas:"p" "m" "s"}.kp-hero:not([data-tab="now"]) .kp-dash{grid-template-areas:"p" "s"}}
+@media(max-width:900px){.kp-dash{grid-template-columns:minmax(0,1fr);grid-template-areas:"p" "s"}}
 @media(min-width:621px) and (max-width:900px){
   .kp-dash .kp-stand{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:8px 28px;align-items:center}
-  .kp-hero:not([data-tab="now"]) .kp-dash .kp-stand{grid-template-columns:minmax(0,1fr)}
   .kp-dash .kp-stand>*{grid-column:1}.kp-dash .kp-stand>.kp-nx{grid-column:2;grid-row:1/span 3;margin:0;padding:0 0 0 0;border-top:0;border-inline-start:1.5px dashed var(--line);padding-inline-start:26px}
-}
-@media(max-width:720px){
-  .kp-ms{display:flex;overflow-x:auto;scroll-snap-type:x proximity;gap:10px;padding:4px 2px 12px;margin-inline:-2px;scrollbar-width:thin}
-  .kp-m{flex:0 0 124px;scroll-snap-align:start}
-  .kp-mb{padding:10px 12px;gap:5px;border-radius:18px}.kp-mi{width:32px;height:32px;border-radius:11px}.kp-mi svg{width:18px;height:18px}.kp-mn{font-size:14px}
-  .kp-m:not(.cur) .kp-mb small{display:none}.kp-mb small{font-size:12px}
 }
 @media(max-width:620px){
   .kp-pcard{padding:16px;border-radius:26px}
@@ -1962,6 +1932,189 @@ button.rz-c:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
 @media(max-width:820px){.rz-body{grid-template-columns:minmax(0,1fr)}.rz-fig{max-width:360px;width:100%;margin-inline:auto}}
 @media(max-width:560px){.rz-hl{grid-template-columns:minmax(0,1fr)}.rz-detw dl{grid-template-columns:minmax(0,1fr)}.rz-seg{display:flex;width:100%}.rz-seg button{flex:1 1 0;justify-content:center;padding:10px 6px;font-size:14px;line-height:1.2}.rz-seg button svg{display:none}.rz-rw{grid-template-columns:minmax(72px,92px) minmax(0,1fr) minmax(56px,auto);gap:8px;padding:10px}}
 html.hc .rz-r{stroke:#000}
+/* ===== the road in three views: map, progress, calendar (kp-ban, kp-seg3, pg-, cl-, bg-) =====
+   The top of the page is the same everywhere: my percent, what is missing, the next step. Under it one control with three views and a row of tools.
+   Motion: the pill slides to the view I chose, the view fades in, the columns of the chart grow. All of it stops with "reduce motion" (html.rm). */
+.kp-dash .kp-stand.kp-bnext{justify-content:flex-start;gap:14px;border-top-color:var(--cta)}
+.kp-bnext .kp-nx{margin:0;padding:0;border:0;gap:6px;justify-items:start}
+.kp-bnext .kp-nx b{font-size:clamp(20px,2.2vw,25px);line-height:1.3}
+.kp-bnext .kp-nx .btn{margin-top:10px;min-height:52px;font-size:17px;padding-inline:28px}
+.kp-nxs{font-size:14.5px;color:#4A5068;line-height:1.55}
+.kp-bl{margin:0}.kp-bl .kp-lnk{min-height:44px;margin:0}
+.kp-miss{border-top:1.5px dashed var(--line);padding-top:14px}
+.kp-mh{display:flex;align-items:center;gap:8px;margin:0 0 10px;font:700 16px var(--head);color:var(--ink)}
+.kp-mh svg{width:20px;height:20px;color:var(--primary-dark);flex:none}
+.kp-miss ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.kp-mc{display:flex;align-items:center;gap:10px;width:100%;min-height:46px;text-align:start;padding:9px 14px;border-radius:16px;background:#F6F7FC;border:1.5px solid transparent;font:600 15px/1.35 var(--head);color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,box-shadow .2s}
+.kp-mc>svg:first-child{width:20px;height:20px;flex:none;color:var(--primary-dark)}
+.kp-mc>span{flex:1;min-width:0}
+.kp-mc>svg:last-child{width:16px;height:16px;flex:none;color:var(--muted);transition:transform .25s}
+.kp-mc:hover{background:#fff;border-color:var(--line);box-shadow:var(--shadow)}
+.kp-mc:hover>svg:last-child{transform:translateX(-4px)}
+.kp-mc.gap{background:#FFF1EA}.kp-mc.gap>svg:first-child{color:var(--cta)}
+.kp-okl{display:flex;align-items:center;gap:8px;margin:10px 0 0;color:var(--good);font:600 15px var(--head)}.kp-okl svg{width:18px;height:18px;flex:none}
+.kp-miss>.kp-okl:first-child{margin:0}
+/* the map and the calendar carry a smaller top than the progress view */
+.kp-hero:not([data-tab="now"]):not([data-tab="prog"]) .kp-miss,.kp-hero:not([data-tab="now"]):not([data-tab="prog"]) .kp-pd,.kp-hero:not([data-tab="now"]):not([data-tab="prog"]) .kp-pfine,.kp-hero:not([data-tab="now"]):not([data-tab="prog"]) .kp-bnext .kp-bl,.kp-hero:not([data-tab="now"]):not([data-tab="prog"]) .kp-nxs{display:none}
+.kp-hero:not([data-tab="now"]):not([data-tab="prog"]) .kp-ring.xl{width:96px;height:96px}
+.kp-hero:not([data-tab="now"]):not([data-tab="prog"]) .kp-ring.xl .kp-rin b{font-size:24px}
+.kp-ban .kp-nx{display:grid}
+.kp-ban .kp-pcard{grid-template-rows:auto minmax(0,1fr)}.kp-ban .kp-prog{align-self:stretch}
+
+/* the three views as one control; the pill under the labels slides (the page reads right to left, so it moves left) */
+.kp-navin{display:flex;justify-content:center;padding-block:8px}
+.kp-seg3{position:relative;display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));width:min(560px,100%);padding:4px;border-radius:999px;background:#E6E9F4;isolation:isolate}
+.kp-ind{position:absolute;inset-block:4px;inset-inline-start:4px;width:calc((100% - 8px)/var(--n,3));border-radius:999px;background:var(--ink);box-shadow:0 8px 18px rgba(31,37,68,.28);transform:translateX(calc(var(--i,0)*-100%));transition:transform .45s cubic-bezier(.3,.9,.25,1.06),opacity .3s;z-index:0}
+.kp-seg3[data-act="0"] .kp-ind{opacity:0}
+.kp-vw{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:8px 10px;border-radius:999px;font:600 15.5px var(--head);color:#3B4262;cursor:pointer;transition:color .3s}
+.kp-vw svg{width:18px;height:18px;flex:none;transition:transform .35s cubic-bezier(.3,.9,.25,1.2)}
+.kp-vw:hover{color:var(--ink)}
+.kp-vw.act{color:#fff}.kp-vw.act svg{transform:scale(1.12)}
+/* the tools: three smaller buttons under the control; one of them can be open, with a way back */
+.kp-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding-block:14px 0}
+.kp-tools-h{font:600 13.5px var(--head);color:var(--muted)}
+.kp-tls{display:flex;flex-wrap:wrap;gap:8px}
+.kp-tool{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border-radius:999px;background:#fff;box-shadow:var(--shadow);font:600 14.5px var(--head);color:var(--ink);border:2px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
+.kp-tool svg{width:17px;height:17px;color:var(--primary-dark);flex:none}
+.kp-tool:hover{transform:translateY(-1px);box-shadow:var(--shadow-h)}
+.kp-tool.act{border-color:var(--ink)}
+.kp-back{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 18px;border-radius:999px;background:var(--ink);color:#fff;font:600 14.5px var(--head);cursor:pointer;animation:kpBack .35s cubic-bezier(.2,.8,.2,1)}
+.kp-back svg{width:16px;height:16px;flex:none}
+.kp-back[hidden]{display:none}
+@keyframes kpBack{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+/* a view that opens fades in from below */
+.kp-swap>.kp-sec{animation:kpSwap .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes kpSwap{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+#kp-now,#kp-prog,#kp-cal,#kp-lab,#kp-opt,#kp-more{padding-top:14px}
+
+/* ===== the progress view: one column per stage ===== */
+.pg{display:grid;gap:18px;margin-top:6px}
+.pg-chart{--vh:34px;--th:clamp(150px,22vw,210px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px;background:#fff;border-radius:28px;box-shadow:var(--shadow);padding:clamp(18px,2.4vw,26px) clamp(10px,2vw,24px) 14px;position:relative}
+.pg-y{display:flex;flex-direction:column;justify-content:space-between;height:var(--th);margin-top:calc(var(--vh) + 18px);font:600 12px var(--head);color:var(--muted);text-align:end;padding-inline-end:2px}
+.pg-y span{display:flex;align-items:center;height:0;white-space:nowrap}
+.pg-cols{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:clamp(4px,1.2vw,14px);position:relative}
+.pg-cols::before{content:"";position:absolute;inset-inline:0;top:calc(var(--vh) + 18px);height:var(--th);background:linear-gradient(to bottom,#E9ECF5 1px,transparent 1px) 0 0/100% 25%;border-bottom:2px solid #D3D8E8;pointer-events:none}
+.pg-c{position:relative;min-width:0}
+.pg-b{position:relative;display:grid;grid-template-rows:var(--vh) var(--th) auto auto auto;justify-items:center;row-gap:0;width:100%;padding:18px 2px 10px;border-radius:20px;border:2px solid transparent;background:transparent;cursor:pointer;transition:background .25s,border-color .25s,transform .25s;font:inherit;color:var(--ink)}
+.pg-b:hover{background:#F6F7FC}
+.pg-c.on .pg-b{background:#F6F7FC;border-color:var(--ink)}
+.pg-v{align-self:center;font:800 clamp(14px,1.9vw,20px)/1 var(--head)}
+.pg-t{position:relative;align-self:end;width:min(100%,64px);height:var(--th);border-radius:14px 14px 0 0;background:var(--zb);overflow:visible}
+.pg-f{position:absolute;inset-inline:0;bottom:0;height:var(--p);min-height:0;border-radius:14px 14px 0 0;background:var(--zc);background:color-mix(in srgb,var(--zc) 86%,#000);transition:height 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--k,0)*80ms)}
+.pg-c.done .pg-f{background:#0F885A}.pg-c.done .pg-t{background:#DDF7EE}
+.pg-pin{position:absolute;inset-inline-start:50%;top:-13px;transform:translateX(50%);font:700 11.5px/1 var(--head);font-style:normal;white-space:nowrap;background:var(--ink);color:#fff;border-radius:999px;padding:5px 10px;z-index:2}
+.pg-pin::after{content:"";position:absolute;top:100%;inset-inline-start:50%;margin-inline-start:-5px;border:5px solid transparent;border-top-color:var(--ink)}
+.pg-i{margin-top:10px;width:clamp(30px,3.4vw,38px);height:clamp(30px,3.4vw,38px);border-radius:12px;display:grid;place-items:center;background:var(--zb);color:var(--zc)}
+.pg-i svg{width:55%;height:55%}
+.pg-c.done .pg-i{background:#12A26B;color:#fff}
+.pg-n{margin-top:6px;font:600 clamp(12.5px,1.35vw,15px)/1.25 var(--head);text-align:center}
+.pg-b small{margin-top:2px;color:var(--muted);font-size:12px}
+.pg-fx{animation:pgIn .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes pgIn{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pg .tr-panel{margin-bottom:0}
+.pg-bd{margin-top:22px}
+@media(max-width:620px){.pg-y{font-size:11px}.pg-b{padding-inline:0}.pg-pin{font-size:11px;padding:4px 8px}}
+
+/* ===== the calendar ===== */
+.cl-fl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.cl-fl .chip{min-height:44px}
+.cl-main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,1fr);gap:clamp(16px,2.4vw,28px);align-items:start}
+.cl-cal{background:#fff;border-radius:28px;box-shadow:var(--shadow);padding:clamp(12px,2vw,22px)}
+@media(min-width:901px){.cl-cal{position:sticky;top:calc(var(--hh,72px) + 78px)}}
+.cl-nv{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.cl-nv h3{flex:1;text-align:center;margin:0;font:700 clamp(18px,2vw,22px) var(--head)}
+.cl-nb{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#F3F4F9;color:var(--ink);cursor:pointer;transition:background .2s,transform .2s}
+.cl-nb svg{width:18px;height:18px}.cl-nb:hover{background:#E9EBF4;transform:scale(1.06)}
+.cl-td{min-height:44px;padding-inline:8px;font-weight:600}
+.cl-g{width:100%;min-width:0;border-collapse:separate;border-spacing:4px;table-layout:fixed}
+.cl-g th{font:600 13px var(--head);color:var(--muted);padding:2px 0 4px}.cl-g th.wk{color:var(--primary-dark)}
+.cl-g td{padding:0}
+.cl-d{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:3px;width:100%;min-height:clamp(54px,7.2vw,84px);padding:6px;border-radius:14px;background:#F8F9FD;text-align:start;border:2px solid transparent;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s,border-color .2s}
+.cl-d>b{font:600 14px/1 var(--head);color:#3B4262}
+.cl-d.wk{background:#F3F4FA}
+.cl-d:hover{background:#fff;box-shadow:var(--shadow);transform:translateY(-1px)}
+.cl-d.has{background:#fff;box-shadow:var(--shadow)}
+.cl-d.today{border-color:var(--cta)}.cl-d.today>b{color:var(--cta)}
+.cl-d.sel{background:var(--ink);border-color:var(--ink)}.cl-d.sel>b{color:#fff}
+.cl-ev{display:grid;gap:2px;min-width:0}
+.cl-ev i{display:block;font:600 11px/1.3 var(--head);font-style:normal;border-radius:6px;padding:1px 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cl-ev em{font:600 11px var(--head);font-style:normal;color:var(--muted)}.cl-d.sel .cl-ev em{color:#D9DDF0}
+.cl-ev i.psy{background:#E4EBFF;color:#2740A8}.cl-ev i.bag{background:#DDF7EE;color:#0B5A3E}.cl-ev i.idf{background:#FFEFE3;color:#8A3A00;border:1px dashed #E8A87C}.cl-ev i.sch{background:#ECE6FF;color:#4B2FB0}.cl-ev i.mine{background:#FFE3EE;color:#9B1C4D}
+.cl-dots{display:none;gap:3px;justify-content:center;margin-top:auto}
+.cl-dots s,.cl-lg s{display:inline-block;width:8px;height:8px;border-radius:50%;text-decoration:none;background:#C9CEE0}
+.cl-dots s.psy,.cl-lg s.psy{background:#3B5BDB}.cl-dots s.bag,.cl-lg s.bag{background:#0C9E73}.cl-dots s.idf,.cl-lg s.idf{background:#E8590C}.cl-dots s.sch,.cl-lg s.sch{background:#7048E8}.cl-dots s.mine,.cl-lg s.mine{background:#D6336C}
+.cl-lg{display:flex;flex-wrap:wrap;gap:6px 16px;margin:12px 2px 0;font-size:13px;color:var(--muted)}.cl-lg span{display:inline-flex;align-items:center;gap:6px}
+.cl-side{display:grid;gap:14px;min-width:0}
+.cl-h3{margin:0;font:700 17px var(--head)}
+.cl-l{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.cl-day{background:#fff;border-radius:24px;box-shadow:var(--shadow-h);padding:16px;border:2px solid var(--ink);animation:pgIn .35s cubic-bezier(.2,.8,.2,1)}
+.cl-day h3{margin:0 0 10px;font:700 18px var(--head)}
+.cl-r{display:grid;grid-template-columns:52px minmax(0,1fr);gap:6px 12px;align-items:start;background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:12px 14px;border-inline-start:5px solid var(--kc,#C9CEE0)}
+.cl-r.psy{--kc:#3B5BDB}.cl-r.bag{--kc:#0C9E73}.cl-r.idf{--kc:#E8590C}.cl-r.sch{--kc:#7048E8}.cl-r.mine{--kc:#D6336C}
+.cl-r.approx{border-inline-start-style:dashed;background:#FFFBF7}
+.cl-rd{display:grid;place-items:center;align-content:center;width:52px;height:56px;border-radius:14px;background:#F3F4F9;color:var(--ink)}
+.cl-rd b{font:800 20px/1 var(--head)}.cl-rd small{font-size:11.5px;color:var(--muted);line-height:1.2}
+.cl-rb{min-width:0}.cl-rb>b{display:block;font:600 15px/1.4 var(--head)}
+.cl-rb small{display:block;color:var(--muted);font-size:13px;line-height:1.55}
+.cl-rk{font-weight:700;color:var(--ink)}
+.cl-ra{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:8px}.cl-ra .tl-src,.cl-ra .linkbtn{min-height:36px;display:inline-flex;align-items:center}
+.cl-add{display:inline-flex;gap:6px;flex-wrap:wrap}.cl-add .btn{min-height:36px;padding:5px 12px;font-size:13.5px;gap:6px;box-shadow:none;border:1.5px solid var(--line)}.cl-add .btn:hover{border-color:var(--ink);transform:none;box-shadow:none}.cl-add .btn svg{width:15px;height:15px}
+.cl-more{justify-self:start}
+.cl-gr details{background:#fff;border-radius:20px;box-shadow:var(--shadow);border-inline-start:5px solid #0C9E73}
+.cl-gr summary{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;padding:12px 14px 12px 40px;cursor:pointer;list-style:none}
+.cl-gr summary::-webkit-details-marker{display:none}
+.cl-gr summary::after{content:"";position:absolute;inset-inline-end:16px;top:50%;width:9px;height:9px;border:solid #7A819C;border-width:0 2.5px 2.5px 0;transform:translateY(-70%) rotate(45deg);transition:transform .25s}
+.cl-gr details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.cl-gr .cl-l{padding:0 10px 12px}.cl-gr .cl-r{box-shadow:none;background:#F8F9FD}
+.cl-own{margin-top:clamp(20px,3vw,32px)}
+.cl-note{max-width:80ch;margin-top:16px}
+
+/* the bagrut planner: the subjects I can still sit, and when */
+.bg-sec{margin-top:clamp(24px,3.4vw,38px)}
+.bg-sec h3{display:flex;align-items:center;gap:8px;margin:0 0 6px;font:700 clamp(19px,2.2vw,23px) var(--head)}.bg-sec h3 svg{width:24px;height:24px;color:var(--primary-dark);flex:none}
+.bg-i{max-width:78ch;margin:0 0 14px}
+.bg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px}
+.bg-c{background:#fff;border-radius:24px;box-shadow:var(--shadow);padding:16px 18px;display:grid;gap:10px;align-content:start;border-top:5px solid #C9CEE0}
+.bg-c.need{border-top-color:#E8590C}.bg-c.boost{border-top-color:#3B5BDB}.bg-c.mine{border-top-color:#0C9E73}
+.bg-c header{display:flex;align-items:center;justify-content:space-between;gap:8px}.bg-c header b{font:700 18px var(--head)}
+.bg-k{font:700 12.5px var(--head);border-radius:999px;padding:3px 12px;background:#F0F1F6;color:#3B4262;white-space:nowrap}
+.bg-c.need .bg-k{background:#FFE7DF;color:#8F2A10}.bg-c.boost .bg-k{background:#E4EBFF;color:#2740A8}.bg-c.mine .bg-k{background:#DDF7EE;color:#0B5A3E}
+.bg-w{margin:0;font-size:14px;color:#4A5068;line-height:1.55}
+.bg-s{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.bg-s li{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;padding:8px 10px;border-radius:14px;background:#F8F9FD}
+.bg-ss{flex:0 0 46px;font:700 13px var(--head);color:var(--ink)}
+.bg-sd{flex:1 1 120px;display:grid;font:600 14.5px var(--head)}.bg-sd small{font:500 12.5px var(--body);color:var(--muted)}
+.bg-s li .cl-add{margin-inline-start:auto}
+.bg-no{margin:0;font-size:14px;color:var(--muted)}
+.kp-focus .bg-c p{margin:0}
+.bg-c .linkbtn{justify-self:start;min-height:40px;display:inline-flex;align-items:center;gap:6px}.bg-c .linkbtn svg{width:15px;height:15px}
+.kp-focus .bg-sec{margin-top:18px}.kp-focus .bg-grid{grid-template-columns:minmax(0,1fr)}
+
+@media(max-width:900px){.cl-main{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:620px){
+  .kp-seg3{width:100%}.kp-vw{font-size:14.5px;gap:6px;padding-inline:4px}
+  .kp-tools{padding-top:10px}.kp-tools-h{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .kp-tls{flex:1 1 100%;flex-wrap:nowrap;gap:6px}.kp-tool{flex:1 1 0;min-width:0;justify-content:center;padding:8px 6px;font-size:13.5px}.kp-tool svg{display:none}
+  .kp-ban .kp-nx{display:grid}.kp-bnext{padding:16px 18px;border-radius:26px}
+  .kp-bnext .kp-nx .btn{width:100%}
+  .cl-fl{gap:6px}.cl-fl .chip{min-height:40px;padding:6px 12px;font-size:14px}
+  .cl-ev{display:none}.cl-dots{display:flex}
+  .cl-g{border-spacing:2px}.cl-d{min-height:48px;padding:4px;align-items:center;gap:4px}.cl-d>b{font-size:13.5px}
+  .cl-nb{width:40px;height:40px}
+  .cl-r{grid-template-columns:46px minmax(0,1fr);padding:12px}.cl-rd{width:46px;height:52px}.cl-rd b{font-size:18px}
+  .cl-gr summary{grid-template-columns:46px minmax(0,1fr)}
+  .bg-s li{grid-template-columns:minmax(0,1fr)}.bg-s li .cl-add{grid-column:1}
+}
+@media(max-width:360px){.kp-vw svg{display:none}}
+.kp-vh{display:flex;align-items:flex-start;gap:12px;background:#E6EEFF;border-radius:20px;padding:12px 16px;margin-top:14px;color:#2E3556}
+.kp-vh>svg{width:22px;height:22px;flex:none;color:#2740A8;margin-top:3px}
+.kp-vh p{margin:0;flex:1;min-width:0;font-size:14.5px;line-height:1.6}
+.kp-vh .linkbtn{flex:none;min-height:44px;padding-inline:10px;font-weight:700;color:#2740A8;text-decoration:underline}
+@media(max-width:620px){.kp-vh{flex-wrap:wrap}.kp-vh p{flex:1 1 calc(100% - 40px)}.kp-vh .linkbtn{margin-inline-start:auto}}
+html.hc .kp-seg3{background:#fff;border:2px solid #000}html.hc .kp-ind{background:#000}
+html.hc .pg-chart,html.hc .cl-cal,html.hc .cl-r,html.hc .bg-c,html.hc .cl-day,html.hc .kp-tool{border:2px solid #000}
+html.hc .cl-d{border:1.5px solid #000;background:#fff}html.hc .cl-d.sel{background:#000}
+html.hc .pg-t{box-shadow:inset 0 0 0 2px #000}html.hc .pg-f{background:#000!important}
 /* ---------- who employs the graduates (em-): names only, no logos ---------- */
 .em .intro{max-width:72ch}
 .em-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
@@ -5883,8 +6036,8 @@ function doorsHTML(X){
   /* the box lists only the steps that are still in my dates: one I deleted there is not "added" any more (all deleted = the plan button comes back) */
   const p=LAB.dplan,pd=p?pth().dates:[],live=p?p.steps.filter(s=>pd.some(c=>c.id===s.id)):[];
   if(p&&(live.length||(!p.n&&p.undated.length))){
-    out.push(`<div class="kp-dok" id="kpDPlan" tabindex="-1" role="status"><b>${ki(live.length?'check':'cal')}${live.length?`התוכנית נוספה: ${live.length===1?'תאריך אחד':live.length+' תאריכים'} בלשונית "מתי?"`:'לא נוספו תאריכים'}</b>${live.length?`<ul>${live.map(s=>`<li><b class="num">${esc(dShort(s.d))}</b> ${esc(s.t)}${s.f?factChip(s.f,{lg:1}):''}</li>`).join('')}</ul>`:''}${p.undated.length?`<p>בלי מועד שפורסם, ולכן בלי תאריך: ${p.undated.map(esc).join(', ')}. את התאריך אפשר להוסיף בעצמי בלשונית "מתי?".</p>`:''}${BTNS([KB('data-kgo="dates"','לראות את המועדים')])}</div>`)}
-  else if(X.real&&LAB.boost.size)out.push(`<div class="kp-btns">${KB('data-lbplan','להפוך לתוכנית','primary')}</div><p class="fine">הבוסטרים שבחרתי הופכים לצעדים בלשונית "מתי?", רק כשיש להם מועד שפורסם. אפשר למחוק כל צעד אחר כך.</p>`);
+    out.push(`<div class="kp-dok" id="kpDPlan" tabindex="-1" role="status"><b>${ki(live.length?'check':'cal')}${live.length?`התוכנית נוספה: ${live.length===1?'תאריך אחד':live.length+' תאריכים'} ביומן שלי`:'לא נוספו תאריכים'}</b>${live.length?`<ul>${live.map(s=>`<li><b class="num">${esc(dShort(s.d))}</b> ${esc(s.t)}${s.f?factChip(s.f,{lg:1}):''}</li>`).join('')}</ul>`:''}${p.undated.length?`<p>בלי מועד שפורסם, ולכן בלי תאריך: ${p.undated.map(esc).join(', ')}. את התאריך אפשר להוסיף בעצמי ביומן שלי.</p>`:''}${BTNS([KB('data-kgo="dates"','לראות את המועדים')])}</div>`)}
+  else if(X.real&&LAB.boost.size)out.push(`<div class="kp-btns">${KB('data-lbplan','להפוך לתוכנית','primary')}</div><p class="fine">הבוסטרים שבחרתי הופכים לצעדים ביומן שלי, רק כשיש להם מועד שפורסם. אפשר למחוק כל צעד אחר כך.</p>`);
   return `<div class="kp-dr">${head}<p class="fine">לכל תואר ומוסד שפורסם לו סף מספרי: דלת פתוחה כשהציונים בתרחיש מגיעים לסף, וקרובה כשחסרות עד ${DOOR_NEAR} נקודות בפסיכומטרי. זו השוואה לספים שפורסמו, לא הבטחה להתקבל.</p>
     <div class="kp-dt4" role="group" aria-label="ספירת הדלתות בתרחיש">${['open','near','far','na'].map(tile).join('')}</div>
     <p class="fine">מחושב ל-${fmt(calc)} מתוך ${fmt(cov.all)} צירופים של תואר ומוסד (כל צירוף נספר פעם אחת). ל-${fmt(cov.col)} מהם, במכללות, אין עדיין סף מספרי במאגר, וגם לא באוניברסיטאות שבהן לא נאסף סף (${DATA.inst.filter(i=>i.k==='u'&&!THR[i.id]).map(i=>esc(i.n)).join(', ')}).${C.na?` עוד ${fmt(C.na)} הצעות באוניברסיטאות עם סף שאי אפשר לחשב מהציונים (למשל ציוני משנה או סף שעדיין לא פורסם).`:''}${!B?(X.real?' אין לי עדיין גם בגרות וגם פסיכומטרי, ולכן זו ספירה של התרחיש בלבד, בלי השוואה למצב שלי.':' אלה מספרים לדוגמה, ולכן אין השוואה למצב שלי.'):''}</p>
@@ -5908,7 +6061,6 @@ function doorsPlan(){
       if(ex)put('bag-'+b.key.replace(/[^a-z0-9]+/gi,'-'),daysTo(ex[2])>=0?ex[2]:ex[4],`${b.lbl} · בגרות ${SEAS[ex[0]]} (טיוטת הלוח)`,'bagrut.2027');
       else undated.push(b.lbl)}});
   steps.forEach(s=>{P.dates=P.dates.filter(c=>c.id!==s.id);P.dates.push({id:s.id,t:s.t,d:s.d,src:'lab',bk:s.bk,f:s.f})});
-  if(steps.length)KD.all=true; /* the dates tab shows 6 rows until asked for all: the new steps must not sit behind that button */
   if(steps.length&&!P.marks.bridge)setMark('bridge',Date.now()); /* the badge says a bridge plan exists: not when no date could be added */
   LAB.dplan={n:steps.length,steps:steps.map(s=>({id:s.id,t:s.t,d:s.d,f:s.f})),undated};
   logAct();pthSave();PLC=null}
@@ -6025,7 +6177,7 @@ function famTip(X){
     eng:'בהנדסה, מתמטיקה ופיזיקה ברמה גבוהה הן הנכס הגדול ביותר: במסלולים רבים הן נדרשות, ובאוניברסיטאות הגדולות הן מוסיפות בונוס משמעותי לציון הבגרות המחושב.',
     med:'ברפואה התחרות גבוהה והדרך כוללת שני שלבים: ציונים (סכם) ואחריהם מיון אישי. ההרשמה נסגרת מוקדם יותר מבשאר התארים: בשנה האחרונה, בסוף אפריל ועד אמצע מאי ובלי הרשמה מאוחרת (בטכניון ובעברית). כדאי שהפסיכומטרי יהיה מוכן עד מועד אפריל, להשאיר זמן לבחינה חוזרת, ולהכין תוכנית גיבוי.',
     dent:'בתחום הזה התחרות גבוהה וההרשמה נסגרת מוקדם יותר מבשאר התארים (בעברית, בשנה האחרונה, ב-12 במאי ובלי הרשמה מאוחרת). כדאי להתחיל מוקדם, להשאיר זמן לבחינה חוזרת, ולבדוק גם תוכנית גיבוי.',pharm:'בתחום הזה התחרות גבוהה. כדאי להתחיל מוקדם, להשאיר זמן לבחינה חוזרת, ולבדוק גם תוכנית גיבוי.',vet:'בתחום הזה התחרות גבוהה. כדאי להתחיל מוקדם, להשאיר זמן לבחינה חוזרת, ולבדוק גם תוכנית גיבוי.',
-    law:'הספים במשפטים שונים מאוד בין מוסדות, ולכן שווה לבדוק כמה מוסדות ולשקול להגיש לכמה (בלשונית "מה עוד אפשר?" רואים את כולם).',psy:'הספים בפסיכולוגיה שונים מאוד בין מוסדות, ולכן שווה לבדוק כמה מוסדות ולשקול להגיש לכמה (בלשונית "מה עוד אפשר?" רואים את כולם).',
+    law:'הספים במשפטים שונים מאוד בין מוסדות, ולכן שווה לבדוק כמה מוסדות ולשקול להגיש לכמה (בכלי "מה עוד אפשר?" רואים את כולם).',psy:'הספים בפסיכולוגיה שונים מאוד בין מוסדות, ולכן שווה לבדוק כמה מוסדות ולשקול להגיש לכמה (בכלי "מה עוד אפשר?" רואים את כולם).',
     nurse:'בתחומי הבריאות לא מעט תוכניות כוללות גם ראיון או מיון נוסף. את הפרטים בודקים בתנאי הקבלה של התוכנית.',para:'בתחומי הבריאות לא מעט תוכניות כוללות גם ראיון או מיון נוסף. את הפרטים בודקים בתנאי הקבלה של התוכנית.',
     arch:'באדריכלות ובעיצוב נהוג לדרוש תיק עבודות או מבחן כניסה, ולפעמים המועדים מוקדמים יותר מבשאר התארים. כדאי להתחיל מוקדם ולבדוק באתר המוסד.',arts:'באמנויות נהוג לדרוש תיק עבודות, אודישן או מבחן כניסה, ולפעמים המועדים מוקדמים יותר מבשאר התארים. כדאי להתחיל מוקדם ולבדוק באתר המוסד.',
     teach:'בהוראה ובחינוך לעיתים מוסיפים לציונים גם ראיון או התרשמות אישית. ניסיון בהדרכה או בהתנדבות עם ילדים ונוער יכול לעזור.',
@@ -6045,17 +6197,17 @@ function summaryText(pl){
 function standing(X){
   const {V,hasP,real}=X,t=V.tier;
   if(t===0)return {k:'open',h:'אפשר להתחיל כבר עכשיו',s:'לפי הידיעון של האוניברסיטה הפתוחה אין בה תנאי קבלה, ואפשר להירשם לקורס הראשון בלי בגרות ובלי פסיכומטרי. כדאי לוודא באתר.'};
-  if(!real)return {k:'none',h:'נתחיל מהמספרים',s:'כדי לדעת כמה חסר, צריך ממוצע בגרות (גם צפוי) וציון פסיכומטרי (גם יעד). אפשר להתחיל מהערכה בלשונית "כמה חסר לי?" ולדייק בהמשך.'};
+  if(!real)return {k:'none',h:'נתחיל מהמספרים',s:'כדי לדעת כמה חסר, צריך ממוצע בגרות (גם צפוי) וציון פסיכומטרי (גם יעד). אפשר להתחיל מהערכה בכלי "כמה חסר לי?" ולדייק בהמשך.'};
   if(t===1){
-    if(V.err==='bagrut')return {k:'part',h:'חסר ממוצע בגרות',s:'יש לי פסיכומטרי, וחסר ממוצע בגרות כדי לחשב את הסכם. אפשר להזין ציונים בלשונית "כמה חסר לי?".'};
+    if(V.err==='bagrut')return {k:'part',h:'חסר ממוצע בגרות',s:'יש לי פסיכומטרי, וחסר ממוצע בגרות כדי לחשב את הסכם. אפשר להזין ציונים בכלי "כמה חסר לי?".'};
     if(V.err==='psy'){
-      if(V.needP!=null&&!isFinite(V.needP))return {k:'far',h:'קודם הבגרות',s:`עם הממוצע הנוכחי גם 800 בפסיכומטרי לא מספיק ל${X.I.n}. כדאי להתחיל משיפור בגרות, ובלשונית "כמה חסר לי?" רואים מה הכי משתלם.`,gap:Infinity};
+      if(V.needP!=null&&!isFinite(V.needP))return {k:'far',h:'קודם הבגרות',s:`עם הממוצע הנוכחי גם 800 בפסיכומטרי לא מספיק ל${X.I.n}. כדאי להתחיל משיפור בגרות, ובכלי "כמה חסר לי?" רואים מה הכי משתלם.`,gap:Infinity};
       return {k:'part',h:V.needP!=null?`צריך פסיכומטרי ${V.needP}`:'חסר ציון פסיכומטרי',s:V.needP!=null?`לפי הבגרות שלי, זה הציון שמכניס אותי ל${X.I.n}. עוד אין לי ציון, אז זה היעד.`:'כדי לחשב את הסכם צריך ציון פסיכומטרי.',need:V.needP}}
     if(V.ok===true)return {k:'ok',h:'אני מעל הסף',s:`המרווח שלי ${-V.gapP>0?`הוא ${-V.gapP} נקודות פסיכומטרי`:'קטן'}. עכשיו סוגרים את שאר הדרישות ומגישים.`,gap:V.gapP};
     if(!isFinite(V.gapP||0))return {k:'far',h:'קודם הבגרות',s:'עם הממוצע הנוכחי גם 800 בפסיכומטרי לא מספיק, אז מתחילים משיפור בגרות. בבוסטרים רואים מה הכי משתלם.',gap:Infinity};
     const g=V.gapP;
     if(g<=20)return {k:'near',h:`${gx('אני קרוב','אני קרובה')}: ${g} נקודות`,s:'שיפור קטן בפסיכומטרי או בבגרות, ואני בפנים.',gap:g};
-    if(g<=70)return {k:'mid',h:`חסרות ${g} נקודות`,s:'זה בהחלט אפשרי. יש כמה דרכים לסגור את זה, ובלשונית "כמה חסר לי?" רואים מה כל אחת שווה.',gap:g};
+    if(g<=70)return {k:'mid',h:`חסרות ${g} נקודות`,s:'זה בהחלט אפשרי. יש כמה דרכים לסגור את זה, ובכלי "כמה חסר לי?" רואים מה כל אחת שווה.',gap:g};
     return {k:'far',h:`חסרות ${g} נקודות`,s:'יש דרך, ויש לה תוכנית: שילוב של פסיכומטרי ושיפור בגרות סוגר פערים גדולים ממה שנראה.',gap:g}}
   if(t===2){
     if(V.ok===true)return {k:'ok',h:`${gx('עומד','עומדת')} באחת הדרכים שפורסמו`,s:'לפי המספרים אני בפנים לפחות באחת הדרכים. עכשיו בודקים את שאר הדרישות.'};
@@ -6086,7 +6238,7 @@ function plan(){
     body:()=>`<p>היעד שלי הוא <b>${esc(d.n)}</b> ${bIn(I.n)}. כל התוכנית כאן בנויה סביב היעד הזה, וכשמחליפים אותו היא מתעדכנת.</p>${BTNS([KB(`data-open="${d.id}"`,'לעמוד התואר'),KB('data-kinst','מוסד אחר'),KB('data-kchange','תואר אחר')])}`});
   /* the numbers come first: without them nothing else can be measured, and with them the next step is clear */
   add(Z.now,{id:'numbers',nm:1,ic:'chart',t:X.real?'הציונים שלי במערכת':'להזין את הציונים שלי (גם צפויים)',s:X.real?([X.sc.p?`פסיכומטרי ${X.sc.p}${X.sc.estP?' (צפוי)':''}`:'',X.sc.b?`ממוצע בגרות ${fmt(X.sc.b,2)}${S.sc&&S.sc.est?' (צפוי)':''}`:''].filter(Boolean).join(', ')||'ציוני בגרות שהזנתי'):'בלי מספרים אי אפשר לדעת כמה חסר',done:X.real,
-    body:()=>`<p>${X.real?'המספרים שלי שמורים. מעכשיו כל תואר מראה כמה כבר יש וכמה חסר. קיבלתי ציון חדש, או שיפרתי בגרות? מעדכנים אותם בלשונית "כמה חסר לי?", ושם נשמרים בפרופיל והמסלול כולו מתעדכן.':'אין צורך בציונים סופיים. הערכה מספיקה כדי לראות את הצעד הראשון: אפשר להתחיל מהערכה או מציונים צפויים, ולראות מה צריך כדי להתקבל. כשיהיו ציונים אמיתיים, מעדכנים.'}</p>${BTNS([KB('data-kgo="lab"',X.real?'לעדכון הציונים':'להזנת הציונים','primary'),KB('data-go="calc"','מחשבון ממוצע בגרות'),KB('data-prof','הפרופיל שלי')])}`});
+    body:()=>`<p>${X.real?'המספרים שלי שמורים. מעכשיו כל תואר מראה כמה כבר יש וכמה חסר. קיבלתי ציון חדש, או שיפרתי בגרות? מעדכנים אותם בכלי "כמה חסר לי?", ושם נשמרים בפרופיל והמסלול כולו מתעדכן.':'אין צורך בציונים סופיים. הערכה מספיקה כדי לראות את הצעד הראשון: אפשר להתחיל מהערכה או מציונים צפויים, ולראות מה צריך כדי להתקבל. כשיהיו ציונים אמיתיים, מעדכנים.'}</p>${BTNS([KB('data-kgo="lab"',X.real?'לעדכון הציונים':'להזנת הציונים','primary'),KB('data-go="calc"','מחשבון ממוצע בגרות'),KB('data-prof','הפרופיל שלי')])}`});
   add(Z.now,{id:'know',ic:'doc',t:'להבין מה נדרש כדי להתקבל',s:q.tier===0?'אין תנאי קבלה, לפי הידיעון':q.tier===1?`סף רשמי: ${fmt(V.thr,V.thr%1?2:0)} ב${V.scale}`:q.tier===2?'דרכי קבלה שפורסמו':'לא פורסם סף מספרי',
     body:()=>`${reqHTML(X)}${cycleNote(P.i)}${famTip(X)}${BTNS([KB('data-kgo="lab"','לבדוק כמה חסר לי','primary'),q.srcs[0]?KA(q.srcs[0],'תנאי הקבלה באתר המוסד'):'',q.th&&q.th.calc?KA(q.th.calc,'המחשבון הרשמי של המוסד'):''].filter(Boolean))}`});
   if(['g10','g11'].includes(stg)){
@@ -6102,7 +6254,7 @@ function plan(){
       body:()=>`<p>מדצמבר 2026 האנגלית יוצאת מהבחינה הפסיכומטרית, ורמת האנגלית נבדקת בנפרד באמירנט, מבחן הסיווג של מאל"ו.${factChip('eng.removed')} כל מוסד קובע אם הציון נדרש לקבלה ואיך הוא נכלל בה, ולכן בודקים בתנאי הקבלה של התוכנית שבחרתי.${factChip('amir.mandatory')}</p>${UL([`בחינה ממוחשבת שנערכת במוסדות הלימוד${factChip('amir.format')}`,`אפשר לחזור עליה מהיום ה-35 ואילך (הספירה מתחילה ביום שאחרי הבחינה)${factChip('amir.retake')}`,`הציון מתפרסם באזור האישי באתר מאל"ו. כמה זמן זה לוקח, בודקים שם לפני שמתכננים סביבו${factChip('amir.results')}`,`תוקף הציון נקבע לפי מאל"ו והמוסד, ולכן בודקים לפני שמחכים או מקדימים${factChip('amir.validity')}`,`הרשמה רגילה: ${fact('amir.fee')} (לפי מאל"ו, נכון ל-2026)${factChip('amir.fee')}`])}${engLevel(V)?`<p>הרמה שפורסמה כנדרשת בתוכנית שבחרתי: <b>${esc(engLevel(V))}</b>.</p>`:''}${BTNS([KA(NITE.amir,'הרשמה לאמירנט','primary'),KB('data-kmark="eng"',M.eng?'✓ יש לי ציון באנגלית':'יש לי ציון באנגלית')])}`});
     if(['g10','g11'].includes(stg)){
       add(Z.mid,{id:'bagCore',ic:'book',t:'לתכנן את הבגרויות הנשארות',s:'כמה מקצועות לסגור לפני י"ב',
-        body:()=>`<p>ככל שיותר בגרויות נסגרות לפני י"ב, כך נשאר יותר זמן לשיפורים ולפסיכומטרי. כדאי לבנות עם היועץ/ת לוח: אילו מקצועות נבחנים השנה ואילו בשנה הבאה, ואיפה כדאי לעלות יחידות.</p>${q.units.length?UL(q.units.map(u=>esc(`${SN[u.k]}: ${u.u} יח"ל${u.g?` בציון ${u.g} ומעלה`:''}`))):''}${BTNS([KB('data-kgo="lab"','להתנסות במספרים','primary'),KB('data-kmark="bagCore"',M.bagCore?'✓ תכננתי':'סימון: תכננתי')])}`});
+        body:()=>`<p>ככל שיותר בגרויות נסגרות לפני י"ב, כך נשאר יותר זמן לשיפורים ולפסיכומטרי. כדאי לבנות עם היועץ/ת לוח: אילו מקצועות נבחנים השנה ואילו בשנה הבאה, ואיפה כדאי לעלות יחידות.</p>${q.units.length?UL(q.units.map(u=>esc(`${SN[u.k]}: ${u.u} יח"ל${u.g?` בציון ${u.g} ומעלה`:''}`))):''}${bagBlock({max:4})}${BTNS([KB('data-kgo="lab"','להתנסות במספרים','primary'),KB('data-kmark="bagCore"',M.bagCore?'✓ תכננתי':'סימון: תכננתי')])}`});
       add(Z.mid,{id:'psyEarly',ic:'bolt',t:'להכיר את הבחינה הפסיכומטרית',s:'אפשר להתחיל לתרגל כבר עכשיו',
         body:()=>`<p>הבחינה הפסיכומטרית (מדצמבר 2026) דו-תחומית: חשיבה מילולית וחשיבה כמותית, בסולם 200 עד 800.${factChip('psy.format')}</p>${UL([`אין הגבלה על מספר הפעמים שאפשר להיבחן${factChip('psy.retake')}`,`הציון תקף לפחות 7 שנים מיום הבחינה${factChip('psy.validity')}`,`מי שנבחן כמה פעמים, רוב המוסדות מתחשבים בציון הגבוה (לפי מאל"ו)${factChip('psy.highest')}`])}${tip('אין צורך למהר, אבל כדאי להכיר את הבחינה מוקדם: בחינות להתנסות באתר מאל"ו נותנות הרגשה אמיתית של השאלות והזמנים.')}${BTNS([KA(NITE.prep,'בחינות להתנסות','primary'),KA(NITE.td,'על הבחינה')])}`});
     }
@@ -6129,7 +6281,7 @@ function plan(){
     if(!['g10','g11'].includes(stg)){
       const iss=bagIssues(X);
       add(Z.ready,{id:'bagCore',ic:'book',t:'לוודא שיש את כל מקצועות הבגרות הנדרשים',s:!X.rows.length?'אחרי הזנת ציונים אבדוק':iss.length?`חסר: ${iss.slice(0,2).join(', ')}`:'הכול מכוסה',done:X.rows.length>=3?!iss.length:M.bagCore,
-        body:()=>`${iss.length?`<p>לפי המספרים שהזנתי, כדאי לבדוק:</p>${UL(iss.map(esc))}`:X.rows.length?'<p>לפי הציונים שהזנתי, כל המקצועות שנדרשים בתוכנית מכוסים.</p>':'<p>כשמזינים ציונים, אבדוק אם המקצועות והיחידות מספיקים לתוכנית שבחרתי.</p>'}${q.units.length?`<p>מה שפורסם באתר המוסד:</p>${UL(q.units.map(u=>esc(u.l)))}`:''}${BTNS([KB('data-kgo="lab"','לבדוק כמה חסר לי','primary'),KB('data-go="calc"','מחשבון ממוצע בגרות'),KB('data-kmark="bagCore"',M.bagCore?'✓ סגור':'סימון: סגור')])}${['svc','after','other',''].includes(X.stg)?`<p class="fine">צריך גיליון ציונים רשמי? <a href="${EDU.cert}" target="_blank" rel="noopener">הפקת גיליון ציונים דיגיטלי (gov.il)</a>. בודקים בשירות אם יש תשלום.${factChip('digital.cert')}</p>`:''}`});
+        body:()=>`${iss.length?`<p>לפי המספרים שהזנתי, כדאי לבדוק:</p>${UL(iss.map(esc))}`:X.rows.length?'<p>לפי הציונים שהזנתי, כל המקצועות שנדרשים בתוכנית מכוסים.</p>':'<p>כשמזינים ציונים, אבדוק אם המקצועות והיחידות מספיקים לתוכנית שבחרתי.</p>'}${q.units.length?`<p>מה שפורסם באתר המוסד:</p>${UL(q.units.map(u=>esc(u.l)))}`:''}${bagBlock({max:4})}${BTNS([KB('data-kgo="lab"','לבדוק כמה חסר לי','primary'),KB('data-go="calc"','מחשבון ממוצע בגרות'),KB('data-kmark="bagCore"',M.bagCore?'✓ סגור':'סימון: סגור')])}${['svc','after','other',''].includes(X.stg)?`<p class="fine">צריך גיליון ציונים רשמי? <a href="${EDU.cert}" target="_blank" rel="noopener">הפקת גיליון ציונים דיגיטלי (gov.il)</a>. בודקים בשירות אם יש תשלום.${factChip('digital.cert')}</p>`:''}`});
       if(V.ok===false&&X.real){
         add(Z.ready,{id:'boost',ic:'fire',t:'לשפר איפה שהכי משתלם',s:'הבוסטרים הכי שווים מהבגרות והפסיכומטרי',
           body:()=>`${boostHTML(X)}${BTNS([KB('data-kgo="lab"','לנסות בתרחיש','primary')])}`})}
@@ -6154,7 +6306,7 @@ function plan(){
     add(Z.ready,{id:'ouFirst',ic:'rocket',t:'לבחור את הקורס הראשון',s:'לפי הידיעון: אפשר להתחיל בלי בגרות ובלי פסיכומטרי',
       body:()=>`<p>באוניברסיטה הפתוחה לומדים בקצב שלי ובוחרים קורסים בכל סמסטר. כדאי להתחיל בקורס אחד או שניים, לראות איך זה מרגיש, ולצבור נקודות זכות שאפשר להמשיך איתן.${factChip('openu.open')}</p>${BTNS([instKA(I,'לאתר האוניברסיטה הפתוחה','primary'),KB('data-kmark="ouFirst"',M.ouFirst?'✓ בחרתי':'בחרתי קורס')])}`})}
   if(X.noCert&&['after','other','','svc'].includes(stg))add(Z.ready,{id:'cert',ic:'book',t:'להשלים בגרות או מכינה',s:'בלי תעודה רוב המסלולים סגורים',
-    body:()=>`<p>${prof2certText(X.prof)}${['handesai','foreign'].includes(X.prof.bag)?'':factChip('mod.prep')}</p>${BTNS([KA(NEED_SRC.mod,'מכינות קדם-אקדמיות (משרד הביטחון)','primary'),KB('data-kmark="cert"',M.cert?'✓ יש לי תעודה':'סיימתי, יש לי תעודה')])}`});
+    body:()=>`<p>${prof2certText(X.prof)}${['handesai','foreign'].includes(X.prof.bag)?'':factChip('mod.prep')}</p>${['handesai','foreign'].includes(X.prof.bag)?'':bagBlock({all:true,max:6})}${BTNS([KA(NEED_SRC.mod,'מכינות קדם-אקדמיות (משרד הביטחון)','primary'),KB('data-kmark="cert"',M.cert?'✓ יש לי תעודה':'סיימתי, יש לי תעודה')])}`});
 
   /* ----- before registration ----- */
   add(Z.mid,{id:'openDay',ic:'compass',t:'להכיר את המוסד מקרוב',s:'יום פתוח, סיור או שיחה עם סטודנטים',
@@ -6273,7 +6425,7 @@ function boostHTML(X){
   if(rows.length&&P&&UNI_RULES[t.i])moves(t,rows,P).forEach(m=>out.push(`${esc(m.lbl)}: <b class="num">+${m.gain}</b> נקודות פסיכומטרי`));
   else if(rows.length)avgMoves(rows).forEach(m=>out.push(`${esc(m.lbl)}: <b class="num">+${m.gainB}</b> בממוצע`));
   if(X.gap!=null)out.push(`בחינה פסיכומטרית חוזרת: חסרות ${X.gap} נקודות בפסיכומטרי עם הבגרות הנוכחית`);
-  return out.length?`<p>הדברים שהכי מקרבים אותי לסף, לפי הנוסחה הרשמית:</p>${UL(out)}<p class="fine">כל אחד מחושב לבד. את השילוב ביניהם רואים בלשונית "כמה חסר לי?".</p>`:'<p>כדי לדעת מה הכי משתלם, צריך ציוני בגרות ופסיכומטרי. מזינים אותם בלשונית "כמה חסר לי?".</p>'}
+  return out.length?`<p>הדברים שהכי מקרבים אותי לסף, לפי הנוסחה הרשמית:</p>${UL(out)}<p class="fine">כל אחד מחושב לבד. את השילוב ביניהם רואים בכלי "כמה חסר לי?".</p>`:'<p>כדי לדעת מה הכי משתלם, צריך ציוני בגרות ופסיכומטרי. מזינים אותם בכלי "כמה חסר לי?".</p>'}
 /* ---------- F2a: the bridge plan, my story, housing ---------- */
 /* the next exam dates of one bagrut subject, from the Ministry of Education draft (the chip says it is a draft) */
 /* the gap in the psychometric score, in words: singular for one point, and no promise when the gap is big */
@@ -6294,7 +6446,7 @@ function bridgeSteps(X){
       out.push({d:np.d,h:`הבחינה עצמה: ${esc(np.days)}. עד אז מתרגלים בבחינות להתנסות`});
       out.push({d:np.res||'',f:'psy.results',h:`הציון החדש מגיע עד 45 ימים אחרי הבחינה${np.res?', ובמועד הזה לפי תחזית':''}`})}
     else out.push({d:'',h:`${re}: אין כרגע מועד פתוח להרשמה. מועדים חדשים מתפרסמים באתר מאל"ו`})}
-  out.push({d:'',h:'כשיש ציון חדש, מזינים אותו בלשונית "כמה חסר לי?" ורואים מה השתנה'});
+  out.push({d:'',h:'כשיש ציון חדש, מזינים אותו בכלי "כמה חסר לי?" ורואים מה השתנה'});
   out.push({d:'',h:'במקביל, תוכנית גיבוי: מוסד או תואר דומה שפתוחים לי כבר היום'});
   return [...out.filter(x=>x.d).sort((a,b)=>a.d.localeCompare(b.d)),...out.filter(x=>!x.d)]}
 function bridgeHTML(X){
@@ -6497,10 +6649,8 @@ const safe=(fn,fb='')=>{try{return fn()}catch(e){console.error('path:',e);return
    tab: which question the page is answering. view: 'hub' (all my targets) or 'road' (one target); empty = decide by how many targets I have.
    fid: the step in focus. skip: steps I pushed to later. hist: steps I came from. rm: a target waiting for "are you sure". */
 const KP={open:new Set(),zt:{},wiz:{active:false,step:1,tq:'',d:'',i:'',change:false,add:false},
-  tab:'now',view:'',land:'',navT:0,fid:'',skip:new Set(),hist:[],rm:'',rst:false};
-/* the page has six tabs and each one answers one question */
-const TABS=[['now','מה עושים עכשיו?','rocket','עכשיו'],['road','הדרך המלאה','map','הדרך'],['lab','כמה חסר לי?','chart','כמה חסר'],['opt','מה עוד אפשר?','compass','אפשרויות'],['dates','מתי?','cal','מועדים'],['more','עוד','cog','עוד']];
-const TABOF={now:'now',road:'road',lab:'lab',opt:'opt',why:'now',dates:'dates',more:'more'};
+  tab:'now',view:'',land:'',navT:0,fid:'',skip:new Set(),hist:[],rm:'',rst:false,back:'',hk:'',pgDone:false,zsel:''};
+/* the page has three views (the map, the progress, the calendar) and three tools beside them: see "the three views" below */
 const curView=()=>KP.view||(tList().length>1?'hub':'road');
 
 /* ---------- the zones: where I am, and the whole road ahead ---------- */
@@ -6525,44 +6675,11 @@ function taskHTML(t){
     <button class="kp-chk" data-kc="${t.id}" aria-pressed="${t.done}" aria-label="${t.done?'בוטל סימון':'סימון כבוצע'}: ${esc(t.t)}">${ki('check')}</button>
     <button class="kp-th" data-kt="${t.id}" aria-expanded="${open}"><span class="kp-ti">${ki(t.ic)}</span><span class="kp-tt"><b>${esc(t.t)}</b><small>${esc(t.s||'')}</small></span>${dueChip(t)}<span class="kp-chev" aria-hidden="true"></span></button>
     <div class="kp-tb" ${open?'':'hidden'}>${open?safe(t.body):''}</div></li>`}
-/* ================= the trail: the whole road as one horizontal map (tr-) =================
-   The stages sit on a winding path, the first at the right (the page reads right to left). Finished stretches are drawn in green,
-   the stage I am in carries a pill, and a tap on a stage shows its steps under the map.
-   Motion: the path draws itself and the "I am here" pill drops in when the map first scrolls into view (it rides the path when the stage I am in is not the first one); the background moves slower than the
-   stages while the map is scrolled sideways. With reduced motion everything is simply in its final place. */
-const TRG={cw:190,pad:28,H:300,ys:[96,136],r:30},TRM={cw:152,pad:20,H:290,ys:[92,126],r:28};
-function trGeo(n,c){const W=n*c.cw+2*c.pad;return{W,pts:Array.from({length:n},(_,i)=>({x:Math.round(W-c.pad-(i+.5)*c.cw),y:c.ys[i%2]}))}}
+/* ================= what the journey map and the progress chart share (tr-) =================
+   The path between two stops is a curve; a stage is done, the one I am in, or later; a map that scrolls sideways can bring a stop to its middle. */
 const trSeg=(a,b)=>{const m=Math.round((a.x+b.x)/2);return `M${a.x} ${a.y}C${m} ${a.y} ${m} ${b.y} ${b.x} ${b.y}`};
 const trState=(z,pl)=>z.total&&z.done===z.total?'done':z.id===pl.cur?'cur':'later';
 const trStateTxt={done:'הושלם',cur:'אני כאן',later:'בהמשך'};
-/* the stage shown under the map: the one I tapped, until the stage I am in changes; otherwise the one I am in */
-function trSel(pl){const Z=pl.zones;if(KP.zsel&&KP.zsc===pl.cur&&Z.some(z=>z.id===KP.zsel))return KP.zsel;return Z.some(z=>z.id===pl.cur)?pl.cur:Z[0].id}
-function trailHTML(pl){
-  const c=innerWidth<640?TRM:TRG,Z=pl.zones,n=Z.length+1,{W,pts}=trGeo(n,c),X=pl.X,Y=X.start,sel=trSel(pl);
-  const ci=Math.max(0,Z.findIndex(z=>z.id===pl.cur));
-  let base='',prog='';
-  for(let k=0;k<n-1;k++){const d=trSeg(pts[k],pts[k+1]),zk=Z[k],off=zk&&zk.total?Math.round(100*(1-zk.done/zk.total)):100; /* the stretch after a stage is drawn as far as that stage is done */
-    base+=`<path class="tr-base" d="${d}"/>`;prog+=`<path class="tr-prog" d="${d}" pathLength="100" style="--o:${off};--dl:${(k*.22).toFixed(2)}s"/>`}
-  const plates=Z.map((z,i)=>jPlate(z,pts[i].x-c.cw/2+4,c.cw-8,sel===z.id)).join('');
-  const node=(z,i)=>{const s=trState(z,pl),on=sel===z.id;
-    return `<li class="tr-n ${s}${on?' pick':''}" style="left:${pts[i].x}px;top:${pts[i].y}px"><button type="button" class="tr-b" data-kmap="${z.id}" aria-pressed="${on}" aria-controls="kpPanel"${s==='cur'?' aria-current="step"':''} aria-label="${esc(z.t)}: ${trStateTxt[s]}, ${z.done} מתוך ${z.total} צעדים">
-      <span class="tr-c">${ki(z.ic)}${s==='done'?`<i class="tr-ok">${ki('check')}</i>`:''}</span><span class="tr-l"><b>${z.t}</b><small>${z.s}</small><em class="num">${z.done}/${z.total}</em></span></button></li>`};
-  const endN=`<li class="tr-n end" style="left:${pts[n-1].x}px;top:${pts[n-1].y}px"><div class="tr-b"><span class="tr-c">${ki('cap')}</span><span class="tr-l"><b>היום הראשון</b><small>${Y?`אוקטובר ${Y}`:'בקצב שלי'}</small></span></div></li>`;
-  const pin=pts[ci];
-  return `<div class="tr${KP.trGo?' go still':''}" id="kpTrail" style="--cw:${c.cw}px;--r:${c.r}px"><div class="tr-view" id="trView"><div class="tr-track" style="width:${W}px;height:${c.H}px">${plates}
-    <svg class="tr-svg" width="${W}" height="${c.H}" viewBox="0 0 ${W} ${c.H}" aria-hidden="true" focusable="false">${base}${prog}</svg>
-    <ol class="tr-nodes" aria-label="שלבי הדרך">${Z.map(node).join('')}${endN}</ol><span class="tr-trav" aria-hidden="true" style="left:${pin.x}px;top:${pin.y}px"><span class="tr-tp">${ki('arrow')}אני כאן</span></span></div></div>
-    <button type="button" class="tr-arr prev" data-kmapn="prev" aria-label="לשלבים הקודמים">${ki('arrow')}</button><button type="button" class="tr-arr next" data-kmapn="next" aria-label="לשלבים הבאים">${ki('arrow')}</button></div>`}
-function panelHTML(pl){const z=pl.zones.find(z=>z.id===trSel(pl)),X=pl.X,s=trState(z,pl),pct=z.total?Math.round(100*z.done/z.total):0,rg=zoneRange(z.id,X);
-  return `<section class="tr-panel" id="kpPanel" aria-labelledby="trPT"><div class="tr-ph"><div><h3 id="trPT">${z.t}</h3><p>${z.s}${rg?` · ${rg}`:''}</p></div>
-    <div class="tr-pp"><span class="tr-pst ${s}">${trStateTxt[s]}</span><span><b class="num">${z.done}/${z.total}</b> צעדים</span><i class="tr-bar" aria-hidden="true"><i style="width:${pct}%"></i></i></div></div>
-    <ol class="kp-tl">${z.tasks.map(taskHTML).join('')}</ol></section>`}
-const endCardHTML=pl=>{const X=pl.X,Y=X.start;return `<div class="kp-endc tr-end">${ki('cap')}<span><b>היום הראשון ללימודים</b><small>${Y?`אוקטובר ${Y}${HY[Y]?` (${HY[Y]})`:''}${X.startE?', לפי תאריך הסיום שהזנתי':''}`:`כשאני ${gx('מוכן','מוכנה')}, ובקצב שלי`}</small></span></div>`};
-/* tap on a stage: show its steps, centre it on the map */
-function trSelect(id){const pl=safe(plan);if(!pl||!pl.zones.some(z=>z.id===id))return;KP.zsel=id;KP.zsc=pl.cur;
-  document.querySelectorAll('.tr .tr-b[data-kmap]').forEach(b=>{const on=b.dataset.kmap===id;b.setAttribute('aria-pressed',on);b.closest('.tr-n').classList.toggle('pick',on)});
-  const p=$('#kpPanel');if(p)p.outerHTML=panelHTML(pl);
-  const b=document.querySelector(`.tr .tr-b[data-kmap="${id}"]`);if(b)trCenter(b.closest('.tr-view'),b,!RM())}
 function trCenter(v,b,smooth){if(!v||!b)return;const bx=b.getBoundingClientRect(),vx=v.getBoundingClientRect(),d=(bx.left+bx.width/2)-(vx.left+vx.width/2);if(Math.abs(d)<2)return;
   if(smooth)v.scrollBy({left:d,behavior:'smooth'});else v.scrollLeft+=d}
 /* every new map in the page gets its scroll effects once */
@@ -6722,31 +6839,97 @@ function nextMark(pl){
   const base=pl.done+(pl.part||0);
   for(let k=1;k<=pl.total-pl.done;k++)if(Math.round(100*(base+k)/pl.total)>=m)return {m,k};
   return null}
-/* one tile for every stage of the road: its own percent, big; a tap opens the stage on the map */
-function msHTML(pl){
-  return `<ol class="kp-ms" style="--n:${pl.zones.length}" aria-label="השלבים בדרך ליעד">${pl.zones.map(z=>{
-    const th=ZTH[z.id]||ZTH.g10,p=z.total?Math.round(100*z.done/z.total):0,st=trState(z,pl),fo=z.id===pl.focus&&st==='later';
-    const tag=st==='done'?'הושלם':st==='cur'?'אני כאן':fo?'הצעד הבא כאן':'בהמשך';
-    return `<li class="kp-m ${st}${fo?' fo':''}" style="--zc:${th.c};--zb:${th.bg};--zp:${p}%"><button type="button" class="kp-mb" data-khz="${z.id}" aria-label="${esc(z.t)}: ${tag}, ${z.done} מתוך ${z.total} צעדים, ${p}%. לחיצה פותחת את השלב במפה">
-      <span class="kp-mt"><span class="kp-mi">${st==='done'?ki('check'):ki(z.ic)}</span><b class="kp-mp num">${p}%</b></span>
-      <span class="kp-mn">${esc(z.t)}</span><span class="kp-mbar" aria-hidden="true"><i></i></span><small>${tag} · ${z.done} מתוך ${z.total}</small></button></li>`}).join('')}</ol>`}
-function heroHTML(pl){
-  const X=pl.X,{d,I,P}=X,s=pl.stand,mo=motivOf(pl.pct),nm=nextMark(pl),zd=pl.zones.filter(z=>z.total&&z.done===z.total).length;
-  return `${switchHTML()}
-    <div class="kp-dash">
-      <div class="kp-pcard">
-        <div class="kp-goal"><span class="kp-pic">${ill(d)}</span>
-          <div class="kp-gt"><small>היעד שלי</small><h1>${esc(d.n)}</h1><p>${esc(I.n)}${P.auto?' · <b>מוסד לדוגמה</b>':''}</p>${chipsHTML(X)}</div>
-          <div class="kp-ged">${button('data-kinst','מוסד אחר')}${button('data-kchange','תואר אחר')}${button(`data-open="${d.id}"`,'עמוד התואר')}</div></div>
-        <div class="kp-prog"><div class="kp-ring xl">${ring(pl.pct,176,16,'lg')}<div class="kp-rin"><b class="num">${pl.pct}%</b><small>מהדרך</small></div></div>
-          <div class="kp-pt"><p class="kp-ph">${esc(mo[1])}</p><p class="kp-pd">${esc(mo[2])}</p>
-            <div class="kp-pr"><p class="kp-pn2"><span><b class="num">${pl.done}</b> מתוך <b class="num">${pl.total}</b> צעדים${pl.part>0?' ועוד חלק מהסף':''}</span><span><b class="num">${zd}</b> מתוך <b class="num">${pl.zones.length}</b> שלבים הושלמו</span></p>
-              ${nm?`<p class="kp-pn">${ki('target')}<span>עוד ${pl.part>0?'כ-':''}${nm.k===1?'צעד אחד':nm.k+' צעדים'} ל-<b class="num">${nm.m}%</b></span></p>`:''}</div>
-            <p class="kp-pfine">האחוז הוא הצעדים שעשיתי בדרך, ולא סיכוי להתקבל.</p></div></div></div>
-      ${msHTML(pl)}
+/* ---------- the top of the road: my percent, the next step, what else is missing ---------- */
+/* what else is missing, in at most three short items: the gap to the threshold (when it can be counted) and the open steps of the stage I am working on.
+   A milestone ("pass the threshold", "accepted") is not an action, so it is not listed as a step; the next step has its own button. */
+function missingItems(pl){
+  const s=pl.stand,L=[],z=pl.zones.find(z=>z.id===pl.focus)||pl.zones[0],nx=pl.next&&pl.next.id;
+  if(['part','mid','far','near'].includes(s.k)&&pl.tasks.some(t=>t.id==='thr'&&!t.done))L.push({k:'gap',ic:'chart',t:s.h});
+  z.tasks.forEach(t=>{if(!t.done&&!t.ms&&t.id!==nx&&L.length<3)L.push({k:'step',ic:t.ic,t:t.t,id:t.id})});
+  return L}
+const okLine=pl=>pl.stand.k==='ok'?`<p class="kp-okl">${ki('check')}${esc(pl.stand.h)}</p>`:'';
+const missHTML=(M,pl)=>M.length
+  ?`<div class="kp-miss"><h2 class="kp-mh">${ki('target')}מה עוד חסר לי</h2><ul>${M.map(m=>`<li><button type="button" class="kp-mc ${m.k}" ${m.id?`data-kstop="${esc(m.id)}"`:'data-ktab="lab"'}>${ki(m.ic)}<span>${esc(m.t)}</span>${ki('arrow')}</button></li>`).join('')}</ul>${okLine(pl)}</div>`
+  :(pl.stand.k==='ok'&&pl.done<pl.total?`<div class="kp-miss">${okLine(pl)}</div>`:'');
+/* the goal, the ring with my percent and a few words. On the map and the calendar it also says which stage I am in */
+function pcardHTML(pl,ban){
+  const X=pl.X,{d,I,P}=X,mo=motivOf(pl.pct),nm=nextMark(pl),Z=pl.zones,zd=Z.filter(z=>z.total&&z.done===z.total).length,zi=Math.max(0,Z.findIndex(z=>z.id===pl.focus)),z=Z[zi];
+  return `<div class="kp-pcard">
+    <div class="kp-goal"><span class="kp-pic">${ill(d)}</span>
+      <div class="kp-gt"><small>היעד שלי</small><h1>${esc(d.n)}</h1><p>${esc(I.n)}${P.auto?' · <b>מוסד לדוגמה</b>':''}</p>${chipsHTML(X)}</div>
+      <div class="kp-ged">${button('data-kinst','מוסד אחר')}${button('data-kchange','תואר אחר')}${button(`data-open="${d.id}"`,'עמוד התואר')}</div></div>
+    <div class="kp-prog"><div class="kp-ring xl">${ring(pl.pct,176,16,'lg')}<div class="kp-rin"><b class="num">${pl.pct}%</b><small>מהדרך</small></div></div>
+      <div class="kp-pt"><p class="kp-ph">${esc(mo[1])}</p><p class="kp-pd">${esc(mo[2])}</p>
+        <div class="kp-pr"><p class="kp-pn2"><span><b class="num">${pl.done}</b> מתוך <b class="num">${pl.total}</b> צעדים${pl.part>0?' ועוד חלק מהסף':''}</span>${ban?`<span>שלב <b class="num">${zi+1}</b> מתוך <b class="num">${Z.length}</b>: ${esc(z.t)}</span>`:`<span><b class="num">${zd}</b> מתוך <b class="num">${Z.length}</b> שלבים הושלמו</span>`}</p>
+          ${nm?`<p class="kp-pn">${ki('target')}<span>עוד ${pl.part>0?'כ-':''}${nm.k===1?'צעד אחד':nm.k+' צעדים'} ל-<b class="num">${nm.m}%</b></span></p>`:''}</div>
+        <p class="kp-pfine">האחוז הוא הצעדים שעשיתי בדרך, ולא סיכוי להתקבל.</p></div></div></div>`}
+/* the card on the left of the map: the next step as one clear button, and what else is missing under it */
+function nextCardHTML(pl){
+  const nx=pl.next;
+  return `<aside class="kp-stand kp-bnext" aria-label="הצעד הבא ומה עוד חסר">${nx
+    ?`<div class="kp-nx"><small>הצעד הבא שלי</small><b>${esc(nx.t)}</b>${nx.s?`<span class="kp-nxs">${esc(nx.s)}</span>`:''}${nx.due?`<span class="kp-nxd">${dueN(nx)}</span>`:''}<button type="button" class="btn primary" data-kstop="${esc(nx.id)}">לצעד הזה${ki('arrow')}</button></div>`
+    :`<div class="kp-nx"><small>הדרך הושלמה</small><b>כל הצעדים בדרך מסומנים</b></div>`}
+    ${missHTML(missingItems(pl),pl)}
+    <p class="kp-bl">${button('data-ktab="lab"','כמה חסר לי? לעדכון הציונים',ki('arrow'))}</p></aside>`}
+/* the progress view's top: the old dashboard, without the tiles (the chart replaces them) */
+function dashHTML(pl){
+  const s=pl.stand,X=pl.X;
+  return `<div class="kp-dash">${pcardHTML(pl,false)}
       <div class="kp-stand ${s.k}"><div class="kp-sh"><small>איפה אני עכשיו${X.est?' · לפי ציונים צפויים':''}</small><b>${esc(s.h)}</b><span>${esc(s.s)}</span></div>
         ${gaugeHTML(X)}<div class="kp-sxr">${button('data-ktab="lab"','עדכון ציונים',ki('arrow'))}</div>
-        ${pl.next?`<div class="kp-nx"><small>הצעד הבא שלי</small><b>${esc(pl.next.t)}</b>${pl.next.due?`<span class="kp-nxd">${dueN(pl.next)}</span>`:''}<button type="button" class="btn primary sm" data-kstop="${pl.next.id}">לצעד הזה${ki('arrow')}</button></div>`:''}</div></div>`}
+        ${pl.next?`<div class="kp-nx"><small>הצעד הבא שלי</small><b>${esc(pl.next.t)}</b>${pl.next.due?`<span class="kp-nxd">${dueN(pl.next)}</span>`:''}<button type="button" class="btn primary sm" data-kstop="${esc(pl.next.id)}">לצעד הזה${ki('arrow')}</button></div>`:''}</div></div>`}
+function bannerHTML(pl){return `<div class="kp-dash kp-ban">${pcardHTML(pl,true)}${nextCardHTML(pl)}</div>`}
+/* the progress view carries the full dashboard; the map and the calendar carry the banner */
+const heroKind=t=>t==='prog'?'dash':'ban';
+function heroHTML(pl){const k=heroKind(KP.tab);KP.hk=k;return `${switchHTML()}${k==='dash'?dashHTML(pl):bannerHTML(pl)}`}
+
+/* ================= the progress view: one column per stage (pg-) =================
+   Each column is a stage of the road, as tall as the part of it I already did. A tap on a column shows that stage's steps under the chart.
+   The columns grow from zero when the view opens and move to their new height when I mark a step. */
+const ZSH={g10:'י\'',g11:'י"א',g12:'י"ב',svc:'שירות',prep:'הכנה',reg:'הרשמה',go:'לימודים'};
+const pgSel=pl=>{const Z=pl.zones;if(KP.zsel&&Z.some(z=>z.id===KP.zsel))return KP.zsel;return Z.some(z=>z.id===pl.focus)?pl.focus:Z[0].id};
+const pgPct=z=>z.total?Math.round(100*z.done/z.total):0;
+function pgCol(z,i,pl,sel,grow){
+  const th=ZTH[z.id]||ZTH.g10,p=pgPct(z),st=trState(z,pl),on=sel===z.id,lab=`${z.t}: ${trStateTxt[st]}, ${z.done} מתוך ${z.total} צעדים, ${p}%`;
+  return `<li class="pg-c ${st}${on?' on':''}" data-z="${z.id}" style="--zc:${th.c};--zb:${th.bg};--p:${grow?0:p}%;--k:${i}" data-p="${p}"><button type="button" class="pg-b" data-kpg="${z.id}" aria-pressed="${on}"${st==='cur'?' aria-current="step"':''} aria-label="${esc(lab)}">
+    <b class="pg-v num">${p}%</b><span class="pg-t"><i class="pg-f"></i></span>${st==='cur'?'<em class="pg-pin">אני כאן</em>':''}
+    <span class="pg-i">${st==='done'?ki('check'):ki(z.ic)}</span><span class="pg-n">${esc(ZSH[z.id]||z.t)}</span><small class="num">${z.done}/${z.total}</small></button></li>`}
+function pgChart(pl,sel){
+  const Z=pl.zones,grow=!KP.pgDone;
+  return `<div class="pg-chart" id="pgChart"><div class="pg-y" aria-hidden="true"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0</span></div><ol class="pg-cols" style="--n:${Z.length}" aria-label="ההתקדמות שלי בכל שלב בדרך">${Z.map((z,i)=>pgCol(z,i,pl,sel,grow)).join('')}</ol></div>`}
+/* the steps of the stage under the chart: the same list the map used to carry */
+function panelHTML(pl){const z=pl.zones.find(z=>z.id===pgSel(pl)),X=pl.X,s=trState(z,pl),pct=pgPct(z),rg=zoneRange(z.id,X);
+  return `<section class="tr-panel" id="kpPanel" aria-labelledby="trPT"><div class="tr-ph"><div><h3 id="trPT">${z.t}</h3><p>${z.s}${rg?` · ${rg}`:''}</p></div>
+    <div class="tr-pp"><span class="tr-pst ${s}">${trStateTxt[s]}</span><span><b class="num">${z.done}/${z.total}</b> צעדים</span><i class="tr-bar" aria-hidden="true"><i style="width:${pct}%"></i></i></div></div>
+    <ol class="kp-tl">${z.tasks.map(taskHTML).join('')}</ol></section>`}
+function achieveHTML(pl){const B=badges(pl),sx=streak();
+  return `<div class="kp-card pg-bd" id="pgBd"><div class="pc-h"><h2>${ki('cap')}ההישגים שלי</h2><span class="pc-c num">${B.filter(b=>b[2]).length}/${B.length}</span></div>${badgesHTML(pl)}${sx>=2?`<p class="kp-streak">${ki('fire')}${sx} ימים של התקדמות. ממשיכים מכאן</p><p class="fine">ימי מנוחה הם חלק מהקצב: עד יומיים בשבוע.</p>`:''}</div>`}
+function progHTML(pl){
+  return `<div class="sec-h"><div><h2>${ki('chart')}ההתקדמות שלי</h2><p>כמה כבר עשיתי בכל שלב בדרך ליעד. לוחצים על שלב כדי לראות את הצעדים שלו, ומסמנים ✓ כשמסיימים צעד.</p></div></div>
+    <div class="pg">${pgChart(pl,pgSel(pl))}${panelHTML(pl)}</div>${achieveHTML(pl)}`}
+/* the columns of a chart that was just drawn at zero grow to their height; a chart that is already in the page moves to its new height */
+function pgGrow(){const c=$('#pgChart');if(!c||KP.pgDone)return;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{c.querySelectorAll('.pg-c[data-p]').forEach(e=>e.style.setProperty('--p',e.dataset.p+'%'));KP.pgDone=true}))}
+/* a step was marked: the chart, its list and the achievements change in place, so the columns move and nothing flickers */
+function pgUpdate(pl){
+  const c=$('#pgChart');if(!c)return false;
+  const cols=[...c.querySelectorAll('.pg-c')];if(cols.length!==pl.zones.length)return false;
+  const sel=pgSel(pl);
+  pl.zones.forEach((z,i)=>{const e=cols[i];if(!e||e.dataset.z!==z.id)return;const p=pgPct(z),st=trState(z,pl),on=sel===z.id,b=e.querySelector('.pg-b'),th=ZTH[z.id]||ZTH.g10;
+    e.className=`pg-c ${st}${on?' on':''}`;e.dataset.p=p;e.style.setProperty('--p',p+'%');e.style.setProperty('--zc',th.c);
+    e.querySelector('.pg-v').textContent=p+'%';e.querySelector('small').textContent=`${z.done}/${z.total}`;
+    e.querySelector('.pg-i').innerHTML=st==='done'?ki('check'):ki(z.ic);
+    const pin=b.querySelector('.pg-pin');if(st==='cur'&&!pin)b.insertAdjacentHTML('afterbegin','<em class="pg-pin">אני כאן</em>');else if(st!=='cur'&&pin)pin.remove();
+    b.setAttribute('aria-pressed',on);if(st==='cur')b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');
+    b.setAttribute('aria-label',`${z.t}: ${trStateTxt[st]}, ${z.done} מתוך ${z.total} צעדים, ${p}%`)});
+  const pn=$('#kpPanel');if(pn)pn.outerHTML=panelHTML(pl);
+  const bd=$('#pgBd');if(bd)bd.outerHTML=achieveHTML(pl);
+  return true}
+/* a tap on a column: that stage's steps open under the chart */
+function pgSelect(id){const pl=safe(plan);if(!pl||!pl.zones.some(z=>z.id===id))return;KP.zsel=id;
+  document.querySelectorAll('#pgChart .pg-c').forEach(c=>{const on=c.dataset.z===id;c.classList.toggle('on',on);const b=c.querySelector('[data-kpg]');if(b)b.setAttribute('aria-pressed',on)});
+  const p=$('#kpPanel');if(p){p.outerHTML=panelHTML(pl);const n=$('#kpPanel');if(n&&!RM()){n.classList.add('pg-fx');setTimeout(()=>n.classList.remove('pg-fx'),500)}}
+  const lv=$('#live');if(lv){const z=pl.zones.find(z=>z.id===id);lv.textContent=`נבחר השלב: ${z.t}, ${pgPct(z)}%`}}
 
 /* ---------- what to do now: one step at a time ---------- */
 /* a few honest, encouraging words from my own numbers and progress */
@@ -6756,7 +6939,7 @@ function coach(pl){
   if(pl.done<=1&&!X.real)lines.push('כל מסלול מתחיל בצעד אחד קטן. אפשר להתחיל מהערכה של הציונים, ולדייק בהמשך.');
   else if(s.k==='ok')lines.push('אני מעל הסף, וזה מגיע לי. עכשיו חשוב לא לוותר על ההמשך: דרישות נוספות, מסמכים והרשמה בזמן.');
   else if(s.k==='near')lines.push(`אני ממש ${gx('קרוב','קרובה')}. שיפור קטן אחד, בפסיכומטרי או בבגרות, יכול להספיק.`);
-  else if(s.k==='mid')lines.push('יש פער, והוא ניתן לסגירה: בחינה פסיכומטרית חוזרת (אין הגבלה על מספר הניסיונות) ושיפור בגרות אחד או שניים. בלשונית "כמה חסר לי?" רואים מה כל אחד שווה.');
+  else if(s.k==='mid')lines.push('יש פער, והוא ניתן לסגירה: בחינה פסיכומטרית חוזרת (אין הגבלה על מספר הניסיונות) ושיפור בגרות אחד או שניים. בכלי "כמה חסר לי?" רואים מה כל אחד שווה.');
   else if(s.k==='far')lines.push('הפער גדול, ובכל זאת יש דרך. כדאי לבדוק גם תוכנית גיבוי, כדי שהדרך לא תלויה בדבר אחד.');
   else if(s.k==='open')lines.push('אין צורך לחכות: אפשר להתחיל ללמוד כבר עכשיו, ולצבור נקודות זכות.');
   else lines.push('כל צעד שאני מסמן כאן מקרב אותי ליום הראשון. הקצב שלי הוא הקצב הנכון.');
@@ -6833,7 +7016,7 @@ const QBANK=()=>[
     q:X=>X.stg==='svc'?`מתי אני ${gx('מסיים','מסיימת','מסיים/ת')} את השירות?`:`מתי אני ${gx('מסיים','מסיימת','מסיים/ת')} את י"ב?`,
     why:'התאריך עוזר לחשב כמה זמן נשאר ומתי כדאי להתחיל ללמוד. תאריך משוער מספיק, ואפשר לשנות או למחוק אותו בכל רגע.',
     apply:v=>{if(!setEnd(v))return null;const n=daysTo(v);
-      return `${endTitle()}: ${dLong(v)}${n>=0?`, ${inN(n)}`:' (התאריך כבר עבר)'}. הוספתי אותו לספירה לאחור, ללשונית "מתי?" ולקובץ היומן${!startPicked()&&startFromEnd()?`. ההתחלה המוקדמת שמתאימה לתאריך הזה: אוקטובר ${startFromEnd()}`:''}.`}},
+      return `${endTitle()}: ${dLong(v)}${n>=0?`, ${inN(n)}`:' (התאריך כבר עבר)'}. הוספתי אותו לספירה לאחור, ליומן שלי ולקובץ היומן${!startPicked()&&startFromEnd()?`. ההתחלה המוקדמת שמתאימה לתאריך הזה: אוקטובר ${startFromEnd()}`:''}.`}},
   {id:'start',when:X=>!startPicked()&&!startFromEnd(),q:'מתי אני רוצה להתחיל ללמוד?',
     why:'התשובה קובעת לאיזו שנה מוצגות ההרשמות והמועדים בדרך. אפשר להחליף אותה בכל רגע.',
     o:()=>startOpts().slice(0,3).map(y=>[y,`אוקטובר ${y}`]),
@@ -6936,14 +7119,38 @@ function nowHTML(pl){
       <div class="kp-nowg"><div class="kp-main" id="kpStep">${t?focusHTML(pl,t):doneHTML(pl)}</div>
         <div class="kp-side">${coach(pl)}${safe(()=>teenTeaser(pl),'')}</div></div></section>
     ${safe(()=>qCardHTML(pl),'')}
-    <div class="kp-whyc">${safe(()=>whyHTML(pl))}</div>`}
-const roadHTML=pl=>`<div class="sec-h"><div><h2>${ki('map')}הדרך המלאה</h2><p>כל השלבים עד היום הראשון, על מפה אחת. לוחצים על שלב כדי לראות מה בו, ומסמנים ✓ כשמסיימים צעד. שום דבר לא נעול.</p></div></div>${trailHTML(pl)}${panelHTML(pl)}${endCardHTML(pl)}${safe(()=>teenHTML(pl),'')}`;
+    <div class="kp-whyc">${safe(()=>whyHTML(pl))}</div>
+    ${safe(()=>teenHTML(pl),'')}`}
 const button=(attr,label,ic='')=>`<button class="linkbtn kp-lnk" ${attr}>${label}${ic}</button>`;
 
-/* ---------- the tabs ---------- */
+/* ================= the three views, and the tools beside them ================= */
+const TABS=[['now','המפה','map','מפה'],['prog','ההתקדמות','chart','התקדמות'],['cal','היומן','cal','יומן']];
+const TOOLS=[['lab','כמה חסר לי?','chart'],['opt','מה עוד אפשר?','compass'],['more','עליי והגדרות','user']];
+const TKEYS=[...TABS.map(t=>t[0]),...TOOLS.map(t=>t[0])];
+const KALIAS={road:'now',why:'now',dates:'cal'}; /* the names the page's own buttons used before the three views */
+const TABOF={now:'now',road:'now',lab:'lab',opt:'opt',why:'now',dates:'cal',more:'more',prog:'prog',cal:'cal'};
+const isView=k=>TABS.some(t=>t[0]===k);
+const BACKN={now:'למפה',prog:'להתקדמות',cal:'ליומן'};
+const backName=()=>BACKN[KP.back||'now']||BACKN.now;
+/* the three views as one control with a pill that slides to the one I am on (the pill follows --i; the page reads right to left, so it moves left) */
 function navHTML(){
-  return `<div class="wrap kp-navin"><nav aria-label="חלקי העמוד" role="tablist">${TABS.map(([k,l,ic,sh])=>`<button class="kp-np ${KP.tab===k?'act':''}" role="tab" aria-selected="${KP.tab===k}" aria-label="${l}" data-ktab="${k}">${ki(ic)}<span class="kp-tl-l">${l}</span><span class="kp-tl-s">${sh}</span></button>`).join('')}</nav></div>`}
-const TABF={now:nowHTML,road:roadHTML,lab:pl=>labHTML(pl),opt:()=>'<div id="kpOpt"><div class="kp-ld">טוען אפשרויות…</div></div>',dates:pl=>datesHTML(pl),more:pl=>moreHTML(pl)};
+  const i=Math.max(0,TABS.findIndex(t=>t[0]===KP.tab)),act=isView(KP.tab);
+  return `<div class="wrap kp-navin"><div class="kp-seg3" role="tablist" aria-label="שלוש תצוגות של המסלול" style="--i:${i};--n:${TABS.length}" data-act="${act?1:0}"><span class="kp-ind" aria-hidden="true"></span>${TABS.map(([k,l,ic])=>`<button type="button" class="kp-vw${KP.tab===k?' act':''}" role="tab" id="kptab-${k}" aria-selected="${KP.tab===k}" aria-controls="kpTab" tabindex="${KP.tab===k||(!act&&k==='now')?0:-1}" data-ktab="${k}">${ki(ic)}<span class="kp-vw-l">${l}</span></button>`).join('')}</div></div>`}
+/* the first time: what the three views are for (shown once, until I close it) */
+const viewsHint=()=>store.get('viewsHelp',0)?'':`<div class="kp-vh" role="note">${ki('compass')}<p><b>שלוש דרכים להסתכל על הדרך.</b> <b>המפה</b> מראה מה עושים עכשיו, <b>ההתקדמות</b> מראה כמה כבר עשיתי בכל שלב, ו<b>היומן</b> מראה רק את התאריכים שקשורים אליי, ואפשר להוסיף כל אחד מהם ליומן.</p><button type="button" class="linkbtn" data-kvh>הבנתי</button></div>`;
+function toolsHTML(){
+  const tool=TOOLS.some(t=>t[0]===KP.tab);
+  return `<button type="button" class="kp-back" data-ktab="${KP.back||'now'}"${tool?'':' hidden'}>${ki('arrow','kp-flip')}<span>חזרה ${backName()}</span></button><span class="kp-tools-h" id="kpToolsH">כלים</span><div class="kp-tls" role="group" aria-labelledby="kpToolsH">${TOOLS.map(([k,l,ic])=>`<button type="button" class="kp-tool${KP.tab===k?' act':''}" data-ktab="${k}" aria-pressed="${KP.tab===k}">${ki(ic)}${l}</button>`).join('')}</div>`}
+/* the control and the tools change in place: a button keeps the focus I gave it, and the pill slides instead of jumping */
+function navSync(){
+  const seg=document.querySelector('#kpNav .kp-seg3'),act=isView(KP.tab);
+  if(seg){seg.style.setProperty('--i',Math.max(0,TABS.findIndex(t=>t[0]===KP.tab)));seg.dataset.act=act?1:0;
+    seg.querySelectorAll('[data-ktab]').forEach(b=>{const on=b.dataset.ktab===KP.tab;b.classList.toggle('act',on);b.setAttribute('aria-selected',on);b.tabIndex=on||(!act&&b.dataset.ktab==='now')?0:-1})}
+  const tl=$('#kpTools');if(tl){const tool=TOOLS.some(t=>t[0]===KP.tab),bk=tl.querySelector('.kp-back');
+    if(bk){bk.hidden=!tool;bk.dataset.ktab=KP.back||'now';const sp=bk.querySelector('span');if(sp)sp.textContent='חזרה '+backName()}
+    tl.querySelectorAll('.kp-tool').forEach(b=>{const on=b.dataset.ktab===KP.tab;b.classList.toggle('act',on);b.setAttribute('aria-pressed',on)})}
+  const tp=$('#kpTab'),cur=document.getElementById('kptab-'+KP.tab);if(tp)tp.setAttribute('aria-labelledby',cur?'kptab-'+KP.tab:'kpToolsH')}
+const TABF={now:nowHTML,prog:progHTML,cal:calHTML,lab:pl=>labHTML(pl),opt:()=>'<div id="kpOpt"><div class="kp-ld">טוען אפשרויות…</div></div>',more:pl=>moreHTML(pl)};
 const tabInner=pl=>`<section class="kp-sec" id="kp-${KP.tab}">${safe(()=>(TABF[KP.tab]||TABF.now)(pl))}</section>`;
 
 /* ---------- the page ---------- */
@@ -6952,7 +7159,7 @@ function renderPath(){
   if(KP.wiz.active)return safe(wizardHTML,'');
   safe(visitNote); /* F2a: the day of my last visit, decided once per page load */
   /* arriving from another page starts at the landing (all my targets when I have several); a redraw in place keeps where I am */
-  if(typeof NAVT!=='undefined'&&KP.navT!==NAVT){KP.navT=NAVT;KP.trGo=false;KP.trXf=null;KP.trXc=null;KP.zsel='';KP.qfx=null;KP.qpause=false;if(S.navDir!=='back'||KP.land){KP.view=KP.land;KP.tab='now'}KP.land=''}
+  if(typeof NAVT!=='undefined'&&KP.navT!==NAVT){KP.navT=NAVT;KP.trGo=false;KP.trXf=null;KP.trXc=null;KP.zsel='';KP.pgDone=false;KP.back='';KP.qfx=null;KP.qpause=false;if(S.navDir!=='back'||KP.land){KP.view=KP.land;KP.tab='now'}KP.land=''}
   /* the landing is decided once, on arrival; after that the view stays where I put it (adding a target from the options must not throw me to the hub) */
   if(!KP.view)KP.view=tList().length>1?'hub':'road';
   if(curView()==='hub')return safe(hubPageHTML,'');
@@ -6962,29 +7169,37 @@ function renderPath(){
   setTimeout(afterTab,0);
   return `<section class="hero kp-hero" data-tab="${KP.tab}" style="${cv(X.d)}"><div class="wrap">${BACK}<div id="kpHero">${safe(()=>heroHTML(pl))}</div></div></section>
     <div class="kp-nav" id="kpNav">${navHTML()}</div>
-    <div class="wrap kp-body"><div id="kpTab" role="tabpanel">${tabInner(pl)}</div></div>`}
-/* the options tab looks at every degree, so it fills in right after the first paint */
+    <div class="wrap kp-body"><div id="kpHint">${viewsHint()}</div><div class="kp-tools" id="kpTools">${toolsHTML()}</div><div id="kpTab" role="tabpanel" aria-labelledby="${isView(KP.tab)?'kptab-'+KP.tab:'kpToolsH'}">${tabInner(pl)}</div></div>`}
+/* the options tool looks at every degree, so it fills in right after the first paint; the progress chart grows once it is in the page */
 function afterTab(){
-  if(S.route.v!=='path'||KP.wiz.active||!hasGoal()||KP.tab!=='opt')return;
+  if(S.route.v!=='path'||KP.wiz.active||!hasGoal())return;
+  if(KP.tab==='prog')pgGrow();
+  if(KP.tab!=='opt')return;
   setTimeout(()=>{const pl=safe(plan),h=$('#kpOpt');if(!pl||!h||KP.tab!=='opt')return;h.innerHTML=safe(()=>optHTML(pl),'');stripInit&&stripInit()},30)}
 /* repaint the top and/or the open tab without moving the page */
 function paint(names){
   const pl=safe(plan);if(!pl||S.route.v!=='path'||KP.wiz.active||curView()==='hub')return;
   const hero=!names||names.includes('hero'),tab=!names||names.some(n=>n!=='hero');
   if(hero){const h=$('#kpHero');if(h)h.innerHTML=safe(()=>heroHTML(pl))}
-  if(tab){const b=$('#kpTab');if(b){b.innerHTML=tabInner(pl);afterTab()}}
+  if(tab){const b=$('#kpTab');if(b&&!(KP.tab==='prog'&&safe(()=>pgUpdate(pl),false))){b.innerHTML=tabInner(pl);afterTab()}} /* the progress chart changes in place, so its columns move */
   safe(updateRing)}
 function updateRing(){document.querySelectorAll('#links .path-l,#botnav .path-l').forEach(n=>{const r=n.querySelector('.nring'),h=navRing();if(r)r.outerHTML=h;else if(h)(n.querySelector('.bi')||n).insertAdjacentHTML('beforeend',h)})}
 function jump(id,smooth=true){const e=$('#'+id);if(!e)return;const y=e.getBoundingClientRect().top+scrollY-(innerWidth<760?116:150);window.scrollTo({top:Math.max(0,y),behavior:smooth&&!RM()?'smooth':'instant'})}
 function gotoTab(k,o={}){
-  if(!TABS.some(t=>t[0]===k))k='now';
-  if(k!==KP.tab){KP.qpause=false;KP.qfx=null} /* F2b: leaving the tab and coming back allows the next question, and an old effect is not kept */
+  k=KALIAS[k]||k;if(!TKEYS.includes(k))k='now';
+  const from=KP.tab;
+  if(k!==from){KP.qpause=false;KP.qfx=null; /* F2b: leaving the tab and coming back allows the next question, and an old effect is not kept */
+    if(isView(k))KP.back='';else if(isView(from))KP.back=from; /* a tool remembers the view it was opened from */
+    if(k==='prog')KP.pgDone=false} /* the columns grow again each time the view opens */
   KP.tab=k;const n=$('#kpNav'),b=$('#kpTab'),pl=safe(plan),hs=$('.kp-hero');
   if(!n||!b||!pl){render();return}
   if(hs)hs.dataset.tab=k;
-  n.innerHTML=navHTML();b.innerHTML=tabInner(pl);afterTab();
-  const a=$('.kp-np.act');if(a&&a.scrollIntoView)a.scrollIntoView({inline:'center',block:'nearest'});
-  if(o.scroll||b.getBoundingClientRect().top<(innerWidth<760?116:150))jump('kpTab',!o.instant)}
+  if(heroKind(k)!==KP.hk){const h=$('#kpHero');if(h)h.innerHTML=safe(()=>heroHTML(pl))}
+  navSync();b.innerHTML=tabInner(pl);afterTab();
+  if(k!==from){const lv=$('#live'),nm=(TABS.find(t=>t[0]===k)||TOOLS.find(t=>t[0]===k)||[])[1];if(lv&&nm)lv.textContent='נפתח: '+nm; /* the view changes under the focus, so a screen reader is told */
+    b.classList.remove('kp-swap');void b.offsetWidth;b.classList.add('kp-swap');clearTimeout(gotoTab.t);gotoTab.t=setTimeout(()=>b.classList.remove('kp-swap'),560)}
+  if(o.to)setTimeout(()=>jump(o.to,!o.instant),90);
+  else{const top=b.getBoundingClientRect().top;if(o.scroll||top<(innerWidth<760?116:150)||top>innerHeight*.55)jump('kpTab',!o.instant)}} /* the view I opened is brought into sight: when it starts low on the screen (I am at the top of the page) or I have scrolled past its beginning */
 /* bring a step into focus (from a list, a button in another step, or "next") */
 function focusOn(id,push=true){
   const pl=safe(plan);if(!pl||!pl.tasks.some(t=>t.id===id))return;
@@ -7066,7 +7281,7 @@ function labVerdictHTML(X){
   if(L.err==='rows')return box('na','flag','מזינים ציונים','כדי לחשב, צריך כמה ציוני בגרות (גם צפויים).');
   if(L.err==='units')return box('na','flag','חסרות יחידות לימוד',unitsNote()+' מוסיפים מקצועות כדי שאחשב את הממוצע לפי כללי '+esc(I.n)+'.');
   const V=L.v,cmp=labDirty()&&X.real&&X.q.tier>0?`<p class="kp-cmp">בפרופיל שלי, בלי השינויים: <b>${esc(standing(X).h)}</b></p>`:'';
-  if(V.tier===0)return box('ok','check','אין תנאי קבלה, לפי הידיעון','לפי הידיעון של האוניברסיטה הפתוחה אפשר להתחיל בלי בגרות ובלי פסיכומטרי. הפסיכומטרי והבגרות שבלשונית "כמה חסר לי?" עוזרים לבדוק מה אפשר ללמוד במוסדות אחרים, בלשונית "מה עוד אפשר?".');
+  if(V.tier===0)return box('ok','check','אין תנאי קבלה, לפי הידיעון','לפי הידיעון של האוניברסיטה הפתוחה אפשר להתחיל בלי בגרות ובלי פסיכומטרי. הפסיכומטרי והבגרות שבכלי "כמה חסר לי?" עוזרים לבדוק מה אפשר ללמוד במוסדות אחרים, בכלי "מה עוד אפשר?".');
   if(V.err)return box('na','flag',V.err==='bagrut'?'חסר ממוצע בגרות':'חסר ציון פסיכומטרי','מזינים את הנתון החסר, והחישוב יופיע כאן.');
   if(V.tier===1){
     const g=V.gapP,ok=V.ok,need=[];
@@ -7210,17 +7425,17 @@ function optHTML(pl){
   const foot=x=>{const k=x.e.now.size,p=x.e.part.size,n=k+p;return `<div class="dfoot yes"><span class="cki" aria-hidden="true">✓</span>${n===1?`${gx('עומד','עומדת')} בתנאים במוסד אחד`:`${gx('עומד','עומדת')} בתנאים ב-${n} מוסדות`}${p&&!k?' (בכפוף לדרישות נוספות)':''}</div>`};
   const scn=labSc({d:d.id,i:X.P.i}),mine=`פסיכומטרי ${scn.p||LAB.p}${scn.b?`, ממוצע בגרות ${fmt(scn.b,1)}`:''}`;
   const open=!X.q.open&&d.of.some(o=>o.i==='open');
-  return `<div class="sec-h"><div><h2>${ki('compass')}מה עוד אפשר? לא תלוי במוסד אחד</h2><p>לפי המספרים בלשונית "כמה חסר לי?" (${esc(mine)}). בכל פעם שמשנים משהו שם, הרשימות מתעדכנות. אפשר להוסיף מוסד ליעדים שלי ולהשוות.</p></div></div>
+  return `<div class="sec-h"><div><h2>${ki('compass')}מה עוד אפשר? לא תלוי במוסד אחד</h2><p>לפי המספרים בכלי "כמה חסר לי?" (${esc(mine)}). בכל פעם שמשנים משהו שם, הרשימות מתעדכנות. אפשר להוסיף מוסד ליעדים שלי ולהשוות.</p></div></div>
     <div class="kp-opt-grid">
       <div class="kp-oc"><h3>אותו תואר, מוסדות אחרים <span class="kp-cnt num">${rows.length}</span></h3><div class="kp-ics">${shown.map(x=>instCard(d,x,X)).join('')}</div>${rows.length>6?`<div class="more"><button class="btn soft sm" data-kmore="inst">${KO.all?'להציג פחות':`להציג את כל ${rows.length} המוסדות`}</button></div>`:''}</div>
       <div class="kp-oc"><h3>דרכי גישור</h3><div class="cklist kp-ck">
         ${open?ckHTML({s:'yes',t:'להתחיל באוניברסיטה הפתוחה',d:'התואר נלמד גם שם, ולפי הידיעון בלי תנאי קבלה. אפשר להתחיל ללמוד ולצבור נקודות זכות, ולהמשיך משם.',src:NEED_SRC.openu,sl:'ידיעון האוניברסיטה הפתוחה'}):''}
         ${ckHTML({s:'na',t:'מכינה קדם-אקדמית',d:'מאפשרת להשלים בגרות או להתקבל לפי ציון המכינה. משוחררי צה"ל עשויים להיות זכאים למימון.',f:'mod.prep',src:NEED_SRC.mod,sl:'משרד הביטחון: מכינות'})}
-        ${ckHTML({s:'na',t:'שיפור ציונים ובחינה חוזרת',d:'פסיכומטרי אפשר לשפר בכל מועד, ובגרויות במועדי חורף וקיץ. הבוסטרים בלשונית "כמה חסר לי?" מראים מה הכי משתלם.'})}
+        ${ckHTML({s:'na',t:'שיפור ציונים ובחינה חוזרת',d:'פסיכומטרי אפשר לשפר בכל מועד, ובגרויות במועדי חורף וקיץ. הבוסטרים בכלי "כמה חסר לי?" מראים מה הכי משתלם.'})}
         ${ckHTML({s:'na',t:'הנדסאים וטכנאים',d:'לימודי מה"ט במכללות הטכנולוגיות, כולל מכינה טכנולוגית למי שחסרים לו מקצועות.',go:'tech',gl:'להנדסאים וטכנאים'})}</div></div></div>
     ${sim.length?`<h3 class="kp-h3">תארים קרובים שהמספרים שלי מספיקים להם</h3><div class="grid kp-sg">${sim.slice(0,4).map((x,i)=>card(x.d,{delay:i*30,foot:foot(x)})).join('')}</div>`:''}
     <div class="sec-h" style="margin-top:28px"><div><h3 class="kp-h3" style="margin:0">מה אפשר ללמוד עם המספרים האלה? <span class="kp-cnt num">${fmt(reach.length)}</span></h3><p>דוגמאות מתוך כל התארים, לפי הנתונים שפורסמו. תחילה תחום היעד שלי.</p></div>${arrows('kp-strip')}</div>
-    ${reach.length?`<div class="strip" id="kp-strip">${reach.slice(0,16).map(x=>card(x.d,{foot:foot(x)})).join('')}</div>${hasReal()?`<div class="more" style="margin-top:12px"><button class="btn soft" data-go="me">לכל ${fmt(reach.length)} התארים</button></div>`:''}`:'<div class="empty"><h3>במספרים האלה עוד לא נמצאו תארים שנבדקו</h3><p>אפשר להזיז את המספרים בלשונית "כמה חסר לי?", או להתחיל באוניברסיטה הפתוחה.</p></div>'}
+    ${reach.length?`<div class="strip" id="kp-strip">${reach.slice(0,16).map(x=>card(x.d,{foot:foot(x)})).join('')}</div>${hasReal()?`<div class="more" style="margin-top:12px"><button class="btn soft" data-go="me">לכל ${fmt(reach.length)} התארים</button></div>`:''}`:'<div class="empty"><h3>במספרים האלה עוד לא נמצאו תארים שנבדקו</h3><p>אפשר להזיז את המספרים בכלי "כמה חסר לי?", או להתחיל באוניברסיטה הפתוחה.</p></div>'}
     <p class="fine">הרשימה מבוססת רק על תנאי קבלה שפורסמו ונאספו כאן. לא מכל המוסדות נאספו ספים (למשל בר-אילן), ולכן היא חלקית. עמידה בתנאים אינה מבטיחה קבלה.</p>${cycleNote()}
     ${typeof progsHTML==='function'?safe(()=>progsHTML(pl),''):''}`}
 
@@ -7240,15 +7455,15 @@ function whyHTML(pl){
 
 
 /* ---------- dates: the exams and deadlines that are real, and mine ---------- */
-const KD={all:false};
 function timeline(pl){
-  const P=pth(),mine=new Set(bagRows().map(r=>r.k)),L=[];
-  PSYD.forEach(z=>{const pick=P&&P.sess===z.id;
+  const P=pth(),L=[],lgk=myLang()==='x'?'he':myLang(),Xs=pl?(tList().length>1?tInfos().map(x=>x.X):[pl.X]):[],
+    needPsy=!pl||Xs.some(X=>X.q.tier>0&&!(X.hasP&&X.V.ok===true)); /* the exam is on my dates while a target still needs it, in a sitting offered in my language (the one I picked stays) */
+  PSYD.forEach(z=>{const pick=P&&P.sess===z.id;if(!pick&&!(needPsy&&z.lg.split(',').includes(lgk)))return;
     L.push({id:'psyreg-'+z.id,d:z.reg,k:'psy',reg:1,pick,t:`סגירת ההרשמה הרגילה לפסיכומטרי (מועד ${z.lbl})`,sub:'לפי לוח המועדים של מאל"ו.',f:'psy.date.'+z.id,sub2:`הרשמה רגילה: ${fact('psy.fee.reg')} (מאל"ו, מדצמבר 2026).`,f2:'psy.fee.reg',src:NITE.td});
     L.push({id:'psy-'+z.id,d:z.d,d2:z.d2,k:'psy',pick,t:`בחינה פסיכומטרית: ${z.days}`,sub:'לפי לוח המועדים של מאל"ו.',f:'psy.date.'+z.id,src:NITE.td});
     if(z.res)L.push({id:'psyres-'+z.id,d:z.res,k:'psy',t:`תחזית לפרסום הציונים (מועד ${z.lbl})`,f:'psy.results',src:NITE.td})});
-  BAGD.forEach(([s,k,d,n,d2])=>{if(mine.has(k)){const se=s==='w'?'חורף':s==='s'?'קיץ':'מועד ב';L.push({id:'bag-'+s+'-'+k,d,d2,k:'bag',grp:'bag-'+s,gt:`בגרויות ${se} 2027`,sn:n,t:`בגרות ${se}: ${n}`,sub:'לפי טיוטת לוח הבחינות של משרד החינוך.',f:'bagrut.2027',src:s==='w'?EDU.win:EDU.sum})}});
-  if(stageNow()==='g12'&&!mine.size)[['2027-01-04','תחילת בחינות הבגרות: מועד חורף',EDU.win],['2027-05-05','תחילת בחינות הבגרות: מועד קיץ',EDU.sum]].forEach(([d,t,src])=>L.push({id:'bagstart-'+d,d,k:'bag',t,sub:'לפי טיוטת לוח הבחינות של משרד החינוך. את המועדים של המקצועות שלי רואים בלוח.',f:'bagrut.2027',src}));
+  const bg=pl?bagOf(pl).filter(c=>c.cal):[];bg.forEach(c=>c.sits.forEach(e=>L.push(e))); /* every sitting of a subject I still need, want to improve, or sit this year */
+  if(stageNow()==='g12'&&!bg.length)[['2027-01-04','תחילת בחינות הבגרות: מועד חורף',EDU.win],['2027-05-05','תחילת בחינות הבגרות: מועד קיץ',EDU.sum]].forEach(([d,t,src])=>L.push({id:'bagstart-'+d,d,k:'bag',t,sub:'לפי טיוטת לוח הבחינות של משרד החינוך. את המועדים של המקצועות שלי רואים בלוח.',f:'bagrut.2027',src}));
   /* registration of each of my targets, estimated from the last published cycle: shown, but never put in the calendar file */
   if(pl){const many=tList().length>1,seen=new Set();
     (many?tInfos().map(x=>x.X):[pl.X]).forEach(X=>{if(!X.start||!REGD[X.P.i])return;const R=REGD[X.P.i],f=X.fam,Y=X.start;
@@ -7259,23 +7474,151 @@ function timeline(pl){
   schEvents().forEach(x=>L.push(x)); /* F3: my tracked scholarships and verified windows */
   if(P&&P.end)L.push({id:'end-mine',d:P.end,k:'mine',t:endTitle(),sub:'התאריך שהזנתי בעצמי.'}); /* F2a: my own date (no delete button: it is edited under "עליי") */
   return L.filter(x=>x.d&&daysTo(x.d2||x.d)>=0).sort((a,b)=>a.d.localeCompare(b.d))}
-/* in the list, all my bagrut exams of one season are one row; the calendar file keeps one event per exam */
-function groupBag(L){const out=[],seen={};
-  for(const x of L){if(!x.grp){out.push(x);continue}
-    let g=seen[x.grp];if(!g){g=seen[x.grp]={id:x.grp,d:x.d,d2:x.d2||x.d,k:'bag',t:x.gt,items:[],f:x.f,src:x.src};out.push(g)}
-    g.items.push(x);if((x.d2||x.d)>g.d2)g.d2=x.d2||x.d}
-  out.forEach(g=>{if(g.items){g.t=`${g.t}: ${g.items.length===1?g.items[0].sn:g.items.length+' מקצועות'}`;g.sub=g.items.map(i=>`${i.sn} ${dShort(i.d)}`).join(' · ')}});
-  return out}
-function datesHTML(pl){
-  const L=groupBag(timeline(pl).filter(x=>!x.id.startsWith('psyres-'))),shown=KD.all?L:L.slice(0,6);
-  return `<div class="sec-h"><div><h2>${ki('cal')}המועדים שלי</h2><p>בחינות והרשמות שקשורות אליי, לפי מאל"ו ומשרד החינוך, ותאריכים שהוספתי בעצמי.</p></div>${inViewer()?'':`<button class="btn soft sm" data-kics>${ki('down')}ליומן</button>`}</div>
-    <div class="kp-card"><ol class="tl">${shown.map(x=>{const n=daysTo(x.d);return `<li class="tl-i ${x.k} ${x.reg?'reg':''} ${n<=14?'soon':''} ${x.pick?'pick':''}"><span class="tl-dot" aria-hidden="true"></span>
-      <div class="tl-d num"><b>${dShort(x.d)}</b><small>${new Date(x.d+'T00:00:00').getFullYear()}</small></div>
-      <div class="tl-b"><b>${esc(x.t)}</b>${x.pick?' <span class="kp-tag ok">המועד שלי</span>':''}${x.sub?`<small>${esc(x.sub)}${x.f?factChip(x.f,x.sub2?{pre:'מועד'}:null):''}</small>`:''}${x.sub2?`<small>${esc(x.sub2)}${x.f2?factChip(x.f2):''}</small>`:''}${x.src?` <a class="tl-src" href="${x.src}" target="_blank" rel="noopener">מקור</a>`:''}${x.mine?` <button class="linkbtn" data-kdel="${esc(x.id)}">מחיקה</button>`:''}</div>
-      <span class="tl-n ${n<=14?'hot':''}">${inN(n)}</span></li>`}).join('')||'<li class="tl-empty">אין מועדים קרובים</li>'}</ol>
-      ${L.length>6?`<div class="more"><button class="btn soft sm" data-kmore="dates">${KD.all?'להציג פחות':`להציג את כל ${L.length} המועדים`}</button></div>`:''}${dateAdd()}</div>`}
-function icsFile(only){
-  const L=timeline(plan()).filter(x=>!x.approx&&(!only||only(x))),e=s=>String(s).replace(/[\ud800-\udbff](?![\udc00-\udfff])|(?<![\ud800-\udbff])[\udc00-\udfff]/g,'\ufffd').replace(/[\\;,]/g,m=>'\\'+m).replace(/\r\n|\r|\n/g,'\\n').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g,' '), /* text for the file: no lone surrogate, no line break or control character that could start another property */
+/* ---------- bagrut: which exams I can still take, and when ----------
+   From the published conditions of my targets (the subjects and units they ask for), the subjects the institution's formula must have, the improvements that matter most (the lab's boosters)
+   and the subjects I entered. Each subject carries the sittings of the Ministry of Education's draft schedule that are still ahead (BAGD: winter, summer, moed B), every one an event of the calendar.
+   Nothing here is a promise that a sitting is open to me: registration goes through the school, or the Ministry for an external examinee. */
+const BSEASON={w:'חורף',s:'קיץ',b:'מועד ב'};
+const bagName=n=>String(n).replace(/^מועד ב:\s*/,'');
+/* one sitting as an event of the calendar */
+const bagEv=b=>({id:'bag-'+b[0]+'-'+b[1],d:b[2],d2:b[4],k:'bag',grp:'bag-'+b[0],gt:`בגרויות ${BSEASON[b[0]]} ${b[2].slice(0,4)}`,sn:bagName(b[3]),sk:b[1],t:`בגרות ${BSEASON[b[0]]}: ${bagName(b[3])}`,sub:'לפי טיוטת לוח הבחינות של משרד החינוך.',f:'bagrut.2027',src:b[0]==='w'?EDU.win:EDU.sum,al:[7,1]});
+const bagSits=k=>BAGD.filter(b=>b[1]===k&&daysTo(b[4]||b[2])>=0).map(bagEv);
+const BAG_RANK={need:0,boost:1,mine:2};
+/* the subjects of one target. Returns a map subject -> {k, n, kind, why[]} */
+function bagOfTarget(X,tag){
+  const rows=X.rows,have=k=>rows.find(r=>r.k===k),M=new Map(),pre=tag?tag+': ':'';
+  const put=(k,kind,why)=>{if(!SN[k]||k==='none'||k==='other')return;const c=M.get(k)||{k,n:SN[k],kind,why:[]};
+    if(BAG_RANK[kind]<BAG_RANK[c.kind])c.kind=kind;if(why&&!c.why.includes(pre+why))c.why.push(pre+why);M.set(k,c)};
+  X.q.units.forEach(u=>{const m=have(u.k),need=`נדרשות ${u.u} יח"ל${u.g?` בציון ${u.g} ומעלה`:''}`;
+    if(!m)put(u.k,'need',need+(rows.length?', ועוד לא הזנתי את המקצוע':''));
+    else if(m.u<u.u)put(u.k,'need',`${need}, הזנתי ${m.u}`);
+    else if(u.g&&m.g<u.g)put(u.k,'need',`נדרש ציון ${u.g} ומעלה, הזנתי ${m.g}`)});
+  const R=UNI_RULES[X.P.i];
+  if(R)R.mand(CALC_AR).forEach(k=>{if(!have(k))put(k,'need','מקצוע חובה בחישוב הממוצע ב'+INST[X.P.i].n)});
+  if(rows.length){ /* the improvements that move my number the most: the same ones the lab's boosters show */
+    const ps=X.sc.p||0,t={d:X.P.d,i:X.P.i};
+    const mv=ps&&R?moves(t,rows,ps).map(m=>({k:m.diff.k,why:`שיפור: ${m.lbl}. הפסיכומטרי שצריך יורד ב-${m.gain} נקודות`})):avgMoves(rows).map(m=>({k:m.diff.k,why:`שיפור: ${m.lbl} (+${m.gainB} בממוצע)`}));
+    mv.filter(m=>m.k).slice(0,3).forEach(m=>put(m.k,'boost',m.why))}
+  rows.forEach(r=>put(r.k,'mine',`הזנתי ציון ${r.g} ב-${r.u} יח"ל`));
+  return M}
+/* all my targets together: one card per subject, with the reasons from each target */
+function bagPlan(pl){
+  const many=tList().length>1,Xs=many?tInfos().map(x=>x.X):[pl.X],M=new Map();
+  Xs.forEach(X=>bagOfTarget(X,many?INST[X.P.i].n:'').forEach((c,k)=>{
+    const o=M.get(k);if(!o){M.set(k,c);return}
+    if(BAG_RANK[c.kind]<BAG_RANK[o.kind])o.kind=c.kind;c.why.forEach(w=>{if(!o.why.includes(w))o.why.push(w)})}));
+  const X=pl.X,school=/^g1[012]$/.test(X.stg)||X.est;
+  /* the calendar lists by itself the subjects that are still a need or a boost, and, while I am at school or my grades are expected, the rest of what I entered */
+  return [...M.values()].map(c=>({...c,sits:bagSits(c.k),cal:X.rows.length>0&&(c.kind!=='mine'||school)}))
+    .sort((a,b)=>BAG_RANK[a.kind]-BAG_RANK[b.kind]||(a.sits[0]?a.sits[0].d:'9').localeCompare(b.sits[0]?b.sits[0].d:'9')||a.n.localeCompare(b.n,'he'))}
+const bagOf=pl=>{const k=tList().map(t=>t.id).join();if(!pl._bag||pl._bagK!==k){pl._bagK=k;pl._bag=safe(()=>bagPlan(pl),[])}return pl._bag}; /* kept on the plan, and rebuilt when the list of my targets changes */
+const BAG_KIND={need:['חסר לי','need'],boost:['לשיפור','boost'],mine:['הזנתי','mine']};
+
+/* ---------- adding to a calendar ---------- */
+const ymd=iso=>iso.replace(/-/g,'');
+const nextDay=iso=>{const d=new Date(iso+'T00:00:00');d.setDate(d.getDate()+1);return isoOf(d.getFullYear(),d.getMonth()+1,d.getDate())};
+/* a link that opens Google Calendar with the event filled in; nothing is sent until I press it, and the page stays where it is */
+function gcalUrl(x){
+  const f=x.f&&factGet(x.f),det=[x.sub,x.sub2,f&&f.status!=='verified'?'מצב הנתון: '+factLabel(f):'',x.src,'נוסף מ"וקטור"'].filter(Boolean).join('\n');
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(x.t)+'&dates='+ymd(x.d)+'/'+ymd(nextDay(x.d2||x.d))+'&details='+encodeURIComponent(det)}
+/* the two ways to add one event: Google Calendar (a link) or a file that every other calendar opens (Apple, Outlook, Samsung...). An estimated date has neither */
+const addCalHTML=x=>x.approx?'':`<span class="cl-add"><a class="btn soft sm" href="${esc(gcalUrl(x))}" target="_blank" rel="noopener" aria-label="הוספה ליומן Google: ${esc(x.t)} (נפתח בלשונית חדשה)">${ki('cal')}Google</a>${inViewer()?'':`<button type="button" class="btn soft sm" data-kic1="${esc(x.id)}" aria-label="הורדת קובץ יומן: ${esc(x.t)}">${ki('down')}קובץ</button>`}</span>`;
+
+/* ---------- the calendar: only my dates, on a month, with a way to add each one ---------- */
+const KC={m:'',sel:'',f:'all',all:false}; /* ui state, never saved: the month in view (YYYY-MM), the day picked, the filter, all rows of the list */
+const CL_CAT={psy:'exam',bag:'exam',idf:'reg',sch:'sch',mine:'mine'};
+const CL_F=[['all','הכול'],['exam','בחינות'],['reg','הרשמה'],['sch','מלגות'],['mine','שלי']];
+const CL_NM={psy:'בחינה פסיכומטרית',bag:'בגרות',idf:'הרשמה',sch:'מלגה',mine:'שלי'};
+const HMON=['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+const HDOW=['א','ב','ג','ד','ה','ו','ש'],HDOWL=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+const clShort=x=>x.k==='bag'&&x.sn?x.sn:x.k==='psy'?(x.reg?'סגירת הרשמה':'פסיכומטרי'):x.k==='sch'?(x.nm||'מלגה'):x.k==='idf'?'הרשמה':String(x.t).split(' ').slice(0,3).join(' ');
+/* every event I could add: what the plan lists, and every sitting of the bagrut subjects of my planner (even a subject the calendar does not show by itself) */
+function calPool(pl){
+  const L=timeline(pl),have=new Set(L.map(x=>x.id));
+  if(pl)bagOf(pl).forEach(c=>c.sits.forEach(e=>{if(!have.has(e.id)){have.add(e.id);L.push(e)}}));
+  return L}
+const calEvents=pl=>timeline(pl).filter(x=>!x.id.startsWith('psyres-'));
+const clEvents=pl=>calEvents(pl).filter(x=>KC.f==='all'||CL_CAT[x.k]===KC.f);
+const isoD=d=>isoOf(d.getFullYear(),d.getMonth()+1,d.getDate());
+const dRange=x=>x.d2&&x.d2!==x.d?`${new Date(x.d+'T00:00:00').getDate()}–${new Date(x.d2+'T00:00:00').getDate()} ב${HMON[new Date(x.d2+'T00:00:00').getMonth()]} ${new Date(x.d2+'T00:00:00').getFullYear()}`:dLong(x.d);
+/* a row of the list: when, what, how far, where it comes from, and the two ways to add it */
+function clRow(x){
+  const n=daysTo(x.d),dt=new Date(x.d+'T00:00:00'),cat=x.k+(x.approx?' approx':'');
+  return `<li class="cl-r ${cat}"><span class="cl-rd num" aria-hidden="true"><b>${dt.getDate()}</b><small>${HMON[dt.getMonth()].slice(0,3)}</small></span>
+    <div class="cl-rb"><b>${esc(x.t)}</b>${x.pick?' <span class="kp-tag ok">המועד שלי</span>':''}
+      <small><span class="cl-rk ${x.k}">${CL_NM[x.k]||''}</span> ${esc(dRange(x))} · ${inN(n)}${x.approx?' · בערך, לפי המחזור הקודם':''}${x.sub&&!x.mine?' · '+esc(x.sub):''}${x.f?factChip(x.f):''}</small>
+      <div class="cl-ra">${addCalHTML(x)}${x.src?`<a class="tl-src" href="${esc(x.src)}" target="_blank" rel="noopener">המקור</a>`:''}${x.mine?`<button type="button" class="linkbtn" data-kdel="${esc(x.id)}">מחיקה</button>`:''}</div></div></li>`}
+/* the exams of one season are one row that opens; only the first rows show until I ask for all of them */
+function clAgenda(L,lim){
+  const out=[],seen={};
+  for(const x of L){
+    if(!x.grp){out.push(clRow(x));continue}
+    let g=seen[x.grp];if(!g){g=seen[x.grp]={items:[],x};out.push(g)}g.items.push(x)}
+  const rows=out.map(g=>typeof g==='string'?g:`<li class="cl-gr"><details><summary><span class="cl-rd num" aria-hidden="true"><b>${g.items.length}</b><small>${g.items.length===1?'מקצוע':'מקצועות'}</small></span><span class="cl-rb"><b>${esc(g.x.gt)}</b><small>${g.items.map(i=>esc(i.sn)).join(' · ')}</small></span></summary><ul class="cl-l">${g.items.map(clRow).join('')}</ul></details></li>`);
+  return {html:rows.slice(0,lim).join(''),total:rows.length}}
+/* one month: weeks start on Sunday; a day with events shows them (and carries them in its name for a screen reader) */
+function clGrid(L){
+  const [Y,M]=KC.m.split('-').map(Number),first=new Date(Y,M-1,1),lead=first.getDay(),days=new Date(Y,M,0).getDate(),by={},tdy=isoD(today0());
+  L.forEach(x=>{const a=new Date(x.d+'T00:00:00'),b=new Date((x.d2||x.d)+'T00:00:00');for(const t=new Date(a);t<=b;t.setDate(t.getDate()+1))(by[isoD(t)]=by[isoD(t)]||[]).push(x)});
+  const cells=[];for(let i=0;i<lead;i++)cells.push('');
+  for(let d=1;d<=days;d++){const iso=isoOf(Y,M,d),E=by[iso]||[],dow=(lead+d-1)%7;
+    const nm=E.length?`${E.length===1?'אירוע אחד':E.length+' אירועים'}: ${E.slice(0,3).map(clShort).join(', ')}`:'אין אירועים';
+    cells.push(`<button type="button" class="cl-d${iso===tdy?' today':''}${iso===KC.sel?' sel':''}${E.length?' has':''}${dow>=5?' wk':''}" data-kcd="${iso}" aria-pressed="${iso===KC.sel}" aria-label="${d} ב${HMON[M-1]} ${Y}, יום ${HDOWL[dow]}, ${esc(nm)}${iso===tdy?', היום':''}"><b class="num">${d}</b>${E.length?`<span class="cl-ev" aria-hidden="true">${E.slice(0,2).map(x=>`<i class="${x.k}${x.approx?' approx':''}">${esc(clShort(x))}</i>`).join('')}${E.length>2?`<em>+${E.length-2}</em>`:''}</span><span class="cl-dots" aria-hidden="true">${[...new Set(E.map(x=>x.k))].slice(0,4).map(k=>`<s class="${k}"></s>`).join('')}</span>`:''}</button>`)}
+  while(cells.length%7)cells.push('');
+  const rows=[];for(let i=0;i<cells.length;i+=7)rows.push(`<tr>${cells.slice(i,i+7).map(c=>`<td>${c}</td>`).join('')}</tr>`);
+  return `<table class="cl-g" aria-labelledby="clMon"><thead><tr>${HDOW.map((h,i)=>`<th scope="col" abbr="${HDOWL[i]}"${i>=5?' class="wk"':''}>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table>`}
+/* the bagrut subjects I can still sit: why each one, and its sittings with the two ways to add them */
+function bagCardHTML(c){
+  const when=e=>{const n=daysTo(e.d);return `<li><span class="bg-ss">${BSEASON[e.id.split('-')[1]]}</span><span class="bg-sd">${esc(dRange(e))}<small>${inN(n)}</small></span>${addCalHTML(e)}</li>`};
+  return `<article class="bg-c ${c.kind}"><header><b>${esc(c.n)}</b><span class="bg-k">${BAG_KIND[c.kind][0]}</span></header>
+    <p class="bg-w">${c.why.map(esc).join(' · ')}</p>
+    ${c.sits.length?`<ul class="bg-s">${c.sits.map(when).join('')}</ul>${inViewer()||c.sits.length<2?'':`<button type="button" class="linkbtn" data-kicb="${c.k}">${ki('down')}כל המועדים של ${esc(c.n)}, בקובץ אחד</button>`}`
+      :`<p class="bg-no">אין מועד פתוח של המקצוע הזה בלוח שפרסמנו. בודקים באתר משרד החינוך.</p>`}</article>`}
+function bagPlanHTML(pl,o){
+  o=o||{};const L=bagOf(pl).filter(c=>o.all||c.kind!=='mine'),show=o.max?L.slice(0,o.max):L;
+  if(!L.length)return '';
+  return `<section class="bg-sec" id="kpBag"><h3>${ki('book')}בגרויות: מה אפשר להשלים, ומתי</h3>
+    <p class="fine bg-i">המועדים לפי טיוטת לוח הבחינות של משרד החינוך (חורף וקיץ 2027, ומועד ב).${factChip('bagrut.2027')} ההרשמה לבחינה היא דרך בית הספר, או כנבחן חיצוני במשרד החינוך: <a href="${EDU.portal}" target="_blank" rel="noopener">לוח המועדים והרשמה</a>. כבר נבחנתי במקצוע? מזינים את הציון ב"כמה חסר לי?" והוא יוצא מהרשימה.</p>
+    <div class="bg-grid">${show.map(bagCardHTML).join('')}</div>
+    ${o.max&&L.length>o.max?`<p class="fine"><button type="button" class="linkbtn" data-ktab="cal" data-kto="kpBag">עוד ${L.length-o.max} מקצועות ביומן${ki('arrow')}</button></p>`:''}</section>`}
+/* the same planner inside the step that talks about the bagrut */
+const bagBlock=o=>{const pl=safe(plan,null);return pl?safe(()=>bagPlanHTML(pl,o),''):''};
+/* the month and the lists of the calendar: this is the part that is drawn again when I move around it */
+function calMainHTML(pl){
+  const L=clEvents(pl),all=calEvents(pl);
+  const [Y,M]=KC.m.split('-').map(Number),cnt=k=>k==='all'?all.length:all.filter(x=>CL_CAT[x.k]===k).length;
+  const dayEv=KC.sel?L.filter(x=>x.d<=KC.sel&&(x.d2||x.d)>=KC.sel):[],ag=clAgenda(L.filter(x=>daysTo(x.d2||x.d)>=0),KC.all?999:6);
+  return `<div class="cl-fl" role="group" aria-label="סינון המועדים">${CL_F.map(([k,l])=>`<button type="button" class="chip${KC.f===k?' on':''}" data-kcf="${k}" aria-pressed="${KC.f===k}">${l} <span class="num">${cnt(k)}</span></button>`).join('')}</div>
+    <div class="cl-main"><div class="cl-cal"><div class="cl-nv"><button type="button" class="cl-nb" data-kcm="-1" aria-label="החודש הקודם">${ki('arrow','kp-flip')}</button><h3 id="clMon" aria-live="polite">${HMON[M-1]} ${Y}</h3><button type="button" class="cl-nb" data-kcm="1" aria-label="החודש הבא">${ki('arrow')}</button><button type="button" class="linkbtn cl-td" data-kcm="today">היום</button></div>
+        ${clGrid(L)}
+        <p class="cl-lg" aria-hidden="true">${[['psy','בחינה פסיכומטרית'],['bag','בגרות'],['idf','הרשמה (בערך)'],['sch','מלגה'],['mine','שלי']].map(([k,l])=>`<span><s class="${k}"></s>${l}</span>`).join('')}</p></div>
+      <div class="cl-side">${KC.sel?`<div class="cl-day" aria-live="polite"><h3>${esc(dLong(KC.sel))}</h3>${dayEv.length?`<ul class="cl-l">${dayEv.map(clRow).join('')}</ul>`:'<p class="fine">אין ביום הזה אירועים שקשורים אליי.</p>'}</div>`:''}
+        <h3 class="cl-h3">${KC.f==='all'?'הקרובים אליי':'המועדים שנבחרו'}</h3>
+        ${ag.total?`<ul class="cl-l">${ag.html}</ul>${ag.total>6?`<button type="button" class="btn soft sm cl-more" data-kcall aria-expanded="${KC.all}">${KC.all?'להציג פחות':`להציג את כל ${ag.total} המועדים`}</button>`:''}`:`<p class="fine">${all.length?'אין מועדים קרובים בסוג הזה.':'עוד אין מועדים שקשורים אליי. כשאזין ציונים או אבחר יעד, יתווספו כאן הבחינות וההרשמה.'}</p>`}</div></div>`}
+function calHTML(pl){
+  const all=calEvents(pl),next=all.find(x=>daysTo(x.d2||x.d)>=0),lg=myLang()==='x'?'he':myLang();
+  if(!/^\d{4}-\d{2}$/.test(KC.m))KC.m=(next||{d:isoD(today0())}).d.slice(0,7);
+  return `<div class="cl" id="clRoot"><div class="sec-h"><div><h2>${ki('cal')}היומן שלי</h2><p>רק התאריכים שקשורים אליי: הבחינות שאני צריך, ההרשמה ליעדים שלי, מלגות ותאריכים שהוספתי. כל מועד אפשר להוסיף ליומן בלחיצה.</p></div>${inViewer()?'':`<button type="button" class="btn soft sm" data-kics="f">${ki('down')}המועדים שמוצגים, כקובץ</button>`}</div>
+    <div id="clMain">${calMainHTML(pl)}</div>
+    ${safe(()=>bagPlanHTML(pl),'')}
+    <div class="kp-card cl-own">${dateAdd()}</div>
+    <p class="fine cl-note">מופיעים כאן רק מועדים שקשורים אליי: מועדי הפסיכומטרי שמוצעים ב${esc(LGN[lg]||'עברית')} (כל עוד הציון שלי לא עובר את הסף), בחינות הבגרות של המקצועות שבתוכנית שלי, ההרשמה ליעדים שבחרתי (בערך, לפי המחזור הקודם, ובלי כפתור הוספה כי המועד האמיתי עוד לא פורסם), מלגות שאני עוקב אחריהן ותאריכים שהוספתי. מועד שעבר מוסר מהרשימה. הוספה ל-Google פותחת את אתר Google עם שם המועד ותאריכו, רק כשלוחצים; קובץ היומן יורד למכשיר ואינו נשלח לשום מקום.</p></div>`}
+function clRepaint(focusSel){const pl=safe(plan),r=$('#clMain');if(!pl||!r)return;
+  r.innerHTML=calMainHTML(pl);if(focusSel)refocus(focusSel)}
+/* a month back or forth, or today */
+function clMonth(v){
+  const [Y,M]=(/^\d{4}-\d{2}$/.test(KC.m)?KC.m:isoD(today0()).slice(0,7)).split('-').map(Number);let y=Y,m=M;
+  if(v==='today'){const t=today0();y=t.getFullYear();m=t.getMonth()+1}else{m+=+v;if(m<1){m=12;y--}if(m>12){m=1;y++}}
+  KC.m=y+'-'+String(m).padStart(2,'0');KC.sel='';clRepaint(`[data-kcm="${v}"]`)}
+/* the files: one event, the sittings of one subject, or everything the list shows */
+const ICS_T='text/calendar;charset=utf-8';
+function icsOne(id){const pl=safe(plan,null),x=calPool(pl).find(e=>e.id===id);if(!x)return;
+  dl('vector-'+String(id).replace(/[^\w-]/g,'_')+'.ics',icsFile(null,[x]),ICS_T).then(ok=>ok&&toast('קובץ היומן ירד. פותחים אותו כדי להוסיף את המועד'))}
+function icsSubject(k){const pl=safe(plan,null),c=pl&&bagOf(pl).find(c=>c.k===k);if(!c||!c.sits.length)return;
+  dl('vector-bagrut-'+k+'.ics',icsFile(null,c.sits),ICS_T).then(ok=>ok&&toast(`קובץ היומן של ${c.n} ירד. פותחים אותו כדי להוסיף את המועדים`))}
+
+function icsFile(only,pool){
+  const L=(pool||timeline(plan())).filter(x=>!x.approx&&(!only||only(x))),e=s=>String(s).replace(/[\ud800-\udbff](?![\udc00-\udfff])|(?<![\ud800-\udbff])[\udc00-\udfff]/g,'\ufffd').replace(/[\\;,]/g,m=>'\\'+m).replace(/\r\n|\r|\n/g,'\\n').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g,' '), /* text for the file: no lone surrogate, no line break or control character that could start another property */
     fs=x=>{const f=x.f&&factGet(x.f);return f?{t:'מצב הנתון: '+factLabel(f),un:f.status!=='verified'}:{t:'',un:false}}; /* the status of the date goes into the file: a reminder must not look surer than the site */
   const nd=s=>{const d=new Date(s+'T00:00:00');d.setDate(d.getDate()+1);return `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`};
   const st=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,'');
@@ -7360,11 +7703,9 @@ function openMe(){
     <div class="form kp-me">${meFieldsHTML('path',['stage','start','end','sex','reg','nat'])}
     <details class="kp-more-me"><summary>שאלות קצרות מהמסלול <small>(מגורים, עבודה, שעות הכנה, שירות)</small></summary>${meFieldsHTML('path',['house','work','hrs','svc','res','first'])}${qPostponedHTML()}</details></div><p class="fine">${MENOTE}</p><div class="kp-btns"><button class="btn primary" data-kmedone>סיום</button></div>`,'')}
 function moreHTML(pl){
-  const X=pl.X,P=X.P,B=badges(pl),sx=streak(),p=X.prof;
+  const X=pl.X,P=X.P,p=X.prof;
   const me=[(STAGES.find(s=>s[0]===p.stage)||[])[1],P.end?`${endTitle()}: ${dLong(P.end)}`:'',p.sex?{m:'זכר',f:'נקבה',x:''}[p.sex]:'',p.reg?REGN[p.reg]:'',p.nat?(LANGS.find(l=>l[0]===p.nat)||[])[1]:'',p.house&&QDEF.house.o.find(o=>o[0]===p.house)?'מגורים: '+QDEF.house.o.find(o=>o[0]===p.house)[1]:'',p.work==='full'||p.work==='part'?'עובד/ת לצד הלימודים':''].filter(Boolean);
-  return `<div class="kp-two">
-    <div class="kp-card"><div class="pc-h"><h2>${ki('cap')}ההישגים שלי</h2><span class="pc-c num">${B.filter(b=>b[2]).length}/${B.length}</span></div>${badgesHTML(pl)}${sx>=2?`<p class="kp-streak">${ki('fire')}${sx} ימים של התקדמות. ממשיכים מכאן</p><p class="fine">ימי מנוחה הם חלק מהקצב: עד יומיים בשבוע.</p>`:''}</div>
-    <div class="kp-card"><div class="pc-h"><h2>${ki('user')}עליי</h2></div><p>${me.length?esc(me.join(' · ')):'עוד לא סיפרתי. אפשר לדלג, אבל כדאי: זה משפר את הניסוח, המועדים והאפשרויות.'}</p><div class="kp-btns">${KB('data-kme','עריכה')}${KB('data-prof','הפרופיל והציונים')}</div><p class="fine">${MENOTE}</p></div></div>
+  return `<div class="kp-card"><div class="pc-h"><h2>${ki('user')}עליי</h2></div><p>${me.length?esc(me.join(' · ')):'עוד לא סיפרתי. אפשר לדלג, אבל כדאי: זה משפר את הניסוח, המועדים והאפשרויות.'}</p><div class="kp-btns">${KB('data-kme','עריכה')}${KB('data-prof','הפרופיל והציונים')}</div><p class="fine">${MENOTE}</p></div>
     <details class="adm dmeth kp-adm"><summary>שיתוף, גיבוי והגדרות</summary><div class="admb">
       <p>אפשר להעתיק סיכום קצר של המסלול ולשלוח להורה, ליועץ/ת או לחבר/ה. המסלול עצמו נשמר בדפדפן הזה, וכדי להעביר אותו למכשיר אחר: גיבוי לקובץ ושחזור ממנו במכשיר השני. קובץ הגיבוי כולל גם את התשובות האישיות שלי (שירות, מילואים, מצב כלכלי, דור ראשון), הערות על מלגות והסיפור שלי, בטקסט גלוי. כדאי לשמור אותו במקום פרטי.</p>
       <div class="kp-btns"><button class="btn soft sm" data-kcopy>העתקת סיכום לשיתוף</button><button class="btn soft sm" data-kexp>גיבוי לקובץ</button><label class="btn soft sm">שחזור מקובץ<input type="file" accept="application/json,.json" id="pimp" hidden></label>${KP.undo?'<button class="btn soft sm" data-kundo>ביטול השחזור האחרון</button>':''}</div>
@@ -7418,7 +7759,7 @@ function celebrate(el,n=30){if(!el)return;const r=el.getBoundingClientRect();bur
 
 
 /* ---------- events ---------- */
-const KSEL='[data-padd],[data-ppick],[data-pswap],[data-kwd],[data-kwi],[data-kwauto],[data-kwb],[data-kwdone],[data-kme],[data-kmedone],[data-kc],[data-kt],[data-kmap],[data-kmapn],[data-kstop],[data-kgate],[data-khz],[data-kfsib],[data-ktf],[data-kteen],[data-kgo],[data-ktab],[data-ktgt],[data-khub],[data-kadd],[data-krm],[data-krmok],[data-krmno],[data-kfocus],[data-kfprev],[data-kfnext],[data-kfskip],[data-knext],[data-kmark],[data-kinst],[data-kchange],[data-kpick],[data-ksess],[data-kfq],[data-kmore],[data-kdel],[data-kendx],[data-kwel],[data-kweld],[data-ksn],[data-kq],[data-kqd],[data-kqskip],[data-kqok],[data-kqgo],[data-kqask],[data-kics],[data-khelp],[data-kcopy],[data-kexp],[data-kundo],[data-kreset],[data-kresetok],[data-kresetno],[data-lb],[data-lbm],[data-lbe],[data-lbx],[data-lbmode],[data-lbadd],[data-lbrm],[data-lbsave],[data-lbok],[data-lbno],[data-lbreal],[data-lbsavep],[data-lbreset],[data-lbd],[data-lbplan]';
+const KSEL='[data-padd],[data-ppick],[data-pswap],[data-kwd],[data-kwi],[data-kwauto],[data-kwb],[data-kwdone],[data-kme],[data-kmedone],[data-kc],[data-kt],[data-kmapn],[data-kstop],[data-kgate],[data-kfsib],[data-ktf],[data-kteen],[data-kgo],[data-ktab],[data-ktgt],[data-khub],[data-kadd],[data-krm],[data-krmok],[data-krmno],[data-kfocus],[data-kfprev],[data-kfnext],[data-kfskip],[data-knext],[data-kmark],[data-kinst],[data-kchange],[data-kpick],[data-ksess],[data-kfq],[data-kmore],[data-kdel],[data-kendx],[data-kwel],[data-kweld],[data-ksn],[data-kq],[data-kqd],[data-kqskip],[data-kqok],[data-kqgo],[data-kqask],[data-kics],[data-kpg],[data-kcm],[data-kcd],[data-kcf],[data-kic1],[data-kicb],[data-kcall],[data-kvh],[data-khelp],[data-kcopy],[data-kexp],[data-kundo],[data-kreset],[data-kresetok],[data-kresetno],[data-lb],[data-lbm],[data-lbe],[data-lbx],[data-lbmode],[data-lbadd],[data-lbrm],[data-lbsave],[data-lbok],[data-lbno],[data-lbreal],[data-lbsavep],[data-lbreset],[data-lbd],[data-lbplan]';
 const wizReset=(change,add)=>{KP.wiz={active:true,step:1,tq:'',d:'',i:'',change:!!change,add:!!add}};
 const top0=()=>window.scrollTo({top:0,behavior:'instant'});
 const refocus=sel=>{const e=$(sel);if(e)e.focus({preventScroll:true})};
@@ -7492,7 +7833,16 @@ document.addEventListener('click',e=>{
   else if(ds.krmno!==undefined){KP.rm='';keepY(render)}
   else if(ds.krmok!==undefined){removeTarget(ds.krmok);KP.rm='';KP.view=tList().length>1?'hub':'road';KP.tab='now';toast('היעד הוסר');render();top0()}
   /* the tabs, and the step in focus */
-  else if(ds.ktab!==undefined)gotoTab(ds.ktab);
+  else if(ds.ktab!==undefined){const k=KALIAS[ds.ktab]||ds.ktab;gotoTab(!isView(k)&&KP.tab===k?(KP.back||'now'):k,ds.kto?{to:ds.kto}:{})} /* a tool that is open closes with the same button */
+  /* the progress chart and the calendar */
+  else if(ds.kpg!==undefined)pgSelect(ds.kpg);
+  else if(ds.kcm!==undefined)clMonth(ds.kcm);
+  else if(ds.kcd!==undefined){KC.sel=KC.sel===ds.kcd?'':ds.kcd;clRepaint(`[data-kcd="${ds.kcd}"]`)}
+  else if(ds.kcf!==undefined){if(CL_F.some(f=>f[0]===ds.kcf)){KC.f=ds.kcf;KC.sel='';clRepaint(`[data-kcf="${ds.kcf}"]`)}}
+  else if(ds.kvh!==undefined){store.set('viewsHelp',1);const h=el.closest('.kp-vh');if(h)h.remove()}
+  else if(ds.kcall!==undefined){KC.all=!KC.all;clRepaint('[data-kcall]')}
+  else if(ds.kic1!==undefined)icsOne(ds.kic1);
+  else if(ds.kicb!==undefined)icsSubject(ds.kicb);
   else if(ds.kgo!==undefined)gotoTab(TABOF[ds.kgo]||'now',{scroll:1});
   else if(ds.knext!==undefined||ds.kfocus!==undefined)focusOn(ds.knext!==undefined?ds.knext:ds.kfocus);
   else if(ds.kfprev!==undefined){const id=KP.hist.pop();if(id)focusOn(id,false)}
@@ -7503,24 +7853,21 @@ document.addEventListener('click',e=>{
     if(t.done&&!P.marks[t.id]){toast('המשימה מסומנת אוטומטית לפי הנתונים שלי');return}toggleMark(t.id,el)}
   else if(ds.kmark!==undefined)toggleMark(ds.kmark,el);
   else if(ds.kt!==undefined){const id=ds.kt;KP.open.has(id)?KP.open.delete(id):KP.open.add(id);const t=plan().tasks.find(x=>x.id===id),li=$('#kpt-'+id);if(t&&li)li.outerHTML=taskHTML(t);refocus(`[data-kt="${id}"]`)}
-  else if(ds.kmap!==undefined)trSelect(ds.kmap);
   else if(ds.kstop!==undefined)jSelect(ds.kstop);
-  else if(ds.khz!==undefined){const pl=safe(plan),z=pl&&pl.zones.find(z=>z.id===ds.khz),q=z&&(z.tasks.find(x=>!x.done)||z.tasks[0]);
-    if(q){if(KP.tab==='now'){jSelect(q.id);jump('jnH')}else{KP.fid=q.id;gotoTab('now',{scroll:1})}}}
   else if(ds.kgate!==undefined){const pl=safe(plan),z=pl&&pl.zones.find(z=>z.id===ds.kgate),q=z&&(z.tasks.find(x=>!x.done)||z.tasks[0]);if(q)jSelect(q.id)}
   else if(ds.kfsib!==undefined){const pl=safe(plan),t=pl&&focusTask(pl),n=t&&pl.tasks[pl.tasks.indexOf(t)+(+ds.kfsib)];if(n)jSelect(n.id)}
   else if(ds.kmapn!==undefined){const v=el.closest('.tr').querySelector('.tr-view');if(v)v.scrollBy({left:(ds.kmapn==='next'?-1:1)*Math.max(220,v.clientWidth*.7),behavior:RM()?'instant':'smooth'})}
   else if(ds.ktf!==undefined){KP.tf=ds.ktf;const pl=safe(plan),e=$('#kpTeen');if(pl&&e){e.outerHTML=teenHTML(pl);refocus(`[data-ktf="${ds.ktf}"]`)}}
-  else if(ds.kteen!==undefined){gotoTab('road',{instant:1});setTimeout(()=>jump('kpTeen'),40)}
+  else if(ds.kteen!==undefined){gotoTab('now',{instant:1});setTimeout(()=>jump('kpTeen'),90)}
   else if(ds.kinst!==undefined)openTargetPick(P.d,'swap');
   else if(ds.kchange!==undefined){wizReset(true);render();top0()}
   else if(ds.kpick!==undefined){const i=ds.kpick,had=tList().some(t=>t.d===P.d&&t.i===i),t=addTarget(P.d,i,false,true);
     if(t){toast(had?'כבר ביעדים שלי':`נוסף ליעדים שלי: ${BY[P.d].n} ${bIn(INST[i].n)}. אפשר לעבור אליו מהחלק העליון`);keepY(render)}}
   else if(ds.ksess!==undefined){P.sess=P.sess===ds.ksess?'':ds.ksess;pthSave();PLC=null;paint()}
   else if(ds.kfq!==undefined){Object.assign(FF,{f:'all',topic:'',inst:'',ctx:ds.kfq.startsWith('deg:')?ds.kfq:'',q:ds.kfq.startsWith('deg:')?'':ds.kfq,keep:true});go('forum')}
-  else if(ds.kmore!==undefined){if(ds.kmore==='inst'){KO.all=!KO.all;const pl=plan();$('#kpOpt').innerHTML=optHTML(pl);stripInit&&stripInit()}else{KD.all=!KD.all;paint()}}
+  else if(ds.kmore!==undefined){if(ds.kmore==='inst'){KO.all=!KO.all;const pl=plan();$('#kpOpt').innerHTML=optHTML(pl);stripInit&&stripInit()}}
   else if(ds.kdel!==undefined){P.dates=P.dates.filter(c=>c.id!==ds.kdel);pthSave();PLC=null;paint()}
-  else if(ds.kics!==undefined)dl('vector-my-path.ics',icsFile(),'text/calendar;charset=utf-8').then(ok=>ok&&toast('קובץ היומן ירד. פותחים אותו כדי להוסיף את המועדים ליומן'));
+  else if(ds.kics!==undefined){const pl=safe(plan,null);dl('vector-my-path.ics',icsFile(null,ds.kics==='f'&&pl?clEvents(pl):null),'text/calendar;charset=utf-8').then(ok=>ok&&toast('קובץ היומן ירד. פותחים אותו כדי להוסיף את המועדים ליומן'))}
   else if(ds.khelp!==undefined){store.set('pathHelp',1);const h=el.closest('.kp-help,.kp-ftip');if(h)h.remove()}
   else if(ds.kcopy!==undefined){const txt=summaryText(plan());
     (navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>toast('הסיכום הועתק. אפשר להדביק ולשלוח'),()=>{
@@ -7566,6 +7913,12 @@ document.addEventListener('input',e=>{
     LAB.tb=true;LAB.boost.clear();labChanged(true)}
 });
 document.addEventListener('keydown',e=>{if(e.target&&e.target.id==='ptq'&&e.key==='Enter'){e.preventDefault();const b=$('#ptsugg button');if(b)b.click()}});
+/* the three views are a tab list: the arrows move between them (the page reads right to left, so the left arrow goes on), Home and End jump to the ends */
+document.addEventListener('keydown',e=>{
+  const t=e.target&&e.target.closest?e.target.closest('.kp-seg3 [role="tab"]'):null;if(!t)return;
+  const ks=TABS.map(x=>x[0]),i=ks.indexOf(t.dataset.ktab);let j;
+  if(e.key==='ArrowLeft')j=i+1;else if(e.key==='ArrowRight')j=i-1;else if(e.key==='Home')j=0;else if(e.key==='End')j=ks.length-1;else return;
+  e.preventDefault();j=(j+ks.length)%ks.length;gotoTab(ks[j]);const b=document.querySelector(`.kp-seg3 [data-ktab="${ks[j]}"]`);if(b)b.focus()});
 /* The in-memory copies of what storage holds, read again: after a restored backup, a sign-in, or a change made in another tab of this site. */
 function reloadState(){PTH=null;PLC=null;DIRS=null;DIRR=null;CALC_ROWS=null;SCHS=null;
   S.prof=store.get('prof',null);S.sc=store.get('scores',null);S.list=new Set(store.get('list',[]).map(id=>own(DATA.alias||{},id)?DATA.alias[id]:id));S.uni=store.get('uni',null)}
@@ -7585,7 +7938,7 @@ function restoreApply(ok){const keys=Object.keys(ok),K=k=>'kivun3.'+k,prev={};
     keys.forEach(k=>{try{prev[k]==null?localStorage.removeItem(K(k)):localStorage.setItem(K(k),prev[k])}catch(e){}});
     toast('לא הצלחתי לשחזר: הדפדפן לא מאפשר לשמור (אולי גלישה פרטית או שאין מקום). שום דבר לא השתנה');return false}
   keys.forEach(k=>store.set(k,ok[k])); /* the same values again through the writer that also keeps a signed-in account in step */
-  KP.undo=prev;reloadState();LAB.on=false;KP.fid='';KP.skip.clear();KP.hist=[];KP.view='';render();toast('המסלול שוחזר מהקובץ. אפשר לבטל בלשונית "עוד"');return true}
+  KP.undo=prev;reloadState();LAB.on=false;KP.fid='';KP.skip.clear();KP.hist=[];KP.view='';render();toast('המסלול שוחזר מהקובץ. אפשר לבטל ב"עליי והגדרות"');return true}
 /* undo of the last restore: what was stored before it (kept only while this page is open) */
 function restoreUndo(){const u=KP.undo;KP.undo=null;if(!u)return;
   Object.keys(u).forEach(k=>{try{u[k]==null?localStorage.removeItem('kivun3.'+k):localStorage.setItem('kivun3.'+k,u[k])}catch(e){}});
@@ -8012,7 +8365,7 @@ function lgSections(){return [
    <li>הגדרות נגישות ותצוגה.</li></ul>
   <h3>למה</h3><p>כדי להתאים את מה שמוצג לכם, לשמור את ההתקדמות שלכם ולאפשר לכם לחזור אליה. איננו משתמשים במידע לפרסום ואיננו מוכרים אותו.</p>
   <h3>צדדים שלישיים</h3>
-  <p>האתר עצמו אינו מעביר את המידע שלכם לצדדים שלישיים. הגופנים מוטמעים באתר ואינם נטענים משירות חיצוני. ספק האחסון של האתר ורשתות התקשורת עשויים לתעד נתוני גישה טכניים (כגון כתובת IP, סוג הדפדפן ומועד הגישה) כמקובל בכל אתר. קישורים לאתרים אחרים נפתחים באתרים שלהם, והם כפופים למדיניות הפרטיות שלהם. שימו לב: קישורי החיפוש בגוגל וביוטיוב כוללים את שם התואר או המקצוע שחיפשתם, ואתר שאליו עוברים עשוי לקבל מהדפדפן את כתובת העמוד שממנו הגעתם. האתר אינו שולח הודעות או דיוור. התראות דפדפן, אם הפעלתם, נוצרות במכשיר שלכם בלבד.</p>
+  <p>האתר עצמו אינו מעביר את המידע שלכם לצדדים שלישיים. הגופנים מוטמעים באתר ואינם נטענים משירות חיצוני. ספק האחסון של האתר ורשתות התקשורת עשויים לתעד נתוני גישה טכניים (כגון כתובת IP, סוג הדפדפן ומועד הגישה) כמקובל בכל אתר. קישורים לאתרים אחרים נפתחים באתרים שלהם, והם כפופים למדיניות הפרטיות שלהם. שימו לב: קישורי החיפוש בגוגל וביוטיוב כוללים את שם התואר או המקצוע שחיפשתם, ואתר שאליו עוברים עשוי לקבל מהדפדפן את כתובת העמוד שממנו הגעתם. כך גם הכפתור "Google" ליד מועד ביומן שלי: הוא פותח את Google Calendar עם שם המועד ותאריכו בכתובת, ורק אם לחצתם עליו. קובץ היומן, לעומת זאת, יורד למכשיר שלכם ואינו נשלח לשום מקום. האתר אינו שולח הודעות או דיוור. התראות דפדפן, אם הפעלתם, נוצרות במכשיר שלכם בלבד.</p>
   <h3>מסירת מידע היא מרצון</h3><p>אין חובה חוקית למסור מידע לאתר. אפשר להשתמש בחלק גדול ממנו בלי להזין דבר. מי שבוחר לא למלא פרטים לא יקבל את ההתאמות האישיות שמבוססות עליהם.</p>
   <h3>עיון, תיקון ומחיקה</h3>
   <p>המידע שלכם נמצא במכשיר שלכם. אפשר לעיין בו ולשנות אותו בעמודי הפרופיל, הרשימה, המסלול והמלגות. פרטי ההתחברות של חשבון מקומי אפשר להסיר רק במחיקת החשבון. אפשר למחוק את כל המידע בכל עת בכפתור שלמטה או בניקוי נתוני האתר בהגדרות הדפדפן. מחיקה אינה ניתנת לשחזור, אלא אם שמרתם קובץ גיבוי (הקובץ כולל את המסלול, הפרופיל, הציונים, הרשימה ומעקב המלגות, ואינו כולל חשבון, שאלות ותשובות והגדרות).</p>
