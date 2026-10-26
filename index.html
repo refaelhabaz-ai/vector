@@ -2240,6 +2240,7 @@ const DATA = {"inst":[{"id":"ariel","n":"אוניברסיטת אריאל שבש�
       shows on that degree's page (the Technion was missing from "מדעי המחשב" and from "פיזיקה"), with each length as a track. The variant's id becomes an alias of the main degree: saved lists and links keep working.
    2. A threshold row that is repeated word for word is shown once. */
 (function normalizeDegrees(){
+  DATA.offersRaw=DATA.deg.reduce((a,d)=>a+d.of.length,0); /* the Council's own count of programs, before any row is joined: this is the number the site states */
   DATA.alias=DATA.alias||{};
   const rx=/^(.*?)\s*\((ארבע|תלת|חד|דו|חמש|שש)-שנתי\)\s*$/,main=new Map(),drop=new Set();
   DATA.deg.forEach(d=>{if(!rx.test(d.n)&&!main.has(d.n))main.set(d.n,d)});
@@ -2253,6 +2254,12 @@ const DATA = {"inst":[{"id":"ariel","n":"אוניברסיטת אריאל שבש�
     DATA.alias[v.id]=b.id;drop.add(v)});
   if(drop.size)DATA.deg=DATA.deg.filter(d=>!drop.has(d));
   DATA.deg.forEach(d=>Object.keys(d.th||{}).forEach(i=>{const seen=new Set();d.th[i]=d.th[i].filter(r=>{const k=JSON.stringify(r);if(seen.has(k))return false;seen.add(k);return true})}));
+  /* one institution is one offer: when the Council lists two types of degree of the same program at one institution (B.Sc and "מוסמך במדעים" at the Technion, B.A and B.F.A in Tel Aviv),
+     the offer keeps both types in its text, and "N institutions" counts institutions, not rows */
+  DATA.deg.forEach(d=>{const by=new Map();d.of=d.of.filter(o=>{const f=by.get(o.i);if(!f){by.set(o.i,o);return true}
+    const ts=(f.t||'').split(' / ').filter(Boolean);if(o.t&&!ts.includes(o.t)){ts.push(o.t);f.t=ts.join(' / ')}
+    if(o.st&&f.st&&o.st!==f.st&&!f.st.includes(o.st))f.st+=' / '+o.st;
+    (o.trs||[]).forEach(t=>(f.trs=f.trs||[]).push(t));return false})});
 })();
 const INST = Object.fromEntries(DATA.inst.map(i=>[i.id,i]));
 const DEG = DATA.deg;
@@ -7494,6 +7501,17 @@ function instCard(d,x,X){
     <div class="kp-icv ${x.r.s}"><span class="cki" aria-hidden="true">${CKI[x.r.s]}</span>${x.r.txt}</div>
     ${b?`<small>${b.inst?'ממוצע המתקבלים':'ממוצע בתחום'}: ${[b.p?'פסיכומטרי '+fmt(b.p):'',b.b?'ממוצע בגרות משוקלל '+b.b:''].filter(Boolean).join(', ')}</small>`:''}
     <div class="kp-icb">${cur?'<span class="kp-tag ok">היעד הפעיל</span>':(ex=>ex?KB(`data-ktgt="${esc(ex.id)}"`,'ביעדים שלי ✓ מעבר אליו'):KB(`data-kpick="${x.i}"`,'הוספה ליעדים שלי'))(tList().find(t=>t.d===d.id&&t.i===x.i))}<a class="lk" href="${esc(instUrl(x.i))}" target="_blank" rel="noopener">${ICON.web}${INST[x.i].site?'אתר':'דף במל"ג'}</a></div></article>`}
+/* degrees that join this one with another field ("מתמטיקה עם מדעי המחשב", "מתמטיקה ומדעי המחשב", "מדעי המחשב והמתמטיקה", "מתמטיקה-פיזיקה"):
+   the name holds this degree's name, with a joiner beside it. Their admission conditions are their own, so each is its own page; this only lets the field's page point to them */
+const reEsc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+function jointDegs(d){
+  const N=d.n.replace(/\s*\(.*?\)\s*/g,' ').trim();if(N.length<6)return [];
+  const has=new RegExp('(^|[^א-ת])([ובלהש]{0,2})'+reEsc(N)+'(?![א-ת])');
+  return DEG.filter(x=>{if(x.id===d.id||x.n===d.n)return false;const m=x.n.match(has);if(!m)return false;
+      if(/הכשרה להוראה|^הוראת|^הוראה/.test(x.n))return false; /* the teaching versions of a degree are not a joint track */
+      const rest=(x.n.slice(0,m.index+m[1].length)+' '+x.n.slice(m.index+m[0].length)+' ').replace(/עם ישראל/g,' ');
+      return m[2].includes('ו')||/(^|\s)(ו\S+|עם\s|\+|משולב\S*)/.test(rest)||/[א-ת]-[א-ת]/.test(x.n)})
+    .sort((a,b)=>b.of.length-a.of.length).slice(0,8)}
 function similarDegs(d){
   const base=d.n.split(/[\s,(\-–]+/)[0];
   return DEG.filter(x=>x.id!==d.id&&((d.av&&x.av===d.av)||(x.c===d.c&&base.length>=3&&x.n.startsWith(base)))).slice(0,40)}
@@ -8234,7 +8252,7 @@ function refreshExplore(){
 const exploreHead=()=>`<div><h2>${S.q?'תוצאות החיפוש':'כל התארים'}</h2><p>${S.q?'התארים שמתאימים למה שחיפשתי. אפשר לסנן ולמיין.':'כל התארים הראשונים בישראל. אפשר לחפש, לסנן ולמיין.'}</p></div>`;
 const MODE_PH={deg:'למשל: פסיכולוגיה, הנדסת חשמל, מדעי המחשב…',occ:'למשל: מפתח תוכנה, אחות, מעצב גרפי, רואה חשבון…',tech:'למשל: הנדסאי תוכנה, טכנאי רכב, חשמל, אדריכלות…'};
 function renderHome(){
-  const acad=DEG.length, progs=DEG.reduce((a,d)=>a+d.of.length,0);
+  const acad=DEG.length, progs=DATA.offersRaw;
   const pick=[...DEG].sort((a,b)=>b.of.length-a.of.length).filter(d=>['cs','psych','law','med','ee','nursing','econ','arch'].includes(illKey(d))).slice(0,3);
   const md=S.mode==='occ'||S.mode==='tech'?S.mode:'deg';
   let h=`<section class="hero"><div class="wrap hero-in">
@@ -8316,7 +8334,7 @@ function renderDegree(d){
     return `<div class="offer ${o.i===S.uni?'on':''}" id="off-${o.i}"><div class="offer-h"><div><h3>${esc(I.n)}</h3><span class="st">${esc(o.t)} · סטטוס במל"ג: ${esc(o.st)}${o.st&&/אישור, פרסום/.test(o.st)?' (תוכנית חדשה)':''}</span><span class="st">${offerTag(d,o.i)}</span>${o.trs&&o.trs.some(t=>t.tr)?`<span class="st">${o.trs.filter(t=>t.tr).length===1?'מסלול':'מסלולים'}: ${o.trs.filter(t=>t.tr).map(t=>esc(t.tr)).join(' · ')}</span>`:''}</div></div>
       ${safe(()=>watchNote(o.i),'')}${thr}<div class="linkrow">${links}</div></div>`;
   };
-  const sim=DEG.filter(x=>x.id!==d.id&&x.c===d.c).map(x=>({x,s:x.of.filter(o=>d.of.some(p=>p.i===o.i)).length+x.of.length/50})).sort((a,b)=>b.s-a.s).slice(0,4).map(o=>o.x);
+  const joint=safe(()=>jointDegs(d),[]),sim=DEG.filter(x=>x.id!==d.id&&x.c===d.c&&!joint.includes(x)).map(x=>({x,s:x.of.filter(o=>d.of.some(p=>p.i===o.i)).length+x.of.length/50})).sort((a,b)=>b.s-a.s).slice(0,4).map(o=>o.x);
   return `<div style="${cv(d)}">
   <section class="dp-hero"><div class="wrap dp-hero-in">
     <div>
@@ -8358,6 +8376,7 @@ function renderDegree(d){
     <section class="blk"><h2>ללמוד עוד על התואר</h2><p class="intro">חיפושים מוכנים שמובילים לסרטונים, לימים פתוחים ולהסברים על התואר.</p>
       <div class="linkrow">${lk(yt('תואר ב'+d.n+' מה לומדים'),'"מה לומדים בתואר" ביוטיוב','yt','yt')}${lk(yt(d.n+' יום פתוח'),'ימים פתוחים ביוטיוב','yt','yt')}${lk(yt(d.n+' סטודנטים מספרים'),'סטודנטים מספרים ביוטיוב','yt','yt')}${lk(gg('תואר ראשון ב'+d.n+' מה לומדים'),'חיפוש "מה לומדים" בגוגל','search')}${d.en?lk(gg(d.en+' bachelor degree careers'),'קריירה אחרי התואר (באנגלית)','search'):''}</div></section>
 
+    ${joint.length?`<section class="blk"><h2>מסלולים משולבים</h2><p class="intro">תארים שבהם ${esc(d.n)} נלמד יחד עם תחום אחר, ותארים בתחום שמוצעים בשם משולב. לכל אחד תנאי קבלה משלו, ולכן הוא מוצג בעמוד נפרד.</p><div class="grid" style="margin-top:20px">${joint.map(x=>card(x)).join('')}</div></section>`:''}
     ${sim.length?`<section class="blk"><h2>תארים נוספים בתחום</h2><div class="grid" style="margin-top:20px">${sim.map(x=>card(x)).join('')}</div></section>`:''}
     <p class="fine">שמות התוכניות, המוסדות וסוגי התואר: <a href="https://che.org.il/%D7%AA%D7%9B%D7%A0%D7%99%D7%95%D7%AA-%D7%9C%D7%99%D7%9E%D7%95%D7%93/" target="_blank" rel="noopener">מאגר תכניות הלימוד של המועצה להשכלה גבוהה</a>, נכון ל-${esc(DATA.built)}. ספי הקבלה משתנים במהלך תקופת ההרשמה, ולכן לפני החלטה יש לבדוק שוב באתר המוסד.</p>
   </div></div>`;
@@ -8378,7 +8397,7 @@ function freshHTML(){
 function srcSection(){
   const done=Object.entries(THR).map(([k,v])=>`<li><b>${esc(INST[k].n)}</b> · ${esc(v.year)} · <a href="${esc(v.src)}" target="_blank" rel="noopener">${esc(siteHost(v.src))}</a></li>`).join('');
   return `<section class="sec" style="padding-top:0"><div class="wrap" style="display:flex;flex-direction:column;gap:22px;max-width:820px"><div class="legal"><h2 id="t-data" tabindex="-1">מקורות ובדיקת נתונים</h2><p>המקורות, מה כיסינו, מה עוד חסר, ואיך אנחנו בודקים. מה שלא נאסף או לא אומת מסומן ככזה, ולא הושלם בניחוש.</p></div>
-    <div class="srcnote">${ICON.check}<div><b>רשימת התארים והמוסדות:</b> כל ${fmt(DEG.reduce((a,d)=>a+d.of.length,0))} תוכניות התואר הראשון (ובהן לימודי רפואה, רפואת שיניים ווטרינריה שמתחילים ישירות אחרי התיכון) מתוך <a href="https://che.org.il/%D7%AA%D7%9B%D7%A0%D7%99%D7%95%D7%AA-%D7%9C%D7%99%D7%9E%D7%95%D7%93/" target="_blank" rel="noopener">מאגר תכניות הלימוד של המל"ג</a>. המספר תואם את ספירת המאגר עצמו.</div></div>
+    <div class="srcnote">${ICON.check}<div><b>רשימת התארים והמוסדות:</b> כל ${fmt(DATA.offersRaw)} תוכניות התואר הראשון (ובהן לימודי רפואה, רפואת שיניים ווטרינריה שמתחילים ישירות אחרי התיכון) מתוך <a href="https://che.org.il/%D7%AA%D7%9B%D7%A0%D7%99%D7%95%D7%AA-%D7%9C%D7%99%D7%9E%D7%95%D7%93/" target="_blank" rel="noopener">מאגר תכניות הלימוד של המל"ג</a>. המספר תואם את ספירת המאגר עצמו.</div></div>
     <div class="srcnote">${ICON.check}<div><b>ספי קבלה רשמיים שנאספו:</b><ul style="margin:8px 0 0;padding-inline-start:20px">${done}</ul>${cycleNote()}</div></div>
     ${safe(freshHTML,'')}
     ${coverageHTML()}
@@ -8908,7 +8927,7 @@ function renderChrome(){
   $('#uniLabel').textContent=S.uni?INST[S.uni].n:'כל המוסדות';
   $('#quizLabel').textContent=profileOK()?'הפרופיל שלי':'מילוי פרופיל';
   $('#uniBtn').setAttribute('aria-label','מוסד לימודים: '+$('#uniLabel').textContent);$('#quizBtn').setAttribute('aria-label',$('#quizLabel').textContent); /* the visible labels hide below 1600px */
-  $('#counts').textContent=`${fmt(DEG.length)} תארים ו-${fmt(DEG.reduce((a,d)=>a+d.of.length,0))} תוכניות ב-${DATA.inst.length} מוסדות, לפי המל"ג.`;
+  $('#counts').textContent=`${fmt(DEG.length)} תארים ו-${fmt(DATA.offersRaw)} תוכניות ב-${DATA.inst.length} מוסדות, לפי המל"ג.`;
 }
 function openMore(){
   const it=[['dir','מה הכיוון שלי?','שאלון התאמה: תחומי עניין, ערכים וחוזקות'],['me','מה אני יכול ללמוד','התארים שאני יכול להתקבל אליהם'],

@@ -76,6 +76,16 @@ const dup = (arr, f) => { const s = new Set(), d = new Set(); arr.forEach((x) =>
   if (L.length) add('warn', 'variant.split', 'a length-of-study variant holds institutions that its main degree does not list (joined by the site when it loads: normalizeDegrees in index.html)', L);
 }
 
+// ---- 3b. one institution listed twice in one degree: the number of institutions would count rows ----
+{
+  const L = [];
+  for (const d of DATA.deg) {
+    const seen = new Map();
+    for (const o of d.of) { if (seen.has(o.i)) L.push(`${d.id} "${d.n}" @ ${INST.get(o.i).n}: ${seen.get(o.i)} / ${o.t}`); else seen.set(o.i, o.t); }
+  }
+  if (L.length) add('warn', 'offer.dup', 'the same institution is listed twice in one degree (two types of degree). The site joins them into one offer when it loads (normalizeDegrees in index.html), so it counts institutions, not rows', L);
+}
+
 // ---- 4. thresholds ----
 {
   // the plausible range of each published scale; a value outside it is a typo or a column that moved
