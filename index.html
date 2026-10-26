@@ -9131,7 +9131,7 @@ let scT=0;addEventListener('scroll',()=>{const h=document.getElementById('hdr');
   scT=requestAnimationFrame(()=>{scT=0;const de=document.documentElement,mx=de.scrollHeight-innerHeight;h.style.setProperty('--sp',(mx>0?Math.min(100,scrollY/mx*100):0).toFixed(1)+'%');
     const hero=RM()?null:document.querySelector('#app .hero');if(hero&&scrollY<1000)hero.style.setProperty('--sy',scrollY)})},{passive:true});
 
-initAccounts();motionInit();a11yApply();S.route=parse();render();a11yRoute(false);initForum();
+initAccounts();motionInit();a11yApply();S.route=parse();S.navDir='fwd';render();a11yRoute(false);initForum(); /* the first screen comes in like any new screen */
 try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);setTimeout(openProfile,600)}}catch(e){}
 
 </script>
