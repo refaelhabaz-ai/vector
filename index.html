@@ -1984,7 +1984,7 @@ html.hc .rz-r{stroke:#000}
 .cl-d.wk{background:#F3F4FA}
 .cl-d:hover{background:#fff;box-shadow:var(--shadow);transform:translateY(-1px)}
 .cl-d.has{background:#fff;box-shadow:var(--shadow)}
-.cl-d.today{border-color:var(--cta)}.cl-d.today>b{color:var(--cta)}
+.cl-d.today{border-color:var(--cta)}.cl-d.today>b{color:#C23A19}
 .cl-d.sel{background:var(--ink);border-color:var(--ink)}.cl-d.sel>b{color:#fff}
 .cl-ev{display:grid;gap:2px;min-width:0}
 .cl-ev i{display:block;font:600 11px/1.3 var(--head);font-style:normal;border-radius:6px;padding:1px 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -2060,7 +2060,7 @@ html.hc .pg-chart,html.hc .cl-cal,html.hc .cl-r,html.hc .bg-c,html.hc .cl-day,ht
 html.hc .cl-d{border:1.5px solid #000;background:#fff}html.hc .cl-d.sel{background:#000}
 html.hc .pg-t{box-shadow:inset 0 0 0 2px #000}html.hc .pg-f{background:#000!important}
 /* ===== gentle motion (html.rg) =====
-   The computer asks to reduce motion, or I chose "gentle". Nothing moves across the screen and nothing loops: what stays is fading, changes of colour and shadow, and the fill of
+   I chose "gentle" on the site (the computer's own "reduce motion" setting does not turn it on). Nothing moves across the screen and nothing loops: what stays is fading, changes of colour and shadow, and the fill of
    progress bars and rings. The keyframes of the site read --fx (1 = full, 0 = no displacement), so the very same animations become fades. */
 html.rg{--fx:0;scroll-behavior:auto}
 html.rg *,html.rg *::before,html.rg *::after{transition-property:opacity,color,background-color,border-color,box-shadow,fill,stroke,stroke-dashoffset,filter,width,height,outline-color,text-decoration-color!important}
@@ -2107,6 +2107,195 @@ html.rg .pillbtn:hover,html.rg .tools .pillbtn.hot:hover,html.rg .btn.primary:ho
 .tn-teaser{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:16px 20px;margin-top:14px}
 .tn-teaser>svg{width:28px;height:28px;flex:none;color:var(--primary-dark);margin-top:2px}.tn-teaser b{font-family:var(--head)}.tn-teaser p{margin:2px 0 10px;color:var(--muted)}
 @media(max-width:640px){.tr-arr{display:none}.tr-ph{padding:16px 16px 10px}.tr-ph h3{font-size:20px}}
+/* ---------- v19: the calendar, clean (cn-, cl-) ---------- */
+.cl2 .sec-h{margin-bottom:12px}
+.cl-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 clamp(14px,2vw,20px)}
+.cl-plus{min-height:48px}
+.cn{margin-bottom:clamp(18px,2.6vw,28px)}
+.cn-h{margin:0 0 10px;font:700 clamp(18px,2vw,21px) var(--head)}
+.cn-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cn-c{background:#fff;border-radius:24px;box-shadow:var(--shadow);padding:16px 18px 18px;display:grid;gap:8px;align-content:start;border-top:5px solid var(--kc,#C9CEE0);transition:transform .25s,box-shadow .25s}
+.cn-c:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
+.cn-c.psy{--kc:#3B5BDB}.cn-c.bag{--kc:#0C9E73}
+.cn-c header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cn-c h4{margin:0;display:flex;align-items:center;gap:8px;font:700 17px var(--head)}
+.cn-c h4 svg{width:20px;height:20px;color:var(--kc)}
+.cn-in{font:700 13.5px var(--head);border-radius:999px;padding:3px 12px;background:#F0F1F6;color:#3B4262;white-space:nowrap}
+.cn-d{margin:0;font:700 clamp(21px,2.4vw,27px)/1.25 var(--head);display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
+.cn-s{margin:0;font:700 16px/1.4 var(--head)}
+.cn-n{margin:0;font-size:14.5px;line-height:1.6;color:#4A5068}
+.cn-a a.btn{text-decoration:none}
+.cl-tt{display:flex;align-items:flex-start;gap:8px}.cl-tt .cl-ck{margin:0;vertical-align:baseline}.cl-tt b{flex:1;min-width:0;font:600 15px/1.45 var(--head)}
+.cn-a{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:4px}
+.cn-a .btn{min-height:40px}
+.cl-have{display:inline-flex;align-items:center;gap:6px;min-height:36px;font:700 13.5px var(--head);color:var(--good)}.cl-have svg{width:16px;height:16px}
+.cl-take{min-height:36px;padding:5px 14px;font-size:13.5px;gap:6px}.cl-take svg{width:15px;height:15px}
+.cl-hint{margin:10px 2px 0;font-size:13.5px;color:var(--muted)}
+.cl-sw{display:flex;align-items:center;gap:10px;margin-top:8px;padding:6px 2px;min-height:44px;width:100%;font-size:14px;color:#3B4262;text-align:start}
+.cl-swi{flex:none;position:relative;width:42px;height:26px;border-radius:999px;background:#CDD2E4;transition:background .25s}
+.cl-swi::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(31,37,68,.3);transition:inset-inline-start .3s cubic-bezier(.2,.8,.2,1)}
+.cl-sw[aria-checked="true"] .cl-swi{background:var(--good)}.cl-sw[aria-checked="true"] .cl-swi::after{inset-inline-start:19px}
+.cl-dh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}.cl-dh h3{margin:0}
+.cl-empty{background:#fff;border-radius:24px;box-shadow:var(--shadow);padding:18px 20px;display:grid;gap:6px}
+.cl-empty b{font:700 18px var(--head)}.cl-empty p{margin:0;color:var(--muted);line-height:1.6}
+.cl-addf{background:#fff;border-radius:24px;box-shadow:var(--shadow-h);padding:18px;border:2px solid var(--ink);display:grid;gap:8px;animation:pgIn .35s cubic-bezier(.2,.8,.2,1)}
+.cl-addf h3{margin:0 0 2px;font:700 18px var(--head)}
+.cl-addf label{font:600 14.5px var(--head)}
+.cl-addf input[type=date],.cl-addf input:not([type]){width:100%;min-height:46px;padding:9px 14px;border-radius:14px;border:1.5px solid var(--line);background:#fff;font:inherit;color:var(--ink)}
+.cl-addf input:focus-visible{outline:3px solid #5C7CFA;outline-offset:2px}
+.cl-kind{border:0;margin:2px 0 0;padding:0;display:flex;gap:8px;min-width:0}
+.cl-kind label{flex:1;position:relative}
+.cl-kind input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.cl-kind span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:14px;border:1.5px solid var(--line);font:600 15px var(--head);color:var(--muted);transition:background .2s,border-color .2s,color .2s}
+.cl-kind span svg{width:18px;height:18px}
+.cl-kind input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.cl-kind input:focus-visible+span{outline:3px solid #5C7CFA;outline-offset:2px}
+.cl-kh{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55}
+.cl-addb{display:flex;gap:8px;margin-top:4px}
+.cl-ck{flex:none;width:26px;height:26px;border-radius:9px;border:2px solid #9AA1BD;background:#fff;display:inline-grid;place-items:center;vertical-align:-7px;margin-inline-end:8px;transition:background .2s,border-color .2s,transform .2s}
+.cl-ck:hover{border-color:var(--ink);transform:scale(1.08)}
+.cl-ck[aria-checked="true"]{background:var(--good);border-color:var(--good)}
+.cl-ck[aria-checked="true"]::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
+.cl-r.done{opacity:.72}.cl-r.done .cl-rb>b{text-decoration:line-through;color:var(--muted)}
+.cl-ev i.done{text-decoration:line-through;opacity:.65}
+.cl-off{margin-top:clamp(22px,3vw,34px);background:#fff;border-radius:24px;box-shadow:var(--shadow)}
+.cl-off>summary{display:flex;align-items:center;gap:10px;min-height:56px;padding:12px 20px;font:700 17px var(--head);cursor:pointer;list-style:none}
+.cl-off>summary::-webkit-details-marker{display:none}
+.cl-off>summary::after{content:"";margin-inline-start:auto;width:9px;height:9px;border:solid #7A819C;border-width:0 2.5px 2.5px 0;transform:translateY(-30%) rotate(45deg);transition:transform .25s}
+.cl-off[open]>summary::after{transform:translateY(20%) rotate(225deg)}
+.cl-offn{border-radius:999px;background:#F0F1F6;padding:2px 10px;font:700 13px var(--head);color:#3B4262}
+.cl-offb{padding:4px 20px 20px}
+@media(max-width:700px){.cn-g{grid-template-columns:minmax(0,1fr)}.cl-bar .btn{width:100%}.cl-off>summary{padding-inline:16px}.cl-offb{padding-inline:14px}}
+html.hc .cn-c,html.hc .cl-addf,html.hc .cl-empty,html.hc .cl-off{border:2px solid #000;box-shadow:none}
+/* ---------- v19: the home page opens with one clear first step; the road keeps long lists closed ---------- */
+.hero{padding-block:clamp(18px,2.8vw,38px) clamp(26px,3.6vw,44px)}
+.hero h1{font-size:clamp(38px,4.7vw,60px);margin-block:14px 12px}
+.hero .sub{max-width:54ch;font-size:clamp(17px,1.5vw,19px)}
+.golinks.gl1{grid-template-columns:minmax(0,1fr);margin-top:18px}
+.golinks.gl2{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:14px}
+.gl-main{padding:14px 22px;gap:16px;border-radius:24px}
+.gl-main .gi{width:48px;height:48px}.gl-main .gi svg{width:26px;height:26px}
+.gl-main b{font-size:clamp(20px,2.2vw,24px)}.gl-main small{font-size:15px;line-height:1.5}
+.golink-in .ga svg{width:22px;height:22px;display:block}
+.hs-or{margin:18px 0 10px;font:600 15px var(--head);color:#4A5068}
+.hero .searchbox{margin-block:14px 0}
+.sh-bar{display:flex;justify-content:center;padding-block:10px 6px}
+.sh-bar .btn{gap:10px;min-height:52px}.sh-bar .btn svg{width:20px;height:20px}
+.sh-n{border-radius:999px;background:#F0F1F6;padding:1px 10px;font:700 13px var(--head);color:#3B4262}
+.sh-more{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .55s cubic-bezier(.2,.8,.2,1),opacity .4s ease,visibility 0s .55s}
+.sh-more.open{grid-template-rows:1fr;opacity:1;visibility:visible;transition:grid-template-rows .55s cubic-bezier(.2,.8,.2,1),opacity .45s ease .05s,visibility 0s}
+.sh-mi{min-height:0;overflow:hidden}
+.tn>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;background:#fff;border-radius:24px;box-shadow:var(--shadow);padding:16px 22px;min-height:68px;transition:box-shadow .25s}
+.tn>summary:hover{box-shadow:var(--shadow-h)}
+.tn>summary::-webkit-details-marker{display:none}
+.tn>summary::after{content:"";flex:none;width:10px;height:10px;border:solid #7A819C;border-width:0 2.5px 2.5px 0;transform:translateY(-30%) rotate(45deg);transition:transform .3s}
+.tn[open]>summary::after{transform:translateY(20%) rotate(225deg)}
+.tn>summary h2{margin:0;font-size:clamp(18px,2vw,22px)}.tn>summary p{margin:4px 0 0;font-size:14.5px}
+.tn[open]>summary{margin-bottom:16px}
+@media(max-width:560px){.golinks.gl2{grid-template-columns:minmax(0,1fr)}.gl-main{padding:16px 18px}.hs-or{margin-top:22px}}
+html.hc .tn>summary{border:2px solid #000;box-shadow:none}
+.fmore{margin-top:10px}
+.fmore>summary{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 18px;border-radius:999px;background:#fff;box-shadow:var(--shadow);font:600 15px var(--head);cursor:pointer;list-style:none;transition:box-shadow .25s}
+.fmore>summary:hover{box-shadow:var(--shadow-h)}
+.fmore>summary::-webkit-details-marker{display:none}
+.fmore>summary::after{content:"";width:8px;height:8px;border:solid #7A819C;border-width:0 2.5px 2.5px 0;transform:translateY(-2px) rotate(45deg);transition:transform .3s}
+.fmore[open]>summary::after{transform:translateY(1px) rotate(225deg)}
+.fm-n{border-radius:999px;background:var(--good-soft);color:var(--good);padding:1px 10px;font:700 12.5px var(--head)}
+.fmore .frow{margin-top:12px}
+html.hc .fmore>summary{border:2px solid #000;box-shadow:none}
+/* ---------- v19: motion that is on by default, and never rushes ---------- */
+#app{transition:opacity .32s ease}
+#app.hop{opacity:.7;transition:opacity .26s ease-out}
+/* every box that scrolls glides, and a sheet or a list never hands its scroll on to the page behind it */
+.ov,.sheet,.sugg,.thr,.progtxt,.strip:not(.dragging){scroll-behavior:smooth} /* (the map and a strip being dragged are positioned by the code, instantly) */
+.ov,.sheet{overscroll-behavior:contain}
+/* a tab or a view that changes: the new one settles in */
+.tab-in{animation:tabIn .36s cubic-bezier(.2,.8,.2,1) both}
+@keyframes tabIn{from{opacity:0;transform:translateY(calc(10px*var(--fx,1)))}to{opacity:1;transform:none}}
+/* suggestions and small panels arrive softly */
+.sugg:not([hidden]){animation:tabIn .24s cubic-bezier(.2,.8,.2,1) both}
+/* a task that is ticked pops a little */
+.cl-ck[aria-checked="true"]{animation:ckPop .4s cubic-bezier(.2,1.6,.4,1)}
+.cl-dn{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:0 16px}
+.cl-dn>summary{display:flex;align-items:center;gap:10px;min-height:48px;font:600 15px var(--head);cursor:pointer;list-style:none}
+.cl-dn>summary::-webkit-details-marker{display:none}
+.cl-dn>summary::after{content:"";margin-inline-start:auto;width:8px;height:8px;border:solid #7A819C;border-width:0 2.5px 2.5px 0;transform:translateY(-30%) rotate(45deg);transition:transform .25s}
+.cl-dn[open]>summary::after{transform:translateY(20%) rotate(225deg)}
+.cl-dn .cl-l{padding-bottom:14px}
+@keyframes ckPop{0%{transform:scale(.7)}60%{transform:scale(calc(1 + .16*var(--fx,1)))}100%{transform:none}}
+/* the first step of the home page breathes, slowly (a loop: gentle mode stops it) */
+@keyframes ctaBreathe{0%,100%{box-shadow:0 12px 28px rgba(255,107,74,.32)}50%{box-shadow:0 16px 38px rgba(255,107,74,.52)}}
+.gl-main{animation:ctaBreathe 5.5s ease-in-out infinite}
+html.rg .gl-main{animation:none!important}
+/* links: the underline moves away a little on hover */
+a:not(.btn):not(.hit){transition:text-underline-offset .2s,color .2s}
+a:not(.btn):not(.hit):hover{text-underline-offset:5px}
+/* a drawer opens and closes with a glide where the browser can animate its height */
+@supports (interpolate-size:allow-keywords){
+  details.fmore,details.cl-off,details.tn,details.adm{interpolate-size:allow-keywords}
+  details.fmore::details-content,details.cl-off::details-content,details.tn::details-content,details.adm::details-content{block-size:0;overflow:hidden;opacity:0;transition:block-size .4s cubic-bezier(.2,.8,.2,1),opacity .3s ease,content-visibility .4s allow-discrete}
+  details.fmore[open]::details-content,details.cl-off[open]::details-content,details.tn[open]::details-content,details.adm[open]::details-content{block-size:auto;opacity:1}
+}
+/* ---------- v19: the answers on top of a page (ax-, az-), and the compact head of a degree, an occupation and a technician track (dpc) ---------- */
+.dpc .dpc-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,236px);gap:clamp(16px,3vw,40px);align-items:center;padding-block:clamp(14px,2vw,24px) 4px;position:relative;z-index:1}
+.dpc-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin-bottom:8px}
+.dpc .back{margin:0;padding:7px 14px;font-size:14.5px}
+.dpc h1{font-size:clamp(32px,4.6vw,54px);margin-block:4px 6px}
+.dpc .dp-lead{margin:2px 0 0;font-size:clamp(16px,1.5vw,18.5px)}
+.dpc .dp-actions{margin-top:14px;gap:8px 10px}
+.dpc .dp-actions .btn{padding:11px 22px;font-size:15.5px}
+.btn.quiet{background:transparent;color:var(--ink);box-shadow:none;border:1.5px solid rgba(31,37,68,.22)}
+.btn.quiet:hover{background:rgba(255,255,255,.75);border-color:var(--ink);transform:translateY(-1px)}
+.dpc-art{border-radius:24px}
+.ax{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;padding-block:16px clamp(26px,3.2vw,40px);position:relative;z-index:1}
+.ax-c{grid-column:span 6;background:#fff;border-radius:22px;padding:16px 18px 14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:5px;min-width:0}
+.ax-n3 .ax-pay,.ax-n3 .ax-work{grid-column:span 3}
+.ax-q{margin:0;font:700 15.5px/1.3 var(--head);color:var(--ink)}
+.ax-v{margin:2px 0 0;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;font-family:var(--head)}
+.ax-v b{font-weight:700;font-size:clamp(28px,3.3vw,40px);line-height:1.1;letter-spacing:-.3px;color:var(--ink);white-space:nowrap}
+.ax-u{font:600 15px var(--head);color:var(--muted)}
+.ax-t{margin:2px 0 0;font:600 16.5px/1.55 var(--head)}
+.ax-lbl{margin:0;font:700 14px/1.4 var(--head);color:var(--ink)}
+.ax-bd{margin:2px 0 0}
+.ax-b{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 12px 3px 10px;font:700 13.5px var(--head);background:linear-gradient(120deg,#FFE3D6,#FFD2C2);color:#B83A1B}
+.ax-b svg{width:15px;height:15px;flex:none}
+.ax-cap{margin:0;font-size:14px;line-height:1.5;color:var(--muted)}
+.az-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px}
+.az-seg{display:inline-flex;gap:3px;padding:3px;border-radius:999px;background:#F1F2F8}
+.az-seg button{padding:6px 14px;border-radius:999px;font:600 13.5px var(--head);color:var(--muted);transition:background .25s,color .25s,box-shadow .25s}
+.az-seg button:hover{color:var(--ink)}
+.az-seg button[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(31,37,68,.16)}
+.az-rows{display:grid;gap:7px;margin-top:6px}
+.az-r{display:grid;grid-template-columns:minmax(58px,82px) minmax(0,1fr) minmax(66px,auto);align-items:center;gap:10px}
+.az-n{font:600 14.5px var(--head)}
+.az-b{height:11px;border-radius:7px;background:#EEF0F8;overflow:hidden}
+.az-b i{display:block;height:100%;border-radius:7px;background:linear-gradient(90deg,var(--c2),var(--c1));transform-origin:right;animation:azGrow .8s cubic-bezier(.2,.8,.2,1) both}
+.az-r.top .az-b i{background:var(--c1)}
+.az-v{font:700 14.5px var(--head);text-align:left;white-space:nowrap}
+.az-r.none .az-b{background:repeating-linear-gradient(45deg,#F1F3FA 0 4px,#E1E5F2 4px 8px)}
+.az-r.none .az-v{font-weight:500;color:var(--muted);font-size:13px}
+.az-top{margin:2px 0 0;font-size:14px;color:var(--muted)}.az-top b{color:var(--ink)}
+.az-more{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:36px;font-size:14px}
+.az-more::after{content:"";width:8px;height:8px;border:solid currentColor;border-width:0 2px 2px 0;transform:translateY(-2px) rotate(45deg)}
+@keyframes azGrow{from{transform:scaleX(calc(1 - .9*var(--fx,1)));opacity:.4}to{transform:none;opacity:1}}
+.az-fx{animation:azIn .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes azIn{from{opacity:.45;transform:translateY(calc(5px*var(--fx,1)))}to{opacity:1;transform:none}}
+.ax-f{grid-column:1/-1;list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 10px}
+.ax-f li{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:2px 6px;background:rgba(255,255,255,.8);border-radius:18px;padding:7px 15px;font-size:14.5px;line-height:1.5;color:#2E3556}
+.ax-f li b{font-family:var(--head);font-weight:700;color:var(--ink)}.ax-f li b.good{color:var(--good)}
+.ax-f .linkbtn{min-height:32px;font-size:14px}
+.ax-s{grid-column:1/-1;margin:0;font-size:13px;line-height:1.55;color:#46507A}
+@media(max-width:980px){.ax-n3 .ax-pay,.ax-n3 .ax-work{grid-column:span 6}.ax-n3 .az{grid-column:1/-1}}
+@media(max-width:720px){
+  .dpc .dpc-top{grid-template-columns:minmax(0,1fr);padding-block:12px 0}.dpc-art{display:none}
+  .dpc h1{font-size:clamp(30px,9vw,40px)}.dpc .dp-actions{gap:8px}.dpc .dp-actions .btn{padding:9px 16px;font-size:14.5px;min-height:44px}.dpc .dp-actions .btn svg{width:18px;height:18px}
+  .ax{gap:10px;padding-top:14px}.ax-c{padding:14px 14px 12px;border-radius:18px}
+  .ax-q{font-size:14.5px}.ax-v b{font-size:clamp(26px,8.4vw,32px)}.ax-cap{font-size:13px}
+  .az-r{grid-template-columns:minmax(52px,70px) minmax(0,1fr) minmax(60px,auto);gap:8px}
+  .ax-c.ax-wide{grid-column:1/-1}
+}
+html.hc .ax-c,html.hc .ax-f li{border:2px solid #000;box-shadow:none}
+html.hc .az-b{background:#fff;border:1.5px solid #000}
 
 </style>
 
@@ -2792,21 +2981,22 @@ function renderMahat(i){
   const m=MAHAT[i]; if(!m)return renderTech();
   const pg=m.page||{}, av=mahatAvFor(m);
   const byArea={}; m.col.forEach(c=>(byArea[c.area||'אחר']=byArea[c.area||'אחר']||[]).push(c));
-  return `<div style="${cv('eng')}"><section class="dp-hero"><div class="wrap dp-hero-in"><div>
-    <button class="back" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>חזרה</button><br>
-    <span class="catpill">${m.kind==='טכנאי'?'טכנאי מוסמך':m.kind==='מכינה'?'מכינה טכנולוגית':'הנדסאי'} · מה"ט</span><h1>${esc(m.n)}</h1>
-    ${pg.a?`<p class="dp-lead">${esc(pg.a)}</p>`:''}</div><div class="dp-art">${ill({id:'mh'+i,n:m.n,c:'eng'})}</div></div></section>
+  return `<div style="${cv('eng')}"><section class="dp-hero dpc"><div class="wrap">
+    <div class="dpc-top"><div class="dpc-tx">
+      <div class="dpc-row"><button class="back" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>חזרה</button><span class="catpill">${m.kind==='טכנאי'?'טכנאי מוסמך':m.kind==='מכינה'?'מכינה טכנולוגית':'הנדסאי'} · מה"ט</span></div><h1>${esc(m.n)}</h1>
+      ${pg.a?`<p class="dp-lead">${esc(pg.a)}</p>`:''}
+      <div class="dp-actions"><button class="btn primary" data-scroll="learn">איפה לומדים</button>${qaJumpBtn('mh:'+i,'שאלות ותשובות')}</div>
+    </div><div class="dp-art dpc-art">${ill({id:'mh'+i,n:m.n,c:'eng'})}</div></div>
+    ${safe(()=>axHTML(mhAns(m,i)),'')}
+  </div></section>
   <div class="wrap dp-body">
-    <div class="tiles num"><div class="tile"><span class="lbl">נלמד ב</span><span class="val">${m.col.length} מכללות</span></div>
-      ${(pg.w||[]).map(w=>{const mm=w.match(/^(.*?):\s*(.*)$/);return `<div class="tile"><span class="lbl">${esc(mm?mm[1]:'שכר')}</span><span class="val">${esc((mm?mm[2]:w).replace(/\.$/,''))}</span><span class="hint">סקר בוגרי מה"ט</span></div>`}).join('')}${safe(()=>empTile(empMhRows(rzSrcMh(m,i))),'')}${safe(()=>rzTiles(rzSrcMh(m,i)),'')}</div>
     ${pg.s?`<section class="blk"><h2>מה לומדים</h2><div class="courses">${pg.s.split(/,\s*/).map(x=>`<div class="course"><i><svg viewBox="0 0 24 24">${IC.book}</svg></i>${esc(x.replace(/\.$/,''))}</div>`).join('')}</div></section>`:''}
-    ${pg.j?`<section class="blk"><h2>אפשרויות תעסוקה</h2><p class="big">${esc(pg.j)}</p></section>`:''}
     ${safe(()=>empMhHTML(m,i),'')}
     ${safe(()=>rzHTML(rzSrcMh(m,i)),'')}
     ${(pg.sub||[]).length?`<section class="blk"><h2>מגמות משנה</h2><div class="linkrow">${pg.sub.map(x=>`<span class="tag" style="font-size:15px">${esc(x)}</span>`).join('')}</div></section>`:''}
     ${av&&av.curve&&av.curve.length?`<section class="blk"><h2>שכר הבוגרים לפי שנים מסיום הלימודים</h2><div class="salbox">${hbars(av.curve.map(x=>({x:'אחרי '+x.y,v:x.v})))}</div>${AVSRC('MahatEducation/'+av.id)}</section>`:''}
     ${av&&av.adm&&av.adm.length&&!/לא ידוע/.test(av.adm[0])?`<section class="blk"><h2>תנאי קבלה בסיסיים</h2><div class="admin">${av.adm.map(x=>`<span class="tag" style="font-size:15px">${esc(x)}</span>`).join(' ')}</div>${AVSRC('MahatEducation/'+av.id)}</section>`:''}
-    <section class="blk"><h2>איפה לומדים</h2><p class="fine">${MH_AREA_NOTE}</p><div class="offers">${Object.entries(byArea).map(([a,cs])=>`<div class="offer"><h3 style="margin:0">${esc(a)}</h3><div class="insts">${cs.map(c=>`<div class="inst" style="cursor:default"><b>${esc(c.n)}</b><span>${esc(c.city)}</span></div>`).join('')}</div></div>`).join('')}</div>
+    <section class="blk" id="learn"><h2>איפה לומדים</h2><p class="fine">${MH_AREA_NOTE}</p><div class="offers">${Object.entries(byArea).map(([a,cs])=>`<div class="offer"><h3 style="margin:0">${esc(a)}</h3><div class="insts">${cs.map(c=>`<div class="inst" style="cursor:default"><b>${esc(c.n)}</b><span>${esc(c.city)}</span></div>`).join('')}</div></div>`).join('')}</div>
       <p class="cite">מקור: <a href="${MAHAT_SRC}" target="_blank" rel="noopener">אתר דירוג מכללות מה"ט</a> (משרד העבודה). באתר זה מופיעים גם דירוגי שביעות רצון לכל מכללה.</p></section>
     ${ctxQA('mh:'+i,m.n)}
     <div class="linkrow">${pg.pid||m.pid?lk(mahatPage(m.pid),'עמוד המגמה ב-gov.il','doc'):''}${lk(MAHAT_SRC,'חיפוש מכללות ודירוגים','search')}${lk(yt('הנדסאי '+m.n.replace(/^הנדסת |^הנדסה /,'')),'סרטונים ביוטיוב','yt','yt')}</div>
@@ -2933,21 +3123,6 @@ function instChipsHTML(d){
 }
 
 /* ---- degree tiles: the numbers people actually decide by ---- */
-function degreeTiles(d){
-  const f=fieldOf(d), s=mainStat(f), du=durOf(d), g=growOf(d), c=((f&&f.curve)||[]).filter(x=>x.v);
-  const t=(l,v,h,cls='')=>`<div class="tile"><span class="lbl">${l}</span><span class="val ${cls}">${v}</span>${h?`<span class="hint">${h}</span>`:''}</div>`;
-  const near=f&&d.avHow!=='exact'?' (תחום קרוב)':'';
-  let h='';
-  if(s&&s.sal)h+=t('שכר ממוצע'+near,shek(s.sal),'5–6 שנים אחרי התואר'+(c[0]?` · בהתחלה ${shek(c[0].v)}`:''));
-  if(du)h+=t('משך הלימודים',du.txt+' שנים',s&&s.ontime!=null?`${s.ontime}% מסיימים בזמן`:'');
-  if(s&&s.emp)h+=t('שיעור תעסוקה',s.emp+'%','3–4 שנים אחרי התואר');
-  if(g)h+=t('ביקוש בשוק','חם בשוק',esc(g.map(o=>o.n).slice(0,2).join(', ')),'hot');
-  h+=t('נלמד ב',d.of.length===1?'מוסד אחד':d.of.length+' מוסדות',d.of.filter(o=>INST[o.i].k==='u').length+' אוניברסיטאות'+(d.of.some(o=>o.i==='open')?' · כולל הפתוחה':''));
-  if(s&&s.psy)h+=t('פסיכומטרי ממוצע של המתקבלים',fmt(s.psy),s.bagrut?'ממוצע בגרות משוקלל '+s.bagrut+' (יכול לעלות על 100 בגלל בונוסים)':'');
-  if(profileOK()){const ok=d.of.filter(o=>{const st=instStatus(d,o.i);return st&&st.s==='yes'}).length;h+=t('אפשר להתקבל',ok?`ל-${ok} מתוך ${d.of.length}`:'עוד לא',ok?'לפי הפרופיל שלי':'מה צריך להשלים: ראו למטה',ok?'good':'')}
-  if(!s)h+=t('שכר ותעסוקה','אין נתון רשמי','לתואר אין עמוד תואם בעבודאטה');
-  return h;
-}
 
 
 
@@ -3084,36 +3259,6 @@ function progLines(iid,d){const p=progEntry(iid,d);return p?p[1].l:null}
 /* medicine / dentistry: Avodata's field page covers only the first 3 years, so salaries come from the occupation pages */
 function proSal(d){if(d.pro==='md')return occSal(fieldOf(d),'2212');if(d.pro==='dmd'){const o=OC['2261'];const v=o&&o.snap&&o.snap.find(x=>/^[\d,]+$/.test(x));return v?+v.replace(/,/g,''):null}return null}
 const occSal=(f,id)=>{const o=((f&&f.occ)||[]).find(x=>x.id===id);return o&&o.sal?o.sal:null};
-function degreeTiles(d){
-  const f=fieldOf(d), s=mainStat(f), du=durOf(d), g=growOf(d), c=((f&&f.curve)||[]).filter(x=>x.v), exact=d.avHow==='exact';
-  const t=(l,v,h,cls='')=>`<div class="tile"><span class="lbl">${l}</span><span class="val ${cls}">${v}</span>${h?`<span class="hint">${h}</span>`:''}</div>`;
-  let h='';
-  if(d.pro==='md'){
-    h+=t('משך הלימודים','6 שנים','3 שנים קדם-קליניות + 3 שנים קליניות, ואחריהן סטאז\''+factChip('md.six'));
-    h+=t('סטאז\'','9 חודשים','הכשרה מעשית בבית חולים, מספטמבר 2025'+factChip('md.stage'));
-    h+=t('התמחות','4–6 שנים','לפי המקצוע, ' + SPEC.filter(x=>x.g==='base').length + ' מקצועות בסיס'+factChip('md.spec'));
-    const sp=occSal(f,'2212'), res=occSal(f,'2213');
-    if(sp)h+=t('שכר ממוצע של רופא/ה מומחה/ית',shek(sp),'עבודאטה, משלח היד "רפואת מומחים"');
-    if(res)h+=t('שכר ממוצע בזמן ההתמחות',shek(res),'עבודאטה, משלח היד "התמחות ברפואה"');
-  } else if(d.pro==='dmd'){
-    h+=t('משך הלימודים','6 שנים','3 שנים קדם-קליניות + 3 שנים קליניות');
-    const o=OC['2261']; const v=o&&o.snap&&o.snap.find(x=>/^[\d,]+$/.test(x));
-    if(v)h+=t('שכר ממוצע של רופא/ת שיניים','₪'+v,'עבודאטה, כל העוסקים במקצוע');
-  } else {
-    const near=f&&!exact?` (התחום הקרוב: ${esc(f.n)})`:'';
-    if(s&&s.sal)h+=t('שכר ממוצע',shek(s.sal),'5–6 שנים אחרי התואר'+near+(c[0]&&exact?` · בהתחלה ${shek(c[0].v)}`:''));
-    if(du)h+=t('משך הלימודים',du.txt+' שנים',du.fromName?'לפי שם התוכנית במל"ג':(s&&s.ontime!=null?`${s.ontime}% מסיימים בזמן`:''));
-    if(s&&s.emp)h+=t('שיעור תעסוקה',s.emp+'%','3–4 שנים אחרי התואר'+near);
-  }
-  if(g&&!d.pro)h+=t('ביקוש בשוק','חם בשוק','לפי עבודאטה: '+esc(g.map(o=>o.n).slice(0,2).join(', ')),'hot');
-  h+=safe(()=>{const f=fieldOf(d);return f?empTile((f.anaf||[]).map(a=>({n:a.n,p:a.p}))):''},'')+safe(()=>rzTiles(rzSrcDeg(d)),''); /* who employs them, where the demand is, where the pay is */
-  const nI=new Set(d.of.map(o=>o.i)).size;
-  h+=t('נלמד ב',nI===1?'מוסד אחד':nI+' מוסדות',d.of.filter(o=>INST[o.i].k==='u').length+' אוניברסיטאות'+(d.of.some(o=>o.i==='open')?' · כולל הפתוחה':''));
-  if(s&&s.psy&&(exact||d.pro==='md'||d.pro==='dmd'))h+=t('פסיכומטרי ממוצע של המתקבלים',fmt(s.psy),(s.bagrut?'ממוצע בגרות משוקלל '+s.bagrut+' (יכול לעלות על 100 בגלל בונוסים) · ':'')+'עבודאטה'+(s.bagrut?factChip('avodata.bagrut'):''));
-  if(profileOK()){const ok=d.of.filter(o=>{const c=instChecklist(d,o.i);return c&&c.s==='yes'}).length /* the same rule as the "אפשר להתקבל ל-N מוסדות" line below (the checklists), so the tile and the line never disagree */;h+=t('אפשר להתקבל',ok?`ל-${ok} מתוך ${nI}`:'עוד לא',ok?'לפי הפרופיל שלי':'מה צריך להשלים: ראו למטה',ok?'good':'')}
-  if(!s&&!d.pro)h+=t('שכר ותעסוקה','אין נתון רשמי','לתואר אין עמוד תואם בעבודאטה');
-  return h;
-}
 
 /* ================= what you need after the degree to work in the profession ================= */
 const PATHS=[
@@ -5918,7 +6063,7 @@ function rzHL(V){
     +card('cd','pin','הביקוש הגבוה ביותר',M.topD,M.topD?R[M.topD].share+'% מהעוסקים בתחום עובדים שם':'',M.topD?(M.certD?'הריכוז הגבוה ביותר של העוסקים בתחום':'הגבוה ביותר מבין האזורים שפורסמו'):'')}
 function rzRowHTML(V,k){
   const R=V.M.R,dem=V.m==='dem',has=rzHas(V,k),w=has?Math.max(6,Math.round(100*V.v(k)/(V.hi||1))):0,on=V.r===k;
-  return `<button type="button" class="rz-rw${on?' on':''}${has?'':' none'}" data-rzr="${k}" aria-pressed="${on}" aria-label="${esc(RZ_NM[k])}: ${has?(dem?R[k].share+'% מהעוסקים בתחום':shek(R[k].sal)+' בחודש'):'אין נתון'}"><span class="rz-rn">${RZ_NM[k]}</span><span class="rz-rb" aria-hidden="true"><i style="width:${w}%"></i></span><b class="num">${has?(dem?R[k].share+'%':shek(R[k].sal)):'אין נתון'}</b></button>`}
+  return `<button type="button" class="rz-rw${on?' on':''}${has?'':' none'}" data-rzr="${k}" aria-pressed="${on}" aria-label="${esc(RZ_NM[k])} ${has?(dem?R[k].share+'% מהעוסקים בתחום':shek(R[k].sal)+' בחודש'):'אין נתון'}"><span class="rz-rn">${RZ_NM[k]}</span><span class="rz-rb" aria-hidden="true"><i style="width:${w}%"></i></span><b class="num">${has?(dem?R[k].share+'%':shek(R[k].sal)):'אין נתון'}</b></button>`}
 /* the area in focus: both numbers at once, with where it stands, and Avodata's own sentences when one occupation is shown */
 function rzDet(V,st){
   const M=V.M,R=M.R,k=V.r,src=V.src,one=src.kind==='occ'||st.o!=='all';if(!k)return '';
@@ -5970,12 +6115,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-rzm],[data
   else if(ds.rzo!==undefined){st.o=ds.rzo;st.r='';full=true}
   else if(ds.rzr!==undefined)st.r=ds.rzr;
   rzApply(sec,full)});
-/* two quick facts for the top of a page (the default view: all the occupations) */
-function rzTiles(src){
-  const st={m:'sal',r:'',o:'all'},M=rzModel(src.occ);if(!M||(!M.topD&&!M.topS))return '';
-  const go=`<button type="button" class="linkbtn" data-scroll="regmap">למפה</button>`,t=(l,v,h)=>`<div class="tile"><span class="lbl">${l}</span><span class="val">${v}</span><span class="hint">${h}</span></div>`;
-  return (M.topD?t('הביקוש הגבוה ביותר',RZ_NM[M.topD],`${M.R[M.topD].share}% מהעוסקים בתחום עובדים שם${M.certD?'':' (מבין האזורים שפורסמו)'} · ${go}`):'')
-    +(M.topS?t('השכר הגבוה ביותר',RZ_NM[M.topS],`${shek(M.R[M.topS].sal)} בחודש · ${go}`):'')}
+
 /* what feeds the map on each kind of page */
 function rzSrcOcc(id,o,cat){
   return {key:'o:'+id,kind:'occ',c:CATS[cat].c,occ:[{id,o}],intro:'שכר חודשי ממוצע וחלקם של העוסקים במקצוע בכל אחד מארבעת אזורי העבודה בישראל, לפי עבודאטה. לוחצים על אזור במפה או ברשימה כדי לראות את הפירוט שלו.',
@@ -5993,6 +6133,95 @@ function rzSrcMh(m,i){
   return {key:'m:'+i,kind:'mh',c:CATS.eng.c,occ,
     intro:'למסלול אין פירוט אזורי משלו. המפה מחושבת מהמקצועות שבהם עובדים הבוגרים לפי עבודאטה, כל מקצוע לפי מספר העוסקים בו. אפשר לבחור מקצוע ולראות את הנתונים שלו כפי שפורסמו.',
     none:'עבודאטה לא פרסמה פירוט לפי אזור למקצועות של המסלול הזה.',cite:av?AVSRC('MahatEducation/'+av.id):''}}
+/* ================= v19: the answers, on top of a page =================
+   A worried reader brings two questions: "how much do they earn?" and "is there work?". A degree, an occupation and a technician track answer them in the first screen:
+   two big numbers, then where (by area) the pay is and the work is, then a few quick facts. Every number is one the page already shows lower down (Avodata, the Ministry of Labor);
+   nothing is added or estimated here, and a number we do not have says so. The area rows read the same model as the full map below them (rzModel), and the two stay in step. */
+const AZS={},AZR={}; /* per page, never saved: which of the two the area rows show (sal | dem), and the source that feeds them */
+const azM=k=>(AZS[k]||(AZS[k]={m:'sal'})).m;
+/* the four areas, the highest first, for the pay or for where the people of the field work */
+function azBody(key){
+  const src=AZR[key],M=src&&rzModel(src.occ);if(!M)return '';
+  const dem=azM(key)==='dem',v=k=>dem?M.R[k].lo:M.R[k].sal,mx=Math.max(1,...RZ_O.map(v)),top=dem?M.topD:M.topS;
+  const rows=[...RZ_O].sort((a,b)=>v(b)-v(a)||RZ_O.indexOf(a)-RZ_O.indexOf(b)).map(k=>{const x=v(k),has=x>0;
+    return `<div class="az-r${has&&k===top?' top':''}${has?'':' none'}" role="listitem"><span class="az-n" title="${esc(RZ_NM[k])}">${RZ_SH[k]}</span><span class="az-b" aria-hidden="true"><i style="width:${has?Math.max(6,Math.round(100*x/mx)):0}%"></i></span><b class="az-v num">${has?(dem?M.R[k].share+'%':shek(M.R[k].sal)):'אין נתון'}</b></div>`}).join('');
+  return `<div class="az-rows" role="list" aria-label="${dem?'חלקם של העוסקים בתחום שעובדים בכל אזור':'שכר חודשי ממוצע בכל אזור'}">${rows}</div>
+    <p class="az-top">${top?`${dem?'הכי הרבה עובדים':'השכר הגבוה ביותר'}: <b>${RZ_NM[top]}</b>${dem&&!M.certD?' (מבין האזורים שפורסמו)':''}`:'עבודאטה לא פרסמה נתונים לאזורים האלה'}</p>`}
+function azCard(src){
+  const M=src&&rzModel(src.occ);if(!M||(!M.topS&&!M.topD))return '';
+  AZR[src.key]=src;const m=azM(src.key);
+  return `<section class="ax-c az" data-azk="${esc(src.key)}" aria-labelledby="azQ"><div class="az-h"><h2 class="ax-q" id="azQ">איפה עובדים ומה השכר?</h2>
+    <div class="az-seg" role="group" aria-label="מה להציג באזורים"><button type="button" data-azm="sal" aria-pressed="${m==='sal'}">שכר</button><button type="button" data-azm="dem" aria-pressed="${m==='dem'}">איפה עובדים</button></div></div>
+    <div class="az-body">${azBody(src.key)}</div>
+    <button type="button" class="linkbtn az-more" data-scroll="regmap">למפה המלאה ולפירוט לפי מקצוע</button></section>`}
+/* a change of what the rows show: they are drawn again (the bars grow), and the full map below shows the same thing */
+function azApply(sec,m){
+  const k=sec.dataset.azk;(AZS[k]||(AZS[k]={})).m=m;
+  sec.querySelectorAll('[data-azm]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.azm===m));
+  const bd=sec.querySelector('.az-body');if(bd){bd.innerHTML=azBody(k);bd.classList.remove('az-fx');void bd.offsetWidth;bd.classList.add('az-fx')}
+  rzSt(k).m=m;const full=document.querySelector('#regmap[data-k="'+k+'"]');if(full)rzApply(full,false)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-azm]');if(!b)return;const sec=b.closest('.az');if(sec)azApply(sec,b.dataset.azm==='dem'?'dem':'sal')});
+/* one of the two big answers: the question, the number, what it is, and one line that puts it in place */
+const axC=(cls,q,o)=>`<section class="ax-c ${cls}${o.txt?' ax-wide':''}" aria-labelledby="${cls}Q"><h2 class="ax-q" id="${cls}Q">${q}</h2>${o.v?`<p class="ax-v"><b class="num" data-count>${o.v}</b>${o.u?`<span class="ax-u">${o.u}</span>`:''}</p>`:''}${o.txt?`<p class="ax-t">${o.txt}</p>`:''}${o.lbl?`<p class="ax-lbl">${o.lbl}</p>`:''}${o.badge?`<p class="ax-bd">${o.badge}</p>`:''}<p class="ax-cap">${o.cap||''}</p></section>`;
+const axHot=()=>`<span class="ax-b">${ki('fire')}חם בשוק</span>`; /* a function: ki() is defined further down */
+function axHTML(P){
+  const az=P.rz?safe(()=>azCard(P.rz),''):'';
+  if(!P.pay&&!P.work&&!az&&P.none)return `<div class="ax ax-n2" id="ax"><section class="ax-c ax-wide" aria-labelledby="axNoQ"><h2 class="ax-q" id="axNoQ">כמה מרוויחים והאם יש עבודה?</h2><p class="ax-cap">${P.none}</p></section>${P.facts&&P.facts.length?`<ul class="ax-f" aria-label="עוד כמה עובדות">${P.facts.map(f=>`<li>${f}</li>`).join('')}</ul>`:''}</div>`;
+  return `<div class="ax ${az?'ax-n3':'ax-n2'}" id="ax">${axC('ax-pay','כמה מרוויחים?',P.pay||{cap:P.payNo||'אין לנו נתון רשמי על השכר.'})}${axC('ax-work','האם יש עבודה?',P.work||{cap:P.workNo||'אין לנו נתון רשמי על התעסוקה.'})}${az}
+    ${P.facts&&P.facts.length?`<ul class="ax-f" aria-label="עוד כמה עובדות">${P.facts.map(f=>`<li>${f}</li>`).join('')}</ul>`:''}
+    ${P.src?`<p class="ax-s">${P.src}</p>`:''}</div>`}
+/* a degree */
+function degAns(d){
+  const f=fieldOf(d),s=mainStat(f)||{},c=((f&&f.curve)||[]).filter(x=>x.v),exact=d.avHow==='exact',near=f&&!exact&&!d.pro?` התחום הקרוב: ${esc(f.n)}.`:'',g=d.pro?null:growOf(d),du=durOf(d),nI=new Set(d.of.map(o=>o.i)).size;
+  let pay=null;const facts=[];
+  if(d.pro==='md'){const sp=occSal(f,'2212'),res=occSal(f,'2213');
+    if(sp)pay={v:shek(sp),u:'בחודש',cap:`ממוצע של רופא/ה מומחה/ית, כל העוסקים במקצוע.${res?` בזמן ההתמחות: ${shek(res)}.`:''}`};
+    facts.push(`<b>6 שנים</b> משך הלימודים${factChip('md.six')}`,`<b>9 חודשים</b> סטאז'${factChip('md.stage')}`,`<b>4–6 שנים</b> התמחות, ${SPEC.filter(x=>x.g==='base').length} מקצועות בסיס${factChip('md.spec')}`)}
+  else if(d.pro==='dmd'){const o=OC['2261'],v=o&&o.snap&&o.snap.find(x=>/^[\d,]+$/.test(x));
+    if(v)pay={v:'₪'+v,u:'בחודש',cap:'ממוצע של רופא/ת שיניים, כל העוסקים במקצוע.'};
+    facts.push('<b>6 שנים</b> משך הלימודים')}
+  else{
+    if(s.sal)pay={v:shek(s.sal),u:'בחודש',lbl:s.salLbl&&esc(s.salLbl),cap:`שכר חודשי ממוצע של הבוגרים, 5–6 שנים אחרי התואר.${c[0]&&exact?` בהתחלה: ${shek(c[0].v)}.`:''}${near}`};
+    if(du)facts.push(`<b>${du.txt} שנים</b> משך הלימודים${s.ontime!=null?`, ${s.ontime}% מסיימים בזמן`:''}`)}
+  const work=s.emp?{v:s.emp+'%',u:'מועסקים',lbl:s.empLbl&&esc(s.empLbl),badge:g?axHot():'',cap:`שיעור התעסוקה, 3–4 שנים אחרי התואר.${near}${g?` חם בשוק לפי עבודאטה: ${g.slice(0,2).map(o=>esc(o.n)).join(', ')}.`:''}`}
+    :g?{badge:axHot(),cap:`חם בשוק לפי עבודאטה: ${g.slice(0,2).map(o=>esc(o.n)).join(', ')}.`}:null;
+  facts.push(nI===1?'<b>מוסד אחד</b> מלמד את התואר':`<b>${nI} מוסדות</b> מלמדים את התואר`);
+  if(s.psy&&(exact||d.pro))facts.push(`<b class="num">${fmt(s.psy)}</b> פסיכומטרי ממוצע של המתקבלים`);
+  if(profileOK()){const ok=d.of.filter(o=>{const k=instChecklist(d,o.i);return k&&k.s==='yes'}).length; /* the same rule as the "אפשר להתקבל ל-N מוסדות" line below, so the two never disagree */
+    facts.push(ok?`<b class="good">אפשר להתקבל ל-${ok} מתוך ${nI}</b> לפי הפרופיל שלי`:`<b>עוד אי אפשר להתקבל</b> מה צריך להשלים: ראו למטה`)}
+  const em=safe(()=>f?empFact((f.anaf||[]).map(a=>({n:a.n,p:a.p}))):'','');if(em)facts.push(em);
+  return {pay,work,rz:safe(()=>rzSrcDeg(d),null),facts,none:f||d.pro?'':`לתואר הזה אין עמוד תואם ב<a href="${AVURL}" target="_blank" rel="noopener">עבודאטה</a> (משרד העבודה), ולכן אין לנו נתון רשמי על השכר ועל התעסוקה של בוגריו. אפשר לחפש שם תחום קרוב.`,workNo:f||d.pro?'לא פורסם שיעור תעסוקה לתואר הזה.':'לתואר הזה אין עמוד תואם בעבודאטה, ולכן אין לנו נתון רשמי על התעסוקה.',
+    src:`מקור: <a href="${AVURL}" target="_blank" rel="noopener">עבודאטה</a> (משרד העבודה, לפי נתוני הלמ"ס). השכר הוא ממוצע של כל הבוגרים, לא שכר פתיחה.`}}
+/* an occupation */
+function occAns(id,o,cat){
+  const sp=snapParts(o.snap||[]),t0=sp.tiles[0],t1=sp.tiles[1],tr=occTrend(o),e=((o.g||{}).employed||[]).filter(x=>x.v),last=e[e.length-1],facts=[];
+  const pay=o.sal?{v:shek(o.sal),u:'בחודש',lbl:t0&&t0.l?esc(t0.l):'',cap:'ממוצע, כל העוסקים במקצוע.'}:null;
+  const work=last?{v:fmt(last.v),u:'עובדים במקצוע',badge:occHot(o)?axHot():'',cap:`בשנת ${esc(last.x)}.${tr?` מספר העובדים ב${esc(o.n)} ${tr.pct>=0?'עלה':'ירד'} ב-<bdi>${Math.abs(tr.pct)}%</bdi> בין ${esc(tr.y0)} ל-${esc(tr.y1)}.`:''}`}:null;
+  if(t1&&t1.v)facts.push(`<b class="num">${esc(t1.v)}</b> שעות עבודה בשבוע, ${esc(String(t1.l||'').replace(/^היקף שעות העבודה\s*/,'')||'ממוצע')}`);
+  const em=safe(()=>empFact(((o.g||{}).Anaf||[]).filter(x=>x.v>0).map(x=>({n:x.x,p:x.p}))),'');if(em)facts.push(em);
+  return {pay,work,rz:safe(()=>rzSrcOcc(id,o,cat),null),facts,workNo:'עבודאטה לא פרסמה מספר מועסקים למקצוע הזה.',
+    src:`מקור: <a href="${AVURL}/isco_group/${esc(id)}" target="_blank" rel="noopener">עבודאטה</a> (משרד העבודה, לפי נתוני הלמ"ס).`}}
+/* a technician track */
+const mhCap=l=>String(l||'').replace(/[:：][^:：]*$/,'').replace(/תוך\s*(\d)\s*-\s*(\d)\s*שנים/,'$2–$1 שנים').replace(/\s+/g,' ').trim();
+function mhAns(m,i){
+  const pg=m.page||{},v=mhSal(m),l=(pg.w||[]).find(x=>/מסיום/.test(x))||(pg.w||[])[0],facts=[];
+  const pay=v?{v:shek(v),u:'בחודש',cap:`${esc(mhCap(l))}. לפי סקר בוגרי מה"ט.`}:null;
+  const work=pg.j?{txt:esc(pg.j.replace(/\.$/,'')),cap:'אפשרויות תעסוקה לפי עמוד המגמה ב-gov.il.'}:null;
+  facts.push(m.col.length===1?'<b>מכללה אחת</b> מלמדת את המגמה':`<b>${m.col.length} מכללות</b> מלמדות את המגמה`);
+  (pg.w||[]).filter(x=>x!==l).forEach(w=>{const mm=w.match(/^(.*?):\s*(.*)$/);facts.push(mm?`<b>${esc(mm[2].replace(/\.$/,''))}</b> ${esc(mm[1])}`:esc(w))}); /* the other salary lines of the track page: they were tiles before */
+  const em=safe(()=>empFact(empMhRows(rzSrcMh(m,i))),'');if(em)facts.push(em);
+  return {pay,work,rz:safe(()=>rzSrcMh(m,i),null),facts,payNo:'לא פורסם נתון שכר למגמה הזו.',workNo:'לא פורסמו אפשרויות תעסוקה למגמה הזו.',
+    src:`מקור: סקר בוגרי מה"ט (<a href="${MAHAT_LIST}" target="_blank" rel="noopener">עמודי המגמות ב-gov.il</a>) ו<a href="${AVURL}" target="_blank" rel="noopener">עבודאטה</a>.`}}
+
+/* "עוד דרכים לחקור": the rest of the shelves open under the button, and close again */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-shmore]');if(!b)return;const m=$('#shMore');if(!m)return;
+  const on=!m.classList.contains('open');m.classList.toggle('open',on);b.setAttribute('aria-expanded',on);
+  const t=b.querySelector('span:not(.sh-n)');if(t)t.textContent=on?'להציג פחות':'עוד דרכים לחקור';
+  if(on)requestAnimationFrame(()=>m.querySelectorAll('.strip').forEach(s=>s.dispatchEvent(new Event('scroll'))))});
+document.addEventListener('toggle',e=>{const t=e.target;if(t&&t.id==='kpTeen')KP.tOpen=t.open},true);
+document.addEventListener('toggle',e=>{const t=e.target;if(t&&t.id==='fMore')S.fOpen=t.open},true);
+document.addEventListener('toggle',e=>{const t=e.target;if(t&&t.classList&&t.classList.contains('cl-dn'))KC.dn=t.open},true); /* the finished tasks drawer keeps its state when the calendar is drawn again */ /* the filters drawer of the home page keeps its state when the results are drawn again */ /* the list for high school students keeps its state when it is drawn again */
+
 /* ---------- who employs the graduates: text only (no logos, no trademarks, no endorsement) ----------
    Level 1 is official: the industries in which the graduates of a field work, and their share (Avodata, Ministry of Labor). Level 2 is ours: examples of large organisations in Israel that work in that industry,
    written from general public knowledge. It was NOT checked against each organisation's own site, so it is marked "לא אומת" like every unverified fact of the site, and it says it is a list of examples:
@@ -6059,16 +6288,16 @@ function empMhRows(src){
 function empMhHTML(m,i){
   return empHTML(empMhRows(rzSrcMh(m,i)),{h:'באילו ענפים עובדים הבוגרים, ואילו ארגונים גדולים פועלים שם',of:'מהעוסקים במקצועות המסלול עובדים בענף',
     intro:`${EMP_INTRO} העוסקים במקצועות שבהם עובדים בוגרי המסלול, כל מקצוע לפי מספר העוסקים בו (לפי עבודאטה, משרד העבודה). ליד כל ענף יש דוגמאות לארגונים גדולים בישראל שפועלים בו.`})}
-/* a quick fact for the top of a page: a few of the examples, and a link to the list */
-function empTile(rows){
+/* a quick fact for the top of a page: a few of the large organisations in the sector most of them work in, and a link to the list */
+function empFact(rows,who='הבוגרים'){
   const R=empRows(rows);if(!R.length)return '';
   const g=EMP_IND[R[0].n],names=g.e.map(x=>x[0]).filter(n=>!/^(משרדי|חברות|מחלקות|עמותות|מועצות|מוסדות|מרכזי|רשויות)/.test(n)).slice(0,3);
   if(!names.length)return '';
-  return `<div class="tile"><span class="lbl">ארגונים גדולים בענף של רוב הבוגרים</span><span class="val em-tv">${names.map(esc).join(', ')}</span><span class="hint">בענף "${esc(g.s)}" (${Math.round(R[0].p)}%) · דוגמאות בלבד · <button type="button" class="linkbtn" data-scroll="employers">לכל הענפים</button></span></div>`}
+  return `<b>ארגונים גדולים בענף של רוב ${who}:</b> ${names.map(esc).join(', ')} (בענף "${esc(g.s)}", ${Math.round(R[0].p)}%, דוגמאות בלבד) <button type="button" class="linkbtn" data-scroll="employers">לכל הענפים</button>`}
 
 function renderOcc(id){
   const o=OC[id]; if(!o) return `<section class="sec"><div class="wrap"><div class="empty"><h3 aria-level="2">העמוד לא נמצא</h3></div></div></section>`;
-  const {tiles,facts}=snapParts(o.snap||[]), g=o.g||{}, grp=ocGroup(id), cat=OGCAT[grp];
+  const {facts}=snapParts(o.snap||[]), g=o.g||{}, grp=ocGroup(id), cat=OGCAT[grp];
   const trend=(g.salary||[]).filter(x=>x.v), emp=(g.employed||[]).filter(x=>x.v);
   const sect=([k,title,fn,share])=>{const s=g[k];if(!s||!s.s||!s.s.some(x=>x.v))return '';
     const notes=Object.values(s.notes||{}).filter(v=>v&&v!=='לא ידוע').map(v=>esc(String(v).replace(/\$/g,' ')));
@@ -6086,16 +6315,17 @@ function renderOcc(id){
       ${(o.edu||[]).length?`<details class="adm" style="margin-top:18px"><summary>מה למדו העוסקים במקצוע, לפי עבודאטה</summary><div class="jobs" style="margin-top:12px">${o.edu.map(e=>`<a class="job" href="${AVURL}/${e.kind}/${e.id}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;flex-direction:column;align-items:flex-start;gap:6px"><span style="display:flex;gap:12px;align-items:center"><i><svg viewBox="0 0 24 24">${IC.book}</svg></i>${esc(e.n)}</span><span class="sub" style="font-weight:400;font-size:14px">${esc(e.t)}${e.dur?' · '+esc(e.dur):''}</span>${e.sal?`<span class="tag m num">שכר בוגרים ממוצע: ${shek(e.sal)}</span>`:''}</a>`).join('')}</div>${AVSRC('isco_group/'+id,o.src)}</details>`:''}
     </section>`;
   return `<div style="${cv(cat)}">
-  <section class="dp-hero"><div class="wrap dp-hero-in"><div>
-    ${BACK}<br>
-    <span class="catpill">מקצוע · ${esc(OGN[grp])}</span><h1>${esc(o.n)}</h1>
-    ${o.d?`<p class="dp-lead">${esc(o.d)}</p>`:''}
-    ${(o.titles||[]).length?`<div class="otitles">${o.titles.map(t=>`<span>${esc(t)}</span>`).join('')}</div>`:''}
-    <div class="dp-actions"><button class="btn primary" data-scroll="road">איך מגיעים לזה</button>${qaJumpBtn('occ:'+id,'שאלות ותשובות על המקצוע')}</div>
-    ${dirBadge('occ',id)}
-  </div><div class="dp-art">${ocIll(o)}</div></div></section>
+  <section class="dp-hero dpc"><div class="wrap">
+    <div class="dpc-top"><div class="dpc-tx">
+      <div class="dpc-row">${BACK}<span class="catpill">מקצוע · ${esc(OGN[grp])}</span></div><h1>${esc(o.n)}</h1>
+      ${o.d?`<p class="dp-lead">${esc(o.d)}</p>`:''}
+      ${(o.titles||[]).length?`<div class="otitles">${o.titles.map(t=>`<span>${esc(t)}</span>`).join('')}</div>`:''}
+      <div class="dp-actions"><button class="btn primary" data-scroll="road">איך מגיעים לזה</button>${qaJumpBtn('occ:'+id,'שאלות ותשובות')}</div>
+      ${dirBadge('occ',id)}
+    </div><div class="dp-art dpc-art">${ocIll(o)}</div></div>
+    ${safe(()=>axHTML(occAns(id,o,cat)),'')}
+  </div></section>
   <div class="wrap dp-body">
-    ${tiles.length?`<div class="tiles num">${tiles.map(t=>`<div class="tile"><span class="lbl">${esc(t.l)}</span><span class="val">${esc(t.v)}</span>${t.h?`<span class="hint">${esc(t.h)}</span>`:''}</div>`).join('')}${occHot(o)?`<div class="tile"><span class="lbl">ביקוש בשוק</span><span class="val hot">חם בשוק</span><span class="hint">${esc(hotLine(o))}</span></div>`:''}${safe(()=>empTile(((o.g||{}).Anaf||[]).filter(x=>x.v>0).map(x=>({n:x.x,p:x.p}))),'')}${safe(()=>rzTiles(rzSrcOcc(id,o,cat)),'')}</div>`:''}
     ${occTrendHTML(o)}
     ${facts.length?`<div class="linkrow">${facts.filter(t=>!/צומח/.test(t)).map(t=>`<span class="tag" style="font-size:15px;padding:8px 14px;background:#fff;box-shadow:var(--shadow)">${esc(t)}</span>`).join('')}</div>`:''}
     ${(o.tasks||[]).length?`<section class="blk"><h2>מה עושים בעבודה</h2><div class="courses">${o.tasks.map(t=>`<div class="course" style="font-weight:500"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>${esc(t)}</div>`).join('')}</div></section>`:''}
@@ -6157,14 +6387,16 @@ function shelvesHTML(){
   if(short.length>=3)out.push(shelf('short','תואר קצר: עד 3 שנים','משך לימודים תקני של עד 3 שנים, מסודר לפי שכר הבוגרים',cards(short),'data-shelfall="short"'));
   const many=uniqField(fresh(P).sort((a,b)=>b.of.length-a.of.length),12);
   if(many.length>=3)out.push(shelf('many','הכי נלמדים בישראל','התארים שנלמדים בהכי הרבה מוסדות',cards(many)));
-  return out.join('');
+  /* two shelves at first: the rest wait behind one button, so the page does not open as a wall of choices */
+  const rest=out.slice(2);
+  return out.slice(0,2).join('')+(rest.length?`<div class="wrap sh-bar"><button type="button" class="btn soft" data-shmore aria-expanded="false" aria-controls="shMore">${ki('compass')}<span>עוד דרכים לחקור</span><span class="sh-n num">${rest.length}</span></button></div><div class="sh-more" id="shMore"><div class="sh-mi">${rest.join('')}</div></div>`:'');
 }
 /* "לכולם" on a shelf: show the full list with the matching filter, then scroll there (a click the person made) */
 function shelfAll(k){
   if(k==='occ'){Object.assign(JOBF,{q:'',g:'',grow:true,acad:false,sal:0,sort:'sal',shown:36});go('jobs');return}
   S.q='';S.cat='all';S.shown=48;S.f={dur:'',sal:0,grow:false,elig:false,open:false};
   if(k==='sal'){S.sort='sal'}else if(k==='grow'){S.f.grow=true;S.sort='sal'}else if(k==='open'){S.f.open=true;S.sort='many'}else if(k==='short'){S.f.dur='short';S.sort='sal'}
-  refreshExplore();$('#explore').scrollIntoView({behavior:'smooth'});
+  refreshExplore();glideTo($('#explore'));
 }
 
 /* ---------- technicians: search, filters and order by what fits me ---------- */
@@ -6422,16 +6654,7 @@ const qaCount=ctx=>FM.state==='ready'?fIdx().Q.filter(q=>inCtx(q,ctx)).length:0;
 const routeCtx=()=>{const r=S.route;return r.v==='deg'?'deg:'+r.id:r.v==='occ'?'occ:'+r.id:r.v==='mh'?'mh:'+r.id:''};
 function qaJumpBtn(ctx,label){const n=qaCount(ctx);return `<button class="btn qa-jump" data-qajump>${FIC.chat}<span>${label}</span>${n?`<b class="qa-n num">${n}</b>`:''}</button>`}
 function qaFab(){const n=qaCount(routeCtx());return `<button class="qa-fab" data-qajump aria-label="מעבר לשאלות ותשובות">${FIC.chat}<span>שאלות ותשובות</span>${n?`<b class="qa-n num">${n}</b>`:''}<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>`}
-function flyTo(el){
-  const hh=($('#hdr')||{}).offsetHeight||70, target=Math.max(0,el.getBoundingClientRect().top+scrollY-hh-14), start=scrollY, dist=target-start;
-  const land=()=>{el.classList.remove('qa-land');void el.offsetWidth;el.classList.add('qa-land')};
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches||Math.abs(dist)<4){window.scrollTo({top:target,behavior:'instant'});land();return}
-  const dur=Math.min(1500,Math.max(700,Math.abs(dist)*.32)), ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-  const root=document.documentElement, sb=root.style.scrollBehavior; root.style.scrollBehavior='auto'; root.classList.add('flying');
-  let t0=null;const step=ts=>{if(t0===null)t0=ts;const p=Math.min(1,(ts-t0)/dur);window.scrollTo(0,start+dist*ease(p));
-    if(p<1)requestAnimationFrame(step);else{root.style.scrollBehavior=sb;root.classList.remove('flying');land()}};
-  requestAnimationFrame(step);
-}
+
 addEventListener('scroll',()=>{const f=document.querySelector('.qa-fab');if(!f)return;const qa=document.getElementById('qa');
   f.classList.toggle('show',scrollY>380&&!!qa&&qa.getBoundingClientRect().top>innerHeight*.8)},{passive:true});
 
@@ -6504,25 +6727,21 @@ document.addEventListener('input',e=>{
 
 
 /* ================= v18: motion and flow ================= */
-/* Motion has three states. Full: every effect. Gentle (html.rg): nothing moves across the screen and nothing loops, what is left is fading, colour changes and progress fills.
-   None (html.rm): nothing. "Follow the computer" means full, unless the computer asks to reduce motion: then it is gentle, not none, so the site stays smooth without moving.
-   Chosen on the site: "עוד" → אנימציות, or the accessibility menu. */
-const MOTION=['auto','on','gentle','off'];
-const motionPref=()=>{const m=store.get('motion','auto');return MOTION.includes(m)?m:'auto'};
-const osReduce=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
-const motionMode=()=>{const m=motionPref();return m==='off'?'off':m==='gentle'||(m==='auto'&&osReduce())?'gentle':'full'};
+/* Motion has three states. Full: every effect, and it is the default: it does not depend on the computer's "reduce motion" setting. Gentle (html.rg): nothing moves across the screen and nothing loops,
+   what is left is fading, colour changes and progress fills. None (html.rm): nothing. What changes it is a choice made on the site: "עוד" → אנימציות, or the accessibility menu (an old saved "auto" means full). */
+const MOTION=['on','gentle','off'];
+const motionPref=()=>{const m=store.get('motion','on');return MOTION.includes(m)?m:'on'};
+const motionMode=()=>{const m=motionPref();return m==='off'?'off':m==='gentle'?'gentle':'full'};
 const RM=()=>{const c=document.documentElement.classList;return c.contains('rm')||c.contains('rg')}; /* nothing moves across the screen (gentle or none) */
 const NM=()=>document.documentElement.classList.contains('rm'); /* no animation at all */
 function motionInit(){const m=motionMode(),h=document.documentElement;h.classList.toggle('rm',m==='off');h.classList.toggle('rg',m==='gentle')}
-try{matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',()=>{motionInit();document.querySelectorAll('.mset-n').forEach(n=>n.textContent=motionNow())})}catch(e){}
-const MOT_L={auto:'לפי הגדרות המחשב',on:'מלאים',gentle:'עדינים, בלי תנועה',off:'כבויים'};
-const motionNow=()=>{const m=motionMode(),p=motionPref();
-  return m==='off'?'האפקטים כבויים: שום דבר לא זז ולא מתעמעם.':m==='gentle'?(p==='auto'?'במחשב או בטלפון שלך מוגדרת הפחתת תנועה, ולכן האתר מתחלף בעמעום ובשינוי צבע, בלי הזזות ובלי תנועה חוזרת. אם נוח לך, אפשר לבחור "מלאים".':'האתר מתחלף בעמעום ובשינוי צבע, בלי הזזות ובלי תנועה חוזרת.')
-    :p==='auto'?'כל האפקטים פועלים. אם תגדירו הפחתת תנועה במחשב או בטלפון, האתר יעבור לאפקטים עדינים בלי תנועה.':'כל האפקטים פועלים.'};
+const MOT_L={on:'מלאים',gentle:'עדינים, בלי תנועה',off:'כבויים'};
+const motionNow=()=>{const m=motionMode();
+  return m==='off'?'האפקטים כבויים: שום דבר לא זז ולא מתעמעם.':m==='gentle'?'האתר מתחלף בעמעום ובשינוי צבע, בלי הזזות ובלי תנועה חוזרת.':'כל האפקטים פועלים. אם התנועה מפריעה, אפשר לעבור לאפקטים עדינים או לכבות אותם כאן.'};
 const motionHTML=()=>{const m=motionPref();return `<div class="mset"><b id="motL">אנימציות ואפקטים</b><div class="mset-b" role="group" aria-labelledby="motL">${MOTION.map(k=>`<button class="fb2" data-motion="${k}" aria-pressed="${m===k}">${MOT_L[k]}</button>`).join('')}</div><p class="fine mset-n" role="status">${motionNow()}</p></div>`};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-motion]');if(!b||!MOTION.includes(b.dataset.motion))return;store.set('motion',b.dataset.motion);motionInit();
   document.querySelectorAll('[data-motion]').forEach(x=>x.setAttribute('aria-pressed',x===b));document.querySelectorAll('.mset-n').forEach(n=>n.textContent=motionNow());
-  toast({off:'האפקטים כבויים',gentle:'האפקטים עדינים, בלי תנועה',on:'כל האפקטים פועלים',auto:'האפקטים לפי הגדרות המחשב'}[b.dataset.motion])});
+  toast({off:'האפקטים כבויים',gentle:'האפקטים עדינים, בלי תנועה',on:'כל האפקטים פועלים'}[b.dataset.motion])});
 
 /* ---------- accessibility settings: kivun3.a11y = {z:0-3 text size step, hc, hl, rf}; read defensively ---------- */
 const A11Z=[1,1.15,1.3,1.5];
@@ -6541,7 +6760,7 @@ function openA11y(){openOv(a11yHTML(),'a11y-sheet')}
 const a11yZn=a=>`במסך הזה ההגדלה מוגבלת ל-${Math.round(a11yZoom(a)*100)}% כדי שהתוכן לא ייחתך. אפשר להגדיל עוד בהגדרות הדפדפן.`;
 function a11yPress(){const a=a11yGet(),m=store.get('motion','auto');const zg=document.querySelector('[aria-labelledby="aZ"]');if(zg){let n=zg.querySelector('.zn');if(a.z&&a11yZoom(a)<A11Z[a.z]){if(!n){n=document.createElement('p');n.className='s zn';n.style.flex='0 0 100%';zg.appendChild(n)}n.textContent=a11yZn(a)}else if(n)n.remove()}document.querySelectorAll('[data-a11y]').forEach(b=>{const k=b.dataset.a11y;if(k==='reset')return;b.setAttribute('aria-pressed',k.startsWith('z|')?a.z===+k.slice(2):!!a[k])});document.querySelectorAll('[data-motion]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.motion===m))}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a11y]');if(!b)return;const k=b.dataset.a11y,a=a11yGet();
-  if(k==='reset'){a.z=a.hc=a.hl=a.rf=0;store.set('motion','auto');motionInit()}else if(k.startsWith('z|'))a.z=Math.max(0,Math.min(A11Z.length-1,+k.slice(2)||0));else if(k in a)a[k]=a[k]?0:1;else return;
+  if(k==='reset'){a.z=a.hc=a.hl=a.rf=0;store.set('motion','on');motionInit()}else if(k.startsWith('z|'))a.z=Math.max(0,Math.min(A11Z.length-1,+k.slice(2)||0));else if(k in a)a[k]=a[k]?0:1;else return;
   store.set('a11y',a);a11yApply();a11yPress();
   toast(k==='reset'?'הגדרות הנגישות אופסו':k.startsWith('z|')?'גודל הטקסט: '+Math.round(A11Z[a.z]*100)+'%':b.textContent.trim()+(a[k]?': פועל':': כבוי'))});
 document.querySelectorAll('[data-a11yopen]').forEach(b=>b.addEventListener('click',openA11y));
@@ -6561,22 +6780,32 @@ function glideUI(){
 }
 function flyTo(el,opt={}){
   if(!el)return;
-  const hh=(document.getElementById('hdr')||{}).offsetHeight||70, target=Math.max(0,Math.min(el.getBoundingClientRect().top+scrollY-hh-14,document.documentElement.scrollHeight-innerHeight)), start=scrollY, dist=target-start;
+  const vh=innerHeight,hh=opt.off!=null?opt.off:((document.getElementById('hdr')||{}).offsetHeight||70)+14,max=document.documentElement.scrollHeight-vh;
+  const target=Math.max(0,Math.min(el.getBoundingClientRect().top+scrollY-hh,max)),start=scrollY,dist=target-start;
   const land=()=>{revealVisible();if(opt.noLand)return;el.classList.remove('qa-land','land');void el.offsetWidth;el.classList.add(el.id==='qa'?'qa-land':'land')};
   if(RM()||Math.abs(dist)<4){window.scrollTo({top:target,behavior:'instant'});land();return}
-  const far=Math.abs(dist)>innerHeight*1.2;
-  const dur=Math.min(1600,Math.max(650,Math.abs(dist)*.3)), ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-  const root=document.documentElement, sb=root.style.scrollBehavior, g=far?glideUI():null;
-  root.style.scrollBehavior='auto'; root.classList.add('flying');
-  if(g){g.classList.toggle('up',dist<0);g.classList.add('on')}
-  let t0=null;
-  const step=ts=>{if(t0===null)t0=ts;const p=Math.min(1,(ts-t0)/dur),e=ease(p);window.scrollTo(0,start+dist*e);
-    if(g)g.style.setProperty('--p',e.toFixed(4));
-    root.style.setProperty('--fo',(scrollY+innerHeight/2)+'px');
-    if(p<1)requestAnimationFrame(step);
-    else{root.style.scrollBehavior=sb;root.classList.remove('flying');if(g){g.classList.remove('on')}land()}};
-  requestAnimationFrame(step);
-}
+  const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,decel=t=>1-Math.pow(1-t,3);
+  const root=document.documentElement,app=document.getElementById('app'),sb=root.style.scrollBehavior,far=Math.abs(dist)>vh*3,g=far?glideUI():null,dir=Math.sign(dist),tk=++FLY.id,alive=()=>FLY.id===tk;
+  root.style.scrollBehavior='auto';root.classList.add('flying');
+  const mark=p=>{if(g)g.style.setProperty('--p',Math.max(0,Math.min(1,p)).toFixed(4))};
+  const finish=ok=>{root.style.scrollBehavior=sb;root.classList.remove('flying');if(app)app.classList.remove('hop');if(g)g.classList.remove('on');if(ok)land()};
+  const glide=(from,to,dur,e)=>{let t0=null;const step=ts=>{if(!alive())return finish(false);if(t0===null)t0=ts;const p=Math.min(1,(ts-t0)/dur);window.scrollTo(0,from+(to-from)*e(p));mark((scrollY-start)/dist);
+    root.style.setProperty('--fo',(scrollY+vh/2)+'px');if(p<1)requestAnimationFrame(step);else finish(true)};requestAnimationFrame(step)};
+  if(g){g.classList.toggle('up',dist<0);g.classList.add('on');mark(0)}
+  /* a short way: one eased scroll */
+  if(!far){glide(start,target,Math.min(1100,Math.max(520,Math.abs(dist)*.45)),ease);return}
+  /* a long way (the Q&A is at the far end of a degree page): the page dips a little, is put down a screen away from the place, and the last stretch is glided, slowly.
+     Running past thousands of pixels in a second is a rush, not a movement. The marker at the edge shows how far along the page the trip is. */
+  const near=target-dir*Math.min(vh*.9,Math.abs(dist)*.5);let t0=null;
+  if(app)app.classList.add('hop');
+  const dip=ts=>{if(!alive())return finish(false);if(t0===null)t0=ts;const p=Math.min(1,(ts-t0)/260);mark(decel(p)*(near-start)/dist);
+    if(p<1)requestAnimationFrame(dip);else{window.scrollTo(0,near);if(app)app.classList.remove('hop');glide(near,target,Math.min(1100,Math.max(650,Math.abs(target-near)*.9)),decel)}};
+  requestAnimationFrame(dip)}
+const FLY={id:0}; /* the number of the trip in progress: a touch, a wheel or a key press by the person ends it where it is */
+['wheel','touchstart'].forEach(n=>addEventListener(n,()=>{FLY.id++},{passive:true}));
+addEventListener('keydown',e=>{if(/^(Arrow|Page|Home$|End$| $)/.test(e.key))FLY.id++});
+/* bring an element into view with the same gentle trip (and without it when the person chose no movement) */
+const glideTo=(el,o={})=>{if(!el)return;if(RM())el.scrollIntoView({behavior:'instant',block:'start'});else flyTo(el,{noLand:true,...o})};
 /* the Q&A button takes off before the page moves */
 document.addEventListener('click',e=>{const b=e.target.closest('.btn.qa-jump,.qa-fab');if(!b||RM())return;b.classList.remove('launch');void b.offsetWidth;b.classList.add('launch')},true);
 
@@ -6607,7 +6836,8 @@ function countUp(scope){
     if(!isFinite(to)||to===0)return;
     const f=v=>m[1]+(comma?Number(v).toLocaleString('he-IL',{minimumFractionDigits:dp,maximumFractionDigits:dp}):v.toFixed(dp))+m[3];
     const dur=900+Math.min(600,String(Math.round(to)).length*90);let t0=null;
-    const step=ts=>{if(t0===null)t0=ts;const p=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=f(to*e);if(p<1)requestAnimationFrame(step);else el.textContent=t};
+    const step=ts=>{if(t0===null)t0=ts;const p=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=f(to*e);if(p<1)requestAnimationFrame(step);else{el.textContent=t;el.style.minWidth='';if(cd==='inline')el.style.display=''}};
+    const r0=el.getBoundingClientRect(),cd=getComputedStyle(el).display;if(r0.width){if(cd==='inline')el.style.display='inline-block';el.style.minWidth=r0.width+'px'} /* the width of the final number, held while it counts */
     el.textContent=f(0);requestAnimationFrame(step);
   });
 }
@@ -6658,7 +6888,7 @@ function burst(x,y,n=26){
 }
 
 /* everything that has to run after each screen is drawn */
-function afterRender(){requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
+function afterRender(){requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(!document.querySelector('#app .view.vw-ret'))document.querySelectorAll('#app .ax').forEach(countUp);if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
 /* a table that scrolls sideways can be reached and scrolled from the keyboard */
 function scrollRegions(){const used=new Set(); /* every region has a name of its own: the heading above it, and a number when two share it */
   document.querySelectorAll('.thr').forEach(t=>{if(t.scrollWidth>t.clientWidth+1){const b=t.closest('.blk,section'),h=b&&b.querySelector('h2,h3'),base=(h?h.textContent.replace(/\s+/g,' ').trim()+': ':'')+'טבלה שאפשר לגלול לצדדים';
@@ -7362,7 +7592,7 @@ function pth(){
   if(typeof p.d!=='string'||!own(BY,p.d))p.d='';
   if(!p.d||typeof p.i!=='string'||!own(INST,p.i)||!BY[p.d].of.some(o=>o.i===p.i))p.i='';
   p.start=nin(p.start,2000,2100)?Math.round(p.start):0;p.sess=typeof p.sess==='string'&&/^[\w-]{1,24}$/.test(p.sess)?p.sess:'';p.lab=labNorm(p.lab);p.goalP=nin(p.goalP,0,800)?p.goalP:0;
-  p.dates=Array.isArray(p.dates)?p.dates.filter(x=>isObj(x)&&typeof x.d==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x.d)).map(x=>{const o={...x,id:txt(x.id),t:txt(x.t)};['f','bk'].forEach(k=>{if(o[k]!==undefined)o[k]=txt(o[k])});if(o.i!==undefined&&!(typeof o.i==='string'&&own(INST,o.i)))delete o.i;return o}):[];p.log=Array.isArray(p.log)?p.log.filter(x=>nin(x,1,1e14)).slice(-400):[]; /* only real dates: a null or a number in storage would break the lists */
+  p.dates=Array.isArray(p.dates)?p.dates.filter(x=>isObj(x)&&isoOk(x.d)).map(x=>{const o={...x,id:txt(x.id),t:txt(x.t)};['f','bk','from'].forEach(k=>{if(o[k]!==undefined)o[k]=txt(o[k])});if(o.i!==undefined&&!(typeof o.i==='string'&&own(INST,o.i)))delete o.i;if(o.kind!=='task'&&o.kind!=='event')delete o.kind;o.done=o.done?1:0;if(!o.done)delete o.done;if(o.d2!==undefined&&!isoOk(o.d2))delete o.d2;if(o.k0!==undefined&&o.k0!=='psy'&&o.k0!=='bag')delete o.k0;return o}).slice(0,400):[];p.log=Array.isArray(p.log)?p.log.filter(x=>nin(x,1,1e14)).slice(-400):[]; /* only real dates: a null or a number in storage would break the lists */
   /* F2a: when I finish school or service (end), the last day I was on the road (seen) and my story notes; old saves have none of them */
   if(!isoOk(p.end))p.end='';if(!isoOk(p.seen))p.seen='';p.story=typeof p.story==='string'?p.story.slice(0,STORY_MAX):'';
   /* F2b: the day I said "not now" to a question (qs) and the day I answered a one-moment question (qa): a date per question id, nothing else */
@@ -8397,7 +8627,7 @@ function jSelect(id){
   const b=document.querySelector(`#kpJ [data-kstop="${id}"]`);if(b){b.focus({preventScroll:true});trCenter(b.closest('.tr-view'),b,!RM())}
   const lv=$('#live');if(lv)lv.textContent=`נבחרה התחנה: ${t.t}`;
   if(KP.full){const inf=$('#jnInfo');if(inf)inf.innerHTML=jnInfoHTML(t);return}
-  if(S.getBoundingClientRect().top>innerHeight*.62)S.scrollIntoView({behavior:RM()?'instant':'smooth',block:'start'})}
+  if(S.getBoundingClientRect().top>innerHeight*.62)glideTo(S)}
 /* ---------- the map on the whole screen ----------
    The host (#kpJ) is what fills the screen, so the map inside can be drawn again at the size of the screen without the browser leaving full screen.
    Where the browser cannot make an element full screen (a phone), the host covers the screen by itself. Escape, or the button, brings it back. */
@@ -8466,10 +8696,10 @@ function teenList(f){const L=TEEN.filter(p=>f==='all'||p.fl.includes(f)).sort((a
   return L.length?`<div class="tn-g">${L.map(tnCard).join('')}</div>`:''}
 function teenHTML(pl){const st=pl.X.stg;if(!/^g1[012]$/.test(st))return '';
   const f=KP.tf==='all'||(KP.tf&&CATS[KP.tf])?KP.tf:(CATS[pl.X.d.c]?pl.X.d.c:'all'),nm=f==='all'?'כל התחומים':CATS[f].n,gap=f==='all'?'':TEEN_GAP[f]||'';
-  return `<section class="tn" id="kpTeen"><div class="sec-h"><div><h2>${ki('star')}הזדמנויות לתלמידי תיכון</h2><p>מה אפשר לעשות כבר עכשיו כדי להתנסות ולהכיר את התחום. אלה פעילויות שמצאנו, ואף אחת מהן אינה תנאי קבלה.</p></div></div>
+  return `<details class="tn" id="kpTeen"${KP.tOpen?' open':''}><summary class="sec-h"><div><h2>${ki('star')}הזדמנויות לתלמידי תיכון</h2><p>מה אפשר לעשות כבר עכשיו כדי להתנסות ולהכיר את התחום. אלה פעילויות שמצאנו, ואף אחת מהן אינה תנאי קבלה.</p></div></summary>
     <div class="tn-f" role="group" aria-label="תחום">${['all',...Object.keys(CATS)].map(k=>`<button type="button" class="fb2" data-ktf="${k}" aria-pressed="${f===k}">${k==='all'?'כל התחומים':CATS[k].n}</button>`).join('')}</div>
     <div id="kpTeenL"><p class="tn-sub">מוצגות תוכניות בתחום: <b>${nm}</b></p>${teenList(f)}${gap?`<p class="tn-gap">${esc(gap)}</p>`:''}</div>
-    <p class="fine">נאסף ב-${esc(dLong(TEEN_DATE))} מתקצירי חיפוש בלבד, בלי לפתוח את דפי התוכניות, והרשימה אינה ממצה. מועדים, גיל, עלות ותנאי קבלה משתנים, ולכן לפני כל הרשמה בודקים באתר התוכנית. רוב התוכניות לא מזכות בנקודות לקבלה (לא מצאנו מקור שאומר אחרת); "אקדמיה בתיכון" מזכה בציון בגרות ובנקודות אקדמיות לתואר.</p></section>`}
+    <p class="fine">נאסף ב-${esc(dLong(TEEN_DATE))} מתקצירי חיפוש בלבד, בלי לפתוח את דפי התוכניות, והרשימה אינה ממצה. מועדים, גיל, עלות ותנאי קבלה משתנים, ולכן לפני כל הרשמה בודקים באתר התוכנית. רוב התוכניות לא מזכות בנקודות לקבלה (לא מצאנו מקור שאומר אחרת); "אקדמיה בתיכון" מזכה בציון בגרות ובנקודות אקדמיות לתואר.</p></details>`}
 /* a short pointer on the "now" tab for students */
 function teenTeaser(pl){const st=pl.X.stg;if(!/^g1[012]$/.test(st))return '';const f=CATS[pl.X.d.c]?pl.X.d.c:'all',L=TEEN.filter(p=>f==='all'||p.fl.includes(f));
   return `<div class="tn-teaser">${ki('star')}<div><b>מה אפשר לעשות כבר בתיכון${f==='all'?'':` בתחום ${CATS[f].n}`}</b><p>${L.length?`מצאנו ${L.length===1?'תוכנית אחת':L.length+' תוכניות'}: ${L.slice(0,2).map(p=>esc(p.n)).join(', ')}${L.length>2?' ועוד':''}. אף אחת מהן אינה תנאי קבלה.`:esc(TEEN_GAP[f]||'לא מצאנו תוכניות בתחום הזה.')}</p>${KB('data-kteen','לכל התוכניות')}</div></div>`}
@@ -8819,7 +9049,8 @@ function paint(names){
   if(tab){const b=$('#kpTab');if(b&&!(KP.tab==='prog'&&safe(()=>pgUpdate(pl),false))){b.innerHTML=tabInner(pl);afterTab()}} /* the progress chart changes in place, so its columns move */
   safe(updateRing)}
 function updateRing(){document.querySelectorAll('#links .path-l,#botnav .path-l').forEach(n=>{const r=n.querySelector('.nring'),h=navRing();if(r)r.outerHTML=h;else if(h)(n.querySelector('.bi')||n).insertAdjacentHTML('beforeend',h)})}
-function jump(id,smooth=true){const e=$('#'+id);if(!e)return;const y=e.getBoundingClientRect().top+scrollY-(innerWidth<760?116:150);window.scrollTo({top:Math.max(0,y),behavior:smooth&&!RM()?'smooth':'instant'})}
+function jump(id,smooth=true){const e=$('#'+id);if(!e)return;if(e.tagName==='DETAILS')e.open=true;const dd=e.closest('details');if(dd)dd.open=true;const off=innerWidth<760?116:150;
+  if(smooth&&!RM())flyTo(e,{noLand:true,off});else window.scrollTo({top:Math.max(0,e.getBoundingClientRect().top+scrollY-off),behavior:'instant'})}
 function gotoTab(k,o={}){
   k=KALIAS[k]||k;if(!TKEYS.includes(k))k='now';
   const from=KP.tab;
@@ -8829,9 +9060,10 @@ function gotoTab(k,o={}){
   jnReset();KP.tab=k;const n=$('#kpNav'),b=$('#kpTab'),pl=safe(plan);
   if(!n||!b||!pl){render();return}
   navSync();b.innerHTML=tabInner(pl);afterTab();
+  if(k!==from){const sc=b.firstElementChild;if(sc){sc.classList.remove('tab-in');void sc.offsetWidth;sc.classList.add('tab-in')}}
   if(k!==from){const lv=$('#live'),nm=(TABS.find(t=>t[0]===k)||TOOLS.find(t=>t[0]===k)||[])[1];if(lv&&nm)lv.textContent='נפתח: '+nm; /* the view changes under the focus, so a screen reader is told */
 }
-  if(o.to)setTimeout(()=>jump(o.to,!o.instant),90);
+  if(o.to){if(o.to==='kpBag'){const dd=$('#clOff');if(dd)dd.open=true}setTimeout(()=>jump(o.to,!o.instant),90)}
   else{const top=b.getBoundingClientRect().top;if(o.scroll||top<(innerWidth<760?116:150)||top>innerHeight*.55)jump('kpTab',!o.instant)}} /* the view I opened is brought into sight: when it starts low on the screen (I am at the top of the page) or I have scrolled past its beginning */
 /* bring a step into focus (from a list, a button in another step, or "next") */
 function focusOn(id,push=true){
@@ -9114,8 +9346,7 @@ function timeline(pl){
     (many?tInfos().map(x=>x.X):[pl.X]).forEach(X=>{if(!X.start||!REGD[X.P.i])return;const R=REGD[X.P.i],f=X.fam,Y=X.start;
       [...(R.ev||[]).filter(x=>!(x[2]&&(f==='med'||f==='dent'||f==='arch'))),...(f==='med'||f==='dent'?R.evmed||[]:[]),...(f==='arch'?R.evarch||[]:[])].forEach(([md,t])=>{const [m,d]=md.split('-'),id='regev-'+md+'-'+X.P.i+'-'+t;if(seen.has(id))return;seen.add(id);
         L.push({id,d:isoOf(Y,+m,+d),k:'idf',approx:1,t:`${t} (בערך, לפי ${R.cy})${many?` · ${X.I.n}`:''}`,sub:`${X.I.n}: לפי המחזור האחרון שפורסם. המועד לשנה שלי מתפרסם באתר המוסד.`,f:REGF[X.P.i],src:R.src})})})}
-  (P&&P.dates||[]).forEach(x=>{const f=planFact(x),bg=f==='bagrut.2027'?BAGD.find(b=>b[2]===x.d||b[4]===x.d):null; /* F4: a step made from an exam date shows the status and the source of that date, like the site's own row beside it */
-    L.push({id:x.id,d:x.d,k:'mine',t:x.t,mine:1,...(f?{f,sub:f==='bagrut.2027'?'לפי טיוטת לוח הבחינות של משרד החינוך.':'לפי לוח המועדים של מאל"ו.',src:f==='bagrut.2027'?bg&&(bg[0]==='w'?EDU.win:EDU.sum):NITE.td}:{})})});
+  (P&&P.dates||[]).forEach(x=>L.push(mineOf(x))); /* F4: a step made from an exam date shows the status and the source of that date, like the site's own row beside it (see mineOf) */
   schEvents().forEach(x=>L.push(x)); /* F3: my tracked scholarships and verified windows */
   if(P&&P.end)L.push({id:'end-mine',d:P.end,k:'mine',t:endTitle(),sub:'התאריך שהזנתי בעצמי.'}); /* F2a: my own date (no delete button: it is edited under "עליי") */
   return L.filter(x=>x.d&&daysTo(x.d2||x.d)>=0).sort((a,b)=>a.d.localeCompare(b.d))}
@@ -9170,29 +9401,51 @@ function gcalUrl(x){
 const addCalHTML=x=>x.approx?'':`<span class="cl-add"><a class="btn soft sm" href="${esc(gcalUrl(x))}" target="_blank" rel="noopener" aria-label="הוספה ליומן Google: ${esc(x.t)} (נפתח בלשונית חדשה)">${ki('cal')}Google</a>${inViewer()?'':`<button type="button" class="btn soft sm" data-kic1="${esc(x.id)}" aria-label="הורדת קובץ יומן: ${esc(x.t)}">${ki('down')}קובץ</button>`}</span>`;
 
 /* ---------- the calendar: only my dates, on a month, with a way to add each one ---------- */
-const KC={m:'',sel:'',f:'all',all:false}; /* ui state, never saved: the month in view (YYYY-MM), the day picked, the filter, all rows of the list */
+const KC={m:'',sel:'',f:'all',all:false,add:null,off:false,offAll:false,dn:false}; /* ui state, never saved: the month in view (YYYY-MM), the day picked, the filter of the official list, all rows of my list, the form (or null), the official dates on the month, all rows of the official list */
 const CL_CAT={psy:'exam',bag:'exam',idf:'reg',sch:'sch',mine:'mine'};
 const CL_F=[['all','הכול'],['exam','בחינות'],['reg','הרשמה'],['sch','מלגות'],['mine','שלי']];
 const CL_NM={psy:'בחינה פסיכומטרית',bag:'בגרות',idf:'הרשמה',sch:'מלגה',mine:'שלי'};
 const HMON=['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
 const HDOW=['א','ב','ג','ד','ה','ו','ש'],HDOWL=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
-const clShort=x=>x.k==='bag'&&x.sn?x.sn:x.k==='psy'?(x.reg?'סגירת הרשמה':'פסיכומטרי'):x.k==='sch'?(x.nm||'מלגה'):x.k==='idf'?'הרשמה':String(x.t).split(' ').slice(0,3).join(' ');
+const clShort=x=>x.k==='mine'&&x.kk==='psy'?'פסיכומטרי':x.k==='bag'&&x.sn?x.sn:x.k==='psy'?(x.reg?'סגירת הרשמה':'פסיכומטרי'):x.k==='sch'?(x.nm||'מלגה'):x.k==='idf'?'הרשמה':String(x.t).split(' ').slice(0,3).join(' ');
 /* every event I could add: what the plan lists, and every sitting of the bagrut subjects of my planner (even a subject the calendar does not show by itself) */
 function calPool(pl){
   const L=timeline(pl),have=new Set(L.map(x=>x.id));
   if(pl)bagOf(pl).forEach(c=>c.sits.forEach(e=>{if(!have.has(e.id)){have.add(e.id);L.push(e)}}));
   return L}
 const calEvents=pl=>timeline(pl).filter(x=>!x.id.startsWith('psyres-'));
-const clEvents=pl=>calEvents(pl).filter(x=>KC.f==='all'||CL_CAT[x.k]===KC.f);
 const isoD=d=>isoOf(d.getFullYear(),d.getMonth()+1,d.getDate());
 const dRange=x=>x.d2&&x.d2!==x.d?`${new Date(x.d+'T00:00:00').getDate()}–${new Date(x.d2+'T00:00:00').getDate()} ב${HMON[new Date(x.d2+'T00:00:00').getMonth()]} ${new Date(x.d2+'T00:00:00').getFullYear()}`:dLong(x.d);
-/* a row of the list: when, what, how far, where it comes from, and the two ways to add it */
+/* ---------- v19: the calendar, clean ----------
+   It opens empty: the month holds only what is mine (what I wrote, what I added from the official dates, a scholarship I follow). Above it sit the two dates that come first, the next
+   psychometric sitting and the next bagrut exam, each with a button that puts it in my calendar. Every official date is still there, one tap away, in a list that starts closed.
+   A task can be ticked off, an event cannot. The only thing saved is what I add (P.dates, with kind: task | event, done, and from / k0 when it was copied from an official date). */
+const CN={}; /* the official dates the cards and the rows offer, by id (never saved) */
+const KIND_L={task:'משימה',event:'אירוע'};
+/* one of my dates as a row of the calendar: what the plan knows about its source (the status and the link of an exam date I made a step of) comes along */
+function mineOf(x){
+  const f=planFact(x),bg=f==='bagrut.2027'?BAGD.find(b=>b[2]===x.d||b[4]===x.d):null;
+  return {id:x.id,d:x.d,...(x.d2?{d2:x.d2}:{}),k:'mine',kk:x.k0||'mine',kind:x.kind==='task'?'task':'event',done:!!x.done,t:x.t,mine:1,
+    ...(f?{f,sub:f==='bagrut.2027'?'לפי טיוטת לוח הבחינות של משרד החינוך.':'לפי לוח המועדים של מאל"ו.',src:f==='bagrut.2027'?bg&&(bg[0]==='w'?EDU.win:EDU.sum):NITE.td}:x.f?{f:x.f}:{})}}
+/* everything that is mine, for the month and the list: a task that is not done stays after its day */
+function calMineAll(){
+  const P=pth(),L=((P&&P.dates)||[]).map(mineOf);
+  safe(schEvents,[]).filter(x=>x.tid).forEach(x=>L.push({...x,kind:'event',done:false}));
+  if(P&&P.end&&daysTo(P.end)>=0)L.push({id:'end-mine',d:P.end,k:'mine',kk:'mine',kind:'event',done:false,t:endTitle(),sub:'התאריך שהזנתי בעצמי.',fixed:1});
+  return L.sort((a,b)=>a.d.localeCompare(b.d))}
+const mineUp=L=>L.filter(x=>x.kind==='task'?!x.done:daysTo(x.d2||x.d)>=0); /* tasks to do, and events that did not pass yet */
+const calOff=pl=>calEvents(pl).filter(x=>!x.mine&&x.k!=='mine'&&!(x.k==='sch'&&x.tid)); /* the official dates: not mine, and not a scholarship I follow */
+const cnAdd=(id,have)=>have?`<span class="cl-have">${ki('check')}ביומן שלי</span>`:`<button type="button" class="btn soft sm cl-take" data-kown="${esc(id)}">${ki('cal')}הוספה ליומן שלי</button>`;
+const copiedIds=()=>new Set(((pth()||{}).dates||[]).map(x=>x.from).filter(Boolean));
+/* a row of the list: when, what, how far, where it comes from, and what I can do with it */
 function clRow(x){
-  const n=daysTo(x.d),dt=new Date(x.d+'T00:00:00'),cat=x.k+(x.approx?' approx':'');
+  const n=daysTo(x.d),dt=new Date(x.d+'T00:00:00'),kk=x.kk||x.k,task=x.mine&&x.kind==='task',over=task&&!x.done&&n<0,cat=kk+(x.approx?' approx':'')+(x.done?' done':'');
+  const off=!x.mine&&!x.fixed&&x.k!=='sch'||x.k==='sch'&&!x.tid;if(off&&!x.approx)CN[x.id]=x;
+  const own=off&&!x.approx?(copiedIds().has(x.id)?`<span class="cl-have">${ki('check')}ביומן שלי</span>`:`<button type="button" class="btn soft sm cl-take" data-kown="${esc(x.id)}">${ki('cal')}הוספה ליומן שלי</button>`):'';
   return `<li class="cl-r ${cat}"><span class="cl-rd num" aria-hidden="true"><b>${dt.getDate()}</b><small>${HMON[dt.getMonth()].slice(0,3)}</small></span>
-    <div class="cl-rb"><b>${esc(x.t)}</b>${x.pick?' <span class="kp-tag ok">המועד שלי</span>':''}
-      <small><span class="cl-rk ${x.k}">${CL_NM[x.k]||''}</span> ${esc(dRange(x))} · ${inN(n)}${x.approx?' · בערך, לפי המחזור הקודם':''}${x.sub&&!x.mine?' · '+esc(x.sub):''}${x.f?factChip(x.f):''}</small>
-      <div class="cl-ra">${addCalHTML(x)}${x.src?`<a class="tl-src" href="${esc(x.src)}" target="_blank" rel="noopener">המקור</a>`:''}${x.mine?`<button type="button" class="linkbtn" data-kdel="${esc(x.id)}">מחיקה</button>`:''}</div></div></li>`}
+    <div class="cl-rb">${task?`<div class="cl-tt"><button type="button" class="cl-ck" role="checkbox" aria-checked="${!!x.done}" data-kdone="${esc(x.id)}" aria-label="סימון כבוצע: ${esc(x.t)}"></button><b>${esc(x.t)}</b></div>`:`<b>${esc(x.t)}</b>`}${x.pick?' <span class="kp-tag ok">המועד שלי</span>':''}
+      <small><span class="cl-rk ${kk}">${x.mine&&kk==='mine'?KIND_L[x.kind]:CL_NM[kk]||''}</span> ${esc(dRange(x))} · ${over?'עבר התאריך':x.done?'בוצע':inN(n)}${x.approx?' · בערך, לפי המחזור הקודם':''}${x.sub&&!x.mine?' · '+esc(x.sub):''}${x.f?factChip(x.f):''}</small>
+      <div class="cl-ra">${own}${x.mine?'':addCalHTML(x)}${x.src?`<a class="tl-src" href="${esc(x.src)}" target="_blank" rel="noopener">המקור</a>`:''}${x.mine&&!x.fixed?`<button type="button" class="linkbtn" data-kdel="${esc(x.id)}">מחיקה</button>`:''}</div></div></li>`}
 /* the exams of one season are one row that opens; only the first rows show until I ask for all of them */
 function clAgenda(L,lim){
   const out=[],seen={};
@@ -9201,14 +9454,14 @@ function clAgenda(L,lim){
     let g=seen[x.grp];if(!g){g=seen[x.grp]={items:[],x};out.push(g)}g.items.push(x)}
   const rows=out.map(g=>typeof g==='string'?g:`<li class="cl-gr"><details><summary><span class="cl-rd num" aria-hidden="true"><b>${g.items.length}</b><small>${g.items.length===1?'מקצוע':'מקצועות'}</small></span><span class="cl-rb"><b>${esc(g.x.gt)}</b><small>${g.items.map(i=>esc(i.sn)).join(' · ')}</small></span></summary><ul class="cl-l">${g.items.map(clRow).join('')}</ul></details></li>`);
   return {html:rows.slice(0,lim).join(''),total:rows.length}}
-/* one month: weeks start on Sunday; a day with events shows them (and carries them in its name for a screen reader) */
+/* one month: weeks start on Sunday; a day with something on it shows the first and how many more (and carries them in its name for a screen reader) */
 function clGrid(L){
   const [Y,M]=KC.m.split('-').map(Number),first=new Date(Y,M-1,1),lead=first.getDay(),days=new Date(Y,M,0).getDate(),by={},tdy=isoD(today0());
   L.forEach(x=>{const a=new Date(x.d+'T00:00:00'),b=new Date((x.d2||x.d)+'T00:00:00');for(const t=new Date(a);t<=b;t.setDate(t.getDate()+1))(by[isoD(t)]=by[isoD(t)]||[]).push(x)});
   const cells=[];for(let i=0;i<lead;i++)cells.push('');
-  for(let d=1;d<=days;d++){const iso=isoOf(Y,M,d),E=by[iso]||[],dow=(lead+d-1)%7;
-    const nm=E.length?`${E.length===1?'אירוע אחד':E.length+' אירועים'}: ${E.slice(0,3).map(clShort).join(', ')}`:'אין אירועים';
-    cells.push(`<button type="button" class="cl-d${iso===tdy?' today':''}${iso===KC.sel?' sel':''}${E.length?' has':''}${dow>=5?' wk':''}" data-kcd="${iso}" aria-pressed="${iso===KC.sel}"><b class="num" aria-hidden="true">${d}</b><span class="sr">${d} ב${HMON[M-1]} ${Y}, יום ${HDOWL[dow]}${iso===tdy?', היום':''}. ${esc(nm)}</span>${E.length?`<span class="cl-ev" aria-hidden="true">${E.slice(0,2).map(x=>`<i class="${x.k}${x.approx?' approx':''}">${esc(clShort(x))}</i>`).join('')}${E.length>2?`<em>+${E.length-2}</em>`:''}</span><span class="cl-dots" aria-hidden="true">${[...new Set(E.map(x=>x.k))].slice(0,4).map(k=>`<s class="${k}"></s>`).join('')}</span>`:''}</button>`)}
+  for(let d=1;d<=days;d++){const iso=isoOf(Y,M,d),E=by[iso]||[],dow=(lead+d-1)%7,c0=E[0]&&(E[0].kk||E[0].k);
+    const nm=E.length?`${E.length===1?'פריט אחד':E.length+' פריטים'}: ${E.slice(0,3).map(clShort).join(', ')}`:'אין כלום';
+    cells.push(`<button type="button" class="cl-d${iso===tdy?' today':''}${iso===KC.sel?' sel':''}${E.length?' has':''}${dow>=5?' wk':''}" data-kcd="${iso}" aria-pressed="${iso===KC.sel}"><b class="num" aria-hidden="true">${d}</b><span class="sr">${d} ב${HMON[M-1]} ${Y}, יום ${HDOWL[dow]}${iso===tdy?', היום':''}. ${esc(nm)}</span>${E.length?`<span class="cl-ev" aria-hidden="true"><i class="${c0}${E[0].done?' done':''}">${esc(clShort(E[0]))}</i>${E.length>1?`<em>+${E.length-1}</em>`:''}</span><span class="cl-dots" aria-hidden="true">${[...new Set(E.map(x=>x.kk||x.k))].slice(0,4).map(k=>`<s class="${k}"></s>`).join('')}</span>`:''}</button>`)}
   while(cells.length%7)cells.push('');
   const rows=[];for(let i=0;i<cells.length;i+=7)rows.push(`<tr>${cells.slice(i,i+7).map(c=>`<td>${c}</td>`).join('')}</tr>`);
   return `<table class="cl-g" aria-labelledby="clMon"><thead><tr>${HDOW.map((h,i)=>`<th scope="col" abbr="${HDOWL[i]}"${i>=5?' class="wk"':''}>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table>`}
@@ -9228,34 +9481,95 @@ function bagPlanHTML(pl,o){
     ${o.max&&L.length>o.max?`<p class="fine"><button type="button" class="linkbtn" data-ktab="cal" data-kto="kpBag">עוד ${L.length-o.max} מקצועות ביומן${ki('arrow')}</button></p>`:''}</section>`}
 /* the same planner inside the step that talks about the bagrut */
 const bagBlock=o=>{const pl=safe(plan,null);return pl?safe(()=>bagPlanHTML(pl,o),''):''};
-/* the month and the lists of the calendar: this is the part that is drawn again when I move around it */
+/* the next psychometric sitting (in my language, or the one I picked), when its registration closes, and the next sitting that can still be registered for */
+function cnPsy(pl){
+  const P=pth(),lgk=myLang()==='x'?'he':myLang(),Xs=pl?(tList().length>1?tInfos().map(x=>x.X):[pl.X]):[],need=!pl||Xs.some(X=>X.q.tier>0&&!(X.hasP&&X.V.ok===true));
+  const live=PSYD.filter(z=>daysTo(z.d2||z.d)>=0&&z.lg.split(',').includes(lgk)),pick=P&&P.sess?live.find(z=>z.id===P.sess):null,z=pick||live[0];
+  if(!z)return `<article class="cn-c psy"><header><h4>${ki('bolt')}פסיכומטרי</h4></header><p class="cn-n">אין כרגע מועד פסיכומטרי שפורסם בשפה שלי. בודקים באתר מאל"ו.</p><div class="cn-a"><a class="btn soft sm" href="${esc(NITE.td)}" target="_blank" rel="noopener">לאתר מאל"ו</a></div></article>`;
+  const open=live.find(x=>daysTo(x.reg)>=0),id='psy-'+z.id,reg=daysTo(z.reg)>=0;
+  CN[id]={id,d:z.d,d2:z.d2,k:'psy',t:`בחינה פסיכומטרית: ${z.days}`,f:'psy.date.'+z.id,src:NITE.td};
+  return `<article class="cn-c psy"><header><h4>${ki('bolt')}פסיכומטרי</h4><span class="cn-in">${inN(daysTo(z.d))}</span></header>
+    <p class="cn-d">${esc(z.days)}${pick?' <span class="kp-tag ok">המועד שבחרתי</span>':''}${factChip('psy.date.'+z.id)}</p>
+    <p class="cn-n">${reg?`ההרשמה הרגילה נסגרת ב-${esc(dLong(z.reg))} (${inN(daysTo(z.reg))}).`:`ההרשמה הרגילה למועד הזה נסגרה ב-${esc(dLong(z.reg))}.${open&&open!==z?` המועד הבא שההרשמה אליו עוד פתוחה: ${esc(open.lbl)} (${esc(open.days)}), עד ${esc(dLong(open.reg))}.`:''}`}${need?'':' לפי היעדים והציון שלי אין כרגע צורך בפסיכומטרי.'}</p>
+    <div class="cn-a">${cnAdd(id,copiedIds().has(id))}<a class="btn quiet sm" href="${esc(NITE.reg)}" target="_blank" rel="noopener">הרשמה במאל"ו</a></div></article>`}
+/* the next bagrut exam: of a subject I still need or want to improve, or else the next exam of the Ministry of Education's schedule */
+function cnBag(pl){
+  const mineSub=pl?bagOf(pl).filter(c=>c.cal&&c.sits.length).map(c=>({c,e:c.sits[0]})).sort((a,b)=>a.e.d.localeCompare(b.e.d)):[];
+  let e,lead,more='';
+  if(mineSub.length){const s=mineSub[0];e=s.e;lead=`${esc(s.c.n)}${s.c.kind==='need'?' (חסר לי)':s.c.kind==='boost'?' (לשיפור)':''}`;more=mineSub.length>1?`ועוד ${mineSub.length-1} ${mineSub.length-1===1?'מקצוע':'מקצועות'} שלי ברשימה`:''}
+  else{const b=BAGD.filter(b=>daysTo(b[4]||b[2])>=0).sort((a,b)=>a[2].localeCompare(b[2]))[0];if(!b)return '';e=bagEv(b);lead=`${esc(bagName(b[3]))}, מועד ${BSEASON[b[0]]}`}
+  const id=e.id;CN[id]={id,d:e.d,d2:e.d2,k:'bag',t:e.t,f:'bagrut.2027',src:e.src};
+  return `<article class="cn-c bag"><header><h4>${ki('book')}בגרות</h4><span class="cn-in">${inN(daysTo(e.d))}</span></header>
+    <p class="cn-d">${esc(dRange(e))}</p><p class="cn-s">${lead}</p><p class="cn-n">לפי טיוטת לוח הבחינות של משרד החינוך.${factChip('bagrut.2027')}${more?` ${more}.`:''}</p>
+    <div class="cn-a">${cnAdd(id,copiedIds().has(id))}<a class="btn quiet sm" href="${esc(EDU.portal)}" target="_blank" rel="noopener">לוח המועדים והרשמה</a></div></article>`}
+const cnHTML=pl=>`<section class="cn" aria-labelledby="cnH"><h3 class="cn-h" id="cnH">המועדים הקרובים</h3><div class="cn-g">${safe(()=>cnPsy(pl),'')}${safe(()=>cnBag(pl),'')}</div></section>`;
+/* adding: a title, task or event, a date. The date follows the day I touch on the month */
+function clAddHTML(){
+  const a=KC.add,d=isoOk(a.d)?a.d:todayISO();
+  return `<form class="cl-addf" id="clAdd" autocomplete="off"><h3>הוספה ליומן</h3>
+    <label for="clAT">מה להוסיף?</label><input id="clAT" maxlength="80" required placeholder="למשל: להירשם לפסיכומטרי, יום פתוח בטכניון" value="${esc(a.t||'')}">
+    <fieldset class="cl-kind"><legend>סוג</legend><label><input type="radio" name="clK" value="task"${a.kind!=='event'?' checked':''}><span>${ki('check')}משימה</span></label><label><input type="radio" name="clK" value="event"${a.kind==='event'?' checked':''}><span>${ki('cal')}אירוע</span></label></fieldset>
+    <p class="cl-kh">משימה היא משהו שצריך לעשות עד התאריך, ואפשר לסמן אותה כבוצעה. אירוע הוא משהו שקורה בו.</p>
+    <label for="clAD">באיזה תאריך?</label><input id="clAD" type="date" required value="${d}">
+    <div class="cl-addb"><button class="btn primary sm" type="submit">הוספה</button><button type="button" class="btn quiet sm" data-kcx>ביטול</button></div></form>`}
+/* the month and what is beside it: this is the part that is drawn again when I move around it */
 function calMainHTML(pl){
-  const L=clEvents(pl),all=calEvents(pl);
-  const [Y,M]=KC.m.split('-').map(Number),cnt=k=>k==='all'?all.length:all.filter(x=>CL_CAT[x.k]===k).length;
-  const dayEv=KC.sel?L.filter(x=>x.d<=KC.sel&&(x.d2||x.d)>=KC.sel):[],ag=clAgenda(L.filter(x=>daysTo(x.d2||x.d)>=0),KC.all?999:6);
-  return `<div class="cl-fl" role="group" aria-label="סינון המועדים">${CL_F.map(([k,l])=>`<button type="button" class="chip${KC.f===k?' on':''}" data-kcf="${k}" aria-pressed="${KC.f===k}">${l} <span class="num">${cnt(k)}</span></button>`).join('')}</div>
-    <div class="cl-main"><div class="cl-cal"><div class="cl-nv"><button type="button" class="cl-nb" data-kcm="-1" aria-label="החודש הקודם">${ki('arrow','kp-flip')}</button><h3 id="clMon" aria-live="polite">${HMON[M-1]} ${Y}</h3><button type="button" class="cl-nb" data-kcm="1" aria-label="החודש הבא">${ki('arrow')}</button><button type="button" class="linkbtn cl-td" data-kcm="today">היום</button></div>
+  const mine=calMineAll(),cp=copiedIds(),off=KC.off?calOff(pl).filter(x=>!cp.has(x.id)):[],L=[...off,...mine],up=mineUp(mine);
+  const [Y,M]=KC.m.split('-').map(Number),dayEv=KC.sel?L.filter(x=>x.d<=KC.sel&&(x.d2||x.d)>=KC.sel):[];
+  const side=KC.add?clAddHTML():KC.sel?`<div class="cl-day" aria-live="polite"><div class="cl-dh"><h3>${esc(dLong(KC.sel))}</h3><button type="button" class="btn soft sm" data-kca="${KC.sel}">${FIC.plus}להוסיף ליום הזה</button></div>${dayEv.length?`<ul class="cl-l">${dayEv.map(clRow).join('')}</ul>`:'<p class="fine">עוד אין בו כלום.</p>'}</div>`:'';
+  const doneL=mine.filter(x=>x.kind==='task'&&x.done),dayIds=new Set(dayEv.map(x=>x.id)),rest=KC.sel?up.filter(x=>!dayIds.has(x.id)):up;
+  const list=rest.length?`<h3 class="cl-h3">${KC.sel?'שאר הפריטים שלי':'שלי, הקרוב ראשון'}</h3><ul class="cl-l">${rest.slice(0,KC.all?999:6).map(clRow).join('')}</ul>${rest.length>6?`<button type="button" class="btn soft sm cl-more" data-kcall aria-expanded="${KC.all}">${KC.all?'להציג פחות':`להציג את כל ${rest.length}`}</button>`:''}`
+    :up.length||KC.sel||KC.add||doneL.length?'':`<div class="cl-empty"><b>היומן ריק, וזה בסדר.</b><p>אפשר להתחיל מאחד המועדים שלמעלה, או ללחוץ על "הוספה ליומן" ולכתוב משימה או אירוע משלכם.</p></div>`;
+  return `<div class="cl-main"><div class="cl-cal"><div class="cl-nv"><button type="button" class="cl-nb" data-kcm="-1" aria-label="החודש הקודם">${ki('arrow','kp-flip')}</button><h3 id="clMon" aria-live="polite">${HMON[M-1]} ${Y}</h3><button type="button" class="cl-nb" data-kcm="1" aria-label="החודש הבא">${ki('arrow')}</button><button type="button" class="linkbtn cl-td" data-kcm="today">היום</button></div>
         ${clGrid(L)}
-        <p class="cl-lg" aria-hidden="true">${[['psy','בחינה פסיכומטרית'],['bag','בגרות'],['idf','הרשמה (בערך)'],['sch','מלגה'],['mine','שלי']].map(([k,l])=>`<span><s class="${k}"></s>${l}</span>`).join('')}</p></div>
-      <div class="cl-side">${KC.sel?`<div class="cl-day" aria-live="polite"><h3>${esc(dLong(KC.sel))}</h3>${dayEv.length?`<ul class="cl-l">${dayEv.map(clRow).join('')}</ul>`:'<p class="fine">אין ביום הזה אירועים שקשורים אליי.</p>'}</div>`:''}
-        <h3 class="cl-h3">${KC.f==='all'?'הקרובים אליי':'המועדים שנבחרו'}</h3>
-        ${ag.total?`<ul class="cl-l">${ag.html}</ul>${ag.total>6?`<button type="button" class="btn soft sm cl-more" data-kcall aria-expanded="${KC.all}">${KC.all?'להציג פחות':`להציג את כל ${ag.total} המועדים`}</button>`:''}`:`<p class="fine">${all.length?'אין מועדים קרובים בסוג הזה.':'עוד אין מועדים שקשורים אליי. כשאזין ציונים או אבחר יעד, יתווספו כאן הבחינות וההרשמה.'}</p>`}</div></div>`}
+        <p class="cl-hint">לוחצים על יום בלוח כדי לראות אותו או להוסיף אליו.</p>
+        <button type="button" class="cl-sw" role="switch" aria-checked="${KC.off}" data-kcl><span class="cl-swi" aria-hidden="true"></span><span>להציג בלוח גם את המועדים הרשמיים (בגרויות, פסיכומטרי, הרשמה)</span></button>
+        ${KC.off?`<p class="cl-lg" aria-hidden="true">${[['psy','בחינה פסיכומטרית'],['bag','בגרות'],['idf','הרשמה (בערך)'],['sch','מלגה'],['mine','שלי']].map(([k,l])=>`<span><s class="${k}"></s>${l}</span>`).join('')}</p>`:''}</div>
+      <div class="cl-side" id="clSide">${side}${list}${doneL.length?`<details class="cl-dn"${KC.dn?' open':''}><summary>משימות שבוצעו <span class="num">${doneL.length}</span></summary><ul class="cl-l">${doneL.map(clRow).join('')}</ul></details>`:''}</div></div>`}
+/* the list of every official date, in a drawer that starts closed */
+function clOffHTML(pl){
+  const all=calOff(pl),L=all.filter(x=>KC.f==='all'||CL_CAT[x.k]===KC.f),cnt=k=>k==='all'?all.length:all.filter(x=>CL_CAT[x.k]===k).length,ag=clAgenda(L,KC.offAll?999:6);
+  return `<div class="cl-fl" role="group" aria-label="סינון המועדים">${CL_F.filter(f=>f[0]!=='mine'&&(f[0]==='all'||cnt(f[0])>0||KC.f===f[0])).map(([k,l])=>`<button type="button" class="chip${KC.f===k?' on':''}" data-kcf="${k}" aria-pressed="${KC.f===k}">${l} <span class="num">${cnt(k)}</span></button>`).join('')}</div>
+    ${ag.total?`<ul class="cl-l">${ag.html}</ul>${ag.total>6?`<button type="button" class="btn soft sm cl-more" data-kcoall aria-expanded="${KC.offAll}">${KC.offAll?'להציג פחות':`להציג את כל ${ag.total}`}</button>`:''}`:`<p class="fine">${all.length?'אין מועדים קרובים בסוג הזה.':'עוד אין מועדים רשמיים שקשורים אליי. כשאזין ציונים או אבחר יעד, יתווספו כאן הבחינות וההרשמה.'}</p>`}`}
 function calHTML(pl){
-  const all=calEvents(pl),next=all.find(x=>daysTo(x.d2||x.d)>=0),lg=myLang()==='x'?'he':myLang();
-  if(!/^\d{4}-\d{2}$/.test(KC.m))KC.m=(next||{d:isoD(today0())}).d.slice(0,7);
-  return `<div class="cl" id="clRoot"><div class="sec-h"><div><h2>${ki('cal')}היומן שלי</h2><p>רק התאריכים שקשורים אליי: הבחינות שאני צריך, ההרשמה ליעדים שלי, מלגות ותאריכים שהוספתי. כל מועד אפשר להוסיף ליומן בלחיצה.</p></div>${inViewer()?'':`<button type="button" class="btn soft sm" data-kics="f">${ki('down')}המועדים שמוצגים, כקובץ</button>`}</div>
+  const mine=calMineAll(),nx=mineUp(mine)[0],lg=myLang()==='x'?'he':myLang();
+  if(!/^\d{4}-\d{2}$/.test(KC.m))KC.m=(nx?nx.d:isoD(today0())).slice(0,7);
+  return `<div class="cl cl2" id="clRoot"><div class="sec-h"><div><h2>${ki('cal')}היומן שלי</h2><p>הוא נקי וריק כברירת מחדל. כאן רק מה שחשוב לי: מה שהוספתי, ומועדים רשמיים שבחרתי להוסיף.</p></div>${inViewer()||!mine.length?'':`<button type="button" class="btn soft sm" data-kics="f">${ki('down')}היומן שלי, כקובץ</button>`}</div>
+    <div class="cl-bar"><button type="button" class="btn primary cl-plus" data-kca="">${FIC.plus}הוספה ליומן</button></div>
+    <div id="clTop">${cnHTML(pl)}</div>
     <div id="clMain">${calMainHTML(pl)}</div>
-    ${safe(()=>bagPlanHTML(pl),'')}
-    <div class="kp-card cl-own">${dateAdd()}</div>
-    <p class="fine cl-note">מופיעים כאן רק מועדים שקשורים אליי: מועדי הפסיכומטרי שמוצעים ב${esc(LGN[lg]||'עברית')} (כל עוד הציון שלי לא עובר את הסף), בחינות הבגרות של המקצועות שבתוכנית שלי, ההרשמה ליעדים שבחרתי (בערך, לפי המחזור הקודם, ובלי כפתור הוספה כי המועד האמיתי עוד לא פורסם), מלגות שאני עוקב אחריהן ותאריכים שהוספתי. מועד שעבר מוסר מהרשימה. הוספה ל-Google פותחת את אתר Google עם שם המועד ותאריכו, רק כשלוחצים; קובץ היומן יורד למכשיר ואינו נשלח לשום מקום.</p></div>`}
-function clRepaint(focusSel){const pl=safe(plan),r=$('#clMain');if(!pl||!r)return;
-  r.innerHTML=calMainHTML(pl);if(focusSel)refocus(focusSel)}
+    <details class="cl-off" id="clOff"><summary><span>כל המועדים הרשמיים</span><span class="cl-offn num">${calOff(pl).length}</span></summary><div class="cl-offb"><div id="clOffBody">${clOffHTML(pl)}</div>${safe(()=>bagPlanHTML(pl),'')}
+      <p class="fine cl-note">מופיעים כאן רק מועדים שקשורים אליי: מועדי הפסיכומטרי שמוצעים ב${esc(LGN[lg]||'עברית')} (כל עוד הציון שלי לא עובר את הסף), בחינות הבגרות של המקצועות שבתוכנית שלי, ההרשמה ליעדים שבחרתי (בערך, לפי המחזור הקודם, ובלי כפתור הוספה כי המועד האמיתי עוד לא פורסם) ומלגות. מועד שעבר מוסר מהרשימה. הוספה ל-Google פותחת את אתר Google עם שם המועד ותאריכו, רק כשלוחצים; קובץ היומן יורד למכשיר ואינו נשלח לשום מקום.</p></div></details></div>`}
+/* draw again the parts that changed (the cards on top, the month and its side, the list of official dates); what I typed in the form stays */
+const clKeep=()=>{const f=$('#clAT');if(f&&KC.add){KC.add.t=f.value;const k=document.querySelector('input[name="clK"]:checked'),di=$('#clAD');if(k)KC.add.kind=k.value==='event'?'event':'task';if(di&&isoOk(di.value))KC.add.d=di.value}};
+function clRepaint(focusSel,which,keep=true){
+  const pl=safe(plan);if(!pl)return;
+  if(keep)clKeep();
+  const set=(id,html)=>{const e=$('#'+id);if(e)e.innerHTML=html},w=which||['main'];
+  if(w.includes('top'))set('clTop',cnHTML(pl));
+  if(w.includes('main'))set('clMain',calMainHTML(pl));
+  if(w.includes('off')){set('clOffBody',clOffHTML(pl));const n=$('#clOff .cl-offn');if(n)n.textContent=calOff(pl).length}
+  if(focusSel)refocus(focusSel)}
 /* a month back or forth, or today */
 function clMonth(v){
   const [Y,M]=(/^\d{4}-\d{2}$/.test(KC.m)?KC.m:isoD(today0()).slice(0,7)).split('-').map(Number);let y=Y,m=M;
   if(v==='today'){const t=today0();y=t.getFullYear();m=t.getMonth()+1}else{m+=+v;if(m<1){m=12;y--}if(m>12){m=1;y++}}
-  KC.m=y+'-'+String(m).padStart(2,'0');KC.sel='';clRepaint(`[data-kcm="${v}"]`);
+  KC.m=y+'-'+String(m).padStart(2,'0');if(!KC.add)KC.sel='';clRepaint(`[data-kcm="${v}"]`);
   const g=$('#clMain .cl-g');if(g)g.classList.add(v==='today'?'sl-t':+v>0?'sl-n':'sl-p')}
+/* what I do on the calendar: open and close the form, add, tick off, copy an official date, show the official dates on the month */
+function clAct(ds){
+  const P=pth();if(!P)return;
+  if(ds.kca!==undefined){const d=isoOk(ds.kca)?ds.kca:(KC.sel||todayISO());KC.add={d,kind:'task',t:''};if(d.slice(0,7)!==KC.m)KC.m=d.slice(0,7);KC.sel=d;clRepaint(null,['main']);
+    requestAnimationFrame(()=>{const f=$('#clAT');if(f){f.focus({preventScroll:true});const r=$('#clAdd').getBoundingClientRect();if(r.top<120||r.bottom>innerHeight-90)jump('clAdd')}})}
+  else if(ds.kcx!==undefined){KC.add=null;clRepaint('[data-kca]',['main'])}
+  else if(ds.kdone!==undefined){const x=P.dates.find(c=>c.id===ds.kdone);if(!x)return;x.done=x.done?0:1;logAct();pthSave();PLC=null;toast(x.done?'סומן כבוצע':'סומן כלא בוצע');clRepaint(`[data-kdone="${ds.kdone}"]`,['main'])}
+  else if(ds.kown!==undefined){const x=CN[ds.kown];if(!x||copiedIds().has(x.id))return;
+    if(P.dates.length>=400){toast('היומן מלא. אפשר למחוק פריטים ישנים');return}
+    P.dates.push({id:'my-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),t:String(x.t).slice(0,80),d:x.d,...(x.d2&&x.k!=='psy'?{d2:x.d2}:{}),kind:'event',from:x.id,k0:x.k==='psy'||x.k==='bag'?x.k:'',...(x.f&&factGet(x.f)?{f:x.f}:{})});
+    logAct();pthSave();PLC=null;KC.m=x.d.slice(0,7);KC.sel=x.d;toast('נוסף ליומן שלי');clRepaint(null,['top','main','off'])}
+  else if(ds.kcl!==undefined){KC.off=!KC.off;clRepaint('[data-kcl]',['main'])}
+  else if(ds.kcoall!==undefined){KC.offAll=!KC.offAll;clRepaint('[data-kcoall]',['off'])}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&KC.add&&e.target.closest&&e.target.closest('#clAdd')){e.preventDefault();clAct({kcx:''})}}); /* Esc closes the form */
 /* the files: one event, the sittings of one subject, or everything the list shows */
 const ICS_T='text/calendar;charset=utf-8';
 function icsOne(id){const pl=safe(plan,null),x=calPool(pl).find(e=>e.id===id);if(!x)return;
@@ -9405,7 +9719,7 @@ function celebrate(el,n=30){if(!el)return;const r=el.getBoundingClientRect();bur
 
 
 /* ---------- events ---------- */
-const KSEL='[data-padd],[data-ppick],[data-pswap],[data-kwd],[data-kwi],[data-kwauto],[data-kwb],[data-kwdone],[data-kme],[data-kmedone],[data-kc],[data-kt],[data-kmapn],[data-kstop],[data-kgoto],[data-kfs],[data-kfgo],[data-kgate],[data-kfsib],[data-ktf],[data-kteen],[data-kgo],[data-ktab],[data-ktgt],[data-khub],[data-kadd],[data-krm],[data-krmok],[data-krmno],[data-kfocus],[data-kfprev],[data-kfnext],[data-kfskip],[data-knext],[data-kmark],[data-kpick],[data-ksess],[data-kfq],[data-kmore],[data-kdel],[data-kendx],[data-kwel],[data-kweld],[data-ksn],[data-kq],[data-kqd],[data-kqskip],[data-kqok],[data-kqgo],[data-kqask],[data-kics],[data-kpg],[data-kcm],[data-kcd],[data-kcf],[data-kic1],[data-kicb],[data-kcall],[data-khelp],[data-kcopy],[data-kexp],[data-kundo],[data-kreset],[data-kresetok],[data-kresetno],[data-lb],[data-lbm],[data-lbe],[data-lbx],[data-lbmode],[data-lbadd],[data-lbrm],[data-lbsave],[data-lbok],[data-lbno],[data-lbreal],[data-lbsavep],[data-lbreset],[data-lbd],[data-lbplan]';
+const KSEL='[data-padd],[data-ppick],[data-pswap],[data-kwd],[data-kwi],[data-kwauto],[data-kwb],[data-kwdone],[data-kme],[data-kmedone],[data-kc],[data-kt],[data-kmapn],[data-kstop],[data-kgoto],[data-kfs],[data-kfgo],[data-kgate],[data-kfsib],[data-ktf],[data-kteen],[data-kgo],[data-ktab],[data-ktgt],[data-khub],[data-kadd],[data-krm],[data-krmok],[data-krmno],[data-kfocus],[data-kfprev],[data-kfnext],[data-kfskip],[data-knext],[data-kmark],[data-kpick],[data-ksess],[data-kfq],[data-kmore],[data-kdel],[data-kendx],[data-kwel],[data-kweld],[data-ksn],[data-kq],[data-kqd],[data-kqskip],[data-kqok],[data-kqgo],[data-kqask],[data-kics],[data-kpg],[data-kcm],[data-kcd],[data-kcf],[data-kic1],[data-kicb],[data-kcall],[data-kca],[data-kcx],[data-kdone],[data-kown],[data-kcl],[data-kcoall],[data-khelp],[data-kcopy],[data-kexp],[data-kundo],[data-kreset],[data-kresetok],[data-kresetno],[data-lb],[data-lbm],[data-lbe],[data-lbx],[data-lbmode],[data-lbadd],[data-lbrm],[data-lbsave],[data-lbok],[data-lbno],[data-lbreal],[data-lbsavep],[data-lbreset],[data-lbd],[data-lbplan]';
 const wizReset=(change,add)=>{KP.wiz={active:true,step:1,tq:'',d:'',i:'',change:!!change,add:!!add}};
 const top0=()=>window.scrollTo({top:0,behavior:'instant'});
 const refocus=sel=>{const e=$(sel);if(e)e.focus({preventScroll:true})};
@@ -9483,8 +9797,9 @@ document.addEventListener('click',e=>{
   /* the progress chart and the calendar */
   else if(ds.kpg!==undefined)pgSelect(ds.kpg);
   else if(ds.kcm!==undefined)clMonth(ds.kcm);
-  else if(ds.kcd!==undefined){KC.sel=KC.sel===ds.kcd?'':ds.kcd;clRepaint(`[data-kcd="${ds.kcd}"]`)}
-  else if(ds.kcf!==undefined){if(CL_F.some(f=>f[0]===ds.kcf)){KC.f=ds.kcf;KC.sel='';clRepaint(`[data-kcf="${ds.kcf}"]`)}}
+  else if(ds.kcd!==undefined){if(KC.add){clKeep();KC.add.d=ds.kcd;KC.sel=ds.kcd;clRepaint(`[data-kcd="${ds.kcd}"]`,['main'],false)}else{KC.sel=KC.sel===ds.kcd?'':ds.kcd;clRepaint(`[data-kcd="${ds.kcd}"]`)}}
+  else if(ds.kca!==undefined||ds.kcx!==undefined||ds.kdone!==undefined||ds.kown!==undefined||ds.kcl!==undefined||ds.kcoall!==undefined)clAct(ds);
+  else if(ds.kcf!==undefined){if(CL_F.some(f=>f[0]===ds.kcf)){KC.f=ds.kcf;clRepaint(`[data-kcf="${ds.kcf}"]`,['off'])}}
   else if(ds.kgoto!==undefined){jnReset();go(ds.kgoto)}
   else if(ds.kfs!==undefined)jnFull(!KP.full);
   else if(ds.kfgo!==undefined)jnFull(false,true,()=>{jSelect(ds.kfgo);requestAnimationFrame(()=>jump('kpStep'))});
@@ -9506,14 +9821,14 @@ document.addEventListener('click',e=>{
   else if(ds.kfsib!==undefined){const pl=safe(plan),t=pl&&focusTask(pl),n=t&&pl.tasks[pl.tasks.indexOf(t)+(+ds.kfsib)];if(n)jSelect(n.id)}
   else if(ds.kmapn!==undefined){const v=el.closest('.tr').querySelector('.tr-view');if(v)v.scrollBy({left:(ds.kmapn==='next'?-1:1)*Math.max(220,v.clientWidth*.7),behavior:RM()?'instant':'smooth'})}
   else if(ds.ktf!==undefined){KP.tf=ds.ktf;const pl=safe(plan),e=$('#kpTeen');if(pl&&e){e.outerHTML=teenHTML(pl);refocus(`[data-ktf="${ds.ktf}"]`)}}
-  else if(ds.kteen!==undefined){gotoTab('now',{instant:1});setTimeout(()=>jump('kpTeen'),90)}
+  else if(ds.kteen!==undefined){KP.tOpen=true;gotoTab('now',{instant:1});setTimeout(()=>jump('kpTeen'),90)}
   else if(ds.kpick!==undefined){const i=ds.kpick,had=tList().some(t=>t.d===P.d&&t.i===i),t=addTarget(P.d,i,false,true);
     if(t){toast(had?'כבר ביעדים שלי':`נוסף ליעדים שלי: ${BY[P.d].n} ${bIn(INST[i].n)}. אפשר לבחור בו במסך כל המסלולים`);keepY(render)}}
   else if(ds.ksess!==undefined){P.sess=P.sess===ds.ksess?'':ds.ksess;pthSave();PLC=null;paint()}
   else if(ds.kfq!==undefined){Object.assign(FF,{f:'all',topic:'',inst:'',ctx:ds.kfq.startsWith('deg:')?ds.kfq:'',q:ds.kfq.startsWith('deg:')?'':ds.kfq,keep:true});go('forum')}
   else if(ds.kmore!==undefined){if(ds.kmore==='inst'){KO.all=!KO.all;const pl=plan();$('#kpOpt').innerHTML=optHTML(pl);stripInit&&stripInit()}}
-  else if(ds.kdel!==undefined){P.dates=P.dates.filter(c=>c.id!==ds.kdel);pthSave();PLC=null;paint()}
-  else if(ds.kics!==undefined){const pl=safe(plan,null);dl('vector-my-path.ics',icsFile(null,ds.kics==='f'&&pl?clEvents(pl):null),'text/calendar;charset=utf-8').then(ok=>ok&&toast('קובץ היומן ירד. פותחים אותו כדי להוסיף את המועדים ליומן'))}
+  else if(ds.kdel!==undefined){P.dates=P.dates.filter(c=>c.id!==ds.kdel);pthSave();PLC=null;if($('#clMain'))clRepaint(null,['top','main','off']);else paint()}
+  else if(ds.kics!==undefined){const pl=safe(plan,null);dl('vector-my-path.ics',icsFile(null,ds.kics==='f'?calMineAll().filter(x=>!x.fixed&&!(x.kind==='task'&&x.done)):null),'text/calendar;charset=utf-8').then(ok=>ok&&toast('קובץ היומן ירד. פותחים אותו כדי להוסיף את המועדים ליומן'))}
   else if(ds.khelp!==undefined){store.set('pathHelp',1);const h=el.closest('.kp-help,.kp-ftip');if(h)h.remove()}
   else if(ds.kcopy!==undefined){const txt=summaryText(plan());
     (navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>toast('הסיכום הועתק. אפשר להדביק ולשלוח'),()=>{
@@ -9610,6 +9925,11 @@ document.addEventListener('change',e=>{
 });
 document.addEventListener('focusout',e=>{const t=e.target;if(t&&t.dataset&&t.dataset.kend!==undefined)endChange(t,true)});
 document.addEventListener('submit',e=>{
+  if(e.target.id==='clAdd'){e.preventDefault();const t=$('#clAT').value.trim().slice(0,80),d=$('#clAD').value,k=(document.querySelector('input[name="clK"]:checked')||{}).value==='event'?'event':'task',P=pth();
+    if(!t){toast('כותבים מה להוסיף');$('#clAT').focus();return}if(!isoOk(d)){toast('בוחרים תאריך');$('#clAD').focus();return}
+    if(!P)return;if(P.dates.length>=400){toast('היומן מלא. אפשר למחוק פריטים ישנים');return}
+    P.dates.push({id:'my-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),t,d,kind:k});logAct();pthSave();PLC=null;
+    KC.add=null;KC.sel=d;KC.m=d.slice(0,7);toast(k==='task'?'המשימה נוספה ליומן':'האירוע נוסף ליומן');clRepaint('[data-kca]',['top','main']);return}
   if(e.target.id==='kpDorm'){e.preventDefault();const d=$('#kpDormD').value,P=pth();if(!P||!isoOk(d)){toast('בוחרים תאריך');return}
     P.dates.push({id:'my-dorm-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),t:((S.prof||{}).house==='rent'?'מגורים: מועד שסימנתי':`מעונות ${bIn(INST[P.i].n)}`).slice(0,80),d,i:P.i});logAct();pthSave();PLC=null;toast('התאריך נוסף ליומן שלי');paint();refocus('#kpDormD');return}
   if(e.target.id==='kpDate'){e.preventDefault();const t=$('#kpDT').value.trim(),d=$('#kpDD').value;if(!t||!d)return;const P=pth();P.dates.push({id:'my-'+Date.now(),t,d});logAct();pthSave();PLC=null;toast('התאריך נוסף');paint();e.target.reset()}
@@ -9772,6 +10092,7 @@ function filtersHTML(){
      <button class="chip" data-cat="all" aria-pressed="${S.cat==='all'}" style="--c2:#9AA1BD"><i></i>הכל</button>
      ${Object.entries(CATS).map(([c,v])=>`<button class="chip" data-cat="${c}" aria-pressed="${S.cat===c}" style="--c2:${v.c[1]}"><i></i>${v.n}</button>`).join('')}
    </div>
+   <details class="fmore" id="fMore"${S.fOpen||on?' open':''}><summary><span>סינון נוסף</span>${on?'<span class="fm-n">פעיל</span>':''}</summary>
    <div class="frow" role="group" aria-label="סינון נוסף">
      <label class="fsel"><span>משך</span><select id="fdur"><option value="">כל משך</option><option value="short" ${f.dur==='short'?'selected':''}>עד 3 שנים</option><option value="long" ${f.dur==='long'?'selected':''}>3.5 שנים ומעלה</option></select></label>
      <label class="fsel"><span>שכר</span><select id="fsal"><option value="0">כל שכר</option>${[12000,15000,20000,25000].map(v=>`<option value="${v}" ${f.sal===v?'selected':''}>מעל ₪${fmt(v/1000)}K בחודש</option>`).join('')}</select></label>
@@ -9779,7 +10100,7 @@ function filtersHTML(){
      ${profileOK()?tog('elig','אפשר להתקבל עכשיו','לפי הפרופיל שלי'):''}
      ${tog('open','בלי תנאי קבלה (הפתוחה, לפי הידיעון)','נלמד באוניברסיטה הפתוחה')}
      ${on?'<button class="linkbtn fclear" data-fclear>ניקוי הסינון</button>':''}
-   </div>
+   </div></details>
    <div class="subbar"><span class="num">${S.q?`<span class="qchip">חיפוש: ${esc(S.q)}<button data-clearq aria-label="ניקוי החיפוש">✕</button></span> · `:''}${fmt(n)} תארים${S.uni?' ב'+esc(INST[S.uni].n):''}</span>
      <label>מיון: <select id="sort">${sorts.map(([v,l])=>`<option value="${v}" ${k===v?'selected':''}>${l}</option>`).join('')}</select></label></div>`;
 }
@@ -9801,17 +10122,19 @@ function renderHome(){
     <div>
       <span class="kicker">כל התארים והמקצועות בישראל, ממקורות רשמיים</span>
       <h1>מה אני רוצה לעשות <em>בעתיד?</em></h1>
-      <p class="sub">כל תוכניות התואר הראשון שאושרו על ידי המועצה להשכלה גבוהה, מסלולי הנדסאים וטכנאים ומאות מקצועות לפי משרד העבודה: איפה לומדים, מה ספי הקבלה, כמה מרוויחים ואיך מגיעים לכל מקצוע.</p>
+      <p class="sub">לא חייבים לדעת כבר עכשיו. מתחילים בצעד קטן, ואנחנו עושים סדר: מה לומדים, כמה מרוויחים ואיך מגיעים לשם. הכול ממקורות רשמיים.</p>
+      <div class="golinks gl1">
+        <button class="golink-in gl-main" data-go="dir"><span class="gi" aria-hidden="true">${ki('compass')}</span><span><b>מה הכיוון שלי?</b><small>${dirDone()?'התחומים, המקצועות והתארים שהכי מתאימים לי':'לא בטוחים מה ללמוד? שאלון קצר שעושה סדר: מה מעניין, מה חשוב ובמה אתם חזקים'}</small></span><span class="ga" aria-hidden="true">${ki('arrow')}</span></button></div>
+      <p class="hs-or">או מחפשים משהו מסוים?</p>
       <div class="modesw" role="group" aria-label="מה אני מחפש">
         <button data-mode="deg" aria-pressed="${md==='deg'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">${IC.book}</svg>חיפוש תואר</button>
         <button data-mode="occ" aria-pressed="${md==='occ'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">${IC.bag}</svg>חיפוש מקצוע</button>
         <button data-mode="tech" aria-pressed="${md==='tech'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">${IC.tool}</svg>הנדסאים וטכנאים</button></div>
       <div class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <input id="q" type="search" autocomplete="off" placeholder="${MODE_PH[md]}" aria-label="${md==='occ'?'חיפוש מקצוע':md==='tech'?'חיפוש הנדסאים וטכנאים':'חיפוש תואר או מוסד'}" value="${esc(md==='deg'?S.q:'')}"><div class="sugg" id="sugg" hidden></div></div>
-      <div class="golinks">
-        <button class="golink-in" data-go="dir"><span class="gi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><span><b>מה הכיוון שלי?</b><small>${dirDone()?'התחומים, המקצועות והתארים שהכי מתאימים לי':'שאלון התאמה: מה מעניין אותי, מה חשוב לי ובמה אני חזק'}</small></span></button>
-        <button class="golink-in" data-go="path"><span class="gi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg></span><span><b>המסלול שלי</b><small>${hasGoal()?pathBlurb():'בוחרים תואר או כמה, ומקבלים מפה צעד אחר צעד'}</small></span></button>
-        <button class="golink-in" data-go="me"><span class="gi" aria-hidden="true">${ICON.check}</span><span><b>מה אני יכול ללמוד?</b><small>${profileOK()?'התארים שאני יכול להתקבל אליהם לפי הפרופיל שלי':'אראה לאן אני יכול להתקבל, גם בלי בגרות או פסיכומטרי'}</small></span></button></div>
+      <div class="golinks gl2">
+        <button class="golink-in" data-go="path"><span class="gi" aria-hidden="true">${ki('map')}</span><span><b>המסלול שלי</b><small>${hasGoal()?pathBlurb():'יש כבר כיוון? בוחרים תואר ומקבלים מפה צעד אחר צעד'}</small></span></button>
+        <button class="golink-in" data-go="me"><span class="gi" aria-hidden="true">${ICON.check}</span><span><b>מה אני יכול ללמוד?</b><small>${profileOK()?'התארים שאפשר להתקבל אליהם לפי הפרופיל שלי':'רואים לאן אפשר להתקבל, גם בלי בגרות או פסיכומטרי'}</small></span></button></div>
       <div class="stats-strip num"><span><b>${fmt(acad)}</b>תארים</span><span><b>${fmt(progs)}</b>תוכניות</span><span><b>${DATA.inst.length}</b>מוסדות</span></div>
     </div>
     <div class="collage" aria-hidden="true">${pick.map(d=>`<div class="pc" style="${cv(d)}">${ill(d)}<span>${esc(d.n)}</span></div>`).join('')}</div>
@@ -9878,28 +10201,28 @@ function renderDegree(d){
   };
   const joint=safe(()=>jointDegs(d),[]),sim=DEG.filter(x=>x.id!==d.id&&x.c===d.c&&!joint.includes(x)).map(x=>({x,s:x.of.filter(o=>d.of.some(p=>p.i===o.i)).length+x.of.length/50})).sort((a,b)=>b.s-a.s).slice(0,4).map(o=>o.x);
   return `<div style="${cv(d)}">
-  <section class="dp-hero"><div class="wrap dp-hero-in">
-    <div>
-      <button class="back" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>חזרה</button><br>
-      <span class="catpill">${esc(CATS[d.c].n)} · ${esc([...new Set(types.map(shortType))].join(' / '))}</span>
-      <h1>${esc(d.n)}</h1>
-      ${d.en&&!d.pro?`<p class="dp-lead" dir="ltr" style="text-align:right">${esc(d.en)}</p>`:''}
-      ${d.pro==='md'?`<p class="dp-lead">התוכנית השש-שנתית לרפואה (M.D), שמתחילים אחרי התיכון. אחריה: סטאז', רישיון והתמחות.</p>`:''}
-      ${d.tracks&&d.tracks.length?`<p class="dp-lead">${d.tracks.length===1?'מסלול':'מסלולים'}: ${d.tracks.map(esc).join(' · ')}</p>`:''}
-      <div class="dp-actions">
-        <button class="btn ${saved?'on':'primary'}" data-save="${d.id}">${saved?'✓ שמור ברשימה שלי':'שמירה לרשימה'}</button>
-        <button class="btn ${inCmp?'on':'soft'}" data-cmp="${d.id}">${inCmp?'✓ נוסף להשוואה':'הוספה להשוואה'}</button>
-        <button class="btn soft" data-padd="${d.id}">${padLabel(d.id)}</button>
-        ${qaJumpBtn('deg:'+d.id,'שאלות ותשובות על התואר')}
+  <section class="dp-hero dpc"><div class="wrap">
+    <div class="dpc-top">
+      <div class="dpc-tx">
+        <div class="dpc-row"><button class="back" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>חזרה</button><span class="catpill">${esc(CATS[d.c].n)} · ${esc([...new Set(types.map(shortType))].join(' / '))}</span></div>
+        <h1>${esc(d.n)}</h1>
+        ${d.en&&!d.pro?`<p class="dp-lead" dir="ltr" style="text-align:right">${esc(d.en)}</p>`:''}
+        ${d.pro==='md'?`<p class="dp-lead">התוכנית השש-שנתית לרפואה (M.D), שמתחילים אחרי התיכון. אחריה: סטאז', רישיון והתמחות.</p>`:''}
+        ${d.tracks&&d.tracks.length?`<p class="dp-lead">${d.tracks.length===1?'מסלול':'מסלולים'}: ${d.tracks.map(esc).join(' · ')}</p>`:''}
+        <div class="dp-actions">
+          <button class="btn ${saved?'on':'primary'}" data-save="${d.id}">${saved?'✓ שמור ברשימה שלי':'שמירה לרשימה'}</button>
+          <button class="btn soft" data-padd="${d.id}">${padLabel(d.id)}</button>
+          <button class="btn ${inCmp?'on':'quiet'}" data-cmp="${d.id}">${inCmp?'✓ נוסף להשוואה':'הוספה להשוואה'}</button>
+          ${qaJumpBtn('deg:'+d.id,'שאלות ותשובות')}
+        </div>
+        ${dirBadge('deg',d.id)}
       </div>
-      ${dirBadge('deg',d.id)}
+      <div class="dp-art dpc-art">${ill(d)}</div>
     </div>
-    <div class="dp-art">${ill(d)}</div>
+    ${safe(()=>axHTML(degAns(d)),'')}
   </div></section>
   <div class="wrap dp-body">
     ${admitSectionHTML(d)}
-    <div class="tiles num">${degreeTiles(d)}</div>
-    <p class="cite" style="margin-top:-6px">שכר, תעסוקה, משך לימודים וביקוש: <a href="${AVURL}" target="_blank" rel="noopener">עבודאטה</a> (משרד העבודה, לפי נתוני הלמ"ס).</p>
     ${hotWhyHTML(d)}
 
     ${proPathHTML(d)}
@@ -10054,7 +10377,7 @@ function renderA11y(){
      <li>לכל מסך יש כותרת עמוד וכותרת ראשית, והמבנה מסומן באזורים (כותרת, ניווט, תוכן ראשי ותחתית).</li>
      <li>בכל מעבר בין מסכים המיקוד עובר לכותרת המסך, וכותרת הדפדפן מתעדכנת.</li>
      <li>לשדות הטפסים יש תוויות, ויש אזורי הודעה שמקריאים לקורא מסך עדכוני מצב.</li>
-     <li>אפשר להגדיל את התצוגה עד 150% בתפריט הנגישות (במסכים צרים ההגדלה מוגבלת כדי שהתוכן לא ייחתך, ואפשר להגדיל עוד בהגדרות הדפדפן), להפעיל ניגודיות גבוהה, להדגיש קישורים, לעבור לגופן פשוט ולכבות אנימציות. האתר מכבד גם את הגדרת "הפחתת תנועה" של מערכת ההפעלה: אז שום דבר לא זז על המסך ולא חוזר על עצמו, והמעברים נשארים בעמעום ובשינוי צבע עדינים (ואפשר גם לבחור אפקטים מלאים, עדינים או כבויים).</li>
+     <li>אפשר להגדיל את התצוגה עד 150% בתפריט הנגישות (במסכים צרים ההגדלה מוגבלת כדי שהתוכן לא ייחתך, ואפשר להגדיל עוד בהגדרות הדפדפן), להפעיל ניגודיות גבוהה, להדגיש קישורים, לעבור לגופן פשוט ולכבות אנימציות. האפקטים והמעברים פועלים כברירת מחדל, גם כשבמכשיר מוגדרת "הפחתת תנועה", ולכן האתר לא מתאים את עצמו להגדרה הזו של מערכת ההפעלה. אם התנועה מפריעה, אפשר לבחור בתפריט הנגישות אפקטים עדינים (שום דבר לא זז על המסך ולא חוזר על עצמו, והמעברים נשארים בעמעום ובשינוי צבע) או לכבות את האפקטים לגמרי, וההגדרה נשמרת בדפדפן.</li>
      <li>מצב (נבחר, שגיאה, הושלם) מסומן בדרך כלל גם בטקסט או בסמל, ולא בצבע בלבד.</li>
      <li>אין שמע או וידאו שמתנגנים לבד, ואין הבהובים מהירים.</li>
      <li>ב-${esc(dLong(A11Y_CHECKED))} הורצה בדיקה אוטומטית לנגישות (axe-core) על המסכים הראשיים בתצוגת מחשב ובתצוגת טלפון, וגם סריקת מקלדת אוטומטית בחלק מהמסכים. בדיקה אוטומטית מזהה רק חלק מהליקויים.</li></ul>
@@ -10536,7 +10859,7 @@ function onRoute(){
   S.route=parse();S.navDir=rest?'back':'fwd';NAVT=Date.now();
   if(rest&&S.route.v==='forum')FF.keep=true; /* going back to the Q&A keeps the filters I chose */if(S.route.v==='dir'&&DIRV.mode!=='q')DIRV.mode='';
   const swap=()=>{closeOv(true);render();
-    if(S.route.v==='home'&&S.pendingExplore){S.pendingExplore=false;window.scrollTo({top:0,behavior:'instant'});requestAnimationFrame(()=>$('#explore')?.scrollIntoView({behavior:'smooth'}))}
+    if(S.route.v==='home'&&S.pendingExplore){S.pendingExplore=false;window.scrollTo({top:0,behavior:'instant'});requestAnimationFrame(()=>glideTo($('#explore')))}
     /* back: the previous screen at the exact same place, set before it is painted (and once more after, in case something grew) */
     else if(rest){const y=NAV.y[h];window.scrollTo({top:y,left:0,behavior:'instant'});requestAnimationFrame(()=>{if(Math.abs(scrollY-y)>2)window.scrollTo({top:y,left:0,behavior:'instant'})})}
     else window.scrollTo({top:0,left:0,behavior:'instant'});
@@ -10581,12 +10904,12 @@ function bindSearch(){
   q.addEventListener('focus',()=>{if(q.value.trim()||S.mode==='tech')show()});
   q.addEventListener('keydown',e=>{
     const items=[...box.querySelectorAll('button')];
-    if(e.key==='ArrowDown'||e.key==='ArrowUp'){if(box.hidden||!items.length)return;e.preventDefault();sugIdx=(sugIdx+(e.key==='ArrowDown'?1:-1)+items.length)%items.length;items.forEach((b,i)=>b.classList.toggle('act',i===sugIdx))}
+    if(e.key==='ArrowDown'||e.key==='ArrowUp'){if(box.hidden||!items.length)return;e.preventDefault();sugIdx=(sugIdx+(e.key==='ArrowDown'?1:-1)+items.length)%items.length;items.forEach((b,i)=>b.classList.toggle('act',i===sugIdx));if(items[sugIdx])items[sugIdx].scrollIntoView({block:'nearest'})}
     else if(e.key==='Enter'){e.preventDefault();if(sugIdx>=0&&items[sugIdx]){items[sugIdx].click()}else if(S.mode==='tech'){TF.q=q.value.trim();go('tech')}else if(S.mode==='occ'){JOBF.q=q.value.trim();go('jobs')}else seeAll()}
     else if(e.key==='Escape'){box.hidden=true}
   });
 }
-function seeAll(){const q=$('#q');S.q=q?q.value.trim():'';S.cat='all';S.shown=48;$('#sugg')&&($('#sugg').hidden=true);refreshExplore();$('#explore').scrollIntoView({behavior:'smooth'})}
+function seeAll(){const q=$('#q');S.q=q?q.value.trim():'';S.cat='all';S.shown=48;$('#sugg')&&($('#sugg').hidden=true);refreshExplore();glideTo($('#explore'))}
 
 /* ================= OVERLAYS ================= */
 let lastFocus=null;
@@ -10636,7 +10959,7 @@ document.addEventListener('click',e=>{
   if(ds.mh!==undefined){go('mh-'+ds.mh)}
   else if(ds.sp!==undefined){go('sp-'+ds.sp)}
   else if(ds.spg!==undefined){SPF.g=ds.spg;document.querySelectorAll('[data-spg]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.spg===SPF.g));$('#spHost').innerHTML=specsGrid()}
-  else if(ds.scroll!==undefined){const t=document.getElementById(ds.scroll);if(t){t.scrollIntoView({behavior:RM()?'instant':'smooth',block:'start'});if(!t.hasAttribute('tabindex'))t.tabIndex=-1;t.focus({preventScroll:true});t.classList.remove('flash');void t.offsetWidth;t.classList.add('flash')}}
+  else if(ds.scroll!==undefined){const t=document.getElementById(ds.scroll);if(t){glideTo(t);if(!t.hasAttribute('tabindex'))t.tabIndex=-1;t.focus({preventScroll:true});t.classList.remove('flash');void t.offsetWidth;t.classList.add('flash')}}
   else if(ds.ftog!==undefined){S.f[ds.ftog]=!S.f[ds.ftog];S.shown=48;refreshExplore()}
   else if(ds.fclear!==undefined){S.f={dur:'',sal:0,grow:false,elig:false,open:false};S.shown=48;refreshExplore()}
   else if(ds.memore!==undefined){const m=S.meShown=S.meShown||{};m[ds.memore]=(m[ds.memore]||(ds.memore==='adm'?24:12))+24;if(ds.memore==='adm'){$('#meHost').innerHTML=meListHTML()}else{const y=scrollY;render();window.scrollTo({top:y,behavior:'instant'})}}
@@ -10652,7 +10975,7 @@ document.addEventListener('click',e=>{
   else if(ds.uni!==undefined){S.uni=ds.uni||null;S.shown=48;store.set('uni',S.uni);closeOv(true);toast(S.uni?'מציגים תארים ב'+INST[S.uni].n:'מציגים את כל המוסדות');
     if(S.route.v==='home'){const y=scrollY;render();window.scrollTo({top:y,behavior:'instant'})}else{render()}}
   else if(ds.unis!==undefined){openUni()}
-  else if(ds.closeHome!==undefined){closeOv(true);if(S.route.v!=='home')go('home');else window.scrollTo({top:0,behavior:'smooth'})}
+  else if(ds.closeHome!==undefined){closeOv(true);if(S.route.v!=='home')go('home');else glideTo(document.getElementById('app'))}
   else if(ds.close!==undefined){closeOv()}
   else if(ds.save!==undefined){const id=ds.save,on=!S.list.has(id);on?S.list.add(id):S.list.delete(id);store.set('list',[...S.list]);
     document.querySelectorAll(`[data-save="${id}"]`).forEach(b=>{if(b.classList.contains('heart')){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);b.classList.remove('pop');void b.offsetWidth;if(on)b.classList.add('pop')}else{b.className='btn '+(on?'on':'primary');b.textContent=on?'✓ שמור ברשימה שלי':'שמירה לרשימה'}});
