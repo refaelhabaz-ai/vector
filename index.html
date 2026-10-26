@@ -1267,25 +1267,26 @@ input[type=range]{accent-color:var(--primary);height:28px}
 .kp-ci{flex:none;width:38px;height:38px;border-radius:13px;background:#E6EEFF;color:#3B5BDB;display:grid;place-items:center}.kp-ci svg{width:20px;height:20px}
 .kp-coach p{color:#3B4262;font-size:15px;line-height:1.6;margin:0;min-width:0;overflow-wrap:anywhere}
 
-/* ---------- the head of the road: the degree, the institution, and my percent in large type. Nothing else ---------- */
-.kp-head{padding-block:16px 20px;background:radial-gradient(1000px 340px at 88% -34%,var(--c3,#FFE3D6) 0,transparent 66%),radial-gradient(720px 280px at 0 0,#FFF4D6 0,transparent 56%)}
-.kp-top{display:flex;align-items:flex-end;justify-content:space-between;gap:10px 32px;flex-wrap:wrap}
+/* ---------- the head of the road: the degree, the institution, and my percent in large type. Nothing else; short, so the map starts high on the page ---------- */
+.kp-head{padding-block:6px 12px;background:radial-gradient(1000px 340px at 88% -34%,var(--c3,#FFE3D6) 0,transparent 66%),radial-gradient(720px 280px at 0 0,#FFF4D6 0,transparent 56%)}
+.kp-top{display:flex;align-items:center;justify-content:space-between;gap:4px 28px;flex-wrap:wrap}
 .kp-id{flex:1 1 320px;min-width:0}
-.kp-exit{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:6px 14px 6px 12px;margin-inline-start:-12px;border-radius:999px;font:600 14.5px var(--head);color:#3B4262;cursor:pointer;transition:background-color .2s,color .2s}
+.kp-exit{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:4px 14px 4px 12px;margin-inline-start:-12px;border-radius:999px;font:600 14.5px var(--head);color:#3B4262;cursor:pointer;transition:background-color .2s,color .2s}
+@media(pointer:coarse){.kp-exit{min-height:44px}}
 .kp-exit svg{width:16px;height:16px;flex:none}
 .kp-exit:hover{background:rgba(255,255,255,.85);color:var(--ink)}
-.kp-id h1{font-size:clamp(30px,4.4vw,54px);line-height:1.08;font-weight:700;margin:2px 0 6px}
-.kp-id p{margin:0;color:#3B4262;font-size:clamp(16px,1.6vw,20px)}
-.kp-big{flex:none;text-align:center;min-width:clamp(150px,17vw,230px)}
-.kp-big b{display:block;font:800 clamp(62px,9vw,108px)/.95 var(--head);color:#C9381A;letter-spacing:-.02em}
-.kp-big span{display:block;margin-top:4px;font:600 clamp(15px,1.4vw,18px) var(--head);color:#3B4262}
-.kp-bar{display:block;height:10px;border-radius:99px;background:rgba(31,37,68,.1);margin-top:12px;overflow:hidden}
+.kp-id h1{font-size:clamp(26px,3.4vw,44px);line-height:1.1;font-weight:700;margin:0 0 4px}
+.kp-id p{margin:0;color:#3B4262;font-size:clamp(15.5px,1.4vw,18px)}
+.kp-big{flex:none;text-align:center;min-width:clamp(130px,14vw,190px)}
+.kp-big b{display:block;font:800 clamp(54px,6.4vw,84px)/.95 var(--head);color:#C9381A;letter-spacing:-.02em}
+.kp-big span{display:block;margin-top:2px;font:600 clamp(14.5px,1.3vw,17px) var(--head);color:#3B4262}
+.kp-bar{display:block;height:8px;border-radius:99px;background:rgba(31,37,68,.1);margin-top:8px;overflow:hidden}
 .kp-bar>i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#FF9A6C,#F2502F);transition:width .7s cubic-bezier(.2,.8,.2,1)}
 @media(max-width:620px){
-  .kp-head{padding-bottom:14px}
+  .kp-head{padding-bottom:10px}
   .kp-top{flex-wrap:nowrap;align-items:flex-end;gap:10px}
-  .kp-id{flex:1 1 0}.kp-id h1{font-size:clamp(26px,8vw,34px)}.kp-id p{font-size:15.5px}
-  .kp-big{min-width:112px}.kp-big b{font-size:56px}.kp-big span{font-size:14px}
+  .kp-id{flex:1 1 0}.kp-id h1{font-size:clamp(24px,7.4vw,32px)}.kp-id p{font-size:15.5px}
+  .kp-big{min-width:104px}.kp-big b{font-size:50px}.kp-big span{font-size:14px}
 }
 html.hc .kp-big b{color:#000}html.hc .kp-bar{background:#fff;border:2px solid #000}html.hc .kp-bar>i{background:#000}
 
@@ -1658,73 +1659,103 @@ html.rf,html.rf *:not(svg *){font-family:Arial,Tahoma,'Segoe UI',sans-serif!impo
 .lg-wipe{margin:12px 0 16px}.lg-wipe #twAsk{margin-top:12px;padding:14px 16px;border:1.5px solid var(--cta);border-radius:14px;background:#fff}
 .flinks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}.flinks .linkbtn{min-height:40px;display:inline-flex;align-items:center;text-align:start}
 /* ---------- the trail (tr-) and programs for students (tn-) ---------- */
-/* ---------- the road map (jn): the main thing on the page. Big stops, a lit path, scenery in two layers, a plate under each name ---------- */
-.tr{position:relative;margin-block:8px 10px;border-radius:36px;box-shadow:0 28px 64px rgba(31,37,68,.15),0 0 0 1px rgba(31,37,68,.07)}
-.tr-view{position:relative;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;scroll-snap-type:x proximity;border-radius:36px;background:linear-gradient(180deg,#E7EDFF 0%,#F6F4FF 40%,#FFF3EA 100%)}
+/* ---------- the road map (jn): one straight road, drawn at the size of the screen ----------
+   Everything is sized by --u, the scale the script picks from the screen. A stage is a gate: its name stands over the road.
+   A step is a stop: its name hangs under it. Gates and stops stand on one line, so the map reads straight across. */
+.tr{--u:1;position:relative;margin-block:6px 8px;border-radius:calc(var(--u)*30px);box-shadow:0 22px 52px rgba(31,37,68,.14),0 0 0 1px rgba(31,37,68,.07)}
+.tr-view{position:relative;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none;scroll-snap-type:x proximity;border-radius:inherit;background:linear-gradient(180deg,#E7EDFF 0%,#F6F4FF 42%,#FFF3EA 100%)}
 .tr-view::-webkit-scrollbar{display:none}
 .tr-track{position:relative;margin-inline:auto;--sx:0px}
 .tr-svg{position:absolute;inset:0;overflow:visible}
-.tr-bed{fill:none;stroke:rgba(255,255,255,.88);stroke-width:26;stroke-linecap:round;filter:drop-shadow(0 8px 10px rgba(31,37,68,.10))}
+.tr-bed{fill:none;stroke:rgba(255,255,255,.9);stroke-width:calc(var(--u)*26px);stroke-linecap:round;filter:drop-shadow(0 6px 8px rgba(31,37,68,.10))}
 .tr-base{fill:none;stroke:#AEB8E2;stroke-width:4;stroke-linecap:round;stroke-dasharray:1 13}
-.tr-prog{fill:none;stroke:#12A26B;stroke-width:9;stroke-linecap:round;stroke-dasharray:100 100;stroke-dashoffset:var(--o);filter:drop-shadow(0 0 7px rgba(18,162,107,.5))}
-.tr-rg{position:absolute;top:14px;bottom:14px;border-radius:30px;background:linear-gradient(180deg,var(--rb) 0%,rgba(255,255,255,.72) 64%,color-mix(in srgb,var(--rc) 13%,#fff) 100%);border:1.5px solid color-mix(in srgb,var(--rc) 24%,transparent);overflow:hidden;pointer-events:none}
-.tr-rg::before{content:"";position:absolute;width:170px;height:170px;border-radius:50%;inset-block-start:-60px;inset-inline-end:30px;background:radial-gradient(closest-side,rgba(255,255,255,.95),rgba(255,255,255,0))}
-.tr-rg.open{border-color:color-mix(in srgb,var(--rc) 64%,transparent);box-shadow:0 18px 46px color-mix(in srgb,var(--rc) 26%,transparent)}
-.tr-rt{position:absolute;top:16px;inset-inline-start:18px;display:inline-flex;align-items:center;gap:8px;font:700 15px var(--head);color:var(--ink);background:rgba(255,255,255,.94);padding:5px 15px;border-radius:999px;box-shadow:0 6px 14px rgba(31,37,68,.10)}
-.tr-rt::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--rc)}.tr-rt b{color:#4A5068;font-weight:600}
-.tr-sc{position:absolute;inset-inline:0;bottom:0;display:flex;justify-content:space-around;align-items:flex-end;height:116px;padding-inline:8px}
-.tr-sc svg{flex:1 1 0;min-width:0;height:116px;max-width:300px;fill:var(--rc);opacity:.3}
-.tr-sc.b{height:140px;transform:translateY(10px)}.tr-sc.b svg{height:140px;opacity:.13;transform:scaleX(-1)}
+.tr-prog{fill:none;stroke:#12A26B;stroke-width:calc(var(--u)*9px);stroke-linecap:round;stroke-dasharray:100 100;stroke-dashoffset:var(--o);filter:drop-shadow(0 0 6px rgba(18,162,107,.5))}
+/* a stage's region: a band around the road, with its own colour and scenery in two layers */
+.tr-rg{box-sizing:border-box;position:absolute;top:calc(var(--y,0px) - var(--u)*176px);height:calc(var(--u)*312px);border-radius:calc(var(--u)*26px);background:linear-gradient(180deg,var(--rb) 0%,rgba(255,255,255,.72) 64%,color-mix(in srgb,var(--rc) 13%,#fff) 100%);border:1.5px solid color-mix(in srgb,var(--rc) 24%,transparent);overflow:hidden;pointer-events:none}
+.tr-rg::before{content:"";position:absolute;width:calc(var(--u)*170px);height:calc(var(--u)*170px);border-radius:50%;inset-block-start:calc(var(--u)*-60px);inset-inline-end:calc(var(--u)*30px);background:radial-gradient(closest-side,rgba(255,255,255,.95),rgba(255,255,255,0))}
+.tr-rg.open{border-color:color-mix(in srgb,var(--rc) 64%,transparent);box-shadow:0 14px 38px color-mix(in srgb,var(--rc) 26%,transparent)}
+.tr-sc{position:absolute;inset-inline:0;bottom:0;display:flex;justify-content:space-around;align-items:flex-end;height:calc(var(--u)*116px);padding-inline:8px}
+.tr-sc svg{flex:1 1 0;min-width:0;height:calc(var(--u)*116px);max-width:calc(var(--u)*300px);fill:var(--rc);opacity:.3}
+.tr-sc.b{height:calc(var(--u)*140px);transform:translateY(calc(var(--u)*10px))}.tr-sc.b svg{height:calc(var(--u)*140px);opacity:.13;transform:scaleX(-1)}
+/* a node stands on the road: its circle is centred on the line. A stop hangs its name under the circle; a gate (and the end) carries its name over it */
 .tr-nodes{list-style:none;margin:0;padding:0}
-.tr-n{position:absolute;width:var(--cw);margin-left:calc(var(--cw)/-2);margin-top:calc(var(--r)*-1);scroll-snap-align:center;z-index:2}
-.tr-b{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;padding:0 4px 8px;background:none;border:0;font:inherit;color:var(--ink);text-align:center;border-radius:24px}
+.tr-n{position:absolute;width:var(--cw);height:0;margin-left:calc(var(--cw)/-2);scroll-snap-align:center;z-index:2}
+.tr-b{box-sizing:border-box;position:absolute;left:0;top:calc(var(--r)*-1);width:100%;display:flex;flex-direction:column;align-items:center;gap:calc(var(--u)*10px);padding:0 4px 6px;background:none;border:0;font:inherit;color:var(--ink);text-align:center;border-radius:calc(var(--u)*22px)}
+.tr-n:not(.st) .tr-b{top:auto;bottom:calc(var(--r)*-1);flex-direction:column-reverse;padding:0 4px}
 button.tr-b{cursor:pointer}
-.tr-c{position:relative;width:calc(var(--r)*2);height:calc(var(--r)*2);border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#fff 0%,#F1F3FB 100%);border:4px solid #fff;box-shadow:0 14px 30px rgba(31,37,68,.18);color:#5B6488;transition:transform .25s,box-shadow .25s}
-.tr-c svg{width:calc(var(--r)*.78);height:calc(var(--r)*.78)}
-.tr-c .tr-arc{position:absolute;inset:-10px;width:calc(100% + 20px);height:calc(100% + 20px);pointer-events:none}
+.tr-b:focus-visible{border-radius:calc(var(--u)*22px);outline-offset:2px}
+.tr-c{box-sizing:border-box;position:relative;flex:none;width:calc(var(--r)*2);height:calc(var(--r)*2);border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#fff 0%,#F1F3FB 100%);border:calc(var(--u)*4px) solid #fff;box-shadow:0 calc(var(--u)*12px) calc(var(--u)*26px) rgba(31,37,68,.18);color:#5B6488;transition:transform .25s,box-shadow .25s}
+.tr-c>svg{width:calc(var(--r)*.78);height:calc(var(--r)*.78)}
+.tr-c>.tr-arc{position:absolute;inset:-10px;width:calc(100% + 20px);height:calc(100% + 20px);pointer-events:none}
 .tr-arc .a0{fill:none;stroke:rgba(31,37,68,.1);stroke-width:6}.tr-arc .a1{fill:none;stroke:#12A26B;stroke-width:6;stroke-linecap:round}
-.tr-n.cur .tr-c{background:var(--cta-grad);color:#fff;box-shadow:0 0 0 9px rgba(242,80,47,.16),0 18px 38px rgba(242,80,47,.42);transform:scale(1.08)}
+.tr-n.cur .tr-c{background:var(--cta-grad);color:#fff;box-shadow:0 0 0 calc(var(--u)*8px) rgba(242,80,47,.16),0 16px 34px rgba(242,80,47,.42);transform:scale(1.06)}
 .tr-n.done .tr-c{background:linear-gradient(135deg,#5FE0B6,#12A26B);color:#fff}
-.tr-n.end .tr-c{background:linear-gradient(135deg,#FFD66B,#FF8A4C);color:#fff;box-shadow:0 0 0 9px rgba(255,197,61,.22),0 18px 38px rgba(255,138,76,.34)}
-.tr-ok{position:absolute;inset-block-end:-4px;inset-inline-end:-4px;width:28px;height:28px;border-radius:50%;background:#fff;color:#0D8A5A;display:grid;place-items:center;box-shadow:0 3px 8px rgba(31,37,68,.22);font-style:normal}.tr-ok svg{width:16px;height:16px;stroke-width:3}
-.tr-l{display:flex;flex-direction:column;gap:2px;max-width:calc(var(--cw) - 14px);background:rgba(255,255,255,.9);padding:6px 12px 7px;border-radius:16px;box-shadow:0 8px 18px rgba(31,37,68,.10)}
-.tr-l b{font-family:var(--head);font-size:17px;line-height:1.25}
-.tr-l em{font-style:normal;font-size:14px;color:#4A5068;font-weight:600}
-.tr-n.st .tr-l b{font-family:var(--body);font-weight:600;font-size:14.5px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.tr-n.st .tr-c svg{width:calc(var(--r)*.85);height:calc(var(--r)*.85)}
-.tr-n.st.done .tr-c svg{stroke-width:3}
-.tr-n.nxt .tr-c{background:var(--cta-grad);color:#fff;box-shadow:0 0 0 8px rgba(242,80,47,.16),0 14px 30px rgba(242,80,47,.4)}
-.tr-n.st.soon:not(.done) .tr-c{box-shadow:0 0 0 4px #FFB347,0 14px 30px rgba(31,37,68,.16)}
+.tr-n.end .tr-c{background:linear-gradient(135deg,#FFD66B,#FF8A4C);color:#fff;box-shadow:0 0 0 calc(var(--u)*8px) rgba(255,197,61,.22),0 16px 34px rgba(255,138,76,.34)}
+.tr-ok{position:absolute;inset-block-end:-4px;inset-inline-end:-4px;width:max(22px,calc(var(--u)*26px));height:max(22px,calc(var(--u)*26px));border-radius:50%;background:#fff;color:#0D8A5A;display:grid;place-items:center;box-shadow:0 3px 8px rgba(31,37,68,.22);font-style:normal}.tr-ok svg{width:62%;height:62%;stroke-width:3}
+/* the name plates */
+.tr-l{box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:1px;max-width:100%;background:rgba(255,255,255,.93);padding:calc(var(--u)*6px) calc(var(--u)*12px) calc(var(--u)*7px);border-radius:calc(var(--u)*15px);box-shadow:0 calc(var(--u)*7px) calc(var(--u)*16px) rgba(31,37,68,.10)}
+.tr-n:not(.st) .tr-l{max-width:calc(100% - 12px)} /* a gate's name keeps clear of the edge of its region */
+.tr-l b{font:700 max(15px,calc(var(--u)*18px))/1.25 var(--head)}
+.tr-l em{font-style:normal;font-weight:600;font-size:max(14px,calc(var(--u)*14.5px));color:#4A5068}
+.tr-n.st .tr-l b{font:600 max(14px,calc(var(--u)*15px))/1.3 var(--body);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tr-n.st .tr-c>svg{width:calc(var(--r)*.85);height:calc(var(--r)*.85)}
+.tr-n.st.done .tr-c>svg{stroke-width:3}
+.tr-n.nxt .tr-c{background:var(--cta-grad);color:#fff;box-shadow:0 0 0 calc(var(--u)*8px) rgba(242,80,47,.16),0 12px 26px rgba(242,80,47,.4)}
+.tr-n.st.soon:not(.done) .tr-c{box-shadow:0 0 0 calc(var(--u)*4px) #FFB347,0 12px 26px rgba(31,37,68,.16)}
 button.tr-b:hover .tr-c{transform:translateY(-4px)}
-.tr-n.cur button.tr-b:hover .tr-c{transform:scale(1.08) translateY(-4px)}
-.tr-n.st.pick .tr-c{box-shadow:0 0 0 4px var(--ink),0 14px 30px rgba(31,37,68,.2)}
-.tr-n.pick .tr-l{box-shadow:0 0 0 2px var(--ink),0 8px 18px rgba(31,37,68,.12)}
-.tr-nx{position:absolute;left:50%;top:-34px;transform:translateX(-50%);background:var(--cta);color:#fff;font:700 13px var(--head);padding:3px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 14px rgba(214,64,29,.3)}
-.tr-gt{position:absolute;inset-block-start:-6px;inset-inline-start:-6px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;box-shadow:0 3px 8px rgba(31,37,68,.3);font-style:normal}.tr-gt svg{width:14px;height:14px}
-.tr-trav{position:absolute;width:0;height:0;z-index:3}
-.tr-tp{position:absolute;left:0;top:0;transform:translate(-50%,calc(var(--r)*-1 - 54px));display:inline-flex;align-items:center;gap:6px;white-space:nowrap;background:var(--cta);color:#fff;font:700 15px var(--head);padding:7px 15px 7px 11px;border-radius:999px;box-shadow:0 10px 22px rgba(214,64,29,.34)}
-.tr-tp::after{content:"";position:absolute;left:50%;bottom:-5px;width:11px;height:11px;background:var(--cta);transform:translateX(-50%) rotate(45deg);border-radius:2px}
-.tr-tp svg{width:16px;height:16px}
-.tr-arr{position:absolute;bottom:16px;z-index:5;width:52px;height:52px;border-radius:50%;background:#fff;color:var(--ink);box-shadow:0 12px 28px rgba(31,37,68,.22);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .25s}
+.tr-n.cur button.tr-b:hover .tr-c{transform:scale(1.06) translateY(-4px)}
+.tr-n.st.pick .tr-c{box-shadow:0 0 0 calc(var(--u)*4px) var(--ink),0 12px 26px rgba(31,37,68,.2)}
+.tr-n.pick .tr-l{box-shadow:0 0 0 2px var(--ink),0 calc(var(--u)*7px) calc(var(--u)*16px) rgba(31,37,68,.12)}
+/* small marks: the next step, a way out to another screen, and "I am here" over the gate I am in */
+.tr-nx{position:absolute;left:50%;top:calc(var(--u)*-29px);transform:translateX(-50%);background:var(--cta);color:#fff;font:700 max(14px,calc(var(--u)*14px))/1.3 var(--head);padding:2px 12px 3px;border-radius:999px;white-space:nowrap;box-shadow:0 5px 12px rgba(214,64,29,.3)}
+.tr-gt{position:absolute;inset-block-start:calc(var(--u)*-6px);inset-inline-start:calc(var(--u)*-6px);width:max(22px,calc(var(--u)*26px));height:max(22px,calc(var(--u)*26px));border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;box-shadow:0 3px 8px rgba(31,37,68,.3);font-style:normal}.tr-gt svg{width:56%;height:56%}
+.tr-tp{position:absolute;left:50%;bottom:calc(100% + var(--u)*8px);transform:translateX(-50%);display:inline-flex;align-items:center;gap:5px;white-space:nowrap;background:var(--cta);color:#fff;font:700 max(14px,calc(var(--u)*15px))/1.3 var(--head);padding:calc(var(--u)*4px) calc(var(--u)*13px) calc(var(--u)*4px) calc(var(--u)*9px);border-radius:999px;box-shadow:0 8px 18px rgba(214,64,29,.34)}
+.tr-tp::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:10px;background:var(--cta);transform:translateX(-50%) rotate(45deg);border-radius:2px}
+.tr-tp svg{width:max(14px,calc(var(--u)*16px));height:max(14px,calc(var(--u)*16px))}
+/* the way along the map for a mouse: a round button at each corner, when there is more to see on that side */
+.tr-arr{position:absolute;bottom:calc(var(--u)*14px);z-index:5;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--ink);box-shadow:0 10px 24px rgba(31,37,68,.22);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .25s}
 .tr-arr svg{width:22px;height:22px}
 .tr-arr.prev{inset-inline-start:12px}.tr-arr.prev svg{transform:scaleX(-1)}.tr-arr.next{inset-inline-end:12px}
 .tr.fr .tr-arr.prev,.tr.fl .tr-arr.next{opacity:1;pointer-events:auto}
+@media(hover:none) and (pointer:coarse){.tr-arr{display:none}} /* a finger swipes the map */
 .tr-view{--ml:0px;--mr:0px;-webkit-mask-image:linear-gradient(to right,transparent,#000 var(--ml),#000 calc(100% - var(--mr)),transparent);mask-image:linear-gradient(to right,transparent,#000 var(--ml),#000 calc(100% - var(--mr)),transparent)}
-.tr.fl .tr-view{--ml:64px}.tr.fr .tr-view{--mr:64px}
-.jn-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;margin:12px 6px 0}.jn-hint{margin:0;font-size:14.5px;color:#3B4262}
-.jn-lg{display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none;margin:0;padding:0;font-size:14.5px;color:#3B4262}
+.tr.fl .tr-view{--ml:56px}.tr.fr .tr-view{--mr:56px}
+/* under the map: what the colours mean, and how to use it */
+.jn-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;margin:10px 6px 0}.jn-hint{margin:0;font-size:14.5px;color:#3B4262}
+.jn-lg{display:flex;flex-wrap:wrap;gap:6px 20px;list-style:none;margin:0;padding:0;font-size:14.5px;color:#3B4262}
 .jn-lg li{display:inline-flex;align-items:center;gap:8px}.jn-lg i{width:15px;height:15px;border-radius:50%;display:inline-block;box-shadow:0 2px 5px rgba(31,37,68,.2)}
 .jn-lg .d{background:linear-gradient(135deg,#5FE0B6,#12A26B)}.jn-lg .n{background:var(--cta-grad)}.jn-lg .l{background:#fff;border:2px solid #C3CAE6;box-shadow:none}
-@media(max-width:640px){
-  .tr,.tr-view{border-radius:28px}
-  .tr-l b{font-size:15.5px}.tr-n.st .tr-l b{font-size:13.5px}
-  .tr-rt{font-size:13.5px;padding:4px 12px;top:12px;inset-inline-start:12px}
-  .tr-sc,.tr-sc svg{height:104px}.tr-sc.b,.tr-sc.b svg{height:124px}
-  .tr-tp{font-size:13.5px;padding:6px 12px 6px 9px}
-  .tr-nx{top:-30px;font-size:12px}
-  .tr-bed{stroke-width:20}.tr-prog{stroke-width:8}
+.jn-sec .sec-h{align-items:center}
+.jn-w{display:flow-root}
+.jn-act{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.jn-act .btn{min-height:44px}
+.jn-fs svg{width:18px;height:18px;flex:none}
+/* ---------- the map on the whole screen: the host covers it; a bar on top, the step I touched under the map ---------- */
+html.jn-lock{overflow:hidden}
+#kpJ.is-full{position:fixed;inset:0;z-index:1000;margin:0;overflow:hidden;overscroll-behavior:contain;touch-action:pan-x pinch-zoom;background:linear-gradient(180deg,#E7EDFF 0%,#F6F4FF 42%,#FFF3EA 100%)}
+.tr.full{position:absolute;inset:0;margin:0;border-radius:0;box-shadow:none}
+.tr.full .tr-view{position:absolute;inset:calc(60px + env(safe-area-inset-top,0px)) 0 calc(84px + env(safe-area-inset-bottom,0px));border-radius:0;background:none}
+.tr.full .tr-arr{bottom:calc(84px + env(safe-area-inset-bottom,0px) + 16px)}
+.jn-bar{box-sizing:border-box;position:absolute;inset:0 0 auto;z-index:6;height:calc(60px + env(safe-area-inset-top,0px));display:flex;align-items:center;gap:8px 20px;padding:env(safe-area-inset-top,0px) max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.jn-ttl{display:grid;min-width:0;line-height:1.25}.jn-ttl b{font:700 18px var(--head)}
+.jn-ttl span{font-size:13.5px;color:#3B4262;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.jn-bar .jn-lg{margin-inline-start:auto;font-size:14px;flex-wrap:nowrap;white-space:nowrap}
+.jn-bar .jn-fs{flex:none}
+.jn-info{box-sizing:border-box;position:absolute;inset:auto 0 0;z-index:6;height:calc(84px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:12px 20px;padding:0 max(16px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(16px,env(safe-area-inset-left,0px));background:#fff;border-top:1px solid var(--line);box-shadow:0 -10px 30px rgba(31,37,68,.08)}
+.jn-info .btn{flex:none;min-height:44px}
+.jn-it{flex:1 1 auto;min-width:0;display:grid;gap:2px}
+.jn-t{display:flex;align-items:center;flex-wrap:wrap;gap:2px 10px;min-width:0}
+.jn-t b{font:700 clamp(16px,1.8vw,20px)/1.25 var(--head);min-width:0}
+.jn-d{font-style:normal;font-size:13.5px;font-weight:700;background:#DDF7EE;color:#0B6B49;border-radius:999px;padding:1px 10px}
+.jn-it p{color:#3B4262;font-size:15px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.jn-ih{flex:1;color:#3B4262;font-size:15.5px}
+@media(max-width:760px){
+  .jn-bar .jn-lg{display:none}
+  .jn-t b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:100%}
+  .jn-t .kp-due{display:none} /* the date is on the card, one tap away */
+  .jn-it p{-webkit-line-clamp:1}
 }
 html.hc .tr,html.hc .tr-view{box-shadow:none}html.hc .tr-view{border:2px solid #000}html.hc .tr-l{border:1.5px solid #000}
+html.hc .tr.full .tr-view{border:0}html.hc .jn-bar,html.hc .jn-info{background:#fff;border-color:#000;-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none}
 .tr-panel{background:#fff;border-radius:26px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:18px}
 .tr-ph{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:18px 22px 12px}
 .tr-ph h3{font-size:22px}.tr-ph p{color:var(--muted);margin-top:2px}
@@ -6568,7 +6599,7 @@ function altHTML(X){
 
 
 /* ---------- icons ---------- */
-const KI={seed:'<path d="M12 21v-8"/><path d="M12 13c0-4 3-7 7-7 0 4-3 7-7 7z"/><path d="M12 16c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5z"/>',
+const KI={expand:'<path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>',shrink:'<path d="M14 10l7-7M3 21l7-7M20 10h-6V4M4 14h6v6"/>',seed:'<path d="M12 21v-8"/><path d="M12 13c0-4 3-7 7-7 0 4-3 7-7 7z"/><path d="M12 16c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5z"/>',
   book:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7M8 11h5"/>',
   target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>',
   shield:'<path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="m9 12 2 2 4-4"/>',
@@ -6629,8 +6660,7 @@ function taskHTML(t){
     <button class="kp-th" data-kt="${t.id}" aria-expanded="${open}"><span class="kp-ti">${ki(t.ic)}</span><span class="kp-tt"><b>${esc(t.t)}</b><small>${esc(t.s||'')}</small></span>${dueChip(t)}<span class="kp-chev" aria-hidden="true"></span></button>
     <div class="kp-tb" ${open?'':'hidden'}>${open?safe(t.body):''}</div></li>`}
 /* ================= what the journey map and the progress chart share (tr-) =================
-   The path between two stops is a curve; a stage is done, the one I am in, or later; a map that scrolls sideways can bring a stop to its middle. */
-const trSeg=(a,b)=>{const m=Math.round((a.x+b.x)/2);return `M${a.x} ${a.y}C${m} ${a.y} ${m} ${b.y} ${b.x} ${b.y}`};
+   A stage is done, the one I am in, or later; a map that scrolls sideways can bring a stop to its middle. */
 const trState=(z,pl)=>z.total&&z.done===z.total?'done':z.id===pl.cur?'cur':'later';
 const trStateTxt={done:'הושלם',cur:'אני כאן',later:'בהמשך'};
 function trCenter(v,b,smooth){if(!v||!b)return;const bx=b.getBoundingClientRect(),vx=v.getBoundingClientRect(),d=(bx.left+bx.width/2)-(vx.left+vx.width/2);if(Math.abs(d)<2)return;
@@ -6643,13 +6673,29 @@ function trailScan(){document.querySelectorAll('.tr:not([data-i])').forEach(t=>{
   if(still&&KP[key]!=null&&!jn)v.scrollLeft=KP[key];else trCenter(v,focus,false);
   v.addEventListener('scroll',()=>{KP[key]=v.scrollLeft;upd()},{passive:true});upd();
   t.classList.add('go','still')})} /* the map is drawn as it is: nothing is lit or dropped in when the page opens */
-let trQ=0;new MutationObserver(()=>{if(!trQ)trQ=requestAnimationFrame(()=>{trQ=0;trailScan()})}).observe(document.getElementById('app'),{childList:true,subtree:true});
+new MutationObserver(trailScan).observe(document.getElementById('app'),{childList:true,subtree:true}); /* in the same task as the change, so a map never paints once off its place */
 
-/* ================= the journey map on the "now" tab (jn) =================
-   Every stage is a region of the map with its own colour and scenery. The stage I am working on unfolds its steps as stops along the path,
-   the other stages stay as one gate with a progress ring. A tap on a stop shows that step under the map; a tap on a gate opens the stage.
-   Nothing is invented here: the stops are the plan's own steps, their state is the plan's state. */
-const JD={gw:208,sw:164,pad:72,H:520,ys:[158,286],rg:48,rs:31},JM={gw:172,sw:136,pad:24,H:450,ys:[142,236],rg:40,rs:27};
+/* ================= the journey map on the road tab (jn) =================
+   One straight road. The stages stand on it as gates with their names above it; the stage I am working on unfolds its steps as stops with their names under it.
+   Every stage is a region with its own colour and scenery. A tap on a stop shows that step under the map; a tap on a gate opens the stage.
+   Everything is sized by one scale (u) that follows the screen, and the map can fill the whole screen. Nothing is invented here: the stops are the plan's own steps. */
+const JB={gw:176,sw:148,pad:48,rg:36,rs:25,H:340,A:140,B:100}; /* at scale 1: the room a gate and a stop take along the road, the padding at both ends, the radius of a gate and of a stop, the height, and what sits above and under the road */
+const JBAR=144,JMAX=1.8,JFIT=258; /* full screen: the bar on top (60) and the details of a stop under the map (84); the largest scale; what a gate with its bubble and a stop with a three-line name take over and under the road, at scale 1 */
+/* the notch and the home bar of a phone, which the full screen keeps clear of (the CSS adds them to the two bars) */
+function jSafe(){
+  const p=document.createElement('div');p.style.cssText='position:fixed;left:0;top:0;visibility:hidden;pointer-events:none;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)';
+  document.body.appendChild(p);const cs=getComputedStyle(p),r=(parseFloat(cs.paddingTop)||0)+(parseFloat(cs.paddingBottom)||0);p.remove();return r}
+const jFullH=()=>Math.max(220,innerHeight-JBAR-jSafe()); /* what is left for the map itself */
+function jScale(full){
+  const w=innerWidth,h=innerHeight;
+  if(full)return Math.round(Math.max(.8,Math.min(JMAX,Math.max(1.15,w/900),(jFullH()-16)/JFIT))*100)/100; /* wide: as large as the screen allows; narrow: a little larger than on the page; low: whatever fits */
+  const byW=w<640?.86:w<1000?.94:1,above=350; /* above: what sits over the map on the page */
+  if(w<1000)return byW; /* a phone or a tablet: the bars of the browser come and go as the page scrolls, and the map must not be drawn again then */
+  return Math.round(Math.max(.82,Math.min(byW,(h-above-80)/JB.H))*100)/100}
+function jGeo(u,full){
+  const c={};['gw','sw','pad','rg','rs'].forEach(k=>c[k]=Math.round(JB[k]*u));
+  c.H=full?jFullH():Math.round(JB.H*u);
+  c.y=Math.round((c.H-(JB.A+JB.B)*u)/2+JB.A*u);return c}
 const ZTH={g10:{c:'#2F9E44',bg:'#E3F5E8'},g11:{c:'#3B5BDB',bg:'#E4EBFF'},g12:{c:'#E8590C',bg:'#FFEADD'},svc:{c:'#5C7F26',bg:'#EBF2DA'},prep:{c:'#7048E8',bg:'#ECE6FF'},reg:{c:'#0C8599',bg:'#DAF3F6'},go:{c:'#E67700',bg:'#FFF0CF'}};
 const ZSC={
  g10:'<circle cx="40" cy="40" r="16"/><rect x="38" y="52" width="5" height="18"/><circle cx="86" cy="30" r="21"/><rect x="84" y="48" width="5" height="22"/><circle cx="136" cy="42" r="14"/><rect x="134" y="52" width="4" height="18"/><circle cx="172" cy="34" r="17"/><rect x="170" y="48" width="5" height="22"/>',
@@ -6659,33 +6705,37 @@ const ZSC={
  prep:'<path d="M44 6 24 40h16l-6 26L64 30H48Z"/><path d="M130 14 116 40h12l-4 22 24-30h-12Z"/>',
  reg:'<path d="M36 70V38a28 28 0 0 1 56 0v32H78V40a14 14 0 0 0-28 0v30Z"/><path d="M112 70V46a20 20 0 0 1 40 0v24h-10V48a10 10 0 0 0-20 0v22Z"/>',
  go:'<path d="M18 34 100 8l82 26Z"/><rect x="34" y="38" width="14" height="32"/><rect x="62" y="38" width="14" height="32"/><rect x="90" y="38" width="14" height="32"/><rect x="118" y="38" width="14" height="32"/><rect x="146" y="38" width="14" height="32"/>'};
-const jPlate=(z,l,w,open,tag)=>{const th=ZTH[z.id]||ZTH.g10,n=Math.max(1,Math.round(w/250)),sc=`<svg viewBox="0 0 200 72" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">${ZSC[z.id]||''}</svg>`;return `<div class="tr-rg${open?' open':''}" aria-hidden="true" style="left:${l}px;width:${w}px;--rc:${th.c};--rb:${th.bg}">${tag?`<span class="tr-rt">${z.t} <b class="num">${z.done}/${z.total}</b></span>`:''}<div class="tr-sc b">${sc.repeat(n)}</div><div class="tr-sc">${sc.repeat(n)}</div></div>`};
+const jPlate=(z,l,w,open,u)=>{const th=ZTH[z.id]||ZTH.g10,n=Math.max(1,Math.round(w/(250*u))),sc=`<svg viewBox="0 0 200 72" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">${ZSC[z.id]||''}</svg>`;return `<div class="tr-rg${open?' open':''}" aria-hidden="true" style="left:${l}px;width:${w}px;--rc:${th.c};--rb:${th.bg}"><div class="tr-sc b">${sc.repeat(n)}</div><div class="tr-sc">${sc.repeat(n)}</div></div>`};
 /* the stops of the stage that is open, after its gate */
 /* a stop that has a screen of its own (the scholarships) opens that screen from the map; it does not unfold under the map */
 const GO_NAME={sch:'מסך המלגות'};
 const jItems=(pl,fz)=>{const I=[];pl.zones.forEach(z=>{I.push({k:'g',z});if(z.id===fz)z.tasks.forEach(t=>I.push({k:'s',z,t}))});I.push({k:'e'});return I};
 /* how much of the stretch a to b is lit: a stop that is done lights the way to it; a closed stage lights as far as it is done */
 const jLit=(a,b)=>b.k==='s'?(b.t.done?1:0):a.k==='s'?(a.z.total&&a.z.done===a.z.total?1:0):a.k==='g'?(a.z.total?a.z.done/a.z.total:0):0;
+const jSeg=(a,b)=>`M${a.x} ${a.y}L${b.x} ${b.y}`;
+/* what a stop says in the full screen: its name, why, and a way to its card */
+const jnInfoHTML=t=>t?`<div class="jn-it"><div class="jn-t"><b>${esc(t.t)}</b>${t.done?'<em class="jn-d">הושלם</em>':''}${dueChip(t)}</div>${t.s?`<p>${esc(t.s)}</p>`:''}</div><button type="button" class="btn primary sm" data-kfgo="${t.id}">לפרטי הצעד${ki('arrow')}</button>`:'<p class="jn-ih">לוחצים על תחנה כדי לראות מה עושים בה.</p>';
 function journeyHTML(pl,t){
-  const c=innerWidth<640?JM:JD,fz=t?t.z:pl.cur,I=jItems(pl,fz),nx=pl.next?pl.next.id:'',sel=t?t.id:'';
+  const full=!!KP.full,u=jScale(full),c=jGeo(u,full),fz=t?t.z:pl.cur,I=jItems(pl,fz),nx=pl.next?pl.next.id:'',sel=t?t.id:'';
   let off=0;const P=I.map((i,k)=>{const w=i.k==='s'?c.sw:c.gw,o=off;off+=w;return {i,o,w,k}});
-  const W=off+2*c.pad,pts=P.map(p=>({x:Math.round(W-c.pad-p.o-p.w/2),y:c.ys[p.k%2]}));
+  const W=off+2*c.pad,pts=P.map(p=>({x:Math.round(W-c.pad-p.o-p.w/2),y:c.y}));
   let bed='',base='',prog='';
-  for(let k=0;k<I.length-1;k++){const d=trSeg(pts[k],pts[k+1]),f=jLit(I[k],I[k+1]);
+  for(let k=0;k<I.length-1;k++){const d=jSeg(pts[k],pts[k+1]),f=jLit(I[k],I[k+1]);
     bed+=`<path class="tr-bed" d="${d}"/>`;base+=`<path class="tr-base" d="${d}"/>`;prog+=`<path class="tr-prog" d="${d}" pathLength="100" style="--o:${Math.round(100*(1-f))}"/>`}
-  const plates=pl.zones.map(z=>{const m=P.filter(p=>p.i.z&&p.i.z.id===z.id),o=m[0].o,w=m.reduce((a,p)=>a+p.w,0);return jPlate(z,W-c.pad-o-w+4,w-8,z.id===fz,z.id===fz)}).join('');
+  const plates=pl.zones.map(z=>{const m=P.filter(p=>p.i.z&&p.i.z.id===z.id),o=m[0].o,w=m.reduce((a,p)=>a+p.w,0);return jPlate(z,W-c.pad-o-w+4,w-8,z.id===fz,u)}).join('');
   const arc=z=>{const pct=z.total?z.done/z.total:0,r=c.rg+6,L=2*Math.PI*r,m=r+4;return `<svg class="tr-arc" viewBox="0 0 ${2*m} ${2*m}" aria-hidden="true" focusable="false"><circle cx="${m}" cy="${m}" r="${r}" class="a0"/><circle cx="${m}" cy="${m}" r="${r}" class="a1" stroke-dasharray="${(L*pct).toFixed(1)} ${L.toFixed(1)}" transform="rotate(-90 ${m} ${m})"/></svg>`};
   const nodes=P.map((p,k)=>{const i=p.i,pt=pts[k],pos=`left:${pt.x}px;top:${pt.y}px`;
     if(i.k==='e')return `<li class="tr-n end" style="${pos};--cw:${c.gw}px;--r:${c.rg}px"><div class="tr-b"><span class="tr-c">${ki('cap')}</span><span class="tr-l"><b>היום הראשון</b></span></div></li>`;
     if(i.k==='g'){const z=i.z,s=trState(z,pl),open=z.id===fz;
-      return `<li class="tr-n ${s}${open?' pick':''}" style="${pos};--cw:${c.gw}px;--r:${c.rg}px"><button type="button" class="tr-b" data-kgate="${z.id}" aria-pressed="${open}"><span class="tr-c">${arc(z)}${ki(z.ic)}${s==='done'?`<i class="tr-ok">${ki('check')}</i>`:''}</span><span class="tr-l"><b>${z.t}</b><em class="num">${z.done}/${z.total}</em><span class="sr"> צעדים. ${trStateTxt[s]}${open?'':'. לחיצה פותחת את השלב'}</span></span></button></li>`}
+      return `<li class="tr-n ${s}${open?' pick':''}" style="${pos};--cw:${c.gw}px;--r:${c.rg}px"><button type="button" class="tr-b" data-kgate="${z.id}" aria-pressed="${open}"><span class="tr-c">${arc(z)}${ki(z.ic)}${s==='done'?`<i class="tr-ok">${ki('check')}</i>`:''}</span><span class="tr-l"><b>${z.t}</b><em class="num">${z.done}/${z.total}</em><span class="sr"> צעדים. ${trStateTxt[s]}${open?'':'. לחיצה פותחת את השלב'}</span></span>${z.id===pl.cur?`<span class="tr-tp" aria-hidden="true">${ki('pin')}אני כאן</span>`:''}</button></li>`}
     const q=i.t,on=q.id===sel,isNx=q.id===nx,ext=q.go;
     return `<li class="tr-n st${q.done?' done':''}${isNx?' nxt':''}${on?' pick':''}${ext?' ext':''}${q.soon&&!q.done?' soon':''}" style="${pos};--cw:${c.sw}px;--r:${c.rs}px"><button type="button" class="tr-b" ${ext?`data-kgoto="${esc(ext)}"`:`data-kstop="${q.id}" aria-pressed="${on}"`}${isNx?' aria-current="step"':''}><span class="tr-c">${q.done?ki('check'):ki(q.ic)}${ext?`<i class="tr-gt" aria-hidden="true">${ki('arrow')}</i>`:''}</span><span class="tr-l"><b>${esc(q.t)}</b></span>${isNx?'<span class="tr-nx">הבא</span>':''}<span class="sr">: ${q.done?'הושלם':isNx?'זה הצעד הבא שלי':'עוד לא הושלם'}${ext?`. פותח את ${GO_NAME[ext]||'מסך אחר'}`:''}</span></button></li>`}).join('');
-  const here=pts[P.findIndex(p=>p.i.k==='g'&&p.i.z.id===pl.cur)]||pts[0];
-  return `<div class="tr jn go still" id="kpTrail" data-pad="${c.pad}" style="--cw:${c.gw}px;--r:${c.rg}px"><div class="tr-view" id="trViewJ"><div class="tr-track" style="width:${W}px;height:${c.H}px">${plates}
+  const bar=full?`<div class="jn-bar"><div class="jn-ttl"><b>המסלול שלי</b><span>${esc(pl.X.d.n)} · ${esc(pl.X.I.n)}</span></div>${legendHTML()}<button type="button" class="btn soft sm jn-fs" data-kfs>${ki('shrink')}הקטנה</button></div>`:'',
+    info=full?`<div class="jn-info" id="jnInfo">${jnInfoHTML(t)}</div>`:'';
+  return `<div class="tr jn go still${full?' full':''}" id="kpTrail" data-pad="${c.pad}" data-u="${u}" style="--u:${u};--y:${c.y}px;--cw:${c.gw}px;--r:${c.rg}px">${bar}<div class="tr-view" id="trViewJ"><div class="tr-track" style="width:${W}px;height:${c.H}px">${plates}
     <svg class="tr-svg" width="${W}" height="${c.H}" viewBox="0 0 ${W} ${c.H}" aria-hidden="true" focusable="false">${bed}${base}${prog}</svg>
-    <ol class="tr-nodes" aria-label="תחנות הדרך">${nodes}</ol><span class="tr-trav" aria-hidden="true" style="left:${here.x}px;top:${here.y}px" data-path=""><span class="tr-tp">${ki('arrow')}אני כאן</span></span></div></div>
-    <button type="button" class="tr-arr prev" data-kmapn="prev" aria-label="לשלבים הקודמים">${ki('arrow')}</button><button type="button" class="tr-arr next" data-kmapn="next" aria-label="לשלבים הבאים">${ki('arrow')}</button></div>`}
+    <ol class="tr-nodes" aria-label="תחנות הדרך">${nodes}</ol></div></div>
+    <button type="button" class="tr-arr prev" data-kmapn="prev" aria-label="לשלבים הקודמים">${ki('arrow')}</button><button type="button" class="tr-arr next" data-kmapn="next" aria-label="לשלבים הבאים">${ki('arrow')}</button>${info}</div>`}
 /* a tap on a stop: that step opens under the map. Inside the open stage only the markers change; a stop of another stage unfolds that stage */
 function jSelect(id){
   const pl=safe(plan);if(!pl)return;const t=pl.tasks.find(x=>x.id===id);if(!t)return;
@@ -6693,11 +6743,56 @@ function jSelect(id){
   KP.fid=id;KP.skip.delete(id);
   const J=$('#kpJ'),S=$('#kpStep');if(!J||!S){gotoTab('now',{scroll:1});return}
   if(old&&old.z===t.z)document.querySelectorAll('#kpJ .tr-n.st').forEach(n=>{const b=n.querySelector('[data-kstop]'),on=!!b&&b.dataset.kstop===id;n.classList.toggle('pick',on);if(b)b.setAttribute('aria-pressed',on)});
-  else J.innerHTML=journeyHTML(pl,t);
+  else{J.innerHTML=journeyHTML(pl,t);trailScan()}
   S.innerHTML=focusHTML(pl,t);
   const b=document.querySelector(`#kpJ [data-kstop="${id}"]`);if(b){b.focus({preventScroll:true});trCenter(b.closest('.tr-view'),b,!RM())}
   const lv=$('#live');if(lv)lv.textContent=`נבחרה התחנה: ${t.t}`;
+  if(KP.full){const inf=$('#jnInfo');if(inf)inf.innerHTML=jnInfoHTML(t);return}
   if(S.getBoundingClientRect().top>innerHeight*.62)S.scrollIntoView({behavior:RM()?'instant':'smooth',block:'start'})}
+/* ---------- the map on the whole screen ----------
+   The host (#kpJ) is what fills the screen, so the map inside can be drawn again at the size of the screen without the browser leaving full screen.
+   Where the browser cannot make an element full screen (a phone), the host covers the screen by itself. Escape, or the button, brings it back. */
+function jnPaint(){const host=$('#kpJ'),pl=host&&safe(plan);if(!host||!pl)return;
+  const a=document.activeElement,at=a&&host.contains(a)?[...a.attributes].find(x=>x.name.startsWith('data-k')):null; /* the control that has the focus keeps it */
+  host.innerHTML=journeyHTML(pl,focusTask(pl));trailScan();
+  if(at){const b=host.querySelector(`[${at.name}="${at.value}"]`);if(b)b.focus({preventScroll:true})}}
+function jnReset(){ /* the page is leaving the map (another screen, another tab): nothing is kept open */
+  if(!KP.full)return;KP.full=false;KP.jnb=null;document.documentElement.classList.remove('jn-lock');
+  try{if(document.fullscreenElement&&document.exitFullscreen)Promise.resolve(document.exitFullscreen()).catch(()=>{})}catch(e){}}
+function jnSwitch(on,nofocus,then){ /* the page changes: the map covers the screen, or is a part of the page again */
+  const host=$('#kpJ');if(on===!!KP.full||(on&&!host))return;
+  const wrap=host&&host.parentElement&&host.parentElement.id==='kpJw'?host.parentElement:null;
+  if(wrap&&on)wrap.style.minHeight=wrap.offsetHeight+'px'; /* the page keeps its length while the map is lifted out of it */
+  KP.full=on;document.documentElement.classList.toggle('jn-lock',on);
+  if(host){host.classList.toggle('is-full',on);
+    if(on){host.setAttribute('role','dialog');host.setAttribute('aria-modal','true');host.setAttribute('aria-label','המסלול שלי במסך מלא')}
+    else{host.removeAttribute('role');host.removeAttribute('aria-modal');host.removeAttribute('aria-label')}
+    jnPaint()}
+  if(wrap&&!on)wrap.style.minHeight='';
+  if(!nofocus)requestAnimationFrame(()=>{const b=on?document.querySelector('#kpJ .jn-fs'):$('#jnFsBtn');if(b)b.focus({preventScroll:true})});
+  say(on?'המפה במסך מלא. Escape סוגר':'חזרה לגודל הרגיל');
+  if(then)then()}
+function jnFull(on,nofocus,then){
+  on=!!on;if(on===!!KP.full)return;
+  if(on){jnSwitch(true,nofocus);const host=$('#kpJ');
+    try{if(host&&host.requestFullscreen&&!document.fullscreenElement)Promise.resolve(host.requestFullscreen({navigationUI:'hide'})).catch(()=>{})}catch(e){}return}
+  if(document.fullscreenElement&&document.exitFullscreen){ /* the browser's own full screen ends a moment after it is asked to: the page changes back when it has (see below) */
+    KP.jnb=[nofocus,then];const late=()=>{const b=KP.jnb;KP.jnb=null;if(b)jnSwitch(false,b[0],b[1])};
+    try{Promise.resolve(document.exitFullscreen()).catch(late)}catch(e){late()}return}
+  jnSwitch(false,nofocus,then)}
+document.addEventListener('fullscreenchange',()=>{if(KP.full&&!document.fullscreenElement){const b=KP.jnb||[];KP.jnb=null;jnSwitch(false,b[0],b[1])}}); /* the browser's own Escape, or the end of the full screen jnFull asked to leave */
+document.addEventListener('keydown',e=>{
+  if(!KP.full)return;
+  if(e.key==='Escape'){e.preventDefault();jnFull(false);return}
+  if(e.key!=='Tab')return;
+  const host=$('#kpJ');if(!host)return;
+  const f=[...host.querySelectorAll('button:not([disabled]):not([tabindex="-1"])')].filter(x=>x.offsetParent!==null||x===document.activeElement),a=f[0],z=f[f.length-1];
+  if(!a)return;const out=!host.contains(document.activeElement);
+  if(e.shiftKey&&(document.activeElement===a||out)){e.preventDefault();z.focus()}
+  else if(!e.shiftKey&&(document.activeElement===z||out)){e.preventDefault();a.focus()}});
+let jnRT=0;addEventListener('resize',()=>{clearTimeout(jnRT);jnRT=setTimeout(()=>{ /* the map follows the size of the screen */
+  const t=document.querySelector('#kpJ .tr');if(!t||S.route.v!=='path'||KP.tab!=='now')return;
+  if(KP.full||Math.abs(jScale(false)-(+t.dataset.u||0))>=.03)jnPaint()},150)});
 /* ================= programs for high-school students (tn-) =================
    From the "teen programs" research of 2026-10-21. It was read through search summaries only (no program page was opened), so a program found in
    one source only is marked "לא אומת". Facts about admission are included only when a source states them; otherwise the card says none was found.
@@ -7006,8 +7101,8 @@ function stepsNoteHTML(){const P=pth();if(!P||P.sn===1)return '';
 const legendHTML=()=>`<ul class="jn-lg" aria-label="מקרא המפה"><li><i class="d" aria-hidden="true"></i>הושלם</li><li><i class="n" aria-hidden="true"></i>הצעד הבא</li><li><i class="l" aria-hidden="true"></i>בהמשך</li></ul>`;
 function nowHTML(pl){
   const t=focusTask(pl),nx=pl.next;
-  return `<section class="jn-sec" aria-labelledby="jnH"><div class="sec-h"><div><h2 id="jnH">${ki('map')}המסלול שלי</h2></div>${nx&&t&&t.id!==nx.id?`<button type="button" class="btn soft sm" data-kstop="${nx.id}">לצעד הבא שלי${ki('arrow')}</button>`:''}</div>
-      <div id="kpJ">${journeyHTML(pl,t)}</div><div class="jn-foot">${legendHTML()}<p class="jn-hint">לוחצים על תחנה כדי לראות מה עושים בה. האחוז למעלה הוא הצעדים שעשיתי בדרך, ולא סיכוי להתקבל.</p></div>
+  return `<section class="jn-sec" aria-labelledby="jnH"><div class="sec-h"><div><h2 id="jnH">${ki('map')}המסלול שלי</h2></div><div class="jn-act">${nx&&t&&t.id!==nx.id?`<button type="button" class="btn soft sm" data-kstop="${nx.id}">לצעד הבא שלי${ki('arrow')}</button>`:''}<button type="button" class="btn soft sm jn-fs" id="jnFsBtn" data-kfs aria-haspopup="dialog">${ki('expand')}מסך מלא</button></div></div>
+      <div class="jn-w" id="kpJw"><div id="kpJ">${journeyHTML(pl,t)}</div></div><div class="jn-foot">${legendHTML()}<p class="jn-hint">לוחצים על תחנה כדי לראות מה עושים בה. האחוז למעלה הוא הצעדים שעשיתי בדרך, ולא סיכוי להתקבל.</p></div>
       <div class="kp-nowg"><div class="kp-main" id="kpStep">${t?focusHTML(pl,t):doneHTML(pl)}</div>
         <div class="kp-side">${coach(pl)}${safe(()=>teenTeaser(pl),'')}</div></div></section>
     ${safe(()=>stepsNoteHTML(),'')}${safe(()=>welcomeHTML(pl),'')}
@@ -7082,7 +7177,7 @@ function gotoTab(k,o={}){
   if(k!==from){KP.qpause=false;KP.qfx=null; /* F2b: leaving the tab and coming back allows the next question, and an old effect is not kept */
     if(isView(k))KP.back='';else if(isView(from))KP.back=from; /* a tool remembers the view it was opened from */
 }
-  KP.tab=k;const n=$('#kpNav'),b=$('#kpTab'),pl=safe(plan);
+  jnReset();KP.tab=k;const n=$('#kpNav'),b=$('#kpTab'),pl=safe(plan);
   if(!n||!b||!pl){render();return}
   navSync();b.innerHTML=tabInner(pl);afterTab();
   if(k!==from){const lv=$('#live'),nm=(TABS.find(t=>t[0]===k)||TOOLS.find(t=>t[0]===k)||[])[1];if(lv&&nm)lv.textContent='נפתח: '+nm; /* the view changes under the focus, so a screen reader is told */
@@ -7661,7 +7756,7 @@ function celebrate(el,n=30){if(!el)return;const r=el.getBoundingClientRect();bur
 
 
 /* ---------- events ---------- */
-const KSEL='[data-padd],[data-ppick],[data-pswap],[data-kwd],[data-kwi],[data-kwauto],[data-kwb],[data-kwdone],[data-kme],[data-kmedone],[data-kc],[data-kt],[data-kmapn],[data-kstop],[data-kgoto],[data-kgate],[data-kfsib],[data-ktf],[data-kteen],[data-kgo],[data-ktab],[data-ktgt],[data-khub],[data-kadd],[data-krm],[data-krmok],[data-krmno],[data-kfocus],[data-kfprev],[data-kfnext],[data-kfskip],[data-knext],[data-kmark],[data-kpick],[data-ksess],[data-kfq],[data-kmore],[data-kdel],[data-kendx],[data-kwel],[data-kweld],[data-ksn],[data-kq],[data-kqd],[data-kqskip],[data-kqok],[data-kqgo],[data-kqask],[data-kics],[data-kpg],[data-kcm],[data-kcd],[data-kcf],[data-kic1],[data-kicb],[data-kcall],[data-khelp],[data-kcopy],[data-kexp],[data-kundo],[data-kreset],[data-kresetok],[data-kresetno],[data-lb],[data-lbm],[data-lbe],[data-lbx],[data-lbmode],[data-lbadd],[data-lbrm],[data-lbsave],[data-lbok],[data-lbno],[data-lbreal],[data-lbsavep],[data-lbreset],[data-lbd],[data-lbplan]';
+const KSEL='[data-padd],[data-ppick],[data-pswap],[data-kwd],[data-kwi],[data-kwauto],[data-kwb],[data-kwdone],[data-kme],[data-kmedone],[data-kc],[data-kt],[data-kmapn],[data-kstop],[data-kgoto],[data-kfs],[data-kfgo],[data-kgate],[data-kfsib],[data-ktf],[data-kteen],[data-kgo],[data-ktab],[data-ktgt],[data-khub],[data-kadd],[data-krm],[data-krmok],[data-krmno],[data-kfocus],[data-kfprev],[data-kfnext],[data-kfskip],[data-knext],[data-kmark],[data-kpick],[data-ksess],[data-kfq],[data-kmore],[data-kdel],[data-kendx],[data-kwel],[data-kweld],[data-ksn],[data-kq],[data-kqd],[data-kqskip],[data-kqok],[data-kqgo],[data-kqask],[data-kics],[data-kpg],[data-kcm],[data-kcd],[data-kcf],[data-kic1],[data-kicb],[data-kcall],[data-khelp],[data-kcopy],[data-kexp],[data-kundo],[data-kreset],[data-kresetok],[data-kresetno],[data-lb],[data-lbm],[data-lbe],[data-lbx],[data-lbmode],[data-lbadd],[data-lbrm],[data-lbsave],[data-lbok],[data-lbno],[data-lbreal],[data-lbsavep],[data-lbreset],[data-lbd],[data-lbplan]';
 const wizReset=(change,add)=>{KP.wiz={active:true,step:1,tq:'',d:'',i:'',change:!!change,add:!!add}};
 const top0=()=>window.scrollTo({top:0,behavior:'instant'});
 const refocus=sel=>{const e=$(sel);if(e)e.focus({preventScroll:true})};
@@ -7741,7 +7836,9 @@ document.addEventListener('click',e=>{
   else if(ds.kcm!==undefined)clMonth(ds.kcm);
   else if(ds.kcd!==undefined){KC.sel=KC.sel===ds.kcd?'':ds.kcd;clRepaint(`[data-kcd="${ds.kcd}"]`)}
   else if(ds.kcf!==undefined){if(CL_F.some(f=>f[0]===ds.kcf)){KC.f=ds.kcf;KC.sel='';clRepaint(`[data-kcf="${ds.kcf}"]`)}}
-  else if(ds.kgoto!==undefined)go(ds.kgoto);
+  else if(ds.kgoto!==undefined){jnReset();go(ds.kgoto)}
+  else if(ds.kfs!==undefined)jnFull(!KP.full);
+  else if(ds.kfgo!==undefined)jnFull(false,true,()=>{jSelect(ds.kfgo);requestAnimationFrame(()=>jump('kpStep'))});
   else if(ds.kcall!==undefined){KC.all=!KC.all;clRepaint('[data-kcall]')}
   else if(ds.kic1!==undefined)icsOne(ds.kic1);
   else if(ds.kicb!==undefined)icsSubject(ds.kicb);
@@ -8736,7 +8833,7 @@ function renderTray(){
   host.innerHTML=`<div class="tray"><div class="tray-in"><span>להשוואה:</span>${S.cmp.map(id=>`<span class="t">${esc(BY[id].n)}<button data-uncmp="${id}" aria-label="הסרה מההשוואה">✕</button></span>`).join('')}<button class="go" data-showcmp aria-disabled="${S.cmp.length<2}">${S.cmp.length<2?'צריך עוד תואר':'להשוואה'}</button></div></div>`;
 }
 function render(){
-  renderChrome();
+  jnReset();renderChrome();
   const app=$('#app'),r=S.route;let html;
   if(r.v==='deg')html=renderDegree(BY[r.id]);
   else if(r.v==='occ')html=renderOcc(r.id);
