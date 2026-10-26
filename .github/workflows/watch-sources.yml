@@ -1,0 +1,61 @@
+# Weekly look at the official pages the site's data came from (admission conditions, thresholds, registration and exam dates).
+# It keeps a fingerprint of every page on the `data-watch` branch (never on main), writes a report, and opens or updates ONE issue when a page changed
+# after the data was collected. It never edits index.html: applying the result is a decision (see tools/README.md).
+name: watch-sources
+on:
+  schedule:
+    - cron: '17 4 * * 1'      # Mondays, 04:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write              # the state branch
+  issues: write                # the report issue
+
+concurrency:
+  group: watch-sources
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: the data agrees with itself
+        run: node tools/audit-data.mjs
+      - name: restore the state of the last runs
+        run: |
+          mkdir -p state
+          if git ls-remote --exit-code --heads origin data-watch >/dev/null 2>&1; then
+            git fetch --depth 1 origin data-watch
+            git archive FETCH_HEAD | tar -x -C state
+          fi
+      - name: look at the sources
+        run: node tools/watch-sources.mjs --state state --report state/report.md --concurrency 4 --delay 600 --json | tee state/last-run.json
+      - name: keep the state
+        run: |
+          cd state
+          rm -rf .git
+          git init -q -b data-watch
+          git config user.name "vector-watch"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -q -m "source watch $(date -u +%F)"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" data-watch
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-watch-report
+          path: state/report.md
+      - name: one issue for what changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          changed=$(node -e "const r=require('./state/last-run.json');console.log(r.changed.length)")
+          if [ "$changed" -gt 0 ]; then
+            title="דפי מקור השתנו (בדיקה אוטומטית)"
+            n=$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number')
+            if [ -n "$n" ]; then gh issue comment "$n" --body-file state/report.md; else gh issue create --title "$title" --body-file state/report.md; fi
+          fi
