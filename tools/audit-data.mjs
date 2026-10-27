@@ -5,7 +5,7 @@
 //   node tools/audit-data.mjs            human readable report, exit code 1 if there is an error
 //   node tools/audit-data.mjs --json     the same findings as JSON
 //   node tools/audit-data.mjs --today 2026-10-25   (for tests) the date used for the freshness check
-import { loadSite } from './lib/site-data.mjs';
+import { loadSite, avodataInstitutions } from './lib/site-data.mjs';
 import { calibrate, RULES } from './calibrate-pay.mjs';
 
 const args = process.argv.slice(2);
@@ -13,7 +13,7 @@ const flag = (n) => args.includes(n);
 const val = (n, d) => (args.includes(n) ? args[args.indexOf(n) + 1] : d);
 const TODAY = new Date((val('--today', '') || new Date().toISOString().slice(0, 10)) + 'T00:00:00Z');
 
-const { DATA } = loadSite();
+const { html, DATA } = loadSite();
 const INST = new Map(DATA.inst.map((i) => [i.id, i]));
 const DEG = new Map();
 const findings = [];
@@ -219,6 +219,39 @@ const dup = (arr, f) => { const s = new Set(), d = new Set(); arr.forEach((x) =>
   const R = [];
   DATA.mahat.forEach((m) => ((m.page && m.page.w) || []).forEach((l) => { for (const x of l.matchAll(/(\d{1,3},\d{3})-(\d{1,3},\d{3})/g)) if (Number(x[1].replace(',', '')) > Number(x[2].replace(',', ''))) R.push(`${m.n}: ${l}`); }));
   if (R.length) add('warn', 'pay.mahat.range', 'a technician pay range with the higher number first', R);
+}
+
+// ---- 10. what the pages can answer ----
+// A degree page answers "how much do they earn?", "is there work?" and "where do they work?" from its Avodata field (and the occupations of the field), a technician track from the pay lines
+// of its own page and from the entry of Avodata of its discipline. This lists what the pages cannot answer, so that a gap is found here and not by a reader. The rules are those of the pages
+// (fieldOf, mainStat, the regional map reads the area breakdown of the occupations).
+{
+  const all = (f) => f.stats?.['הכל'] || Object.values(f.stats || {})[0] || null;
+  const area = (o) => !!o?.g?.Area?.s?.some((x) => x.v > 0);
+  const AVN = avodataInstitutions(html);
+  const norm = (s) => s.replace(/[–\-,"'״׳()]/g, ' ').replace(/\s+/g, ' ').trim();
+  const fieldOf = (d) => DATA.af[d.av];
+  const payOf = (f) => !!(all(f)?.sal || (f.curve || []).some((c) => c.v));
+  const areaOf = (d) => (d.pro === 'md' ? ['2211', '2212', '2213'] : d.pro === 'dmd' ? ['2261'] : (fieldOf(d)?.occ || []).map((x) => x.id)).some((id) => area(DATA.oc[id]));
+  const withField = DATA.deg.filter((d) => fieldOf(d)), noField = DATA.deg.filter((d) => !fieldOf(d) && !d.pro);
+  // 10a. a degree that has the name of a field and no connection to it: the table of tools/map-avodata.mjs misses it
+  const byName = new Map(Object.entries(DATA.af).map(([id, f]) => [norm(f.n), id]));
+  const missed = noField.filter((d) => byName.has(norm(d.n))).map((d) => `${d.id} ${d.n} -> ${byName.get(norm(d.n))}`);
+  if (missed.length) add('error', 'answers.deg.missed', 'a degree has the name of an Avodata field and points at nothing (add it to tools/map-avodata.mjs)', missed);
+  // 10b. a degree that points at a field that does not exist
+  const dangling = DATA.deg.filter((d) => d.av && !DATA.af[d.av]).map((d) => `${d.id} ${d.n}: ${d.av}`);
+  if (dangling.length) add('error', 'answers.deg.dangling', 'a degree points at a field that is not in the data', dangling);
+  // 10c. what is left
+  add('info', 'answers.deg.nofield', `${noField.length} of ${DATA.deg.length} degrees have no field in Avodata: their pages say so and show no figure`, noField.map((d) => `${d.id} ${d.n}`));
+  add('info', 'answers.deg.nopay', 'degrees whose field has no pay figure and no point of a curve', withField.filter((d) => !payOf(fieldOf(d))).map((d) => `${d.id} ${d.n}: ${d.av} ${fieldOf(d).n}`));
+  add('info', 'answers.deg.noarea', 'degrees with pay whose field has no occupation with an area breakdown (no map of where the graduates work)', withField.filter((d) => payOf(fieldOf(d)) && !areaOf(d)).map((d) => `${d.id} ${d.n}`));
+  // 10d. the pay of one institution on the page of a degree of other institutions: the page says so (calFldNote)
+  const off = withField.filter((d) => fieldOf(d).one && !(d.of.length && d.of.every((o) => o.i === AVN[fieldOf(d).one]))).map((d) => `${d.id} ${d.n}: ${fieldOf(d).n} is of ${fieldOf(d).one}`);
+  add('info', 'answers.deg.oneinst', `${off.length} degrees take the pay of a field that is of one institution which does not teach all of them (the page says whose it is)`, off);
+  // 10e. occupations and technician tracks
+  add('info', 'answers.occ.nopay', 'occupations with no pay figure (Avodata published none, and none is estimated)', Object.entries(DATA.oc).filter(([, o]) => o.sal == null).map(([id, o]) => `${id} ${o.n}`));
+  const hasPay = (m) => ((m.page && m.page.w) || []).some((l) => /\d{1,3},\d{3}/.test(l));
+  add('info', 'answers.mahat.nopay', 'technician tracks with no pay line on their page (the page takes the pay of the entry of Avodata where there is one)', DATA.mahat.filter((m) => !hasPay(m)).map((m) => m.n));
 }
 
 // ---- report ----

@@ -14,6 +14,13 @@ export function loadSite(file = SITE) {
   return { html, DATA: JSON.parse(m[1]) };
 }
 
+/** The names Avodata uses for institutions, mapped to the ids of the site (the table AVN of index.html: a field lists its institutions by these names). */
+export function avodataInstitutions(html) {
+  const m = html.match(/const AVN=(\{[^}]*\})/);
+  if (!m) throw new Error('the table AVN was not found in index.html');
+  return Function('return ' + m[1])();
+}
+
 const isUrl = (u) => typeof u === 'string' && /^https?:\/\//.test(u);
 
 /** Every URL the data points at, deduplicated, each with the kind of data it feeds. */
