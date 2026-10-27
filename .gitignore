@@ -1,0 +1,5 @@
+# the pages of Avodata that tools/avodata-collect.console.js saves are read by tools/verify-avodata.mjs, not published with the site
+data/avodata/*.zip
+data/avodata/pages/
+data/avodata/meta.json
+data/avodata/shared.json
