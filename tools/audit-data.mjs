@@ -6,6 +6,7 @@
 //   node tools/audit-data.mjs --json     the same findings as JSON
 //   node tools/audit-data.mjs --today 2026-10-25   (for tests) the date used for the freshness check
 import { loadSite } from './lib/site-data.mjs';
+import { calibrate, RULES } from './calibrate-pay.mjs';
 
 const args = process.argv.slice(2);
 const flag = (n) => args.includes(n);
@@ -164,6 +165,60 @@ const dup = (arr, f) => { const s = new Set(), d = new Set(); arr.forEach((x) =>
   const main = DATA.deg.find((d) => d.n === 'מדעי המחשב');
   if (main && !main.of.some((o) => o.i === 'technion') && cs.some((d) => d.of.some((o) => o.i === 'technion')))
     add('warn', 'cs.technion', 'the Technion offers computer science only under variant ids: it is missing from the main degree page unless the variants are joined (normalizeDegrees)', cs.filter((d) => d.of.some((o) => o.i === 'technion')).map((d) => d.id));
+}
+
+// ---- 9. pay and employment ----
+// The Avodata figures are shown as they are published, except where they cannot describe what people earn: tools/calibrate-pay.mjs lists the rules and writes the
+// original value next to every figure it changes. This part finds what the rules would still change (the calibration was not run, or the data was collected again),
+// the figures that disagree with each other, and the figures that look odd but are left as they are.
+{
+  const all = (f) => f.stats?.['הכל'] || Object.values(f.stats || {})[0] || null;
+  const c56 = (f) => (f.curve || []).find((c) => c.y === '5-6 שנים');
+  // 9a. what the rules would change now
+  const clone = JSON.parse(JSON.stringify(DATA)), log = calibrate(clone);
+  const diff = [];
+  for (const sec of ['oc', 'af']) for (const id of Object.keys(DATA[sec])) if (JSON.stringify(DATA[sec][id]) !== JSON.stringify(clone[sec][id])) diff.push(`${sec}/${id} ${DATA[sec][id].n}`);
+  DATA.mahat.forEach((m, i) => { if (JSON.stringify(m) !== JSON.stringify(clone.mahat[i])) diff.push(`mahat#${i} ${m.n}`); });
+  if (diff.length) add('error', 'pay.not.calibrated', 'the pay figures are not as the rules of tools/calibrate-pay.mjs give (run it, and read what it changed)', diff);
+  add('info', 'pay.calibrated', `${Object.values(DATA.oc).filter((o) => o.cal).length} occupations and ${Object.values(DATA.af).filter((f) => f.cal).length} fields carry a calibration note (the original value is in it); ${Object.values(DATA.af).filter((f) => f.few).length} fields are marked as the pay of a few graduates`);
+  // 9b. a figure and its own series
+  const L1 = [], L2 = [], L3 = [], L4 = [], L5 = [];
+  for (const [id, f] of Object.entries(DATA.af)) {
+    const s = all(f), c = c56(f);
+    if (s && s.sal != null && c && c.v !== s.sal) L1.push(`${id} ${f.n}: stats ${s.sal} vs curve 5-6 ${c.v}`);
+    for (const o of f.occ || []) { const oc = DATA.oc[o.id]; if (oc && oc.sal != null && o.sal != null && oc.sal !== o.sal) L2.push(`${id} ${f.n} / ${o.id}: copy ${o.sal} vs occupation ${oc.sal}`); }
+    if (s && s.sal != null && (s.sal < 5000 || s.sal > 60000)) L5.push(`${id} ${f.n}: ${s.sal}`);
+  }
+  for (const [id, o] of Object.entries(DATA.oc)) {
+    const sr = o.g?.salary, last = sr && sr[sr.length - 1];
+    if (o.sal != null && last && last.v !== o.sal) L3.push(`${id} ${o.n}: sal ${o.sal} vs series ${last.v}`);
+    const at = (o.snap || []).indexOf('₪'); if (at > 0 && Number(String(o.snap[at - 1]).replace(/,/g, '')) !== o.sal) L3.push(`${id} ${o.n}: tile ${o.snap[at - 1]} vs sal ${o.sal}`);
+    for (const e of o.edu || []) { if (e.kind !== 'Academic') continue; const f = DATA.af[e.id], c = f && c56(f); if (c && e.sal != null && e.sal !== c.v) L4.push(`${id} ${o.n} / ${e.n}: ${e.sal} vs curve 5-6 ${c.v}`); }
+    if (o.sal != null && (o.sal < 1500 || o.sal > 80000)) L5.push(`occupation ${id} ${o.n}: ${o.sal}`);
+  }
+  if (L1.length) add('error', 'pay.field.curve', 'a field says two things about the 5-6 year pay: the figure and the point of its curve', L1);
+  if (L2.length) add('error', 'pay.field.occ', 'the pay of an occupation inside a field differs from the occupation itself', L2);
+  if (L3.length) add('error', 'pay.occ.series', 'the pay of an occupation differs from its series or its tile', L3);
+  if (L4.length) add('error', 'pay.edu.copy', 'the pay of a field inside an occupation differs from the field', L4);
+  if (L5.length) add('warn', 'pay.range', 'a pay figure outside what a month of work can be (a field 5,000-60,000, an occupation 1,500-80,000)', L5);
+  // 9c. a year that jumps, left as it is because it is below the rule's line, but worth a look
+  const J = [];
+  for (const [id, o] of Object.entries(DATA.oc)) { const sr = o.g?.salary; if (!o.cal && sr && sr.length > 1) { const a = sr[sr.length - 2].v, b = sr[sr.length - 1].v; if (a > 0 && b / a - 1 > 0.15) J.push(`${id} ${o.n}: ${a} -> ${b} (+${Math.round((b / a - 1) * 100)}%)`); } }
+  if (J.length) add('info', 'pay.jump.watch', `${J.length} occupations rose by more than 15% in the last year (below the line of ${RULES.jumpOver * 100}% that the calibration uses, so shown as published)`, J);
+  // 9d. employment
+  const E = Object.entries(DATA.af).map(([id, f]) => [id, f, all(f)]).filter(([, , s]) => s && s.emp != null && s.emp < 70).sort((a, b) => a[2].emp - b[2].emp).map(([id, f, s]) => `${id} ${f.n}: ${s.emp}%`);
+  if (E.length) add('info', 'pay.emp.low', 'fields with an employment rate below 70%: shown as published (the figure is of the graduates who are counted as employed; who is not counted is not stated)', E);
+  // 9d2. the pay of one institution only
+  const ONE = Object.values(DATA.af).filter((f) => f.one).map((f) => `${f.n}: ${f.one}`);
+  add('info', 'pay.one.institution', `${ONE.length} fields have pay figures of one institution only (marked, and the page of a degree that other institutions teach says so)`, ONE);
+  // 9e. a field that no degree points at carries data nobody sees
+  const used = new Set(DATA.deg.map((d) => d.av).filter(Boolean));
+  const U = Object.entries(DATA.af).filter(([id, f]) => !used.has(id) && all(f) && all(f).sal != null).map(([id, f]) => `${id} ${f.n}: ${all(f).sal}`);
+  if (U.length) add('info', 'pay.field.unused', 'fields with pay figures that no degree points at', U);
+  // 9f. a technician pay range written the wrong way round
+  const R = [];
+  DATA.mahat.forEach((m) => ((m.page && m.page.w) || []).forEach((l) => { for (const x of l.matchAll(/(\d{1,3},\d{3})-(\d{1,3},\d{3})/g)) if (Number(x[1].replace(',', '')) > Number(x[2].replace(',', ''))) R.push(`${m.n}: ${l}`); }));
+  if (R.length) add('warn', 'pay.mahat.range', 'a technician pay range with the higher number first', R);
 }
 
 // ---- report ----
