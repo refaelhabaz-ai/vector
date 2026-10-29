@@ -6769,7 +6769,7 @@ function openAuth(o={}){
     <div class="fnote" style="margin:14px 0 0;font-size:14px">מצב בדיקה: כרגע החשבון נשמר רק בדפדפן הזה, והסיסמה נשמרת בצורת גיבוב ולא כטקסט. החשבון אינו מגן על המידע מפני מי שמשתמש במכשיר הזה.</div></div>`);
   const pw=$('#apw');
   if(reg)pw.addEventListener('input',()=>{const s=pwStrength(pw.value);document.querySelectorAll('#pwm i').forEach((x,i)=>x.className=i<s?'on s'+s:'');$('#pwh').textContent=!pw.value?'לפחות 8 תווים, עם אותיות ומספרים.':['חלשה מאוד','חלשה','בינונית','טובה','חזקה'][s]});
-  setTimeout(()=>($('#aname')||$('#aid')).focus({preventScroll:true}),60);
+  setTimeout(()=>{const f=$('#aname')||$('#aid');if(f)f.focus({preventScroll:true})},60); /* the dialog may be gone by now */
 }
 async function submitAuth(){
   const reg=AUTH.tab==='reg', err=m=>{const e=$('#aerr2');e.textContent=m;e.hidden=false}, btn=$('#asub');
@@ -10999,6 +10999,7 @@ function filtersHTML(){
 }
 /* re-rendering the results never moves the page: the filters stay exactly where they were on screen */
 function refreshExplore(){
+  if(!$('#filters')||!$('#gridHost'))return; /* the page may be gone: the timer of a search typed on it fires after I left */
   const sh=$('#shelves'), hide=!!S.q, flip=sh&&sh.hidden!==hide, f=$('#filters'), top0=f?f.getBoundingClientRect().top:0;
   if(sh)sh.hidden=hide;
   const eh=$('#exploreH');if(eh)eh.innerHTML=exploreHead();

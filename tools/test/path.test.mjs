@@ -232,6 +232,20 @@ scenario('a search typed on the jobs page and left at once does not break the pa
   await page.waitForTimeout(500);
 });
 
+scenario('a search typed on the degrees page and left at once does not break the page that follows', GAP, {}, async (page) => {
+  await page.evaluate(() => { location.hash = '#degrees'; });
+  await page.waitForSelector('#dq');
+  await page.fill('#dq', 'מדעי');
+  await page.evaluate(() => { location.hash = '#sch'; }); // before the timer of the search has fired
+  await page.waitForTimeout(500);
+});
+
+scenario('the account dialog that a route change closed does not break when its delayed focus fires', GAP, {}, async (page) => {
+  await page.evaluate(() => { openAuth(); location.hash = '#degrees'; }); // gone before the 60 ms after which the dialog takes the focus
+  await page.waitForTimeout(300);
+  assert.equal(await page.$('#ov'), null);
+});
+
 scenario('the map is where it was: a gate for every stage, the next stop marked, and a stop still opens its step', GAP, {}, async (page) => {
   await page.waitForSelector('#kpJ .tr');
   const m = await page.evaluate(() => ({ gates: document.querySelectorAll('#kpJ [data-kgate]').length, zones: plan().zones.length, next: document.querySelectorAll('#kpJ [aria-current="step"]').length }));
