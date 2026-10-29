@@ -73,6 +73,38 @@ scenario('with no numbers yet the mentor asks for an estimate, and offers no pla
   assert.equal(await page.$('#mtPlan'), null);
 });
 
+// ---- "המספרים שלי": the numbers, the chart, saving. Nothing else ----
+const openNumbers = async (page) => { await page.click('[data-ktab="lab"]'); await page.waitForSelector('#kpOut'); };
+scenario('the numbers tool holds the sliders, the verdict, the chart and saving, and no boosters and no doors', FAR, {}, async (page) => {
+  await openNumbers(page);
+  for (const sel of ['#kpIn', '#kpPn', '#kpP', '#kpRows', '#kpVerdict', '#kpChart svg', '#kpSave']) assert.ok(await page.$(sel), `${sel} is there`);
+  for (const sel of ['#kpBoost', '#kpDoors', '.kp-bst', '.kp-dr', '.kp-dsum', '[data-lb]', '[data-lbd]', '[data-lbplan]']) assert.equal(await page.$(sel), null, `${sel} is gone`);
+  assert.doesNotMatch(await page.$eval('#kpTab', (e) => e.innerText), /בוסטר|דלתות פתוחות|דלתות קרובות|לפירוט הדלתות/);
+});
+
+scenario('a number moved in the numbers tool changes the verdict and the chart at once, and reaches the profile only when the student says so', FAR, {}, async (page) => {
+  await openNumbers(page);
+  const stored = () => page.evaluate(() => JSON.parse(localStorage.getItem('kivun3.scores') || '{}').p);
+  const before = { verdict: await page.$eval('#kpVerdict', (e) => e.innerText), dot: await page.$eval('#kpChart circle.me', (e) => e.getAttribute('cy')) };
+  assert.equal(await stored(), 600);
+  await page.fill('#kpPn', '780');
+  await page.waitForFunction((v) => document.querySelector('#kpVerdict').innerText !== v, before.verdict);
+  assert.notEqual(await page.$eval('#kpChart circle.me', (e) => e.getAttribute('cy')), before.dot, 'the dot of the chart moved with the score');
+  assert.equal(await page.$eval('#kpP', (e) => +e.value), 780, 'the slider follows the typed number');
+  assert.equal(await stored(), 600, 'nothing is saved by moving a number');
+  await page.click('[data-lbsave]');
+  await page.waitForSelector('[data-lbok]');
+  assert.equal(await stored(), 600, 'nor by asking to save: it asks first');
+  await page.click('[data-lbok="real"]');
+  await page.waitForFunction(() => JSON.parse(localStorage.getItem('kivun3.scores') || '{}').p === 780);
+  // moved again, and put back: the profile is what it was
+  await page.fill('#kpPn', '650');
+  await page.waitForSelector('[data-lbreset]');
+  await page.click('[data-lbreset]');
+  await page.waitForFunction(() => +document.querySelector('#kpPn').value === 780);
+  assert.equal(await stored(), 780);
+});
+
 // ---- the calendar ----
 // It opens empty. Nothing is in it until the student puts it there: a line they write, a sitting they mark in the menu of official dates, a scholarship they follow.
 const openCalendar = async (page) => { await page.click('[data-ktab="cal"]'); await page.waitForSelector('#cuMain'); };
