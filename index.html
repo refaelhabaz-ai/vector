@@ -1966,54 +1966,7 @@ html.hc .rz-r{stroke:#000}
 .pg .tr-panel{margin-bottom:0}
 .pg-bd{margin-top:22px}
 @media(max-width:620px){.pg-y{font-size:11px}.pg-b{padding-inline:0}.pg-pin{font-size:11px;padding:4px 8px}}
-
-/* ===== the calendar ===== */
-.cl-fl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.cl-fl .chip{min-height:44px}
-.cl-main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,1fr);gap:clamp(16px,2.4vw,28px);align-items:start}
-.cl-cal{background:#fff;border-radius:28px;box-shadow:var(--shadow);padding:clamp(12px,2vw,22px)}
-@media(min-width:901px){.cl-cal{position:sticky;top:calc(var(--hh,72px) + 78px)}}
-.cl-nv{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.cl-nv h3{flex:1;text-align:center;margin:0;font:700 clamp(18px,2vw,22px) var(--head)}
-.cl-nb{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#F3F4F9;color:var(--ink);cursor:pointer;transition:background .2s,transform .2s}
-.cl-nb svg{width:18px;height:18px}.cl-nb:hover{background:#E9EBF4;transform:scale(1.06)}
-.cl-td{min-height:44px;padding-inline:8px;font-weight:600}
-.cl-g{width:100%;min-width:0;border-collapse:separate;border-spacing:4px;table-layout:fixed}
-.cl-g th{font:600 13px var(--head);color:var(--muted);padding:2px 0 4px}.cl-g th.wk{color:var(--primary-dark)}
-.cl-g td{padding:0}
-.cl-d{position:relative;display:flex;flex-direction:column;align-items:stretch;gap:3px;width:100%;min-height:clamp(54px,7.2vw,84px);padding:6px;border-radius:14px;background:#F8F9FD;text-align:start;border:2px solid transparent;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s,border-color .2s}
-.cl-d>b{font:600 14px/1 var(--head);color:#3B4262}
-.cl-d.wk{background:#F3F4FA}
-.cl-d:hover{background:#fff;box-shadow:var(--shadow);transform:translateY(-1px)}
-.cl-d.has{background:#fff;box-shadow:var(--shadow)}
-.cl-d.today{border-color:var(--cta)}.cl-d.today>b{color:#C23A19}
-.cl-d.sel{background:var(--ink);border-color:var(--ink)}.cl-d.sel>b{color:#fff}
-.cl-ev{display:grid;gap:2px;min-width:0}
-.cl-ev i{display:block;font:600 11px/1.3 var(--head);font-style:normal;border-radius:6px;padding:1px 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.cl-ev em{font:600 11px var(--head);font-style:normal;color:var(--muted)}.cl-d.sel .cl-ev em{color:#D9DDF0}
-.cl-ev i.psy{background:#E4EBFF;color:#2740A8}.cl-ev i.bag{background:#DDF7EE;color:#0B5A3E}.cl-ev i.idf{background:#FFEFE3;color:#8A3A00;border:1px dashed #E8A87C}.cl-ev i.sch{background:#ECE6FF;color:#4B2FB0}.cl-ev i.mine{background:#FFE3EE;color:#9B1C4D}
-.cl-dots{display:none;gap:3px;justify-content:center;margin-top:auto}
-.cl-dots s,.cl-lg s{display:inline-block;width:8px;height:8px;border-radius:50%;text-decoration:none;background:#C9CEE0}
-.cl-dots s.psy,.cl-lg s.psy{background:#3B5BDB}.cl-dots s.bag,.cl-lg s.bag{background:#0C9E73}.cl-dots s.idf,.cl-lg s.idf{background:#E8590C}.cl-dots s.sch,.cl-lg s.sch{background:#7048E8}.cl-dots s.mine,.cl-lg s.mine{background:#D6336C}
-.cl-lg{display:flex;flex-wrap:wrap;gap:6px 16px;margin:12px 2px 0;font-size:13px;color:var(--muted)}.cl-lg span{display:inline-flex;align-items:center;gap:6px}
-.cl-side{display:grid;gap:14px;min-width:0}
-.cl-h3{margin:0;font:700 17px var(--head)}
-.cl-l{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.cl-day{background:#fff;border-radius:24px;box-shadow:var(--shadow-h);padding:16px;border:2px solid var(--ink);animation:pgIn .35s cubic-bezier(.2,.8,.2,1)}
-.cl-day h3{margin:0 0 10px;font:700 18px var(--head)}
-.cl-r{display:grid;grid-template-columns:52px minmax(0,1fr);gap:6px 12px;align-items:start;background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:12px 14px;border-inline-start:5px solid var(--kc,#C9CEE0)}
-.cl-r.psy{--kc:#3B5BDB}.cl-r.bag{--kc:#0C9E73}.cl-r.idf{--kc:#E8590C}.cl-r.sch{--kc:#7048E8}.cl-r.mine{--kc:#D6336C}
-.cl-r.approx{border-inline-start-style:dashed;background:#FFFBF7}
-.cl-rd{display:grid;place-items:center;align-content:center;width:52px;height:56px;border-radius:14px;background:#F3F4F9;color:var(--ink)}
-.cl-rd b{font:800 20px/1 var(--head)}.cl-rd small{font-size:11.5px;color:var(--muted);line-height:1.2}
-.cl-rb{min-width:0}.cl-rb>b{display:block;font:600 15px/1.4 var(--head)}
-.cl-rb small{display:block;color:var(--muted);font-size:13px;line-height:1.55}
-.cl-rk{font-weight:700;color:var(--ink)}
-.cl-ra{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:8px}.cl-ra .tl-src,.cl-ra .linkbtn{min-height:36px;display:inline-flex;align-items:center}
 .cl-add{display:inline-flex;gap:6px;flex-wrap:wrap}.cl-add .btn{min-height:36px;padding:5px 12px;font-size:13.5px;gap:6px;box-shadow:none;border:1.5px solid var(--line)}.cl-add .btn:hover{border-color:var(--ink);transform:none;box-shadow:none}.cl-add .btn svg{width:15px;height:15px}
-.cl-more{justify-self:start}
-.cl-own{margin-top:clamp(20px,3vw,32px)}
-.cl-note{max-width:80ch;margin-top:16px}
 
 /* the bagrut planner: the subjects I can still sit, and when */
 .bg-sec{margin-top:clamp(24px,3.4vw,38px)}
@@ -2035,24 +1988,16 @@ html.hc .rz-r{stroke:#000}
 .kp-focus .bg-c p{margin:0}
 .bg-c .linkbtn{justify-self:start;min-height:40px;display:inline-flex;align-items:center;gap:6px}.bg-c .linkbtn svg{width:15px;height:15px}
 .kp-focus .bg-sec{margin-top:18px}.kp-focus .bg-grid{grid-template-columns:minmax(0,1fr)}
-
-@media(max-width:900px){.cl-main{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:620px){
   .kp-seg3{width:100%}.kp-vw{font-size:14.5px;gap:6px;padding-inline:4px}
   .kp-tools{margin-top:26px;padding-top:16px}.kp-tools-h{flex:1 1 100%}
   .kp-tls{flex:1 1 100%;flex-wrap:nowrap;gap:6px}.kp-tool{flex:1 1 0;min-width:0;justify-content:center;padding:8px 6px;font-size:13.5px}.kp-tool svg{display:none}
-  .cl-fl{gap:6px}.cl-fl .chip{min-height:40px;padding:6px 12px;font-size:14px}
-  .cl-ev{display:none}.cl-dots{display:flex}
-  .cl-g{border-spacing:2px}.cl-d{min-height:48px;padding:4px;align-items:center;gap:4px}.cl-d>b{font-size:13.5px}
-  .cl-nb{width:40px;height:40px}
-  .cl-r{grid-template-columns:46px minmax(0,1fr);padding:12px}.cl-rd{width:46px;height:52px}.cl-rd b{font-size:18px}
   .bg-s li{grid-template-columns:minmax(0,1fr)}.bg-s li .cl-add{grid-column:1}
 }
 @media(max-width:360px){.kp-vw svg{display:none}}
 .kp-form input:focus-visible,.kp-form select:focus-visible{outline:3px solid #5C7CFA;outline-offset:2px;box-shadow:none}
 html.hc .kp-seg3{background:#fff;border:2px solid #000}html.hc .kp-ind{background:#000}
-html.hc .pg-chart,html.hc .cl-cal,html.hc .cl-r,html.hc .bg-c,html.hc .cl-day,html.hc .kp-tool{border:2px solid #000}
-html.hc .cl-d{border:1.5px solid #000;background:#fff}html.hc .cl-d.sel{background:#000}
+html.hc .pg-chart,html.hc .bg-c,html.hc .kp-tool{border:2px solid #000}
 html.hc .pg-t{box-shadow:inset 0 0 0 2px #000}html.hc .pg-f{background:#000!important}
 /* ===== gentle motion (html.rg) =====
    I chose "gentle" on the site (the computer's own "reduce motion" setting does not turn it on). Nothing moves across the screen and nothing loops: what stays is fading, changes of colour and shadow, and the fill of
@@ -2064,7 +2009,7 @@ html.rg .btn.primary::after{display:none}
 html.rg .hdr.tuck{transform:none}
 html.rg .to-top{transform:none}
 html.rg #glide{display:none}
-html.rg .pillbtn:hover,html.rg .tools .pillbtn.hot:hover,html.rg .btn.primary:hover,html.rg .btn.soft:hover,html.rg .arrows button:hover,html.rg .card:hover,html.rg .card:hover .pic svg,html.rg .heart:hover,html.rg .chip:hover,html.rg .inst:hover,html.rg .qopt:hover,html.rg .lk:hover,html.rg .golink-in:hover,html.rg .hcard:hover,html.rg .qrowl:hover,html.rg .fb2:hover,html.rg .hbo-i:hover,html.rg .btn:active,html.rg .chip:active,html.rg .pillbtn:active,html.rg .link:active,html.rg .dq-o:hover,html.rg .pq-b:hover,html.rg .pth-home:hover,html.rg .golinks .golink-in:hover,html.rg .golinks .golink-in:active,html.rg .kp-step:hover,html.rg .kp-b:hover,html.rg .sgc:hover,html.rg .kp-pi:hover,html.rg .kp-hc.add:hover,html.rg .kp-q button:hover,html.rg button.tr-b:hover .tr-c,html.rg .tr-n.cur button.tr-b:hover .tr-c,html.rg .rz-oc button:hover:not([disabled]),html.rg button.rz-c:hover,html.rg .kp-mc:hover>svg:last-child,html.rg .kp-tool:hover,html.rg .cl-nb:hover,html.rg .cl-d:hover,html.rg .em-c:hover,html.rg .fb2:active{transform:none!important}
+html.rg .pillbtn:hover,html.rg .tools .pillbtn.hot:hover,html.rg .btn.primary:hover,html.rg .btn.soft:hover,html.rg .arrows button:hover,html.rg .card:hover,html.rg .card:hover .pic svg,html.rg .heart:hover,html.rg .chip:hover,html.rg .inst:hover,html.rg .qopt:hover,html.rg .lk:hover,html.rg .golink-in:hover,html.rg .hcard:hover,html.rg .qrowl:hover,html.rg .fb2:hover,html.rg .hbo-i:hover,html.rg .btn:active,html.rg .chip:active,html.rg .pillbtn:active,html.rg .link:active,html.rg .dq-o:hover,html.rg .pq-b:hover,html.rg .pth-home:hover,html.rg .golinks .golink-in:hover,html.rg .golinks .golink-in:active,html.rg .kp-step:hover,html.rg .kp-b:hover,html.rg .sgc:hover,html.rg .kp-pi:hover,html.rg .kp-hc.add:hover,html.rg .kp-q button:hover,html.rg button.tr-b:hover .tr-c,html.rg .tr-n.cur button.tr-b:hover .tr-c,html.rg .rz-oc button:hover:not([disabled]),html.rg button.rz-c:hover,html.rg .kp-mc:hover>svg:last-child,html.rg .kp-tool:hover,html.rg .em-c:hover,html.rg .fb2:active{transform:none!important}
 
 /* ===== alive and flowing (fx) =====
    Small things that make the page feel like it breathes. Each one is a fade or a soft glow first; the movement part reads --fx, so gentle mode keeps the fade. */
@@ -2076,9 +2021,6 @@ html.rg .pillbtn:hover,html.rg .tools .pillbtn.hot:hover,html.rg .btn.primary:ho
 }
 @keyframes sheen{from{transform:skewX(-18deg) translateX(0)}to{transform:skewX(-18deg) translateX(-480%)}}
 /* a month slides in from the side it came from */
-.cl-g.sl-n{animation:clN .42s cubic-bezier(.2,.8,.2,1)}.cl-g.sl-p{animation:clP .42s cubic-bezier(.2,.8,.2,1)}.cl-g.sl-t{animation:pgIn .4s ease-out}
-@keyframes clN{from{opacity:0;transform:translateX(calc(32px*var(--fx,1)))}to{opacity:1;transform:none}}
-@keyframes clP{from{opacity:0;transform:translateX(calc(-32px*var(--fx,1)))}to{opacity:1;transform:none}}
 /* ---------- who employs the graduates (em-): names only, no logos ---------- */
 .em .intro{max-width:72ch}
 .em-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
@@ -2102,82 +2044,6 @@ html.rg .pillbtn:hover,html.rg .tools .pillbtn.hot:hover,html.rg .btn.primary:ho
 .tn-teaser{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:22px;box-shadow:var(--shadow);padding:16px 20px;margin-top:14px}
 .tn-teaser>svg{width:28px;height:28px;flex:none;color:var(--primary-dark);margin-top:2px}.tn-teaser b{font-family:var(--head)}.tn-teaser p{margin:2px 0 10px;color:var(--muted)}
 @media(max-width:640px){.tr-arr{display:none}.tr-ph{padding:16px 16px 10px}.tr-ph h3{font-size:20px}}
-/* ---------- v19: the calendar, clean (cn-, cl-) ---------- */
-.cl2 .sec-h{margin-bottom:12px}
-.cl-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 clamp(14px,2vw,20px)}
-.cl-plus{min-height:48px}
-.cl-tt{display:flex;align-items:flex-start;gap:8px}.cl-tt .cl-ck{margin:0;vertical-align:baseline}.cl-tt b{flex:1;min-width:0;font:600 15px/1.45 var(--head)}
-.cl-have{display:inline-flex;align-items:center;gap:6px;min-height:36px;font:700 13.5px var(--head);color:var(--good)}.cl-have svg{width:16px;height:16px}
-.cl-take{min-height:36px;padding:5px 14px;font-size:13.5px;gap:6px}.cl-take svg{width:15px;height:15px}
-.cl-hint{margin:10px 2px 0;font-size:13.5px;color:var(--muted)}
-.cl-sw{display:flex;align-items:center;gap:10px;margin-top:8px;padding:6px 2px;min-height:44px;width:100%;font-size:14px;color:#3B4262;text-align:start}
-.cl-swi{flex:none;position:relative;width:42px;height:26px;border-radius:999px;background:#CDD2E4;transition:background .25s}
-.cl-swi::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(31,37,68,.3);transition:inset-inline-start .3s cubic-bezier(.2,.8,.2,1)}
-.cl-sw[aria-checked="true"] .cl-swi{background:var(--good)}.cl-sw[aria-checked="true"] .cl-swi::after{inset-inline-start:19px}
-.cl-dh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}.cl-dh h3{margin:0}
-.cl-empty{background:#fff;border-radius:24px;box-shadow:var(--shadow);padding:18px 20px;display:grid;gap:6px}
-.cl-empty b{font:700 18px var(--head)}.cl-empty p{margin:0;color:var(--muted);line-height:1.6}
-.cl-addf{background:#fff;border-radius:24px;box-shadow:var(--shadow-h);padding:18px;border:2px solid var(--ink);display:grid;gap:8px;animation:pgIn .35s cubic-bezier(.2,.8,.2,1)}
-.cl-addf h3{margin:0 0 2px;font:700 18px var(--head)}
-.cl-addf label{font:600 14.5px var(--head)}
-.cl-addf input[type=date],.cl-addf input:not([type]){width:100%;min-height:46px;padding:9px 14px;border-radius:14px;border:1.5px solid var(--line);background:#fff;font:inherit;color:var(--ink)}
-.cl-addf input:focus-visible{outline:3px solid #5C7CFA;outline-offset:2px}
-.cl-kind{border:0;margin:2px 0 0;padding:0;display:flex;gap:8px;min-width:0}
-.cl-kind label{flex:1;position:relative}
-.cl-kind input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-.cl-kind span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border-radius:14px;border:1.5px solid var(--line);font:600 15px var(--head);color:var(--muted);transition:background .2s,border-color .2s,color .2s}
-.cl-kind span svg{width:18px;height:18px}
-.cl-kind input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
-.cl-kind input:focus-visible+span{outline:3px solid #5C7CFA;outline-offset:2px}
-.cl-kh{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55}
-.cl-addb{display:flex;gap:8px;margin-top:4px}
-.cl-ck{flex:none;width:26px;height:26px;border-radius:9px;border:2px solid #9AA1BD;background:#fff;display:inline-grid;place-items:center;vertical-align:-7px;margin-inline-end:8px;transition:background .2s,border-color .2s,transform .2s}
-.cl-ck:hover{border-color:var(--ink);transform:scale(1.08)}
-.cl-ck[aria-checked="true"]{background:var(--good);border-color:var(--good)}
-.cl-ck[aria-checked="true"]::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:translateY(-1px) rotate(45deg)}
-.cl-r.done{opacity:.72}.cl-r.done .cl-rb>b{text-decoration:line-through;color:var(--muted)}
-.cl-ev i.done{text-decoration:line-through;opacity:.65}
-.cl-off{margin-top:clamp(22px,3vw,34px);background:#fff;border-radius:24px;box-shadow:var(--shadow)}
-.cl-off>summary{display:flex;align-items:center;gap:10px;min-height:56px;padding:12px 20px;font:700 17px var(--head);cursor:pointer;list-style:none}
-.cl-off>summary::-webkit-details-marker{display:none}
-.cl-off>summary::after{content:"";margin-inline-start:auto;width:9px;height:9px;border:solid #7A819C;border-width:0 2.5px 2.5px 0;transform:translateY(-30%) rotate(45deg);transition:transform .25s}
-.cl-off[open]>summary::after{transform:translateY(20%) rotate(225deg)}
-.cl-offn{border-radius:999px;background:#F0F1F6;padding:2px 10px;font:700 13px var(--head);color:#3B4262}
-.cl-offb{padding:4px 20px 20px}
-@media(max-width:700px){.cl-bar .btn{width:100%}.cl-off>summary{padding-inline:16px}.cl-offb{padding-inline:14px}}
-/* ---------- v20: every exam date, in order (up-) ---------- */
-.up{margin-bottom:clamp(20px,3vw,34px)}
-.up-sub{margin:0 0 12px;max-width:68ch;color:var(--muted);font-size:14.5px;line-height:1.6}
-.up-ps{margin:-4px 0 12px}
-.up-mg{margin:0 0 18px;break-inside:avoid}
-@media(min-width:900px){.up-l{columns:2;column-gap:28px}}
-.up-m{margin:0 0 8px;font:700 15px var(--head);color:#3B4262;break-after:avoid}
-.up-ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.up-r{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:6px 12px;align-items:center;break-inside:avoid;background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:10px 12px;border-inline-start:5px solid var(--kc,#C9CEE0);transition:transform .25s,box-shadow .25s}
-.up-r:hover{transform:translateY(-1px);box-shadow:var(--shadow-h)}
-.up-r.psy{--kc:#3B5BDB}.up-r.bag{--kc:#0C9E73}.up-r.reg{--kc:#3B5BDB;border-inline-start-style:dashed}
-.up-r.off{opacity:.68}
-.up-r .cl-rb>b{display:inline}
-.up-r .up-k{font:700 12.5px var(--head);color:#2740A8}.up-r .up-k.bag{color:#0B5A3E}
-.up-nx{display:inline-block;margin-inline-start:6px;border-radius:999px;background:var(--ink);color:#fff;font:700 11.5px var(--head);padding:1px 8px;vertical-align:1px}
-.up-tg{margin-inline-start:4px}.up-tg.need{background:#FFE9E0;color:#8A2A0E}.up-tg.boost{background:#FFF3CF;color:#6B4A00}.up-tg.mine{background:#E7F0FF;color:#1D3E8A}
-.up-add{min-height:40px}
-.up-fn{margin:12px 0 0;max-width:84ch}
-.cl-vs{display:flex;gap:4px;margin:0 0 clamp(16px,2.4vw,24px);border-bottom:2px solid var(--line)}
-.cl-vt{position:relative;flex:1 1 0;min-height:52px;padding:8px 12px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 clamp(15px,1.6vw,17px) var(--head);color:#4A5068;cursor:pointer;border-radius:14px 14px 0 0;transition:color .25s,background .25s}
-.cl-vt:hover{color:var(--ink);background:#F3F4FA}
-.cl-vt .num{border-radius:999px;background:#F0F1F6;padding:1px 9px;font:700 13px var(--head);color:#3B4262;transition:background .25s,color .25s}
-.cl-vt::after{content:"";position:absolute;inset-inline:14px;bottom:-2px;height:4px;border-radius:4px 4px 0 0;background:var(--cta);transform:scaleX(0);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.cl-vt[aria-selected="true"]{color:var(--ink)}
-.cl-vt[aria-selected="true"] .num{background:var(--ink);color:#fff}
-.cl-vt[aria-selected="true"]::after{transform:scaleX(1)}
-.cl-vt:focus-visible{outline:3px solid #5C7CFA;outline-offset:2px}
-#cl-exam .cl-off{margin-top:clamp(18px,2.4vw,26px)}
-@media(max-width:460px){.cl-vt{padding-inline:6px;font-size:14.5px;gap:6px}}
-html.hc .cl-vs{border-bottom-color:#000}html.hc .cl-vt[aria-selected="true"]::after{background:#000}
-@media(max-width:620px){.up-r{grid-template-columns:46px minmax(0,1fr) auto;padding:10px}}
-@media(max-width:460px){.up-add{width:44px;min-width:44px;height:44px;padding:0;justify-content:center}.up-add span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
-html.hc .up-r,html.hc .cl-addf,html.hc .cl-empty,html.hc .cl-off{border:2px solid #000;box-shadow:none}
 /* ---------- v19: the home page opens with one clear first step; the road keeps long lists closed ---------- */
 .hero{padding-block:clamp(18px,2.8vw,38px) clamp(26px,3.6vw,44px)}
 .hero h1{font-size:clamp(38px,4.7vw,60px);margin-block:14px 12px}
@@ -2226,14 +2092,6 @@ html.hc .fmore>summary{border:2px solid #000;box-shadow:none}
 /* suggestions and small panels arrive softly */
 .sugg:not([hidden]){animation:tabIn .24s cubic-bezier(.2,.8,.2,1) both}
 /* a task that is ticked pops a little */
-.cl-ck[aria-checked="true"]{animation:ckPop .4s cubic-bezier(.2,1.6,.4,1)}
-.cl-dn{background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:0 16px}
-.cl-dn>summary{display:flex;align-items:center;gap:10px;min-height:48px;font:600 15px var(--head);cursor:pointer;list-style:none}
-.cl-dn>summary::-webkit-details-marker{display:none}
-.cl-dn>summary::after{content:"";margin-inline-start:auto;width:8px;height:8px;border:solid #7A819C;border-width:0 2.5px 2.5px 0;transform:translateY(-30%) rotate(45deg);transition:transform .25s}
-.cl-dn[open]>summary::after{transform:translateY(20%) rotate(225deg)}
-.cl-dn .cl-l{padding-bottom:14px}
-@keyframes ckPop{0%{transform:scale(.7)}60%{transform:scale(calc(1 + .16*var(--fx,1)))}100%{transform:none}}
 /* the first step of the home page breathes, slowly (a loop: gentle mode stops it) */
 @keyframes ctaBreathe{0%,100%{box-shadow:0 12px 28px rgba(255,107,74,.32)}50%{box-shadow:0 16px 38px rgba(255,107,74,.52)}}
 .gl-main{animation:ctaBreathe 5.5s ease-in-out infinite}
@@ -2243,9 +2101,9 @@ a:not(.btn):not(.hit){transition:text-underline-offset .2s,color .2s}
 a:not(.btn):not(.hit):hover{text-underline-offset:5px}
 /* a drawer opens and closes with a glide where the browser can animate its height */
 @supports (interpolate-size:allow-keywords){
-  details.fmore,details.cl-off,details.tn,details.adm{interpolate-size:allow-keywords}
-  details.fmore::details-content,details.cl-off::details-content,details.tn::details-content,details.adm::details-content{block-size:0;overflow:hidden;opacity:0;transition:block-size .4s cubic-bezier(.2,.8,.2,1),opacity .3s ease,content-visibility .4s allow-discrete}
-  details.fmore[open]::details-content,details.cl-off[open]::details-content,details.tn[open]::details-content,details.adm[open]::details-content{block-size:auto;opacity:1}
+  details.fmore,details.tn,details.adm{interpolate-size:allow-keywords}
+  details.fmore::details-content,details.tn::details-content,details.adm::details-content{block-size:0;overflow:hidden;opacity:0;transition:block-size .4s cubic-bezier(.2,.8,.2,1),opacity .3s ease,content-visibility .4s allow-discrete}
+  details.fmore[open]::details-content,details.tn[open]::details-content,details.adm[open]::details-content{block-size:auto;opacity:1}
 }
 /* ---------- v19: the answers on top of a page (ax-, az-), and the compact head of a degree, an occupation and a technician track (dpc) ---------- */
 .dpc .dpc-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,236px);gap:clamp(16px,3vw,40px);align-items:center;padding-block:clamp(14px,2vw,24px) 4px;position:relative;z-index:1}
@@ -2330,6 +2188,252 @@ html.hc .az-b{background:#fff;border:1.5px solid #000}
 html.hc .hg-c{border:2px solid #000;box-shadow:none}
 .mine{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--good-soft);color:var(--good);font:700 12px var(--head);margin-inline-start:6px;vertical-align:1px}
 html.hc .mine{background:#fff;color:#000;border:1.5px solid #000}
+/* ---------- the mentor: a brief beside the step in focus (mt-b) and the plan under it (mt-p, mv-) ---------- */
+.mt-b,.mt-p{--mt-bg:#E4EBFF;--mt-ink:#2F4AC0;--mt-wash:#DCE6FF}
+.mt-b.ok,.mt-p.ok{--mt-bg:#DDF7EE;--mt-ink:#0A7455;--mt-wash:#CFF3E4}
+.mt-b.near{--mt-bg:#E9F7D8;--mt-ink:#3F6B0F;--mt-wash:#DDF3C2}
+.mt-b.mid{--mt-bg:#FFF0CF;--mt-ink:#8A5200;--mt-wash:#FFE9B8}
+.mt-b.far{--mt-bg:#FFE3DB;--mt-ink:#B83A1B;--mt-wash:#FFD9CC}
+.kp-side .mt-b{margin:0}
+.mt-b{position:relative;isolation:isolate;display:flex;flex-direction:column;gap:12px;background:#fff;border-radius:26px;box-shadow:var(--shadow);padding:20px 20px 18px;overflow:hidden}
+.mt-b::before{content:"";position:absolute;inset:0 0 auto 0;height:128px;z-index:-1;background:radial-gradient(280px 130px at 100% 0,var(--mt-wash),transparent 72%)}
+.mt-bh{display:flex;align-items:center;gap:12px}
+.mt-av{flex:none;width:44px;height:44px;border-radius:15px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,#FF8F6B,#F2502F);box-shadow:0 8px 18px rgba(242,80,47,.3)}
+.mt-av svg{width:23px;height:23px}
+.mt-bk{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.mt-bk small{font:600 14px var(--head);color:#3B4262}
+.mt-pill{display:inline-block;max-width:100%;border-radius:999px;padding:2px 11px;font:700 12.5px/1.6 var(--head);background:var(--mt-bg);color:var(--mt-ink)}
+.mt-b h2{font:700 clamp(19px,1.8vw,22px)/1.3 var(--head);margin:2px 0 0;color:var(--ink)}
+.mt-bp{margin:0;font-size:15px;line-height:1.7;color:#3B4262}
+.mt-bp .ft-chip,.mv-wn .ft-chip{vertical-align:middle}
+.mt-tile{display:flex;align-items:baseline;justify-content:space-between;gap:12px;background:#F4F7FF;border-radius:18px;padding:12px 16px}
+.mt-tile small{font:600 13.5px/1.4 var(--head);color:#3B4262}
+.mt-tile b{font:800 32px/1 var(--head);color:var(--mt-ink);letter-spacing:-.01em}
+.mt-g{margin-top:20px}
+.mt-gt{position:relative;height:12px;border-radius:999px;background:#EEF0F6}
+.mt-gt i{position:absolute;inset-block:0;inset-inline-start:0;border-radius:999px;background:linear-gradient(90deg,#FFC08F,#F2502F);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.mt-g.ok .mt-gt i{background:linear-gradient(90deg,#6FE3BC,#12A26B)}
+.mt-gt b{position:absolute;top:-7px;bottom:-7px;width:3px;margin-inline-start:-1.5px;border-radius:2px;background:var(--ink)}
+.mt-gt b em{position:absolute;bottom:calc(100% + 3px);left:50%;transform:translateX(-50%);font:700 11.5px/1.5 var(--head);font-style:normal;color:#fff;background:var(--ink);border-radius:999px;padding:0 8px;white-space:nowrap}
+.mt-gl{display:flex;justify-content:space-between;gap:10px;margin-top:9px;font-size:13.5px;color:var(--muted)}.mt-gl b{font-family:var(--head);color:var(--ink)}
+.mt-w,.mt-f{list-style:none;margin:0;padding:0}
+.mt-w{display:flex;flex-wrap:wrap;gap:8px}
+.mt-w li{display:inline-flex;align-items:center;gap:7px;min-width:0;max-width:100%;background:#F3F5FB;border-radius:999px;padding:6px 13px 6px 11px;font:600 13.5px/1.4 var(--head);color:#2E3556}
+.mt-w li svg{flex:none;width:16px;height:16px;color:var(--primary-dark)}
+.mt-w li.hot{background:#FFF0CF;color:#6B4200}.mt-w li.hot svg{color:#8A5200}
+.mt-f{display:grid;gap:6px;font-size:13.5px;color:var(--muted)}
+.mt-f li{display:flex;align-items:center;gap:8px}.mt-f svg{flex:none;width:16px;height:16px;color:#7A819C}
+.mt-bc{margin-top:2px}.mt-bc .btn{width:100%;justify-content:center}
+.mt-bc .btn svg{width:18px;height:18px}
+/* the plan under the step: moves in the order worth doing them */
+.mt-p{margin-top:22px;background:#fff;border-radius:30px;box-shadow:0 8px 30px rgba(31,37,68,.08);padding:clamp(20px,3vw,32px)}
+.mt-ph{display:flex;align-items:flex-start;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;margin-bottom:18px}
+.mt-ph>div{min-width:0;flex:1 1 380px}
+.mt-ph small{font:700 13px var(--head);color:var(--primary-dark);letter-spacing:.02em}
+.mt-ph h2{font-size:clamp(22px,2.6vw,29px);line-height:1.25;margin:2px 0 6px}
+.mt-ph p{margin:0;color:#4A5068;font-size:15.5px;line-height:1.65;max-width:66ch}
+.mt-ph .mt-cmb{display:flex;align-items:flex-start;gap:8px;margin-top:10px;font:600 14.5px/1.55 var(--head);color:#0A5E45;background:#E8F8F0;border-radius:14px;padding:9px 13px;max-width:none;width:fit-content}
+.mt-cmb svg{flex:none;width:18px;height:18px;margin-top:2px}
+.mt-all{flex:none}
+.mv-l{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.mv{--mv-bg:#E4EBFF;--mv-ink:#2F4AC0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:6px 16px;align-items:center;background:#F8F9FD;border:1.5px solid transparent;border-radius:22px;padding:16px 18px;transition:background-color .25s,border-color .25s,box-shadow .25s,transform .25s}
+.mv:hover{box-shadow:0 10px 26px rgba(31,37,68,.08);background:#fff;border-color:#E4E7F1}
+.mv.bag{--mv-bg:#DDF7EE;--mv-ink:#0A7455}.mv.need{--mv-bg:#FFE3DB;--mv-ink:#B83A1B}.mv.task{--mv-bg:#EDF0FA;--mv-ink:#39405F}
+.mv-i{flex:none;width:46px;height:46px;border-radius:16px;display:grid;place-items:center;background:var(--mv-bg,#E4EBFF);color:var(--mv-ink,#2F4AC0)}.mv-i svg{width:23px;height:23px}
+.mv-b{min-width:0}
+.mv-b h3{font:700 16.5px/1.4 var(--head);margin:0}
+.mv-fx{margin:3px 0 0;font-size:14.5px;line-height:1.6;color:#3B4262}
+.mv-wn{display:flex;align-items:flex-start;gap:7px;margin:6px 0 0;font-size:13.5px;line-height:1.55;color:var(--muted)}.mv-wn svg{flex:none;width:16px;height:16px;margin-top:2px;color:#7A819C}
+.mv-a{display:flex;align-items:center;justify-content:flex-end}
+.mv-a .btn{white-space:nowrap}.mv-a .btn svg{width:16px;height:16px}
+.mv-have{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 16px 0 14px;border-radius:999px;background:#DDF7EE;color:#0A6B49;font:700 14px var(--head);animation:mvPop .5s cubic-bezier(.2,1.5,.4,1)}
+.mv-have svg{width:17px;height:17px}.mv-have:focus-visible{outline-offset:2px}
+.mv.have{background:#F1FBF6;border-color:#CDEFDD}.mv.have:hover{background:#F1FBF6;border-color:#CDEFDD}
+@keyframes mvPop{0%{transform:scale(.8);opacity:.3}60%{transform:scale(calc(1 + .1*var(--fx,1)))}100%{transform:none;opacity:1}}
+.mt-alt{display:flex;align-items:center;gap:16px;margin-top:12px;border-radius:22px;padding:16px 18px;background:#EAF7F9;--mv-bg:#CFEFF3;--mv-ink:#0B6F80}
+.mt-alt>div{flex:1;min-width:0}.mt-alt h3{font:700 16.5px/1.4 var(--head);margin:0}.mt-alt p{margin:3px 0 0;font-size:14.5px;line-height:1.6;color:#3B4262}
+.mt-pf{display:flex;align-items:center;justify-content:space-between;gap:10px 18px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1.5px dashed var(--line)}
+.mt-pf .fine{margin:0;max-width:62ch}
+.mt-pf .linkbtn{display:inline-flex;align-items:center;gap:6px;color:var(--primary-dark);font-weight:600;text-decoration:underline;text-underline-offset:3px}.mt-pf .linkbtn svg{width:15px;height:15px;transform:scaleX(-1)}
+@media(max-width:1000px){.kp-nowg .kp-side{order:-1}}
+@media(max-width:620px){
+  .mt-b{border-radius:22px;padding:18px 16px 16px}
+  .mt-p{border-radius:24px;padding:18px 14px}
+  .mv{grid-template-columns:auto minmax(0,1fr);padding:14px;border-radius:18px;gap:10px 12px}
+  .mv-a{grid-column:1/-1;justify-content:stretch}.mv-a .btn,.mv-a .mv-have{width:100%;justify-content:center}
+  .mt-alt{flex-wrap:wrap;padding:14px}.mt-alt .btn{width:100%;justify-content:center}
+  .mt-all{width:100%;justify-content:center}
+}
+html.hc .mt-b,html.hc .mt-p,html.hc .mv,html.hc .mt-alt{border:2px solid #000;box-shadow:none;background:#fff}
+html.hc .mt-b::before{display:none}
+html.hc .mt-pill,html.hc .mv-i,html.hc .mv-have,html.hc .mt-w li,html.hc .mt-tile,html.hc .mt-ph .mt-cmb{background:#fff;color:#000;border:2px solid #000}
+html.hc .mt-gt{background:#fff;border:2px solid #000}html.hc .mt-gt i{background:#000}
+html.hc .mt-av{background:#000;box-shadow:none}
+html.rm .mv-have{animation:none}html.rm .mt-gt i,html.rm .mv{transition:none}
+/* ---------- the calendar (cu-): one calm page. Official dates and mine in one list of cards; the top is the date that comes next ---------- */
+/* the category colours: ink on a soft tint, both checked for contrast */
+.cu-c.bag,.cu-hero.bag{--cu-c:#0A7455;--cu-bg:#DDF7EE}.cu-c.psy,.cu-hero.psy{--cu-c:#2F4AC0;--cu-bg:#E4EBFF}.cu-c.reg,.cu-hero.reg{--cu-c:#8A5200;--cu-bg:#FFF0CF}.cu-c.sch,.cu-hero.sch{--cu-c:#8A2F6E;--cu-bg:#FBE4F2}
+.cu-c.task,.cu-hero.task,.cu-kk.task{--cu-c:#B83A1B;--cu-bg:#FFE3DB}.cu-c.event,.cu-hero.event,.cu-kk.event{--cu-c:#5B3FD0;--cu-bg:#ECE6FF}.cu-c.study,.cu-hero.study,.cu-kk.study{--cu-c:#0B6F80;--cu-bg:#D8F2F6}.cu-c.mile,.cu-hero.mile,.cu-kk.mile{--cu-c:#7A5A00;--cu-bg:#FFF3C4}
+.cu-top{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.cu-say{max-width:62ch;font-size:16.5px;line-height:1.7;color:#3B4262}
+/* the date that comes next */
+.cu-hero{--cu-c:#39405F;--cu-bg:#EDF0FA;position:relative;isolation:isolate;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(16px,3vw,34px);align-items:center;margin-top:20px;padding:clamp(20px,3vw,32px) clamp(20px,3vw,34px);border-radius:30px;overflow:hidden;background:linear-gradient(135deg,#fff 0,#fff 40%,var(--cu-bg) 150%);box-shadow:0 10px 34px rgba(31,37,68,.09)}
+.cu-hero::before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:6px;background:var(--cu-c)}
+.cu-hd{display:grid;width:106px;text-align:center;border-radius:26px;padding:12px 8px 14px;background:var(--cu-bg);color:var(--cu-c);line-height:1.05}
+.cu-hd small{font:600 13.5px var(--head)}.cu-hd b{font:800 54px/1.05 var(--head)}.cu-hd span{font:700 15px var(--head)}
+.cu-hb{min-width:0}
+.cu-hk{display:inline-flex;align-items:center;gap:7px;font:700 13.5px var(--head);color:var(--cu-c)}.cu-hk svg{width:18px;height:18px}
+.cu-hb h3{font-size:clamp(23px,2.8vw,32px);line-height:1.25;margin:6px 0 4px}
+.cu-hb>p{margin:0;color:#3B4262;font-size:15.5px;line-height:1.6}
+.cu-hc{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.cu-hx{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:14px}
+.cu-hk2{gap:10px;padding-inline-start:8px}.cu-hkc{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;border:2px solid #AEB4CB;color:transparent;background:#fff;transition:background-color .2s,border-color .2s,color .2s}.cu-hkc svg{width:15px;height:15px}
+.cu-hk2:hover .cu-hkc{border-color:var(--cu-c);color:var(--cu-c)}.cu-hk2.on .cu-hkc{background:#12A26B;border-color:#12A26B;color:#fff;animation:cuPop .45s cubic-bezier(.2,1.5,.4,1)}
+.cu-hm{display:inline-flex;align-items:center;gap:4px;color:var(--cu-c);font-weight:700;text-decoration:none}.cu-hm svg{width:16px;height:16px;transition:transform .25s}
+.cu-hero.open .cu-hm svg{transform:rotate(180deg)}
+.cu-hr{position:relative;flex:none;width:104px;height:104px}.cu-rg{display:block;width:100%;height:100%}
+.cu-rb{fill:none;stroke:rgba(31,37,68,.09);stroke-width:7}.cu-rf{fill:none;stroke:var(--cu-c);stroke-width:7;stroke-linecap:round;transition:stroke-dasharray .7s cubic-bezier(.2,.8,.2,1)}
+.cu-hn{position:absolute;inset:0;display:grid;place-content:center;text-align:center;line-height:1.1}.cu-hn b{font:800 30px var(--head);color:var(--ink)}.cu-hn small{font:600 12.5px var(--head);color:var(--muted)}
+.cu-nx{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+/* a date as a card */
+.cu-l{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.cu-c{--cu-c:#39405F;--cu-bg:#EDF0FA;position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"d b a" "mo mo mo";align-items:center;gap:0 14px;padding:14px 16px;border:1.5px solid transparent;border-radius:22px;background:#fff;box-shadow:0 1px 2px rgba(31,37,68,.05),0 6px 18px rgba(31,37,68,.06);transition:box-shadow .25s,border-color .25s,transform .25s,opacity .25s,background-color .25s}
+.cu-c:hover{box-shadow:0 2px 6px rgba(31,37,68,.06),0 14px 30px rgba(31,37,68,.11)}
+.cu-d{grid-area:d;display:grid;width:58px;padding:8px 4px 9px;border-radius:16px;text-align:center;line-height:1.1;background:var(--cu-bg);color:var(--cu-c)}
+.cu-d b{font:800 24px var(--head)}.cu-d small{font:700 12px var(--head)}
+.cu-b{grid-area:b;min-width:0}
+.cu-k{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-bottom:2px}
+.cu-ct{display:inline-flex;align-items:center;gap:5px;font:700 12.5px var(--head);color:var(--cu-c)}.cu-ct svg{width:15px;height:15px;flex:none}
+.cu-t{font:700 17px/1.35 var(--head);margin:0;overflow-wrap:anywhere}
+.cu-m{margin:2px 0 0;font-size:14px;line-height:1.55;color:var(--muted)}.cu-m b{color:#B83A1B}
+.cu-a{grid-area:a;display:flex;align-items:center;gap:6px}
+.cu-a .btn{white-space:nowrap}.cu-a .btn svg{width:16px;height:16px}
+.cu-x{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#7A819C;transition:background-color .2s,color .2s}
+.cu-x:hover{background:#F1F3F9;color:var(--ink)}.cu-x svg{width:20px;height:20px;transition:transform .25s}.cu-c.open .cu-x svg{transform:rotate(180deg)}
+.cu-ck{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:2px solid #C9CEDF;background:#fff;color:transparent;transition:background-color .2s,border-color .2s,color .2s,transform .15s}
+.cu-ck svg{width:21px;height:21px}.cu-ck:hover{border-color:var(--cu-c);color:var(--cu-c)}.cu-ck:active{transform:scale(.92)}
+.cu-ck.on{background:#12A26B;border-color:#12A26B;color:#fff;animation:cuPop .45s cubic-bezier(.2,1.5,.4,1)}
+@keyframes cuPop{0%{transform:scale(.7)}60%{transform:scale(calc(1 + .16*var(--fx,1)))}100%{transform:none}}
+.cu-have{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 16px 0 14px;border-radius:999px;background:#DDF7EE;color:#0A6B49;font:700 14px var(--head);animation:cuPop .5s cubic-bezier(.2,1.5,.4,1)}.cu-have svg{width:17px;height:17px}
+.cu-tg{display:inline-flex;align-items:center;gap:4px;border-radius:999px;padding:1px 9px;font:700 12px/1.7 var(--head);background:#EDF0FA;color:#39405F}
+.cu-tg svg{width:13px;height:13px}.cu-tg.need{background:#FFE3DB;color:#B83A1B}.cu-tg.boost{background:#FFF0CF;color:#7A4A00}.cu-tg.mine{background:#DDF7EE;color:#0A6B49}.cu-tg.pick{background:#E4EBFF;color:#2F4AC0}.cu-tg.appr,.cu-tg.off{background:#F1F2F8;color:#4A5068}
+.cu-c.done{opacity:.62}.cu-c.done .cu-t{text-decoration:line-through;text-decoration-thickness:1.5px}
+.cu-c.late{border-color:#F5C6BF;background:linear-gradient(180deg,#FFF8F6,#fff)}
+.cu-c.approx{border:1.5px dashed #D3D8E8;box-shadow:none;background:#FCFCFE}
+.cu-c.have{background:#FAFEFC}
+.cu-c.leaving{opacity:0;transform:translateX(calc(-28px*var(--fx,1)))}
+.cu-c.mini{padding:12px 14px;border-radius:20px}.cu-c.mini .cu-d{width:50px}.cu-c.mini .cu-d b{font-size:21px}.cu-c.mini .cu-t{font-size:15.5px}.cu-c.mini .cu-m{font-size:13px}
+/* the details open under a card: they are in the page all along, and glide open */
+.cu-mo{grid-area:mo;display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .32s cubic-bezier(.2,.8,.2,1),visibility 0s .32s}
+.cu-mo>div{min-height:0;overflow:hidden}
+.cu-c.open>.cu-mo,.cu-hero.open .cu-mo{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .32s cubic-bezier(.2,.8,.2,1),visibility 0s}
+.cu-mo>div>*:first-child{margin-top:12px}
+.cu-nt,.cu-sb{margin:0 0 8px;font-size:14.5px;line-height:1.65;color:#3B4262}.cu-nt{background:#F8F9FD;border-radius:14px;padding:10px 14px}
+.cu-ln{margin:0 0 10px;font-size:14px;display:flex;flex-wrap:wrap;gap:6px 16px}.cu-src{color:var(--primary-dark);font-weight:600}
+.cu-ac{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.cu-ac .btn svg{width:16px;height:16px}.cu-del{color:#B83A1B}
+.cu-hmo{grid-area:auto}
+/* the list: the layer I look at, then dates by how near they are (or by month) */
+.cu-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,350px);gap:22px;align-items:start;margin-top:22px}
+.cu-main{min-width:0}.cu-side{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;align-content:start;min-width:0}
+.cu-fl{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.cu-gh{display:flex;align-items:center;gap:8px;font:700 14px var(--head);letter-spacing:.02em;color:var(--muted);margin:18px 0 8px}
+.cu-gp.late .cu-gh{color:#B83A1B}
+.cu-more{margin-top:14px}.cu-more svg{width:18px;height:18px}
+.cu-more[aria-expanded="false"] svg{transform:none}
+.cu-none,.cu-empty p{color:var(--muted);margin:6px 0 0}
+.cu-empty{margin-top:14px;padding:22px 20px;border-radius:22px;background:#fff;box-shadow:var(--shadow);text-align:center}.cu-empty b{font:700 18px var(--head)}
+.cu-day{margin-top:14px}.cu-dh{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;margin-bottom:10px}.cu-dh h3{font-size:19px;margin:0}
+.cu-dn{margin-top:18px;background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:0 16px}
+.cu-dn>summary{display:flex;align-items:center;gap:10px;min-height:48px;font:600 15px var(--head);cursor:pointer;list-style:none}.cu-dn>summary::-webkit-details-marker{display:none}
+.cu-dn>summary::after{content:"";margin-inline-start:auto;width:8px;height:8px;border:solid #7A819C;border-width:0 2.5px 2.5px 0;transform:translateY(-30%) rotate(45deg);transition:transform .25s}.cu-dn[open]>summary::after{transform:translateY(20%) rotate(225deg)}
+.cu-dn .cu-l{padding-bottom:14px}
+/* the side: a week of mine, a month, and where to look for the registration of the bagrut */
+.cu-wk,.cu-mn,.cu-rn{background:#fff;border-radius:24px;box-shadow:var(--shadow);padding:18px 18px 16px}
+.cu-wh{display:flex;align-items:baseline;justify-content:space-between;gap:8px}.cu-wh h3{font-size:18px;margin:0}.cu-wh small{color:var(--muted);font-size:13px}
+.cu-wb{height:10px;margin-top:12px;border-radius:99px;background:#EEF0F6;overflow:hidden}.cu-wb i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#4FC3D6,#0B6F80);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.cu-wn{margin:8px 0 0;font-size:14px;color:var(--muted)}.cu-wn b{color:var(--ink);font-family:var(--head)}
+.cu-ws{margin:10px 0 12px;font-size:15px;line-height:1.65;color:#3B4262}.cu-wf{margin:-4px 0 12px;font-size:13.5px;color:var(--muted)}
+.cu-wk .btn svg{width:17px;height:17px}
+.cu-nv{display:flex;align-items:center;gap:6px;margin-bottom:8px}.cu-nv h3{flex:1;text-align:center;font-size:17px;margin:0}
+.cu-nb{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#F3F4F9;transition:background-color .2s}.cu-nb:hover{background:#E6E9F3}.cu-nb svg{width:17px;height:17px}
+.cu-nv .linkbtn{font-size:14px;font-weight:600;color:var(--primary-dark)}
+.cu-g{width:100%;min-width:0;font-size:inherit;border-collapse:separate;border-spacing:0;table-layout:fixed}.cu-g.sl-n{animation:cuN .4s cubic-bezier(.2,.8,.2,1)}.cu-g.sl-p{animation:cuP .4s cubic-bezier(.2,.8,.2,1)}.cu-g.sl-t{animation:cuT .35s ease-out}
+@keyframes cuN{from{opacity:0;transform:translateX(calc(28px*var(--fx,1)))}to{opacity:1;transform:none}}@keyframes cuP{from{opacity:0;transform:translateX(calc(-28px*var(--fx,1)))}to{opacity:1;transform:none}}@keyframes cuT{from{opacity:.2}to{opacity:1}}
+.cu-g th{padding:4px 0 6px;border:0;text-align:center;font:600 12.5px var(--head);color:var(--muted)}.cu-g th.wk{color:var(--muted)}
+.cu-g td{padding:1px;border:0;text-align:center;vertical-align:middle}
+.cu-gd{position:relative;display:grid;place-items:center;width:100%;aspect-ratio:1/1;min-height:36px;border-radius:12px;font-size:14px;color:var(--ink);transition:background-color .2s,color .2s,box-shadow .2s}
+.cu-gd:hover{background:#F1F3F9}.cu-gd.wk b{color:var(--muted)}.cu-gd.has b{font-weight:800}
+.cu-gd.today{box-shadow:inset 0 0 0 2px var(--primary)}
+.cu-gd.sel,.cu-gd.sel b{background:var(--ink);color:#fff}
+.cu-gd:active{transform:scale(.94)}
+.cu-dt{position:absolute;inset-inline:0;bottom:3px;display:flex;justify-content:center;gap:2px;pointer-events:none}
+.cu-dt s,.cu-lg s{display:block;width:6px;height:6px;border-radius:50%;background:var(--cu-c,#39405F);text-decoration:none}
+.cu-gd.sel .cu-dt s{box-shadow:0 0 0 1.5px var(--ink)}
+.cu-dt s.bag,.cu-lg s.bag{background:#0A7455}.cu-dt s.psy,.cu-lg s.psy{background:#2F4AC0}.cu-dt s.reg,.cu-lg s.reg{background:#C27A00}.cu-dt s.sch,.cu-lg s.sch{background:#8A2F6E}
+.cu-dt s.task,.cu-lg s.task{background:#D6401D}.cu-dt s.event,.cu-lg s.event{background:#5B3FD0}.cu-dt s.study,.cu-lg s.study{background:#0B8FA6}.cu-dt s.mile,.cu-lg s.mile{background:#B98900}
+.cu-lg{display:flex;flex-wrap:wrap;gap:6px 12px;margin:10px 0 0;font-size:12.5px;color:var(--muted)}.cu-lg span{display:inline-flex;align-items:center;gap:5px}
+.cu-rn{display:flex;gap:12px;align-items:flex-start}.cu-ri{flex:none;width:40px;height:40px;border-radius:14px;display:grid;place-items:center;background:#DDF7EE;color:#0A7455}.cu-ri svg{width:21px;height:21px}
+.cu-rn h3{font-size:16.5px;margin:0 0 2px}.cu-rn p{margin:0;font-size:14.5px;line-height:1.6;color:#3B4262}.cu-rn a{color:var(--primary-dark);font-weight:600}
+/* the bagrut planner, subject by subject, in a drawer */
+.cu-bag{margin-top:22px;background:#fff;border-radius:24px;box-shadow:var(--shadow)}
+.cu-bag>summary{display:flex;align-items:center;gap:10px;min-height:60px;padding:0 20px;font:700 16px var(--head);cursor:pointer;list-style:none}.cu-bag>summary::-webkit-details-marker{display:none}
+.cu-bag>summary>span:first-child{flex:1}.cu-bag>summary .num{background:#EDF0FA;border-radius:999px;padding:0 10px;font-size:14px;line-height:1.8}
+.cu-bag>summary::after{content:"";width:9px;height:9px;border:solid #7A819C;border-width:0 2.5px 2.5px 0;transform:translateY(-25%) rotate(45deg);transition:transform .25s}.cu-bag[open]>summary::after{transform:translateY(20%) rotate(225deg)}
+.cu-bagb{padding:0 20px 20px}.cu-bagb .bg-sec{margin-top:0}
+.cu-fn{margin-top:18px;max-width:84ch}
+/* the sheet: add or edit */
+.sheet.cu-sheet{max-width:580px}.cu-sheet h2{font-size:clamp(24px,3vw,32px)}
+.cu-f{display:grid;gap:16px;margin-top:6px}
+.cu-kn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;border:0;margin:0;padding:0}
+.cu-kk{position:relative;display:block;cursor:pointer}.cu-kk input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.cu-kk>span{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"i b" "i s";gap:0 10px;align-items:center;min-height:68px;padding:10px 14px;border:1.5px solid #DDE1EE;border-radius:18px;background:#fff;transition:border-color .2s,background-color .2s,box-shadow .2s}
+.cu-kk>span svg{grid-area:i;width:38px;height:38px;padding:8px;border-radius:13px;background:var(--cu-bg);color:var(--cu-c)}
+.cu-kk b{grid-area:b;font:700 15.5px var(--head)}.cu-kk small{grid-area:s;font-size:12.5px;line-height:1.4;color:var(--muted)}
+.cu-kk:hover>span{border-color:#B7BED6}
+.cu-kk input:checked+span{border-color:var(--cu-c);background:var(--cu-bg);box-shadow:0 0 0 1px var(--cu-c)}
+.cu-kk input:focus-visible+span{outline:3px solid #5C7CFA;outline-offset:2px}
+.cu-id{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.cu-id .chip{min-height:34px;padding:5px 12px;font-size:13.5px}
+.cu-r2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cu-lb{display:block;font:600 15px var(--head);margin-bottom:8px}.cu-lb small,.cu-f label small{font-weight:400;color:var(--muted)}
+.cu-ln2{display:flex;flex-wrap:wrap;gap:8px}.cu-lc{position:relative;min-height:40px;cursor:pointer}.cu-lc input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.cu-lc:has(input:checked){background:var(--ink);border-color:var(--ink);color:#fff}.cu-lc:has(input:focus-visible){outline:3px solid #5C7CFA;outline-offset:2px}
+/* fields the way the rest of the site draws them: a soft border, a coral ring on focus */
+.cu-f input[type=text],.cu-f input:not([type]),.cu-f input[type=date],.cu-f input[type=time],.cu-f textarea,.cu-f select{font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:11px 14px;width:100%;min-height:48px;box-sizing:border-box;transition:border-color .2s,box-shadow .2s}
+.cu-f textarea{resize:vertical;line-height:1.55;min-height:84px}
+.cu-f input:focus,.cu-f textarea:focus,.cu-f select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px #FFD0C3}
+.cu-rp{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 20px}.cu-rp .check input{width:20px;height:20px;accent-color:var(--cta)}
+.cu-rw{display:inline-flex;align-items:center;gap:8px;font-size:16px}.cu-rw select{width:auto;min-width:76px;min-height:44px;padding:8px 12px}
+.cu-er{margin:0;padding:10px 14px;border-radius:14px;background:#FFE3DB;color:#8F2A12;font-weight:600;font-size:14.5px}
+.cu-fb{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+/* the toast that can be undone */
+.toast.act{pointer-events:auto;display:flex;align-items:center;gap:16px;padding-block:10px}.toast-a{color:#FFD2C2;font:700 15px var(--head);text-decoration:underline;text-underline-offset:3px;min-height:36px;padding:0 4px}.toast-a:hover{color:#fff}
+@media(max-width:1000px){
+  .cu-grid{display:flex;flex-direction:column;gap:16px}
+  .cu-side{display:contents}.cu-wk{order:-1}.cu-main{order:0}.cu-mn{order:1}.cu-rn{order:2}
+}
+@media(max-width:720px){
+  .cu-hero{grid-template-columns:auto minmax(0,1fr);border-radius:24px;padding:18px 16px 18px 16px;gap:14px}
+  .cu-hd{width:74px;border-radius:20px;padding:10px 6px 12px}.cu-hd b{font-size:38px}.cu-hd small,.cu-hd span{font-size:12.5px}
+  .cu-hr{position:absolute;top:14px;inset-inline-end:14px;width:62px;height:62px}.cu-hn b{font-size:21px}.cu-hn small{font-size:11px}
+  .cu-hb{padding-inline-end:52px}.cu-hb h3{font-size:21px}
+  .cu-nx{grid-template-columns:minmax(0,1fr)}
+  .cu-c{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"d b a" "mo mo mo";padding:14px;gap:0 12px;border-radius:20px}
+  .cu-c:has(.cu-a .btn,.cu-a .cu-have){grid-template-columns:auto minmax(0,1fr);grid-template-areas:"d b" "a a" "mo mo";gap:10px 12px}
+  .cu-a{justify-content:space-between}.cu-a:empty{display:none}.cu-a .btn,.cu-a .cu-have{flex:1;justify-content:center}.cu-a .cu-x{flex:none}
+  .cu-c:not(:has(.cu-a .btn,.cu-a .cu-have)) .cu-a{flex-direction:column;gap:2px}
+  .cu-d{width:54px}.cu-d b{font-size:22px}
+  .cu-kn{grid-template-columns:1fr}.cu-r2{grid-template-columns:1fr}
+  .cu-wk,.cu-mn,.cu-rn{border-radius:20px;padding:16px 14px}
+}
+@media(max-width:520px){.cu-top{width:100%}.cu-top .btn{flex:1;justify-content:center}}
+html.rm .cu-c,html.rm .cu-mo,html.rm .cu-rf,html.rm .cu-wb i,html.rm .cu-ck{transition:none}html.rm .cu-ck.on,html.rm .cu-hk2.on .cu-hkc,html.rm .cu-have,html.rm .cu-g{animation:none}
+html.hc .cu-hero,html.hc .cu-c,html.hc .cu-wk,html.hc .cu-mn,html.hc .cu-rn,html.hc .cu-bag,html.hc .cu-dn,html.hc .cu-empty{border:2px solid #000;box-shadow:none;background:#fff}
+html.hc .cu-hero::before{background:#000}
+html.hc .cu-d,html.hc .cu-hd,html.hc .cu-tg,html.hc .cu-have,html.hc .cu-ri,html.hc .cu-kk>span svg{background:#fff;color:#000;border:2px solid #000}
+html.hc .cu-rf{stroke:#000}html.hc .cu-rb{stroke:#999}html.hc .cu-wb{background:#fff;border:2px solid #000}html.hc .cu-wb i{background:#000}
+html.hc .cu-ck,html.hc .cu-hkc{border-color:#000}html.hc .cu-hk2.on .cu-hkc{background:#000;color:#fff}html.hc .cu-ck.on{background:#000}
+html.hc .cu-gd.sel,html.hc .cu-gd.sel b{background:#000;color:#fff}html.hc .cu-gd.today{box-shadow:inset 0 0 0 3px #000}
+html.hc .cu-kk>span{border:2px solid #000}html.hc .cu-kk input:checked+span{background:#fff;box-shadow:inset 0 0 0 3px #000}
 
 </style>
 
@@ -6280,9 +6384,8 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-shmore]');
   const on=!m.classList.contains('open');m.classList.toggle('open',on);b.setAttribute('aria-expanded',on);
   const t=b.querySelector('span:not(.sh-n)');if(t)t.textContent=on?'להציג פחות':'עוד דרכים לחקור';
   if(on)requestAnimationFrame(()=>m.querySelectorAll('.strip').forEach(s=>s.dispatchEvent(new Event('scroll'))))});
-document.addEventListener('toggle',e=>{const t=e.target;if(t&&t.id==='kpTeen')KP.tOpen=t.open},true);
-document.addEventListener('toggle',e=>{const t=e.target;if(t&&t.id==='fMore')S.fOpen=t.open},true);
-document.addEventListener('toggle',e=>{const t=e.target;if(t&&t.classList&&t.classList.contains('cl-dn'))KC.dn=t.open},true); /* the finished tasks drawer keeps its state when the calendar is drawn again */ /* the filters drawer of the home page keeps its state when the results are drawn again */ /* the list for high school students keeps its state when it is drawn again */
+document.addEventListener('toggle',e=>{const t=e.target;if(t&&t.id==='kpTeen')KP.tOpen=t.open},true); /* the list for high school students keeps its state when it is drawn again */
+document.addEventListener('toggle',e=>{const t=e.target;if(t&&t.id==='fMore')S.fOpen=t.open},true); /* the filters drawer of the home page keeps its state when the results are drawn again */
 
 /* ---------- who employs the graduates: text only (no logos, no trademarks, no endorsement) ----------
    Level 1 is official: the industries in which the graduates of a field work, and their share (Avodata, Ministry of Labor). Level 2 is ours: examples of large organisations in Israel that work in that industry,
@@ -7659,7 +7762,7 @@ function pth(){
   if(typeof p.d!=='string'||!own(BY,p.d))p.d='';
   if(!p.d||typeof p.i!=='string'||!own(INST,p.i)||!BY[p.d].of.some(o=>o.i===p.i))p.i='';
   p.start=nin(p.start,2000,2100)?Math.round(p.start):0;p.sess=typeof p.sess==='string'&&/^[\w-]{1,24}$/.test(p.sess)?p.sess:'';p.lab=labNorm(p.lab);p.goalP=nin(p.goalP,0,800)?p.goalP:0;
-  p.dates=Array.isArray(p.dates)?p.dates.filter(x=>isObj(x)&&isoOk(x.d)).map(x=>{const o={...x,id:txt(x.id),t:txt(x.t)};['f','bk','from'].forEach(k=>{if(o[k]!==undefined)o[k]=txt(o[k])});if(o.i!==undefined&&!(typeof o.i==='string'&&own(INST,o.i)))delete o.i;if(o.kind!=='task'&&o.kind!=='event')delete o.kind;o.done=o.done?1:0;if(!o.done)delete o.done;if(o.d2!==undefined&&!isoOk(o.d2))delete o.d2;if(o.k0!==undefined&&o.k0!=='psy'&&o.k0!=='bag')delete o.k0;return o}).slice(0,400):[];p.log=Array.isArray(p.log)?p.log.filter(x=>nin(x,1,1e14)).slice(-400):[]; /* only real dates: a null or a number in storage would break the lists */
+  p.dates=Array.isArray(p.dates)?p.dates.filter(x=>isObj(x)&&isoOk(x.d)).map(x=>{const o={...x,id:txt(x.id),t:txt(x.t)};['f','bk','from'].forEach(k=>{if(o[k]!==undefined)o[k]=txt(o[k])});if(o.i!==undefined&&!(typeof o.i==='string'&&own(INST,o.i)))delete o.i;if(!['task','event','study','mile'].includes(o.kind))delete o.kind;if(o.tm!==undefined&&!/^([01]\d|2[0-3]):[0-5]\d$/.test(o.tm))delete o.tm;if(o.len!==undefined&&!(Number.isInteger(o.len)&&o.len>=5&&o.len<=720))delete o.len;if(o.note!==undefined){o.note=txt(o.note).slice(0,200);if(!o.note)delete o.note}if(o.grp!==undefined&&!/^[\w-]{1,24}$/.test(String(o.grp)))delete o.grp;o.done=o.done?1:0;if(!o.done)delete o.done;if(o.d2!==undefined&&!isoOk(o.d2))delete o.d2;if(o.k0!==undefined&&o.k0!=='psy'&&o.k0!=='bag')delete o.k0;return o}).slice(0,400):[];p.log=Array.isArray(p.log)?p.log.filter(x=>nin(x,1,1e14)).slice(-400):[]; /* only real dates: a null or a number in storage would break the lists */
   /* F2a: when I finish school or service (end), the last day I was on the road (seen) and my story notes; old saves have none of them */
   if(!isoOk(p.end))p.end='';if(!isoOk(p.seen))p.seen='';p.story=typeof p.story==='string'?p.story.slice(0,STORY_MAX):'';
   /* F2b: the day I said "not now" to a question (qs) and the day I answered a one-moment question (qa): a date per question id, nothing else */
@@ -8123,32 +8226,35 @@ function summaryText(pl){
   if(ev.length)L.push('','מועדים קרובים:',...ev.map(x=>{const f=x.f&&factGet(x.f);return `• ${dLong(x.d)}: ${x.t}${f&&f.status!=='verified'?' ('+factLabel(f)+')':''}`}));
   return L.join('\n')}
 
-/* a short sentence about where I stand, used by the hero and the coach */
+/* where I stand, in two lines: the headline (h) says where things are, the line under it (s) says what it means and what comes next.
+   The voice is a mentor's and gender-neutral (impersonal forms, "we", the past tense). Every number is the one the verdict computed, and none of it is a chance of admission. */
+const stPts=n=>n===1?'נקודה אחת':`${n} נקודות`;
+const stMiss=n=>n===1?'חסרה נקודה אחת':`חסרות ${n} נקודות`;
 function standing(X){
   const {V,hasP,real}=X,t=V.tier;
-  if(t===0)return {k:'open',h:'אפשר להתחיל כבר עכשיו',s:'לפי הידיעון של האוניברסיטה הפתוחה אין בה תנאי קבלה, ואפשר להירשם לקורס הראשון בלי בגרות ובלי פסיכומטרי. כדאי לוודא באתר.'};
-  if(!real)return {k:'none',h:'נתחיל מהמספרים',s:'כדי לדעת כמה חסר, צריך ממוצע בגרות (גם צפוי) וציון פסיכומטרי (גם יעד). אפשר להתחיל מהערכה בכלי "כמה חסר לי?" ולדייק בהמשך.'};
+  if(t===0)return {k:'open',h:'אפשר להתחיל כבר עכשיו',s:'לפי הידיעון של האוניברסיטה הפתוחה אין בה תנאי קבלה: אפשר להירשם לקורס הראשון בלי בגרות ובלי פסיכומטרי. כדאי לוודא באתר, ואז פשוט להתחיל.'};
+  if(!real)return {k:'none',h:'נתחיל מהמספרים',s:'לא צריך ציונים סופיים: ממוצע בגרות צפוי וציון פסיכומטרי שמכוונים אליו מספיקים כדי לראות כמה חסר. ב"כמה חסר לי?" מתחילים מהערכה ומדייקים בהמשך.'};
   if(t===1){
-    if(V.err==='bagrut')return {k:'part',h:'חסר ממוצע בגרות',s:'יש לי פסיכומטרי, וחסר ממוצע בגרות כדי לחשב את הסכם. אפשר להזין ציונים בכלי "כמה חסר לי?".'};
+    if(V.err==='bagrut')return {k:'part',h:'חסר רק ממוצע בגרות',s:'הפסיכומטרי כבר בפנים. נשאר להזין ציוני בגרות (גם צפויים) ב"כמה חסר לי?", ומיד רואים איפה הסכם עומד.'};
     if(V.err==='psy'){
-      if(V.needP!=null&&!isFinite(V.needP))return {k:'far',h:'קודם הבגרות',s:`עם הממוצע הנוכחי גם 800 בפסיכומטרי לא מספיק ל${X.I.n}. כדאי להתחיל משיפור בגרות, ובכלי "כמה חסר לי?" רואים מה הכי משתלם.`,gap:Infinity};
-      return {k:'part',h:V.needP!=null?`צריך פסיכומטרי ${V.needP}`:'חסר ציון פסיכומטרי',s:V.needP!=null?`לפי הבגרות שלי, זה הציון שמכניס אותי ל${X.I.n}. עוד אין לי ציון, אז זה היעד.`:'כדי לחשב את הסכם צריך ציון פסיכומטרי.',need:V.needP}}
-    if(V.ok===true)return {k:'ok',h:'אני מעל הסף',s:`המרווח שלי ${-V.gapP>0?`הוא ${-V.gapP} נקודות פסיכומטרי`:'קטן'}. עכשיו סוגרים את שאר הדרישות ומגישים.`,gap:V.gapP};
-    if(!isFinite(V.gapP||0))return {k:'far',h:'קודם הבגרות',s:'עם הממוצע הנוכחי גם 800 בפסיכומטרי לא מספיק, אז מתחילים משיפור בגרות. בבוסטרים רואים מה הכי משתלם.',gap:Infinity};
+      if(V.needP!=null&&!isFinite(V.needP))return {k:'far',h:'קודם הבגרות',s:`עם הממוצע הנוכחי גם 800 בפסיכומטרי לא מספיק ${lIn(mtShort(X.I))}. לכן מתחילים משיפור בגרות, וב"כמה חסר לי?" רואים מה הכי משתלם.`,gap:Infinity};
+      return {k:'part',h:V.needP!=null?`היעד: פסיכומטרי ${V.needP}`:'חסר ציון פסיכומטרי',s:V.needP!=null?`עם הבגרות הנוכחית זה הציון שפותח את הדלת ${lIn(mtShort(X.I))}. עוד אין ציון פסיכומטרי, אז זה המספר לכוון אליו.`:'בלי ציון פסיכומטרי אי אפשר לחשב את הסכם. גם ציון יעד מספיק כדי להתחיל.',need:V.needP}}
+    if(V.ok===true)return {k:'ok',h:'מעל הסף',s:`${-V.gapP>0?`יש מרווח של ${stPts(-V.gapP)} בפסיכומטרי.`:'המרווח קטן, אבל הציון בפנים.'} עכשיו סוגרים את שאר הדרישות ומגישים.`,gap:V.gapP};
+    if(!isFinite(V.gapP||0))return {k:'far',h:'קודם הבגרות',s:'עם הממוצע הנוכחי גם 800 בפסיכומטרי לא מספיק, ולכן מתחילים משיפור בגרות. ב"כמה חסר לי?" רואים מה הכי משתלם.',gap:Infinity};
     const g=V.gapP;
-    if(g<=20)return {k:'near',h:`${gx('אני קרוב','אני קרובה')}: ${g} נקודות`,s:'שיפור קטן בפסיכומטרי או בבגרות, ואני בפנים.',gap:g};
-    if(g<=70)return {k:'mid',h:`חסרות ${g} נקודות`,s:'זה בהחלט אפשרי. יש כמה דרכים לסגור את זה, ובכלי "כמה חסר לי?" רואים מה כל אחת שווה.',gap:g};
-    return {k:'far',h:`חסרות ${g} נקודות`,s:'יש דרך, ויש לה תוכנית: שילוב של פסיכומטרי ושיפור בגרות סוגר פערים גדולים ממה שנראה.',gap:g}}
+    if(g<=20)return {k:'near',h:`כמעט שם: ${stPts(g)} מהסף`,s:'שיפור קטן בפסיכומטרי או בבגרות וזה שם. ב"כמה חסר לי?" רואים איזה צעד הכי קרוב.',gap:g};
+    if(g<=70)return {k:'mid',h:stMiss(g),s:'זה פער שאפשר לסגור: יש כמה דרכים, וב"כמה חסר לי?" רואים מה כל אחת שווה.',gap:g};
+    return {k:'far',h:stMiss(g),s:'זה פער גדול יותר, ולכן לא סוגרים אותו במהלך אחד: משלבים פסיכומטרי ושיפור בגרות ומתקדמים צעד אחרי צעד. ב"כמה חסר לי?" רואים מה כל מהלך שווה.',gap:g}}
   if(t===2){
-    if(V.ok===true)return {k:'ok',h:`${gx('עומד','עומדת')} באחת הדרכים שפורסמו`,s:'לפי המספרים אני בפנים לפחות באחת הדרכים. עכשיו בודקים את שאר הדרישות.'};
-    if(V.ok===false&&V.pubBest)return {k:'mid',h:'מתחת לתנאי המינימום',s:`${V.pubBest.cond.filter(c=>c.ok===false).map(c=>c.t).join(', ')}. זה תנאי שנדרש בנוסף לסף, והציון שלי נמוך ממנו.`};
-    if(V.pubBest&&!V.closest)return {k:'na',h:`הסף שפורסם: ${fmt(V.pubBest.v,V.pubBest.v%1?2:0)}`,s:`הסף ב${V.pubBest.lbl||V.scale} מחושב גם מציוני משנה, ולכן אין חישוב אוטומטי מהמספרים שלי. ${V.pubBest.cond.length?'התנאים הנוספים נבדקים בכרטיס "דרישות".':'בודקים אותו במחשבון של המוסד.'}`};
-    if(V.closest){const r=V.closest.r;return {k:'mid',h:'יש דרך קרובה',s:`הדרך הקרובה ביותר: ${r.p?'פסיכומטרי '+r.p:''}${r.p&&r.b?' ו':''}${r.b?'ממוצע בגרות '+r.b:''}${r.gp>0?` (חסרות ${r.gp} נקודות בפסיכומטרי)`:''}${r.gb>0?` (חסרות ${r.gb} בממוצע)`:''}.`}}
-    return {k:'na',h:'אין חישוב אוטומטי',s:'התנאים שפורסמו לא מאפשרים חישוב מהמספרים שלי. בודקים אותם ומסמנים.'}}
+    if(V.ok===true)return {k:'ok',h:'המספרים מתאימים לאחת הדרכים',s:'לפי המספרים יש לפחות דרך אחת שמתאימה. זה עוד לא אישור קבלה, ולכן עכשיו בודקים את שאר הדרישות.'};
+    if(V.ok===false&&V.pubBest)return {k:'mid',h:'מתחת לתנאי המינימום',s:`${V.pubBest.cond.filter(c=>c.ok===false).map(c=>c.t).join(', ')}. זה תנאי שנדרש בנוסף לסף, והציון הנוכחי עוד נמוך ממנו.`};
+    if(V.pubBest&&!V.closest)return {k:'na',h:`הסף שפורסם: ${fmt(V.pubBest.v,V.pubBest.v%1?2:0)}`,s:`הסף ב${V.pubBest.lbl||V.scale} מחושב גם מציוני משנה, ולכן אי אפשר לחשב אותו כאן מהציונים שהוזנו. ${V.pubBest.cond.length?'התנאים הנוספים נבדקים בכרטיס "דרישות".':'בודקים אותו במחשבון של המוסד.'}`};
+    if(V.closest){const r=V.closest.r;return {k:'mid',h:'יש דרך קרובה',s:`הדרך הקרובה ביותר: ${r.p?'פסיכומטרי '+r.p:''}${r.p&&r.b?' ו':''}${r.b?'ממוצע בגרות '+r.b:''}${r.gp>0?` (${stMiss(r.gp)} בפסיכומטרי)`:''}${r.gb>0?` (חסרות ${r.gb} נקודות בממוצע)`:''}.`}}
+    return {k:'na',h:'אין חישוב אוטומטי',s:'התנאים שפורסמו לא מאפשרים חישוב אוטומטי מהציונים. עוברים עליהם באתר המוסד ומסמנים כאן מה כבר סגור.'}}
   const b=X.q.bench;
   if(b&&((b.p&&X.sc.p)||(b.b&&X.sc.b))){const dp=b.p&&X.sc.p?X.sc.p-b.p:null,db=b.b&&X.sc.b?Math.round((X.sc.b-b.b)*10)/10:null;
-    return {k:'na',h:'אין סף שפורסם',s:`ביחס לממוצע המתקבלים בעבר${dp!=null?`, הפסיכומטרי שלי ${dp>=0?'גבוה ב-'+dp:'נמוך ב-'+(-dp)}`:''}${db!=null?`${dp!=null?' והבגרות':', הבגרות שלי'} ${db>=0?'גבוהה ב-'+db:'נמוכה ב-'+(-db)}`:''}. זה סימן ולא סף.`}}
-  return {k:'na',h:'אין סף שפורסם',s:'המוסד לא פרסם סף מספרי. בודקים את התנאים באתר ומסמנים.'}}
+    return {k:'na',h:'אין סף שפורסם',s:`ביחס לממוצע המתקבלים בעבר${dp!=null?`, הפסיכומטרי ${dp>=0?'גבוה ב-'+dp:'נמוך ב-'+(-dp)}`:''}${db!=null?`${dp!=null?' והבגרות':', הבגרות'} ${db>=0?'גבוהה ב-'+db:'נמוכה ב-'+(-db)}`:''}. זה סימן ולא סף.`}}
+  return {k:'na',h:'אין סף שפורסם',s:'המוסד לא פרסם סף מספרי שאפשר לחשב ממנו. עוברים על התנאים באתר ומסמנים כאן מה כבר סגור.'}}
 
 /* ---------- the plan itself ---------- */
 let PLC=null; /* one cached plan per target: {targetId: {key, v}} */
@@ -8221,7 +8327,7 @@ function plan(){
       body:()=>bridgeHTML(X)});
     /* the threshold */
     if(q.tier===1||q.tier===2)add(Z.ready,{id:'thr',ms:1,nm:q.tier===1?1:0,ic:'flag',t:'לעבור את סף הקבלה',s:standing(X).h,done:V.ok===true||(q.tier===2&&M.thr),
-      body:()=>`${V.ok===true?'<p>עברתי את הסף. זו לא סוף הדרך, אבל זו נקודת ציון אמיתית.</p>':''}<p>${esc(standing(X).s)}</p>${q.tier===2?tier2HTML(V):''}${BTNS([KB('data-kgo="lab"','כמה חסר לי, ואיך סוגרים','primary'),q.tier===2?KB('data-kmark="thr"',M.thr?`✓ בדקתי, אני ${gx('עומד','עומדת')} בתנאים`:`בדקתי ואני ${gx('עומד','עומדת')} בתנאים`):''].filter(Boolean))}${q.tier===1&&q.th?`<p class="fine">הסף והנוסחה: <a href="${esc(q.th.src)}" target="_blank" rel="noopener">אתר הקבלה של המוסד</a> (${esc(q.th.year||'')}). הספים משתנים משנה לשנה.</p>${cycleNote(P.i)}`:''}`});
+      body:()=>`${V.ok===true?'<p>עברתי את הסף. זו לא סוף הדרך, אבל זו נקודת ציון אמיתית.</p>':''}<p>${esc(standing(X).s)}</p>${q.tier===2?tier2HTML(V):''}${BTNS([KB('data-kgo="lab"','כמה חסר לי, ואיך סוגרים','primary'),q.tier===2?KB('data-kmark="thr"',M.thr?'✓ בדקתי, התנאים מתקיימים':'בדקתי, התנאים מתקיימים אצלי'):''].filter(Boolean))}${q.tier===1&&q.th?`<p class="fine">הסף והנוסחה: <a href="${esc(q.th.src)}" target="_blank" rel="noopener">אתר הקבלה של המוסד</a> (${esc(q.th.year||'')}). הספים משתנים משנה לשנה.</p>${cycleNote(P.i)}`:''}`});
     else add(Z.ready,{id:'thr',ms:1,ic:'flag',t:'לבדוק איפה אני ביחס למתקבלים',s:standing(X).h,done:!!M.thr,
       body:()=>`<p>${esc(standing(X).s)}</p>${q.bench?`<p>לפי עבודאטה, ${q.bench.inst?'בממוצע במוסד הזה':'בממוצע בתחום'} מי שהתקבלו הגיעו עם ${[q.bench.p?'פסיכומטרי '+fmt(q.bench.p):'',q.bench.b?'ממוצע בגרות משוקלל '+q.bench.b:''].filter(Boolean).join(' ו')}. הממוצע משוקלל ויכול לעלות על 100 בגלל בונוסים.${factChip('avodata.bagrut')} זה לא סף: יש מי שהתקבלו עם פחות.</p>`:''}${BTNS([KB('data-kmark="thr"',M.thr?'✓ בדקתי את התנאים':'בדקתי את התנאים באתר המוסד'),q.srcs[0]?KA(q.srcs[0],'תנאי הקבלה באתר'):instKA(I,'אתר המוסד')])}`});
     /* extras the program asks for */
@@ -8275,10 +8381,10 @@ function plan(){
   add(Z.go,{id:'orient',ic:'compass',t:'להגיע לימי ההיכרות',s:'להכיר את הקמפוס ואת מי שילמדו איתי',
     body:()=>`<p>מוסדות רבים מקיימים לפני תחילת הלימודים ימי היכרות והתארגנות לסטודנטים חדשים.${factChip('orient.days')} שווה להגיע: מקבלים מידע שימושי, מכירים את הקמפוס ופוגשים את מי שילמדו איתי. את המועדים בודקים באתר המוסד או בהודעות שמגיעות אחרי ההרשמה.</p>${BTNS([instKA(I,'לאתר המוסד'),KB('data-kmark="orient"',M.orient?'✓ הייתי':'הייתי / התעדכנתי')])}`});
   add(Z.go,{id:'tuition',go:'sch',ic:'coin',t:'לשלם שכר לימוד ולאשר מלגות',s:'תשלום, פריסה ואישורי מלגה',
-    body:()=>`<p>אחרי הקבלה מגיעות הוראות התשלום. את סכום שכר הלימוד ואת הפריסה בודקים באתר המוסד.${factChip('tuition.uniform')} אם אני אמור/ה לקבל מלגה או הטבה, מוודאים שהאישור הגיע למוסד לפני מועד התשלום, ושומרים עותק של כל אישור.</p>${schNextLine()}${BTNS([KB('data-go="sch"','מעקב המלגות שלי'),instKA(I,'אתר המוסד: שכר לימוד'),KB('data-kmark="tuition"',M.tuition?'✓ סידרתי':'סידרתי תשלום ואישורים')])}`});
+    body:()=>`<p>אחרי הקבלה מגיעות הוראות התשלום. את סכום שכר הלימוד ואת הפריסה בודקים באתר המוסד.${factChip('tuition.uniform')} אם מגיעה לי מלגה או הטבה, מוודאים שהאישור הגיע למוסד לפני מועד התשלום, ושומרים עותק של כל אישור.</p>${schNextLine()}${BTNS([KB('data-go="sch"','מעקב המלגות שלי'),instKA(I,'אתר המוסד: שכר לימוד'),KB('data-kmark="tuition"',M.tuition?'✓ סידרתי':'סידרתי תשלום ואישורים')])}`});
   const hs=X.prof.house; /* F2b: where I said I will live shapes this step; living at home makes it not needed (counted as done) */
   add(Z.go,{id:'dorm',ic:'pin',t:hs==='rent'?'לסגור דירה או מגורים':'לסגור מעונות או מגורים',done:!!M.dorm||hs==='home',
-    s:hs==='home'?`אני ${gx('ממשיך','ממשיכה','ממשיך/ה')} לגור בבית, אין צורך בצעד הזה`:hs==='dorm'?'בחרתי מעונות: בודקים מתי ההרשמה נפתחת':hs==='rent'?'דירה שכורה, לבד או עם שותפים':'מקום לגור בו, אם הקמפוס רחוק מהבית',
+    s:hs==='home'?'נשארים לגור בבית, אז אין צורך בצעד הזה':hs==='dorm'?'בחרתי מעונות: בודקים מתי ההרשמה נפתחת':hs==='rent'?'דירה שכורה, לבד או עם שותפים':'מקום לגור בו, אם הקמפוס רחוק מהבית',
     body:()=>dormHTML(X)});
   add(Z.go,{id:'commute',ic:'map',t:'לתכנן הגעה לקמפוס',s:'דרך, זמן ועלות',
     body:()=>`<p>בודקים כמה זמן לוקח להגיע ${esc(lIn(I.n))} בשעות הלימודים, ואיזו דרך מתאימה לי: תחבורה ציבורית, רכב או מגורים קרובים יותר. לסטודנטים יש הנחה בתחבורה הציבורית (${esc(fact('transport'))}), ולכן בודקים איך מקבלים אותה.${factChip('transport')}</p>${BTNS([instKA(I,'אתר המוסד: הגעה לקמפוס'),KB('data-kmark="commute"',M.commute?'✓ תכננתי':'תכננתי את ההגעה')])}`});
@@ -8877,22 +8983,234 @@ function pgSelect(id){const pl=safe(plan);if(!pl||!pl.zones.some(z=>z.id===id))r
   const lv=$('#live');if(lv){const z=pl.zones.find(z=>z.id===id);lv.textContent=`נבחר השלב: ${z.t}, ${pgPct(z)}%`}}
 
 /* ---------- what to do now: one step at a time ---------- */
-/* a few honest, encouraging words from my own numbers and progress */
-function coach(pl){
-  const X=pl.X,s=pl.stand,lines=[],sx=streak(),P0=X.P;
-  const z=pl.zones.find(z=>z.id===pl.cur);
-  if(pl.done<=1&&!X.real)lines.push('כל מסלול מתחיל בצעד אחד קטן. אפשר להתחיל מהערכה של הציונים, ולדייק בהמשך.');
-  else if(s.k==='ok')lines.push('אני מעל הסף, וזה מגיע לי. עכשיו חשוב לא לוותר על ההמשך: דרישות נוספות, מסמכים והרשמה בזמן.');
-  else if(s.k==='near')lines.push(`אני ממש ${gx('קרוב','קרובה')}. שיפור קטן אחד, בפסיכומטרי או בבגרות, יכול להספיק.`);
-  else if(s.k==='mid')lines.push('יש פער, והוא ניתן לסגירה: בחינה פסיכומטרית חוזרת (אין הגבלה על מספר הניסיונות) ושיפור בגרות אחד או שניים. בכלי "כמה חסר לי?" רואים מה כל אחד שווה.');
-  else if(s.k==='far')lines.push('הפער גדול, ובכל זאת יש דרך. כדאי לבדוק גם תוכנית גיבוי, כדי שהדרך לא תלויה בדבר אחד.');
-  else if(s.k==='open')lines.push('אין צורך לחכות: אפשר להתחיל ללמוד כבר עכשיו, ולצבור נקודות זכות.');
-  else lines.push('כל צעד שאני מסמן כאן מקרב אותי ליום הראשון. הקצב שלי הוא הקצב הנכון.');
-  if(sx>=2)lines.push(`${sx} ימים של התקדמות עד עכשיו. ממשיכים מכאן.`);
-  if(P0&&P0.end&&daysTo(P0.end)>=0&&daysTo(P0.end)<=400)lines.push(`${endTitle()}: ${inN(daysTo(P0.end))}.`); /* the date I gave myself, shown as a plain countdown */
-  if(z&&z.total&&z.done===z.total)lines.push(`סיימתי את כל המשימות של "${z.t}". אפשר לעבור הלאה.`);
-  const sn=schNext();if(sn&&daysTo(sn.d)<=30)lines.push(`המלגה הקרובה שלי: ${esc(sn.nm)}, ${esc(inN(daysTo(sn.d)))}.`); /* F3: my next scholarship deadline (user text: escaped) */
-  return `<div class="kp-coach"><span class="kp-ci">${ki('compass')}</span><p>${lines.join(' ')}</p></div>`}
+/* ================= the mentor: where the numbers stand, and what is worth doing about it =================
+   It reads the plan (the same X every part of the road reads) and answers in a human voice: what the state of things is, how big the gap is, which moves close it
+   (priced by the lab's own functions, never by a copy of the formulas) and when each of them can happen (the official dates).
+   It never makes up a number or a date: a move with no published date says so, and a score is never turned into a chance of admission.
+   The voice is a mentor's, and gender-neutral on purpose: "שלך/לך", the past tense (it reads the same for everyone), "we" (נתחיל, נסגור) and impersonal forms (כדאי, אפשר). */
+Object.assign(KI,{chevd:'<path d="m6 9 6 6 6-6"/>'});
+const MT_SEAS={w:'חורף',s:'קיץ',b:'מועד ב׳'};
+const mtName=()=>{const a=safe(()=>ACC.cur(),null),n=a&&String(a.name||'').trim().split(/\s+/)[0];return n&&n.length<=14?n:''};
+const mtPts=n=>n===1?'נקודה אחת':`${fmt(n)} נקודות`;
+const mtShort=I=>I.n.split(/\s+[–-]\s+/)[0]; /* "הטכניון – מכון טכנולוגי לישראל" reads as "הטכניון" in a sentence */
+/* **x** is a number or a name in bold; everything else is escaped */
+const mtMd=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b class="num">$1</b>');
+const mtUnits=n=>n===1?'יחידת לימוד אחת':`${n} יחידות לימוד`;
+const mtDate=s=>`${dRange({d:s.d,d2:s.d2})} · ${inN(s.n)}`;
+/* a subject with its article, as a sentence wants it after "את" */
+const MT_SUBJ={math:'המתמטיקה',eng:'האנגלית',heb:'ההבעה והלשון',hist:'ההיסטוריה',civ:'האזרחות',lit:'הספרות',bible:'התנ"ך',jt:'מחשבת ישראל',phys:'הפיזיקה',chem:'הכימיה',bio:'הביולוגיה',cs:'מדעי המחשב',tech:'המקצוע הטכנולוגי',arlang:'הערבית',hebar:'העברית',arab:'הערבית'};
+const mtSub=k=>MT_SUBJ[k]||SN[k];
+/* the next sitting of a bagrut subject in the Ministry's draft schedule (a sitting already under way counts through its last day) */
+function mtSit(k){const b=bagNext(k)[0];if(!b)return null;const d=daysTo(b[2])>=0?b[2]:b[4];return {k,sea:b[0],d,d2:b[4]&&b[4]!==d?b[4]:'',n:daysTo(d)}}
+const mtWhen=s=>s?`בחינת ${MT_SEAS[s.sea]}: ${mtDate(s)}`:'אין מועד של המקצוע בלוח שפרסמנו. בודקים באתר משרד החינוך';
+/* what an open step says to a student who is above the threshold: why it is worth the time, in a mentor's words */
+const MT_WHY={ext:'דרישה שמעבר למספרים, וכדאי להתחיל אליה מוקדם',mor:'השלב האישי אחרי הציונים. הזימון מגיע ממאל"ו',bagCore:'שלא יתברר ברגע האחרון שמשהו חסר',planB:'גיבוי לא עולה כלום, ונותן שקט',docs:'כדי לא להיתקע ברגע האחרון',story:'מה שנכין עכשיו יעזור בראיון ובמכתב',schol:'חלק מהמלגות נסגרות לפני תחילת השנה',reg:'כדי לא לפספס את החלון',psyReg:'ההרשמה נסגרת בתאריך קבוע',atuda:'בודקים אם זה מתאים, והמועדים משתנים משנה לשנה'};
+const MT_PRIO=['ext','mor','bagCore','planB','docs','story','schol','reg'];
+/* what the program itself asks for that the grades I entered do not show yet (published units and grades: these block, so they come first) */
+function mtNeeds(X){
+  const rows=X.rows,out=[];if(!rows.length)return out;
+  X.q.units.forEach(u=>{const m=rows.find(r=>r.k===u.k),gt=u.g?`, בציון ${u.g} ומעלה`:'',sit=mtSit(u.k);let t='',fx='';
+    if(!m){t=`להשלים את ${mtSub(u.k)}: ${u.u} יח"ל${gt}`;fx='בתנאי הקבלה של התוכנית, ועוד לא הזנת את המקצוע'}
+    else if(m.u<u.u){t=`להעלות את ${mtSub(u.k)} ל-${u.u} יחידות`;fx=`בתנאי הקבלה: ${u.u} יח"ל${gt}. הזנת ${m.u}`}
+    else if(u.g&&m.g<u.g){t=`לשפר את הציון ב${SN[u.k]} ל-${u.g} ומעלה`;fx=`בתנאי הקבלה נדרש ציון ${u.g}. הזנת ${m.g}`}
+    if(t)out.push({id:'need-'+u.k,k:'need',ic:'flag',t,fx,wn:mtWhen(sit),wf:sit?'bagrut.2027':'',steps:sit?[{id:'bag-need-'+u.k,d:sit.d,t:`${SN[u.k]} · בגרות ${MT_SEAS[sit.sea]} (טיוטת הלוח)`.slice(0,80),bk:'bag-need-'+u.k,f:'bagrut.2027',kind:'event'}]:[]})});
+  return out}
+/* the single bagrut moves that raise the number, each priced by the lab's own function (psychometric points that the threshold no longer asks for);
+   where the institution has no formula they are priced in points of the plain average. A grade move is +5: a jump of ten on a second sitting is a lot to ask.
+   When even 800 does not reach the threshold today (inf), a move is not "worth N points": it is what makes the threshold reachable, and says what is then needed */
+function mtBag(X){
+  const t={d:X.P.d,i:X.P.i},rows=X.rows,formula=X.q.tier===1&&!!UNI_RULES[X.P.i];if(!rows.length)return {list:[],combo:null,formula};
+  const base=formula?psyNeed(t,rows,0):null,inf=base!=null&&!isFinite(base),n0=base==null?null:inf?801:base,tot=rows.reduce((a,r)=>a+r.u,0)||1,c=[];
+  const price=df=>{if(n0==null)return null;const nn=psyNeed(t,applyDiffs(rows,[df]),0);return nn==null?null:{nn,gain:n0-(isFinite(nn)?nn:801)}};
+  rows.forEach(r=>{if(!SN[r.k]||r.k==='none'||r.k==='other')return;
+    if(r.g<100){const g2=Math.min(100,r.g+5),df={type:'g',k:r.k,g:g2},p=price(df);
+      c.push({key:`g-${r.k}-${g2}`,type:'g',k:r.k,df,from:r.g,to:g2,gain:p?p.gain:null,nn:p?p.nn:null,gb:Math.round((g2-r.g)*r.u/tot*100)/100})}
+    if(r.u<5&&r.u>=3&&UP5.includes(r.k)){const df={type:'u',k:r.k},p=price(df);
+      c.push({key:`u-${r.k}-5`,type:'u',k:r.k,df,from:r.u,to:5,gain:p?p.gain:null,nn:p?p.nn:null,gb:null})}});
+  if(formula){const df={type:'add',g:85},p=price(df);c.push({key:'add-x-85',type:'add',df,gain:p?p.gain:null,nn:p?p.nn:null,gb:null})}
+  const score=m=>formula?(m.gain||0):(m.gb||0),seen=new Set();
+  const list=c.filter(m=>score(m)>=(formula?1:.05)&&(formula||m.type==='g')).sort((a,b)=>score(b)-score(a))
+    .filter(m=>{const k=m.type==='add'?'add':m.k;if(seen.has(k))return false;seen.add(k);return true}).slice(0,3);
+  const to=formula&&list.length>1?psyNeed(t,applyDiffs(rows,list.map(m=>m.df)),0):null;
+  return {list,combo:to==null?null:{from:inf?null:base,to,inf},formula,inf}}
+/* the next psychometric sitting, with what I can do about it: register (the regular registration closes on a day) or, with a score already, sit it again.
+   far: even 800 does not reach the threshold with today's bagrut, so a retake alone cannot close it, and the words say so */
+function mtPsy(X,far){
+  const np=X.np,stg=X.stg;if(stg==='g10'||!np)return null;
+  const again=X.hasP,early=stg==='g11'&&!again,lbl=again?'פסיכומטרי חוזר':'פסיכומטרי',pf='psy.date.'+np.id,steps=[];
+  if(np.n>=0)steps.push({id:'psy-reg',d:np.reg,t:`${lbl}: סוגרים את ההרשמה הרגילה למועד ${np.lbl}`.slice(0,80),bk:'psy-reg',f:pf,kind:'task'});
+  const goal=X.P.goalP||(X.V.tier===1&&X.V.needP!=null&&isFinite(X.V.needP)&&X.V.needP<=800?X.V.needP:0);
+  steps.push({id:'psy-exam',d:np.d,t:`${lbl}, מועד ${np.lbl}${goal?`: יעד ${goal}`:''}`.slice(0,80),bk:'psy-exam',f:pf,kind:'event'});
+  const fx=early?'אין למהר: אפשר לנסות בחינה להתנסות באתר מאל"ו ולהרגיש את הקצב'
+    :far?'לבדה היא לא תסגור את הפער עם הבגרות של היום, אבל היא חלק מהדרך אחרי שהבגרות תשתפר. אין הגבלה על מספר הבחינות'
+    :again?(X.gap!=null&&X.gap>0?`חסרות **${mtPts(X.gap)}** בפסיכומטרי. אין הגבלה על מספר הבחינות, ובלי ערובה לשיפור`:'אפשר להיבחן שוב, ורוב המוסדות מחשיבים את הציון הגבוה')
+    :goal?`היעד שלנו: **${goal}** בפסיכומטרי. אפשר להיבחן יותר מפעם אחת`:'אפשר להיבחן יותר מפעם אחת, ורוב המוסדות מחשיבים את הציון הגבוה';
+  return {id:'psy',k:'psy',ic:'bolt',
+    t:early?'להכיר את הבחינה הפסיכומטרית':again?`בחינה חוזרת במועד ${np.lbl}`:`להירשם לפסיכומטרי של ${np.lbl}`,fx,
+    wn:early?'':np.n<0?`ההרשמה הרגילה למועד ${np.lbl} נסגרה. בודקים באתר מאל"ו אם עוד אפשר להירשם בתשלום מוגדל, או מכוונים למועד הבא`:`ההרשמה הרגילה נסגרת ${dLong(np.reg)} (${inN(np.n)}). הבחינה: ${np.days}`,
+    wf:pf,steps:early?[]:steps,go:early?{attr:'data-kfocus="psyEarly"',label:'להכיר את הבחינה'}:null}}
+/* other institutions that teach the same degree where the numbers already work: a back-up that does not depend on one door */
+function mtAlt(X){
+  if(!X.sc.p)return null;
+  const L=instList(X.d).filter(x=>x.i!==X.P.i&&x.st&&x.st.s==='yes');
+  return L.length?{n:L.length,names:L.slice(0,3).map(x=>mtShort(INST[x.i]))}:null}
+/* small, near milestones: the end of the stage I am in, the next quarter of the road, the closest date */
+function mtWins(pl){
+  const out=[],z=pl.zones.find(z=>z.id===pl.cur),m=[25,50,75,100].find(m=>m>pl.pct),kz=z&&z.total&&z.done<z.total?z.total-z.done:0;
+  if(kz)out.push({ic:'target',t:kz===1?`צעד אחד אחרון ב"${z.t}"`:`עוד ${kz} צעדים וסיימנו את "${z.t}"`});
+  if(m){const k=Math.max(1,Math.ceil(pl.total*m/100-pl.done-pl.part));if(k!==kz)out.push({ic:'flag',t:`עוד ${k===1?'צעד אחד':k+' צעדים'} ל-${m}% מהדרך`})}
+  const d=pl.tasks.filter(t=>!t.done&&t.due&&!t.approx&&t.n>=0&&t.n<=21).sort((a,b)=>a.n-b.n)[0];
+  if(d)out.unshift({ic:'cal',t:`${d.t}: ${inN(d.n)}`,hot:d.n<=7});
+  return out.slice(0,3)}
+/* ---------- the model: one state, a headline, and the moves ---------- */
+function mtModel(pl){
+  const X=pl.X,V=X.V,q=X.q,P=X.P,I=X.I,d=X.d,stg=X.stg,rows=X.rows,units=rows.reduce((a,r)=>a+r.u,0),tier=q.tier,formula=tier===1&&!!UNI_RULES[P.i],
+    g=X.gap,deg=`${d.n} ${bIn(I.n)}`,ins=mtShort(I),est=X.est?' המספרים כרגע לפי ציונים צפויים, ונעדכן כשיגיעו הסופיים.':'';
+  const M={st:'info',tone:'info',pill:'',h:'',b:'',fact:'',gauge:null,target:null,moves:[],alt:null,combo:null,cta:null,wins:mtWins(pl),title:'',sub:''};
+  const B=mtBag(X),needs=mtNeeds(X);
+  /* one bagrut move as a card: its title, what it does to the number, and its next sitting (with the calendar step that goes with it) */
+  const bagMove=m=>{const sit=mtSit(m.k),lbl=m.type==='u'?`${SN[m.k]}: 5 יח"ל`:`${SN[m.k]}: מ-${m.from} ל-${m.to}`,dated=sit&&stg!=='g10'&&m.type!=='add';
+    const fx=m.gain!=null?(B.inf&&m.nn!=null&&isFinite(m.nn)?`פותח את הדרך: אחרי זה הפסיכומטרי שצריך הוא **${m.nn}**`:`מוריד ב-**${mtPts(m.gain)}** את הפסיכומטרי שצריך`):m.gb!=null?`מעלה את ממוצע הבגרות ב-**${m.gb}** נקודות`:'משפר את הממוצע';
+    return {id:'bag-'+m.key,k:'bag',ic:'book',
+      t:m.type==='u'?`להעלות את ${mtSub(m.k)} ל-5 יחידות`:m.type==='add'?'להוסיף מקצוע מוגבר נוסף, ב-5 יחידות':`לשפר את הציון ב${SN[m.k]} מ-${m.from} ל-${m.to}`,fx:m.type==='add'?`${fx}, בציון 85 ומעלה`:fx,
+      wn:m.type==='add'?'בוחרים מקצוע עם היועץ/ת, ומתכננים את מועד הבחינה':stg==='g10'?'מתכננים עם היועץ/ת באיזו שנה ובאיזה מועד':mtWhen(sit),wf:dated?'bagrut.2027':'',
+      steps:dated?[{id:'bag-'+m.key.replace(/[^a-z0-9]+/gi,'-'),d:sit.d,t:`${lbl} · בגרות ${MT_SEAS[sit.sea]} (טיוטת הלוח)`.slice(0,80),bk:'bag-'+m.key.replace(/[^a-z0-9]+/gi,'-'),f:'bagrut.2027',kind:'event'}]:[]}};
+  const bags=B.list.map(bagMove),alt=mtAlt(X);
+  /* ----- which state is it ----- */
+  let far=false;
+  if(tier===0){M.st='open';M.tone='ok';M.pill='פתוח לכולם';
+    M.h='אפשר להתחיל כבר עכשיו';M.b='באוניברסיטה הפתוחה אין תנאי קבלה, לפי הידיעון שלה: לא בגרות ולא פסיכומטרי. אז הצעד הראשון קטן: לבחור קורס אחד ולראות איך זה מרגיש.';
+    M.cta={label:'לבחור קורס ראשון',attr:'data-kfocus="ouFirst"'}}
+  else if(!X.real){M.st='start';M.pill='נתחיל מהמספרים';
+    M.h=stg==='g10'?'עוד יש זמן, ואפשר להתחיל בקטן':'נתחיל מהמספרים, גם אם הם עוד לא סופיים';
+    M.b=stg==='g10'?`גם הערכה גסה של הציונים תראה לנו איפה כדאי להשקיע בשנים הקרובות כדי להגיע ל${deg}.`:`הערכה של ממוצע הבגרות מספיקה להתחלה. ברגע שיש מספרים נראה כמה חסר ל${deg}, ומה הכי משתלם לשפר.`;
+    M.cta={label:'להזנת הציונים',attr:'data-kgo="lab"'}}
+  else if(tier===1&&V.err==='bagrut'){M.st='bag';M.pill='כמעט שם';
+    M.h='חסר רק ממוצע בגרות';M.b=`יש לך פסיכומטרי${X.sc.estP?' (צפוי)':''}: ${X.sc.p}. עם ממוצע בגרות, גם צפוי, נחשב מיד כמה חסר ל${deg}.`;
+    M.cta={label:'להזנת ממוצע הבגרות',attr:'data-kgo="lab"'}}
+  else if(formula&&rows.length&&units<20){M.st='units';M.pill='כמעט שם';const need=20-units;
+    M.h='עוד קצת ציונים, ונוכל לחשב בדיוק';
+    M.b=`הזנת ${mtUnits(units)}, וכדי לחשב ממוצע עם בונוסים כמו ${bIn(ins)} צריך לפחות 20. בלי זה המספרים נראים קשים ממה שהם בפועל. נשלים ${need===1?'עוד יחידה':'עוד '+need+' יחידות'} ונראה איפה אנחנו באמת עומדים.`;
+    M.cta={label:'להשלמת הציונים',attr:'data-kgo="lab"'}}
+  else if(tier===1){
+    far=V.needP!=null&&!isFinite(V.needP);
+    if(V.err==='psy'&&!far){M.st='psy';M.pill='הפסיכומטרי בדרך';
+      M.h=`עם הבגרות שלך, הפסיכומטרי שמכניס הוא ${V.needP}`;
+      M.b=`זה מספר לכוון אליו, לא גבול שאי אפשר לזוז ממנו: אפשר להיבחן כמה פעמים, ורוב המוסדות מחשיבים את הציון הגבוה. מה שנשאר זה לבחור מועד, להתכונן ולהירשם בזמן. ובמקביל אפשר לשפר בבגרות ולהוריד את המספר.${est}`;M.fact='psy.highest';
+      M.target={l:'הפסיכומטרי שמכניס, עם הבגרות שלך',v:V.needP}}
+    else if(far){M.st='far';M.tone='far';M.pill='דרך ארוכה יותר';
+      M.h=`הסף ${bIn(ins)} גבוה ביחס לבגרות של היום`;
+      M.b=`גם 800 בפסיכומטרי לא סוגר את זה עם הממוצע הנוכחי, ולכן הדרך עוברת קודם כול דרך הבגרות. ${bags[0]?`המהלך שהכי מזיז הוא "${bags[0].t}". `:''}ובמקביל כדאי לבדוק איפה הציונים שלך כבר פותחים דלת.${est}`}
+    else if(V.ok===true){M.st='ok';M.tone='ok';M.pill='מעל הסף';const mg=V.gapP!=null&&isFinite(V.gapP)&&V.gapP<0?-V.gapP:0;
+      M.h=`המספרים שלך מעל הסף${mg?`, במרווח של ${mtPts(mg)} בפסיכומטרי`:''}`;
+      M.b=`זה מגיע לך. עכשיו חשוב לא להתרשל: הסף משתנה משנה לשנה, ועוד נשארו דרישות, מסמכים והרשמה בזמן. נשמור על המרווח ונסגור את שאר הדרך.${doorMed(d,P.i)?' ברפואה ובתוכניות עם מיון אישי הסף רק מזמין לשלב הבא, והוא לא אומר קבלה.':''}${est}`}
+    else{M.st='gap';const gp=Math.max(1,g||V.gapP||1);M.tone=gp<=20?'near':gp<=70?'mid':'far';M.pill=gp<=20?'ממש קרוב':gp<=70?'יש פער, ויש דרך':'דרך ארוכה יותר';
+      M.h=gp<=20?`${gp===1?'חסרה נקודה אחת':`חסרות ${gp} נקודות`}, וזה ממש קרוב`:gp<=70?`חסרות ${gp} נקודות בפסיכומטרי`:`חסרות ${gp} נקודות, ויש לזה דרך`;
+      M.b=(gp<=20?'שיפור קטן אחד, בפסיכומטרי או בבגרות, מספיק כדי לעבור את הסף. נבחר את הדרך הכי קלה ונקבע לה תאריך.':gp<=70?'זה פער שסוגרים. כל מהלך מקצר חלק מהדרך, ושניים-שלושה ביחד מקצרים הרבה. אין הבטחות, אבל יש חישוב: בחרנו את מה שהכי מזיז את המספר שלך.':'זה פער גדול, ועדיף להגיד את זה ישר. הוא לא נסגר במהלך אחד, אבל שילוב של שיפור בגרות ובחינה חוזרת מצמצם פערים כאלה. ובינתיים כדאי לבנות גיבוי שלא תלוי בדבר אחד.')+est}
+    if(V.score!=null&&V.thr)M.gauge={score:V.score,thr:V.thr,ok:V.ok===true,scale:V.scale};
+    /* what all the bagrut moves together would do, as the number I would then need (or the gap I would then have) */
+    const cb=B.combo;
+    if(cb&&isFinite(cb.to)){
+      if(cb.inf)M.combo={to:cb.to,open:true};
+      else if(V.err==='psy'&&cb.to<cb.from)M.combo={from:cb.from,to:cb.to,abs:true};
+      else if(g!=null&&g>0){const g2=Math.max(0,cb.to-(X.sc.p||0));if(g2<g)M.combo={from:g,to:g2}}}}
+  else{
+    /* a threshold without a formula (tier 2), or none at all (tier 3): the words come from what was published, in a mentor's voice */
+    const r=V.closest&&V.closest.r,bn=q.bench,sc=X.sc;
+    if(V.ok===true){M.st='info';M.tone='ok';M.pill='מספיק לדרך שפורסמה';M.h='המספרים שלך מספיקים לאחת הדרכים שפורסמו';
+      M.b='לפי המספרים אפשר להגיש, ועדיין כדאי לעבור על שאר התנאים של התוכנית. הנוסח המחייב הוא באתר המוסד, והוא זה שקובע.';M.cta={label:'לעבור על תנאי הקבלה',attr:'data-kfocus="know"'}}
+    else if(r&&(r.gp>0||r.gb>0)){M.st='gap2';M.pill='יש דרך קרובה';
+      const need=[r.p?`פסיכומטרי ${r.p}`:'',r.b?`ממוצע בגרות ${r.b}`:''].filter(Boolean).join(' וגם ');
+      M.h=r.gp>0&&r.gb>0?`חסרות ${mtPts(r.gp)} בפסיכומטרי ו-${r.gb} בממוצע`:r.gb>0?`חסרות ${r.gb} נקודות בממוצע הבגרות`:`חסרות ${mtPts(r.gp)} בפסיכומטרי`;
+      M.b=`הדרך הקרובה אליך בתנאי הקבלה היא ${need}. זו נקודת התחלה טובה: המוסד קובע את החישוב הסופי, ובינתיים אפשר לראות מה הכי מקרב.${est}`;M.cta={label:'לתוכנית שלנו',attr:'data-kmt="plan"',ic:'chevd'};M.t2=r}
+    else if(V.ok===false&&V.pubBest){M.st='gap2';M.pill='יש תנאי אחד';
+      const bad=V.pubBest.cond.filter(c=>c.ok===false).map(c=>c.t);
+      M.h='יש תנאי מינימום שעוד לא מתקיים';M.b=`${bad.length?bad.join(', ')+'. ':''}זה תנאי שנדרש בנוסף לסף, ואפשר לעבוד עליו. נעבור על כל התנאים של התוכנית ונראה מה כבר מתקיים אצלך.`;
+      M.cta={label:'לעבור על תנאי הקבלה',attr:'data-kfocus="know"'}}
+    else if(tier===2){M.st='info';M.pill='נעבור על התנאים';M.h='אין לנו חישוב אוטומטי לתוכנית הזאת';
+      M.b='התנאים שפורסמו לא ניתנים לחישוב מהציונים. נעבור עליהם ביחד, ואם צריך נבדוק גם במחשבון של המוסד.';M.cta={label:'לעבור על תנאי הקבלה',attr:'data-kfocus="know"'}}
+    else{M.st='info';M.pill='נעבור על התנאים';M.h='המוסד לא פרסם סף מספרי';
+      const dp=bn&&bn.p&&sc.p?sc.p-bn.p:null,db=bn&&bn.b&&sc.b?Math.round((sc.b-bn.b)*10)/10:null;
+      M.b=`אז אין לנו מספר להשוות אליו, וזה בסדר: נעבור על התנאים שפורסמו ונסמן מה כבר מתקיים אצלך.${bn?` לפי עבודאטה, מי שהתקבלו ${bn.inst?'בעבר':'בתחום'} הגיעו בממוצע עם ${[bn.p?'פסיכומטרי '+fmt(bn.p):'',bn.b?'ממוצע בגרות משוקלל '+bn.b:''].filter(Boolean).join(' ו')}.${dp!=null?` הפסיכומטרי שלך ${dp>=0?'גבוה ב-'+dp:'נמוך ב-'+(-dp)}`:''}${db!=null?`${dp!=null?' והבגרות':' הבגרות שלך'} ${db>=0?'גבוהה ב-'+db:'נמוכה ב-'+(-db)}`:''}${dp!=null||db!=null?'. ':' '}זה סימן ולא סף.`:''}`;
+      M.cta={label:'לעבור על תנאי הקבלה',attr:'data-kfocus="know"'}}}
+  /* ----- the moves, in the order worth doing them ----- */
+  const mv=M.moves,psy=mtPsy(X,far);
+  if(['gap','far','psy'].includes(M.st)){
+    mv.push(...needs.slice(0,2));
+    if(bags[0])mv.push(bags[0]);
+    if(psy&&!far)mv.push(psy);
+    bags.slice(1).forEach(m=>mv.push(m));
+    if(psy&&far)mv.push(psy);
+    if(M.st==='gap'&&V.ok===false&&X.hasP&&!psy&&q.tier===1)mv.push({id:'psy-none',k:'psy',ic:'bolt',t:'לבדוק מועד פסיכומטרי חדש',fx:'אין כרגע מועד פתוח להרשמה. מועדים חדשים מתפרסמים באתר מאל"ו',wn:'',steps:[],go:null})}
+  else if(M.st==='gap2'&&M.t2){
+    if(M.t2.gb>0){bags.forEach(m=>mv.push(m));const tot=Math.round(bags.reduce((a,m)=>a+(B.list.find(x=>'bag-'+x.key===m.id).gb||0),0)*100)/100;if(tot>0)M.combo={avg:true,tot,gap:M.t2.gb}}
+    if(M.t2.gp>0&&psy)mv.push(psy)}
+  else if(M.st==='ok'){
+    MT_PRIO.map(id=>pl.tasks.find(t=>t.id===id)).filter(t=>t&&!t.done).slice(0,3).forEach(t=>mv.push({id:'task-'+t.id,k:'task',ic:t.ic,t:t.t,fx:MT_WHY[t.id]||'',wn:t.due?dueText(t):'',wf:t.df||'',steps:[],go:{attr:`data-kfocus="${t.id}"`,label:'לפתוח את הצעד'}}))}
+  if(['gap','far'].includes(M.st)&&alt)M.alt=alt;
+  M.plan=['psy','gap','far','ok','gap2'].includes(M.st)&&mv.length>0;
+  if(!M.cta)M.cta=M.plan?{label:M.st==='ok'?'למה שנשאר לסגור':'לתוכנית שלנו',attr:'data-kmt="plan"',ic:'chevd'}:{label:'להזנת הציונים',attr:'data-kgo="lab"'};
+  M.title=M.st==='psy'?'הדרך לפסיכומטרי':M.st==='ok'?'מה נשאר לסגור':M.st==='far'?'הדרך עוברת דרך הבגרות':M.st==='gap2'?'ככה נקרב את המספרים':'ככה נסגור את הפער';
+  M.sub=M.st==='ok'?'המרווח טוב. עכשיו כדאי לסגור את שאר הדרך בזמן.':M.st==='gap2'?'כל מהלך מחושב לפי ממוצע הבגרות הרגיל, בלי בונוסים. המוסד קובע את החישוב הסופי, ולכן זה כיוון ולא הבטחה.':`המהלכים שהכי מזיזים את המספר שלך, לפי הנוסחה של ${ins}. כל אחד מחושב לבד, וביחד הם חזקים יותר. זה חישוב, לא הבטחה.`;
+  return M}
+/* one model per plan (the plan is rebuilt whenever anything it reads changes) */
+const mtOf=pl=>pl._mt||(pl._mt=safe(()=>mtModel(pl),null));
+/* a move is "in my calendar" when every date it would add is already there */
+function mtHave(m){const P=pth();return !!(m.steps&&m.steps.length&&P&&m.steps.every(s=>P.dates.some(c=>c.id==='my-bst-'+s.id)))}
+/* ---------- what is drawn ---------- */
+function mtGaugeHTML(M){
+  const g=M.gauge;if(!g)return '';
+  const f=v=>fmt(v,v%1?2:0),r=g.score/g.thr,pos=Math.max(4,Math.min(100,(r-.85)/.3*100));
+  return `<div class="mt-g ${g.ok?'ok':'no'}" role="img" aria-label="${esc(g.scale)} שלך ${f(g.score)}, מול סף של ${f(g.thr)}"><div class="mt-gt"><i style="width:${pos.toFixed(1)}%"></i><b style="inset-inline-start:50%"><em>הסף</em></b></div>
+    <div class="mt-gl"><span>${esc(g.scale)} שלך <b class="num">${f(g.score)}</b></span><span>הסף <b class="num">${f(g.thr)}</b></span></div></div>`}
+function mtBriefHTML(pl){
+  const M=mtOf(pl);if(!M)return '';
+  const X=pl.X,P=X.P,nm=mtName(),sx=streak(),f=[];
+  if(sx>=2)f.push(['fire',`${sx} ימים ברצף של התקדמות`]);
+  if(P.end&&daysTo(P.end)>=0&&daysTo(P.end)<=400)f.push(['cal',`${endTitle()}: ${inN(daysTo(P.end))}`]);
+  const sn=schNext();if(sn&&daysTo(sn.d)<=30)f.push(['coin',`המלגה הקרובה: ${sn.nm}, ${inN(daysTo(sn.d))}`]);
+  return `<section class="mt-b ${M.tone}" id="mtBrief" aria-labelledby="mtbH"><div class="mt-bh"><span class="mt-av" aria-hidden="true">${ki('compass')}</span><div class="mt-bk"><small>${nm?`היי ${esc(nm)}`:'הכיוון להיום'}</small><span class="mt-pill ${M.tone}">${esc(M.pill)}</span></div></div>
+    <h2 id="mtbH">${esc(M.h)}</h2><p class="mt-bp">${mtMd(M.b)}${M.fact?factChip(M.fact):''}</p>
+    ${M.target?`<div class="mt-tile"><small>${esc(M.target.l)}</small><b class="num">${M.target.v}</b></div>`:''}${mtGaugeHTML(M)}
+    ${M.wins.length?`<ul class="mt-w" aria-label="תחנות קטנות בדרך">${M.wins.map(w=>`<li class="${w.hot?'hot':''}">${ki(w.ic)}<span>${esc(w.t)}</span></li>`).join('')}</ul>`:''}
+    ${f.length?`<ul class="mt-f">${f.map(([ic,t])=>`<li>${ki(ic)}<span>${esc(t)}</span></li>`).join('')}</ul>`:''}
+    <div class="mt-bc"><button type="button" class="btn primary" ${M.cta.attr}>${esc(M.cta.label)}${ki(M.cta.ic||'arrow')}</button></div></section>`}
+function mtMoveHTML(m){
+  const have=mtHave(m),act=m.steps&&m.steps.length?(have?`<span class="mv-have" tabindex="-1" data-kmhave="${esc(m.id)}">${ki('check')}ביומן שלך</span>`:`<button type="button" class="btn soft sm mv-add" data-kmt="add:${esc(m.id)}" aria-label="הוספה ליומן: ${esc(m.t)}">${FIC.plus}<span>הוספה ליומן</span></button>`):m.go?`<button type="button" class="btn soft sm" ${m.go.attr}>${esc(m.go.label)}${ki('arrow')}</button>`:'';
+  return `<li class="mv ${m.k}${have?' have':''}" id="mv-${esc(m.id)}"><span class="mv-i" aria-hidden="true">${ki(m.ic)}</span>
+    <div class="mv-b"><h3>${esc(m.t)}</h3>${m.fx?`<p class="mv-fx">${mtMd(m.fx)}</p>`:''}${m.wn?`<p class="mv-wn">${ki('cal')}<span>${esc(m.wn)}${m.wf?factChip(m.wf):''}</span></p>`:''}</div><div class="mv-a">${act}</div></li>`}
+function mtPlanHTML(pl){
+  const M=mtOf(pl);if(!M||!M.plan)return '';
+  const X=pl.X,addable=M.moves.filter(m=>m.steps&&m.steps.length&&!mtHave(m)),c=M.combo,
+    cmb=!c?'':c.avg?`אם כל השיפורים יצליחו, ממוצע הבגרות עולה ב-**${c.tot}** נקודות. ${c.tot>=c.gap?`זה מספיק כדי לסגור את ה-**${c.gap}** שחסרות.`:`נשארות עוד **${Math.round((c.gap-c.tot)*100)/100}** לסגור, ואפשר להוסיף שיפור נוסף.`}`:c.open?`אם כל השיפורים בבגרות יצליחו, הדרך נפתחת: הפסיכומטרי שצריך יורד ל-**${c.to}**.`:c.abs?`אם כל השיפורים האלה יצליחו, הפסיכומטרי שצריך יורד מ-**${c.from}** ל-**${c.to}**.`:`אם כל השיפורים בבגרות יצליחו, הפער מצטמצם מ-**${c.from}** ל-**${c.to}** נקודות.`;
+  return `<section class="mt-p" id="mtPlan" aria-labelledby="mtpH"><header class="mt-ph"><div><small>התוכנית</small><h2 id="mtpH">${esc(M.title)}</h2><p>${esc(M.sub)}</p>${cmb?`<p class="mt-cmb">${ki('bolt')}<span>${mtMd(cmb)}</span></p>`:''}</div>
+      ${addable.length>1?`<button type="button" class="btn soft mt-all" data-kmt="all">${ki('cal')}להוסיף את כל המועדים ליומן</button>`:''}</header>
+    <ol class="mv-l">${M.moves.map(mtMoveHTML).join('')}</ol>
+    ${M.alt?`<div class="mt-alt"><span class="mv-i" aria-hidden="true">${ki('compass')}</span><div><h3>גיבוי: מקומות שבהם המספרים שלך כבר עובדים</h3><p>${esc(X.d.n)} נלמד גם ${M.alt.names.map(n=>esc(bIn(n))).join(', ')}${M.alt.n>M.alt.names.length?` ועוד ${M.alt.n-M.alt.names.length}`:''}, ושם המספרים שלך כבר עונים על תנאי הקבלה שפורסמו.</p></div><button type="button" class="btn soft sm" data-kgo="opt">לראות את כולם${ki('arrow')}</button></div>`:''}
+    <div class="mt-pf"><p class="fine">המספרים לפי הנוסחה שהמוסדות פרסמו, כל מהלך לבד. הסף משתנה משנה לשנה, ולכן זה כיוון ולא הבטחה.</p><button type="button" class="linkbtn" data-kgo="lab">לשחק עם המספרים${ki('arrow')}</button></div></section>`}
+/* the calendar steps of a move (or of all of them): the same shape the lab's "turn it into a plan" writes, so a step added from either place is one step */
+function mtAdd(which){
+  const P=pth(),pl=safe(plan),M=pl&&mtOf(pl);if(!P||!M)return 0;
+  const L=which==='all'?M.moves.filter(m=>m.steps&&m.steps.length&&!mtHave(m)):M.moves.filter(m=>m.id===which&&m.steps&&m.steps.length);
+  const steps=L.flatMap(m=>m.steps);if(!steps.length)return 0;
+  if(P.dates.length+steps.length>400){toast('היומן מלא. אפשר למחוק פריטים ישנים');return 0}
+  steps.forEach(s=>{P.dates=P.dates.filter(c=>c.id!=='my-bst-'+s.id);P.dates.push({id:'my-bst-'+s.id,t:s.t,d:s.d,kind:s.kind||'event',src:'lab',bk:s.bk,f:s.f})});
+  if(pl.X.V.ok===false&&!P.marks.bridge)setMark('bridge',Date.now()); /* the badge says a bridge plan exists */
+  logAct();pthSave();PLC=null;return steps.length}
+/* the card and the brief are drawn again in place: the page keeps its place, and the focus moves to what replaced the button */
+function mtRepaint(focusSel){
+  const pl=safe(plan);if(!pl)return;
+  const b=$('#mtBrief'),h=$('#mtPlanHost');
+  if(b)b.outerHTML=mtBriefHTML(pl);
+  if(h)h.innerHTML=mtPlanHTML(pl);
+  if(focusSel)refocus(focusSel)}
+function mtAct(v){
+  const [a,id]=String(v).split(':');
+  if(a==='plan'){const e=$('#mtPlan');if(e){jump('mtPlan');e.tabIndex=-1;e.focus({preventScroll:true})}return}
+  if(a==='add'||a==='all'){
+    const n=mtAdd(a==='all'?'all':id);if(!n)return;
+    toast(n===1?'הוספתי ליומן. אפשר לראות אותו בלשונית "היומן"':`הוספתי ${n} מועדים ליומן. אפשר לראות אותם בלשונית "היומן"`);say(n===1?'נוסף ליומן':`נוספו ${n} מועדים ליומן`);
+    paint(['hero']);mtRepaint(a==='add'?`[data-kmhave="${id}"]`:'#mtPlan')}}
 /* ---------- F2a: welcome back ---------- */
 /* how long since I was last on the road. Decided once per page load (KP.away), so the card stays until I close it; then today is saved as the visit */
 function visitNote(){
@@ -9050,7 +9368,7 @@ function nowHTML(pl){
   return `<section class="jn-sec" aria-labelledby="jnH"><div class="sec-h"><div><h2 id="jnH">${ki('map')}המסלול שלי</h2></div><div class="jn-act">${nx&&t&&t.id!==nx.id?`<button type="button" class="btn soft sm" data-kstop="${nx.id}">לצעד הבא שלי${ki('arrow')}</button>`:''}<button type="button" class="btn soft sm jn-fs" id="jnFsBtn" data-kfs aria-haspopup="dialog">${ki('expand')}מסך מלא</button></div></div>
       <div class="jn-w" id="kpJw"><div id="kpJ">${journeyHTML(pl,t)}</div></div><div class="jn-foot">${legendHTML()}<p class="jn-hint">לוחצים על תחנה כדי לראות מה עושים בה. האחוז למעלה הוא הצעדים שעשיתי בדרך, ולא סיכוי להתקבל.</p></div>
       <div class="kp-nowg"><div class="kp-main" id="kpStep">${t?focusHTML(pl,t):doneHTML(pl)}</div>
-        <div class="kp-side">${coach(pl)}${safe(()=>teenTeaser(pl),'')}</div></div></section>
+        <div class="kp-side">${safe(()=>mtBriefHTML(pl),'')}${safe(()=>teenTeaser(pl),'')}</div></div><div id="mtPlanHost">${safe(()=>mtPlanHTML(pl),'')}</div></section>
     ${safe(()=>stepsNoteHTML(),'')}${safe(()=>welcomeHTML(pl),'')}
     ${safe(()=>qCardHTML(pl),'')}
     <div class="kp-whyc">${safe(()=>whyHTML(pl))}</div>
@@ -9124,14 +9442,14 @@ function gotoTab(k,o={}){
   if(k!==from){KP.qpause=false;KP.qfx=null; /* F2b: leaving the tab and coming back allows the next question, and an old effect is not kept */
     if(isView(k))KP.back='';else if(isView(from))KP.back=from; /* a tool remembers the view it was opened from */
 }
-  if(o.to==='kpBag')KC.v='exam';
+
   jnReset();KP.tab=k;const n=$('#kpNav'),b=$('#kpTab'),pl=safe(plan);
   if(!n||!b||!pl){render();return}
   navSync();b.innerHTML=tabInner(pl);afterTab();
   if(k!==from){const sc=b.firstElementChild;if(sc){sc.classList.remove('tab-in');void sc.offsetWidth;sc.classList.add('tab-in')}}
   if(k!==from){const lv=$('#live'),nm=(TABS.find(t=>t[0]===k)||TOOLS.find(t=>t[0]===k)||[])[1];if(lv&&nm)lv.textContent='נפתח: '+nm; /* the view changes under the focus, so a screen reader is told */
 }
-  if(o.to){if(o.to==='kpBag'){const dd=$('#clOff');if(dd)dd.open=true}setTimeout(()=>jump(o.to,!o.instant),90)}
+  if(o.to){if(o.to==='kpBag'){const dd=$('#cuBag');if(dd)dd.open=true}setTimeout(()=>jump(o.to,!o.instant),90)}
   else{const top=b.getBoundingClientRect().top;if(o.scroll||top<(innerWidth<760?116:150)||top>innerHeight*.55)jump('kpTab',!o.instant)}} /* the view I opened is brought into sight: when it starts low on the screen (I am at the top of the page) or I have scrolled past its beginning */
 /* bring a step into focus (from a list, a button in another step, or "next") */
 function focusOn(id,push=true){
@@ -9463,19 +9781,17 @@ const ymd=iso=>iso.replace(/-/g,'');
 const nextDay=iso=>{const d=new Date(iso+'T00:00:00');d.setDate(d.getDate()+1);return isoOf(d.getFullYear(),d.getMonth()+1,d.getDate())};
 /* a link that opens Google Calendar with the event filled in; nothing is sent until I press it, and the page stays where it is */
 function gcalUrl(x){
-  const f=x.f&&factGet(x.f),det=[x.sub,x.sub2,f&&f.status!=='verified'?'מצב הנתון: '+factLabel(f):'',x.src,'נוסף מ"וקטור"'].filter(Boolean).join('\n');
-  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(x.t)+'&dates='+ymd(x.d)+'/'+ymd(nextDay(x.d2||x.d))+'&details='+encodeURIComponent(det)}
+  const f=x.f&&factGet(x.f),det=[x.sub,x.note,x.sub2,f&&f.status!=='verified'?'מצב הנתון: '+factLabel(f):'',x.src,'נוסף מ"וקטור"'].filter(Boolean).join('\n');
+  const timed=x.tm&&!x.d2,en=timed?cuEndAt(x.d,x.tm,x.len||60):null,hm=s=>s.replace(':','')+'00',
+    when=timed?ymd(x.d)+'T'+hm(x.tm)+'/'+ymd(en[0])+'T'+hm(en[1]):ymd(x.d)+'/'+ymd(nextDay(x.d2||x.d));
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(x.t)+'&dates='+when+'&details='+encodeURIComponent(det)}
 /* the two ways to add one event: Google Calendar (a link) or a file that every other calendar opens (Apple, Outlook, Samsung...). An estimated date has neither */
 const addCalHTML=x=>x.approx?'':`<span class="cl-add"><a class="btn soft sm" href="${esc(gcalUrl(x))}" target="_blank" rel="noopener" aria-label="הוספה ליומן Google: ${esc(x.t)} (נפתח בלשונית חדשה)">${ki('cal')}Google</a>${inViewer()?'':`<button type="button" class="btn soft sm" data-kic1="${esc(x.id)}" aria-label="הורדת קובץ יומן: ${esc(x.t)}">${ki('down')}קובץ</button>`}</span>`;
 
-/* ---------- the calendar: only my dates, on a month, with a way to add each one ---------- */
-const KC={m:'',sel:'',f:'all',uf:'all',v:'',all:false,add:null,off:false,offAll:false,dn:false}; /* ui state, never saved: the view that is open (exam | mine), the month in view (YYYY-MM), the day picked, the filter of the exam list, the filter of the official list, all rows of my list, the form (or null), the official dates on the month, all rows of the official list */
-const CL_CAT={idf:'reg',sch:'sch',mine:'mine'};
-const CL_F=[['all','הכול'],['reg','הרשמה'],['sch','מלגות'],['mine','שלי']];
-const CL_NM={psy:'בחינה פסיכומטרית',bag:'בגרות',idf:'הרשמה',sch:'מלגה',mine:'שלי'};
+/* ---------- the calendar: one page for every date (the code is below, after the dates of the plan and the planner) ---------- */
 const HMON=['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
 const HDOW=['א','ב','ג','ד','ה','ו','ש'],HDOWL=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
-const clShort=x=>x.k==='mine'&&x.kk==='psy'?'פסיכומטרי':x.k==='bag'&&x.sn?x.sn:x.k==='psy'?(x.reg?'סגירת הרשמה':'פסיכומטרי'):x.k==='sch'?(x.nm||'מלגה'):x.k==='idf'?'הרשמה':String(x.t).split(' ').slice(0,3).join(' ');
+
 /* every event I could add: what the plan lists, and every sitting of the bagrut subjects of my planner (even a subject the calendar does not show by itself) */
 function calPool(pl){
   const L=timeline(pl),have=new Set(L.map(x=>x.id));
@@ -9489,11 +9805,12 @@ const dRange=x=>x.d2&&x.d2!==x.d?`${new Date(x.d+'T00:00:00').getDate()}–${new
    psychometric sitting and the next bagrut exam, each with a button that puts it in my calendar. Every official date is still there, one tap away, in a list that starts closed.
    A task can be ticked off, an event cannot. The only thing saved is what I add (P.dates, with kind: task | event, done, and from / k0 when it was copied from an official date). */
 const CN={}; /* the official dates the cards and the rows offer, by id (never saved) */
-const KIND_L={task:'משימה',event:'אירוע'};
+
 /* one of my dates as a row of the calendar: what the plan knows about its source (the status and the link of an exam date I made a step of) comes along */
 function mineOf(x){
   const f=planFact(x),bg=f==='bagrut.2027'?BAGD.find(b=>b[2]===x.d||b[4]===x.d):null;
-  return {id:x.id,d:x.d,...(x.d2?{d2:x.d2}:{}),k:'mine',kk:x.k0||'mine',kind:x.kind==='task'?'task':'event',done:!!x.done,t:x.t,mine:1,
+  return {id:x.id,d:x.d,...(x.d2?{d2:x.d2}:{}),k:'mine',kk:x.k0||'mine',kind:['task','event','study','mile'].includes(x.kind)?x.kind:'event',done:!!x.done,t:x.t,mine:1,
+    ...(x.tm?{tm:x.tm}:{}),...(x.len?{len:x.len}:{}),...(x.note?{note:x.note}:{}),...(x.grp?{grp:x.grp}:{}),...(x.from?{from:x.from}:{}),...(x.src==='lab'?{lab:1}:{}),
     ...(f?{f,sub:f==='bagrut.2027'?'לפי טיוטת לוח הבחינות של משרד החינוך.':'לפי לוח המועדים של מאל"ו.',src:f==='bagrut.2027'?bg&&(bg[0]==='w'?EDU.win:EDU.sum):NITE.td}:x.f?{f:x.f}:{})}}
 /* everything that is mine, for the month and the list: a task that is not done stays after its day */
 function calMineAll(){
@@ -9501,32 +9818,11 @@ function calMineAll(){
   safe(schEvents,[]).filter(x=>x.tid).forEach(x=>L.push({...x,kind:'event',done:false}));
   if(P&&P.end&&daysTo(P.end)>=0)L.push({id:'end-mine',d:P.end,k:'mine',kk:'mine',kind:'event',done:false,t:endTitle(),sub:'התאריך שהזנתי בעצמי.',fixed:1});
   return L.sort((a,b)=>a.d.localeCompare(b.d))}
-const mineUp=L=>L.filter(x=>x.kind==='task'?!x.done:daysTo(x.d2||x.d)>=0); /* tasks to do, and events that did not pass yet */
+
 const offRest=pl=>calEvents(pl).filter(x=>!x.mine&&x.k!=='mine'&&!(x.k==='sch'&&x.tid)&&x.k!=='psy'&&x.k!=='bag'); /* the official dates that are not exams: registration of my targets, scholarships I do not follow */
-const calOff=pl=>[...safe(()=>upAll(pl),[]),...offRest(pl)].sort((a,b)=>a.d.localeCompare(b.d)); /* every official date: all the exams, and the rest */
+
 const copiedIds=()=>new Set(((pth()||{}).dates||[]).map(x=>x.from).filter(Boolean));
-/* a row of the list: when, what, how far, where it comes from, and what I can do with it */
-function clRow(x){
-  const n=daysTo(x.d),dt=new Date(x.d+'T00:00:00'),kk=x.kk||x.k,task=x.mine&&x.kind==='task',over=task&&!x.done&&n<0,cat=kk+(x.approx?' approx':'')+(x.done?' done':'');
-  const off=!x.mine&&!x.fixed&&x.k!=='sch'||x.k==='sch'&&!x.tid;if(off&&!x.approx)CN[x.id]=x;
-  const own=off&&!x.approx?(copiedIds().has(x.id)?haveHTML(x.id):`<button type="button" class="btn soft sm cl-take" data-kown="${esc(x.id)}">${ki('cal')}הוספה ליומן שלי</button>`):'';
-  return `<li class="cl-r ${cat}"><span class="cl-rd num" aria-hidden="true"><b>${dt.getDate()}</b><small>${HMON[dt.getMonth()].slice(0,3)}</small></span>
-    <div class="cl-rb">${task?`<div class="cl-tt"><button type="button" class="cl-ck" role="checkbox" aria-checked="${!!x.done}" data-kdone="${esc(x.id)}" aria-label="סימון כבוצע: ${esc(x.t)}"></button><b>${esc(x.t)}</b></div>`:`<b>${esc(x.t)}</b>`}${x.pick?' <span class="kp-tag ok">המועד שלי</span>':''}
-      <small><span class="cl-rk ${kk}">${x.mine&&kk==='mine'?KIND_L[x.kind]:CL_NM[kk]||''}</span> ${esc(dRange(x))} · ${over?'עבר התאריך':x.done?'בוצע':inN(n)}${x.approx?' · בערך, לפי המחזור הקודם':''}${x.sub&&!x.mine?' · '+esc(x.sub):''}${x.f?factChip(x.f):''}</small>
-      <div class="cl-ra">${own}${x.mine?'':addCalHTML(x)}${x.src?`<a class="tl-src" href="${esc(x.src)}" target="_blank" rel="noopener">המקור</a>`:''}${x.mine&&!x.fixed?`<button type="button" class="linkbtn" data-kdel="${esc(x.id)}">מחיקה</button>`:''}</div></div></li>`}
-/* the rows of the drawer; only the first rows show until I ask for all of them */
-function clAgenda(L,lim){const rows=L.map(clRow);return {html:rows.slice(0,lim).join(''),total:rows.length}}
-/* one month: weeks start on Sunday; a day with something on it shows the first and how many more (and carries them in its name for a screen reader) */
-function clGrid(L){
-  const [Y,M]=KC.m.split('-').map(Number),first=new Date(Y,M-1,1),lead=first.getDay(),days=new Date(Y,M,0).getDate(),by={},tdy=isoD(today0());
-  L.forEach(x=>{const a=new Date(x.d+'T00:00:00'),b=new Date((x.d2||x.d)+'T00:00:00');for(const t=new Date(a);t<=b;t.setDate(t.getDate()+1))(by[isoD(t)]=by[isoD(t)]||[]).push(x)});
-  const cells=[];for(let i=0;i<lead;i++)cells.push('');
-  for(let d=1;d<=days;d++){const iso=isoOf(Y,M,d),E=by[iso]||[],dow=(lead+d-1)%7,c0=E[0]&&(E[0].kk||E[0].k);
-    const nm=E.length?`${E.length===1?'פריט אחד':E.length+' פריטים'}: ${E.slice(0,3).map(clShort).join(', ')}`:'אין כלום';
-    cells.push(`<button type="button" class="cl-d${iso===tdy?' today':''}${iso===KC.sel?' sel':''}${E.length?' has':''}${dow>=5?' wk':''}" data-kcd="${iso}" aria-pressed="${iso===KC.sel}"><b class="num" aria-hidden="true">${d}</b><span class="sr">${d} ב${HMON[M-1]} ${Y}, יום ${HDOWL[dow]}${iso===tdy?', היום':''}. ${esc(nm)}</span>${E.length?`<span class="cl-ev" aria-hidden="true"><i class="${c0}${E[0].done?' done':''}">${esc(clShort(E[0]))}</i>${E.length>1?`<em>+${E.length-1}</em>`:''}</span><span class="cl-dots" aria-hidden="true">${[...new Set(E.map(x=>x.kk||x.k))].slice(0,4).map(k=>`<s class="${k}"></s>`).join('')}</span>`:''}</button>`)}
-  while(cells.length%7)cells.push('');
-  const rows=[];for(let i=0;i<cells.length;i+=7)rows.push(`<tr>${cells.slice(i,i+7).map(c=>`<td>${c}</td>`).join('')}</tr>`);
-  return `<table class="cl-g" aria-labelledby="clMon"><thead><tr>${HDOW.map((h,i)=>`<th scope="col" abbr="${HDOWL[i]}"${i>=5?' class="wk"':''}>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table>`}
+
 /* the bagrut subjects I can still sit: why each one, and its sittings with the two ways to add them */
 function bagCardHTML(c){
   const when=e=>{const n=daysTo(e.d);return `<li><span class="bg-ss">${BSEASON[e.id.split('-')[1]]}</span><span class="bg-sd">${esc(dRange(e))}<small>${inN(n)}</small></span>${addCalHTML(e)}</li>`};
@@ -9549,7 +9845,7 @@ const bagBlock=o=>{const pl=safe(plan,null);return pl?safe(()=>bagPlanHTML(pl,o)
    the day it passes. Rows keep the ids of the plan's own dates (psy-*, psyreg-*, bag-*): an exam already in my calendar shows as added, and a subject of my planner is marked.
    The registration of the bagrut goes through the school or the Ministry (external examinee) and has no date in our table, so the section says where to look instead of making one up. */
 const MOED_L={w:'מועד חורף',s:'מועד קיץ',b:'מועד ב׳'};
-const UP_F=[['all','הכול'],['bag','בגרויות'],['mine','המקצועות שלי'],['psy','פסיכומטרי והרשמה']];
+
 const upIn=n=>n<0?'עבר':n===0?'היום':n===1?'מחר':n<=100?`בעוד ${n} ימים`:`בעוד ${Math.round(n/30.4)} חודשים`;
 const wdOf=iso=>HDOWL[new Date(iso+'T00:00:00').getDay()];
 const wdRange=x=>x.d2&&x.d2!==x.d?`${wdOf(x.d)}–${wdOf(x.d2)}`:wdOf(x.d);
@@ -9573,115 +9869,280 @@ function upAll(pl){
     L.push({...e,moed:b[0],tag:c?c.kind:'',have:cp.has(e.id)||labBag.some(x=>x.d===e.d&&String(x.bk).includes('-'+e.sk+'-'))})});
   return L.sort((a,b)=>a.d.localeCompare(b.d)||(b.reg?1:0)-(a.reg?1:0)||String(a.id).localeCompare(String(b.id)))}
 const upFilter=(L,f)=>f==='bag'?L.filter(x=>x.k==='bag'):f==='psy'?L.filter(x=>x.k==='psy'):f==='mine'?L.filter(x=>x.tag):L;
-const haveHTML=id=>`<span class="cl-have" tabindex="-1" data-khave="${esc(id)}">${ki('check')}ביומן שלי</span>`;
-/* one sitting: what it is, when exactly, how far, and the one thing I can do with it */
-function upRow(x,nx){
-  CN[x.id]=x;
-  const n=daysTo(x.d),dt=new Date(x.d+'T00:00:00'),lgk=myLang()==='x'?'he':myLang(),cat=x.reg?'reg':x.k,
-    kick=x.k==='bag'?`בגרות · ${MOED_L[x.moed]} ${x.d.slice(0,4)}`:x.reg?`הרשמה לפסיכומטרי · מועד ${x.lbl}`:`פסיכומטרי · מועד ${x.lbl}`,
-    ttl=x.k==='bag'?x.sn:x.reg?'סגירת ההרשמה הרגילה':'בחינה פסיכומטרית',
-    when=x.k==='psy'&&!x.reg?x.days:`${x.d2&&x.d2!==x.d?'ימים':'יום'} ${wdRange(x)}, ${x.reg?dLong(x.d):dRange(x)}`,
-    bits=[esc(when),upIn(n)];
-  if(x.reg)bits.push(`לבחינה ב-${esc(x.days)}`);
-  if(x.k==='psy'&&!x.reg){bits.push(x.ok?`ב${esc(x.langs)}`:`לא מוצע ב${esc(LGN[lgk]||'שפה הזאת')}`);if(x.closed)bits.push(`ההרשמה הרגילה נסגרה ב-${esc(dLong(x.closed))}`)}
-  const add=x.have?haveHTML(x.id):`<button type="button" class="btn soft sm cl-take up-add" data-kown="${esc(x.id)}" aria-label="הוספה ליומן שלי: ${esc(x.t)}">${FIC.plus}<span>הוספה</span></button>`;
-  return `<li class="up-r ${cat}${x.ok===false?' off':''}${x.have?' have':''}"><span class="cl-rd num" aria-hidden="true"><b>${dt.getDate()}</b><small>${HMON[dt.getMonth()].slice(0,3)}</small></span>
-    <div class="cl-rb"><small class="up-k ${cat}">${kick}${nx?' <span class="up-nx">הבא</span>':''}</small><b>${esc(ttl)}</b>${x.tag?` <span class="kp-tag up-tg ${x.tag}">${BAG_KIND[x.tag][0]}</span>`:''}${x.pick?' <span class="kp-tag ok">המועד שלי</span>':''}
-      <small>${bits.join(' · ')}${x.k==='psy'?factChip(x.f):''}</small>${x.sub2&&x.reg?`<small>${esc(x.sub2)}</small>`:''}</div>
-    <div class="up-a">${add}</div></li>`}
-/* the section: a filter, then the months in order */
-function upHTML(pl){
-  const L=upAll(pl),f=UP_F.some(z=>z[0]===KC.uf)&&(KC.uf!=='mine'||L.some(x=>x.tag))?KC.uf:'all',V=upFilter(L,f),
-    cnt=k=>upFilter(L,k).length,nx=new Set([L.find(x=>x.k==='bag'),L.find(x=>x.k==='psy'&&!x.reg),L.find(x=>x.reg)].filter(Boolean).map(x=>x.id)),mon={};
-  V.forEach(x=>(mon[x.d.slice(0,7)]=mon[x.d.slice(0,7)]||[]).push(x));
-  const body=Object.keys(mon).sort().map(m=>{const [Y,M]=m.split('-').map(Number);return `<div class="up-mg"><h4 class="up-m">${HMON[M-1]} ${Y}</h4><ul class="up-ul">${mon[m].map(x=>upRow(x,nx.has(x.id))).join('')}</ul></div>`}).join('');
-  return `<section class="up" aria-labelledby="upH"><h3 id="upH" class="sr">מועדי הבחינות הקרובים: ${L.length}</h3>
-    <p class="up-sub">כל הבגרויות והבחינות הפסיכומטריות שעוד לפנינו, לפי הסדר, וגם היום שבו נסגרת ההרשמה לפסיכומטרי. מקצוע שחסר או שכדאי לשפר מסומן.</p>
-    ${L.length?`<div class="cl-fl" role="group" aria-label="סינון המועדים">${UP_F.filter(z=>z[0]==='all'||z[0]!=='mine'||cnt('mine')>0).map(([k,l])=>`<button type="button" class="chip${f===k?' on':''}" data-kuf="${k}" aria-pressed="${f===k}">${l} <span class="num">${cnt(k)}</span></button>`).join('')}</div>
-    ${!needPsy(pl)&&(f==='all'||f==='psy')?'<p class="fine up-ps">לפי היעדים והציון שלי אין כרגע צורך בפסיכומטרי.</p>':''}
-    <div class="up-l">${body}</div>`
-    :`<div class="cl-empty"><b>אין כרגע מועדי בחינות קדימה.</b><p>הלוח הבא יפורסם באתר <a href="${EDU.portal}" target="_blank" rel="noopener">משרד החינוך</a> ובאתר <a href="${NITE.td}" target="_blank" rel="noopener">מאל"ו</a>.</p></div>`}
-    <p class="fine up-fn">הבגרויות לפי טיוטת לוח הבחינות של משרד החינוך (חורף וקיץ 2027, ומועד ב׳)${factChip('bagrut.2027')}. אלה המקצועות והמועדים שיש בלוח שבידינו, ומקצוע שחסר כאן בודקים בלוח המלא. ההרשמה לבגרות היא דרך בית הספר, או כנבחן חיצוני במשרד החינוך: <a href="${EDU.portal}" target="_blank" rel="noopener">לוח המועדים והרשמה</a>. הפסיכומטרי לפי לוח מאל"ו: <a href="${NITE.reg}" target="_blank" rel="noopener">הרשמה במאל"ו</a>.</p></section>`}
-/* adding: a title, task or event, a date. The date follows the day I touch on the month */
-function clAddHTML(){
-  const a=KC.add,d=isoOk(a.d)?a.d:todayISO();
-  return `<form class="cl-addf" id="clAdd" autocomplete="off"><h3>הוספה ליומן</h3>
-    <label for="clAT">מה להוסיף?</label><input id="clAT" maxlength="80" required placeholder="למשל: להירשם לפסיכומטרי, יום פתוח בטכניון" value="${esc(a.t||'')}">
-    <fieldset class="cl-kind"><legend>סוג</legend><label><input type="radio" name="clK" value="task"${a.kind!=='event'?' checked':''}><span>${ki('check')}משימה</span></label><label><input type="radio" name="clK" value="event"${a.kind==='event'?' checked':''}><span>${ki('cal')}אירוע</span></label></fieldset>
-    <p class="cl-kh">משימה היא משהו שצריך לעשות עד התאריך, ואפשר לסמן אותה כבוצעה. אירוע הוא משהו שקורה בו.</p>
-    <label for="clAD">באיזה תאריך?</label><input id="clAD" type="date" required value="${d}">
-    <div class="cl-addb"><button class="btn primary sm" type="submit">הוספה</button><button type="button" class="btn quiet sm" data-kcx>ביטול</button></div></form>`}
-/* the month and what is beside it: this is the part that is drawn again when I move around it */
-function calMainHTML(pl){
-  const mine=calMineAll(),cp=copiedIds(),off=KC.off?calOff(pl).filter(x=>!cp.has(x.id)):[],L=[...off,...mine],up=mineUp(mine);
-  const [Y,M]=KC.m.split('-').map(Number),dayEv=KC.sel?L.filter(x=>x.d<=KC.sel&&(x.d2||x.d)>=KC.sel):[];
-  const side=KC.add?clAddHTML():KC.sel?`<div class="cl-day" aria-live="polite"><div class="cl-dh"><h3>${esc(dLong(KC.sel))}</h3><button type="button" class="btn soft sm" data-kca="${KC.sel}">${FIC.plus}להוסיף ליום הזה</button></div>${dayEv.length?`<ul class="cl-l">${dayEv.map(clRow).join('')}</ul>`:'<p class="fine">עוד אין בו כלום.</p>'}</div>`:'';
-  const doneL=mine.filter(x=>x.kind==='task'&&x.done),dayIds=new Set(dayEv.map(x=>x.id)),rest=KC.sel?up.filter(x=>!dayIds.has(x.id)):up;
-  const list=rest.length?`<h3 class="cl-h3">${KC.sel?'שאר הפריטים שלי':'שלי, הקרוב ראשון'}</h3><ul class="cl-l">${rest.slice(0,KC.all?999:6).map(clRow).join('')}</ul>${rest.length>6?`<button type="button" class="btn soft sm cl-more" data-kcall aria-expanded="${KC.all}">${KC.all?'להציג פחות':`להציג את כל ${rest.length}`}</button>`:''}`
-    :up.length||KC.sel||KC.add||doneL.length?'':`<div class="cl-empty"><b>היומן ריק, וזה בסדר.</b><p>אפשר ללחוץ על "הוספה ליומן" ולכתוב משימה או אירוע משלכם, או להתחיל מאחד מ<button type="button" class="linkbtn" data-kuv="exam">מועדי הבחינות</button>.</p></div>`;
-  return `<div class="cl-main"><div class="cl-cal"><div class="cl-nv"><button type="button" class="cl-nb" data-kcm="-1" aria-label="החודש הקודם">${ki('arrow','kp-flip')}</button><h3 id="clMon" aria-live="polite">${HMON[M-1]} ${Y}</h3><button type="button" class="cl-nb" data-kcm="1" aria-label="החודש הבא">${ki('arrow')}</button><button type="button" class="linkbtn cl-td" data-kcm="today">היום</button></div>
-        ${clGrid(L)}
-        <p class="cl-hint">לוחצים על יום בלוח כדי לראות אותו או להוסיף אליו.</p>
-        <button type="button" class="cl-sw" role="switch" aria-checked="${KC.off}" data-kcl><span class="cl-swi" aria-hidden="true"></span><span>להציג בלוח גם את המועדים הרשמיים (בגרויות, פסיכומטרי, הרשמה)</span></button>
-        ${KC.off?`<p class="cl-lg" aria-hidden="true">${[['psy','בחינה פסיכומטרית'],['bag','בגרות'],['idf','הרשמה (בערך)'],['sch','מלגה'],['mine','שלי']].map(([k,l])=>`<span><s class="${k}"></s>${l}</span>`).join('')}</p>`:''}</div>
-      <div class="cl-side" id="clSide">${side}${list}${doneL.length?`<details class="cl-dn"${KC.dn?' open':''}><summary>משימות שבוצעו <span class="num">${doneL.length}</span></summary><ul class="cl-l">${doneL.map(clRow).join('')}</ul></details>`:''}</div></div>`}
-/* the calendar has two views, so nothing sits two screens away from the button that opens it: the exam dates (every sitting, then the rest of the official dates), and mine (the month, my tasks and events, the form) */
-const CL_V=[['exam','מועדי בחינות'],['mine','משימות ואירועים שלי']];
-function clSegHTML(pl){
-  const n={exam:safe(()=>upAll(pl).length,0),mine:mineUp(calMineAll()).length};
-  return `<div class="cl-vs" role="tablist" aria-label="שתי תצוגות של היומן">${CL_V.map(([k,l])=>`<button type="button" class="cl-vt" role="tab" id="clt-${k}" aria-selected="${KC.v===k}" aria-controls="cl-${k}" tabindex="${KC.v===k?0:-1}" data-kuv="${k}">${l} <span class="num">${n[k]}</span></button>`).join('')}</div>`}
-/* show one view; the other stays in the page, hidden, so what is drawn there keeps being drawn */
-function clView(v,bring){
-  if(v!=='exam'&&v!=='mine')return;KC.v=v;
-  const e=$('#cl-exam'),m=$('#cl-mine'),s=$('#clSeg'),pl=safe(plan);if(e)e.hidden=v!=='exam';if(m)m.hidden=v!=='mine';if(s&&pl)s.innerHTML=clSegHTML(pl);
-  if(bring){refocus('#clt-'+v);if(s&&s.getBoundingClientRect().top<(innerWidth<760?116:150))jump('clSeg')}}
-/* the list of every official date, in a drawer that starts closed */
-function clOffHTML(pl){
-  const all=offRest(pl),L=all.filter(x=>KC.f==='all'||CL_CAT[x.k]===KC.f),cnt=k=>k==='all'?all.length:all.filter(x=>CL_CAT[x.k]===k).length,ag=clAgenda(L,KC.offAll?999:6);
-  return `${all.length?`<div class="cl-fl" role="group" aria-label="סינון המועדים">${CL_F.filter(f=>f[0]!=='mine'&&(f[0]==='all'||cnt(f[0])>0||KC.f===f[0])).map(([k,l])=>`<button type="button" class="chip${KC.f===k?' on':''}" data-kcf="${k}" aria-pressed="${KC.f===k}">${l} <span class="num">${cnt(k)}</span></button>`).join('')}</div>`:''}
-    ${ag.total?`<ul class="cl-l">${ag.html}</ul>${ag.total>6?`<button type="button" class="btn soft sm cl-more" data-kcoall aria-expanded="${KC.offAll}">${KC.offAll?'להציג פחות':`להציג את כל ${ag.total}`}</button>`:''}`:`<p class="fine">${all.length?'אין מועדים קרובים בסוג הזה.':'עוד אין כאן הרשמה ליעדים או מלגות עם מועד שיש לנו. את מועד ההרשמה של כל מוסד מפרסם האתר שלו.'}</p>`}`}
-function calHTML(pl){
-  const mine=calMineAll(),nx=mineUp(mine)[0];
-  if(!/^\d{4}-\d{2}$/.test(KC.m))KC.m=(nx?nx.d:isoD(today0())).slice(0,7);
-  if(KC.v!=='exam'&&KC.v!=='mine')KC.v=KC.add||mineUp(mine).length?'mine':'exam'; /* what is mine opens first when there is something of mine to see, the exam dates otherwise */
-  return `<div class="cl cl2" id="clRoot"><div class="sec-h"><div><h2>${ki('cal')}היומן שלי</h2><p>כל מועדי הבגרות והפסיכומטרי במקום אחד, לפי הסדר. הלוח האישי נשאר ריק עד שמוסיפים אליו משימה, אירוע או מועד.</p></div>${inViewer()||!mine.length?'':`<button type="button" class="btn soft sm" data-kics="f">${ki('down')}היומן שלי, כקובץ</button>`}</div>
-    <div class="cl-bar"><button type="button" class="btn primary cl-plus" data-kca="">${FIC.plus}הוספה ליומן</button></div>
-    <div id="clSeg">${clSegHTML(pl)}</div>
-    <div id="cl-exam" role="tabpanel" aria-labelledby="clt-exam"${KC.v==='exam'?'':' hidden'}><div id="clTop">${safe(()=>upHTML(pl),'')}</div>
-    <details class="cl-off" id="clOff"><summary><span>הרשמה ליעדים, מלגות ופירוט הבגרויות</span><span class="cl-offn num">${offRest(pl).length}</span></summary><div class="cl-offb"><div id="clOffBody">${clOffHTML(pl)}</div>${safe(()=>bagPlanHTML(pl),'')}
-      <p class="fine cl-note">מופיעים כאן ההרשמה ליעדים שבחרתי (בערך, לפי המחזור הקודם, ובלי כפתור הוספה כי המועד האמיתי עוד לא פורסם), מלגות, ופירוט המקצועות של הבגרויות שבתוכנית שלי. כל מועדי הבחינות נמצאים למעלה. מועד שעבר מוסר מהרשימה. הוספה ל-Google פותחת את אתר Google עם שם המועד ותאריכו, רק כשלוחצים; קובץ היומן יורד למכשיר ואינו נשלח לשום מקום.</p></div></details></div>
-    <div id="cl-mine" role="tabpanel" aria-labelledby="clt-mine"${KC.v==='mine'?'':' hidden'}><div id="clMain">${calMainHTML(pl)}</div></div></div>`}
-/* draw again the parts that changed (the exam list on top, the month and its side, the list of official dates); what I typed in the form stays */
-const clKeep=()=>{const f=$('#clAT');if(f&&KC.add){KC.add.t=f.value;const k=document.querySelector('input[name="clK"]:checked'),di=$('#clAD');if(k)KC.add.kind=k.value==='event'?'event':'task';if(di&&isoOk(di.value))KC.add.d=di.value}};
-function clRepaint(focusSel,which,keep=true){
-  const pl=safe(plan);if(!pl)return;
-  if(keep)clKeep();
-  const set=(id,html)=>{const e=$('#'+id);if(e)e.innerHTML=html},w=which||['main'];
-  set('clSeg',clSegHTML(pl));
-  if(w.includes('top'))set('clTop',safe(()=>upHTML(pl),''));
-  if(w.includes('main'))set('clMain',calMainHTML(pl));
-  if(w.includes('off')){set('clOffBody',clOffHTML(pl));const n=$('#clOff .cl-offn');if(n)n.textContent=offRest(pl).length}
+
+
+/* ================= the calendar: every date that matters, on one calm page =================
+   One list for what the official tables know (every bagrut sitting, every psychometric sitting with the day its regular registration closes, the registration of my targets, scholarships)
+   and what I add myself: a task, an event, hours of study, a milestone. The top shows the one date that comes next, with how far it is; beside the list sit a week of mine and a month.
+   Nothing is shown twice: a date I copied from the official ones shows once, as the official card marked "in my calendar"; a step the road made from an official date shows once, as mine.
+   Only what I add is saved (P.dates). The state here (month, day, filter, open cards) is never saved. */
+Object.assign(KI,{clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',trash:'<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',repeat:'<path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/>',more:'<path d="m6 9 6 6 6-6"/>'});
+const KC={m:'',sel:'',f:'all',more:false,open:new Set(),dn:false}; /* ui state, never saved: the month in view (YYYY-MM), the day picked, the layer shown, all rows, the open cards */
+const CU_CAT={bag:['בגרות','book'],psy:['פסיכומטרי','bolt'],reg:['הרשמה','pen'],sch:['מלגה','coin'],task:['משימה','check'],event:['אירוע','cal'],study:['שעות למידה','clock'],mile:['ציון דרך','flag']};
+const CU_ORD={reg:0,psy:1,bag:2,sch:3,task:4,study:5,event:6,mile:7};
+const CU_LAYERS=[['all','הכול'],['bag','בגרויות'],['psy','פסיכומטרי'],['reg','הרשמות ומלגות'],['mine','שלי']];
+const CU_TAG={need:'חסר לך',boost:'לשיפור',mine:'המקצוע שלך'};
+/* what I can add, and a few ideas to start from (a tap on an idea fills the title) */
+const CU_KINDS=[['task','משימה','משהו שצריך לעשות עד תאריך'],['event','אירוע','משהו שקורה ביום מסוים'],['study','שעות למידה','זמן שקבעת לעצמך ללמוד'],['mile','ציון דרך','רגע שחשוב לך להגיע אליו']];
+const CU_IDEAS={task:['להירשם לפסיכומטרי','להכין מסמכים להרשמה','לבדוק מלגות'],event:['יום פתוח במוסד','שיחה עם יועץ/ת','אנגלית: אמירנט'],study:['תרגול פסיכומטרי','חזרה על מתמטיקה','סיכום חומר'],mile:['סיימתי בגרות במתמטיקה','קיבלתי ציון פסיכומטרי','נרשמתי לתואר']};
+const CU_LENS=[30,45,60,90,120,180];
+const cuHrs=m=>m<=0?'0':m===60?'שעה':m===90?'שעה וחצי':m===120?'שעתיים':m<60?`${m} דקות`:m%60===0?`${m/60} שעות`:`${Math.round(m/6)/10} שעות`;
+/* the end of a timed date: its day (a length can cross midnight) and its time */
+const cuEndAt=(d,tm,len)=>{const [h,m]=tm.split(':').map(Number),t=h*60+m+len,dt=new Date(d+'T00:00:00');dt.setDate(dt.getDate()+Math.floor(t/1440));const r=t%1440;return [isoD(dt),String(Math.floor(r/60)).padStart(2,'0')+':'+String(r%60).padStart(2,'0')]};
+const cuEnd=(tm,len)=>cuEndAt('2000-01-01',tm,len)[1];
+const cuTime=x=>x.tm?`${x.tm}${x.len?`–${cuEnd(x.tm,x.len)}`:''}`:'';
+const cuRel=n=>n<0?'עבר התאריך':n===0?'היום':n===1?'מחר':upIn(n);
+const cuId=()=>'my-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+const cuAdd7=(iso,w)=>{const d=new Date(iso+'T00:00:00');d.setDate(d.getDate()+7*w);return isoD(d)};
+const cuLate=x=>x.mine&&(x.kind==='task'||x.kind==='mile')&&!x.done&&daysTo(x.d)<0;
+/* ---------- every date, in one shape ---------- */
+function cuItems(pl){
+  const L=[],cp=copiedIds();
+  /* the official exams, and the closing of the psychometric registration. A row covered by a step the road made (a lab step) is that step's card instead */
+  safe(()=>upAll(pl),[]).forEach(x=>{CN[x.id]=x;if(x.have&&!cp.has(x.id))return;
+    const bag=x.k==='bag',reg=!!x.reg;
+    L.push({id:x.id,d:x.d,d2:x.d2||'',cat:bag?'bag':reg?'reg':'psy',ly:bag?'bag':'psy',off:1,t:bag?x.sn:reg?'סגירת ההרשמה הרגילה לפסיכומטרי':'בחינה פסיכומטרית',
+      say:bag?`בחינת הבגרות ב${x.sn}`:reg?'סגירת ההרשמה לפסיכומטרי':'הבחינה הפסיכומטרית',x,tag:x.tag||'',pick:!!x.pick,have:cp.has(x.id),f:x.f,src:x.src,sub:x.sub,sub2:x.sub2})});
+  /* the registration of my targets (estimated from the last cycle) and the scholarships I do not follow */
+  safe(()=>offRest(pl),[]).forEach(x=>{CN[x.id]=x;
+    L.push({id:x.id,d:x.d,d2:x.d2||'',cat:x.k==='sch'?'sch':'reg',ly:'reg',off:1,approx:!!x.approx,t:x.t,say:x.t,x,have:cp.has(x.id),f:x.f,src:x.src,sub:x.sub})});
+  /* mine: what I wrote, what the road made, the scholarships I follow, the day I finish school */
+  calMineAll().forEach(x=>{
+    if(x.from&&L.some(o=>o.id===x.from))return; /* a copy of an official date that is listed: the official card carries it */
+    const sch=x.k==='sch';
+    L.push({id:x.id,d:x.d,d2:x.d2||'',tm:x.tm||'',len:x.len||0,cat:sch?'sch':x.kind,ly:sch?'reg':'mine',mine:sch||x.fixed?0:1,fixed:!!x.fixed,kind:x.kind,done:!!x.done,t:x.t,say:x.t,note:x.note||'',grp:x.grp||'',x,f:x.f,src:x.src,sub:x.sub})});
+  return L.sort(cuSort)}
+const cuSort=(a,b)=>a.d.localeCompare(b.d)||(a.tm||'').localeCompare(b.tm||'')||CU_ORD[a.cat]-CU_ORD[b.cat]||String(a.id).localeCompare(String(b.id));
+/* what is still ahead: a task or a milestone stays until it is done, an exam or an event leaves the day it passes */
+const cuLive=L=>L.filter(x=>x.mine&&(x.kind==='task'||x.kind==='mile')?!x.done:daysTo(x.d2||x.d)>=0);
+const cuDone=L=>L.filter(x=>x.mine&&x.done&&(x.kind==='task'||x.kind==='mile'));
+/* the date that comes next and matters to me: mine first, then the exams of my subjects and the psychometric while a target still needs it */
+function cuHero(L,pl){
+  const np=needPsy(pl),ahead=x=>!x.done&&!x.approx&&daysTo(x.d)>=0,
+    rel=x=>ahead(x)&&(x.mine||x.cat==='sch'&&!x.off||((x.cat==='psy'||x.cat==='reg')&&np&&(!x.x||x.x.ok!==false))||(x.cat==='bag'&&x.tag));
+  const R=L.filter(rel),hero=R[0]||L.find(x=>ahead(x)&&x.off)||null;
+  return {hero,next:R.filter(x=>x!==hero).slice(0,2)}}
+/* the week I am in (Sunday to Saturday): hours of study planned and done, and what else is due (every date of mine, also the ones that already passed this week) */
+function cuWeek(all){
+  const t=today0(),s=new Date(t);s.setDate(s.getDate()-t.getDay());const e=new Date(s);e.setDate(e.getDate()+6);
+  const a=isoD(s),b=isoD(e),W=all.filter(x=>x.mine&&x.d>=a&&x.d<=b),st=W.filter(x=>x.kind==='study');
+  return {a,b,plan:st.reduce((n,x)=>n+(x.len||60),0),done:st.filter(x=>x.done).reduce((n,x)=>n+(x.len||60),0),tasks:W.filter(x=>x.kind==='task'&&!x.done).length,events:W.filter(x=>x.kind==='event').length}}
+/* the one sentence on top: warm, about what is closest, never a lecture */
+function cuSay(L,hero){
+  const late=L.filter(cuLate).length,tail=!late?'':late===1?' יש דבר אחד שעבר את התאריך שלו, ואפשר להזיז אותו בלי לחץ.':` יש ${late} דברים שעברו את התאריך שלהם, ואפשר להזיז אותם בלי לחץ.`;
+  if(!hero)return `היומן שקט כרגע, וזה בסדר. אפשר להתחיל במשהו קטן: שעה של למידה השבוע, או תאריך שחשוב לך.${tail}`;
+  const n=daysTo(hero.d),what=hero.say;
+  const main=n<=0?`היום: ${what}. אחרי זה נעבור הלאה.`:n===1?`מחר: ${what}. נשאר יום אחד להתארגן.`:hero.cat==='reg'&&n<=21?`${what} בעוד ${n} ימים. זה התאריך שהכי כדאי לא לפספס.`:n<=7?`${what}, ${cuRel(n)}. השבוע הזה שווה לתכנן בעדינות.`:`הדבר הבא בתור: ${what}, ${cuRel(n)}. עד אז יש זמן, ונתקדם בקצב שלך.`;
+  return main+tail}
+/* ---------- a date as a card ---------- */
+const cuChips=x=>`${x.tag?`<span class="cu-tg ${x.tag}">${CU_TAG[x.tag]}</span>`:''}${x.pick?'<span class="cu-tg pick">המועד שלי</span>':''}${x.approx?'<span class="cu-tg appr">בערך</span>':''}${x.x&&x.x.ok===false?'<span class="cu-tg off">לא בשפה שלי</span>':''}${x.grp?`<span class="cu-tg rep" title="חוזר כל שבוע">${ki('repeat')}<span class="sr">חוזר כל שבוע</span></span>`:''}`;
+/* the line under the title: when, in words, and what else is worth knowing */
+function cuMeta(x){
+  const n=daysTo(x.d),o=x.x||{},dt=new Date(x.d+'T00:00:00'),bits=[];
+  if(x.cat==='bag')bits.push(`${x.d2&&x.d2!==x.d?'ימים':'יום'} ${wdRange(x)}, ${dRange(x)}`);
+  else if(x.cat==='psy')bits.push(o.days||dRange(x),o.ok===false?`לא מוצע ב${LGN[myLang()==='x'?'he':myLang()]||'שפה הזאת'}`:o.langs?`ב${o.langs}`:'');
+  else if(x.cat==='reg'&&x.off&&!x.approx&&o.days)bits.push(`יום ${wdOf(x.d)}, ${dLong(x.d)}`,`לבחינה ב-${o.days}`);
+  else bits.push(`יום ${HDOWL[dt.getDay()]}, ${dRange(x)}`);
+  if(x.tm)bits.push(cuTime(x));
+  bits.push(x.approx?'בערך, לפי המחזור הקודם':cuRel(n));
+  if(x.cat==='psy'&&o.closed)bits.push(`ההרשמה הרגילה נסגרה ב-${dLong(o.closed)}`);
+  return bits.filter(Boolean).map(esc).join(' · ')}
+function cuKick(x){const o=x.x||{};
+  return x.cat==='bag'?`בגרות · ${MOED_L[o.moed]||''} ${x.d.slice(0,4)}`:x.cat==='psy'?`פסיכומטרי · מועד ${o.lbl||''}`:x.cat==='reg'&&x.off&&!x.approx&&o.lbl?`הרשמה לפסיכומטרי · מועד ${o.lbl}`:CU_CAT[x.cat][0]}
+/* what I can do with it, at the end of the card: tick it (mine), or put it in my calendar (official) */
+function cuAction(x){
+  if(x.mine&&x.kind!=='event')return `<button type="button" class="cu-ck${x.done?' on':''}" data-cu="done:${esc(x.id)}" role="checkbox" aria-checked="${!!x.done}" aria-label="${x.kind==='study'?'סימון שלמדתי':x.kind==='mile'?'סימון שהגעתי':'סימון כבוצע'}: ${esc(x.t)}">${ki('check')}</button>`;
+  if(x.off&&!x.approx)return x.have?`<span class="cu-have" tabindex="-1" data-cuhave="${esc(x.id)}">${ki('check')}ביומן שלך</span>`:`<button type="button" class="btn soft sm cu-take" data-cu="take:${esc(x.id)}" aria-label="הוספה ליומן שלי: ${esc(x.t)}">${FIC.plus}<span>הוספה</span></button>`;
+  return ''}
+/* on top, where there is room, the tick says what it does */
+function cuHeroAction(x){
+  if(x.mine&&x.kind!=='event'){const l=x.kind==='study'?'למדתי':x.kind==='mile'?'הגעתי':'סיימתי';
+    return `<button type="button" class="btn soft cu-hk2${x.done?' on':''}" data-cu="done:${esc(x.id)}" role="checkbox" aria-checked="${!!x.done}"><span class="cu-hkc" aria-hidden="true">${ki('check')}</span>${x.done?'בוצע':l}</button>`}
+  return cuAction(x)}
+/* the details under a card: the note, where it comes from, the files, and (for mine) edit and delete */
+function cuMore(x){
+  const P=pth(),sib=x.grp?((P&&P.dates)||[]).filter(c=>c.grp===x.grp).length:0,bits=[];
+  if(x.note)bits.push(`<p class="cu-nt">${esc(x.note)}</p>`);
+  if(x.sub&&!x.mine)bits.push(`<p class="cu-sb">${esc(x.sub)}${x.f?factChip(x.f):''}</p>`);else if(x.f&&x.mine)bits.push(`<p class="cu-sb">${factChip(x.f)}</p>`);
+  if(x.sub2&&x.cat==='reg')bits.push(`<p class="cu-sb">${esc(x.sub2)}</p>`);
+  const links=[];
+  if(x.src)links.push(`<a class="cu-src" href="${esc(x.src)}" target="_blank" rel="noopener">המקור</a>`);
+  if(x.off&&x.have)links.push(`<button type="button" class="linkbtn" data-cu="unown:${esc(x.id)}">הסרה מהיומן שלי</button>`);
+  const acts=[];
+  if(!x.approx&&!x.fixed){acts.push(`<a class="btn soft sm" href="${esc(gcalUrl({...x,sub:x.sub||x.note||'',src:x.src||''}))}" target="_blank" rel="noopener" aria-label="הוספה ליומן Google: ${esc(x.t)} (נפתח בלשונית חדשה)">${ki('cal')}Google</a>`);
+    if(!inViewer())acts.push(`<button type="button" class="btn soft sm" data-cu="ics:${esc(x.id)}" aria-label="הורדת קובץ יומן: ${esc(x.t)}">${ki('down')}קובץ</button>`)}
+  if(x.mine&&!x.fixed){acts.push(`<button type="button" class="btn soft sm" data-cu="edit:${esc(x.id)}">${ki('pen')}עריכה</button>`,`<button type="button" class="btn soft sm cu-del" data-cu="del:${esc(x.id)}">${ki('trash')}מחיקה</button>`);
+    if(sib>1)acts.push(`<button type="button" class="linkbtn" data-cu="dels:${esc(x.grp)}">מחיקת כל הסדרה (${sib})</button>`)}
+  return `${bits.join('')}${links.length?`<p class="cu-ln">${links.join(' ')}</p>`:''}${acts.length?`<div class="cu-ac">${acts.join('')}</div>`:''}`}
+/* o.pre: the same date can be on the page twice (the top, and a list under a filter): every id carries where it is */
+function cuCard(x,o){
+  o=o||{};const pre=o.pre||'cu',dt=new Date(x.d+'T00:00:00'),open=KC.open.has(x.id),late=cuLate(x),
+    cls=`cu-c ${x.cat}${x.done?' done':''}${x.have?' have':''}${open?' open':''}${late?' late':''}${x.approx?' approx':''}${o.mini?' mini':''}`;
+  return `<li class="${cls}" id="${pre}-${esc(x.id)}"><div class="cu-d num" aria-hidden="true"><b>${dt.getDate()}</b><small>${HMON[dt.getMonth()].slice(0,3)}</small></div>
+    <div class="cu-b"><div class="cu-k"><span class="cu-ct">${ki(CU_CAT[x.cat][1])}${esc(cuKick(x))}</span>${cuChips(x)}</div>
+      <h3 class="cu-t">${esc(x.t)}</h3><p class="cu-m">${late?'<b>עבר התאריך</b> · ':''}${cuMeta(x)}</p></div>
+    <div class="cu-a">${cuAction(x)}<button type="button" class="cu-x" data-cu="tog:${esc(x.id)}" aria-expanded="${open}" aria-controls="${pre}m-${esc(x.id)}" aria-label="פרטים: ${esc(x.t)}">${ki('more')}</button></div>
+    <div class="cu-mo" id="${pre}m-${esc(x.id)}"><div>${cuMore(x)}</div></div></li>`}
+/* ---------- the top: the date that comes next ---------- */
+function cuRing(n){const r=34,c=2*Math.PI*r,p=n<=0?1:Math.max(.06,1-Math.min(n,90)/90);
+  return `<svg class="cu-rg" viewBox="0 0 80 80" aria-hidden="true" focusable="false"><circle class="cu-rb" cx="40" cy="40" r="${r}"/><circle class="cu-rf" cx="40" cy="40" r="${r}" stroke-dasharray="${(c*p).toFixed(1)} ${c.toFixed(1)}" transform="rotate(-90 40 40)"/></svg>`}
+function cuHeroHTML(h,nx){
+  if(!h)return '';
+  const dt=new Date(h.d+'T00:00:00'),n=daysTo(h.d),open=KC.open.has(h.id),ch=cuChips({...h,grp:''});
+  return `<section class="cu-hero ${h.cat}${open?' open':''}" aria-labelledby="cuHT"><div class="cu-hd num" aria-hidden="true"><small>${HDOWL[dt.getDay()]}</small><b>${dt.getDate()}</b><span>${HMON[dt.getMonth()]}</span></div>
+    <div class="cu-hb"><span class="cu-hk">${ki(CU_CAT[h.cat][1])}הבא בתור · ${esc(cuKick(h))}</span><h3 id="cuHT">${esc(h.t)}</h3><p>${cuMeta(h)}</p>${ch?`<div class="cu-hc">${ch}</div>`:''}
+      <div class="cu-hx">${cuHeroAction(h)}<button type="button" class="linkbtn cu-hm" data-cu="tog:${esc(h.id)}" aria-expanded="${open}" aria-controls="cuhm-${esc(h.id)}">פרטים${ki('more')}</button></div>
+      <div class="cu-mo cu-hmo" id="cuhm-${esc(h.id)}"><div>${cuMore(h)}</div></div></div>
+    <div class="cu-hr" role="img" aria-label="${n<=0?'היום':`עוד ${n} ${n===1?'יום':'ימים'}`}">${cuRing(n)}<span class="cu-hn"><b class="num">${n<=0?'היום':n}</b>${n>0?`<small>${n===1?'יום':'ימים'}</small>`:''}</span></div></section>
+    ${nx.length?`<ul class="cu-nx" aria-label="אחריו">${nx.map(x=>cuCard(x,{mini:1,pre:'cun'})).join('')}</ul>`:''}`}
+/* ---------- the week, the month, the list ---------- */
+function cuWeekHTML(wk){
+  const pct=wk.plan?Math.min(100,Math.round(100*wk.done/wk.plan)):0,
+    say=!wk.plan?'עוד אין שעות למידה השבוע. גם שעה או שתיים כבר יוצרות רצף.':wk.done>=wk.plan?'סגרת את כל שעות הלמידה שתכננת השבוע. כל הכבוד.':wk.done?`כבר למדת ${cuHrs(wk.done)} השבוע. ממשיכים בקצב הזה.`:`קבעת ${cuHrs(wk.plan)} של למידה השבוע. כשמסיימים מפגש, מסמנים אותו.`;
+  return `<section class="cu-wk" aria-labelledby="cuWT"><div class="cu-wh"><h3 id="cuWT">השבוע שלך</h3><small>${esc(dShort(wk.a))} עד ${esc(dShort(wk.b))}</small></div>
+    ${wk.plan?`<div class="cu-wb" role="img" aria-label="${cuHrs(wk.done)} מתוך ${cuHrs(wk.plan)} של למידה"><i style="width:${pct}%"></i></div><p class="cu-wn"><b class="num">${cuHrs(wk.done)}</b> מתוך <b class="num">${cuHrs(wk.plan)}</b> של למידה</p>`:''}
+    <p class="cu-ws">${say}</p>${wk.tasks||wk.events?`<p class="cu-wf">${[wk.tasks?`${wk.tasks===1?'משימה אחת':wk.tasks+' משימות'} לשבוע`:'',wk.events?`${wk.events===1?'אירוע אחד':wk.events+' אירועים'}`:''].filter(Boolean).join(' · ')}</p>`:''}
+    <button type="button" class="btn soft sm" data-cu="add:|study">${ki('clock')}קביעת שעות למידה</button></section>`}
+function cuGridHTML(L){
+  const [Y,M]=KC.m.split('-').map(Number),first=new Date(Y,M-1,1),lead=first.getDay(),days=new Date(Y,M,0).getDate(),by={},tdy=isoD(today0());
+  L.forEach(x=>{const a=new Date(x.d+'T00:00:00'),b=new Date((x.d2||x.d)+'T00:00:00');for(const t=new Date(a);t<=b;t.setDate(t.getDate()+1))(by[isoD(t)]=by[isoD(t)]||[]).push(x)});
+  const cells=[];for(let i=0;i<lead;i++)cells.push('');
+  for(let d=1;d<=days;d++){const iso=isoOf(Y,M,d),E=by[iso]||[],dow=(lead+d-1)%7,
+      nm=E.length?`${E.length===1?'פריט אחד':E.length+' פריטים'}: ${E.slice(0,3).map(x=>x.t).join(', ')}`:'אין כלום';
+    cells.push(`<button type="button" class="cu-gd${iso===tdy?' today':''}${iso===KC.sel?' sel':''}${E.length?' has':''}${dow>=5?' wk':''}" data-cu="day:${iso}" aria-pressed="${iso===KC.sel}"><b class="num" aria-hidden="true">${d}</b><span class="sr">${d} ב${HMON[M-1]} ${Y}, יום ${HDOWL[dow]}${iso===tdy?', היום':''}. ${esc(nm)}</span>${E.length?`<span class="cu-dt" aria-hidden="true">${[...new Set(E.map(x=>x.cat))].slice(0,3).map(k=>`<s class="${k}"></s>`).join('')}</span>`:''}</button>`)}
+  while(cells.length%7)cells.push('');
+  const rows=[];for(let i=0;i<cells.length;i+=7)rows.push(`<tr>${cells.slice(i,i+7).map(c=>`<td>${c}</td>`).join('')}</tr>`);
+  return `<table class="cu-g" aria-labelledby="cuMon"><thead><tr>${HDOW.map((h,i)=>`<th scope="col" abbr="${HDOWL[i]}"${i>=5?' class="wk"':''}>${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table>`}
+function cuMonthHTML(L){
+  const [Y,M]=KC.m.split('-').map(Number);
+  return `<section class="cu-mn" aria-label="לוח חודש"><div class="cu-nv"><button type="button" class="cu-nb" data-cu="mon:-1" aria-label="החודש הקודם">${ki('arrow','kp-flip')}</button><h3 id="cuMon" aria-live="polite">${HMON[M-1]} ${Y}</h3><button type="button" class="cu-nb" data-cu="mon:1" aria-label="החודש הבא">${ki('arrow')}</button><button type="button" class="linkbtn" data-cu="mon:today">היום</button></div>
+    ${cuGridHTML(L)}<p class="cu-lg" aria-hidden="true">${['bag','psy','reg','task','study','mile'].map(k=>`<span><s class="${k}"></s>${CU_CAT[k][0]}</span>`).join('')}</p></section>`}
+const cuFilter=(L,f)=>f==='all'?L:L.filter(x=>x.ly===f);
+const cuDayName=iso=>`יום ${HDOWL[new Date(iso+'T00:00:00').getDay()]}, ${dLong(iso)}`;
+/* the list. By default it is short: what is within six weeks (at least four dates), by how near it is, and the next two are already on top. A filter, or "more", shows the rest by month */
+function cuAgendaHTML(L,done,top){
+  const V=cuFilter(L,KC.f),cnt=k=>cuFilter(L,k).length,all=KC.f==='all';
+  const chips=`<div class="cu-fl" role="group" aria-label="מה להראות">${CU_LAYERS.filter(([k])=>k==='all'||cnt(k)>0||KC.f===k).map(([k,l])=>`<button type="button" class="chip${KC.f===k?' on':''}" data-cu="ly:${k}" aria-pressed="${KC.f===k}">${l} <span class="num">${cnt(k)}</span></button>`).join('')}</div>`;
+  let body='';
+  if(KC.sel){const D=V.filter(x=>x.d<=KC.sel&&(x.d2||x.d)>=KC.sel);
+    body=`<div class="cu-day" aria-live="polite"><div class="cu-dh"><h3>${esc(cuDayName(KC.sel))}</h3><div><button type="button" class="btn soft sm" data-cu="add:${KC.sel}|">${FIC.plus}להוסיף ליום הזה</button> <button type="button" class="linkbtn" data-cu="day:${KC.sel}">חזרה לכל הימים</button></div></div>${D.length?`<ul class="cu-l">${D.map(x=>cuCard(x)).join('')}</ul>`:'<p class="cu-none">עוד אין בו כלום. יום פנוי הוא גם משהו.</p>'}</div>`}
+  else{
+    const late=V.filter(cuLate),R=V.filter(x=>!cuLate(x)&&!(all&&!KC.more&&top.includes(x))),near=R.filter(x=>daysTo(x.d)<=45),
+      byHorizon=all&&!KC.more,base=byHorizon?(near.length>=4?near:R.slice(0,4)):R,shown=!all&&!KC.more?base.slice(0,8):base,hidden=R.length-shown.length,parts=[];
+    if(late.length)parts.push(`<div class="cu-gp late"><h3 class="cu-gh">מחכים לך <span class="num">${late.length}</span></h3><ul class="cu-l">${late.map(x=>cuCard(x)).join('')}</ul></div>`);
+    if(byHorizon)[['היום',x=>daysTo(x.d)<=0],['בשבוע הקרוב',x=>daysTo(x.d)>0&&daysTo(x.d)<=7],['אחרי זה',x=>daysTo(x.d)>7]].forEach(([l,fn])=>{const g=shown.filter(fn);if(g.length)parts.push(`<div class="cu-gp"><h3 class="cu-gh">${l}</h3><ul class="cu-l">${g.map(x=>cuCard(x)).join('')}</ul></div>`)});
+    else{const mon={};shown.forEach(x=>(mon[x.d.slice(0,7)]=mon[x.d.slice(0,7)]||[]).push(x));
+      Object.keys(mon).sort().forEach(m=>{const [yy,mm]=m.split('-').map(Number);parts.push(`<div class="cu-gp"><h3 class="cu-gh">${HMON[mm-1]} ${yy}</h3><ul class="cu-l">${mon[m].map(x=>cuCard(x)).join('')}</ul></div>`)})}
+    body=parts.join('')||(top.length?'':'<div class="cu-empty"><b>אין כאן כלום עדיין, וזה בסדר.</b><p>אפשר להתחיל במשהו קטן: משימה, שעות למידה או תאריך שחשוב לך.</p></div>');
+    if(hidden>0)body+=`<button type="button" class="btn soft cu-more" data-cu="more" aria-expanded="false">עוד ${hidden===1?'מועד אחד':hidden+' מועדים'}${ki('more')}</button>`;
+    else if(KC.more)body+='<button type="button" class="btn soft cu-more" data-cu="more" aria-expanded="true">להציג פחות</button>'}
+  const dn=done.length?`<details class="cu-dn"${KC.dn?' open':''}><summary>בוצעו <span class="num">${done.length}</span></summary><ul class="cu-l">${done.map(x=>cuCard(x)).join('')}</ul></details>`:'';
+  return `${chips}${body}${dn}`}
+/* the registration of the bagrut has no date in our tables (it goes through the school, or the Ministry for an external examinee): the page says where to look */
+const cuBagNote=()=>`<section class="cu-rn"><span class="cu-ri" aria-hidden="true">${ki('book')}</span><div><h3>ההרשמה לבגרות</h3><p>היא עוברת דרך בית הספר, או כנבחן חיצוני במשרד החינוך, ולכן אין לנו תאריך אחד שנכון לכולם. <a href="${EDU.portal}" target="_blank" rel="noopener">לוח המועדים וההרשמה</a></p></div></section>`;
+/* ---------- the page ---------- */
+function cuInnerHTML(pl){
+  const all=cuItems(pl),L=cuLive(all),D=cuDone(all),{hero,next}=cuHero(L,pl),wk=cuWeek(all),mineN=calMineAll().filter(x=>!x.fixed&&!(x.kind==='task'&&x.done)).length,top=hero?[hero,...next]:[];
+  if(!/^\d{4}-\d{2}$/.test(KC.m))KC.m=(hero?hero.d:isoD(today0())).slice(0,7);
+  return `<div class="sec-h"><div><h2>${ki('cal')}היומן שלי</h2><p class="cu-say" id="cuSay">${esc(cuSay(L,hero))}</p></div>
+      <div class="cu-top"><button type="button" class="btn primary" data-cu="add:|">${FIC.plus}הוספה ליומן</button>${inViewer()||!mineN?'':`<button type="button" class="btn soft" data-kics="f">${ki('down')}הורדת קובץ</button>`}</div></div>
+    ${cuHeroHTML(hero,next)}
+    <div class="cu-grid"><div class="cu-main" id="cuMain">${cuAgendaHTML(L,D,top)}</div>
+      <div class="cu-side">${cuWeekHTML(wk)}${cuMonthHTML(L)}${cuBagNote()}</div></div>
+    <details class="cu-bag" id="cuBag"><summary><span>הבגרויות שלי, מקצוע אחר מקצוע</span><span class="num">${bagOf(pl).filter(c=>c.kind!=='mine').length}</span></summary><div class="cu-bagb">${safe(()=>bagPlanHTML(pl),'')}</div></details>
+    <p class="fine cu-fn">הבגרויות לפי טיוטת לוח הבחינות של משרד החינוך${factChip('bagrut.2027')}, והפסיכומטרי לפי לוח מאל"ו: <a href="${NITE.reg}" target="_blank" rel="noopener">הרשמה במאל"ו</a>. מועד של מוסד שמסומן "בערך" הוא לפי המחזור הקודם, ולא נכנס לקובץ היומן. קובץ היומן יורד למכשיר ואינו נשלח לשום מקום, והוספה ל-Google פותחת את האתר שלהם רק כשלוחצים.</p>`}
+function calHTML(pl){return `<div class="cu" id="cuRoot">${cuInnerHTML(pl)}</div>`}
+/* drawn again in place: the page keeps its place, and the focus goes to what I name */
+function cuRepaint(focusSel){
+  const pl=safe(plan),r=$('#cuRoot');if(!pl||!r)return;
+  const y=scrollY;r.innerHTML=cuInnerHTML(pl);window.scrollTo({top:y,behavior:'instant'});
   if(focusSel)refocus(focusSel)}
-/* a month back or forth, or today */
-function clMonth(v){
-  const [Y,M]=(/^\d{4}-\d{2}$/.test(KC.m)?KC.m:isoD(today0()).slice(0,7)).split('-').map(Number);let y=Y,m=M;
-  if(v==='today'){const t=today0();y=t.getFullYear();m=t.getMonth()+1}else{m+=+v;if(m<1){m=12;y--}if(m>12){m=1;y++}}
-  KC.m=y+'-'+String(m).padStart(2,'0');if(!KC.add)KC.sel='';clRepaint(`[data-kcm="${v}"]`);
-  const g=$('#clMain .cl-g');if(g)g.classList.add(v==='today'?'sl-t':+v>0?'sl-n':'sl-p')}
-/* what I do on the calendar: open and close the form, add, tick off, copy an official date, show the official dates on the month */
-function clAct(ds){
-  const P=pth();if(!P)return;
-  if(ds.kca!==undefined){clView('mine');const d=isoOk(ds.kca)?ds.kca:(KC.sel||todayISO());KC.add={d,kind:'task',t:''};if(d.slice(0,7)!==KC.m)KC.m=d.slice(0,7);KC.sel=d;clRepaint(null,['main']);
-    requestAnimationFrame(()=>{const f=$('#clAT');if(f){f.focus({preventScroll:true});const r=$('#clAdd').getBoundingClientRect();if(r.top<120||r.bottom>innerHeight-90)jump('clAdd')}})}
-  else if(ds.kcx!==undefined){KC.add=null;clRepaint('[data-kca]',['main'])}
-  else if(ds.kdone!==undefined){const x=P.dates.find(c=>c.id===ds.kdone);if(!x)return;x.done=x.done?0:1;logAct();pthSave();PLC=null;toast(x.done?'סומן כבוצע':'סומן כלא בוצע');clRepaint(`[data-kdone="${ds.kdone}"]`,['main'])}
-  else if(ds.kown!==undefined){const x=CN[ds.kown];if(!x||copiedIds().has(x.id))return;
-    if(P.dates.length>=400){toast('היומן מלא. אפשר למחוק פריטים ישנים');return}
-    P.dates.push({id:'my-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),t:String(x.t).slice(0,80),d:x.d,...(x.d2&&x.k!=='psy'?{d2:x.d2}:{}),kind:'event',from:x.id,k0:x.k==='psy'||x.k==='bag'?x.k:'',...(x.f&&factGet(x.f)?{f:x.f}:{})});
-    logAct();pthSave();PLC=null;KC.m=x.d.slice(0,7);KC.sel=x.d;toast('נוסף ליומן שלי');clRepaint(`[data-khave="${x.id}"]`,['top','main','off'])}
-  else if(ds.kcl!==undefined){KC.off=!KC.off;clRepaint('[data-kcl]',['main'])}
-  else if(ds.kcoall!==undefined){KC.offAll=!KC.offAll;clRepaint('[data-kcoall]',['off'])}}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&KC.add&&e.target.closest&&e.target.closest('#clAdd')){e.preventDefault();clAct({kcx:''})}}); /* Esc closes the form */
+/* ---------- adding and editing: a sheet ---------- */
+function cuSheetHTML(a){
+  const edit=!!a.id,k=a.kind||'task',d=isoOk(a.d)?a.d:todayISO(),timed=k==='study'||k==='event';
+  return `<h2>${edit?'עריכה':'הוספה ליומן'}</h2><p class="s">${edit?'משנים מה שצריך, והיומן מתעדכן.':'משימה, אירוע, שעות למידה או ציון דרך. הכול נשאר בדפדפן הזה.'}</p>
+    <form class="cu-f" id="cuForm" autocomplete="off" novalidate><input type="hidden" name="eid" value="${esc(a.id||'')}">
+      <fieldset class="cu-kn"><legend class="sr">מה להוסיף</legend>${CU_KINDS.map(([v,l,h])=>`<label class="cu-kk ${v}"><input type="radio" name="cuK" value="${v}"${v===k?' checked':''}><span>${ki(CU_CAT[v][1])}<b>${l}</b><small>${h}</small></span></label>`).join('')}</fieldset>
+      <div class="field"><label for="cuT">מה זה?</label><input id="cuT" name="t" maxlength="80" required placeholder="${esc(CU_IDEAS[k][0])}" value="${esc(a.t||'')}"><div class="cu-id" id="cuIdeas">${CU_IDEAS[k].map(s=>`<button type="button" class="chip" data-cuidea="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>
+      <div class="cu-r2"><div class="field"><label for="cuD">באיזה תאריך?</label><input id="cuD" name="d" type="date" required value="${d}"></div>
+        <div class="field" id="cuTmW"${timed?'':' hidden'}><label for="cuTm">באיזו שעה? <small>(לא חובה)</small></label><input id="cuTm" name="tm" type="time" value="${esc(a.tm||'')}"></div></div>
+      <div class="field" id="cuLnW"${timed?'':' hidden'}><span class="cu-lb" id="cuLnL">כמה זמן? <small>(לא חובה)</small></span><div class="cu-ln2" role="radiogroup" aria-labelledby="cuLnL">${CU_LENS.map(m=>`<label class="chip cu-lc"><input type="radio" name="len" value="${m}"${(a.len||(k==='study'?60:0))===m?' checked':''}><span>${cuHrs(m)}</span></label>`).join('')}</div></div>
+      <div class="field cu-rp" id="cuRpW"${k==='study'&&!edit?'':' hidden'}><label class="check"><input type="checkbox" name="rep" id="cuRp"> לחזור כל שבוע</label><label class="cu-rw" for="cuRn" id="cuRnW" hidden>במשך <select id="cuRn" name="rn">${[2,3,4,6,8,10,12].map(n=>`<option value="${n}"${n===4?' selected':''}>${n}</option>`).join('')}</select> שבועות</label></div>
+      <div class="field"><label for="cuN">הערה <small>(לא חובה)</small></label><textarea id="cuN" name="note" rows="2" maxlength="200" placeholder="למשל: איפה, עם מי, או מה לקחת">${esc(a.note||'')}</textarea></div>
+      <p class="cu-er" id="cuEr" role="alert" hidden></p>
+      <div class="cu-fb"><button class="btn primary" type="submit">${edit?'שמירה':'הוספה'}</button><button type="button" class="btn quiet" data-close>ביטול</button></div></form>`}
+function cuOpenSheet(a){openOv(cuSheetHTML(a),'cu-sheet');const t=$('#cuT');if(t)t.focus({preventScroll:true})}
+/* the fields follow the kind: a time and a length for study and events, the weekly repeat for study only */
+function cuKindSync(f){
+  const k=(f.querySelector('input[name="cuK"]:checked')||{}).value||'task',ed=!!f.elements.eid.value,timed=k==='study'||k==='event',set=(id,on)=>{const e=$('#'+id);if(e)e.hidden=!on};
+  set('cuTmW',timed);set('cuLnW',timed);set('cuRpW',k==='study'&&!ed);
+  const t=$('#cuT'),ideas=CU_IDEAS[k];if(t&&!t.value)t.placeholder=ideas[0];
+  const box=$('#cuIdeas');if(box)box.innerHTML=ideas.map(s=>`<button type="button" class="chip" data-cuidea="${esc(s)}">${esc(s)}</button>`).join('');
+  if(k==='study'&&!f.querySelector('input[name="len"]:checked')){const r=f.querySelector('input[name="len"][value="60"]');if(r)r.checked=true}}
+function cuSubmit(f){
+  const P=pth(),er=m=>{const e=$('#cuEr');e.textContent=m;e.hidden=false};if(!P)return;
+  const q=n=>f.elements[n],k=(f.querySelector('input[name="cuK"]:checked')||{}).value||'task',t=q('t').value.trim().slice(0,80),d=q('d').value,tm=/^([01]\d|2[0-3]):[0-5]\d$/.test(q('tm').value)?q('tm').value:'',
+    len=+((f.querySelector('input[name="len"]:checked')||{}).value||0),note=q('note').value.trim().slice(0,200),id=q('eid').value,timed=k==='study'||k==='event';
+  if(!t){er('כותבים מה להוסיף');q('t').focus();return}
+  if(!isoOk(d)){er('בוחרים תאריך');q('d').focus();return}
+  const rep=!id&&k==='study'&&q('rep').checked?Math.max(2,Math.min(12,+q('rn').value||4)):1;
+  if(!id&&P.dates.length+rep>400){er('היומן מלא. אפשר למחוק פריטים ישנים');return}
+  const item=(date,grp)=>({id:cuId(),t,d:date,kind:k,...(timed&&tm?{tm}:{}),...(timed&&len?{len}:{}),...(note?{note}:{}),...(grp?{grp}:{})});
+  if(id){const x=P.dates.find(c=>c.id===id);if(!x){closeOv();return}
+    Object.assign(x,{t,d,kind:k});['tm','len','note'].forEach(p=>delete x[p]);if(timed&&tm)x.tm=tm;if(timed&&len)x.len=len;if(note)x.note=note;if(k==='event')delete x.done}
+  else{const grp=rep>1?'g'+Date.now().toString(36).slice(-6):'';for(let w=0;w<rep;w++)P.dates.push(item(w?cuAdd7(d,w):d,grp))}
+  logAct();pthSave();PLC=null;closeOv(true);KC.sel='';KC.m=d.slice(0,7);
+  const msg=id?'השינוי נשמר':rep>1?`קבעתי ${rep} מפגשי למידה`:k==='study'?'שעות הלמידה נקבעו':k==='mile'?'ציון הדרך נשמר':k==='event'?'האירוע נוסף ליומן':'המשימה נוספה ליומן';
+  toast(msg);say(msg);cuRepaint('[data-cu="add:|"]');safe(updateRing)}
+/* ---------- what I do on the page ---------- */
+function toastUndo(msg,fn){const t=$('#toast');t.innerHTML='<span></span><button type="button" class="toast-a">ביטול</button>';t.firstChild.textContent=msg;t.classList.add('show','act');
+  t.querySelector('.toast-a').onclick=()=>{clearTimeout(tt);t.classList.remove('show','act');fn()};
+  clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show','act'),6500)}
+function cuRemove(ids,msg){
+  const P=pth();if(!P)return;const gone=P.dates.filter(c=>ids.includes(c.id));if(!gone.length)return;
+  P.dates=P.dates.filter(c=>!ids.includes(c.id));pthSave();PLC=null;gone.forEach(g=>KC.open.delete(g.id));
+  toastUndo(msg,()=>{const Q=pth();if(!Q)return;gone.forEach(g=>{if(!Q.dates.some(c=>c.id===g.id))Q.dates.push(g)});pthSave();PLC=null;cuRepaint();safe(updateRing);say('הוחזר ליומן')});
+  say(msg);cuRepaint();safe(updateRing)}
+function cuTake(id){
+  const P=pth(),x=CN[id];if(!P||!x||copiedIds().has(x.id))return;
+  if(P.dates.length>=400){toast('היומן מלא. אפשר למחוק פריטים ישנים');return}
+  P.dates.push({id:cuId(),t:String(x.t).slice(0,80),d:x.d,...(x.d2&&x.k!=='psy'?{d2:x.d2}:{}),kind:'event',from:x.id,k0:x.k==='psy'||x.k==='bag'?x.k:'',...(x.f&&factGet(x.f)?{f:x.f}:{})});
+  logAct();pthSave();PLC=null;KC.m=x.d.slice(0,7);toast('נוסף ליומן שלי');say('נוסף ליומן שלי');cuRepaint(`[data-cuhave="${id}"]`);safe(updateRing)}
+/* ticking a task, a study session or a milestone: a small pop, a word of encouragement (a milestone gets confetti), and the card goes to "done" */
+function cuDoneToggle(id,el){
+  const P=pth(),x=P&&P.dates.find(c=>c.id===id);if(!x)return;
+  const r=el&&el.getBoundingClientRect?el.getBoundingClientRect():null,k=x.kind||'event',card=$(`[id$="-${CSS.escape(id)}"].cu-c`);
+  x.done=x.done?0:1;if(!x.done)delete x.done;logAct();pthSave();PLC=null;
+  const msg=!x.done?'סימנתי שזה עוד לא בוצע':k==='mile'?'ציון דרך! כל הכבוד':k==='study'?'נרשם: למדת, ועוד צעד קדימה':['בוצע, כל הכבוד','סימנתי כבוצע','עוד דבר אחד מאחוריך'][Math.floor(Math.random()*3)];
+  toast(msg);say(msg);
+  if(x.done&&r&&k==='mile')burst(r.left+r.width/2,r.top+r.height/2,40);
+  const go=()=>{cuRepaint(`[data-cu="done:${id}"]`);safe(updateRing)};
+  if(x.done&&card&&(k==='task'||k==='mile')&&!RM()){card.classList.add('leaving');setTimeout(go,260)}else go()}
+function cuDo(ds){
+  const [a,...r]=String(ds).split(':'),v=r.join(':'),P=pth();if(!P)return;
+  if(a==='add'){const [d,k]=v.split('|');cuOpenSheet({d:isoOk(d)?d:KC.sel||todayISO(),kind:CU_KINDS.some(z=>z[0]===k)?k:'task'});return}
+  if(a==='edit'){const x=P.dates.find(c=>c.id===v);if(x)cuOpenSheet({id:x.id,t:x.t,d:x.d,kind:CU_KINDS.some(z=>z[0]===x.kind)?x.kind:'event',tm:x.tm,len:x.len,note:x.note});return}
+  if(a==='del'){const x=P.dates.find(c=>c.id===v);if(x)cuRemove([x.id],'הוסר מהיומן');return}
+  if(a==='dels'){const ids=P.dates.filter(c=>c.grp===v).map(c=>c.id);if(ids.length)cuRemove(ids,`הוסרו ${ids.length} מפגשים`);return}
+  if(a==='unown'){const ids=P.dates.filter(c=>c.from===v).map(c=>c.id);if(ids.length)cuRemove(ids,'הוסר מהיומן שלי');return}
+  if(a==='take'){cuTake(v);return}
+  if(a==='done'){cuDoneToggle(v,document.activeElement);return}
+  if(a==='tog'){const on=!KC.open.has(v);on?KC.open.add(v):KC.open.delete(v);
+    document.querySelectorAll(`[data-cu="tog:${CSS.escape(v)}"]`).forEach(b=>{b.setAttribute('aria-expanded',on);const c=b.closest('.cu-c,.cu-hero');if(c)c.classList.toggle('open',on)});return}
+  if(a==='ly'){if(CU_LAYERS.some(z=>z[0]===v)){KC.f=v;KC.more=false;KC.sel='';cuRepaint(`[data-cu="ly:${v}"]`)}return}
+  if(a==='more'){KC.more=!KC.more;cuRepaint('[data-cu="more"]');return}
+  if(a==='day'){KC.sel=KC.sel===v?'':v;if(KC.sel)KC.m=v.slice(0,7);cuRepaint(`[data-cu="day:${v}"]`);return}
+  if(a==='mon'){const [Y,M]=(/^\d{4}-\d{2}$/.test(KC.m)?KC.m:isoD(today0()).slice(0,7)).split('-').map(Number);let y=Y,m=M;
+    if(v==='today'){const t=today0();y=t.getFullYear();m=t.getMonth()+1}else{m+=+v;if(m<1){m=12;y--}if(m>12){m=1;y++}}
+    KC.m=y+'-'+String(m).padStart(2,'0');cuRepaint(`[data-cu="mon:${v}"]`);const g=$('#cuRoot .cu-g');if(g)g.classList.add(v==='today'?'sl-t':+v>0?'sl-n':'sl-p');return}
+  if(a==='ics'){const pl=safe(plan,null),x=pl&&cuItems(pl).find(z=>z.id===v);if(!x)return;
+    dl('vector-'+String(v).replace(/[^\w-]/g,'_')+'.ics',icsFile(null,[{...x.x,sub:x.mine?(x.note||x.x.sub):x.x.sub}]),ICS_T).then(ok=>ok&&toast('קובץ היומן ירד. פותחים אותו כדי להוסיף את המועד'))}}
+document.addEventListener('submit',e=>{if(e.target.id==='cuForm'){e.preventDefault();cuSubmit(e.target)}});
+document.addEventListener('change',e=>{const f=e.target&&e.target.form;if(!f||f.id!=='cuForm')return;
+  if(e.target.name==='cuK')cuKindSync(f);
+  if(e.target.id==='cuRp'){const w=$('#cuRnW');if(w)w.hidden=!e.target.checked}});
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-cuidea]');if(!b)return;const t=$('#cuT');if(t){t.value=b.dataset.cuidea;t.focus()}});
+document.addEventListener('toggle',e=>{const t=e.target;if(t&&t.classList&&t.classList.contains('cu-dn'))KC.dn=t.open},true); /* the drawer of what is done keeps its state when the page is drawn again */
 /* the files: one event, the sittings of one subject, or everything the list shows */
 const ICS_T='text/calendar;charset=utf-8';
 function icsOne(id){const pl=safe(plan,null),x=calPool(pl).find(e=>e.id===id);if(!x)return;
@@ -9697,10 +10158,12 @@ function icsFile(only,pool){
   /* RFC 5545: a line is at most 75 octets (UTF-8, the leading space of a continuation included), and a character is never cut: Hebrew is 2 octets and an emoji 4 */
   const u8=c=>{const n=c.codePointAt(0);return n<128?1:n<2048?2:n<65536?3:4};
   const fold=l=>{const out=[];let cur='',n=0;for(const c of l){const b=u8(c);if(n+b>75){out.push(cur);cur=' '+c;n=1+b}else{cur+=c;n+=b}}out.push(cur);return out.join('\r\n')};
-  const ev=L.map(x=>{const F=fs(x),ds=[x.sub,x.sub2,F.t,x.src].filter(Boolean),at=e(x.t+(F.un?' (לא אומת, בדקו באתר)':''));
-    return ['BEGIN:VEVENT','UID:'+String(x.id).replace(/[^\w.-]/g,'_')+'@kivun','DTSTAMP:'+st,'DTSTART;VALUE=DATE:'+x.d.replace(/-/g,''),'DTEND;VALUE=DATE:'+nd(x.d2||x.d),'SUMMARY:'+e(x.t),
+  const ev=L.map(x=>{const F=fs(x),ds=[x.sub,x.note,x.sub2,F.t,x.src].filter(Boolean),at=e(x.t+(F.un?' (לא אומת, בדקו באתר)':'')),timed=!!x.tm&&!x.d2,en=timed?cuEndAt(x.d,x.tm,x.len||60):null,hm=s=>s.replace(':','')+'00',
+      when=timed?['DTSTART:'+x.d.replace(/-/g,'')+'T'+hm(x.tm),'DTEND:'+en[0].replace(/-/g,'')+'T'+hm(en[1])]:['DTSTART;VALUE=DATE:'+x.d.replace(/-/g,''),'DTEND;VALUE=DATE:'+nd(x.d2||x.d)],
+      alarms=timed?['PT30M']:(x.al||(x.reg||x.k==='mine'?[7,1]:[])).map(n=>'P'+n+'D');
+    return ['BEGIN:VEVENT','UID:'+String(x.id).replace(/[^\w.-]/g,'_')+'@kivun','DTSTAMP:'+st,...when,'SUMMARY:'+e(x.t),
     ...(ds.length?['DESCRIPTION:'+e(ds.join('\n'))]:[]),
-    ...(x.al||(x.reg||x.k==='mine'?[7,1]:[])).flatMap(n=>['BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+at,'TRIGGER:-P'+n+'D','END:VALARM']),'END:VEVENT'].map(fold).join('\r\n')});
+    ...alarms.flatMap(a=>['BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+at,'TRIGGER:-'+a,'END:VALARM']),'END:VEVENT'].map(fold).join('\r\n')});
   return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Vector//My Path//HE','CALSCALE:GREGORIAN','X-WR-CALNAME:המסלול שלי (וקטור)',...ev,'END:VCALENDAR'].join('\r\n')}
 const inViewer=()=>!!(window.claude&&window.claude.use);
 async function dl(name,text,type){
@@ -9831,7 +10294,7 @@ function celebrate(el,n=30){if(!el)return;const r=el.getBoundingClientRect();bur
 
 
 /* ---------- events ---------- */
-const KSEL='[data-padd],[data-ppick],[data-pswap],[data-kwd],[data-kwi],[data-kwauto],[data-kwb],[data-kwdone],[data-kme],[data-kmedone],[data-kc],[data-kt],[data-kmapn],[data-kstop],[data-kgoto],[data-kfs],[data-kfgo],[data-kgate],[data-kfsib],[data-ktf],[data-kteen],[data-kgo],[data-ktab],[data-ktgt],[data-khub],[data-kadd],[data-krm],[data-krmok],[data-krmno],[data-kfocus],[data-kfprev],[data-kfnext],[data-kfskip],[data-knext],[data-kmark],[data-kpick],[data-ksess],[data-kfq],[data-kmore],[data-kdel],[data-kendx],[data-kwel],[data-kweld],[data-ksn],[data-kq],[data-kqd],[data-kqskip],[data-kqok],[data-kqgo],[data-kqask],[data-kics],[data-kpg],[data-kcm],[data-kcd],[data-kcf],[data-kuf],[data-kuv],[data-kic1],[data-kicb],[data-kcall],[data-kca],[data-kcx],[data-kdone],[data-kown],[data-kcl],[data-kcoall],[data-khelp],[data-kcopy],[data-kexp],[data-kundo],[data-kreset],[data-kresetok],[data-kresetno],[data-lb],[data-lbm],[data-lbe],[data-lbx],[data-lbmode],[data-lbadd],[data-lbrm],[data-lbsave],[data-lbok],[data-lbno],[data-lbreal],[data-lbsavep],[data-lbreset],[data-lbd],[data-lbplan]';
+const KSEL='[data-padd],[data-ppick],[data-pswap],[data-kwd],[data-kwi],[data-kwauto],[data-kwb],[data-kwdone],[data-kme],[data-kmedone],[data-kc],[data-kt],[data-kmapn],[data-kstop],[data-kgoto],[data-kfs],[data-kfgo],[data-kgate],[data-kfsib],[data-ktf],[data-kteen],[data-kgo],[data-ktab],[data-ktgt],[data-khub],[data-kadd],[data-krm],[data-krmok],[data-krmno],[data-kfocus],[data-kfprev],[data-kfnext],[data-kfskip],[data-knext],[data-kmark],[data-kpick],[data-ksess],[data-kfq],[data-kmore],[data-kdel],[data-kendx],[data-kwel],[data-kweld],[data-ksn],[data-kq],[data-kqd],[data-kqskip],[data-kqok],[data-kqgo],[data-kqask],[data-kics],[data-kpg],[data-kic1],[data-kicb],[data-cu],[data-khelp],[data-kcopy],[data-kexp],[data-kundo],[data-kreset],[data-kresetok],[data-kresetno],[data-lb],[data-lbm],[data-lbe],[data-lbx],[data-lbmode],[data-lbadd],[data-lbrm],[data-lbsave],[data-lbok],[data-lbno],[data-lbreal],[data-lbsavep],[data-lbreset],[data-lbd],[data-lbplan],[data-kmt]';
 const wizReset=(change,add)=>{KP.wiz={active:true,step:1,tq:'',d:'',i:'',change:!!change,add:!!add}};
 const top0=()=>window.scrollTo({top:0,behavior:'instant'});
 const refocus=sel=>{const e=$(sel);if(e)e.focus({preventScroll:true})};
@@ -9909,17 +10372,19 @@ document.addEventListener('click',e=>{
   /* the progress chart and the calendar */
   else if(ds.kpg!==undefined)pgSelect(ds.kpg);
   else if(ds.kcm!==undefined)clMonth(ds.kcm);
-  else if(ds.kcd!==undefined){if(KC.add){clKeep();KC.add.d=ds.kcd;KC.sel=ds.kcd;clRepaint(`[data-kcd="${ds.kcd}"]`,['main'],false)}else{KC.sel=KC.sel===ds.kcd?'':ds.kcd;clRepaint(`[data-kcd="${ds.kcd}"]`)}}
-  else if(ds.kca!==undefined||ds.kcx!==undefined||ds.kdone!==undefined||ds.kown!==undefined||ds.kcl!==undefined||ds.kcoall!==undefined)clAct(ds);
-  else if(ds.kuv!==undefined)clView(ds.kuv,true);
-  else if(ds.kuf!==undefined){if(UP_F.some(f=>f[0]===ds.kuf)){KC.uf=ds.kuf;clRepaint(`[data-kuf="${ds.kuf}"]`,['top'])}}
-  else if(ds.kcf!==undefined){if(CL_F.some(f=>f[0]===ds.kcf)){KC.f=ds.kcf;clRepaint(`[data-kcf="${ds.kcf}"]`,['off'])}}
+
+
+
+
+
+  else if(ds.cu!==undefined)cuDo(ds.cu);
   else if(ds.kgoto!==undefined){jnReset();go(ds.kgoto)}
   else if(ds.kfs!==undefined)jnFull(!KP.full);
   else if(ds.kfgo!==undefined)jnFull(false,true,()=>{jSelect(ds.kfgo);requestAnimationFrame(()=>jump('kpStep'))});
-  else if(ds.kcall!==undefined){KC.all=!KC.all;clRepaint('[data-kcall]')}
+
   else if(ds.kic1!==undefined)icsOne(ds.kic1);
   else if(ds.kicb!==undefined)icsSubject(ds.kicb);
+  else if(ds.kmt!==undefined)mtAct(ds.kmt);
   else if(ds.kgo!==undefined)gotoTab(TABOF[ds.kgo]||'now',{scroll:1});
   else if(ds.knext!==undefined||ds.kfocus!==undefined)focusOn(ds.knext!==undefined?ds.knext:ds.kfocus);
   else if(ds.kfprev!==undefined){const id=KP.hist.pop();if(id)focusOn(id,false)}
@@ -9941,7 +10406,7 @@ document.addEventListener('click',e=>{
   else if(ds.ksess!==undefined){P.sess=P.sess===ds.ksess?'':ds.ksess;pthSave();PLC=null;paint()}
   else if(ds.kfq!==undefined){Object.assign(FF,{f:'all',topic:'',inst:'',ctx:ds.kfq.startsWith('deg:')?ds.kfq:'',q:ds.kfq.startsWith('deg:')?'':ds.kfq,keep:true});go('forum')}
   else if(ds.kmore!==undefined){if(ds.kmore==='inst'){KO.all=!KO.all;const pl=plan();$('#kpOpt').innerHTML=optHTML(pl);stripInit&&stripInit()}}
-  else if(ds.kdel!==undefined){P.dates=P.dates.filter(c=>c.id!==ds.kdel);pthSave();PLC=null;if($('#clMain'))clRepaint(null,['top','main','off']);else paint()}
+  else if(ds.kdel!==undefined){P.dates=P.dates.filter(c=>c.id!==ds.kdel);pthSave();PLC=null;if($('#cuRoot'))cuRepaint();else paint()}
   else if(ds.kics!==undefined){const pl=safe(plan,null);dl('vector-my-path.ics',icsFile(null,ds.kics==='f'?calMineAll().filter(x=>!x.fixed&&!(x.kind==='task'&&x.done)):null),'text/calendar;charset=utf-8').then(ok=>ok&&toast('קובץ היומן ירד. פותחים אותו כדי להוסיף את המועדים ליומן'))}
   else if(ds.khelp!==undefined){store.set('pathHelp',1);const h=el.closest('.kp-help,.kp-ftip');if(h)h.remove()}
   else if(ds.kcopy!==undefined){const txt=summaryText(plan());
@@ -9994,12 +10459,7 @@ document.addEventListener('keydown',e=>{
   const ks=TABS.map(x=>x[0]),i=ks.indexOf(t.dataset.ktab);let j;
   if(e.key==='ArrowLeft')j=i+1;else if(e.key==='ArrowRight')j=i-1;else if(e.key==='Home')j=0;else if(e.key==='End')j=ks.length-1;else return;
   e.preventDefault();j=(j+ks.length)%ks.length;gotoTab(ks[j]);const b=document.querySelector(`.kp-seg3 [data-ktab="${ks[j]}"]`);if(b)b.focus()});
-/* the two views of the calendar are a tab list too */
-document.addEventListener('keydown',e=>{
-  const t=e.target&&e.target.closest?e.target.closest('.cl-vs [role="tab"]'):null;if(!t)return;
-  const ks=CL_V.map(x=>x[0]),i=ks.indexOf(t.dataset.kuv);let j;
-  if(e.key==='ArrowLeft')j=i+1;else if(e.key==='ArrowRight')j=i-1;else if(e.key==='Home')j=0;else if(e.key==='End')j=ks.length-1;else return;
-  e.preventDefault();j=(j+ks.length)%ks.length;clView(ks[j],true)});
+
 /* The in-memory copies of what storage holds, read again: after a restored backup, a sign-in, or a change made in another tab of this site. */
 function reloadState(){PTH=null;PLC=null;DIRS=null;DIRR=null;CALC_ROWS=null;SCHS=null;
   S.prof=store.get('prof',null);S.sc=store.get('scores',null);S.list=new Set(store.get('list',[]).map(id=>own(DATA.alias||{},id)?DATA.alias[id]:id));S.uni=store.get('uni',null)}
@@ -10045,11 +10505,7 @@ document.addEventListener('change',e=>{
 });
 document.addEventListener('focusout',e=>{const t=e.target;if(t&&t.dataset&&t.dataset.kend!==undefined)endChange(t,true)});
 document.addEventListener('submit',e=>{
-  if(e.target.id==='clAdd'){e.preventDefault();const t=$('#clAT').value.trim().slice(0,80),d=$('#clAD').value,k=(document.querySelector('input[name="clK"]:checked')||{}).value==='event'?'event':'task',P=pth();
-    if(!t){toast('כותבים מה להוסיף');$('#clAT').focus();return}if(!isoOk(d)){toast('בוחרים תאריך');$('#clAD').focus();return}
-    if(!P)return;if(P.dates.length>=400){toast('היומן מלא. אפשר למחוק פריטים ישנים');return}
-    P.dates.push({id:'my-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),t,d,kind:k});logAct();pthSave();PLC=null;
-    KC.add=null;KC.sel=d;KC.m=d.slice(0,7);toast(k==='task'?'המשימה נוספה ליומן':'האירוע נוסף ליומן');clRepaint('[data-kca]',['top','main']);return}
+
   if(e.target.id==='kpDorm'){e.preventDefault();const d=$('#kpDormD').value,P=pth();if(!P||!isoOk(d)){toast('בוחרים תאריך');return}
     P.dates.push({id:'my-dorm-'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),t:((S.prof||{}).house==='rent'?'מגורים: מועד שסימנתי':`מעונות ${bIn(INST[P.i].n)}`).slice(0,80),d,i:P.i});logAct();pthSave();PLC=null;toast('התאריך נוסף ליומן שלי');paint();refocus('#kpDormD');return}
   if(e.target.id==='kpDate'){e.preventDefault();const t=$('#kpDT').value.trim(),d=$('#kpDD').value;if(!t||!d)return;const P=pth();P.dates.push({id:'my-'+Date.now(),t,d});logAct();pthSave();PLC=null;toast('התאריך נוסף');paint();e.target.reset()}
@@ -10104,7 +10560,7 @@ function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt
 function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
 const fmt=(n,dp=0)=>Number(n).toLocaleString('he-IL',{maximumFractionDigits:dp,minimumFractionDigits:dp});
 let sayT=0;function say(m){const e=$('#live');if(!e||!m)return;e.textContent='';clearTimeout(sayT);sayT=setTimeout(()=>{e.textContent=m},120)} /* spoken, not shown */
-let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2800)}
+let tt;function toast(m){const t=$('#toast');t.classList.remove('act');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2800)}
 const shortType=t=>(t.match(/\(([^)]+)\)/)||[,t])[1].replace(/^\./,'');
 const uniOK=d=>!S.uni||d.of.some(o=>o.i===S.uni);
 const yt=q=>'https://www.youtube.com/results?search_query='+encodeURIComponent(q);
