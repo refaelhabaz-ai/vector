@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR:-.}/tools/publish-main.mjs\" --hook",
+            "timeout": 600,
+            "statusMessage": "Updating main on GitHub..."
+          }
+        ]
+      }
+    ]
+  }
+}
