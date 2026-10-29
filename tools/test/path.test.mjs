@@ -1,41 +1,11 @@
 // node --test tools/test/path.test.mjs
-// The road and the calendar, in a real browser: what the mentor says about the gap and which moves it prices, what the calendar holds (the official dates and my own),
+// The road and the calendar, in a real browser: what the mentor says about the gap and which moves it prices, what the calendar holds (nothing, until the student puts something in it),
 // and that the map is still the map. It needs Playwright with Chromium; without them every test here is skipped and the rest of the suite runs with no dependencies.
-import test, { before, after } from 'node:test';
+// The bagrut model (what is missing and what is only not entered yet), the plain average and the official tables are in bagrut.test.mjs.
 import assert from 'node:assert/strict';
-import { createRequire } from 'node:module';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { scenario, student, visit, addDays, today, cssId } from './site.mjs';
 
-const here = (p) => fileURLToPath(new URL(p, import.meta.url));
-const SITE = pathToFileURL(here('../../index.html')).href;
-const FIRST_PAGE = pathToFileURL(here('../README.md')).href; // any file: page is of the same origin as the site, and is where a student is written to storage
-
-let chromium = null;
-try { chromium = createRequire(import.meta.url)('playwright').chromium; } catch { /* Playwright is not installed */ }
-let browser = null, TODAY = null;
-
-before(async () => {
-  if (!chromium) return;
-  try { browser = await chromium.launch(); } catch { return; } // no browser to launch
-  // "today" is pinned to three weeks before the first psychometric registration of the table, so the official dates are ahead of it whatever year the table is for
-  const page = await browser.newPage();
-  try {
-    await page.goto(SITE);
-    const first = await page.evaluate(() => PSYD.map((z) => z.reg).filter(Boolean).sort()[0]);
-    const d = new Date(first + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() - 21);
-    TODAY = d.toISOString().slice(0, 10);
-  } finally { await page.close(); }
-});
-after(async () => { if (browser) await browser.close(); });
-
-// ---- three students ----
-const rows = (o) => Object.entries(o).map(([k, [u, g]]) => ({ k, u, g }));
-const student = ({ d, i, scores, calc, stage = 'g12', psy }) => [
-  ['kivun3.prof', JSON.stringify({ bag: 'full', psy: psy || (scores && scores.p ? 'has' : 'plan'), heb: 'he', stage, stageAt: Date.now() - 5e8 })],
-  ...(scores ? [['kivun3.scores', JSON.stringify(scores)]] : []),
-  ...(calc ? [['kivun3.calcRows', JSON.stringify(rows(calc))]] : []),
-  ['kivun3.path', JSON.stringify({ v: 4, created: Date.now() - 20 * 864e5, targets: [{ id: 't1', d, i, auto: 0, marks: {}, goalP: 0, added: Date.now() - 20 * 864e5 }], active: 't1', d, i, auto: 0, marks: {}, goalP: 0, start: 0, dates: [], lab: null, sess: '', log: [], end: '', seen: '', story: '', qs: {}, qa: {}, sn: 1 })],
-];
+// ---- four students ----
 // medicine at Tel Aviv with a good psychometric and a high bagrut, and still a few dozen points below the threshold: a gap that can be closed
 const GAP = student({ d: 'd172', i: 'tau', stage: 'g11', scores: { p: 690, b: 96, est: true }, calc: { math: [5, 93], eng: [5, 96], heb: [2, 95], hist: [2, 90], civ: [2, 98], lit: [2, 94], bible: [2, 92], phys: [5, 91], chem: [5, 94] } });
 // computer science at Tel Aviv with a lower bagrut: even 800 in the psychometric does not reach the threshold, so the road goes through the bagrut first
@@ -45,26 +15,8 @@ const OK = student({ d: 'd20', i: 'tau', scores: { p: 760, b: 96 }, calc: { math
 // a goal and no numbers at all
 const FRESH = student({ d: 'd20', i: 'huji', stage: 'svc', psy: 'plan' });
 
-async function visit(store, { w = 1280, h = 900, mobile = false } = {}) {
-  const ctx = await browser.newContext({ viewport: { width: w, height: h }, locale: 'he-IL', timezoneId: 'Asia/Jerusalem', acceptDownloads: true, isMobile: mobile, hasTouch: mobile });
-  const page = await ctx.newPage();
-  const errors = [];
-  page.on('pageerror', (e) => errors.push(String(e)));
-  page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
-  await page.addInitScript((t) => { window.__TODAY = t; }, TODAY);
-  // the student is written to storage from a page of their own: an init script that touches storage can land on another storage area when the page is reloaded
-  await page.goto(FIRST_PAGE);
-  await page.evaluate((entries) => { for (const [k, v] of entries) localStorage.setItem(k, v); }, store);
-  await page.goto(SITE + '#path');
-  await page.waitForSelector('#mtPlanHost', { state: 'attached' });
-  return { ctx, page, errors };
-}
-const scenario = (name, store, opts, fn) => test(name, async (t) => {
-  if (!browser) return t.skip('Playwright with Chromium is not available');
-  const v = await visit(store, opts);
-  try { await fn(v.page, v); assert.deepEqual(v.errors, [], 'the page reported errors'); } finally { await v.ctx.close(); }
-});
-const openCalendar = async (page) => { await page.click('[data-ktab="cal"]'); await page.waitForSelector('#cuMain'); };
+
+const CSS_ID = cssId;
 
 // ---- the mentor ----
 scenario('below the threshold the mentor names the gap, and prices every bagrut move with the lab\'s own functions', GAP, {}, async (page) => {
@@ -122,27 +74,79 @@ scenario('with no numbers yet the mentor asks for an estimate, and offers no pla
 });
 
 // ---- the calendar ----
-scenario('the calendar holds the official psychometric and bagrut dates, with the day the registration closes', GAP, {}, async (page) => {
+// It opens empty. Nothing is in it until the student puts it there: a line they write, a sitting they mark in the menu of official dates, a scholarship they follow.
+const openCalendar = async (page) => { await page.click('[data-ktab="cal"]'); await page.waitForSelector('#cuMain'); };
+// what fills the month, the week and the list: three things of the student's own (a task today, study hours tomorrow, an event in five days) and two official sittings
+const fillCalendar = (page, day) => page.evaluate((day) => {
+  const P = pth(), at = (n) => { const d = new Date(day + 'T00:00:00'); d.setDate(d.getDate() + n); return isoD(d); };
+  P.dates.push({ id: 'my-t1', t: 'לברר על מלגה', d: at(0), kind: 'task' }, { id: 'my-s1', t: 'תרגול כמותי', d: at(1), kind: 'study', tm: '16:30', len: 90 }, { id: 'my-e1', t: 'יום פתוח בטכניון', d: at(5), kind: 'event', tm: '10:00', len: 120 });
+  P.pick = [bagEv(BAGD.find((b) => daysTo(b[4] || b[2]) >= 0)).id, 'psy-' + PSYD.find((z) => daysTo(z.d2 || z.d) >= 0).id];
+  pthSave(); PLC = null;
+}, day);
+
+scenario('the calendar opens empty: no card, no pill, no next-date banner, and no date taken from the student\'s goals', GAP, {}, async (page) => {
   await openCalendar(page);
-  await page.click('[data-cu="ly:psy"]');
-  const psy = await page.$$eval('#cuMain .cu-c', (els) => els.map((e) => [e.classList.contains('psy'), e.classList.contains('reg'), e.textContent]));
-  assert.ok(psy.some(([p]) => p), 'an exam of the psychometric');
-  assert.ok(psy.some(([, r, t]) => r && /ההרשמה/.test(t)), 'the closing of its registration');
-  await page.click('[data-cu="ly:bag"]');
-  const bag = await page.$$eval('#cuMain .cu-c', (els) => els.map((e) => e.classList.contains('bag')));
-  assert.ok(bag.length > 0 && bag.every(Boolean), 'the bagrut layer holds only bagrut');
-  await page.click('[data-cu="more"]');
-  assert.ok((await page.$$('#cuMain .cu-c.bag')).length > 8, 'every sitting of the schedule is there');
-  assert.ok(await page.$('#cuMain .cu-c.bag .ft-chip'), 'the draft schedule says what it is');
+  const m = await page.evaluate(() => ({ mine: cuItems(plan()).length, line: timeline(plan()).length, menu: officialAll(plan()).length, shown: document.querySelectorAll('#cuRoot .cu-c, #cuRoot .cu-pl, #cuRoot .cu-hero').length,
+    empty: !!document.querySelector('#cuRoot .cu-em'), file: !!document.querySelector('[data-kics]'), saved: (({ dates, pick }) => ({ dates: dates.length, pick: (pick || []).length }))(pth()) }));
+  assert.equal(m.mine, 0, 'nothing in the calendar'); assert.equal(m.line, 0, 'nothing on the timeline, which summaries, lists and files read');
+  assert.ok(m.menu > 10, 'the official dates wait in the menu');
+  assert.equal(m.shown, 0); assert.ok(m.empty, 'it says that it is empty'); assert.equal(m.file, false, 'there is no file to download of nothing');
+  assert.deepEqual(m.saved, { dates: 0, pick: 0 }, 'the student has a target, registration dates and an exam table behind it, and none of that came in by itself');
+});
+
+scenario('an official sitting enters the calendar only when it is marked in the menu, on its own days, and leaves when it is marked again', GAP, {}, async (page) => {
+  await openCalendar(page);
+  await page.click('.cu-top [data-cu="pick:open"]');
+  await page.waitForSelector('#cuPickIn');
+  assert.equal(await page.$eval('#ov', (e) => e.getAttribute('role')), 'dialog');
+  assert.equal(await page.$$eval('#cuPickIn .cu-pr.on', (e) => e.length), 0, 'nothing is marked in a fresh menu');
+  const sit = await page.evaluate(() => { const b = BAGD.find((b) => daysTo(b[4] || b[2]) >= 0); return { id: bagEv(b).id, d: b[2], d2: b[4] || '' }; });
+  const btn = `#cuPickIn .cu-pr[data-kbag="${sit.id}"]`;
+  await page.click(btn);
+  await page.waitForFunction((id) => pth().pick.includes(id), sit.id);
+  assert.equal(await page.$eval(btn, (e) => e.getAttribute('aria-pressed')), 'true');
+  const known = await page.evaluate(() => [...PSYD.flatMap((z) => [z.reg, z.d, z.d2]), ...BAGD.flatMap((b) => [b[2], b[4]])].filter(Boolean));
+  const mine = await page.evaluate(() => cuItems(plan()).map((x) => ({ id: x.id, d: x.d, off: x.off, f: x.f })));
+  assert.deepEqual(mine.map((x) => x.id), [sit.id], 'only that sitting');
+  assert.ok(known.includes(mine[0].d) && mine[0].d === sit.d, 'on a date of the official table'); assert.equal(mine[0].off, 1); assert.ok(mine[0].f, 'with the fact behind it');
+  await page.evaluate((m) => { KC.m = m; cuRepaint(); }, sit.d.slice(0, 7)); // the month of the sitting, under the menu
+  assert.ok(await page.$(`.cu-gd[data-iso="${sit.d}"] .cu-pl.bag`), 'a pill on its first day');
+  if (sit.d2 && sit.d2.slice(0, 7) === sit.d.slice(0, 7)) assert.ok(await page.$(`.cu-gd[data-iso="${sit.d2}"] .cu-pl.bag`), 'and on its last');
+  // the psychometric: the exam, and the day its regular registration closes, each of them a choice
+  await page.click('#cuPickIn [data-cu="pickt:psy"]');
+  const psy = await page.$$eval('#cuPickIn .cu-pr', (b) => b.map((x) => x.dataset.kbag));
+  assert.ok(psy.some((id) => /^psy-/.test(id)) && psy.some((id) => /^psyreg-/.test(id)), 'the exam and the closing of its registration');
+  assert.ok(await page.evaluate(() => { const o = document.querySelector('#ov'), h = o && document.getElementById(o.getAttribute('aria-labelledby')); return !!h && h.textContent.trim().length > 0; }), 'the dialog keeps its name when its tab changes');
+  assert.equal(await page.$$eval('#cuPickIn .cu-pr.on', (e) => e.length), 0, 'none of them is marked');
+  await page.click('#cuPickIn [data-cu="pickt:bag"]');
+  await page.click(btn); // marked again: out
+  await page.waitForFunction((id) => !pth().pick.includes(id), sit.id);
+  assert.equal(await page.evaluate(() => cuItems(plan()).length), 0, 'and the calendar is empty again');
+  await page.keyboard.press('Escape');
+  await page.waitForFunction(() => !document.querySelector('#ov'));
+});
+
+scenario('a line written in the day panel is saved on that day, once, and the field is ready for the next one', GAP, {}, async (page) => {
+  await openCalendar(page);
+  assert.match(await page.$eval('#cuDP', (e) => e.textContent), /אין כלום ביום הזה/);
+  await page.fill('#cuQT', 'לקרוא על מלגות');
+  await page.click('#cuQuick button[type="submit"]');
+  await page.waitForFunction(() => pth().dates.length === 1);
+  const got = await page.evaluate(() => ({ x: pth().dates[0], today: isoD(today0()), stored: JSON.parse(localStorage.getItem('kivun3.path')).dates.length }));
+  assert.equal(got.x.t, 'לקרוא על מלגות'); assert.equal(got.x.kind, 'task'); assert.equal(got.x.d, got.today); assert.equal(got.stored, 1);
+  assert.ok(await page.$('.cu-gd.today .cu-pl.task'), 'a pill in the cell of the day');
+  assert.equal(await page.$('.cu-em'), null, 'no longer empty');
+  assert.deepEqual(await page.evaluate(() => [document.activeElement.id, document.activeElement.value]), ['cuQT', ''], 'the field is empty and has the focus again');
 });
 
 scenario('a weekly study session is saved with its time and length, and a student who comes back finds it', GAP, {}, async (page, { ctx }) => {
+  const day = addDays(today(), 3), ymd = (s) => s.replace(/-/g, '');
   await openCalendar(page);
-  await page.click('.cu-top [data-cu="add:|"]');
+  await page.click('.cu-top .btn.primary');
   await page.waitForSelector('#cuForm');
   await page.click('.cu-kk.study');
   await page.fill('#cuT', 'תרגול כמותי');
-  await page.fill('#cuD', '2026-11-15');
+  await page.fill('#cuD', day);
   await page.fill('#cuTm', '16:30');
   await page.click('.cu-lc:has(input[value="90"])');
   await page.check('#cuRp');
@@ -150,29 +154,29 @@ scenario('a weekly study session is saved with its time and length, and a studen
   await page.waitForFunction(() => !document.querySelector('#ov'));
   const mine = await page.evaluate(() => pth().dates.filter((x) => x.t === 'תרגול כמותי'));
   assert.equal(mine.length, 4, 'four weeks');
-  assert.deepEqual(mine.map((x) => x.d), ['2026-11-15', '2026-11-22', '2026-11-29', '2026-12-06']);
+  assert.deepEqual(mine.map((x) => x.d), [0, 7, 14, 21].map((n) => addDays(day, n)));
   assert.ok(mine.every((x) => x.kind === 'study' && x.tm === '16:30' && x.len === 90 && x.grp && x.grp === mine[0].grp), 'one series');
   // the file for the calendar app: a floating local time, the end from the length, a reminder half an hour before
-  const ics = await page.evaluate(() => icsFile(null, calMineAll()));
-  assert.match(ics, /DTSTART:20261115T163000/); assert.match(ics, /DTEND:20261115T180000/); assert.match(ics, /TRIGGER:-PT30M/);
+  const ics = await page.evaluate(() => icsFile(null, cuItems(plan()).filter((i) => !i.fixed).map((i) => i.x)));
+  assert.match(ics, new RegExp('DTSTART:' + ymd(day) + 'T163000')); assert.match(ics, new RegExp('DTEND:' + ymd(day) + 'T180000')); assert.match(ics, /TRIGGER:-PT30M/);
   assert.ok(ics.split('\r\n').every((l) => Buffer.byteLength(l) <= 75), 'lines are folded at 75 octets');
   // coming back later: the same storage, a new tab
   const store = await page.evaluate(() => Object.entries(localStorage));
   const back = await visit(store);
   try {
     await openCalendar(back.page);
-    await back.page.click('[data-cu="ly:mine"]');
-    const titles = await back.page.$$eval('#cuMain .cu-c', (els) => els.map((e) => e.textContent));
-    assert.ok(titles.some((t) => t.includes('תרגול כמותי')), 'the session is in the calendar of the returning student');
+    await back.page.click('[data-cu="view:list"]');
+    const text = await back.page.$eval('#cuMain', (e) => e.textContent);
+    assert.ok(text.includes('תרגול כמותי'), 'the session is in the calendar of the returning student');
     assert.deepEqual(back.errors, []);
   } finally { await back.ctx.close(); }
   void ctx;
 });
 
 scenario('my own task can be ticked, taken back, deleted and brought back with "undo"', GAP, {}, async (page) => {
-  await page.evaluate(() => { const P = pth(); P.dates.push({ id: 'my-t1', t: 'לברר על מלגה', d: isoD(new Date(today0().getTime() + 5 * 864e5)), kind: 'task' }); pthSave(); PLC = null; });
+  await page.evaluate((day) => { const P = pth(), d = new Date(day + 'T00:00:00'); d.setDate(d.getDate() + 5); P.dates.push({ id: 'my-t1', t: 'לברר על מלגה', d: isoD(d), kind: 'task' }); pthSave(); PLC = null; }, today());
   await openCalendar(page);
-  await page.click('[data-cu="ly:mine"]');
+  await page.click('[data-cu="view:list"]');
   await page.click('[data-cu="done:my-t1"]');
   await page.waitForFunction(() => !!pth().dates.find((x) => x.id === 'my-t1').done);
   await page.waitForSelector('.cu-dn'); // the ticked card glides into the drawer of what is done
@@ -186,16 +190,47 @@ scenario('my own task can be ticked, taken back, deleted and brought back with "
   await page.waitForFunction(() => pth().dates.some((x) => x.id === 'my-t1'));
 });
 
+scenario('the month, the week and the list show the same things, a day opens its panel, and the arrow keys move through the days', GAP, {}, async (page) => {
+  const day = today();
+  await fillCalendar(page, day);
+  await openCalendar(page);
+  assert.equal(await page.$('.cu-em'), null, 'not empty');
+  assert.ok(await page.$('.cu-hero'), 'the date that comes next is shown');
+  // the month: my three things, and the sittings I marked
+  assert.ok(await page.$(`.cu-gd[data-iso="${day}"] .cu-pl.task`), 'the task is on its day');
+  assert.match(await page.$eval('#cuDP', (e) => e.textContent), /לברר על מלגה/, 'and the panel of the day lists it');
+  await page.click('[data-cu="view:week"]');
+  assert.equal(await page.$$eval('.cu-wc', (e) => e.length), 7, 'seven days in a week');
+  await page.click('[data-cu="view:list"]');
+  const list = await page.$eval('#cuMain', (e) => e.textContent);
+  for (const t of ['לברר על מלגה', 'תרגול כמותי', 'יום פתוח בטכניון']) assert.ok(list.includes(t), `"${t}" is in the list`);
+  await page.click('[data-cu="view:month"]');
+  await page.evaluate((d) => { KC.m = d.slice(0, 7); KC.sel = d; cuRepaint(); }, day);
+  await page.focus(`.cu-gd[data-iso="${day}"]`);
+  await page.keyboard.press('ArrowLeft'); // the page reads right to left: left is the next day
+  const next = await page.evaluate((d) => { const a = new Date(d + 'T00:00:00'); a.setDate(a.getDate() + 1); return { want: isoD(a), got: KC.sel, on: document.activeElement.dataset.iso }; }, day);
+  assert.equal(next.got, next.want); assert.equal(next.on, next.want, 'the focus follows');
+});
+
 // ---- phones, and the map ----
-for (const tab of ['now', 'cal']) {
-  scenario(`on a phone the ${tab === 'cal' ? 'calendar' : 'road'} never scrolls sideways`, GAP, { w: 360, h: 740, mobile: true }, async (page) => {
+for (const [tab, view] of [['now', ''], ['cal', 'month'], ['cal', 'week'], ['cal', 'list']]) {
+  scenario(`on a phone the ${tab === 'cal' ? `calendar (${view})` : 'road'} never scrolls sideways`, GAP, { w: 360, h: 740, mobile: true }, async (page) => {
+    if (tab === 'cal') await fillCalendar(page, today());
     await page.click(`[data-ktab="${tab}"]`);
     await page.waitForSelector(tab === 'cal' ? '#cuMain' : '#mtPlanHost');
-    if (tab === 'cal') await page.evaluate(() => { KC.f = 'all'; KC.more = true; cuRepaint(); });
+    if (tab === 'cal') await page.click(`[data-cu="view:${view}"]`);
     const w = await page.evaluate(() => ({ sw: document.documentElement.scrollWidth, iw: window.innerWidth }));
     assert.ok(w.sw <= w.iw, `the page is ${w.sw}px wide in a ${w.iw}px window`);
   });
 }
+
+scenario('a search typed on the jobs page and left at once does not break the page that follows', GAP, {}, async (page) => {
+  await page.evaluate(() => { location.hash = '#jobs'; });
+  await page.waitForSelector('#jq');
+  await page.fill('#jq', 'מהנדס');
+  await page.evaluate(() => { location.hash = '#terms'; }); // before the timer of the search has fired
+  await page.waitForTimeout(500);
+});
 
 scenario('the map is where it was: a gate for every stage, the next stop marked, and a stop still opens its step', GAP, {}, async (page) => {
   await page.waitForSelector('#kpJ .tr');
@@ -207,6 +242,3 @@ scenario('the map is where it was: a gate for every stage, the next stop marked,
   assert.equal(await stop.getAttribute('aria-pressed'), 'true');
   assert.ok(await page.$('#jnFsBtn'), 'the full-screen map');
 });
-
-// a CSS id selector for an id with characters in it
-function CSS_ID(id) { return id.replace(/([^\w-])/g, '\\$1'); }
