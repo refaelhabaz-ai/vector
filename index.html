@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&display=swap"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%23FF6B4A'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -33,7 +33,7 @@
   --good:#0A7455; /* green as text: 5.8:1 on white, 5.1:1 on the soft green (the earlier #0CA678 was 3.1:1) */
   --good-soft:#DDF7EE;
   --head:'Rubik',system-ui,'Segoe UI',Arial,sans-serif;
-  --body:'Heebo','Segoe UI','Noto Sans Hebrew',Arial,sans-serif;
+  --body:'Rubik',system-ui,'Segoe UI',Arial,sans-serif;
   --r:22px;
   --shadow:0 1px 2px rgba(31,37,68,.05),0 10px 30px rgba(31,37,68,.07);
   --shadow-h:0 2px 6px rgba(31,37,68,.06),0 22px 44px rgba(31,37,68,.14);
@@ -3087,8 +3087,8 @@ html.vx .tbar{display:none}
 @media(max-width:560px){.vx-feats{grid-template-columns:minmax(0,1fr)}}
 /* ---- the map ---- */
 .sm{position:relative;margin:0 auto;border-radius:26px;overflow:hidden;isolation:isolate;box-shadow:0 22px 50px rgba(27,31,59,.22),0 0 0 1px rgba(27,31,59,.1);
-  background:linear-gradient(180deg,color-mix(in srgb,#5AA9FF calc((1 - var(--wm,0))*100%),#FF8F6B) 0,color-mix(in srgb,#BFE3FF calc((1 - var(--wm,0))*100%),#FFD9A8) 52px,#FFF1D6 70px,#9AD985 71px,#6CC15F 100%)}
-.sm::before{content:"";position:absolute;inset:71px 0 0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 44px,transparent 44px 88px),radial-gradient(120% 60% at 50% 0,rgba(255,255,255,.16),transparent 70%);pointer-events:none;z-index:0}
+  background:linear-gradient(180deg,color-mix(in srgb,#5AA9FF calc((1 - var(--wm,0))*100%),#FF8F6B) 0,color-mix(in srgb,#BFE3FF calc((1 - var(--wm,0))*100%),#FFD9A8) calc(var(--hz) - 14px),#FFF1D6 var(--hz),#9AD985 calc(var(--hz) + 1px),#6CC15F 100%)}
+.sm::before{content:"";position:absolute;inset:calc(var(--hz) + 1px) 0 0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 44px,transparent 44px 88px),radial-gradient(120% 60% at 50% 0,rgba(255,255,255,.16),transparent 70%);pointer-events:none;z-index:0}
 .sm-sky{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .sm-sun{position:absolute;right:7%;top:8px;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#FFFBE0,#FFE066 60%,#FFC53D);box-shadow:0 0 0 8px rgba(255,224,102,.3),0 0 0 20px rgba(255,224,102,.14),0 0 40px 14px rgba(255,214,102,.5);animation:smSun 6s ease-in-out infinite alternate}
 @keyframes smSun{to{box-shadow:0 0 0 11px rgba(255,224,102,.26),0 0 0 26px rgba(255,224,102,.1),0 0 48px 18px rgba(255,214,102,.45)}}
@@ -3222,149 +3222,25 @@ html.rg .sm-tip,html.rm .sm-tip{opacity:1}
 .vx-top .vx-msg{margin-block:4px 8px!important}
 .vx-top .jn-spd{max-width:130px!important}.vx-top .jn-gv b{font-size:28px!important}
 
-/* ===== v25: a warmer, calmer road page: paper and sand instead of cold blue, a serif for the big words, more air, a taller map ===== */
-html.vx,html.vx body{background:#FAF4E9}
-.vx-sec{--w-ink:#26302E;--w-mut:#6A6B63;--w-paper:#FFFCF6;--w-sand:#F6ECDA;--w-line:#E9DCC4;--w-teal:#1F5C57;--w-teal2:#2F7C73;--w-terra:#C9552F;--w-sun:#F2B544;--w-sage:#7FAE8A;--w-serif:'Frank Ruhl Libre','David Libre','Noto Serif Hebrew','Times New Roman',serif;
-  display:grid;gap:clamp(30px,3.6vw,52px);color:var(--w-ink);font-size:17px;line-height:1.7}
-.vx-sec h1,.vx-sec h2,.vx-sec h3{font-family:var(--w-serif);text-wrap:balance}
-.vx-sec .fine{color:var(--w-mut);font-size:14.5px;line-height:1.7}
-/* the top: a few warm words and the one next step */
-.wm-hero{position:relative;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:clamp(24px,3vw,44px);align-items:stretch;padding:clamp(24px,2.8vw,40px);border-radius:36px;overflow:hidden;isolation:isolate;
-  background:radial-gradient(60% 90% at 100% 0,rgba(242,181,68,.38),transparent 62%),linear-gradient(160deg,#FFF8EA 0,#FCE9CF 100%);border:1px solid var(--w-line);box-shadow:0 22px 50px rgba(110,72,28,.10)}
-.wm-hero::after{content:"";position:absolute;inset:auto 0 0;height:84px;z-index:-1;opacity:.9;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 84' preserveAspectRatio='none'%3E%3Cpath d='M0 54C120 20 220 70 360 44S600 12 800 48V84H0Z' fill='%23CFE3BE' opacity='.55'/%3E%3Cpath d='M0 68C140 44 260 78 420 60S660 36 800 64V84H0Z' fill='%23A9CF98' opacity='.55'/%3E%3C/svg%3E") center bottom/100% 100% no-repeat}
-.wm-hi{display:grid;gap:12px;align-content:start;min-width:0;padding-bottom:26px}
-.wm-kick{display:inline-flex;align-items:center;gap:8px;justify-self:start;padding:6px 14px 6px 12px;border-radius:999px;background:rgba(201,85,47,.12);color:#9C3A18;font:700 14px var(--head)}.wm-kick svg{width:17px;height:17px}
-.wm-hi h1{font:900 clamp(30px,3.2vw,46px)/1.15 var(--w-serif);margin:0;color:var(--w-ink);letter-spacing:-.01em}
-.wm-inst{margin:0;color:var(--w-mut);font-size:17px}.wm-me{color:var(--w-terra);text-decoration:underline;text-underline-offset:3px;font:inherit;font-weight:600}
-.wm-note{margin:4px 0 0;padding-inline-start:18px;border-inline-start:4px solid var(--w-sun);font-size:clamp(18px,1.5vw,21px);line-height:1.65;color:var(--w-ink);max-width:46ch}
-.wm-prog{display:grid;gap:8px;margin-top:6px;max-width:520px}
-.wm-bar{height:14px;border-radius:99px;background:rgba(38,48,46,.10);overflow:hidden}.wm-bar i{display:block;height:100%;min-width:14px;border-radius:99px;background:linear-gradient(90deg,var(--w-sage),var(--w-teal2))}
-.wm-prog span{font-size:15.5px;color:var(--w-mut)}.wm-prog b{font:800 22px var(--w-serif);color:var(--w-ink)}
-.wm-facts{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px;max-width:560px}
-.wm-facts li{display:flex;align-items:center;gap:12px;min-width:0}
-.wm-facts li>span{flex:none;width:42px;height:42px;border-radius:14px;background:rgba(255,255,255,.75);display:grid;place-items:center;color:var(--w-teal)}.wm-facts li>span svg{width:21px;height:21px}
-.wm-facts small{display:block;font-size:13.5px;color:var(--w-mut);line-height:1.3}.wm-facts b{display:block;font:700 16.5px/1.35 var(--head);color:var(--w-ink);overflow-wrap:anywhere}
-.wm-next{align-self:center;display:grid;gap:10px;padding:clamp(24px,2.6vw,34px);border-radius:30px;background:linear-gradient(160deg,#2A6B64,#174541);color:#fff;box-shadow:0 22px 40px rgba(23,69,65,.30)}
-.wm-next small{font:700 14px var(--head);color:#F7D88C;letter-spacing:.2px}
-.wm-next b{font:800 clamp(22px,2vw,28px)/1.3 var(--w-serif);color:#fff}
-.wm-due{font-size:15px;color:#D5EAE5}
-.wm-go{justify-self:start;margin-top:8px;display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;background:var(--w-sun);color:#2C2000;font:800 17px var(--head);box-shadow:0 8px 18px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s}
-.wm-go:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.24)}.wm-go svg{width:19px;height:19px}
-.wm-next.done{background:linear-gradient(160deg,#6BA77A,#3E7C55)}
-@media(max-width:980px){.wm-hero{grid-template-columns:minmax(0,1fr)}.wm-next{align-self:stretch}}
-@media(max-width:560px){.wm-facts{grid-template-columns:minmax(0,1fr)}}
-/* the map and the sign beside it */
-.vx-stage{gap:clamp(22px,2.6vw,36px)}
-@media(min-width:1001px){.vx-stage{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
-@media(max-width:1000px){.vx-stage{grid-template-columns:minmax(0,1fr)}}
-.vx-sidein{gap:22px}
-.vx-mapcard{background:var(--w-paper);border:1px solid var(--w-line);border-radius:36px;box-shadow:0 18px 44px rgba(110,72,28,.10);padding:clamp(20px,2.2vw,30px);gap:20px}
-.vx-mh h2{font:800 clamp(26px,2.4vw,34px)/1.2 var(--w-serif);color:var(--w-ink)}
-.vx-mh p{color:var(--w-mut);font-size:16px;margin-top:4px;max-width:44ch;display:block!important}
-.vx-how>summary{background:var(--w-sand);border:0;color:var(--w-ink)}.vx-how>summary::before{background:#fff;color:var(--w-terra)}
-.vx-how[open]>ul{background:var(--w-paper);border-color:var(--w-line)}
-.vx-how li i.g{background:linear-gradient(135deg,#3E7C9B,#1F5C57)}
-.sm{border-radius:28px;box-shadow:0 14px 34px rgba(110,72,28,.16),0 0 0 1px rgba(110,72,28,.10);
-  background:linear-gradient(180deg,color-mix(in srgb,#9CCBE8 calc((1 - var(--wm,0))*100%),#F4A57E) 0,color-mix(in srgb,#D6EAF3 calc((1 - var(--wm,0))*100%),#FBD9A6) calc(var(--hz) - 22px),#FFF1DA var(--hz),#B5D89F calc(var(--hz) + 1px),#9CCB88 100%)}
-.sm::before{inset:calc(var(--hz) + 1px) 0 0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.08) 0 52px,transparent 52px 104px),radial-gradient(120% 50% at 50% 0,rgba(255,255,255,.22),transparent 70%)}
-.sm-edge{stroke:#FBF3E4;stroke-width:46px;filter:drop-shadow(0 6px 8px rgba(80,55,25,.22))}
-.sm-yl{stroke:#EDBE5A;stroke-width:38px}
-.sm-bed{stroke:#4B4A55;stroke-width:33px}
-.sm-base{stroke:rgba(255,248,232,.9);stroke-dasharray:12 13}
-.sm-prog{stroke:#6FCB9B;stroke-width:26px;opacity:.9;filter:drop-shadow(0 0 6px rgba(70,170,120,.55))}
-.sm-n{--oy:36px}
-.sm-c{width:54px;height:54px;background:radial-gradient(circle at 35% 30%,#fff,#F1E8D8);color:#4E4B45;border:4px solid #FFFCF4;box-shadow:0 8px 18px rgba(80,55,25,.28)}
-.sm-n.g .sm-c{width:68px;height:68px;border-width:4.5px}
-.sm-arc{width:78px;height:78px;margin:-39px 0 0 -39px}
-.sm-l{top:calc(var(--oy) + 44px);background:var(--w-paper);border:1.5px solid rgba(110,72,28,.22);border-radius:16px;padding:9px 10px 10px;gap:2px;box-shadow:0 10px 20px rgba(80,55,25,.16)}
-.sm-l b{font:600 14.5px/1.4 var(--body);color:var(--w-ink);overflow-wrap:break-word;hyphens:manual}
-.sm-s{font-size:12.5px;color:var(--w-mut)}.sm-k{font-size:12.5px}
-.sm-n.g .sm-l{top:calc(var(--oy) + 54px);border:0;border-radius:18px;padding:12px 10px 12px;background:color-mix(in srgb,var(--rc) 76%,#2E2216);box-shadow:inset 0 0 0 3px rgba(255,255,255,.85),0 12px 22px rgba(80,55,25,.28)}
-.sm-n.g .sm-l b{font:800 17px/1.25 var(--w-serif)}
-.sm-n.g .sm-l em{font-size:12.5px;padding:2px 10px;margin-top:5px}
-.sm-n.g .sm-k,.sm-n.g .sm-l small{font-size:12.5px}
-.sm-n.g.pick .sm-l{box-shadow:inset 0 0 0 3px rgba(255,255,255,.85),0 0 0 4px var(--w-sun),0 14px 26px rgba(80,55,25,.34)}
-.sm-n.g.pick .sm-c{box-shadow:0 0 0 5px var(--w-sun),0 10px 20px rgba(80,55,25,.3)}
-.sm-n.g.cur .sm-c{background:linear-gradient(135deg,#E0663D,#B8431F)}
-.sm-n.st.done .sm-l{background:#F0F8EE;border-color:#8CC59B}
-.sm-n.st.nxt .sm-l{background:#FFE7A8;border-color:#E3B13F}.sm-n.st.nxt .sm-c{background:linear-gradient(135deg,#E0663D,#B8431F)}
-.sm-n.st.pick .sm-l{box-shadow:0 0 0 3px var(--w-sun),0 10px 20px rgba(80,55,25,.22)}
-.sm-n.st.pick .sm-c{box-shadow:0 0 0 4px #3B3A33,0 10px 20px rgba(80,55,25,.28)}
-.sm-n.b .sm-l{top:calc(var(--oy) + 30px)}
-.sm-n.e .sm-c{width:76px;height:76px}.sm-n.e .sm-l{top:calc(var(--oy) + 58px)}
-.sm-pin,.sm-tag{background:#2E2B26;color:#FBE7B0;top:calc(var(--oy) - 66px)}.sm-tag{top:calc(var(--oy) - 52px)}
-.sm-hills path:first-child{fill:#D9E8C9}.sm-hills path:last-child{fill:#B7D6A3}
-.sm-tr::after{background:radial-gradient(circle at 35% 30%,#A7D98F,#4E9A56 72%)}.sm-tr.pine::after{background:linear-gradient(180deg,#5AA867,#2F7447)}
-.sm-sun{background:radial-gradient(circle at 40% 38%,#FFFBE8,#FFE29A 60%,#F7C75A)}
-/* the sign beside the map */
-.sm-stg{background:var(--w-paper);border:1px solid var(--w-line);border-radius:30px;box-shadow:0 14px 34px rgba(110,72,28,.09);padding:24px 26px 26px}
-.sm-stg-n{background:var(--rc);border-radius:18px;width:54px;height:54px;font:900 26px var(--w-serif)}
-.sm-stg-t b{font:800 clamp(23px,2vw,28px)/1.25 var(--w-serif);color:var(--w-ink)}.sm-stg-t small,.sm-stg-t span{font-size:15px;color:var(--w-mut)}
-.sm-sn{border-color:var(--w-line);background:var(--w-paper);border-radius:15px;width:44px;height:44px}
-.sm-pills{gap:10px;margin-top:18px}
-.sm-pill{background:var(--w-sand);border-color:transparent;font-size:15.5px;padding:9px 16px 9px 13px}
-.sm-pill i{background:#fff;border-color:#D8C9AA}
-.sm-pill.d{background:#E7F3E8}.sm-pill.d i{background:#3E8E5A;border-color:#3E8E5A}
-.sm-pill.c{background:#fff;box-shadow:0 0 0 2.5px var(--rc);border-color:transparent}
-.vx-side .kp-focus{background:var(--w-paper);border:1px solid var(--w-line);border-top:0;border-inline-start:0;border-radius:32px;box-shadow:0 18px 44px rgba(110,72,28,.10);padding:clamp(26px,2.8vw,40px);margin:0}
-.vx-side .kp-ftt h2{font:800 clamp(27px,2.4vw,34px)/1.25 var(--w-serif);color:var(--w-ink)}
-.vx-side .kp-fwhy{font-size:18px;line-height:1.7;color:var(--w-mut);margin-top:6px}
-.vx-side .kp-fstep{font-size:15.5px;color:var(--w-mut)}.vx-side .kp-fstep i{background:var(--zb);color:var(--zc);width:40px;height:40px;border-radius:14px}
-.vx-side .kp-fdots li{background:#E8DCC6}.vx-side .kp-fdots li.d{background:#3E8E5A}
-.vx-side .kp-fhow,html.vx .vx-side .kp-focus .kp-fhow{background:var(--w-sand);border-radius:24px;padding:22px 24px;margin-top:20px}
-html.vx .vx-side .kp-focus .kp-fhow p{color:var(--w-ink)}
-html.vx .vx-side .kp-fhow .nodata,html.vx .vx-side .kp-fhow .kp-note{background:transparent;padding:0;border:0}
-.vx-side .kp-fhow h3{font:700 16px var(--head);color:var(--w-mut);margin-bottom:10px}
-.vx-side .kp-fhow p,.vx-side .kp-fhow li{font-size:17.5px;line-height:1.8}
-.vx-side .kp-fhow .btn{border-radius:999px}
-.vx-side .kp-fnav{border-top:1.5px dashed var(--w-line);margin-top:28px;padding-top:22px}
-.vx-side .kp-fp{background:var(--w-sand);color:var(--w-ink)}
-.vx-side .kp-ftip{background:#FFF1CC;color:#4A3B12;border-radius:18px;margin-top:22px}.vx-side .kp-ftip svg{color:#B07A12}.vx-side .kp-ftip .linkbtn{color:#8A5A00}
-.vx-side .btn.primary,.vx-side .kp-fdone{background:linear-gradient(135deg,#D6582F,#B8431F);box-shadow:0 10px 22px rgba(184,67,31,.28)}
-/* tools */
-.vx-feats{gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
-.vx-act{background:var(--w-paper);border:1.5px solid var(--w-line);border-radius:24px;padding:18px 20px;box-shadow:0 10px 24px rgba(110,72,28,.07);gap:16px}
-.vx-act:hover{border-color:var(--w-terra);box-shadow:0 14px 30px rgba(110,72,28,.14)}
-.vx-act i{width:52px;height:52px;border-radius:18px;background:var(--w-sand);color:var(--w-terra)}.vx-act i svg{width:25px;height:25px}
-.vx-act b{font:800 19px var(--w-serif);color:var(--w-ink)}.vx-act small{font-size:14.5px;color:var(--w-mut);line-height:1.4}
-/* expanding horizons */
-.bey{background:var(--w-paper);border:1px solid var(--w-line);border-radius:36px;box-shadow:0 18px 44px rgba(110,72,28,.09);padding:clamp(26px,3.4vw,48px);gap:24px}
-.bey-h{display:grid;gap:12px}
-.bey-h h2{font:900 clamp(30px,3vw,42px)/1.2 var(--w-serif);margin:0;color:var(--w-ink)}.bey-h p{color:var(--w-mut);font-size:17.5px;line-height:1.75;max-width:70ch}
-.bey .tn-f{gap:10px;margin:0}
-.bey .fb2{background:#fff;border:1.5px solid var(--w-line);color:var(--w-ink);height:46px;font-weight:600}.bey .fb2:hover{border-color:var(--w-terra)}
-.bey .tn-f .fb2[aria-pressed="true"]{background:var(--w-teal);border-color:var(--w-teal);color:#fff;box-shadow:none}
-.bey .tn-sub{margin:6px 0 16px;color:var(--w-mut)}
-.bey .tn-g{gap:22px;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr))}
-.bey .tn-c{background:#fff;border:1px solid var(--w-line);border-radius:26px;box-shadow:0 10px 26px rgba(110,72,28,.07);padding:26px 26px 24px;gap:12px}
-.bey .tn-c p{font-size:16.5px;line-height:1.75}
-.bey .tn-h h3{font:800 21px/1.3 var(--w-serif)}
-.bey .tn-by{color:var(--w-mut);font-size:15px}
-.bey .tn-ok.y{background:#E1F1E4;color:#1F5C3A}.bey .tn-ok.n{background:#FFEFC2;color:#5A4300}
-.bey .tn-cl{background:#FFF1CC;border-radius:14px;padding:11px 14px}
-.bey .tn-y{color:var(--w-mut);font-size:13.5px}
-.bey .tn-c .btn{border-radius:999px;background:var(--w-sand);color:var(--w-ink)}
-.bey .tn-gap{background:var(--w-sand);border-radius:18px;padding:16px 20px;color:var(--w-ink)}
-/* why it is worth it */
-.wy{position:relative;overflow:hidden;isolation:isolate;display:grid;gap:28px;border-radius:38px;padding:clamp(30px,4vw,60px);color:var(--w-ink);border:1px solid #F0D7B2;
-  background:radial-gradient(70% 90% at 0 0,rgba(242,181,68,.42),transparent 60%),linear-gradient(165deg,#FFF3DD 0,#FADFC0 100%);box-shadow:0 22px 50px rgba(150,90,30,.14)}
-.wy::after{content:"";position:absolute;inset:auto 0 0;height:90px;z-index:-1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 90' preserveAspectRatio='none'%3E%3Cpath d='M0 50C140 16 260 70 400 44S640 14 800 52V90H0Z' fill='%23E9C58E' opacity='.5'/%3E%3Cpath d='M0 70C160 48 280 82 440 64S680 42 800 68V90H0Z' fill='%23D9A864' opacity='.45'/%3E%3C/svg%3E") center bottom/100% 100% no-repeat}
-.wy-h{display:grid;gap:12px;max-width:62ch}
-.wy-h h2{font:900 clamp(32px,3.6vw,50px)/1.15 var(--w-serif);margin:0;color:#3A2410}
-.wy-h p{font-size:clamp(18px,1.5vw,21px);line-height:1.75;color:#5B4630}
-.wy .wm-kick{background:rgba(255,255,255,.7);color:#8A3F12}
-.wy-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px}
-.wy-s{display:grid;gap:6px;align-content:start;padding:26px 26px 24px;border-radius:28px;background:rgba(255,253,246,.88);box-shadow:0 12px 28px rgba(120,70,20,.12)}
-.wy-i{width:46px;height:46px;border-radius:16px;background:#FCE3C2;color:#B4561A;display:grid;place-items:center;margin-bottom:6px}.wy-i svg{width:23px;height:23px}
-.wy-s b{font:900 clamp(32px,3vw,44px)/1.1 var(--w-serif);color:#3A2410}
-.wy-s.hot b{color:#B4431B}
-.wy-s small{font-size:15.5px;line-height:1.55;color:#6A5239}
-.wy-o{display:grid;gap:10px;margin:0}.wy-o>b{font:800 18px var(--w-serif);color:#3A2410}.wy-o>span{display:flex;flex-wrap:wrap;gap:10px}
-.wy-chip{display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border-radius:999px;background:rgba(255,253,246,.9);border:1.5px solid #EBCB9D;font:600 15.5px var(--head);color:#3A2410;text-decoration:none;font-style:normal}
-button.wy-chip{cursor:pointer;transition:transform .15s,border-color .15s}button.wy-chip:hover{transform:translateY(-2px);border-color:#C9552F}
-.wy-chip.st{background:rgba(255,253,246,.6);border-color:transparent}
-.wy-b{display:flex;flex-wrap:wrap;gap:12px}.wy-b .btn{background:#3A2410;color:#FFF3DD;border-radius:999px;min-height:48px}.wy-b .btn:hover{background:#26160A}
-.wy .fine{color:#6A5239}
+/* why it is worth it: a light card in the site's own colours, in the site's font */
+.wy{display:grid;gap:22px;background:#fff;border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:clamp(24px,3vw,40px)}
+.wy>*{min-width:0}
+.wy-h{display:grid;gap:10px;max-width:64ch}
+.wy-h h2{font:800 clamp(26px,2.6vw,36px)/1.2 var(--head);margin:0;color:var(--ink)}
+.wy-h p{font-size:17px;line-height:1.7;color:var(--muted)}
+.wy-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
+.wy-s{display:grid;gap:6px;align-content:start;padding:22px;border-radius:22px;background:var(--tint)}
+.wy-i{width:44px;height:44px;border-radius:14px;background:#fff;color:var(--primary-dark);display:grid;place-items:center;margin-bottom:4px}.wy-i svg{width:22px;height:22px}
+.wy-s b{font:800 clamp(28px,2.6vw,38px)/1.1 var(--head);color:var(--ink)}
+.wy-s.hot b{color:var(--primary-dark)}
+.wy-s small{font-size:15px;line-height:1.5;color:var(--muted)}
+.wy-o{display:grid;gap:10px;margin:0}.wy-o>b{font:700 17px var(--head);color:var(--ink)}.wy-o>span{display:flex;flex-wrap:wrap;gap:10px}
+.wy-chip{display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border-radius:999px;background:#fff;border:1.5px solid var(--line);font:500 15.5px var(--head);color:var(--ink);font-style:normal}
+button.wy-chip{cursor:pointer;transition:transform .15s,border-color .15s}button.wy-chip:hover{transform:translateY(-2px);border-color:var(--primary)}
+.wy-chip.st{background:var(--tint);border-color:transparent}
+.wy-b{display:flex;flex-wrap:wrap;gap:12px}
+
+.wy-h .vx-kick,.bey-h .vx-kick{justify-self:start}
 
 
 
@@ -9714,7 +9590,7 @@ const GO_NAME={sch:'מסך המלגות'};
 const jItems=(pl,fz)=>{const I=[{k:'b'}];pl.zones.forEach(z=>{I.push({k:'g',z});if(z.id===fz)z.tasks.forEach(t=>I.push({k:'s',z,t}))});I.push({k:'e'});return I};
 /* how much of the stretch a to b is lit: a stop that is done lights the way to it; a closed stage lights as far as it is done */
 const jLit=(a,b)=>b.k==='b'?1:b.k==='s'?(b.t.done?1:0):a.k==='s'?(a.z.total&&a.z.done===a.z.total?1:0):a.k==='g'?(a.z.total?a.z.done/a.z.total:0):a.k==='b'?1:0;
-const SM_RH=238,SM_TOP=112; /* the height of a row of the road, and the sky above the first one */
+const SM_RH=238,SM_TOP=84; /* the height of a row of the road, and the sky above the first one */
 const smCols=W=>Math.max(2,Math.min(6,Math.floor(W/130)));
 /* one piece of road as a cubic curve, with a table of lengths so that a place on it can be found by distance */
 function smSeg(p0,c1,c2,p3){
@@ -9890,7 +9766,7 @@ function beyondHTML(pl){
   const X=pl.X;if(!/^g1[012]$/.test(X.stg))return '';
   const f0=CATS[X.d.c]?X.d.c:'all',stN=(STAGES.find(s=>s[0]===(S.prof||{}).stage)||[])[1]||'',me=[stN,`התואר שבחרתי: ${X.d.n}`].filter(Boolean).join(' · ');
   const f=KP.tf==='all'||(KP.tf&&CATS[KP.tf])?KP.tf:f0,nm=f==='all'?'כל התחומים':CATS[f].n,gap=f==='all'?'':TEEN_GAP[f]||'';
-  return `<section class="bey" id="kpTeen" aria-labelledby="beyH"><div class="bey-h"><span class="wm-kick">${ki('compass')}הרחבת אופקים</span><h2 id="beyH">מה אפשר לעשות עוד, כבר עכשיו</h2>
+  return `<section class="bey" id="kpTeen" aria-labelledby="beyH"><div class="bey-h"><span class="vx-kick">${ki('compass')}הרחבת אופקים</span><h2 id="beyH">מה אפשר לעשות עוד, כבר עכשיו</h2>
     <p>המסלול שלמעלה הוא החלק "היבש": ציונים, בחינות והרשמה. כאן מה שאפשר לעשות לצידו כדי להכיר את התחום באמת ולבדוק שהוא מתאים לי. מותאם לפרופיל שלי (${esc(me)}). אף אחת מהפעילויות האלה אינה תנאי קבלה.</p></div>
     <div class="tn-f" role="group" aria-label="תחום">${['all',...Object.keys(CATS)].map(k=>`<button type="button" class="fb2" data-ktf="${k}" aria-pressed="${f===k}">${k==='all'?'כל התחומים':CATS[k].n}</button>`).join('')}</div>
     <div id="kpTeenL"><p class="tn-sub">מוצגות פעילויות בתחום: <b>${esc(nm)}</b></p>${teenList(f)}${gap?`<p class="tn-gap">${esc(gap)}</p>`:''}</div>
@@ -10426,16 +10302,15 @@ function nowHTML(pl){
   const t=focusTask(pl),nx=pl.next,p=Math.max(0,Math.min(100,pl.pct)),nz=nx&&(ZN[nx.z]||{}).t;
   const cz=pl.zones.find(z=>z.id===pl.cur)||pl.zones[0],goW=pl.X.start?safe(()=>zoneRange('go',pl.X),''):'',sk=safe(streak,0);
   const extra=safe(()=>stepsNoteHTML(),'')+safe(()=>welcomeHTML(pl),''),hs=/^g1[012]$/.test(pl.X.stg);
-  /* the top: a few warm words, where I stand, and the one next step */
-  const top=`<section class="wm-hero" aria-labelledby="jnH"><div class="wm-hi"><span class="wm-kick">${ki('map')}המסלול שלי</span><h1 id="jnH">הדרך שלי אל ${esc(pl.X.d.n)}</h1>
-      <p class="wm-inst">${esc(pl.X.I.n)}${pl.X.P.auto?' · <b>מוסד לדוגמה</b>':''} · <button type="button" class="linkbtn wm-me" data-kme="">הפרטים שלי</button></p>
-      <p class="wm-note">${vxMsg(p)}</p>
-      <div class="wm-prog" role="img" aria-label="עשיתי ${p}% מהצעדים בדרך"><div class="wm-bar"><i style="width:${p}%"></i></div><span><b class="num">${p}%</b> מהצעדים בדרך כבר מאחוריי</span></div>
-      <ul class="wm-facts"><li><span>${ki('pin')}</span><div><small>איפה אני</small><b>${esc(cz.t)}</b></div></li>
-        <li><span>${ki('check')}</span><div><small>צעדים שעשיתי</small><b><span class="num">${pl.done}</span> מתוך <span class="num">${pl.total}</span></b></div></li>
-        <li><span>${ki('fire')}</span><div><small>ימים ברצף</small><b class="num">${sk}</b></div></li>
-        <li><span>${ki('cap')}</span><div><small>הגעה ליעד</small><b>${esc(goW||'עוד לא בחרתי שנה')}</b></div></li></ul></div>
-    ${nx?`<div class="wm-next"><small>הצעד הבא שלי${nz?` · ${esc(nz)}`:''}</small><b>${esc(nx.t)}</b>${nx.due?`<span class="wm-due">${esc(dueText(nx))}</span>`:''}<button type="button" class="wm-go" data-kstop="${nx.id}">בואו נמשיך מכאן${ki('arrow')}</button></div>`:`<div class="wm-next done"><small>הגעתי</small><b>כל הצעדים בדרך הושלמו. כל הכבוד!</b></div>`}</section>`;
+  const top=`<section class="vx-top" aria-labelledby="jnH"><div class="vx-hi"><span class="vx-kick">${ki('map')}המסלול שלי</span><h1 id="jnH">יוצאים לדרך: ${esc(pl.X.d.n)}</h1>
+      <p class="vx-inst">${esc(pl.X.I.n)}${pl.X.P.auto?' · <b>מוסד לדוגמה</b>':''} · <button type="button" class="linkbtn vx-me" data-kme="">הפרטים שלי</button></p><p class="vx-msg">${vxMsg(p)}</p>
+      <ul class="vx-chips"><li><span>${ki('pin')}</span><small>איפה אני</small><b>${esc(cz.t)}</b></li>
+        <li><span>${ki('check')}</span><small>צעדים שעשיתי</small><b><span class="num">${pl.done}</span> מתוך <span class="num">${pl.total}</span></b></li>
+        <li><span>${ki('fire')}</span><small>ימים ברצף</small><b><span class="num">${sk}</span></b></li>
+        <li><span>${ki('cap')}</span><small>הגעה ליעד</small><b>${esc(goW||'עוד לא בחרתי שנה')}</b></li></ul></div>
+    <div class="jn-gauge vx-gauge" role="img" aria-label="עשיתי ${p}% מהצעדים בדרך">${vxSpd(p)}<div class="jn-gv"><b class="num">${p}<small>%</small></b><span>מהצעדים בדרך עשיתי</span></div></div>
+    ${nx?`<div class="vx-nx"><span class="vx-na" aria-hidden="true">${ki('arrow')}</span><div class="vx-nt"><small>הפנייה הבאה${nz?` · ${esc(nz)}`:''}</small><b>${esc(nx.t)}</b>${nx.due?`<span>${esc(dueText(nx))}</span>`:''}</div>
+        <button type="button" class="vx-go" data-kstop="${nx.id}">סעו לשם${ki('arrow')}</button></div>`:`<div class="vx-nx done"><span class="vx-na" aria-hidden="true">${ki('flag')}</span><div class="vx-nt"><small>הגעתי</small><b>כל הצעדים בדרך הושלמו</b></div></div>`}</section>`;
   const map=`<section class="vx-mapcard" aria-labelledby="vxMapH"><div class="vx-mh"><div><h2 id="vxMapH">המפה שלי</h2><p>לוחצים על שלב או על צעד, והרכב נוסע אליו. אפשר לחזור לכל שלב שעברתי, והרכב יחזור אחורה.</p></div>
       <div class="vx-mt"><details class="vx-how"><summary>איך קוראים את המפה?</summary><ul>
         <li><i class="c" aria-hidden="true"></i><span><b>הרכב</b> הוא אני. לוחצים על צעד והרכב נוסע אליו. לוחצים על שלב שכבר עברתי והרכב נוסע אחורה אליו.</span></li>
@@ -10782,7 +10657,7 @@ function whyHTML(pl){
   b.push(`<div class="wy-s ${hot?'hot':''}"><span class="wy-i">${ki('fire')}</span><b>${hot?'חם בשוק':s.emp?s.emp+'% מועסקים':'—'}</b><small>${hot?'מספר העובדים במקצועות של התואר עולה מהר מבמשק':'שיעור התעסוקה של הבוגרים'}</small></div>`);
   if(du)b.push(`<div class="wy-s"><span class="wy-i">${ki('cal')}</span><b class="num">${du.txt} שנים</b><small>משך הלימודים התקני</small></div>`);
   const qa=typeof qaCount==='function'?qaCount('deg:'+d.id):0;
-  return `<div class="wy-h"><span class="wm-kick">${ki('fire')}בשביל הימים הקשים</span><h2>למה זה שווה את זה</h2><p>כשקשה, כדאי לזכור לאן זה מוביל. ${pl.pct>0?`כבר עשיתי ${pl.pct}% מהצעדים בדרך ל${esc(d.n)}, וזה לא מובן מאליו.`:`כל צעד בדרך ל${esc(d.n)} מקרב אותי למה שאני רוצה.`}</p></div>
+  return `<div class="wy-h"><span class="vx-kick">${ki('fire')}בשביל הימים הקשים</span><h2>למה זה שווה את זה</h2><p>כשקשה, כדאי לזכור לאן זה מוביל. ${pl.pct>0?`כבר עשיתי ${pl.pct}% מהצעדים בדרך ל${esc(d.n)}, וזה לא מובן מאליו.`:`כל צעד בדרך ל${esc(d.n)} מקרב אותי למה שאני רוצה.`}</p></div>
     <div class="wy-g">${b.join('')}</div>
     ${occ.length?`<p class="wy-o"><b>במה עובדים הבוגרים</b><span>${occ.map(o=>`<button class="wy-chip" data-occ="${o.id}">${esc(o.n)}</button>`).join('')}</span></p>`:''}
     ${cs?`<p class="wy-o"><b>מה לומדים</b><span>${cs.map(c=>`<em class="wy-chip st">${esc(c)}</em>`).join('')}</span></p>`:''}
