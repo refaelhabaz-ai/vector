@@ -1690,6 +1690,13 @@ button.tr-b:hover .tr-c{transform:translateY(-4px)}
 .tr-tp::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:10px;background:var(--cta);transform:translateX(-50%) rotate(45deg);border-radius:2px}
 .tr-tp svg{width:max(14px,calc(var(--u)*16px));height:max(14px,calc(var(--u)*16px))}
 /* the way along the map for a mouse: a round button at each corner, when there is more to see on that side */
+.jn-stages{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;background:#fff;scrollbar-width:thin}
+.jn-sg{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:6px 14px;border-radius:999px;border:2px solid #E3E6F2;background:#F7F8FC;color:var(--ink);font:600 15px/1.2 var(--body);cursor:pointer}
+.jn-sg b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#E3E6F2;font:700 14px/1 var(--head)}
+.jn-sg small{color:#4A5068;font-size:14px}
+.jn-sg.done b{background:#12A26B;color:#fff}.jn-sg.cur b{background:var(--cta);color:#fff}
+.jn-sg.on{border-color:var(--ink);background:#fff}
+.jn-sg:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .tr-arr{position:absolute;bottom:calc(var(--u)*14px);z-index:5;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--ink);box-shadow:0 10px 24px rgba(31,37,68,.22);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .25s}
 .tr-arr svg{width:22px;height:22px}
 .tr-arr.prev{inset-inline-start:12px}.tr-arr.prev svg{transform:scaleX(-1)}.tr-arr.next{inset-inline-end:12px}
@@ -9399,7 +9406,7 @@ const jFullH=()=>Math.max(260,innerHeight-JBAR-jSafe()); /* what is left for the
 function jScale(full){
   const w=innerWidth,h=innerHeight;
   if(full)return Math.round(Math.max(.8,Math.min(JMAX,Math.max(1.05,w/1050),(jFullH()-16)/JFIT))*100)/100; /* wide: as large as the screen allows; narrow: a little larger than on the page; low: whatever fits */
-  const byW=w<640?.82:w<1000?.9:w<1300?1:w<1700?1.12:1.25,above=w<1000?225:495; /* above: what sits over the map on the page */
+  const byW=w<640?.82:w<1000?.9:w<1300?1:w<1700?1.12:1.25,above=w<1000?225:545; /* above: what sits over the map on the page */
   if(w<1000)return byW; /* a phone or a tablet: the bars of the browser come and go as the page scrolls, and the map must not be drawn again then */
   return Math.round(Math.max(.82,Math.min(byW,(h-above-40)/JB.H))*100)/100}
 function jGeo(u,full){
@@ -9466,7 +9473,7 @@ function carToStop(id){const b=document.querySelector(`#kpJ [data-kstop="${id}"]
 /* the stops of the stage that is open, after its gate */
 /* a stop that has a screen of its own (the scholarships) opens that screen from the map; it does not unfold under the map */
 const GO_NAME={sch:'מסך המלגות'};
-const jItems=(pl,fz)=>{const I=[];pl.zones.forEach(z=>{I.push({k:'g',z});if(z.id===fz)z.tasks.forEach(t=>I.push({k:'s',z,t}))});I.push({k:'e'});return I};
+const jItems=(pl,fz)=>{const I=[];pl.zones.forEach(z=>{I.push({k:'g',z});z.tasks.forEach(t=>I.push({k:'s',z,t}))});I.push({k:'e'});return I}; /* every stage keeps all of its stops on the road, finished ones too: the part behind me is never squeezed into one gate */
 /* how much of the stretch a to b is lit: a stop that is done lights the way to it; a closed stage lights as far as it is done */
 const jLit=(a,b)=>b.k==='s'?(b.t.done?1:0):a.k==='s'?(a.z.total&&a.z.done===a.z.total?1:0):a.k==='g'?(a.z.total?a.z.done/a.z.total:0):0;
 const jSeg=(c,a,b)=>{let d=`M${a.x} ${a.y}`;const n=Math.max(2,Math.round(Math.abs(b.x-a.x)/10));for(let k=1;k<=n;k++){const x=Math.round(a.x+(b.x-a.x)*k/n);d+=`L${x} ${k===n?b.y:jWave(c,x)}`}return d};
@@ -9498,9 +9505,10 @@ function journeyHTML(pl,t){
   const lx=[];for(let k=0;k<P.length-1;k++)if(P[k].i.k==='s'&&P[k+1].i.k==='s'&&k%2)lx.push(Math.round((pts[k].x+pts[k+1].x)/2));
   const tip=!full&&!store.get('jnTip',0),sx=W-Math.round(c.pad*.5); /* the bubble that says what the car is, until I say I got it */
   const fin=pts[pts.length-1],car=`<div class="jn-car" id="jnCar" data-so="${so}" data-x="${from}" data-to="${drive?to:''}" data-wait="${intro?1100:full?650:200}" style="left:${from}px;top:${jWave(c,from)}px;--a:${jTilt(c,from).toFixed(1)}deg" aria-hidden="true">${CAR_SVG}<i class="jn-pf a"></i><i class="jn-pf b"></i><i class="jn-pf c"></i></div>`;
+  const strip=full?'':`<nav class="jn-stages" aria-label="מעבר בין השלבים">${pl.zones.map(z=>{const s=trState(z,pl),open=z.id===fz;return `<button type="button" class="jn-sg ${s}${open?' on':''}" data-kgate="${z.id}" aria-pressed="${open}"><b class="num">${zn[z.id]}</b><span>${z.t}</span><small class="num">${z.done}/${z.total}</small></button>`}).join('')}</nav>`;
   const bar=full?`<div class="jn-bar"><div class="jn-ttl"><b>${ki('map')}המסלול שלי <em class="jn-pc">${pl.pct}% מהדרך</em></b><span>${esc(pl.X.d.n)} · ${esc(pl.X.I.n)}</span></div>${legendHTML()}<button type="button" class="btn soft sm jn-fs" data-kfs>${ki('shrink')}יציאה ממסך מלא</button></div>`:'',
     info=full?`<div class="jn-info" id="jnInfo">${jnInfoHTML(t)}</div>`:'';
-  return `<div class="tr jn go still${full?' full':''}${intro?' jn-intro':''}" id="kpTrail" data-pad="${c.pad}" data-u="${u}" style="--u:${u};--y:${c.y}px;--g:${c.g}px;--cw:${c.gw}px;--r:${c.rg}px">${bar}<div class="tr-view" id="trViewJ"><div class="tr-track" data-y="${c.y}" data-amp="${c.amp}" data-wl="${c.wl}" style="width:${W}px;height:${c.H}px">${jLand(W,c,u,lx)}${plates}
+  return `<div class="tr jn go still${full?' full':''}${intro?' jn-intro':''}" id="kpTrail" data-pad="${c.pad}" data-u="${u}" style="--u:${u};--y:${c.y}px;--g:${c.g}px;--cw:${c.gw}px;--r:${c.rg}px">${bar}${strip}<div class="tr-view" id="trViewJ"><div class="tr-track" data-y="${c.y}" data-amp="${c.amp}" data-wl="${c.wl}" style="width:${W}px;height:${c.H}px">${jLand(W,c,u,lx)}${plates}
     <svg class="tr-svg" width="${W}" height="${c.H}" viewBox="0 0 ${W} ${c.H}" aria-hidden="true" focusable="false"><defs><linearGradient id="jnG" gradientUnits="userSpaceOnUse" x1="${W}" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#3EE0A0"/><stop offset=".5" stop-color="#12B886"/><stop offset="1" stop-color="#0CA678"/></linearGradient></defs><path class="tr-edge" d="${all}"/><path class="tr-bed" d="${all}"/><path class="tr-yl" d="${all}"/>${prog}${base}</svg>
     <i class="jn-fin" aria-hidden="true" style="left:${fin.x+Math.round(c.rg*1.5)}px;top:${fin.y}px"></i><i class="jn-fin st" aria-hidden="true" style="left:${sx}px;top:${jWave(c,sx)}px"></i><span class="jn-go" aria-hidden="true" style="left:${sx}px;top:${jWave(c,sx)}px"><b>יציאה</b></span>
     <ol class="tr-nodes" aria-label="תחנות הדרך">${nodes}</ol>${car}${tip?`<div class="jn-tip" role="note" style="left:${to}px;top:${jWave(c,to)}px"><b>זה אני!</b><span>הרכב הזה הוא אני. לוחצים על שלט לבן והרכב נוסע לצעד. לוחצים על שלט צבעוני כדי לפתוח שלב.</span><button type="button" class="btn sm" data-kjtip>הבנתי</button></div>`:''}</div></div>
@@ -11185,7 +11193,8 @@ function wizPick(d,i,auto){
   const W=KP.wiz;
   if(W.add){const t=addTarget(d,i,auto);if(!t)return;toast(`נוסף ליעדים שלי: ${BY[d].n} ${bIn(INST[i].n)}`)}
   else setGoal(d,i,true,auto);
-  if((W.change||W.add)&&S.prof&&S.prof.stage)finishWizard();else{W.step=3;render();top0()}}
+  if(S.prof&&S.prof.stage)finishWizard(); /* the grade/stage is already in the profile: the route is built from it, nothing is asked twice */
+  else{W.step=3;render();top0()}}
 /* mark or unmark a manual step, then repaint what depends on it. A step finished in focus moves me on to the next one. */
 /* a stage just finished, or a quarter / half / three quarters of the road: said out loud, once */
 function progressNote(a,b){
@@ -12530,4 +12539,4 @@ try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);se
 
 </script>
 
-</body></html>
+</body></html>
