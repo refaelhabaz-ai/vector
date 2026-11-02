@@ -3066,6 +3066,162 @@ html.vx .tbar{display:none}
 /*vx-end*/
 
 
+/* ===== v24: the road page. A winding road in a nearly square card, a side panel that is as tall as its text, the tools in view, then what else I can do and why it is worth it ===== */
+.vx-stage{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);align-items:start;gap:22px}
+.vx-side{min-height:0}.vx-sidein{position:static;inset:auto;overflow:visible;padding:0;display:grid;gap:14px;align-content:start}
+.vx-side .kp-fnav{position:static;background:none;margin:0;padding:12px 0 0}
+.vx-side .kp-focus{padding:clamp(20px,2vw,30px)}
+.vx-side .kp-ftt h2{font-size:clamp(25px,2.1vw,31px)}
+.vx-side .kp-fwhy{font-size:17.5px}
+.vx-side .kp-fhow p,.vx-side .kp-fhow li{font-size:17px;line-height:1.7}
+.vx-side .kp-fhow h3{font-size:18px}
+@media(max-width:1000px){.vx-stage{grid-template-columns:minmax(0,1fr)}}
+.vx-mapcard{padding:clamp(14px,1.6vw,20px)}
+.vx-mapcard .jn-w{display:block;border-radius:24px;flex:none}
+.vx-mapcard .jn-w>#kpJ{width:100%}
+.vx-notes{display:grid;gap:12px}
+.vx-me{color:#FFE066;text-decoration:underline;font:inherit}
+.vx-feats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.vx-feats .vx-act{width:100%;height:100%;font:inherit}
+@media(max-width:1100px){.vx-feats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.vx-feats{grid-template-columns:minmax(0,1fr)}}
+/* ---- the map ---- */
+.sm{position:relative;margin:0 auto;border-radius:26px;overflow:hidden;isolation:isolate;box-shadow:0 22px 50px rgba(27,31,59,.22),0 0 0 1px rgba(27,31,59,.1);
+  background:linear-gradient(180deg,color-mix(in srgb,#5AA9FF calc((1 - var(--wm,0))*100%),#FF8F6B) 0,color-mix(in srgb,#BFE3FF calc((1 - var(--wm,0))*100%),#FFD9A8) 52px,#FFF1D6 70px,#9AD985 71px,#6CC15F 100%)}
+.sm::before{content:"";position:absolute;inset:71px 0 0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 44px,transparent 44px 88px),radial-gradient(120% 60% at 50% 0,rgba(255,255,255,.16),transparent 70%);pointer-events:none;z-index:0}
+.sm-sky{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.sm-sun{position:absolute;right:7%;top:8px;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#FFFBE0,#FFE066 60%,#FFC53D);box-shadow:0 0 0 8px rgba(255,224,102,.3),0 0 0 20px rgba(255,224,102,.14),0 0 40px 14px rgba(255,214,102,.5);animation:smSun 6s ease-in-out infinite alternate}
+@keyframes smSun{to{box-shadow:0 0 0 11px rgba(255,224,102,.26),0 0 0 26px rgba(255,224,102,.1),0 0 48px 18px rgba(255,214,102,.45)}}
+.sm-hills{position:absolute;left:0;top:0}
+.sm-cl{position:absolute;width:74px;height:22px;border-radius:999px;background:#fff;opacity:.95;transform:scale(var(--z));box-shadow:0 6px 12px rgba(27,31,59,.08);animation:smDrift var(--d) ease-in-out infinite alternate}
+.sm-cl::before,.sm-cl::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.sm-cl::before{width:36px;height:36px;top:-18px;inset-inline-start:10px}.sm-cl::after{width:26px;height:26px;top:-11px;inset-inline-start:36px}
+@keyframes smDrift{from{translate:-18px 0}to{translate:24px 0}}
+.sm-bd{position:absolute;width:20px;height:9px;animation:smFly var(--d) ease-in-out infinite alternate}
+.sm-bd::before,.sm-bd::after{content:"";position:absolute;top:0;width:50%;height:100%;border-top:2.5px solid #2B3A67;border-radius:50% 50% 0 0}.sm-bd::before{left:0}.sm-bd::after{right:0}
+@keyframes smFly{to{translate:-50px -10px}}
+.sm-tr{position:absolute;width:28px;height:40px;transform:translate(-50%,-100%) scale(var(--z));transform-origin:50% 100%}
+.sm-tr::before{content:"";position:absolute;left:50%;bottom:0;width:5px;height:38%;margin-left:-2.5px;background:#8A5A35;border-radius:2px}
+.sm-tr::after{content:"";position:absolute;inset:0 0 28%;border-radius:50% 50% 46% 46%;background:radial-gradient(circle at 35% 30%,#8BE27A,#2F9E44 72%);box-shadow:0 5px 0 rgba(27,80,40,.18)}
+.sm-tr.pine::after{border-radius:0;clip-path:polygon(50% 0,100% 78%,0 78%);background:linear-gradient(180deg,#43B05C,#1F7A3F)}
+.sm-bush{position:absolute;width:26px;height:16px;transform:translate(-50%,-100%) scale(var(--z));border-radius:50% 50% 40% 40%;background:radial-gradient(circle at 35% 30%,#8BE27A,#3FA653);box-shadow:9px 3px 0 -2px #4DB45E,-9px 4px 0 -3px #3C9E4E}
+.sm-fl{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 0 2.5px rgba(255,255,255,.55),12px 7px 0 -1px var(--c),-9px 9px 0 -2px var(--c)}
+.sm-rock{position:absolute;width:20px;height:13px;transform:translate(-50%,-100%) scale(var(--z));border-radius:50% 50% 35% 35%;background:linear-gradient(180deg,#C9CFDB,#97A0B5);box-shadow:0 3px 0 rgba(27,31,59,.12)}
+.sm-pond{position:absolute;width:46px;height:20px;transform:translate(-50%,-50%) scale(var(--z));border-radius:50%;background:radial-gradient(ellipse at 35% 30%,#CFEFFF,#6EC0F0 70%);box-shadow:0 0 0 3px rgba(255,255,255,.55)}
+/* the road: a light kerb, a yellow edge line, asphalt, a dashed middle line, and the green of the way I did */
+.sm-svg{position:absolute;left:0;top:0;z-index:1;overflow:visible}
+.sm-svg path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.sm-edge{stroke:#EEF1F8;stroke-width:44px;filter:drop-shadow(0 8px 8px rgba(27,31,59,.25))}
+.sm-yl{stroke:#FFD43B;stroke-width:37px}
+.sm-bed{stroke:#363A55;stroke-width:32px}
+.sm-base{stroke:rgba(255,255,255,.92);stroke-width:3px;stroke-dasharray:13 12}
+.sm-prog{stroke:url(#smG);stroke:#3EE0A0;stroke-width:28px;stroke-linecap:butt;opacity:.92;filter:drop-shadow(0 0 7px rgba(18,184,134,.7))}
+.sm-nodes{list-style:none;margin:0;padding:0}
+.sm-n{position:absolute;width:0;height:0;z-index:3;--oy:32px}
+.sm-b{position:absolute;left:calc(var(--lw)/-2);top:calc(var(--oy)*-1);width:var(--lw);height:calc(var(--oy)*2);margin:0;padding:0;border:0;background:none;font:inherit;color:var(--ink);display:block;text-align:center}
+button.sm-b{cursor:pointer}
+.sm-c{box-sizing:border-box;position:absolute;left:50%;top:var(--oy);transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#fff,#E3E7F5);border:3.5px solid #fff;box-shadow:0 8px 16px rgba(27,31,59,.25);color:#3B4262;transition:transform .25s,box-shadow .25s}
+.sm-c>svg:not(.sm-arc){width:52%;height:52%}
+button.sm-b:hover .sm-c{transform:translate(-50%,calc(-50% - 3px))}
+button.sm-b:focus-visible{outline:none}button.sm-b:focus-visible .sm-c{outline:3px solid #1B1F3B;outline-offset:3px}
+.sm-no{position:absolute;top:-6px;inset-inline-start:-6px;min-width:19px;height:19px;border-radius:999px;background:#1B1F3B;color:#fff;font:800 11px/19px var(--head);font-style:normal;text-align:center;border:2px solid #fff;box-sizing:border-box;line-height:15px}
+.sm-gt{position:absolute;bottom:-5px;inset-inline-end:-5px;width:19px;height:19px;border-radius:50%;background:#1B1F3B;color:#fff;display:grid;place-items:center;font-style:normal}.sm-gt svg{width:11px;height:11px}
+.sm-l{box-sizing:border-box;position:absolute;left:0;top:calc(var(--oy) + 36px);width:var(--lw);display:flex;flex-direction:column;align-items:center;gap:1px;text-align:center;background:#fff;border:2.5px solid #1B1F3B;border-radius:12px;padding:6px 7px 7px;box-shadow:0 8px 16px rgba(14,20,48,.22)}
+.sm-l b{font:700 13.5px/1.28 var(--body);color:var(--ink);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+.sm-s{display:inline-flex;align-items:center;gap:3px;font:700 11.5px/1.2 var(--body);color:var(--muted)}.sm-s svg{width:12px;height:12px}
+.sm-k{display:inline-flex;align-items:center;gap:4px;font:800 11.5px/1.25 var(--body);letter-spacing:.2px}.sm-k svg{width:1.1em;height:1.1em}
+.sm-wr{position:absolute;top:-11px;inset-inline-start:-7px;width:22px;height:20px;display:grid;place-items:center;font:900 12px/1 var(--head);font-style:normal;color:#3A2A00;background:#FFC53D;clip-path:polygon(50% 0,100% 100%,0 100%);padding-top:5px;box-sizing:border-box}
+/* a stage: a road sign in the colour of its land */
+.sm-n.g .sm-c{width:60px;height:60px;background:radial-gradient(circle at 35% 30%,#fff,var(--rb) 75%);color:var(--rc);border-width:4px}
+.sm-n.g .sm-l{top:calc(var(--oy) + 44px);background:color-mix(in srgb,var(--rc) 82%,#0E1430);color:#fff;border:0;box-shadow:inset 0 0 0 2.5px color-mix(in srgb,var(--rc) 82%,#0E1430),inset 0 0 0 4.5px #fff,0 10px 20px rgba(14,20,48,.34);padding:9px 8px 9px;border-radius:12px}
+.sm-n.g .sm-l b{color:#fff;font:800 15px/1.2 var(--head)}
+.sm-n.g .sm-k{color:#FFE066}
+.sm-n.g .sm-l em{font:700 11.5px/1.2 var(--body);font-style:normal;background:#fff;color:color-mix(in srgb,var(--rc) 85%,#000);border-radius:999px;padding:1px 8px;margin-top:3px}
+.sm-n.g .sm-l small{font:700 11.5px/1.2 var(--body);color:#FFE066;margin-top:2px}
+.sm-n.g.pick .sm-l{box-shadow:inset 0 0 0 2.5px color-mix(in srgb,var(--rc) 82%,#0E1430),inset 0 0 0 4.5px #fff,0 0 0 4px #FFD43B,0 12px 24px rgba(14,20,48,.4)}
+.sm-n.g.pick .sm-c{box-shadow:0 0 0 5px #FFD43B,0 10px 20px rgba(27,31,59,.3)}
+.sm-n.g.done .sm-c{background:linear-gradient(135deg,#5FE0B6,#12A26B);color:#fff}
+.sm-n.g.cur .sm-c{background:var(--cta-grad);color:#fff;animation:smPulse 2s ease-in-out infinite}
+@keyframes smPulse{50%{box-shadow:0 0 0 9px rgba(242,80,47,.2),0 8px 16px rgba(27,31,59,.25)}}
+.sm-arc{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px 0 0 -35px;overflow:visible}
+.sm-arc circle{fill:none;stroke-width:4}.sm-arc .a0{stroke:rgba(255,255,255,.55)}.sm-arc .a1{stroke:var(--rc,#12A26B);stroke-linecap:round}
+.sm-n.g.cur .sm-arc .a1,.sm-n.g.done .sm-arc .a1{stroke:#fff}
+.sm-gn{position:absolute;top:-8px;inset-inline-start:-8px;width:22px;height:22px;border-radius:50%;background:#1B1F3B;color:#fff;border:2px solid #fff;box-sizing:border-box;font:800 12px/18px var(--head);font-style:normal;text-align:center}
+.sm-ok{position:absolute;bottom:-6px;inset-inline-end:-6px;width:22px;height:22px;border-radius:50%;background:#fff;color:#0B7A52;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.25);font-style:normal}.sm-ok svg{width:13px;height:13px;stroke-width:3.2}
+.sm-pin{position:absolute;left:50%;top:calc(var(--oy) - 58px);transform:translateX(-50%);display:inline-flex;align-items:center;gap:4px;white-space:nowrap;background:#1B1F3B;color:#fff;font:800 12px/1 var(--head);padding:5px 10px;border-radius:999px;box-shadow:0 6px 12px rgba(14,20,48,.3)}.sm-pin svg{width:13px;height:13px}
+/* a step */
+.sm-n.st .sm-c{background:radial-gradient(circle at 35% 30%,#fff,#E3E7F5)}
+.sm-n.st.done .sm-c{background:linear-gradient(135deg,#5FE0B6,#12A26B);color:#fff}
+.sm-n.st.done .sm-l{border-color:#0B7A52;background:#EFFBF5}
+.sm-n.st.nxt .sm-c{background:var(--cta-grad);color:#fff;box-shadow:0 0 0 5px rgba(242,80,47,.2),0 8px 16px rgba(242,80,47,.4)}
+.sm-n.st.nxt .sm-l{background:#FFD43B}.sm-n.st.nxt .sm-s{color:#3A2A00}
+.sm-n.st.soon:not(.done) .sm-c{box-shadow:0 0 0 4px #FFB347,0 8px 16px rgba(31,37,68,.16)}
+.sm-n.st.pick .sm-c{box-shadow:0 0 0 4px #1B1F3B,0 10px 20px rgba(31,37,68,.28)}
+.sm-n.st.pick .sm-l{box-shadow:0 0 0 3.5px #FFD43B,0 10px 20px rgba(14,20,48,.3)}
+.sm-tag{position:absolute;left:50%;top:calc(var(--oy) - 46px);transform:translateX(-50%);background:#1B1F3B;color:#FFD43B;font:800 12px/1 var(--head);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.sm-n.smhit .sm-c{animation:smHit .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes smHit{40%{transform:translate(-50%,calc(-50% - 9px)) scale(1.12)}}
+.sm-n.b .sm-c{width:40px;height:40px;background:linear-gradient(135deg,#fff,#E9ECF7)}
+.sm-n.b .sm-l{top:calc(var(--oy) + 28px);padding:3px 9px;border-radius:999px;width:auto;left:calc(50% - 44px);min-width:88px;border-width:2px}.sm-n.b .sm-l b{font-size:12.5px}
+.sm-n.e .sm-c{width:68px;height:68px;color:#fff;background:radial-gradient(circle at 35% 30%,#FFE58F,#FFB020 55%,#F76707);box-shadow:0 0 0 8px rgba(255,224,102,.45),0 14px 28px rgba(247,103,7,.45)}
+.sm-n.e .sm-l{top:calc(var(--oy) + 48px);background:linear-gradient(135deg,#FFB020,#F76707);color:#fff;border:0;box-shadow:inset 0 0 0 2.5px #F76707,inset 0 0 0 4.5px #fff,0 10px 20px rgba(247,103,7,.4)}
+.sm-n.e .sm-l b{color:#fff}.sm-n.e .sm-k{color:#1B1F3B}.sm-n.e .sm-l small{color:#fff;font:700 11.5px var(--body)}
+.sm .jn-sp{width:12px;height:12px}
+/* the car (me). It stands on the road; backing up, the wheels turn the other way */
+.sm-car{z-index:5}
+.sm-car.smrev.jc-go .jc-wh>g{animation-direction:reverse}
+.sm-car.smrev.jc-go .jc-bm{opacity:0}
+.sm-car.smrev::after{content:"";position:absolute;inset-inline-end:-6px;top:30%;width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 8px 3px rgba(255,255,255,.9)}
+.sm-tip{pointer-events:auto;width:224px;left:50%;top:auto;bottom:100%;margin-bottom:6px;rotate:calc(var(--a,0deg)*-1);transform:translateX(-50%);animation:smTipIn .5s 2.4s cubic-bezier(.3,1.5,.5,1) both;z-index:8}
+.sm-tip::after{margin-left:-9px}
+.sm-tip.below{bottom:auto;top:100%;margin:14px 0 0}.sm-tip.below::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:#1B1F3B}
+@keyframes smTipIn{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+html.rg .sm-tip,html.rm .sm-tip,html.rg .sm *,html.rm .sm *{animation:none!important}
+html.rg .sm-tip,html.rm .sm-tip{opacity:1}
+/* the sign beside the map: the stage that is open, and its steps (the ones I did too) */
+.sm-stg{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:16px 18px 18px;border-top:6px solid var(--rc)}
+.sm-stg-h{display:flex;align-items:center;gap:14px}
+.sm-stg-n{flex:none;width:48px;height:48px;border-radius:16px;background:var(--rc);color:#fff;display:grid;place-items:center;font:900 24px var(--head)}
+.sm-stg-t{flex:1;min-width:0;display:grid;gap:1px}.sm-stg-t small{font:700 13.5px var(--body);color:var(--muted)}.sm-stg-t b{font:800 21px/1.2 var(--head);color:var(--ink)}.sm-stg-t span{font-size:14.5px;color:var(--muted)}
+.sm-stg-nav{display:flex;gap:8px;flex:none}
+.sm-sn{width:42px;height:42px;border-radius:14px;border:1.5px solid var(--line);background:#fff;display:grid;place-items:center;color:var(--ink);cursor:pointer}.sm-sn svg{width:20px;height:20px}.sm-sn:hover:not(:disabled){border-color:var(--rc);color:var(--rc)}.sm-sn:disabled{opacity:.35;cursor:default}
+.sm-pills{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.sm-pill{display:inline-flex;align-items:center;gap:8px;max-width:100%;padding:7px 14px 7px 12px;border-radius:999px;border:1.5px solid var(--line);background:#F6F8FD;font:600 14.5px/1.3 var(--body);color:var(--ink);cursor:pointer;text-align:start}
+.sm-pill i{flex:none;width:22px;height:22px;border-radius:50%;background:#fff;border:1.5px solid #C9D0E6;display:grid;place-items:center;font:800 12px var(--head);font-style:normal;color:var(--muted)}.sm-pill i svg{width:13px;height:13px;stroke-width:3.2}
+.sm-pill.d{background:#EFFBF5;border-color:#9ADBBE}.sm-pill.d i{background:#12A26B;border-color:#12A26B;color:#fff}
+.sm-pill.c{border-color:var(--rc);background:var(--rb);box-shadow:0 0 0 2px var(--rc)}
+.sm-pill:hover{border-color:var(--rc)}
+/* beyond the road, and why it is worth it */
+.bey{display:grid;gap:16px;background:linear-gradient(180deg,#fff,#F3F8FF);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);padding:clamp(20px,2.6vw,34px)}
+.bey>*{min-width:0}
+.bey-h h2{font:800 clamp(24px,2.4vw,32px)/1.2 var(--head);margin:10px 0 8px;color:var(--ink)}.bey-h p{margin:0;font-size:16.5px;line-height:1.65;color:var(--muted);max-width:78ch}
+.bey .tn-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:16px}
+.bey .tn-c{height:100%;box-sizing:border-box}
+.bey .tn-c h3 svg{width:20px;height:20px;vertical-align:-3px;color:var(--primary-dark)}
+.vx-why{background:linear-gradient(135deg,#1B2A66,#2F4BB5 55%,#5B3FD1);color:#fff;border-radius:30px;box-shadow:var(--shadow);padding:clamp(22px,2.8vw,38px);display:grid;gap:18px;position:relative;overflow:hidden}
+.vx-why::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 0,rgba(255,214,102,.28),transparent 45%);pointer-events:none}
+.vx-why>*{position:relative;min-width:0}
+.why-h h2{font:800 clamp(26px,2.6vw,36px)/1.2 var(--head);margin:10px 0 8px;color:#fff;display:flex;align-items:center;gap:10px}.why-h h2 svg{width:30px;height:30px;color:#FFD43B}
+.why-h p{margin:0;font-size:17px;line-height:1.6;color:#D9E2FF}
+.why-h .vx-kick{background:var(--sun);color:#2A1D00}
+.vx-why .kp-why{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);box-shadow:none;color:#fff}
+.vx-why .kp-wb{background:#fff;color:var(--ink)}
+.vx-why .kp-wo,.vx-why .kp-wo b{color:#fff}.vx-why .kp-wo .linkbtn{color:#FFE066}
+.vx-why .fine{color:#C9D6F5}
+.vx-why .btn.soft{background:#fff;color:var(--primary-dark)}
+@media(max-width:700px){.sm-stg-h{flex-wrap:wrap}.sm-stg-nav{margin-inline-start:auto}.sm-l b{font-size:12.5px}.sm-n.g .sm-l b{font-size:13.5px}}
+
+.kp-prof-note{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0 0;padding:10px 14px;border-radius:16px;background:rgba(255,255,255,.7);font-size:15px;color:var(--ink);max-width:760px}.kp-prof-note svg{width:20px;height:20px;color:var(--primary-dark);flex:none}.kp-prof-note .linkbtn{color:var(--primary-dark);text-decoration:underline}
+.kp-gate{list-style:none;margin:16px 0 4px;padding:0;display:grid;gap:8px}
+.kp-gate li{display:flex;align-items:center;gap:10px;font:600 16px var(--body);color:var(--ink)}
+.kp-gate li i{flex:none;width:24px;height:24px;border-radius:50%;border:2px solid #C9D0E6;display:grid;place-items:center;background:#fff;color:#fff}
+.kp-gate li.ok i{background:#12A26B;border-color:#12A26B}.kp-gate li i svg{width:14px;height:14px;stroke-width:3.2}
+
+.vx-top{padding-block:16px!important;gap:10px 22px!important}
+.vx-top h1{font-size:clamp(26px,2.6vw,36px)!important;margin-block:6px 4px!important}
+.vx-top .vx-msg{margin-block:4px 8px!important}
+.vx-top .jn-spd{max-width:130px!important}.vx-top .jn-gv b{font-size:28px!important}
+
 
 
 
@@ -3535,11 +3691,16 @@ const BAG_EQUIV=p=>!!p&&['full','mechina'].includes(p.bag);
 const NO_CERT=b=>b==='partial'||b==='none';
 const PROF_NEED=p=>['bag'].concat(p&&NO_CERT(p.bag)?['y12','age']:[],['psy','heb']);
 function profileOK(){return !!S.prof&&PROF_NEED(S.prof).every(k=>S.prof[k])}
-function openProfile(){
+/* a road is built only from the profile: without the answers it needs (and the grade I am in) the site asks for the profile first */
+const pathReady=()=>profileOK()&&!!(S.prof&&S.prof.stage);
+function needProf(then){if(pathReady())return false;openProfile({path:true,then});return true}
+function openProfile(opt){
+  opt=opt&&opt.path?opt:{};
   const p=S.prof||{}, sc=S.sc||{}, Q=Object.fromEntries(PROF_Q.map(q=>[q.k,q]));
   const qf=(k,extra='')=>{const q=Q[k];return `<div class="field pstep" id="pq-${k}" hidden><label>${q.q}</label>${q.h?`<span class="hint">${q.h}</span>`:''}<div class="pick">${q.o.map(([v,l])=>`<button type="button" class="chip" data-pq="${q.k}" data-pv="${v}" aria-pressed="${p[q.k]===v}" style="--c2:#FF8A65"><i></i>${l}</button>`).join('')}</div>${extra}</div>`};
-  openOv(`<h2>הפרופיל שלי</h2><p class="s">עונים על כמה שאלות קצרות, ורק על מה שרלוונטי. לפי התשובות אראה אילו תארים אני יכול ללמוד כבר עכשיו, ובכל תואר מה כבר יש לי ומה צריך להשלים.</p>
+  openOv(`<h2>${opt.path?'קודם הפרופיל שלי, ואז המסלול':'הפרופיל שלי'}</h2><p class="s">${opt.path?'המסלול נבנה מהפרופיל: הכיתה שאני בה, התעודה, הפסיכומטרי והשפה. כל האתר משתמש באותם נתונים, כך שהמסלול, הבדיקות והמועדים תמיד מתאימים לי. אפשר לשנות בכל רגע.':'עונים על כמה שאלות קצרות, ורק על מה שרלוונטי. לפי התשובות אראה אילו תארים אני יכול ללמוד כבר עכשיו, ובכל תואר מה כבר יש לי ומה צריך להשלים.'}</p>
    <form class="form" id="pform" novalidate>
+   <div id="pq-stage">${meFieldsHTML('prof',['stage']).replace('איפה אני עכשיו?','איפה אני עכשיו?'+(opt.path?' (חובה לפתיחת מסלול)':' (לא חובה, אבל מדייק את המסלול)'))}</div>
    ${qf('bag')}
    <div class="field pstep" id="fbagw" hidden><label for="pbag">מה ממוצע הבגרות שלי?</label>
      <span class="hint">${sc.bi?'הממוצע חושב במחשבון שלנו, וכל אוניברסיטה מקבלת את הממוצע שלה לפי הכללים שלה. ':''}לא בטוח מה הממוצע? <button type="button" class="linkbtn" data-tocalc style="color:var(--primary-dark);text-decoration:underline">אחשב אותו במחשבון</button> והוא יישמר כאן. אפשר גם להשאיר ריק.</span>
@@ -3551,7 +3712,7 @@ function openProfile(){
    ${qf('heb')}
    ${profMoreHTML()}
    <span class="err" id="perr" hidden></span>
-   <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary" type="submit" id="psave">שמירה והצגת התארים שאני יכול להתקבל אליהם</button>${S.prof||S.sc?'<button type="button" class="btn soft" data-profclear>מחיקת הפרופיל</button>':''}</div></form>`,'wide');
+   <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary" type="submit" id="psave">${opt.path?'שמירה והמשך לבניית המסלול':'שמירה והצגת התארים שאני יכול להתקבל אליהם'}</button>${S.prof||S.sc?'<button type="button" class="btn soft" data-profclear>מחיקת הפרופיל</button>':''}</div></form>`,'wide');
   const f=$('#pform'), cur={...p};
   /* each question opens only after the one before it is answered, and only if it is relevant */
   const sync=()=>{
@@ -3561,7 +3722,7 @@ function openProfile(){
     show('pq-y12',nc); show('pq-age',nc&&!!cur.y12);
     const psyOn=!!cur.bag&&(!nc||!!cur.age); show('pq-psy',psyOn); show('fpsyw',psyOn&&cur.psy==='has');
     show('pq-heb',psyOn&&!!cur.psy);
-    const done=PROF_NEED(cur).every(k=>cur[k]); $('#psave').classList.toggle('dim',!done); $('#perr').hidden=true};
+    const done=PROF_NEED(cur).every(k=>cur[k])&&(!opt.path||!!cur.stage); $('#psave').classList.toggle('dim',!done); $('#perr').hidden=true};
   sync();
   f.querySelectorAll('[data-pq]').forEach(b=>b.addEventListener('click',()=>{cur[b.dataset.pq]=b.dataset.pv;f.querySelectorAll(`[data-pq="${b.dataset.pq}"]`).forEach(x=>x.setAttribute('aria-pressed',x===b));sync()}));
   const relevant=c=>Object.fromEntries(PROF_NEED(c).concat(PROF_OPT).filter(k=>c[k]).map(k=>[k,c[k]]));
@@ -3575,6 +3736,7 @@ function openProfile(){
   if(clr)clr.addEventListener('click',()=>{S.prof=null;S.sc=null;['prof','scores'].forEach(k=>store.set(k,null));if(S.sort==='fit')S.sort='many';closeOv(true);render();toast('הפרופיל נמחק')});
   f.addEventListener('submit',e=>{e.preventDefault();
     const err=m=>{$('#perr').textContent=m;$('#perr').hidden=false};
+    if(opt.path&&!cur.stage)return err('צריך לבחור איפה אני עכשיו, כדי לבנות את המסלול');
     if(!PROF_NEED(cur).every(k=>cur[k]))return err('נשארו שאלות בלי תשובה');
     const P=Number($('#ppsy').value), B=Number($('#pbag').value);
     if(cur.psy==='has'&&(!P||P<200||P>800))return err('ציון פסיכומטרי צריך להיות בין 200 ל-800');
@@ -3586,7 +3748,7 @@ function openProfile(){
     if(cur.bag==='full'&&B){sc.b=Math.round(B*100)/100; sc.reali=$('#preali').checked; if(old.bi&&old.b===sc.b)sc.bi=old.bi; if(old.est&&old.b===sc.b&&!($('#pbagreal')&&$('#pbagreal').checked))sc.est=true}
     S.prof=prof; S.sc=(sc.p||sc.b)?sc:null;
     store.set('prof',prof);store.set('scores',S.sc);
-    closeOv(true);toast('הפרופיל נשמר');if(S.route.v==='path')keepY(render);else go('me');
+    closeOv(true);toast('הפרופיל נשמר');if(opt.path){if(opt.then)opt.then();else if(S.route.v==='path')render()}else if(S.route.v==='path')keepY(render);else go('me');
   });
 }
 function profileSummary(){
@@ -9381,61 +9543,18 @@ function trailScan(){document.querySelectorAll('.tr:not([data-i])').forEach(t=>{
   const focus=(jn&&(t.querySelector('.tr-n.st.pick .tr-b')||t.querySelector('.tr-n.pick .tr-b')))||t.querySelector('.tr-n.cur .tr-b')||t.querySelector('.tr-b');
   if(still&&KP[key]!=null&&!jn)v.scrollLeft=KP[key];else trCenter(v,focus,false);
   v.addEventListener('scroll',()=>{KP[key]=v.scrollLeft;upd()},{passive:true});upd();
-  if(jn){const car=t.querySelector('.jn-car');if(car&&car.dataset.to)setTimeout(()=>carDrive(+car.dataset.to,car),+car.dataset.wait||0)} /* the car drives to where it parks */
   t.classList.add('go','still')})} /* the map is drawn as it is: nothing is lit or dropped in when the page opens */
 new MutationObserver(trailScan).observe(document.getElementById('app'),{childList:true,subtree:true}); /* in the same task as the change, so a map never paints once off its place */
 
-/* ================= the journey map on the road tab (jn) =================
-   One straight road. The stages stand on it as gates with their names above it; the stage I am working on unfolds its steps as stops with their names under it.
-   Every stage is a region with its own colour and scenery. A tap on a stop shows that step under the map; a tap on a gate opens the stage.
-   Everything is sized by one scale (u) that follows the screen, and the map can fill the whole screen. Nothing is invented here: the stops are the plan's own steps. */
-const JB={gw:210,sw:160,pad:70,rg:40,rs:27,H:450,A:228,B:160,amp:18,wl:340,hz:70}; /* at scale 1: the room a gate and a stop take along the road, the padding at both ends, the radius of a gate and of a stop, the height, what sits above and under the road, the height and length of the road's waves, and how far over the road the horizon is */
-const JBAR=150,JMAX=1.8,JFIT=400; /* full screen: the bar on top (64) and the details of a stop under the map (86); the largest scale; what a gate with its sign and a stop with its sign take over and under the road, at scale 1 */
-/* the notch and the home bar of a phone, which the full screen keeps clear of (the CSS adds them to the two bars) */
-function jSafe(){
-  const p=document.createElement('div');p.style.cssText='position:fixed;left:0;top:0;visibility:hidden;pointer-events:none;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)';
-  document.body.appendChild(p);const cs=getComputedStyle(p),r=(parseFloat(cs.paddingTop)||0)+(parseFloat(cs.paddingBottom)||0);p.remove();return r}
-const jFullH=()=>Math.max(260,innerHeight-JBAR-jSafe()); /* what is left for the map itself */
-function jScale(full){
-  const w=innerWidth,h=innerHeight;
-  if(full)return Math.round(Math.max(.8,Math.min(JMAX,Math.max(1.05,w/1050),(jFullH()-16)/JFIT))*100)/100; /* wide: as large as the screen allows; narrow: a little larger than on the page; low: whatever fits */
-  const byW=w<640?.82:w<1000?.9:w<1300?1:w<1700?1.12:1.25,above=w<1000?225:495; /* above: what sits over the map on the page */
-  if(w<1000)return byW; /* a phone or a tablet: the bars of the browser come and go as the page scrolls, and the map must not be drawn again then */
-  return Math.round(Math.max(.82,Math.min(byW,(h-above-40)/JB.H))*100)/100}
-function jGeo(u,full){
-  const c={};['gw','sw','pad','rg','rs','amp','wl','hz'].forEach(k=>c[k]=Math.round(JB[k]*u));
-  c.H=full?jFullH():Math.round(JB.H*u);
-  c.y=Math.round((c.H-(JB.A+JB.B)*u)/2+JB.A*u);c.g=c.y-c.hz;return c}
-/* the road winds gently: the height of the road at x, and its slope there (in degrees) */
-const jWave=(c,x)=>Math.round(c.y+c.amp*Math.sin(x/c.wl*Math.PI));
-const jTilt=(c,x)=>Math.atan(c.amp*Math.PI/c.wl*Math.cos(x/c.wl*Math.PI))*180/Math.PI;
+/* ================= the journey map on the road tab (sm) =================
+   v2: a winding road that fills a nearly square card, no sideways scrolling. The road goes down the card in rows (the first row right to left, the next left to right, and so on),
+   with a hairpin turn at the edges. Every stage is a gate that is always on the road, so every stage I passed can be opened again: the car drives back to it (in reverse).
+   The stage I open unfolds its steps after its gate. Nothing is invented here: the stops are the plan's own steps. */
 const ZTH={g10:{c:'#1F9D55',bg:'#C9F2D6'},g11:{c:'#3B5BDB',bg:'#D3DEFF'},g12:{c:'#E8590C',bg:'#FFD9C2'},svc:{c:'#5C8A1E',bg:'#E0EEC4'},prep:{c:'#7048E8',bg:'#E0D6FF'},reg:{c:'#0C8599',bg:'#C5EEF4'},go:{c:'#E67700',bg:'#FFE6A8'}};
-const ZSC={
- g10:'<circle cx="40" cy="40" r="16"/><rect x="38" y="52" width="5" height="18"/><circle cx="86" cy="30" r="21"/><rect x="84" y="48" width="5" height="22"/><circle cx="136" cy="42" r="14"/><rect x="134" y="52" width="4" height="18"/><circle cx="172" cy="34" r="17"/><rect x="170" y="48" width="5" height="22"/>',
- g11:'<rect x="30" y="34" width="22" height="36" rx="3"/><rect x="56" y="24" width="22" height="46" rx="3"/><rect x="82" y="36" width="22" height="34" rx="3"/><rect x="112" y="28" width="22" height="42" rx="3"/><rect x="142" y="40" width="30" height="30" rx="3"/>',
- g12:'<path d="M8 70 62 22 102 60 132 32 194 70Z"/><path d="M62 22V8l14 5-14 5Z"/>',
- svc:'<path d="M18 70 54 30 90 70Z"/><path d="M108 70 142 36 176 70Z"/>',
- prep:'<path d="M44 6 24 40h16l-6 26L64 30H48Z"/><path d="M130 14 116 40h12l-4 22 24-30h-12Z"/>',
- reg:'<path d="M36 70V38a28 28 0 0 1 56 0v32H78V40a14 14 0 0 0-28 0v30Z"/><path d="M112 70V46a20 20 0 0 1 40 0v24h-10V48a10 10 0 0 0-20 0v22Z"/>',
- go:'<path d="M18 34 100 8l82 26Z"/><rect x="34" y="38" width="14" height="32"/><rect x="62" y="38" width="14" height="32"/><rect x="90" y="38" width="14" height="32"/><rect x="118" y="38" width="14" height="32"/><rect x="146" y="38" width="14" height="32"/>'};
-/* a stage's land: its colour on the grass, its buildings on the horizon, its number in the sky, and a border post where it begins */
-const jPlate=(z,l,w,open,u,n,c)=>{const th=ZTH[z.id]||ZTH.g10,k=Math.max(1,Math.round(w/(250*u))),sc=`<svg viewBox="0 0 200 72" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">${ZSC[z.id]||''}</svg>`;return `<div class="tr-rg${open?' open':''}" aria-hidden="true" style="left:${l}px;width:${w}px;--rc:${th.c};--rb:${th.bg};--i:${n}"><span class="tr-num">${n}</span><div class="tr-sc">${sc.repeat(k)}</div></div>`};
-/* the landscape: two lines of hills on the horizon, clouds, birds and trees. Decoration only, placed the same way every time */
-function jLand(W,c,u,lx){
-  const hill=(b,a1,f1,a2,f2,p)=>{let d=`M0 ${c.H}L0 ${b}`;for(let x=0;x<=W+40;x+=40)d+=`L${x} ${Math.round(b-a1*u*(1+Math.sin(x/(f1*u)+p))-a2*u*(1+Math.sin(x/(f2*u)+p*2)))}`;return d+`L${W+40} ${c.H}Z`};
-  let s=`<svg class="jn-hills" width="${W}" height="${c.H}" aria-hidden="true" focusable="false"><path class="h1" d="${hill(c.g+4,26,190,12,71,1)}"/><path class="h2" d="${hill(c.g+18,14,130,8,53,2.4)}"/></svg>`;
-  const n=Math.max(3,Math.round(W/(300*u)));
-  for(let k=0;k<n;k++){const x=Math.round((k+.3)*W/n+((k*97)%80-40)*u),y=Math.round((16+(k*53)%Math.max(20,(c.g/u-150)))*u),z=(.65+((k*37)%40)/100).toFixed(2);
-    s+=`<i class="jn-cl" style="left:${x}px;top:${y}px;--z:${z};--d:${10+k%5*2}s"></i>`;
-    if(k%3===1)s+=`<i class="jn-bd" style="left:${x+Math.round(140*u)}px;top:${y+Math.round(30*u)}px;--d:${7+k%4}s"></i>`}
-  for(let x=Math.round(90*u),k=0;x<W;x+=Math.round((130+(k*61)%110)*u),k++){const y=k%2?c.y+Math.round((70+(k*29)%60)*u):c.g+Math.round(30*u);
-    if(y>c.H-12*u)continue;s+=`<i class="jn-tr" style="left:${x}px;top:${y}px;--z:${(.7+(k*13%40)/100).toFixed(2)}"></i>`}
-  (lx||[]).forEach(x=>{s+=`<i class="jn-lp" style="left:${x}px;top:${jWave(c,x)-Math.round(24*u)}px"></i>`}); /* street lamps on the far side of the road */
-  return `<div class="jn-sky" aria-hidden="true">${s}</div>`}
 /* a small car for the other views: solid colours only, so many can stand on one page. It faces the way the road goes (to the left) */
 const miniCar=(c='#F2502F')=>`<svg class="mcar" viewBox="0 0 120 64" aria-hidden="true" focusable="false"><ellipse cx="60" cy="60" rx="48" ry="4" fill="rgba(20,24,52,.25)"/><path d="M8 45Q8 34 19 32L35 30 47 16Q51 12 58 12H84Q91 12 95 18L104 30Q114 32 114 42V48Q114 52 110 52H12Q8 52 8 48Z" fill="${c}"/><path d="M39 31 49 18Q51 16 54 16H66V31Z" fill="#BFE3FF"/><path d="M70 16H82Q87 16 90 20L98 31H70Z" fill="#BFE3FF"/><circle cx="60" cy="25" r="5" fill="#2B2F55"/><path d="M52 20.5 60 16.5 68 20.5 60 23.5Z" fill="#1B1F3B"/><rect x="8" y="36" width="7" height="5" rx="2" fill="#FFE066"/><rect x="110" y="36" width="4" height="6" rx="1.5" fill="#FF4D4D"/><circle cx="30" cy="51" r="9.5" fill="#1B1F3B"/><circle cx="30" cy="51" r="4.5" fill="#D9DEF0"/><circle cx="92" cy="51" r="9.5" fill="#1B1F3B"/><circle cx="92" cy="51" r="4.5" fill="#D9DEF0"/></svg>`;
 const CARC=['#F2502F','#3B5BDB','#12A26B','#7048E8','#E67700','#0C8599']; /* a colour for the car of each target */
-/* the car: me on the road. It parks just before the stop in focus, and drives there when another stop is picked */
+/* the car: me on the road. It parks just before the stop in focus, and drives (or reverses) there when another stop is picked */
 const CAR_SVG='<svg viewBox="-40 0 160 64" aria-hidden="true" focusable="false"><defs><linearGradient id="jnCg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF8A5B"/><stop offset=".55" stop-color="#F2502F"/><stop offset="1" stop-color="#C2361A"/></linearGradient><linearGradient id="jnBm" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#FFE066" stop-opacity=".85"/><stop offset="1" stop-color="#FFE066" stop-opacity="0"/></linearGradient></defs>'
  +'<path class="jc-bm" d="M10 37 -38 26V52Z" fill="url(#jnBm)"/><ellipse cx="60" cy="60" rx="50" ry="4" fill="rgba(20,24,52,.28)"/>'
  +'<g class="jc-bd"><path d="M8 45Q8 34 19 32L35 30 47 16Q51 12 58 12H84Q91 12 95 18L104 30Q114 32 114 42V48Q114 52 110 52H12Q8 52 8 48Z" fill="url(#jnCg)"/>'
@@ -9445,137 +9564,158 @@ const CAR_SVG='<svg viewBox="-40 0 160 64" aria-hidden="true" focusable="false">
  +'<path d="M14 33Q30 30 46 29" stroke="#fff" stroke-width="2" opacity=".35" stroke-linecap="round" fill="none"/></g>'
  +'<g class="jc-wh" transform="translate(30 51)"><g><circle r="9.5" fill="#1B1F3B"/><circle r="5" fill="#D9DEF0"/><path d="M0-5V5M-5 0H5" stroke="#1B1F3B" stroke-width="1.6"/></g></g>'
  +'<g class="jc-wh" transform="translate(92 51)"><g><circle r="9.5" fill="#1B1F3B"/><circle r="5" fill="#D9DEF0"/><path d="M0-5V5M-5 0H5" stroke="#1B1F3B" stroke-width="1.6"/></g></g></svg>';
-const carOff=(c,k)=>Math.round((k==='g'?c.rg+6:c.rs+3)+50*(c.gw/JB.gw)); /* how far behind a stop (or a gate) the car parks: the half of the car and the radius of the circle */
-function carPlace(car,x){const tk=car.parentElement,g={y:+tk.dataset.y,amp:+tk.dataset.amp,wl:+tk.dataset.wl};
-  car.style.left=x+'px';car.style.top=jWave(g,x)+'px';car.style.setProperty('--a',jTilt(g,x).toFixed(1)+'deg');car.dataset.x=x}
-/* drive to x: an easy start and stop, the wheels turn, and every station the car passes gives a little jump */
-function carDrive(toX,car){
-  car=car||$('#jnCar');if(!car||!car.isConnected)return;cancelAnimationFrame(KP.carRaf);clearTimeout(KP.carTm);
-  const from=+car.dataset.x;if(RM()||Math.abs(toX-from)<2){carPlace(car,toX);return}
-  const ns=[...car.parentElement.querySelectorAll('.tr-n')].map(n=>[parseFloat(n.style.left),n]),T=Math.min(2800,Math.max(800,Math.abs(toX-from)*2.4)),t0=performance.now(),ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-  car.style.setProperty('--f',toX>from?-1:1);car.classList.remove('jc-park');car.classList.add('jc-go');let px=from;
-  /* the next frame; a browser that holds frames back (a hidden window) still gets one from the timer */
-  const next=()=>{KP.carRaf=requestAnimationFrame(()=>{clearTimeout(KP.carTm);step(performance.now())});clearTimeout(KP.carTm);KP.carTm=setTimeout(()=>{cancelAnimationFrame(KP.carRaf);step(performance.now())},60)};
-  const step=now=>{if(!car.isConnected)return;const k=Math.min(1,(now-t0)/T),x=from+(toX-from)*ease(k);carPlace(car,x);
-    ns.forEach(([nx,n])=>{if((nx-px)*(nx-x)<=0&&nx!==px){n.classList.remove('hit');void n.offsetWidth;n.classList.add('hit')}});px=x;
-    if(k<1)next();else{car.classList.remove('jc-go');car.style.setProperty('--f',1);car.classList.add('jc-park')}};
-  next()}
-/* the car to a stop of the stage that is open (a tap on the map, or the next and previous buttons) */
-function carToStop(id){const b=document.querySelector(`#kpJ [data-kstop="${id}"]`),car=$('#jnCar');if(!b||!car)return;
-  carDrive(parseFloat(b.closest('.tr-n').style.left)+(+car.dataset.so||0),car)}
-/* the stops of the stage that is open, after its gate */
 /* a stop that has a screen of its own (the scholarships) opens that screen from the map; it does not unfold under the map */
 const GO_NAME={sch:'מסך המלגות'};
-const jItems=(pl,fz)=>{const I=[];pl.zones.forEach(z=>{I.push({k:'g',z});if(z.id===fz)z.tasks.forEach(t=>I.push({k:'s',z,t}))});I.push({k:'e'});return I};
+/* the stops on the road: the start, every stage as a gate, the steps of the stage that is open (after its gate), and the finish */
+const jItems=(pl,fz)=>{const I=[{k:'b'}];pl.zones.forEach(z=>{I.push({k:'g',z});if(z.id===fz)z.tasks.forEach(t=>I.push({k:'s',z,t}))});I.push({k:'e'});return I};
 /* how much of the stretch a to b is lit: a stop that is done lights the way to it; a closed stage lights as far as it is done */
-const jLit=(a,b)=>b.k==='s'?(b.t.done?1:0):a.k==='s'?(a.z.total&&a.z.done===a.z.total?1:0):a.k==='g'?(a.z.total?a.z.done/a.z.total:0):0;
-const jSeg=(c,a,b)=>{let d=`M${a.x} ${a.y}`;const n=Math.max(2,Math.round(Math.abs(b.x-a.x)/10));for(let k=1;k<=n;k++){const x=Math.round(a.x+(b.x-a.x)*k/n);d+=`L${x} ${k===n?b.y:jWave(c,x)}`}return d};
-/* what a stop says in the full screen: the stage, its name, why, and a way to its card */
-const jnInfoHTML=t=>t?`<div class="jn-it"><div class="jn-t"><span class="jn-zc" style="--rc:${(ZTH[t.z]||ZTH.g10).c}">${esc((ZN[t.z]||{}).t||'')}</span><b>${esc(t.t)}</b>${t.done?'<em class="jn-d">הושלם</em>':''}${dueChip(t)}</div>${t.s?`<p>${esc(t.s)}</p>`:''}</div><button type="button" class="btn primary sm" data-kfgo="${t.id}">מה עושים בצעד הזה${ki('arrow')}</button>`:'<p class="jn-ih">לוחצים על שלט של צעד כדי שהרכב ייסע אליו, או על שלט של שלב כדי לפתוח את הצעדים שבו.</p>';
-function journeyHTML(pl,t){
-  const full=!!KP.full,u=jScale(full),c=jGeo(u,full),fz=t?t.z:pl.cur,I=jItems(pl,fz),nx=pl.next?pl.next.id:'',sel=t?t.id:'';
-  const intro=!full&&!KP.jnSeen;KP.jnSeen=1; /* the road draws itself once, the first time the page shows it */
-  const drive=intro||KP.carDrive||KP.carZ!==fz;KP.carZ=fz;KP.carDrive=0; /* the car drives in when the page opens, when the map fills the screen and when another stage opens; otherwise it stands where it was */
-  let off=0;const P=I.map((i,k)=>{const w=i.k==='s'?c.sw:c.gw,o=off;off+=w;return {i,o,w,k}});
-  const W=off+2*c.pad,pts=P.map(p=>{const x=Math.round(W-c.pad-p.o-p.w/2);return {x,y:jWave(c,x)}});
-  const all=jSeg(c,{x:W,y:jWave(c,W)},pts[pts.length-1]); /* the road comes in from the edge and ends at the first day */
-  let base='',prog='';
-  for(let k=0;k<I.length-1;k++){const d=jSeg(c,pts[k],pts[k+1]),f=jLit(I[k],I[k+1]);
-    base+=`<path class="tr-base" d="${d}"/>`;prog+=`<path class="tr-prog" d="${d}" pathLength="100" style="--o:${Math.round(100*(1-f))};--i:${k}"/>`}
+const jLit=(a,b)=>b.k==='b'?1:b.k==='s'?(b.t.done?1:0):a.k==='s'?(a.z.total&&a.z.done===a.z.total?1:0):a.k==='g'?(a.z.total?a.z.done/a.z.total:0):a.k==='b'?1:0;
+const SM_RH=172,SM_TOP=84; /* the height of a row of the road, and the sky above the first one */
+const smCols=W=>Math.max(2,Math.min(6,Math.floor(W/112)));
+/* one piece of road as a cubic curve, with a table of lengths so that a place on it can be found by distance */
+function smSeg(p0,c1,c2,p3){
+  const T=[[0,p0.x,p0.y]];let L=0,px=p0.x,py=p0.y;
+  for(let i=1;i<=28;i++){const t=i/28,u=1-t,x=u*u*u*p0.x+3*u*u*t*c1.x+3*u*t*t*c2.x+t*t*t*p3.x,y=u*u*u*p0.y+3*u*u*t*c1.y+3*u*t*t*c2.y+t*t*t*p3.y;L+=Math.hypot(x-px,y-py);T.push([L,x,y]);px=x;py=y}
+  return {p0,c1,c2,p3,T,L}}
+/* the whole road for n stops on a card W wide: where each stop stands, the pieces between them, and how far along the road each stop is */
+function smGeo(W,n){
+  const cols=smCols(W),gut=Math.round(Math.max(30,Math.min(48,W*.07))),cw=(W-2*gut)/cols,rows=Math.ceil(n/cols),out=(gut+cw/2-22)/.75;
+  const pts=[];for(let k=0;k<n;k++){const r=Math.floor(k/cols),c=k%cols,rtl=r%2===0,col=rtl?cols-1-c:c;pts.push({x:Math.round(gut+cw*(col+.5)),y:Math.round(SM_TOP+r*SM_RH+36+Math.sin(k*1.9)*8),r,rtl})}
+  const segs=[],ln=[0];
+  for(let k=0;k<n-1;k++){const a=pts[k],b=pts[k+1];let c1,c2;
+    if(a.r===b.r){const dx=b.x-a.x;c1={x:a.x+dx*.45,y:a.y};c2={x:b.x-dx*.45,y:b.y}}
+    else{const s=a.rtl?-1:1;c1={x:a.x+s*out,y:a.y};c2={x:b.x+s*out,y:b.y}} /* the hairpin: out past the last stop of the row, and back in to the first of the next */
+    const sg=smSeg(a,c1,c2,b);segs.push(sg);ln.push(ln[k]+sg.L)}
+  let d=`M${pts[0].x} ${pts[0].y}`;segs.forEach(s=>{d+=`C${s.c1.x.toFixed(1)} ${s.c1.y.toFixed(1)} ${s.c2.x.toFixed(1)} ${s.c2.y.toFixed(1)} ${s.p3.x} ${s.p3.y}`});
+  return {W,cols,gut,cw,rows,H:SM_TOP+rows*SM_RH+44,pts,segs,ln,d,total:ln[n-1]}}
+/* the place s along the road, and which way the road goes there */
+function smPt(g,s){
+  s=Math.max(0,Math.min(g.total,s));let k=0;while(k<g.segs.length-1&&s>g.ln[k+1])k++;
+  const sg=g.segs[k],l=s-g.ln[k],T=sg.T;let i=1;while(i<T.length-1&&T[i][0]<l)i++;
+  const a=T[i-1],b=T[i],f=b[0]>a[0]?(l-a[0])/(b[0]-a[0]):0,dx=b[1]-a[1],dy=b[2]-a[2],m=Math.hypot(dx,dy)||1;
+  return {x:a[1]+dx*f,y:a[2]+dy*f,tx:dx/m,ty:dy/m}}
+/* the car stands this far behind a stop (along the road) */
+const smOff=k=>k==='g'?58:46;
+const smStopS=(g,I,k)=>Math.max(0,g.ln[k]-(k===0?0:smOff(I[k].k)));
+/* the car on the road at s: it faces the way the road goes (never upside down) and leans with the slope. Backing up is the same car, driving the road the other way */
+function smPlace(car,g,s){
+  const p=smPt(g,s);let f=+car.dataset.f||1;if(Math.abs(p.tx)>.2)f=p.tx<0?1:-1;
+  const ang=Math.max(-28,Math.min(28,Math.atan2(p.ty,Math.max(Math.abs(p.tx),.35))*180/Math.PI));
+  car.style.left=p.x.toFixed(1)+'px';car.style.top=p.y.toFixed(1)+'px';car.style.setProperty('--f',f);car.style.setProperty('--a',(-f*ang).toFixed(1)+'deg');car.dataset.f=f;car.dataset.s=s}
+/* drive to s (forwards or in reverse): an easy start and stop, the wheels turn, and every stop the car passes gives a little jump */
+function smDrive(toS,car,then){
+  car=car||$('#jnCar');if(!car||!car.isConnected){if(then)then();return}cancelAnimationFrame(KP.carRaf);clearTimeout(KP.carTm);
+  const g=car._g||SMG.cur;if(!g){if(then)then();return}
+  const from=+car.dataset.s||0;car._g=g;
+  if(RM()||Math.abs(toS-from)<2){smPlace(car,g,toS);if(then)then();return}
+  const rev=toS<from,ns=[...car.parentElement.querySelectorAll('.sm-n[data-s]')].map(n=>[+n.dataset.s,n]),T=Math.min(3400,Math.max(800,Math.abs(toS-from)*2.1)),t0=performance.now(),ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+  car.classList.remove('jc-park');car.classList.add('jc-go');car.classList.toggle('smrev',rev);let ps=from;
+  const next=()=>{KP.carRaf=requestAnimationFrame(()=>{clearTimeout(KP.carTm);step(performance.now())});clearTimeout(KP.carTm);KP.carTm=setTimeout(()=>{cancelAnimationFrame(KP.carRaf);step(performance.now())},60)}; /* a browser that holds frames back still gets one from the timer */
+  const step=now=>{if(!car.isConnected)return;const k=Math.min(1,(now-t0)/T),s=from+(toS-from)*ease(k);smPlace(car,g,s);
+    ns.forEach(([ns_,n])=>{if((ns_-ps)*(ns_-s)<=0&&ns_!==ps){n.classList.remove('smhit');void n.offsetWidth;n.classList.add('smhit')}});ps=s;
+    if(k<1)next();else{car.classList.remove('jc-go','smrev');car.classList.add('jc-park');if(then)then()}};
+  next()}
+/* the car to a stop of the stage that is open (a tap on the map, or the next and previous buttons) */
+function carToStop(id,then){const b=document.querySelector(`#kpJ [data-kstop="${id}"]`),car=$('#jnCar');if(!b||!car){if(then)then();return}
+  smDrive(+b.closest('.sm-n').dataset.t,car,then)}
+/* the landscape: hills on the horizon, the sun, clouds, birds, and trees, bushes, flowers and ponds wherever the road and the signs leave room. Decoration only, placed the same way every time */
+function smScene(g,boxes,pct){
+  const W=g.W,H=g.H,hz=SM_TOP-14,hill=(b,a1,f1,a2,f2,p)=>{let d=`M0 ${hz+60}L0 ${b}`;for(let x=0;x<=W+30;x+=30)d+=`L${x} ${Math.round(b-a1*(1+Math.sin(x/f1+p))-a2*(1+Math.sin(x/f2+p*2)))}`;return d+`L${W+30} ${hz+60}Z`};
+  let s=`<svg class="sm-hills" width="${W}" height="${hz+60}" aria-hidden="true" focusable="false"><path d="${hill(hz-22,16,120,6,47,.8)}" fill="#B9DCA9"/><path d="${hill(hz-2,11,92,5,37,2.4)}" fill="#8FCB84"/></svg>`;
+  /* the sky changes with the way I did: a morning blue at the start, a warm evening light near the end */
+  const road=[];g.segs.forEach(sg=>sg.T.forEach((p,i)=>{if(i%3===0)road.push([p[1],p[2]])}));
+  const hit=(x,y,r)=>road.some(p=>Math.hypot(p[0]-x,p[1]-y)<r+26)||boxes.some(b=>x+r>b[0]-4&&x-r<b[2]+4&&y+r*.3>b[1]-4&&y-r<b[3]+4);
+  let n=0,o='';
+  const R=i=>{const v=Math.sin(i*127.1+311.7)*43758.5453;return v-Math.floor(v)};
+  for(let i=0;i<260&&n<46;i++){const x=Math.round(R(i)*W),y=Math.round(hz+16+R(i+500)*(H-hz-20)),kind=Math.floor(R(i+900)*7),r=kind<4?14:kind<6?10:16;
+    if(x<8||x>W-8||y>H-6||hit(x,y,r))continue;n++;
+    const z=(.8+R(i+77)*.5).toFixed(2);
+    o+=kind===0||kind===1?`<i class="sm-tr" style="left:${x}px;top:${y}px;--z:${z}"></i>`:kind===2?`<i class="sm-tr pine" style="left:${x}px;top:${y}px;--z:${z}"></i>`:kind===3?`<i class="sm-bush" style="left:${x}px;top:${y}px;--z:${z}"></i>`:kind===4?`<i class="sm-fl" style="left:${x}px;top:${y}px;--c:${['#FF6B8B','#FFD43B','#fff','#B197FC'][Math.floor(R(i+31)*4)]}"></i>`:kind===5?`<i class="sm-rock" style="left:${x}px;top:${y}px;--z:${z}"></i>`:`<i class="sm-pond" style="left:${x}px;top:${y}px;--z:${z}"></i>`}
+  const nc=Math.max(3,Math.round(W/190));
+  for(let k=0;k<nc;k++){const x=Math.round((k+.3)*W/nc+((k*97)%60-30)),y=Math.round(6+(k*37)%36),z=(.7+((k*37)%40)/100).toFixed(2);
+    o+=`<i class="sm-cl" style="left:${x}px;top:${y}px;--z:${z};--d:${10+k%5*2}s"></i>`;if(k%2===1)o+=`<i class="sm-bd" style="left:${x+80}px;top:${y+26}px;--d:${7+k%4}s"></i>`}
+  return `<div class="sm-sky" aria-hidden="true"><i class="sm-sun"></i>${s}${o}</div>`}
+function smArc(z,r){const pct=z.total?z.done/z.total:0,L=2*Math.PI*r,m=r+5;return `<svg class="sm-arc" viewBox="0 0 ${2*m} ${2*m}" aria-hidden="true" focusable="false"><circle cx="${m}" cy="${m}" r="${r}" class="a0"/><circle cx="${m}" cy="${m}" r="${r}" class="a1" stroke-dasharray="${(L*pct).toFixed(1)} ${L.toFixed(1)}" transform="rotate(-90 ${m} ${m})"/></svg>`}
+const SMG={cur:null};
+/* what a stop says beside the map: the stage, its steps (each one can be opened, the ones I did too), and where it stands in time */
+function smStageHTML(pl,t){
+  const z=t?pl.zones.find(x=>x.id===t.z):pl.zones.find(x=>x.id===pl.cur);if(!z)return '';
+  const th=ZTH[z.id]||ZTH.g10,zi=pl.zones.indexOf(z)+1,s=trState(z,pl),wn=safe(()=>zoneRange(z.id,pl.X),''),
+    prev=pl.zones[zi-2],nxt=pl.zones[zi];
+  return `<section class="sm-stg" aria-label="השלב שפתוח במפה" style="--rc:${th.c};--rb:${th.bg}"><div class="sm-stg-h"><span class="sm-stg-n">${zi}</span><div class="sm-stg-t"><small>שלב ${zi} מתוך ${pl.zones.length} · ${trStateTxt[s]}</small><b>${esc(z.t)}</b>${wn?`<span>${esc(wn)}</span>`:''}</div>
+      <div class="sm-stg-nav"><button type="button" class="sm-sn" data-kgate="${prev?prev.id:''}" aria-label="לשלב הקודם${prev?': '+esc(prev.t):''}"${prev?'':' disabled'}>${ki('arrow')}</button><button type="button" class="sm-sn" data-kgate="${nxt?nxt.id:''}" aria-label="לשלב הבא${nxt?': '+esc(nxt.t):''}"${nxt?'':' disabled'}>${ki('arrow','kp-flip')}</button></div></div>
+    <ol class="sm-pills">${z.tasks.map((q,i)=>`<li><button type="button" class="sm-pill${q.done?' d':''}${t&&q.id===t.id?' c':''}" ${q.go?`data-kgoto="${esc(q.go)}"`:`data-kstop="${q.id}"`}${t&&q.id===t.id?' aria-current="step"':''}><i>${q.done?ki('check'):i+1}</i><span>${esc(q.t)}</span></button></li>`).join('')}</ol></section>`}
+/* a card of the width the page gives it, not the width of a screen. It is drawn again (once) when the page tells me how wide the card really is */
+function journeyHTML(pl,t,o){
+  o=o||{};
+  const fz=t?t.z:pl.cur,I=jItems(pl,fz),nx=pl.next?pl.next.id:'',sel=t?t.id:'',W=Math.max(300,Math.round(KP.smW||Math.min(innerWidth-48,720)));
+  const g=smGeo(W,I.length);SMG.cur=g;
+  const intro=!KP.jnSeen;KP.jnSeen=1;
+  const u=W<520?.5:W<760?.58:.66;
   let gn=0;const zn={};pl.zones.forEach(z=>zn[z.id]=++gn);
-  const plates=pl.zones.map(z=>{const m=P.filter(p=>p.i.z&&p.i.z.id===z.id),o=m[0].o,w=m.reduce((a,p)=>a+p.w,0);return jPlate(z,W-c.pad-o-w,w,z.id===fz,u,zn[z.id],c)}).join('');
-  const arc=z=>{const pct=z.total?z.done/z.total:0,r=c.rg+6,L=2*Math.PI*r,m=r+4;return `<svg class="tr-arc" viewBox="0 0 ${2*m} ${2*m}" aria-hidden="true" focusable="false"><circle cx="${m}" cy="${m}" r="${r}" class="a0"/><circle cx="${m}" cy="${m}" r="${r}" class="a1" stroke-dasharray="${(L*pct).toFixed(1)} ${L.toFixed(1)}" transform="rotate(-90 ${m} ${m})"/></svg>`};
+  /* how much of the road is lit */
+  let lit=0;for(let k=0;k<I.length-1;k++){const f=jLit(I[k],I[k+1]),L=g.ln[k+1]-g.ln[k];lit+=f*L;if(f<1)break}
+  const arcR=30,boxes=[];
   const goW=pl.X.start?safe(()=>zoneRange('go',pl.X),''):'';
-  const nodes=P.map((p,k)=>{const i=p.i,pt=pts[k],pos=`left:${pt.x}px;top:${pt.y}px;--i:${k}`;
-    if(i.k==='e')return `<li class="tr-n end" style="${pos};--cw:${c.gw}px;--r:${c.rg}px"><div class="tr-b"><span class="tr-c">${ki('cap')}<i class="jn-sp a" aria-hidden="true"></i><i class="jn-sp b" aria-hidden="true"></i><i class="jn-sp c" aria-hidden="true"></i></span><span class="tr-l"><span class="tr-k">${ki('flag')}קו הסיום</span><b>היום הראשון בלימודים</b>${goW?`<small class="tr-w">${esc(goW)}</small>`:''}</span></div></li>`;
-    if(i.k==='g'){const z=i.z,s=trState(z,pl),open=z.id===fz,th=ZTH[z.id]||ZTH.g10,wn=safe(()=>zoneRange(z.id,pl.X),'');
-      return `<li class="tr-n ${s}${open?' pick':''}" style="${pos};--cw:${c.gw}px;--r:${c.rg}px;--rc:${th.c};--rb:${th.bg}"><button type="button" class="tr-b" data-kgate="${z.id}" aria-pressed="${open}"><span class="tr-c">${arc(z)}${ki(z.ic)}${s==='done'?`<i class="tr-ok">${ki('check')}</i>`:''}</span><span class="tr-l"><span class="tr-k">שלב ${zn[z.id]}${open?' · פתוח':''}</span><b>${z.t}</b><em class="num">${z.done} מתוך ${z.total} צעדים</em>${wn?`<small class="tr-w">${esc(wn)}</small>`:''}${open?'':'<small class="tr-op">לחצו לפתיחה ←</small>'}<span class="sr">. ${trStateTxt[s]}${open?'':'. לחיצה פותחת את השלב'}</span></span>${z.id===pl.cur?`<span class="tr-tp" aria-hidden="true">${ki('pin')}אני כאן</span>`:''}</button></li>`}
-    const q=i.t,on=q.id===sel,isNx=q.id===nx,ext=q.go,ix=i.z.tasks.indexOf(q)+1,st=q.done?'בוצע':isNx?'הצעד הבא שלי':q.soon?'כדאי בקרוב':'בהמשך';
-    return `<li class="tr-n st${q.done?' done':''}${isNx?' nxt':''}${on?' pick':''}${ext?' ext':''}${q.soon&&!q.done?' soon':''}" style="${pos};--cw:${c.sw}px;--r:${c.rs}px"><button type="button" class="tr-b" ${ext?`data-kgoto="${esc(ext)}"`:`data-kstop="${q.id}" aria-pressed="${on}"`}${isNx?' aria-current="step"':''}><span class="tr-c">${q.done?ki('check'):ki(q.ic)}<i class="tr-no" aria-hidden="true">${ix}</i>${ext?`<i class="tr-gt" aria-hidden="true">${ki('arrow')}</i>`:''}</span><span class="tr-l">${q.soon&&!q.done?'<i class="jn-wr" aria-hidden="true">!</i>':''}<small class="tr-s" aria-hidden="true">${q.done?ki('check'):''}${st}</small><b>${esc(q.t)}</b></span>${isNx?'<span class="tr-nx">הבא</span>':''}<span class="sr">: ${q.done?'הושלם':isNx?'זה הצעד הבא שלי':'עוד לא הושלם'}${ext?`. פותח את ${GO_NAME[ext]||'מסך אחר'}`:''}</span></button>${isNx?'<i class="jn-tl" aria-hidden="true"><b></b><b></b><b></b></i>':''}</li>`}).join('');
-  /* where the car parks: just before the stop in focus, or before the gate of the open stage */
-  const ti=t?P.findIndex(p=>p.i.k==='s'&&p.i.t.id===t.id):-1,gi=P.findIndex(p=>p.i.k==='g'&&p.i.z.id===fz),so=carOff(c,'s'),go=carOff(c,'g');
-  const to=ti>=0?pts[ti].x+so:pts[gi].x+go,from=drive?Math.min(W-10,(ti>=0?pts[gi].x+go:to+c.gw)):to;
-  const lx=[];for(let k=0;k<P.length-1;k++)if(P[k].i.k==='s'&&P[k+1].i.k==='s'&&k%2)lx.push(Math.round((pts[k].x+pts[k+1].x)/2));
-  const tip=!full&&!store.get('jnTip',0),sx=W-Math.round(c.pad*.5); /* the bubble that says what the car is, until I say I got it */
-  const fin=pts[pts.length-1],car=`<div class="jn-car" id="jnCar" data-so="${so}" data-x="${from}" data-to="${drive?to:''}" data-wait="${intro?1100:full?650:200}" style="left:${from}px;top:${jWave(c,from)}px;--a:${jTilt(c,from).toFixed(1)}deg" aria-hidden="true">${CAR_SVG}<i class="jn-pf a"></i><i class="jn-pf b"></i><i class="jn-pf c"></i></div>`;
-  const bar=full?`<div class="jn-bar"><div class="jn-ttl"><b>${ki('map')}המסלול שלי <em class="jn-pc">${pl.pct}% מהדרך</em></b><span>${esc(pl.X.d.n)} · ${esc(pl.X.I.n)}</span></div>${legendHTML()}<button type="button" class="btn soft sm jn-fs" data-kfs>${ki('shrink')}יציאה ממסך מלא</button></div>`:'',
-    info=full?`<div class="jn-info" id="jnInfo">${jnInfoHTML(t)}</div>`:'';
-  return `<div class="tr jn go still${full?' full':''}${intro?' jn-intro':''}" id="kpTrail" data-pad="${c.pad}" data-u="${u}" style="--u:${u};--y:${c.y}px;--g:${c.g}px;--cw:${c.gw}px;--r:${c.rg}px">${bar}<div class="tr-view" id="trViewJ"><div class="tr-track" data-y="${c.y}" data-amp="${c.amp}" data-wl="${c.wl}" style="width:${W}px;height:${c.H}px">${jLand(W,c,u,lx)}${plates}
-    <svg class="tr-svg" width="${W}" height="${c.H}" viewBox="0 0 ${W} ${c.H}" aria-hidden="true" focusable="false"><defs><linearGradient id="jnG" gradientUnits="userSpaceOnUse" x1="${W}" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#3EE0A0"/><stop offset=".5" stop-color="#12B886"/><stop offset="1" stop-color="#0CA678"/></linearGradient></defs><path class="tr-edge" d="${all}"/><path class="tr-bed" d="${all}"/><path class="tr-yl" d="${all}"/>${prog}${base}</svg>
-    <i class="jn-fin" aria-hidden="true" style="left:${fin.x+Math.round(c.rg*1.5)}px;top:${fin.y}px"></i><i class="jn-fin st" aria-hidden="true" style="left:${sx}px;top:${jWave(c,sx)}px"></i><span class="jn-go" aria-hidden="true" style="left:${sx}px;top:${jWave(c,sx)}px"><b>יציאה</b></span>
-    <ol class="tr-nodes" aria-label="תחנות הדרך">${nodes}</ol>${car}${tip?`<div class="jn-tip" role="note" style="left:${to}px;top:${jWave(c,to)}px"><b>זה אני!</b><span>הרכב הזה הוא אני. לוחצים על שלט לבן והרכב נוסע לצעד. לוחצים על שלט צבעוני כדי לפתוח שלב.</span><button type="button" class="btn sm" data-kjtip>הבנתי</button></div>`:''}</div></div>
-    <button type="button" class="tr-arr prev" data-kmapn="prev" aria-label="לשלבים הקודמים">${ki('arrow')}</button><button type="button" class="tr-arr next" data-kmapn="next" aria-label="לשלבים הבאים">${ki('arrow')}</button>${info}</div>`}
+  const nodes=I.map((i,k)=>{const p=g.pts[k],lw=Math.round(g.cw-6),pos=`left:${p.x}px;top:${p.y}px;--lw:${lw}px;--i:${k}`,sd=`data-s="${g.ln[k].toFixed(1)}" data-t="${smStopS(g,I,k).toFixed(1)}"`;
+    const bx=(r,h)=>boxes.push([p.x-lw/2,p.y-r,p.x+lw/2,p.y+r+10+h]);
+    if(i.k==='b'){boxes.push([p.x-26,p.y-26,p.x+26,p.y+34]);
+      return `<li class="sm-n b" style="${pos}" ${sd}><div class="sm-b"><span class="sm-c">${ki('flag')}</span><span class="sm-l"><b>יוצאים לדרך</b></span></div></li>`}
+    if(i.k==='e'){bx(34,56);
+      return `<li class="sm-n e" style="${pos}" ${sd}><div class="sm-b"><span class="sm-c">${ki('cap')}<i class="jn-sp a" aria-hidden="true"></i><i class="jn-sp b" aria-hidden="true"></i><i class="jn-sp c" aria-hidden="true"></i></span><span class="sm-l"><span class="sm-k">${ki('flag')}קו הסיום</span><b>היום הראשון בלימודים</b>${goW?`<small>${esc(goW)}</small>`:''}</span></div></li>`}
+    if(i.k==='g'){bx(32,88);const z=i.z,s=trState(z,pl),open=z.id===fz,th=ZTH[z.id]||ZTH.g10;
+      return `<li class="sm-n g ${s}${open?' pick':''}" style="${pos};--rc:${th.c};--rb:${th.bg}" ${sd}><button type="button" class="sm-b" data-kgate="${z.id}" aria-pressed="${open}"><span class="sm-c">${smArc(z,arcR)}${ki(z.ic)}<i class="sm-gn" aria-hidden="true">${zn[z.id]}</i>${s==='done'?`<i class="sm-ok">${ki('check')}</i>`:''}</span><span class="sm-l"><span class="sm-k">שלב ${zn[z.id]} · ${open?'פתוח':trStateTxt[s]}</span><b>${z.t}</b><em class="num">${z.done} מתוך ${z.total} צעדים</em>${open?'':'<small>לחצו לפתיחה</small>'}<span class="sr">${open?'. השלב פתוח':'. לחיצה פותחת את השלב והרכב חוזר או נוסע אליו'}</span></span>${z.id===pl.cur?`<span class="sm-pin" aria-hidden="true">${ki('pin')}אני כאן</span>`:''}</button></li>`}
+    const q=i.t,on=q.id===sel,isNx=q.id===nx,ext=q.go,ix=i.z.tasks.indexOf(q)+1,st=q.done?'בוצע':isNx?'הצעד הבא שלי':q.soon?'כדאי בקרוב':'בהמשך',th=ZTH[i.z.id]||ZTH.g10;bx(26,66);
+    return `<li class="sm-n st${q.done?' done':''}${isNx?' nxt':''}${on?' pick':''}${ext?' ext':''}${q.soon&&!q.done?' soon':''}" style="${pos};--rc:${th.c};--rb:${th.bg}" ${sd}><button type="button" class="sm-b" ${ext?`data-kgoto="${esc(ext)}"`:`data-kstop="${q.id}"`}${on?' aria-pressed="true"':ext?'':' aria-pressed="false"'}${isNx?' aria-current="step"':''}><span class="sm-c">${q.done?ki('check'):ki(q.ic)}<i class="sm-no" aria-hidden="true">${ix}</i>${ext?`<i class="sm-gt" aria-hidden="true">${ki('arrow')}</i>`:''}</span><span class="sm-l">${q.soon&&!q.done?'<i class="sm-wr" aria-hidden="true">!</i>':''}<small class="sm-s" aria-hidden="true">${st}</small><b>${esc(q.t)}</b></span>${isNx?'<span class="sm-tag">הבא</span>':''}<span class="sr">: ${q.done?'הושלם':isNx?'זה הצעד הבא שלי':'עוד לא הושלם'}${ext?`. פותח את ${GO_NAME[ext]||'מסך אחר'}`:''}</span></button></li>`}).join('');
+  /* where the car parks: just before the stop in focus, or before the gate of the open stage; where it comes from when it has to drive */
+  const ti=t?I.findIndex(x=>x.k==='s'&&x.t.id===t.id):-1,gi=I.findIndex(x=>x.k==='g'&&x.z.id===fz),pk=ti>=0?ti:gi,to=smStopS(g,I,pk);
+  let from=to;
+  if(intro)from=0;
+  else if(o.fromZ){const fi=I.findIndex(x=>x.k==='g'&&x.z.id===o.fromZ);if(fi>=0)from=smStopS(g,I,fi)}
+  else if(o.fromS!=null)from=Math.min(g.total,o.fromS);
+  const drive=Math.abs(from-to)>=2,p0=smPt(g,from),tip=!store.get('jnTip',0);
+  const car=`<div class="jn-car sm-car" id="jnCar" data-s="${from.toFixed(1)}" data-f="1" data-to="${drive?to.toFixed(1):''}" style="left:${p0.x.toFixed(1)}px;top:${p0.y.toFixed(1)}px" aria-hidden="true">${CAR_SVG}<i class="jn-pf a"></i><i class="jn-pf b"></i><i class="jn-pf c"></i>${tip?`<div class="jn-tip sm-tip${p0.y<200?' below':''}" role="note"><b>זה אני!</b><span>הרכב הזה הוא אני. לוחצים על שלט של צעד והרכב נוסע אליו. לוחצים על שלב כדי לפתוח אותו, ואם הוא מאחוריי, הרכב נוסע אחורה.</span><button type="button" class="btn sm" data-kjtip>הבנתי</button></div>`:''}</div>`;
+  const hue=Math.max(0,Math.min(1,pl.pct/100));
+  return `<div class="sm${intro?' sm-intro':''}" id="kpTrail" data-w="${W}" data-drive="${drive?1:0}" data-wait="${intro?900:o.wait||120}" style="--u:${u};width:${W}px;height:${g.H}px;--wm:${hue.toFixed(2)}">
+    ${smScene(g,boxes,pl.pct)}
+    <svg class="sm-svg" width="${W}" height="${g.H}" viewBox="0 0 ${W} ${g.H}" aria-hidden="true" focusable="false"><path class="sm-edge" d="${g.d}"/><path class="sm-yl" d="${g.d}"/><path class="sm-bed" d="${g.d}"/><path class="sm-base" d="${g.d}"/><path class="sm-prog" d="${g.d}" stroke-dasharray="${lit.toFixed(1)} ${(g.total+50).toFixed(1)}"/></svg>
+    <ol class="sm-nodes" aria-label="תחנות הדרך">${nodes}</ol>${car}</div>`}
+/* the car drives to where it parks once the card is on the page; the card is drawn again once if the page gives it another width */
+function smScan(){
+  const m=document.querySelector('.sm:not([data-i])');if(!m)return;m.dataset.i=1;
+  const host=m.parentElement,w=host?Math.round(host.getBoundingClientRect().width):0;
+  if(w>=240&&Math.abs(w-(+m.dataset.w))>14&&host.id==='kpJ'){KP.smW=w;const pl=safe(plan);if(pl){KP.jnSeen=m.classList.contains('sm-intro')?0:1;host.innerHTML=journeyHTML(pl,focusTask(pl));return}}
+  const car=m.querySelector('.jn-car');if(car){car._g=SMG.cur;if(car.dataset.to)setTimeout(()=>{if(car.isConnected)smDrive(+car.dataset.to,car)},+m.dataset.wait||0)}}
+new MutationObserver(smScan).observe(document.getElementById('app'),{childList:true,subtree:true});
 /* the bubble over the car goes away for good once I say I got it */
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-kjtip]');if(!b)return;store.set('jnTip',1);const t=b.closest('.jn-tip');if(t){t.classList.add('out');setTimeout(()=>t.remove(),300)}});
-/* a tap on a stop: that step opens under the map. Inside the open stage only the markers change; a stop of another stage unfolds that stage */
+/* a tap on a stop: that step opens beside the map. Inside the open stage only the markers change. A stop of another stage opens that stage: forwards the car drives on,
+   and back to an earlier stage it drives backwards along the road to its gate first, and then the stage unfolds */
 function jSelect(id){
   const pl=safe(plan);if(!pl)return;const t=pl.tasks.find(x=>x.id===id);if(!t)return;
   const old=focusTask(pl);if(old&&old.id!==id){KP.hist.push(old.id);if(KP.hist.length>30)KP.hist.shift()}
   KP.fid=id;KP.skip.delete(id);
   const J=$('#kpJ'),S=$('#kpStep');if(!J||!S){gotoTab('now',{scroll:1});return}
-  if(old&&old.z===t.z){document.querySelectorAll('#kpJ .tr-n.st').forEach(n=>{const b=n.querySelector('[data-kstop]'),on=!!b&&b.dataset.kstop===id;n.classList.toggle('pick',on);if(b)b.setAttribute('aria-pressed',on)});carToStop(id)}
-  else{J.innerHTML=journeyHTML(pl,t);trailScan()}
-  S.innerHTML=focusHTML(pl,t);
-  const b=document.querySelector(`#kpJ [data-kstop="${id}"]`);if(b){b.focus({preventScroll:true});trCenter(b.closest('.tr-view'),b,!RM())}
-  const lv=$('#live');if(lv)lv.textContent=`נבחרה התחנה: ${t.t}`;
-  if(KP.full){const inf=$('#jnInfo');if(inf)inf.innerHTML=jnInfoHTML(t);return}
-  if(S.getBoundingClientRect().top>innerHeight*.62)glideTo(S)}
-/* ---------- the map on the whole screen ----------
-   The host (#kpJ) is what fills the screen, so the map inside can be drawn again at the size of the screen without the browser leaving full screen.
-   Where the browser cannot make an element full screen (a phone), the host covers the screen by itself. Escape, or the button, brings it back. */
-function jnPaint(){const host=$('#kpJ'),pl=host&&safe(plan);if(!host||!pl)return;
-  const a=document.activeElement,at=a&&host.contains(a)?[...a.attributes].find(x=>x.name.startsWith('data-k')):null; /* the control that has the focus keeps it */
-  host.innerHTML=journeyHTML(pl,focusTask(pl));trailScan();
-  if(at){const b=host.querySelector(`[${at.name}="${at.value}"]`);if(b)b.focus({preventScroll:true})}}
-function jnReset(){ /* the page is leaving the map (another screen, another tab): nothing is kept open */
-  if(!KP.full)return;KP.full=false;KP.jnb=null;KP.jnBusy=0;document.documentElement.classList.remove('jn-lock');
-  try{if(document.fullscreenElement&&document.exitFullscreen)Promise.resolve(document.exitFullscreen()).catch(()=>{})}catch(e){}}
-function jnSwitch(on,nofocus,then){ /* the page changes: the map covers the screen, or is a part of the page again */
-  const host=$('#kpJ');if(on===!!KP.full||(on&&!host))return;
-  const wrap=host&&host.parentElement&&host.parentElement.id==='kpJw'?host.parentElement:null,r0=on&&host?host.getBoundingClientRect():null;
-  if(wrap&&on)wrap.style.minHeight=wrap.offsetHeight+'px'; /* the page keeps its length while the map is lifted out of it */
-  KP.full=on;document.documentElement.classList.toggle('jn-lock',on);
-  if(host){host.classList.toggle('is-full',on);
-    if(on){host.setAttribute('role','dialog');host.setAttribute('aria-modal','true');host.setAttribute('aria-label','המסלול שלי במסך מלא')}
-    else{host.removeAttribute('role');host.removeAttribute('aria-modal');host.removeAttribute('aria-label')}
-    if(on)KP.carDrive=1;jnPaint();
-    /* the map grows out of its place on the page to the whole screen, and its stations land one after the other */
-    if(on&&r0&&host.animate&&!RM()){const W=innerWidth,H=innerHeight,cl=v=>Math.max(0,Math.round(v));
-      host.animate([{clipPath:`inset(${cl(r0.top)}px ${cl(W-r0.right)}px ${cl(H-r0.bottom)}px ${cl(r0.left)}px round 30px)`},{clipPath:'inset(0px 0px 0px 0px round 0px)'}],{duration:760,easing:'cubic-bezier(.2,.85,.25,1)'});
-      host.classList.add('jn-in');clearTimeout(KP.jnInT);KP.jnInT=setTimeout(()=>host.classList.remove('jn-in'),1900)}}
-  if(wrap&&!on)wrap.style.minHeight='';
-  if(!nofocus)requestAnimationFrame(()=>{const b=on?document.querySelector('#kpJ .jn-fs'):$('#jnFsBtn');if(b)b.focus({preventScroll:true})});
-  say(on?'המפה במסך מלא. Escape סוגר':'חזרה לגודל הרגיל');
-  if(then)then()}
-/* the way back: the map shrinks into its place on the page, and only then the page takes it back */
-function jnOut(cb){const host=$('#kpJ'),wrap=$('#kpJw');
-  if(!host||!wrap||!host.animate||RM()){cb();return}
-  const r=wrap.getBoundingClientRect(),W=innerWidth,H=innerHeight,cl=v=>Math.max(0,Math.round(v));
-  const a=host.animate([{clipPath:'inset(0px 0px 0px 0px round 0px)',opacity:1},{clipPath:`inset(${cl(r.top)}px ${cl(W-r.right)}px ${cl(H-r.bottom)}px ${cl(r.left)}px round 30px)`,opacity:.35}],{duration:460,easing:'cubic-bezier(.55,0,.7,.2)',fill:'forwards'});
-  let ok=false;const f=()=>{if(ok)return;ok=true;cb();a.cancel()};a.onfinish=f;setTimeout(f,800)}
-function jnFull(on,nofocus,then){
-  on=!!on;if(on===!!KP.full||KP.jnBusy)return;
-  if(on){ /* a computer: the browser's own full screen first, then the map grows into it. A phone: the map covers the screen by itself */
-    KP.jnBusy=1;let ok=false;const go=()=>{if(ok)return;ok=true;KP.jnBusy=0;jnSwitch(true,nofocus,then)};
-    let asked=false;
-    try{const d=document.documentElement;if(d.requestFullscreen&&!document.fullscreenElement&&innerWidth>=760){asked=true;Promise.resolve(d.requestFullscreen({navigationUI:'hide'})).then(()=>setTimeout(go,80),go)}}catch(e){}
-    if(asked)setTimeout(go,900);else go();return}
-  KP.jnBusy=1;
-  jnOut(()=>{KP.jnBusy=0;jnSwitch(false,nofocus,then);
-    try{if(document.fullscreenElement&&document.exitFullscreen)Promise.resolve(document.exitFullscreen()).catch(()=>{})}catch(e){}})}
-document.addEventListener('fullscreenchange',()=>{if(KP.full&&!KP.jnBusy&&!document.fullscreenElement)jnSwitch(false)}); /* the browser's own Escape */
-document.addEventListener('keydown',e=>{
-  if(!KP.full)return;
-  if(e.key==='Escape'){e.preventDefault();jnFull(false);return}
-  if(e.key!=='Tab')return;
-  const host=$('#kpJ');if(!host)return;
-  const f=[...host.querySelectorAll('button:not([disabled]):not([tabindex="-1"])')].filter(x=>x.offsetParent!==null||x===document.activeElement),a=f[0],z=f[f.length-1];
-  if(!a)return;const out=!host.contains(document.activeElement);
-  if(e.shiftKey&&(document.activeElement===a||out)){e.preventDefault();z.focus()}
-  else if(!e.shiftKey&&(document.activeElement===z||out)){e.preventDefault();a.focus()}});
-let jnRT=0;addEventListener('resize',()=>{clearTimeout(jnRT);jnRT=setTimeout(()=>{ /* the map follows the size of the screen */
-  const t=document.querySelector('#kpJ .tr');if(!t||S.route.v!=='path'||KP.tab!=='now')return;
-  if(KP.full||Math.abs(jScale(false)-(+t.dataset.u||0))>=.03)jnPaint()},150)});
+  const car=$('#jnCar'),zi=z=>pl.zones.findIndex(x=>x.id===z),fromS=car?+car.dataset.s:0;
+  const side=()=>{S.innerHTML=focusHTML(pl,t);const sg=$('#smStage');if(sg)sg.innerHTML=smStageHTML(pl,t);
+    const lv=$('#live');if(lv)lv.textContent=`נבחרה התחנה: ${t.t}`;
+    if(S.getBoundingClientRect().top>innerHeight*.62)glideTo(S)};
+  const paintMap=o=>{J.innerHTML=journeyHTML(pl,t,o)};
+  cancelAnimationFrame(KP.carRaf);clearTimeout(KP.carTm);
+  if(old&&old.z===t.z){
+    document.querySelectorAll('#kpJ .sm-n.st').forEach(n=>{const b=n.querySelector('[data-kstop]'),on=!!b&&b.dataset.kstop===id;n.classList.toggle('pick',on);if(b)b.setAttribute('aria-pressed',on)});
+    carToStop(id);side()}
+  else if(old&&car&&zi(t.z)<zi(old.z)&&!RM()){ /* back to an earlier stage: first backwards to its gate, then it opens */
+    const gn=document.querySelector(`#kpJ [data-kgate="${t.z}"]`),gs=gn&&+gn.closest('.sm-n').dataset.t;
+    if(gs>=0&&gs!=null)smDrive(gs,car,()=>{paintMap({fromS:null,fromZ:t.z,wait:60});side()});else{paintMap({fromZ:old.z});side()}}
+  else{paintMap({fromZ:old?old.z:pl.cur,wait:80});side()}
+  const b=document.querySelector(`#kpJ [data-kstop="${id}"]`);if(b)b.focus({preventScroll:true})}
+function jnReset(){}
+/* the card follows the width the page gives it */
+let jnRT=0;addEventListener('resize',()=>{clearTimeout(jnRT);jnRT=setTimeout(()=>{
+  const m=document.querySelector('#kpJ .sm'),host=$('#kpJ');if(!m||!host||S.route.v!=='path'||KP.tab!=='now')return;
+  const w=Math.round(host.getBoundingClientRect().width);if(Math.abs(w-(+m.dataset.w))<14&&smCols(w)===smCols(+m.dataset.w))return;
+  const pl=safe(plan);if(!pl)return;KP.smW=w;host.innerHTML=journeyHTML(pl,focusTask(pl),{wait:0})},180)});
 /* ================= programs for high-school students (tn-) =================
    From the "teen programs" research of 2026-10-21. It was read through search summaries only (no program page was opened), so a program found in
    one source only is marked "לא אומת". Facts about admission are included only when a source states them; otherwise the card says none was found.
@@ -9598,16 +9738,28 @@ function tnCard(p){return `<article class="tn-c"><div class="tn-h"><h3>${esc(p.n
   <p class="tn-a"><b>נקודות קבלה?</b> ${esc(p.a)}</p><p><b>איך מצטרפים:</b> ${esc(p.j)}</p>${p.y?`<p class="tn-y">הפרסום האחרון שמצאנו: ${esc(p.y)}</p>`:''}${KA(p.u,'לאתר התוכנית')}</article>`}
 function teenList(f){const L=TEEN.filter(p=>f==='all'||p.fl.includes(f)).sort((a,b)=>(b.ok-a.ok)||(!!a.cl-!!b.cl));
   return L.length?`<div class="tn-g">${L.map(tnCard).join('')}</div>`:''}
-function teenHTML(pl){const st=pl.X.stg;if(!/^g1[012]$/.test(st))return '';
-  const f=KP.tf==='all'||(KP.tf&&CATS[KP.tf])?KP.tf:(CATS[pl.X.d.c]?pl.X.d.c:'all'),nm=f==='all'?'כל התחומים':CATS[f].n,gap=f==='all'?'':TEEN_GAP[f]||'';
-  return `<details class="tn" id="kpTeen"${KP.tOpen?' open':''}><summary class="sec-h"><div><h2>${ki('star')}הזדמנויות לתלמידי תיכון</h2><p>מה אפשר לעשות כבר עכשיו כדי להתנסות ולהכיר את התחום. אלה פעילויות שמצאנו, ואף אחת מהן אינה תנאי קבלה.</p></div></summary>
-    <div class="tn-f" role="group" aria-label="תחום">${['all',...Object.keys(CATS)].map(k=>`<button type="button" class="fb2" data-ktf="${k}" aria-pressed="${f===k}">${k==='all'?'כל התחומים':CATS[k].n}</button>`).join('')}</div>
-    <div id="kpTeenL"><p class="tn-sub">מוצגות תוכניות בתחום: <b>${nm}</b></p>${teenList(f)}${gap?`<p class="tn-gap">${esc(gap)}</p>`:''}</div>
-    <p class="fine">נאסף ב-${esc(dLong(TEEN_DATE))} מתקצירי חיפוש בלבד, בלי לפתוח את דפי התוכניות, והרשימה אינה ממצה. מועדים, גיל, עלות ותנאי קבלה משתנים, ולכן לפני כל הרשמה בודקים באתר התוכנית. רוב התוכניות לא מזכות בנקודות לקבלה (לא מצאנו מקור שאומר אחרת); "אקדמיה בתיכון" מזכה בציון בגרות ובנקודות אקדמיות לתואר.</p></details>`}
-/* a short pointer on the "now" tab for students */
-function teenTeaser(pl){const st=pl.X.stg;if(!/^g1[012]$/.test(st))return '';const f=CATS[pl.X.d.c]?pl.X.d.c:'all',L=TEEN.filter(p=>f==='all'||p.fl.includes(f));
-  return `<div class="tn-teaser">${ki('star')}<div><b>מה אפשר לעשות כבר בתיכון${f==='all'?'':` בתחום ${CATS[f].n}`}</b><p>${L.length?`מצאנו ${L.length===1?'תוכנית אחת':L.length+' תוכניות'}: ${L.slice(0,2).map(p=>esc(p.n)).join(', ')}${L.length>2?' ועוד':''}. אף אחת מהן אינה תנאי קבלה.`:esc(TEEN_GAP[f]||'לא מצאנו תוכניות בתחום הזה.')}</p>${KB('data-kteen','לכל התוכניות')}</div></div>`}
-
+/* what else I can do beside the road: the section under the map. It follows my profile: the grade I am in and the field of my target.
+   In high school: the programs of the research above (each with its source and how sure we are). After school: the places in the site that have the facts. Nothing is added that has no source. */
+const CARDS_AFTER={
+  svc:[{ic:'shield',t:'עתודה אקדמית',d:'הסדר של צה"ל: לימודי תואר לפני השירות ושירות מקצועי אחריו. הפרטים והמועדים נמצאים באתר צה"ל, ובסעיף "עתודה" במסלול.',u:IDF_ATUDA,ul:'לאתר "מתגייסים" של צה"ל'},
+    {ic:'coin',t:'מלגות',d:'אפשר לבדוק כבר עכשיו אילו מלגות קיימות ומתי נסגרת ההגשה.',go:'sch',gl:'למסך המלגות'}],
+  other:[{ic:'coin',t:'מלגות',d:'אפשר לבדוק אילו מלגות קיימות ומתי נסגרת ההגשה.',go:'sch',gl:'למסך המלגות'}]};
+CARDS_AFTER.after=CARDS_AFTER.other;
+function beyondHTML(pl){
+  const X=pl.X,st=X.stg,hs=/^g1[012]$/.test(st),f0=CATS[X.d.c]?X.d.c:'all',stN=(STAGES.find(s=>s[0]===(S.prof||{}).stage)||[])[1]||'',
+    me=[stN,`התואר שבחרתי: ${X.d.n}`].filter(Boolean).join(' · ');
+  if(hs){
+    const f=KP.tf==='all'||(KP.tf&&CATS[KP.tf])?KP.tf:f0,nm=f==='all'?'כל התחומים':CATS[f].n,gap=f==='all'?'':TEEN_GAP[f]||'';
+    return `<section class="bey" id="kpTeen" aria-labelledby="beyH"><div class="bey-h"><span class="vx-kick">${ki('star')}מעבר למסלול</span><h2 id="beyH">מה אפשר לעשות עוד, לא רק לעמוד בצעדים</h2>
+      <p>המסלול שלמעלה הוא "היבש": ציונים, בחינות והרשמה. כאן מה שאפשר לעשות לצידו כדי להכיר את התחום באמת, ולבדוק שהוא מתאים לי. מותאם לפרופיל שלי (${esc(me)}). אף אחת מהפעילויות האלה אינה תנאי קבלה.</p></div>
+      <div class="tn-f" role="group" aria-label="תחום">${['all',...Object.keys(CATS)].map(k=>`<button type="button" class="fb2" data-ktf="${k}" aria-pressed="${f===k}">${k==='all'?'כל התחומים':CATS[k].n}</button>`).join('')}</div>
+      <div id="kpTeenL"><p class="tn-sub">מוצגות פעילויות בתחום: <b>${esc(nm)}</b></p>${teenList(f)}${gap?`<p class="tn-gap">${esc(gap)}</p>`:''}</div>
+      <p class="fine">נאסף ב-${esc(dLong(TEEN_DATE))} מתקצירי חיפוש, בלי לפתוח את כל דפי התוכניות, והרשימה אינה ממצה. כל כרטיס מציין אם התוכנית נמצאה ביותר ממקור אחד ומקשר לדף שלה. מועדים, גיל, עלות ותנאי קבלה משתנים, ולכן לפני כל הרשמה בודקים באתר התוכנית. לא מצאנו מקור שאומר שפעילות כזאת מוסיפה נקודות לקבלה, חוץ מ"אקדמיה בתיכון" שמזכה בציון בגרות ובנקודות אקדמיות לתואר.</p></section>`}
+  const L=CARDS_AFTER[st]||CARDS_AFTER.other;
+  return `<section class="bey" id="kpTeen" aria-labelledby="beyH"><div class="bey-h"><span class="vx-kick">${ki('star')}מעבר למסלול</span><h2 id="beyH">מה אפשר לעשות עוד בדרך</h2>
+    <p>לפי הפרופיל שלי (${esc(me)}). לא מצאנו כאן תוכניות נוספות עם מקור רשמי, ולכן מוצג רק מה שיש לו מקור.</p></div>
+    <div class="tn-g">${L.map(c=>`<article class="tn-c"><div class="tn-h"><h3>${ki(c.ic)} ${esc(c.t)}</h3></div><p>${esc(c.d)}</p>${c.u?KA(c.u,c.ul):KB(`data-kgoto="${c.go}"`,c.gl)}</article>`).join('')}
+      <article class="tn-c"><div class="tn-h"><h3>${ki('compass')} מוסדות ותארים נוספים</h3></div><p>לראות איפה עוד אפשר ללמוד את התואר, ואילו תארים קרובים מתאימים לציונים שלי.</p>${KB('data-ktab="opt"','לפתיחת "מה עוד אפשר?"')}</article></div></section>`}
 /* ---------- my targets: how far along each one is ---------- */
 function tInfo(t){return withTarget(t,()=>{const pl=safe(plan,null);if(!pl)return null;const X=pl.X;
   return {t,pl,X,d:X.d,I:X.I,pct:pl.pct,done:pl.done,total:pl.total,s:pl.stand,next:pl.next}})}
@@ -10105,7 +10257,6 @@ function stepsNoteHTML(){const P=pth();if(!P||P.sn===1)return '';
     <p>הדרך התרחבה: נוספו לה צעדים חדשים, כמו תוכנית גישור, מלגות והיערכות ליום הראשון בלימודים. לכן האחוז נמוך ממה שהיה, גם אם שום דבר לא נעלם. כל הצעדים שסימנתי נשארו מסומנים.</p></div></div>
     <div class="kp-btns"><button class="btn soft sm" data-ksn>הבנתי</button></div></section>`}
 /* what the colours on the map mean, in three small words */
-const legendHTML=()=>`<ul class="jn-lg" aria-label="מקרא המפה"><li><i class="d" aria-hidden="true"></i>הושלם</li><li><i class="n" aria-hidden="true"></i>הצעד הבא</li><li><i class="l" aria-hidden="true"></i>בהמשך</li></ul>`;
 /* ---------- v23: the road page on one screen. The map is on top, the step I stand in is explained beside it, the grade game opens only when I ask for it ---------- */
 const vxMsg=p=>p>=100?'הגעת! כל הצעדים בדרך מאחוריך. כל הכבוד.':p>=70?'הקו האחרון כבר באופק. עוד כמה צעדים קטנים.':p>=35?'באמצע הדרך, וזה נראה טוב. ממשיכים בקצב שלך.':p>0?'התחלת, וזה החלק הכי קשה. כל צעד קטן מקרב אותך.':'לא צריך לדעת הכול עכשיו. צעד קטן אחד, ואז עוד אחד. הנה הראשון.';
 /* the small bar under the site header: the way out to all my roads, where I am going, and my percent. It stays while I scroll, on every view */
@@ -10140,7 +10291,7 @@ function nowHTML(pl){
   const cz=pl.zones.find(z=>z.id===pl.cur)||pl.zones[0],goW=pl.X.start?safe(()=>zoneRange('go',pl.X),''):'',sk=safe(streak,0);
   const extra=safe(()=>stepsNoteHTML(),'')+safe(()=>welcomeHTML(pl),'');
   const top=`<section class="vx-top" aria-labelledby="jnH"><div class="vx-hi"><span class="vx-kick">${ki('map')}המסלול שלי</span><h1 id="jnH">יוצאים לדרך: ${esc(pl.X.d.n)}</h1>
-      <p class="vx-inst">${esc(pl.X.I.n)}${pl.X.P.auto?' · <b>מוסד לדוגמה</b>':''}</p><p class="vx-msg">${vxMsg(p)}</p>
+      <p class="vx-inst">${esc(pl.X.I.n)}${pl.X.P.auto?' · <b>מוסד לדוגמה</b>':''} · <button type="button" class="linkbtn vx-me" data-kme="">הפרטים שלי</button></p><p class="vx-msg">${vxMsg(p)}</p>
       <ul class="vx-chips"><li><span>${ki('pin')}</span><small>איפה אני</small><b>${esc(cz.t)}</b></li>
         <li><span>${ki('check')}</span><small>צעדים שעשיתי</small><b><span class="num">${pl.done}</span> מתוך <span class="num">${pl.total}</span></b></li>
         <li><span>${ki('fire')}</span><small>ימים ברצף</small><b><span class="num">${sk}</span></b></li>
@@ -10148,24 +10299,25 @@ function nowHTML(pl){
     <div class="jn-gauge vx-gauge" role="img" aria-label="עשיתי ${p}% מהצעדים בדרך">${vxSpd(p)}<div class="jn-gv"><b class="num">${p}<small>%</small></b><span>מהצעדים בדרך עשיתי</span></div></div>
     ${nx?`<div class="vx-nx"><span class="vx-na" aria-hidden="true">${ki('arrow')}</span><div class="vx-nt"><small>הפנייה הבאה${nz?` · ${esc(nz)}`:''}</small><b>${esc(nx.t)}</b>${nx.due?`<span>${esc(dueText(nx))}</span>`:''}</div>
         <button type="button" class="vx-go" data-kstop="${nx.id}">סעו לשם${ki('arrow')}</button></div>`:`<div class="vx-nx done"><span class="vx-na" aria-hidden="true">${ki('flag')}</span><div class="vx-nt"><small>הגעתי</small><b>כל הצעדים בדרך הושלמו</b></div></div>`}</section>`;
-  const map=`<section class="vx-mapcard" aria-labelledby="vxMapH"><div class="vx-mh"><div><h2 id="vxMapH">המפה שלי</h2><p>לוחצים על שלט, הרכב נוסע אליו, וההסבר מופיע בצד.</p></div>
+  const map=`<section class="vx-mapcard" aria-labelledby="vxMapH"><div class="vx-mh"><div><h2 id="vxMapH">המפה שלי</h2><p>לוחצים על שלב או על צעד, והרכב נוסע אליו (וחוזר אחורה לשלבים שכבר עברתי).</p></div>
       <div class="vx-mt"><details class="vx-how"><summary>איך קוראים את המפה?</summary><ul>
-        <li><i class="c" aria-hidden="true"></i><span><b>הרכב</b> הוא אני. לוחצים על צעד והרכב נוסע אליו.</span></li>
-        <li><i class="g" aria-hidden="true"></i><span><b>שלט צבעוני מעל הכביש</b> הוא שלב: תקופה בדרך, כמו כיתה י"א או ההרשמה. לוחצים כדי לפתוח את הצעדים שבו.</span></li>
-        <li><i class="s" aria-hidden="true"></i><span><b>שלט לבן מתחת לכביש</b> הוא צעד: דבר אחד שעושים. לוחצים כדי לראות מה עושים ולמה.</span></li>
+        <li><i class="c" aria-hidden="true"></i><span><b>הרכב</b> הוא אני. לוחצים על צעד והרכב נוסע אליו. לוחצים על שלב שכבר עברתי והרכב נוסע אחורה אליו.</span></li>
+        <li><i class="g" aria-hidden="true"></i><span><b>שלט צבעוני</b> הוא שלב: תקופה בדרך, כמו כיתה י"א או ההרשמה. לוחצים כדי לפתוח את הצעדים שבו, גם בשלב שסיימתי.</span></li>
+        <li><i class="s" aria-hidden="true"></i><span><b>שלט לבן</b> הוא צעד: דבר אחד שעושים. לוחצים כדי לראות מה עושים ולמה.</span></li>
         <li><i class="n" aria-hidden="true"></i><span><b>שלט צהוב</b> הוא הצעד הבא: מה הכי כדאי לעשות עכשיו.</span></li>
         <li><i class="d" aria-hidden="true"></i><span><b>כביש ירוק</b> הוא הדרך שכבר עשיתי.</span></li>
-        <li class="jn-hint"><span>האחוז הוא כמה מהצעדים עשיתי, ולא סיכוי להתקבל.</span></li></ul></details>
-        <button type="button" class="vx-fs" id="jnFsBtn" data-kfs aria-haspopup="dialog">${ki('expand')}<span>מסך מלא</span></button></div></div>
+        <li class="jn-hint"><span>האחוז הוא כמה מהצעדים עשיתי, ולא סיכוי להתקבל.</span></li></ul></details></div></div>
     <div class="jn-w" id="kpJw"><div id="kpJ">${journeyHTML(pl,t)}</div></div></section>`;
   const side=`<aside class="vx-side" aria-label="הסבר על הצעד"><div class="vx-sidein">
-      <div class="kp-main" id="kpStep">${t?focusHTML(pl,t):doneHTML(pl)}</div>
-      <div class="vx-acts"><button type="button" class="vx-act" data-vxlab aria-haspopup="dialog"><i>${ki('chart')}</i><span><b>בדיקת ציונים</b><small>כמה חסר לי כדי להתקבל?</small></span></button>
-        <button type="button" class="vx-act" data-ktab="opt"><i>${ki('compass')}</i><span><b>מה עוד אפשר?</b><small>אפשרויות נוספות לפי הציונים</small></span></button></div></div></aside>`;
-  const more=`<details class="vx-more"${extra?' open':''}><summary>${ki('compass')}<span>עוד עזרה בדרך<small>הכוונה, תוכנית, שאלה קטנה והסברים</small></span>${extra?'<em>חדש</em>':''}</summary><div class="vx-morein">
-      ${extra}<div class="kp-nowg vx-nowg"><div class="kp-side">${safe(()=>mtBriefHTML(pl),'')}${safe(()=>teenTeaser(pl),'')}</div></div><div id="mtPlanHost">${safe(()=>mtPlanHTML(pl),'')}</div>
-      ${safe(()=>qCardHTML(pl),'')}<div class="kp-whyc">${safe(()=>whyHTML(pl))}</div>${safe(()=>teenHTML(pl),'')}</div></details>`;
-  return `<section class="jn-sec vx-sec">${top}<div class="vx-stage">${map}${side}</div>${more}</section>${labSheetHTML(pl)}`}
+      <div id="smStage">${safe(()=>smStageHTML(pl,t),'')}</div>
+      <div class="kp-main" id="kpStep">${t?focusHTML(pl,t):doneHTML(pl)}</div></div></aside>`;
+  const hs=/^g1[012]$/.test(pl.X.stg),
+    feats=`<ul class="vx-feats" aria-label="כלים שעוזרים בדרך"><li><button type="button" class="vx-act" data-vxlab aria-haspopup="dialog"><i>${ki('chart')}</i><span><b>בדיקת ציונים</b><small>כמה חסר לי כדי להתקבל?</small></span></button></li>
+      <li><button type="button" class="vx-act" data-ktab="opt"><i>${ki('compass')}</i><span><b>מה עוד אפשר?</b><small>מוסדות ותארים נוספים לפי הציונים</small></span></button></li>
+      <li><button type="button" class="vx-act" data-kteen><i>${ki('star')}</i><span><b>מעבר למסלול</b><small>${hs?'תוכניות והתנסויות שמתאימות לי':'עוד דברים שאפשר לעשות עכשיו'}</small></span></button></li>
+      <li><button type="button" class="vx-act" data-kgoto="sch"><i>${ki('coin')}</i><span><b>מלגות</b><small>מה מתאים לי ומה המועדים</small></span></button></li></ul>`;
+  return `<section class="jn-sec vx-sec">${extra?`<div class="vx-notes">${extra}</div>`:''}${top}<div class="vx-stage">${map}${side}</div>${feats}
+    <div id="kpBeyond">${safe(()=>beyondHTML(pl),'')}</div><section class="vx-why" id="kpWhy">${safe(()=>whyHTML(pl),'')}</section></section>${labSheetHTML(pl)}`}
 const button=(attr,label,ic='')=>`<button class="linkbtn kp-lnk" ${attr}>${label}${ic}</button>`;
 
 /* ================= the three views, and the tools beside them ================= */
@@ -10200,6 +10352,7 @@ const tabInner=pl=>`<section class="kp-sec" id="kp-${KP.tab}">${safe(()=>(TABF[K
 /* ---------- the page ---------- */
 function renderPath(){
   if(!hasGoal())KP.wiz.active=true;
+  if(!hasGoal()&&!pathReady())return safe(profileGateHTML,'');
   if(KP.wiz.active)return safe(wizardHTML,'');
   safe(visitNote); /* F2a: the day of my last visit, decided once per page load */
   /* arriving from another page starts at the landing (all my targets when I have several); a redraw in place keeps where I am */
@@ -10493,7 +10646,7 @@ function whyHTML(pl){
   b.push(`<div class="kp-wb ${hot?'hot':''}"><span class="kp-wi">${ki('fire')}</span><b>${hot?'חם בשוק':s.emp?s.emp+'% מועסקים':'—'}</b><small>${hot?'מספר העובדים במקצועות של התואר עולה מהר מבמשק':'שיעור התעסוקה של הבוגרים'}</small></div>`);
   if(du)b.push(`<div class="kp-wb"><span class="kp-wi">${ki('cal')}</span><b class="num">${du.txt} שנים</b><small>משך הלימודים התקני</small></div>`);
   const qa=typeof qaCount==='function'?qaCount('deg:'+d.id):0;
-  return `<div class="sec-h"><div><h2>${ki('star')}למה זה שווה את זה</h2><p>כשקשה, כדאי לזכור לאן זה מוביל.</p></div></div>
+  return `<div class="why-h"><span class="vx-kick">${ki('fire')}המוטיבציה שלי</span><h2>${ki('star')}למה זה שווה את זה</h2><p>כשקשה, כדאי לזכור לאן זה מוביל. ${pl.pct>0?`כבר עשיתי ${pl.pct}% מהצעדים בדרך ל${esc(d.n)}.`:`כל צעד בדרך ל${esc(d.n)} מקרב אותי.`}</p></div>
     <div class="kp-why"><div class="kp-wg">${b.join('')}</div>
     ${occ.length?`<p class="kp-wo"><b>במה עובדים הבוגרים:</b> ${occ.map(o=>`<button class="linkbtn" data-occ="${o.id}">${esc(o.n)}</button>`).join(' · ')}</p>`:''}
     ${cs?`<p class="kp-wo"><b>מה לומדים:</b> ${cs.map(esc).join(' · ')}</p>`:''}
@@ -11100,7 +11253,7 @@ function endSync(){const h=$('#kpEndH'),b=$('[data-kendx]'),v=(pth()||{}).end||'
 /* the profile form shows the same questions, folded, under "עוד קצת עליי" */
 const PROF_OPT=['stage','stageAt','sex','reg','nat','svc','res','resAt','inc','first','house','work','hrs']; /* svc, res (with resAt), inc and first come from the scholarships page (optional, sensitive, kept in this browser) */
 function profMoreHTML(){const p=S.prof||{};
-  return `<details class="kp-more-me" ${p.sex||p.reg||p.nat||p.stage?'open':''}><summary>עוד קצת עליי <small>(לא חובה, מדייק את המסלול)</small></summary>${meFieldsHTML('prof',['stage','sex','reg','nat'])}<p class="fine">${MENOTE}</p></details>
+  return `<details class="kp-more-me" ${p.sex||p.reg||p.nat?'open':''}><summary>עוד קצת עליי <small>(לא חובה, מדייק את המסלול)</small></summary>${meFieldsHTML('prof',['sex','reg','nat'])}<p class="fine">${MENOTE}</p></details>
     <details class="kp-more-me" ${p.house||p.work||p.first||p.svc?'open':''}><summary>שאלות קצרות מהמסלול <small>(לא חובה)</small></summary>${meFieldsHTML('prof',['house','work','first','svc'])}<p class="fine">${MENOTE}</p></details>`}
 const MENOTE='המידע נשמר רק בדפדפן הזה. הוא משמש להתאמת הניסוח, מועדי הבחינות והמוסדות שמוצגים לי, ואפשר לדלג על כל שאלה.';
 function setMe(k,v){
@@ -11140,6 +11293,14 @@ function instPick(d,attr,withAuto){
     ${L.map(x=>{const q=x.q,b=q.bench,near=my&&x.reg===my;
       const sub=x.st&&x.st.s==='yes'?`✓ לפי הנתונים שלי אני ${gx('עומד','עומדת')} בתנאים`:q.tier===1?'יש סף קבלה רשמי, אפשר לחשב בדיוק':q.tier===2?'יש תנאי קבלה בטקסט':q.tier===0?'פתוח לכולם, בלי תנאי קבלה':'לא נאספו תנאי קבלה';
       return `<button class="kp-pi ${x.st?x.st.s:''}" ${attr(x.i)}><b>${esc(INST[x.i].n)}</b><small>${sub}</small><span class="kp-pt2"><span class="kp-tag ${near?'ok':''}">${near?'באזור שלי · ':''}${x.reg==='a'?'ארצי / מקוון':REGN[x.reg]||''}</span>${b&&b.p?`<span class="kp-tag">ממוצע מתקבלים: ${fmt(b.p)}</span>`:''}${tList().some(t=>t.d===d.id&&t.i===x.i)?'<span class="kp-tag ok">כבר ביעדים שלי</span>':''}</span></button>`}).join('')}</div>`}
+/* no road without a profile: what is still missing, and one button that opens the profile */
+function profileGateHTML(){
+  const p=S.prof||{},need=[['stage','איפה אני עכשיו (כיתה, שירות או אחר)'],...PROF_NEED(p).map(k=>[k,{bag:'איזו תעודה יש לי',y12:'12 שנות לימוד',age:'הגיל שלי',psy:'פסיכומטרי',heb:'שפת הלימוד בתיכון'}[k]])];
+  return `<section class="hero pth-hero wiz kp-wizhero"><div class="wrap">${BACK}<span class="kicker" style="margin-top:10px">${ki('map')}המסלול שלי</span>
+    <h1 class="pth-h1">קודם מכירים: הפרופיל שלי</h1>
+    <div class="wz-card"><h2>המסלול נבנה מהפרופיל שלי</h2><p class="sub">כדי שהמסלול, המועדים והבדיקות יתאימו לי, הוא נבנה מהנתונים שבפרופיל: הכיתה שאני בה, התעודה, הפסיכומטרי והשפה. כך כל האתר משתמש באותו מידע, ואין צורך לענות שוב על אותן שאלות. זה לוקח פחות מדקה, והכול נשמר רק בדפדפן הזה.</p>
+      <ul class="kp-gate">${need.map(([k,l])=>`<li class="${p[k]?'ok':''}"><i aria-hidden="true">${p[k]?ki('check'):''}</i>${l}</li>`).join('')}</ul>
+      <div class="wz-nav"><button class="btn primary xl" data-kprofgo>${profileOK()||p.stage?'השלמת הפרופיל':'למילוי הפרופיל'}</button></div></div></div></section>`}
 function wizardHTML(){
   const W=KP.wiz,s=W.step||1,P=pth()||pthNew(),R=dirResult();
   let body='';
@@ -11159,10 +11320,11 @@ function wizardHTML(){
     <details class="kp-more-me"><summary>עוד קצת עליי <small>(לא חובה, מדייק את התוכנית)</small></summary>${meFieldsHTML('path',['sex','reg','nat'])}<p class="fine">${MENOTE}</p></details></div>`;
   return `<section class="hero pth-hero wiz kp-wizhero"><div class="wrap">${BACK}
     <span class="kicker" style="margin-top:10px">${ki('map')}המסלול שלי</span>
-    <h1 class="pth-h1">${W.add?'מוסיפים יעד':hasGoal()&&s<3?'מחליפים יעד':'התוכנית האישית שלי, צעד אחר צעד'}</h1>
+    <h1 class="pth-h1">${W.add?'מוסיפים יעד':hasGoal()?'מחליפים יעד':'התוכנית האישית שלי, צעד אחר צעד'}</h1>
+    <p class="kp-prof-note">${ki('user')}<span>המסלול נבנה לפי הפרופיל שלי: ${esc([(STAGES.find(x=>x[0]===(S.prof||{}).stage)||[])[1],profileSummary()].filter(Boolean).join(' · '))}.</span><button type="button" class="linkbtn" data-kme="">עריכה</button></p>
     ${s===1&&!hasGoal()?`<ul class="kp-ben"><li>${ki('map')}<b>דרך מלאה, בלי נעילות</b><small>רואים מה עושים עכשיו ומה אחר כך, עד היום הראשון</small></li><li>${ki('chart')}<b>כמה חסר, ואיך סוגרים</b><small>משחקים עם ציונים ופסיכומטרי, והסכם מתעדכן מיד</small></li><li>${ki('cal')}<b>מועדים ותזכורות</b><small>בחינות והרשמות, אפשר להוסיף ליומן</small></li></ul>`:''}
-    <div class="wz-steps">${['התואר','המוסד','איפה אני'].map((l,i)=>`<span class="${i+1===s?'cur':i+1<s?'done':''}"><b>${i+1}</b>${l}</span>`).join('')}</div>
-    <div class="wz-card">${body}<div class="wz-nav">${s>1||hasGoal()?`<button class="btn soft" data-kwb>${s===1?'ביטול':'הקודם'}</button>`:''}${s===3?'<button class="btn primary xl" data-kwdone>יוצאים לדרך!</button>':''}</div></div></div></section>`}
+    <div class="wz-steps">${['התואר','המוסד'].map((l,i)=>`<span class="${i+1===s?'cur':i+1<s?'done':''}"><b>${i+1}</b>${l}</span>`).join('')}</div>
+    <div class="wz-card">${body}<div class="wz-nav">${s>1||hasGoal()?`<button class="btn soft" data-kwb>${s===1?'ביטול':'הקודם'}</button>`:''}</div></div></div></section>`}
 /* mode 'swap': another institution for the target I am looking at. Otherwise the choice is added to my targets and the others stay. */
 function openTargetPick(id,mode){
   const d=BY[id];if(!d)return;const swap=mode==='swap',n=tList().length;
@@ -11172,7 +11334,7 @@ function celebrate(el,n=30){if(!el)return;const r=el.getBoundingClientRect();bur
 
 
 /* ---------- events ---------- */
-const KSEL='[data-vxlab],[data-vxlabx],[data-padd],[data-ppick],[data-pswap],[data-kwd],[data-kwi],[data-kwauto],[data-kwb],[data-kwdone],[data-kme],[data-kmedone],[data-kc],[data-kt],[data-kmapn],[data-kstop],[data-kgoto],[data-kfs],[data-kfgo],[data-kgate],[data-kfsib],[data-ktf],[data-kteen],[data-kgo],[data-ktab],[data-ktgt],[data-khub],[data-kadd],[data-krm],[data-krmok],[data-krmno],[data-kfocus],[data-kfprev],[data-kfnext],[data-kfskip],[data-knext],[data-kmark],[data-kpick],[data-ksess],[data-kfq],[data-kmore],[data-kdel],[data-kendx],[data-kwel],[data-kweld],[data-ksn],[data-kq],[data-kqd],[data-kqskip],[data-kqok],[data-kqgo],[data-kqask],[data-kics],[data-kpg],[data-kic1],[data-kicb],[data-kbag],[data-cu],[data-khelp],[data-kcopy],[data-kexp],[data-kundo],[data-kreset],[data-kresetok],[data-kresetno],[data-lbm],[data-lbe],[data-lbx],[data-lbmode],[data-lbadd],[data-lbrm],[data-lbsave],[data-lbok],[data-lbno],[data-lbreal],[data-lbsavep],[data-lbreset],[data-kmt]';
+const KSEL='[data-vxlab],[data-vxlabx],[data-padd],[data-ppick],[data-pswap],[data-kwd],[data-kwi],[data-kwauto],[data-kwb],[data-kwdone],[data-kprofgo],[data-kme],[data-kmedone],[data-kc],[data-kt],[data-kmapn],[data-kstop],[data-kgoto],[data-kfs],[data-kfgo],[data-kgate],[data-kfsib],[data-ktf],[data-kteen],[data-kgo],[data-ktab],[data-ktgt],[data-khub],[data-kadd],[data-krm],[data-krmok],[data-krmno],[data-kfocus],[data-kfprev],[data-kfnext],[data-kfskip],[data-knext],[data-kmark],[data-kpick],[data-ksess],[data-kfq],[data-kmore],[data-kdel],[data-kendx],[data-kwel],[data-kweld],[data-ksn],[data-kq],[data-kqd],[data-kqskip],[data-kqok],[data-kqgo],[data-kqask],[data-kics],[data-kpg],[data-kic1],[data-kicb],[data-kbag],[data-cu],[data-khelp],[data-kcopy],[data-kexp],[data-kundo],[data-kreset],[data-kresetok],[data-kresetno],[data-lbm],[data-lbe],[data-lbx],[data-lbmode],[data-lbadd],[data-lbrm],[data-lbsave],[data-lbok],[data-lbno],[data-lbreal],[data-lbsavep],[data-lbreset],[data-kmt]';
 const wizReset=(change,add)=>{KP.wiz={active:true,step:1,tq:'',d:'',i:'',change:!!change,add:!!add}};
 const top0=()=>window.scrollTo({top:0,behavior:'instant'});
 const refocus=sel=>{const e=$(sel);if(e)e.focus({preventScroll:true})};
@@ -11185,7 +11347,7 @@ function wizPick(d,i,auto){
   const W=KP.wiz;
   if(W.add){const t=addTarget(d,i,auto);if(!t)return;toast(`נוסף ליעדים שלי: ${BY[d].n} ${bIn(INST[i].n)}`)}
   else setGoal(d,i,true,auto);
-  if((W.change||W.add)&&S.prof&&S.prof.stage)finishWizard();else{W.step=3;render();top0()}}
+  finishWizard()}
 /* mark or unmark a manual step, then repaint what depends on it. A step finished in focus moves me on to the next one. */
 /* a stage just finished, or a quarter / half / three quarters of the road: said out loud, once */
 function progressNote(a,b){
@@ -11208,8 +11370,8 @@ document.addEventListener('click',e=>{
   const el=e.target.closest(KSEL);if(!el)return;
   const ds=el.dataset,P=pth();
   /* choosing a target from a degree page or from the page of options */
-  if(ds.padd!==undefined){if(ds.padd)openTargetPick(ds.padd);else{wizReset(false,tList().length>0);go('path')}}
-  else if(ds.ppick!==undefined){const [id,i]=ds.ppick.split('@'),fresh=!hasGoal(),t=addTarget(id,i,false);if(!t)return;
+  if(ds.padd!==undefined){const v=ds.padd,run=()=>{if(v)openTargetPick(v);else{wizReset(false,tList().length>0);go('path')}};if(needProf(run))return;run()}
+  else if(ds.ppick!==undefined){const [id,i]=ds.ppick.split('@'),fresh=!hasGoal();if(needProf(()=>openTargetPick(id)))return;const t=addTarget(id,i,false);if(!t)return;
     KP.wiz.active=false;closeOv(true);toast(`נוסף ליעדים שלי: ${BY[id].n} ${bIn(INST[i].n)}`);KP.land='road';
     if(S.route.v==='path'){KP.view='road';KP.tab='now';render();top0()}else go('path');if(fresh)setTimeout(()=>celebrate($('.kp-ring'),36),350)}
   else if(ds.pswap!==undefined){const [id,i]=ds.pswap.split('@');setGoal(id,i,true,false);closeOv(true);toast(`היעד שלי: ${BY[id].n} ${bIn(INST[i].n)}`);KP.view='road';render();top0()}
@@ -11219,6 +11381,7 @@ document.addEventListener('click',e=>{
   else if(ds.kwauto!==undefined){const d=BY[KP.wiz.d];wizPick(d.id,autoInst(d),true)}
   else if(ds.kwb!==undefined){if((KP.wiz.step||1)===1){KP.wiz.active=false;KP.wiz.add=false}else KP.wiz.step--;render();top0()}
   else if(ds.kwdone!==undefined)finishWizard();
+  else if(ds.kprofgo!==undefined)openProfile({path:true,then:()=>{if(S.route.v==='path'){render();top0()}}});
   /* about me */
   else if(ds.kme!==undefined){
     if(ds.kme===''){openMe();return}
@@ -11259,8 +11422,6 @@ document.addEventListener('click',e=>{
   else if(ds.kgoto!==undefined){jnReset();go(ds.kgoto)}
   else if(ds.vxlab!==undefined)vxLab(true);
   else if(ds.vxlabx!==undefined)vxLab(false);
-  else if(ds.kfs!==undefined)jnFull(!KP.full);
-  else if(ds.kfgo!==undefined)jnFull(false,true,()=>{jSelect(ds.kfgo);requestAnimationFrame(()=>jump('kpStep'))});
 
   else if(ds.kbag!==undefined)bagPick(ds.kbag);
   else if(ds.kic1!==undefined)icsOne(ds.kic1);
@@ -11280,8 +11441,8 @@ document.addEventListener('click',e=>{
   else if(ds.kgate!==undefined){const pl=safe(plan),z=pl&&pl.zones.find(z=>z.id===ds.kgate),q=z&&(z.tasks.find(x=>!x.done)||z.tasks[0]);if(q)jSelect(q.id)}
   else if(ds.kfsib!==undefined){const pl=safe(plan),t=pl&&focusTask(pl),n=t&&pl.tasks[pl.tasks.indexOf(t)+(+ds.kfsib)];if(n)jSelect(n.id)}
   else if(ds.kmapn!==undefined){const v=el.closest('.tr').querySelector('.tr-view');if(v)v.scrollBy({left:(ds.kmapn==='next'?-1:1)*Math.max(220,v.clientWidth*.7),behavior:RM()?'instant':'smooth'})}
-  else if(ds.ktf!==undefined){KP.tf=ds.ktf;const pl=safe(plan),e=$('#kpTeen');if(pl&&e){e.outerHTML=teenHTML(pl);refocus(`[data-ktf="${ds.ktf}"]`)}}
-  else if(ds.kteen!==undefined){KP.tOpen=true;gotoTab('now',{instant:1});setTimeout(()=>jump('kpTeen'),90)}
+  else if(ds.ktf!==undefined){KP.tf=ds.ktf;const pl=safe(plan),e=$('#kpTeen');if(pl&&e){e.outerHTML=beyondHTML(pl);refocus(`[data-ktf="${ds.ktf}"]`)}}
+  else if(ds.kteen!==undefined){if(KP.tab!=='now')gotoTab('now',{instant:1});setTimeout(()=>jump('kpTeen'),90)}
   else if(ds.kpick!==undefined){const i=ds.kpick,had=tList().some(t=>t.d===P.d&&t.i===i),t=addTarget(P.d,i,false,true);
     if(t){toast(had?'כבר ביעדים שלי':`נוסף ליעדים שלי: ${BY[P.d].n} ${bIn(INST[i].n)}. אפשר לבחור בו במסך כל המסלולים`);keepY(render)}}
   else if(ds.ksess!==undefined){P.sess=P.sess===ds.ksess?'':ds.ksess;pthSave();PLC=null;paint()}
