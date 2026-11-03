@@ -4358,7 +4358,8 @@
    "years": 4,
    "acad": 72,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1120": {
    "n": "ניהול כללי וניהול בכיר",
@@ -4367,7 +4368,8 @@
    "years": 4,
    "acad": 70.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1211": {
    "n": "ניהול פיננסים",
@@ -4376,7 +4378,8 @@
    "years": 4,
    "acad": 94.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1212": {
    "n": "ניהול משאבי אנוש",
@@ -4385,7 +4388,8 @@
    "years": 4,
    "acad": 84.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1213": {
    "n": "ניהול מדיניות ותכנון",
@@ -4394,7 +4398,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1219": {
    "n": "ניהול בתחום השירותים העסקיים וניהול אדמיניסטרטיבי בתחומים אחרים",
@@ -4403,7 +4408,8 @@
    "years": 3,
    "acad": 47.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1221": {
    "n": "ניהול מכירות ושיווק",
@@ -4412,7 +4418,8 @@
    "years": 4,
    "acad": 63.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1222": {
    "n": "ניהול פרסום ויחסי ציבור",
@@ -4421,7 +4428,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1223": {
    "n": "ניהול מחקר ופיתוח",
@@ -4430,7 +4438,8 @@
    "years": 6,
    "acad": 92.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1311": {
    "n": "ניהול ייצור בתחומי החקלאות והייעור",
@@ -4439,7 +4448,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1321": {
    "n": "ניהול בתחום התעשייה",
@@ -4448,7 +4458,8 @@
    "years": 3,
    "acad": 45.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1323": {
    "n": "ניהול בתחום הבנייה",
@@ -4457,7 +4468,8 @@
    "years": 2,
    "acad": 34.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1324": {
    "n": "ניהול אספקה והפצה",
@@ -4466,7 +4478,8 @@
    "years": 3,
    "acad": 49.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1330": {
    "n": "ניהול שירותים בענפי טכנולוגיות המידע (ICT)",
@@ -4475,7 +4488,8 @@
    "years": 4,
    "acad": 81.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1341": {
    "n": "ניהול בתחום שירותי הטיפול בילדים",
@@ -4484,7 +4498,8 @@
    "years": 3,
    "acad": 49.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1342": {
    "n": "ניהול בתחום שירותי הבריאות",
@@ -4493,7 +4508,8 @@
    "years": 4,
    "acad": 87.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1343": {
    "n": "ניהול בתחום שירותי הטיפול בקשישים",
@@ -4502,7 +4518,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1344": {
    "n": "ניהול בתחום הרווחה והסעד",
@@ -4511,7 +4528,8 @@
    "years": 4,
    "acad": 73,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1345": {
    "n": "ניהול בתחום החינוך",
@@ -4520,7 +4538,8 @@
    "years": 4,
    "acad": 86.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1346": {
    "n": "ניהול סניפים בתחומי השירותים הפיננסיים ושירותי הביטוח",
@@ -4529,7 +4548,8 @@
    "years": 4,
    "acad": 69.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1349": {
    "n": "ניהול שירותים מקצועיים אחרים",
@@ -4538,7 +4558,8 @@
    "years": 4,
    "acad": 66,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1412": {
    "n": "ניהול מסעדות",
@@ -4547,7 +4568,8 @@
    "years": 2,
    "acad": 28,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1420": {
    "n": "ניהול בתחום המסחר הקימעונאי והסיטונאי",
@@ -4556,7 +4578,8 @@
    "years": 2,
    "acad": 32.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1431": {
    "n": "ניהול מרכזי ספורט, פנאי ותרבות",
@@ -4565,7 +4588,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "1439": {
    "n": "ניהול בתחומי שירות אחרים",
@@ -4574,7 +4598,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2111": {
    "n": "פיזיקה ואסטרונומיה",
@@ -4583,7 +4608,8 @@
    "years": 7,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2113": {
    "n": "כימיה",
@@ -4592,7 +4618,8 @@
    "years": 6,
    "acad": 91.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2120": {
    "n": "מתמטיקה, אקטואריה וסטטיסטיקה",
@@ -4601,7 +4628,8 @@
    "years": 5,
    "acad": 100.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2131": {
    "n": "ביולוגיה, בוטניקה וזואולוגיה",
@@ -4610,7 +4638,8 @@
    "years": 6,
    "acad": 99.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2132": {
    "n": "ייעוץ בתחומי החקלאות, הייעור והדיג",
@@ -4619,7 +4648,8 @@
    "years": 4,
    "acad": 97,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2141": {
    "n": "הנדסת תעשייה וייצור",
@@ -4628,7 +4658,8 @@
    "years": 4,
    "acad": 95.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2142": {
    "n": "הנדסה אזרחית",
@@ -4637,7 +4668,8 @@
    "years": 4,
    "acad": 90.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2143": {
    "n": "הנדסת סביבה",
@@ -4646,7 +4678,8 @@
    "years": 4,
    "acad": 100,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2144": {
    "n": "הנדסת מכונות",
@@ -4655,7 +4688,8 @@
    "years": 4,
    "acad": 92.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2145": {
    "n": "הנדסת כימיה",
@@ -4664,7 +4698,8 @@
    "years": 4,
    "acad": 99.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2149": {
    "n": "הנדסה בתחומים אחרים",
@@ -4673,7 +4708,8 @@
    "years": 4,
    "acad": 92.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2151": {
    "n": "הנדסת חשמל",
@@ -4682,7 +4718,8 @@
    "years": 4,
    "acad": 93,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2152": {
    "n": "הנדסת אלקטרוניקה",
@@ -4691,7 +4728,8 @@
    "years": 4,
    "acad": 94,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2153": {
    "n": "הנדסת תקשורת",
@@ -4700,7 +4738,8 @@
    "years": 4,
    "acad": 80.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2161": {
    "n": "אדריכלות בניין",
@@ -4709,7 +4748,8 @@
    "years": 5,
    "acad": 82,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2162": {
    "n": "אדריכלות נוף",
@@ -4718,7 +4758,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2163": {
    "n": "עיצוב מוצרים או בגדים",
@@ -4727,7 +4768,8 @@
    "years": 3,
    "acad": 54.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2164": {
    "n": "תכנון ערים ותנועה",
@@ -4736,7 +4778,8 @@
    "years": 5,
    "acad": 80.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2165": {
    "n": "קרטוגרפיה ומדידה",
@@ -4745,7 +4788,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2166": {
    "n": "עיצוב גרפי ועיצוב מולטימדיה",
@@ -4754,7 +4798,8 @@
    "years": 3,
    "acad": 55.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2211": {
    "n": "רפואה כללית",
@@ -4763,7 +4808,8 @@
    "years": 8,
    "acad": 100.0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2212": {
    "n": "רפואת מומחים",
@@ -4772,7 +4818,8 @@
    "years": 10,
    "acad": 100.0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2213": {
    "n": "התמחות ברפואה",
@@ -4781,7 +4828,8 @@
    "years": 9,
    "acad": 99,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2221": {
    "n": "סיעוד (אחיות ואחים מוסמכים)",
@@ -4790,7 +4838,8 @@
    "years": 4,
    "acad": 91.0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2222": {
    "n": "מיילדוּת",
@@ -4799,7 +4848,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2230": {
    "n": "רפואה משלימה",
@@ -4808,7 +4858,8 @@
    "years": 4,
    "acad": 60.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2250": {
    "n": "וטרינריה",
@@ -4817,7 +4868,8 @@
    "years": 6,
    "acad": 83.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2261": {
    "n": "רפואת שיניים",
@@ -4826,7 +4878,8 @@
    "years": 6,
    "acad": 100.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2262": {
    "n": "רוקחוּת",
@@ -4835,7 +4888,8 @@
    "years": 5,
    "acad": 93.0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2263": {
    "n": "בריאות וגיהות סביבתית ותעסוקתית",
@@ -4844,7 +4898,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2264": {
    "n": "פיזיותרפיה",
@@ -4853,7 +4908,8 @@
    "years": 4,
    "acad": 99.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2265": {
    "n": "דיאטה ותזונה",
@@ -4862,7 +4918,8 @@
    "years": 4,
    "acad": 98.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2266": {
    "n": "אודיולוגיה וקלינאות תקשורת",
@@ -4871,7 +4928,8 @@
    "years": 4,
    "acad": 99.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2267": {
    "n": "אופטומטריה",
@@ -4880,7 +4938,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2268": {
    "n": "ריפוי בעיסוק",
@@ -4889,7 +4948,8 @@
    "years": 4,
    "acad": 95.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2269": {
    "n": "מתן שירותי בריאות אחרים",
@@ -4898,7 +4958,8 @@
    "years": 4,
    "acad": 82.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2312": {
    "n": "הוראה אקדמית של מדעי הטבע",
@@ -4907,7 +4968,8 @@
    "years": 10,
    "acad": 98.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2313": {
    "n": "הוראה אקדמית של הנדסה ואדריכלות",
@@ -4916,7 +4978,8 @@
    "years": 10,
    "acad": 99.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2314": {
    "n": "הוראה אקדמית של מקצועות הרפואה",
@@ -4925,7 +4988,8 @@
    "years": 10,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2316": {
    "n": "הוראה אקדמית של מדעי החברה",
@@ -4934,7 +4998,8 @@
    "years": 10,
    "acad": 99.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2317": {
    "n": "הוראה אקדמית של מדעי הרוח",
@@ -4943,7 +5008,8 @@
    "years": 10,
    "acad": 100.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2322": {
    "n": "הוראה בחינוך העל-תיכון (לא-אקדמי)",
@@ -4952,7 +5018,8 @@
    "years": 4,
    "acad": 78.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2330": {
    "n": "הוראה בחינוך העל-יסודי",
@@ -4961,7 +5028,8 @@
    "years": 4,
    "acad": 91,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2341": {
    "n": "הוראה בחינוך היסודי",
@@ -4970,7 +5038,8 @@
    "years": 4,
    "acad": 83.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2342": {
    "n": "חינוך קדם-יסודי",
@@ -4979,7 +5048,8 @@
    "years": 4,
    "acad": 63.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2351": {
    "n": "מומחיוּת בשיטות הוראה",
@@ -4988,7 +5058,8 @@
    "years": 4,
    "acad": 96.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2352": {
    "n": "הוראה בחינוך המיוחד",
@@ -4997,7 +5068,8 @@
    "years": 4,
    "acad": 89,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2353": {
    "n": "הוראת שפות מחוץ למערכת חינוך",
@@ -5006,7 +5078,8 @@
    "years": 4,
    "acad": 77.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2354": {
    "n": "הוראת מוזיקה מחוץ למערכת החינוך",
@@ -5015,7 +5088,8 @@
    "years": 4,
    "acad": 78.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2355": {
    "n": "הוראת אומנות מחוץ למערכת החינוך",
@@ -5024,7 +5098,8 @@
    "years": 3,
    "acad": 57.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2356": {
    "n": "הדרכה בתחום טכנולוגיות המידע",
@@ -5033,7 +5108,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2359": {
    "n": "עבודה אחרת בתחום ההוראה",
@@ -5042,7 +5118,8 @@
    "years": 4,
    "acad": 72.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2411": {
    "n": "ראיית חשבון",
@@ -5051,7 +5128,8 @@
    "years": 5,
    "acad": 89.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2412": {
    "n": "ייעוץ בתחומי פיננסים והשקעות",
@@ -5060,7 +5138,8 @@
    "years": 4,
    "acad": 87.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2413": {
    "n": "ניתוח פיננסי",
@@ -5069,7 +5148,8 @@
    "years": 4,
    "acad": 93.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2414": {
    "n": "ביקורת פנים",
@@ -5078,7 +5158,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2421": {
    "n": "ייעוץ ניהול וייעוץ ארגוני",
@@ -5087,7 +5168,8 @@
    "years": 4,
    "acad": 81,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2422": {
    "n": "ניהול מדיניות",
@@ -5096,7 +5178,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2423": {
    "n": "שירותים אחרים במשאבי אנוש וקריירה",
@@ -5105,7 +5188,8 @@
    "years": 4,
    "acad": 91.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2424": {
    "n": "הכשרת סגל עובדים ופיתוחם",
@@ -5114,7 +5198,8 @@
    "years": 4,
    "acad": 86.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2431": {
    "n": "ייעוץ בתחום הפרסום והשיווק",
@@ -5123,7 +5208,8 @@
    "years": 4,
    "acad": 89.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2432": {
    "n": "יחסי ציבור",
@@ -5132,7 +5218,8 @@
    "years": 4,
    "acad": 84.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2433": {
    "n": "מכירת מוצרים רפואיים וטכניים",
@@ -5141,7 +5228,8 @@
    "years": 4,
    "acad": 88.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2434": {
    "n": "מכירת מוצרים בענפי טכנולוגיות המידע",
@@ -5150,7 +5238,8 @@
    "years": 4,
    "acad": 74.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2511": {
    "n": "ניתוח מערכות",
@@ -5159,7 +5248,8 @@
    "years": 4,
    "acad": 76.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2512": {
    "n": "פיתוח תוכנה",
@@ -5168,7 +5258,8 @@
    "years": 4,
    "acad": 83.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2513": {
    "n": "פיתוח אתרים ומולטימדיה",
@@ -5177,7 +5268,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2514": {
    "n": "תכנות יישומים",
@@ -5186,7 +5278,8 @@
    "years": 4,
    "acad": 71.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2519": {
    "n": "הבטחת איכות, ניתוח ובדיקת תוכנה",
@@ -5195,7 +5288,8 @@
    "years": 3,
    "acad": 56.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2521": {
    "n": "ניהול ועיצוב של מסדי נתונים",
@@ -5204,7 +5298,8 @@
    "years": 4,
    "acad": 87.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2522": {
    "n": "ניהול מערכות",
@@ -5213,7 +5308,8 @@
    "years": 4,
    "acad": 65.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2529": {
    "n": "מסדי נתונים, רשתות ואבטחת מידע",
@@ -5222,7 +5318,8 @@
    "years": 3,
    "acad": 59,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2611": {
    "n": "עריכת דין",
@@ -5231,7 +5328,8 @@
    "years": 4.5,
    "acad": 99.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2622": {
    "n": "ספרנות ומידענות",
@@ -5240,7 +5338,8 @@
    "years": 4,
    "acad": 96.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2631": {
    "n": "כלכלה",
@@ -5249,7 +5348,8 @@
    "years": 4,
    "acad": 95.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2632": {
    "n": "סוציולוגיה ואנתרופולוגיה",
@@ -5258,7 +5358,8 @@
    "years": 5,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2634": {
    "n": "פסיכולוגיה",
@@ -5267,7 +5368,8 @@
    "years": 7,
    "acad": 97.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2635": {
    "n": "עבודה סוציאלית וייעוץ בתחומי חברה ורווחה",
@@ -5276,7 +5378,8 @@
    "years": 4,
    "acad": 97.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2641": {
    "n": "ספרות וכתיבה",
@@ -5285,7 +5388,8 @@
    "years": 4,
    "acad": 74.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2642": {
    "n": "עיתונאות",
@@ -5294,7 +5398,8 @@
    "years": 4,
    "acad": 75.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2643": {
    "n": "תרגום ובלשנות",
@@ -5303,7 +5408,8 @@
    "years": 4,
    "acad": 68.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2651": {
    "n": "אומנות חזותית",
@@ -5312,7 +5418,8 @@
    "years": 2,
    "acad": 28.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2652": {
    "n": "מוזיקה, שירה והלחנה",
@@ -5321,7 +5428,8 @@
    "years": 3,
    "acad": 48.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2654": {
    "n": "בימוי, הפקה וניהול אומנותי",
@@ -5330,7 +5438,8 @@
    "years": 3,
    "acad": 38.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2655": {
    "n": "משחק",
@@ -5339,7 +5448,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "2659": {
    "n": "אומנויות הבמה",
@@ -5348,7 +5458,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3111": {
    "n": "הנדסאוּת וטכנאוּת כימיה ופיזיקה במעבדות מחקר",
@@ -5357,7 +5468,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3112": {
    "n": "הנדסאוּת וטכנאוּת הנדסה אזרחית",
@@ -5366,7 +5478,8 @@
    "years": 2,
    "acad": 23.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3113": {
    "n": "הנדסאוּת וטכנאוּת חשמל",
@@ -5375,7 +5488,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3114": {
    "n": "הנדסאוּת וטכנאוּת אלקטרוניקה",
@@ -5384,7 +5498,8 @@
    "years": 2,
    "acad": 23,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3115": {
    "n": "הנדסאוּת וטכנאוּת מכונות",
@@ -5393,7 +5508,8 @@
    "years": 2,
    "acad": 19.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3118": {
    "n": "סרטוט",
@@ -5402,7 +5518,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3119": {
    "n": "הנדסאוּת וטכנאוּת בתחומים אחרים",
@@ -5411,7 +5528,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3122": {
    "n": "פיקוח תעשייתי",
@@ -5420,7 +5538,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3123": {
    "n": "פיקוח בנייה",
@@ -5429,7 +5548,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3211": {
    "n": "טכנאוּת ציוד דימות רפואי וציוד טיפולי",
@@ -5438,7 +5558,8 @@
    "years": 4,
    "acad": 77.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3212": {
    "n": "טכנאוּת מעבדה רפואית ופתולוגית",
@@ -5447,7 +5568,8 @@
    "years": 4,
    "acad": 79.0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3214": {
    "n": "טכנאות תותבים",
@@ -5456,7 +5578,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3221": {
    "n": "סיעוד מעשי (אחים ואחיות מעשיות)",
@@ -5465,7 +5588,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3251": {
    "n": "שיננוּת",
@@ -5474,7 +5598,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3255": {
    "n": "טכנאות פיזיותרפיה ושיקום פיזי אחר",
@@ -5483,7 +5608,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3257": {
    "n": "פיקוח בתחום הבריאות הסביבתית והתעסוקתית",
@@ -5492,7 +5618,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3258": {
    "n": "עבודה באמבולנס",
@@ -5501,7 +5628,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3311": {
    "n": "מסחר בתחום ניירות הערך והפיננסים",
@@ -5510,7 +5638,8 @@
    "years": 4,
    "acad": 75,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3312": {
    "n": "ייעוץ אשראי והלוואות",
@@ -5519,7 +5648,8 @@
    "years": 4,
    "acad": 79.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3313": {
    "n": "הנהלת חשבונות",
@@ -5528,7 +5658,8 @@
    "years": 2,
    "acad": 29.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3315": {
    "n": "שמאות והערכת נזק",
@@ -5537,7 +5668,8 @@
    "years": 3,
    "acad": 58,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3321": {
    "n": "סוכנוּת ביטוח",
@@ -5546,7 +5678,8 @@
    "years": 3,
    "acad": 51,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3322": {
    "n": "סוכנוּּת מכירות",
@@ -5555,7 +5688,8 @@
    "years": 2,
    "acad": 22.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3323": {
    "n": "קניינות",
@@ -5564,7 +5698,8 @@
    "years": 3,
    "acad": 52.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3324": {
    "n": "תיווך סחר",
@@ -5573,7 +5708,8 @@
    "years": 2,
    "acad": 23,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3325": {
    "n": "ייבוא",
@@ -5582,7 +5718,8 @@
    "years": 3,
    "acad": 43,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3331": {
    "n": "שחרור ושילוח של טובין",
@@ -5591,7 +5728,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3332": {
    "n": "הפקת כנסים ואירועים",
@@ -5600,7 +5738,8 @@
    "years": 3,
    "acad": 45.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3333": {
    "n": "סוכנוּּת תעסוקה וכוח אדם",
@@ -5609,7 +5748,8 @@
    "years": 4,
    "acad": 64.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3334": {
    "n": "סוכנוּּת נדל\"ן וניהול נכסים",
@@ -5618,7 +5758,8 @@
    "years": 3,
    "acad": 43,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3339": {
    "n": "תיווך למכירת שירותים עסקיים",
@@ -5627,7 +5768,8 @@
    "years": 2,
    "acad": 19,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3341": {
    "n": "ניהול משרדים",
@@ -5636,7 +5778,8 @@
    "years": 3,
    "acad": 45.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3342": {
    "n": "מזכירוּת משפטית",
@@ -5645,7 +5788,8 @@
    "years": 2,
    "acad": 32.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3343": {
    "n": "מזכירוּת מִינהלית ומזכירוּת הנהלה",
@@ -5654,7 +5798,8 @@
    "years": 3,
    "acad": 45,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3344": {
    "n": "מזכירוּת רפואית",
@@ -5663,7 +5808,8 @@
    "years": 2,
    "acad": 29.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3351": {
    "n": "פיקוח מכס וגבולות",
@@ -5672,7 +5818,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": true
+   "uniform": true,
+   "secondaryOK": true
   },
   "3352": {
    "n": "פקידוּת ממשלה לענייני מיסים ובלו",
@@ -5681,7 +5828,8 @@
    "years": 3,
    "acad": 59.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3353": {
    "n": "פקידוּת ממשלה לענייני הטבות סוציאליות",
@@ -5690,7 +5838,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3354": {
    "n": "פקידוּת רישוי ממשלתי",
@@ -5699,7 +5848,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3355": {
    "n": "פיקוח משטרתי ובילוש",
@@ -5708,7 +5858,8 @@
    "years": 4,
    "acad": 76.0,
    "shifts": true,
-   "uniform": true
+   "uniform": true,
+   "secondaryOK": true
   },
   "3411": {
    "n": "סיוע בענייני משפט וחקירות",
@@ -5717,7 +5868,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3412": {
    "n": "עיסוקים נלווים לעבודה סוציאלית",
@@ -5726,7 +5878,8 @@
    "years": 2,
    "acad": 34.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3413": {
    "n": "שירותי דת (יהדות)",
@@ -5735,7 +5888,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": false
   },
   "3422": {
    "n": "אימון והדרכה בתחום הספורט",
@@ -5744,7 +5898,8 @@
    "years": 3,
    "acad": 37.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3423": {
    "n": "הדרכה ופיתוח תוכניות בתחום הכושר והפנאי",
@@ -5753,7 +5908,8 @@
    "years": 3,
    "acad": 50.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3431": {
    "n": "צילום",
@@ -5762,7 +5918,8 @@
    "years": 3,
    "acad": 45.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3432": {
    "n": "עיצוב פנים, במה ודקורציה",
@@ -5771,7 +5928,8 @@
    "years": 3,
    "acad": 50.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3434": {
    "n": "שפים ושפיוֹת",
@@ -5780,7 +5938,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3435": {
    "n": "שירותים משלימים לאומנות, תרבות וקולינריה",
@@ -5789,7 +5948,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3512": {
    "n": "הנדסאוּת וטכנאוּת תמיכה בטכנולוגיות מידע",
@@ -5798,7 +5958,8 @@
    "years": 3,
    "acad": 46.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3513": {
    "n": "הנדסאוּת וטכנאוּת רשתות ומערכות מחשבים",
@@ -5807,7 +5968,8 @@
    "years": 2,
    "acad": 29,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3514": {
    "n": "הנדסאוּת וטכנאוּת מרשתת (אינטרנט) ומרשתת פנים (אינטראנט)",
@@ -5816,7 +5978,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "3521": {
    "n": "הנדסאוּת וטכנאוּת שידור ואמצעים אור-קוליים",
@@ -5825,7 +5988,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4110": {
    "n": "פקידוּת משרד",
@@ -5834,7 +5998,8 @@
    "years": 3,
    "acad": 42.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4120": {
    "n": "מזכירוּת",
@@ -5843,7 +6008,8 @@
    "years": 2,
    "acad": 27.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4211": {
    "n": "פקידוּת בבנק או בדואר",
@@ -5852,7 +6018,8 @@
    "years": 4,
    "acad": 63.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4214": {
    "n": "גביית חובות ותשלומים אחרים",
@@ -5861,7 +6028,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4221": {
    "n": "סוכנוּת נסיעות ופקידוּת בתחום הנסיעות",
@@ -5870,7 +6038,8 @@
    "years": 3,
    "acad": 45.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4222": {
    "n": "פקידוּת במוקדי שירות לקוחות",
@@ -5879,7 +6048,8 @@
    "years": 2,
    "acad": 30.0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4223": {
    "n": "הפעלת מרכזיות טלפון",
@@ -5888,7 +6058,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4224": {
    "n": "פקידוּת קבלה בבתי מלון והארחה",
@@ -5897,7 +6068,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4225": {
    "n": "פקידוּת פניות הציבור",
@@ -5906,7 +6078,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4226": {
    "n": "פקידוּת קבלה",
@@ -5915,7 +6088,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4227": {
    "n": "רִאיוּן בסקרים ובחקר שווקים",
@@ -5924,7 +6098,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4311": {
    "n": "פקידוּת בתחומי החשבונאות והנהלת החשבונות",
@@ -5933,7 +6108,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4312": {
    "n": "פקידוּת בתחומי הסטטיסטיקה, הפיננסים והביטוח",
@@ -5942,7 +6118,8 @@
    "years": 2,
    "acad": 34.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4313": {
    "n": "פקידוּת שכר",
@@ -5951,7 +6128,8 @@
    "years": 3,
    "acad": 40,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4321": {
    "n": "פקידוּת מלאי",
@@ -5960,7 +6138,8 @@
    "years": 1,
    "acad": 14.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4323": {
    "n": "פקידוּת תובלה",
@@ -5969,7 +6148,8 @@
    "years": 2,
    "acad": 17,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4412": {
    "n": "דוורוּת ופקידוּת מיון דואר",
@@ -5978,7 +6158,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4415": {
    "n": "פקידוּת תיוק וצילום מסמכים",
@@ -5987,7 +6168,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4416": {
    "n": "פקידוּת משאבי אנוש",
@@ -5996,7 +6178,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "4419": {
    "n": "פקידוּת ועבודה משרדית אחרת",
@@ -6005,7 +6188,8 @@
    "years": 2,
    "acad": 33,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5113": {
    "n": "הדרכת טיולים",
@@ -6014,7 +6198,8 @@
    "years": 4,
    "acad": 71.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5120": {
    "n": "טבחוּת",
@@ -6023,7 +6208,8 @@
    "years": 2,
    "acad": 18.0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5131": {
    "n": "מלצרות",
@@ -6032,7 +6218,8 @@
    "years": 2,
    "acad": 24,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5132": {
    "n": "מזיגת משקאות",
@@ -6041,7 +6228,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5141": {
    "n": "עיצוב שיער",
@@ -6050,7 +6238,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5142": {
    "n": "שירות במכוני יופי וקוסמטיקה",
@@ -6059,7 +6248,8 @@
    "years": 2,
    "acad": 21.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5151": {
    "n": "פיקוח על עבודות ניקיון ותחזוקה",
@@ -6068,7 +6258,8 @@
    "years": 2,
    "acad": 32.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5153": {
    "n": "פיקוח על תחזוקת בניינים",
@@ -6077,7 +6268,8 @@
    "years": 1,
    "acad": 10.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5164": {
    "n": "טיפול וטיפוח חיות מחמד",
@@ -6086,7 +6278,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5165": {
    "n": "הוראת נהיגה",
@@ -6095,7 +6288,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5221": {
    "n": "בעלות על חנויות קמעונאיות קטנות",
@@ -6104,7 +6298,8 @@
    "years": 2,
    "acad": 16.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5222": {
    "n": "פיקוח בחנויות",
@@ -6113,7 +6308,8 @@
    "years": 2,
    "acad": 24.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5223": {
    "n": "עזרה במכירה בחנויות",
@@ -6122,7 +6318,8 @@
    "years": 2,
    "acad": 19.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5230": {
    "n": "קופה ומכירת כרטיסים",
@@ -6131,7 +6328,8 @@
    "years": 2,
    "acad": 16,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5244": {
    "n": "מכירות בטלפון",
@@ -6140,7 +6338,8 @@
    "years": 2,
    "acad": 33.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5245": {
    "n": "עבודה בתחנות דלק",
@@ -6149,7 +6348,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5246": {
    "n": "עבודה בדלפקי מזון",
@@ -6158,7 +6358,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5249": {
    "n": "מכירות בתחומים אחרים",
@@ -6167,7 +6368,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5311": {
    "n": "טיפול בילדים",
@@ -6176,7 +6378,8 @@
    "years": 1,
    "acad": 14.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5312": {
    "n": "סיוע למורים",
@@ -6185,7 +6388,8 @@
    "years": 1,
    "acad": 13.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5321": {
    "n": "טיפול סיעודי במוסדות",
@@ -6194,7 +6398,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5322": {
    "n": "טיפול סיעודי בבתים פרטיים",
@@ -6203,7 +6408,8 @@
    "years": 2,
    "acad": 17.0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5323": {
    "n": "סיוע לרופאי שיניים",
@@ -6212,7 +6418,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5329": {
    "n": "סיוע בתחום הבריאות",
@@ -6221,7 +6428,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "5411": {
    "n": "כבאות",
@@ -6230,7 +6438,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": true
+   "uniform": true,
+   "secondaryOK": true
   },
   "5412": {
    "n": "שיטור",
@@ -6239,7 +6448,8 @@
    "years": 3,
    "acad": 35.0,
    "shifts": true,
-   "uniform": true
+   "uniform": true,
+   "secondaryOK": true
   },
   "5413": {
    "n": "סוֹהרוּת",
@@ -6248,7 +6458,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": true
+   "uniform": true,
+   "secondaryOK": true
   },
   "5414": {
    "n": "אבטחה",
@@ -6257,7 +6468,8 @@
    "years": 2,
    "acad": 15.0,
    "shifts": true,
-   "uniform": true
+   "uniform": true,
+   "secondaryOK": true
   },
   "5419": {
    "n": "אבטחה ופיקוח בתחומים אחרים",
@@ -6266,7 +6478,8 @@
    "years": 2,
    "acad": 22,
    "shifts": true,
-   "uniform": true
+   "uniform": true,
+   "secondaryOK": true
   },
   "6111": {
    "n": "גידול ירקות וגידולי שדה",
@@ -6275,7 +6488,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "6113": {
    "n": "גינון וגידול צמחי גן ומשתלות",
@@ -6284,7 +6498,8 @@
    "years": 2,
    "acad": 15,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "6121": {
    "n": "גידול חיות משק ועבודה במשק חלב",
@@ -6293,7 +6508,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "6122": {
    "n": "גידול עופות",
@@ -6302,7 +6518,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7110": {
    "n": "ניהול עבודה בבניין",
@@ -6311,7 +6528,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7111": {
    "n": "בניית בתים למגורים",
@@ -6320,7 +6538,8 @@
    "years": 1,
    "acad": 7.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7112": {
    "n": "הנחת לבנים ואבני בנייה אחרות",
@@ -6329,7 +6548,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7115": {
    "n": "נגרות בניין",
@@ -6338,7 +6558,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7119": {
    "n": "עבודות אחרות בתחום הבנייה",
@@ -6347,7 +6568,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7120": {
    "n": "ניהול עבודה בהתקנת צנרת ובשרברבות",
@@ -6356,7 +6578,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7121": {
    "n": "התקנת גגות",
@@ -6365,7 +6588,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7122": {
    "n": "רצפוּת והנחת אריחים",
@@ -6374,7 +6598,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7123": {
    "n": "טייחוּת",
@@ -6383,7 +6608,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7126": {
    "n": "התקנת צנרת ושרברבות",
@@ -6392,7 +6618,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7127": {
    "n": "טכנאות מערכות לקירור ולמיזוג אוויר",
@@ -6401,7 +6628,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7131": {
    "n": "צבּעוּת, סיידוּת וכדומה",
@@ -6410,7 +6638,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7132": {
    "n": "צביעה בריסוס ובלכה",
@@ -6419,7 +6648,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7210": {
    "n": "ניהול עבודה ברתכות ובפחחות",
@@ -6428,7 +6658,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7212": {
    "n": "רתכוּת",
@@ -6437,7 +6668,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7213": {
    "n": "עיבוד לוחות מתכת (פחחות)",
@@ -6446,7 +6678,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7214": {
    "n": "מַסגרוּת",
@@ -6455,7 +6688,8 @@
    "years": 1,
    "acad": 10.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7223": {
    "n": "הפעלת מכונות לעיבוד מתכת (חרטוּת וכרסמוּת)",
@@ -6464,7 +6698,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7225": {
    "n": "הפעלת מכונות לעיבוד שבבי ממוחשב (CNC)",
@@ -6473,7 +6708,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7230": {
    "n": "ניהול עבודה במוסך ובתחזוקת מכונות",
@@ -6482,7 +6718,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7231": {
    "n": "מכונאות כלי רכב מנועיים",
@@ -6491,7 +6728,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7232": {
    "n": "מכונאות מנועי כלי טיס",
@@ -6500,7 +6738,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7233": {
    "n": "מכונאות מכונות חקלאיות ותעשייתיות",
@@ -6509,7 +6748,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7313": {
    "n": "צורפוּת",
@@ -6518,7 +6758,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7320": {
    "n": "ניהול עבודה בדפוס",
@@ -6527,7 +6768,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7322": {
    "n": "דפוס",
@@ -6536,7 +6778,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7410": {
    "n": "ניהול עבודה בחשמלאות",
@@ -6545,7 +6788,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7411": {
    "n": "חשמלאות בניין וחשמלאות אחרת (ראשית ומוסמכת)",
@@ -6554,7 +6798,8 @@
    "years": 2,
    "acad": 22.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7412": {
    "n": "מכונאות חשמל והתקנת חשמל",
@@ -6563,7 +6808,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7413": {
    "n": "התקנה ותיקון של קווי חשמל",
@@ -6572,7 +6818,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7414": {
    "n": "חשמלאות מעשית וחשמלאות מסויגת",
@@ -6581,7 +6828,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7421": {
    "n": "התקנה ושירות בתחום האלקטרוניקה",
@@ -6590,7 +6838,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7422": {
    "n": "התקנה ושירות בענף טכנולוגיות המידע",
@@ -6599,7 +6848,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7511": {
    "n": "קצבוּת וסחר בבשר ובדגים",
@@ -6608,7 +6858,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7512": {
    "n": "אפייה, קונדיטוריה וייצור ממתקים",
@@ -6617,7 +6868,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7522": {
    "n": "נגרות רהיטים ואביזרים",
@@ -6626,7 +6878,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "7531": {
    "n": "חייטוּת, תפירה, פרוונות וכובענות",
@@ -6635,7 +6888,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8123": {
    "n": "תכנות של מכונות לעיבוד שבבי ממוחשב (CNC)",
@@ -6644,7 +6898,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8131": {
    "n": "הפעלת מכונות לייצור מוצרים כימיקליים",
@@ -6653,7 +6908,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8141": {
    "n": "הפעלת מכונות לייצור גומי ומוצריו",
@@ -6662,7 +6918,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8142": {
    "n": "הפעלת מכונות לייצור פלסטיק ומוצריו",
@@ -6671,7 +6928,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8143": {
    "n": "הפעלת מכונות לייצור מוצרי נייר",
@@ -6680,7 +6938,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8157": {
    "n": "הפעלת מכונות כביסה",
@@ -6689,7 +6948,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8160": {
    "n": "הפעלת מכונות לייצור מוצרי מזון ומוצרים דומים",
@@ -6698,7 +6958,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8183": {
    "n": "הפעלת מכונות לאריזה, למילוי בבקבוקים ולתיוג מוצרים",
@@ -6707,7 +6968,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8211": {
    "n": "הרכבת מכונות",
@@ -6716,7 +6978,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8212": {
    "n": "הרכבת ציוד חשמלי ואלקטרוני",
@@ -6725,7 +6988,8 @@
    "years": 2,
    "acad": 21.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8219": {
    "n": "הרכבת מוצרים (לא חשמליים)",
@@ -6734,7 +6998,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8321": {
    "n": "נהיגה באופנועים",
@@ -6743,7 +7008,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8322": {
    "n": "נהיגה בכלי רכב מנועיים, במוניות ובטנדרים",
@@ -6752,7 +7018,8 @@
    "years": 1,
    "acad": 6.0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8331": {
    "n": "נהיגה באוטובוסים ובחשמליות",
@@ -6761,7 +7028,8 @@
    "years": 1,
    "acad": 0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8332": {
    "n": "נהיגה במשאיות",
@@ -6770,7 +7038,8 @@
    "years": 1,
    "acad": 4.0,
    "shifts": true,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8340": {
    "n": "ניהול עבודה בהפעלת ציוד בנייה, חפירה וסלילה",
@@ -6779,7 +7048,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8341": {
    "n": "הפעלת מתקנים ניידים בתחום החקלאות והייעור",
@@ -6788,7 +7058,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8342": {
    "n": "הפעלת מתקנים לטיפול בעפר ובחומרים דומים",
@@ -6797,7 +7068,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8343": {
    "n": "הפעלת מנופים ומתקנים דומים",
@@ -6806,7 +7078,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "8344": {
    "n": "הפעלת משאיות הרמה",
@@ -6815,7 +7088,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9111": {
    "n": "עבודות ניקיון ועזרה בבתים פרטיים",
@@ -6824,7 +7098,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9112": {
    "n": "עבודות ניקיון בחללים ציבוריים",
@@ -6833,7 +7108,8 @@
    "years": 1,
    "acad": 10.0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9211": {
    "n": "עבודה בלתי מקצועית בגידולים",
@@ -6842,7 +7118,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9312": {
    "n": "עבודה בלתי מקצועית בתשתיות",
@@ -6851,7 +7128,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9313": {
    "n": "עבודה בלתי מקצועית בבניין",
@@ -6860,7 +7138,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9321": {
    "n": "אריזה ידנית",
@@ -6869,7 +7148,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9329": {
    "n": "עבודה בלתי מקצועית בתעשייה",
@@ -6878,7 +7158,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9333": {
    "n": "טיפול במטענים",
@@ -6887,7 +7168,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9334": {
    "n": "סידור סחורות ומדפים",
@@ -6896,7 +7178,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9412": {
    "n": "עזרה במטבח",
@@ -6905,7 +7188,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9611": {
    "n": "איסוף אשפה ופסולת למִחזור",
@@ -6914,7 +7198,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9613": {
    "n": "טאטוא וניקוי של מרחבים ציבוריים",
@@ -6923,7 +7208,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9621": {
    "n": "שליחויות וסבּלוּת מִטען",
@@ -6932,7 +7218,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   },
   "9629": {
    "n": "עבודה בלתי מקצועית בתחומים אחרים",
@@ -6941,7 +7228,8 @@
    "years": 1,
    "acad": 0,
    "shifts": false,
-   "uniform": false
+   "uniform": false,
+   "secondaryOK": true
   }
  },
  "labels": {

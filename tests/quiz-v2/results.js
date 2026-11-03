@@ -31,8 +31,12 @@ for(const name of Object.keys(personas)){
   console.log('  vs document, what would change: '+(JSON.stringify(chg)===JSON.stringify(docChg)?'same':'different (document: '+(docChg.map(x=>x.join(' — ')).join(' | ')||'none')+')'));
   ok(JSON.stringify(chg)===JSON.stringify(docChg),name+': what would change differs');
   R.dirs.forEach((d,i)=>{const doc=D.dirs[i];
-    const same=d.world===doc[0],occ=d.occs.map(x=>norm(OCN(x.id))),docOcc=doc[1].map(norm);
-    console.log(`  vs document, direction ${i+1}: world ${same?'same':'DIFFERENT ('+doc[0]+')'}; occupations in common ${occ.filter(x=>docOcc.includes(x)).length}/3`);
+    /* an occupation marked secondaryOK:false is not shown in directions 2-3 (the owner's decision after the document): it is not expected there */
+    const nicheNames=new Set(Object.keys(VQ.occupations).filter(id=>VQ.occupations[id].secondaryOK===false).map(id=>norm(OCN(id))));
+    const same=d.world===doc[0],occ=d.occs.map(x=>norm(OCN(x.id))),docAll=doc[1].map(norm),docOcc=i>0?docAll.filter(x=>!nicheNames.has(x)):docAll,skipped=docAll.length-docOcc.length;
+    const common=occ.filter(x=>docOcc.includes(x)).length;
+    console.log(`  vs document, direction ${i+1}: world ${same?'same':'DIFFERENT ('+doc[0]+')'}; occupations in common ${common}/${docOcc.length}${skipped?` (the document also has ${skipped} marked secondaryOK:false, which is left out of directions 2-3 on purpose)`:''}`);
+    ok(common===docOcc.length,name+': direction '+(i+1)+' lacks occupations of the document');
     ok(same,name+': direction '+(i+1)+' is '+d.world+', document '+doc[0])});
   console.log(`  vs document, surprise: ${R.wildcard&&R.wildcard.w===D.wild[0]?'same world':'DIFFERENT'}; occupation ${R.wildcard&&norm(OCN(R.wildcard.id))===norm(D.wild[1])?'same':'different'}`);
   ok(R.wildcard&&R.wildcard.w===D.wild[0],name+': surprise world differs');
@@ -50,4 +54,16 @@ for(const name of Object.keys(personas)){
   ok(cards.length===3&&cards.every(c=>c.tasks.length>=2&&c.tasks.every(t=>t.length<=90)&&c.tags.length<=2),name+': DAY cards are not complete');
   const g=VQR.guessOccs(st,R.top[0]);ok(g.length===2&&g[0].id.slice(0,3)!==g[1].id.slice(0,3),name+': G occupations');
 }
-console.log('\n'+(fails?`${fails} check(s) differ`:'all structural checks passed'));process.exit(0);
+/* secondaryOK:false: stays in direction 1, but is not in directions 2-3, not the surprise, not on a DAY card (and the data can be changed: the field is read when the scores are computed) */
+{const st=run('daniel'),mark=ids=>{ids.forEach(id=>{VQ.occupations[id].secondaryOK=false});VQR.setData(VQR.D)},unmark=ids=>{ids.forEach(id=>{VQ.occupations[id].secondaryOK=true});VQR.setData(VQR.D)};
+  const base=VQR.results(st),d1=base.dirs[0].occs[0].id,d2=base.dirs[1].occs.map(x=>x.id),wc=base.wildcard&&base.wildcard.id;
+  mark([d1,...d2,wc].filter(Boolean));const R2=VQR.results(st),cards=VQR.dayCards(st).map(c=>c.occ);
+  console.log('\n== secondaryOK:false on '+[d1,...d2,wc].join(', ')+' (the first of direction 1, all of direction 2, the surprise)');
+  ok(R2.dirs[0].occs.some(x=>x.id===d1),'it stays in direction 1');
+  ok(R2.dirs.slice(1).every(d=>d.occs.every(x=>![d1,...d2,wc].includes(x.id))),'it is not in directions 2-3');
+  ok(!R2.wildcard||R2.wildcard.id!==wc,'it is not the surprise');
+  ok(cards.every(id=>![d1,...d2,wc].includes(id)),'it is not on a DAY card ('+cards.join(', ')+')');
+  ok(R2.dirs.every(d=>d.occs.length===3),'every direction still has 3 occupations');
+  ok(VQR.results(st).all.some(x=>x.id===d1)&&true,'it is still scored (search and direction 1 keep it)');
+  unmark([d1,...d2,wc].filter(Boolean));if(!VQ.occupations['3413']||VQ.occupations['3413'].secondaryOK!==false){ok(false,'3413 must stay marked false')}else VQ.occupations['3413'].secondaryOK=false;VQR.setData(VQR.D)}
+console.log('\n'+(fails?`${fails} check(s) differ`:'all structural checks passed'));process.exit(fails?1:0);
