@@ -9,6 +9,7 @@ const T=[
   ['routes and degree scores (page)','site.js',90],
   ['integration: adapters, profile, saving (page)','integration.js',240],
   ['review fixes: day screen, focus, results layout, gender (page)','fixes.js',120],
+  ['gender across the site: first-person forms on every page (page)','gender-site.js',120],
   ['screens: personas through the page at 1280 and 360 (page)','ui.js',420],
 ];
 const rows=[];let bad=0;const t0=Date.now();

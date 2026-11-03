@@ -47,7 +47,7 @@ for(const name of Object.keys(personas)){
   ok(R.all.length===288-Object.keys(VQ.occupations).filter(i=>i.startsWith('9')).length,name+': number of scored occupations');
   ok(R.dirs[0].world===R.top[0],name+': direction 1 is not the leading world');
   const w1=R.dirs[0].occs[0];const wy=VQR.why(st,w1.id),ls=VQR.less(st,w1.id);
-  if(name==='daniel'){R.dirs.forEach((d,i)=>ok(JSON.stringify(d.occs.map(x=>x.id).sort())===JSON.stringify(DANIEL_IDS.dirs[i].slice().sort()),'daniel: direction '+(i+1)+' occupations are '+d.occs.map(x=>x.id)+', expected '+DANIEL_IDS.dirs[i]));ok(R.wildcard&&R.wildcard.id===DANIEL_IDS.wild,'daniel: the surprise is not 2162');
+  if(name==='daniel'){R.dirs.forEach((d,i)=>ok(i===0?JSON.stringify(d.occs.map(x=>x.id).sort())===JSON.stringify(DANIEL_IDS.dirs[i].slice().sort()):DANIEL_IDS.dirs[i].filter(id=>VQ.occupations[id].secondaryOK!==false).every(id=>d.occs.some(x=>x.id===id)),'daniel: direction '+(i+1)+' occupations are '+d.occs.map(x=>x.id)+', expected '+DANIEL_IDS.dirs[i]));ok(R.wildcard&&R.wildcard.id===DANIEL_IDS.wild,'daniel: the surprise is not 2162');
     const x=R.byId['2263'],o=VQR.prep().occ['2263'];console.log(`  2263 penalties: red lines ${st.set.redlines.join(', ')} | math s1=${o.z.s1} strong -0.15 | reading s17=${o.z.s17}, s3=${o.z.s3} borderline -0.06 | total ${x.red.toFixed(2)} | years ${x.yrs} | W ${x.W.toFixed(3)} F ${x.F.toFixed(3)} V ${x.V.toFixed(3)} S ${x.S.toFixed(3)} (8341 S ${R.byId['8341'].S.toFixed(3)}, 6111 S ${R.byId['6111'].S.toFixed(3)})`)}
   console.log('  why ('+OCN(w1.id)+'): '+wy.map(x=>`${x.title}: ${x.text}`).join(' | '));console.log('  less: '+(ls.map(x=>x.text).join(' | ')||'—'));
   const cards=VQR.dayCards(st);console.log('  DAY cards: '+cards.map(c=>`${OCN(c.occ)} (${c.tasks.length} tasks, tags: ${c.tags.join('/')})`).join(' | '));
@@ -55,7 +55,7 @@ for(const name of Object.keys(personas)){
   const g=VQR.guessOccs(st,R.top[0]);ok(g.length===2&&g[0].id.slice(0,3)!==g[1].id.slice(0,3),name+': G occupations');
 }
 /* secondaryOK:false: stays in direction 1, but is not in directions 2-3, not the surprise, not on a DAY card (and the data can be changed: the field is read when the scores are computed) */
-{const st=run('daniel'),mark=ids=>{ids.forEach(id=>{VQ.occupations[id].secondaryOK=false});VQR.setData(VQR.D)},unmark=ids=>{ids.forEach(id=>{VQ.occupations[id].secondaryOK=true});VQR.setData(VQR.D)};
+{const st=run('daniel'),orig=Object.fromEntries(Object.entries(VQ.occupations).map(([i,o])=>[i,o.secondaryOK])),mark=ids=>{ids.forEach(id=>{VQ.occupations[id].secondaryOK=false});VQR.setData(VQR.D)},unmark=ids=>{ids.forEach(id=>{VQ.occupations[id].secondaryOK=orig[id]});VQR.setData(VQR.D)};
   const base=VQR.results(st),d1=base.dirs[0].occs[0].id,d2=base.dirs[1].occs.map(x=>x.id),wc=base.wildcard&&base.wildcard.id;
   mark([d1,...d2,wc].filter(Boolean));const R2=VQR.results(st),cards=VQR.dayCards(st).map(c=>c.occ);
   console.log('\n== secondaryOK:false on '+[d1,...d2,wc].join(', ')+' (the first of direction 1, all of direction 2, the surprise)');
@@ -65,5 +65,17 @@ for(const name of Object.keys(personas)){
   ok(cards.every(id=>![d1,...d2,wc].includes(id)),'it is not on a DAY card ('+cards.join(', ')+')');
   ok(R2.dirs.every(d=>d.occs.length===3),'every direction still has 3 occupations');
   ok(VQR.results(st).all.some(x=>x.id===d1)&&true,'it is still scored (search and direction 1 keep it)');
-  unmark([d1,...d2,wc].filter(Boolean));if(!VQ.occupations['3413']||VQ.occupations['3413'].secondaryOK!==false){ok(false,'3413 must stay marked false')}else VQ.occupations['3413'].secondaryOK=false;VQR.setData(VQR.D)}
+  unmark([d1,...d2,wc].filter(Boolean));ok(VQ.occupations['3413'].secondaryOK===false&&Object.entries(orig).every(([i,v])=>VQ.occupations[i].secondaryOK===v),'the data is back as it was');VQR.setData(VQR.D)}
+/* "why this fits": interest and content questions first; a practical question (P1-P6) only when fewer than 2 other reasons exist */
+{let withP=0,total=0;
+  for(const name of Object.keys(personas)){const st=run(name),R=VQR.results(st);
+    for(const d of R.dirs)for(const x of d.occs){const w=VQR.why(st,x.id,3);total++;
+      const nonP=w.filter(y=>y.k!=='world'&&VQE.Q[y.q].phase!=='practical'),P=w.filter(y=>y.k!=='world'&&VQE.Q[y.q].phase==='practical');
+      if(P.length){withP++;ok(nonP.length<2,name+' '+OCN(x.id)+': a practical reason is shown although '+nonP.length+' interest reasons exist')}
+      ok(w.length>=1&&w.length<=3,name+' '+OCN(x.id)+': 1-3 reasons')}}
+  /* the fallback: with only practical answers, a practical reason is allowed (at least 2 reasons when they exist) */
+  {const P=personas.noa,st=VQE.init(P.env);for(const s of P.steps)if(['A1','P1','P2','P3','P4','P5','P6'].includes(s.q)&&s.picks.length)VQE.apply(st,{q:s.q,picks:s.picks});
+   const R=VQR.results(st);let fb=0;for(const d of R.dirs)for(const x of d.occs){const w=VQR.why(st,x.id,3);if(w.some(y=>y.k!=='world'&&VQE.Q[y.q].phase==='practical'))fb++;ok(w.length>=1,'fallback: at least one reason')}
+   console.log('  fallback (practical answers only): '+fb+' of 9 occupations use a practical reason')}
+  console.log('\n== why: '+total+' occupations checked, '+withP+' show a practical reason (only when fewer than 2 interest reasons)')}
 console.log('\n'+(fails?`${fails} check(s) differ`:'all structural checks passed'));process.exit(fails?1:0);

@@ -4409,7 +4409,7 @@
    "acad": 47.0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "1221": {
    "n": "ניהול מכירות ושיווק",
@@ -4559,7 +4559,7 @@
    "acad": 66,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "1412": {
    "n": "ניהול מסעדות",
@@ -4599,7 +4599,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2111": {
    "n": "פיזיקה ואסטרונומיה",
@@ -4709,7 +4709,7 @@
    "acad": 92.0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2151": {
    "n": "הנדסת חשמל",
@@ -4819,7 +4819,7 @@
    "acad": 100.0,
    "shifts": true,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2213": {
    "n": "התמחות ברפואה",
@@ -4829,7 +4829,7 @@
    "acad": 99,
    "shifts": true,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2221": {
    "n": "סיעוד (אחיות ואחים מוסמכים)",
@@ -4859,7 +4859,7 @@
    "acad": 60.0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2250": {
    "n": "וטרינריה",
@@ -4959,7 +4959,7 @@
    "acad": 82.0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2312": {
    "n": "הוראה אקדמית של מדעי הטבע",
@@ -4969,7 +4969,7 @@
    "acad": 98.0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2313": {
    "n": "הוראה אקדמית של הנדסה ואדריכלות",
@@ -4979,7 +4979,7 @@
    "acad": 99.0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2314": {
    "n": "הוראה אקדמית של מקצועות הרפואה",
@@ -4989,7 +4989,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2316": {
    "n": "הוראה אקדמית של מדעי החברה",
@@ -4999,7 +4999,7 @@
    "acad": 99.0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2317": {
    "n": "הוראה אקדמית של מדעי הרוח",
@@ -5009,7 +5009,7 @@
    "acad": 100.0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2322": {
    "n": "הוראה בחינוך העל-תיכון (לא-אקדמי)",
@@ -5119,7 +5119,7 @@
    "acad": 72.0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "2411": {
    "n": "ראיית חשבון",
@@ -5529,7 +5529,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "3122": {
    "n": "פיקוח תעשייתי",
@@ -5949,7 +5949,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "3512": {
    "n": "הנדסאוּת וטכנאוּת תמיכה בטכנולוגיות מידע",
@@ -6059,7 +6059,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "4224": {
    "n": "פקידוּת קבלה בבתי מלון והארחה",
@@ -6159,7 +6159,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "4415": {
    "n": "פקידוּת תיוק וצילום מסמכים",
@@ -6169,7 +6169,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "4416": {
    "n": "פקידוּת משאבי אנוש",
@@ -6189,7 +6189,7 @@
    "acad": 33,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "5113": {
    "n": "הדרכת טיולים",
@@ -6349,7 +6349,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "5246": {
    "n": "עבודה בדלפקי מזון",
@@ -6359,7 +6359,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "5249": {
    "n": "מכירות בתחומים אחרים",
@@ -6369,7 +6369,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "5311": {
    "n": "טיפול בילדים",
@@ -6429,7 +6429,7 @@
    "acad": 0,
    "shifts": true,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "5411": {
    "n": "כבאות",
@@ -6479,7 +6479,7 @@
    "acad": 22,
    "shifts": true,
    "uniform": true,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "6111": {
    "n": "גידול ירקות וגידולי שדה",
@@ -6569,7 +6569,7 @@
    "acad": 0,
    "shifts": false,
    "uniform": false,
-   "secondaryOK": true
+   "secondaryOK": false
   },
   "7120": {
    "n": "ניהול עבודה בהתקנת צנרת ובשרברבות",
