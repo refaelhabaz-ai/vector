@@ -8338,9 +8338,13 @@ VQE.eig=(q,p,exclude)=>{
   return VQE.H(base)-exp;
 };
 VQE.utility=(q,st,exclude)=>{
-  const E=VQ.engine.deepBonus,p=st.p,rk=VQE.rank(p),top=rk[0],sec=rk[1];let u=VQE.eig(q,p,exclude);
-  if(q.phase==='deep'&&q.world===top&&p[top]>=E.minTopP){if(q.kind==='topic')u+=E.topic;else if(q.kind==='reality')u+=E.reality}
-  if(q.phase==='deep'&&q.world===sec&&p[sec]>=E.secondMinP)u+=E.second;
+  /* spec 8.4, as corrected by the owner: topic +0.12 / reality +0.10 for the leading world when p >= 0.30; otherwise +0.04 for a deep question of
+     one of the two leading worlds (the leader included) when that world's p >= 0.22; -0.05 for two reality questions in a row */
+  const E=VQ.engine.deepBonus,p=st.p,rk=VQE.rank(p),top=rk[0];let u=VQE.eig(q,p,exclude);
+  if(q.phase==='deep'){
+    if(q.world===top&&p[top]>=E.minTopP)u+=q.kind==='topic'?E.topic:E.reality;
+    else if((q.world===rk[0]||q.world===rk[1])&&p[q.world]>=E.secondMinP)u+=E.second;
+  }
   if(st.last&&st.last.kind==='reality'&&q.kind==='reality')u-=.05;
   return u;
 };

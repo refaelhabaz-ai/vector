@@ -58,11 +58,11 @@ function personasTest(){
 function rng(seed){let s=seed>>>0;return()=>{s=(s+0x6D2B79F5)>>>0;let t=s;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}}
 function simulate(perWorld,noise,seed){
   const R=rng(seed),res={n:0,top1:0,top3:0,qs:0,max:0,min:99,per:{}};
-  const draw=(w,q,k)=>{ /* a user of world w: an answer is drawn in proportion to its weight for w (weight 0: almost never), and 15% of the answers are random */
+  const draw=(w,q,k)=>{ /* a user of world w (the owner's model): 15% of the answers are a uniform random choice; the rest are drawn in proportion to (0.3 + weight)^1.6 */
     const opts=q.options.filter(VQE.hasAff);
     if(!opts.length||R()<noise){const all=q.options.slice();const out=[];while(out.length<k&&all.length)out.push(all.splice(Math.floor(R()*all.length),1)[0].id);return out}
     const pool=opts.slice(),out=[];
-    while(out.length<k&&pool.length){const ws=pool.map(o=>(o.aff[w]||0)+0.05),tot=ws.reduce((a,b)=>a+b,0);let x=R()*tot,i=0;while(i<pool.length-1&&x>ws[i]){x-=ws[i];i++}out.push(pool.splice(i,1)[0].id)}
+    while(out.length<k&&pool.length){const ws=pool.map(o=>Math.pow(0.3+(o.aff[w]||0),1.6)),tot=ws.reduce((a,b)=>a+b,0);let x=R()*tot,i=0;while(i<pool.length-1&&x>ws[i]){x-=ws[i];i++}out.push(pool.splice(i,1)[0].id)}
     return out};
   for(const w of VQE.W){res.per[w]={n:0,top1:0,top3:0,qs:0};
     for(let u=0;u<perWorld;u++){
