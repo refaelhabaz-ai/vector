@@ -745,6 +745,12 @@ p.intro .linkbtn{color:var(--primary-dark);text-decoration:underline;text-underl
 .pillbtn.acct.in{border-color:transparent;box-shadow:var(--shadow);color:var(--ink);padding-inline:8px 14px}
 .pillbtn.acct .av.sm{width:28px;height:28px;font-size:13px}
 .authw{max-width:440px;margin-inline:auto}
+.gbtn{background:#fff;color:#3c4043;border:1px solid #dadce0;font-weight:600;display:flex;align-items:center;justify-content:center;gap:12px;box-shadow:none}
+.gbtn:hover{background:#f8f9fa;border-color:#c6c9cd}.gbtn svg{width:20px;height:20px;flex:none}.gbtn:disabled{opacity:.7;cursor:progress}
+.auth-consents{display:grid;gap:10px;margin:6px 0 14px}.acons{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.55;color:var(--ink);cursor:pointer;background:#F5F6FB;border-radius:14px;padding:12px 14px}
+.acons input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--primary)}.acons a{color:var(--primary-dark);text-decoration:underline}
+.auth-or{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--muted);font-size:14px}.auth-or:before,.auth-or:after{content:'';height:1px;background:#DADFEB;flex:1}
+.otp{font-size:26px;letter-spacing:.5em;text-align:center}
 .auth-top{text-align:center}.auth-top h2{margin:10px 0 4px}.auth-top .s{margin:0 auto 16px;max-width:38ch}
 .auth-logo svg{width:52px;height:52px}
 .seg{display:flex;gap:4px;background:var(--bg);border-radius:999px;padding:4px}
@@ -4631,7 +4637,7 @@ function fErr(e){const c=e&&e.code;
 async function savePriv(){if(FM.local){if(!FM.me)return;const pv=store.get('forumPriv',{})||{};if(pv.follow!==undefined||pv.seen!==undefined){for(const k of Object.keys(pv))delete pv[k]}pv[FM.me]=FM.priv;store.set('forumPriv',pv);return}try{await FM.db.doc('data/users/'+FM.me+'/forum').set(FM.priv)}catch(e){}}
 const canWrite=()=>FM.state==='ready'&&FM.me&&FM.can!==false;
 const localNote=()=>FM.local?`<div class='fnote fsmall'>מצב בדיקה: שאלות ותשובות חדשות נשמרות רק בדפדפן הזה ואינן מוצגות לאחרים. שאלות שמסומנות "שאלה נפוצה" נענו על ידי צוות וקטור, ואפשר להוסיף להן תשובות.</div>`:'';
-const loginNote=(what='לשאול ולענות')=>`<div class="loginbox"><div><b>כדי ${what} צריך להתחבר</b><p>קריאה פתוחה לכולם. ההרשמה לוקחת חצי דקה, עם אימייל או טלפון.</p></div><div class="lb-b"><button class="btn ask" data-auth="login">התחברות</button><button class="btn soft" data-auth="reg">הרשמה</button></div></div>`;
+const loginNote=(what='לשאול ולענות')=>`<div class="loginbox"><div><b>כדי ${what} צריך להתחבר</b><p>קריאה פתוחה לכולם. ההתחברות לוקחת כמה שניות, עם חשבון Google.</p></div><div class="lb-b"><button class="btn ask" data-auth="login">התחברות</button></div></div>`;
 function writeNote(){
   if(FM.state==='loading')return `<div class="fnote">טוען את הפורום…</div>`;
   if(FM.state==='off')return `<div class="fnote">הפורום פעיל כשפותחים את העמוד ב-claude.ai.</div>`;
@@ -7563,102 +7569,149 @@ function renderTech(){
   </div></section>`;
 }
 
-/* ================= ACCOUNTS =================
-   Email or phone + password. No server yet: accounts live in this browser (localStorage), the password is never stored,
-   only a PBKDF2-SHA256 hash with a random salt (Web Crypto, built into the browser). Same functions can later call a real backend. */
-const ACC={list:()=>store.get('accounts',{})||{},save:L=>store.set('accounts',L),cur(){const s=store.get('session',null);const L=ACC.list();return s&&L[s.id]?L[s.id]:null}};
+/* ================= ACCOUNTS (Supabase) =================
+   Sign-in with Google (and an email one-time code, ready but switched off by SUPA_CFG.emailOtp). No passwords anywhere.
+   Signing in is optional: a visitor who does not sign in gets exactly the site as before (this file's code does not even load the library for them).
+   The library (vendor/supabase-js-<version>.min.js, pinned, same origin, checked with SRI) loads only when a session exists or when "התחברות" is pressed.
+   The key below is the public (publishable) key: it is meant to be in the page, and Row Level Security protects the data.
+   NEVER put a secret / service_role key in this file or in the repo. Design and decisions: docs/accounts/PLAN.md */
+const SUPA_CFG={
+  url:'https://wgarkvjbwzmpdvvrsrni.supabase.co',
+  key:'sb_publishable_Rm7ngD6e2fFrU6i8GTyArw__IhyrXjr',
+  lib:'vendor/supabase-js-2.118.0.min.js',
+  sri:'sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK',
+  emailOtp:false,  /* the one-time code by email: implemented, OFF. To turn on: a domain, an SMTP provider and Hebrew templates with {{ .Token }} (docs/accounts/PLAN.md, "הפעלת קוד במייל") */
+  otpLen:6
+};
+/* what a person must approve before signing in. Every item writes one consent row per kind, with the version of the legal text.
+   A minimum age or a parent's approval (waiting for a lawyer) is one more item here, e.g.
+     {id:'age', kinds:['age'], html:()=>'אני בן/בת 16 לפחות, או שיש לי אישור של הורה'}
+   (the consents table already accepts the kinds 'age' and 'parental'); people who already signed in are asked again for the new kind. */
+const AUTH_CONSENTS=[
+  {id:'tp',kinds:['terms','privacy'],html:()=>`אני מאשר/ת את <a href="#terms" target="_blank" rel="noopener">התקנון</a> ואת <a href="#privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> של האתר`}
+];
+/* the keys stage 2 will keep in the account (income and the scholarship questions that depend on it never leave the device) */
 const SYNC_KEYS=['prof','scores','dir','dir2','path','list','calcRows','calcAr','uni','sch'];
-/* called once at start-up (the store object is created after this file is inlined) */
-function initAccounts(){
-  const set0=store.set;store.set=(k,v)=>{set0(k,v);if(SYNC_KEYS.includes(k)){const a=ACC.cur();if(a){const L=ACC.list();L[a.id].data={...(L[a.id].data||{}),[k]:v};set0('accounts',L)}}};
-  {const a=store.get('techArea','');TF.area=typeof a==='string'&&MH_AREAS.includes(a)?a:''}
-  acctBtn();
-}
-const b64=u=>btoa(String.fromCharCode(...new Uint8Array(u)));
-async function pwHash(pw,salt){
-  if(!(window.crypto&&crypto.subtle))throw {code:'nocrypto'};
-  const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);
-  return b64(await crypto.subtle.deriveBits({name:'PBKDF2',salt:new TextEncoder().encode(salt),iterations:120000,hash:'SHA-256'},k,256));
-}
-const normPhone=s=>{let p=String(s||'').replace(/[\s\-()]/g,'');if(p.startsWith('+972'))p='0'+p.slice(4);else if(p.startsWith('972'))p='0'+p.slice(3);return p};
-const okPhone=p=>/^05\d{8}$/.test(p), okEmail=e=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
-const pwStrength=pw=>{let s=0;if(pw.length>=8)s++;if(pw.length>=12)s++;if(/[a-zA-Z]/.test(pw)&&/\d/.test(pw))s++;if(/[^a-zA-Z0-9]/.test(pw))s++;return s};
-const maskId=a=>a.email?a.email.replace(/^(.).*(@.*)$/,'$1•••$2'):a.phone?a.phone.slice(0,3)+'-•••-'+a.phone.slice(-2):'';
-let AUTH={tab:'login',m:'email',then:null,fails:0,lock:0};
-const EYE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
-function openAuth(o={}){
-  AUTH.tab=o.tab||AUTH.tab||'login';AUTH.then=o.then||null;
-  const reg=AUTH.tab==='reg', m=AUTH.m;
-  openOv(`<div class="authw"><div class="auth-top"><span class="auth-logo" aria-hidden="true"><svg viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#FF6B4A"/><path d="M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28.5" cy="28.5" r="2.6" fill="#fff"/></svg></span>
-      <h2>${reg?'יצירת חשבון באתר':'התחברות לחשבון'}</h2><p class="s">${o.reason?esc(o.reason):reg?'חשבון אחד שומר את הפרופיל, הרשימה והשאלות שלי, ומאפשר לשאול ולענות בפורום.':'ממשיכים מאיפה שעצרתי: הפרופיל, הרשימה והשאלות שלי.'}</p></div>
-    <div class="seg auth-tabs" role="group" aria-label="התחברות או הרשמה"><button type="button" data-atab="login" aria-pressed="${!reg}">התחברות</button><button type="button" data-atab="reg" aria-pressed="${reg}">הרשמה</button></div>
-    <form class="form" id="authf" novalidate>
-      ${reg?`<div class="field"><label for="aname">איך יקראו לי באתר</label><input id="aname" type="text" maxlength="30" autocomplete="nickname" placeholder="למשל: דני כ."><span class="hint">השם מוצג ליד שאלות ותשובות שאני כותב בשמי. אפשר תמיד לכתוב גם בעילום שם.</span></div>`:''}
-      <div class="field"><label>${reg?'איך אירשם':'איך אתחבר'}</label><div class="seg sm"><button type="button" data-am="email" aria-pressed="${m==='email'}">אימייל</button><button type="button" data-am="phone" aria-pressed="${m==='phone'}">טלפון</button></div>
-        ${m==='email'?`<input id="aid" type="email" dir="ltr" aria-label="כתובת אימייל" autocomplete="${reg?'email':'username'}" placeholder="name@example.com" style="margin-top:10px">`:`<input id="aid" type="tel" dir="ltr" inputmode="tel" aria-label="מספר טלפון" autocomplete="tel" placeholder="050-0000000" style="margin-top:10px">`}</div>
-      <div class="field"><label for="apw">סיסמה</label><div class="pwbox"><input id="apw" type="password" autocomplete="${reg?'new-password':'current-password'}" placeholder="${reg?'לפחות 8 תווים, אותיות ומספרים':'הסיסמה שלי'}"><button type="button" class="eye" data-eye="apw" aria-label="הצגת הסיסמה">${EYE}</button></div>
-        ${reg?'<div class="pwm" id="pwm"><i></i><i></i><i></i><i></i></div><span class="hint" id="pwh">לפחות 8 תווים, עם אותיות ומספרים.</span>':''}</div>
-      ${reg?`<div class="field"><label for="apw2">אימות סיסמה</label><div class="pwbox"><input id="apw2" type="password" autocomplete="new-password" placeholder="שוב את אותה סיסמה"><button type="button" class="eye" data-eye="apw2" aria-label="הצגת הסיסמה">${EYE}</button></div></div>`:''}
-      <span class="err" id="aerr2" hidden></span>
-      ${reg?lgConsent('ביצירת החשבון'):''}<button class="btn primary wide" type="submit" id="asub">${reg?'יצירת החשבון':'התחברות'}</button>
-      <p class="auth-sw">${reg?'כבר יש לי חשבון? <button type="button" class="linkbtn" data-atab="login">להתחברות</button>':'אין לי עדיין חשבון? <button type="button" class="linkbtn" data-atab="reg">להרשמה</button>'}</p>
-    </form>
-    <div class="fnote" style="margin:14px 0 0;font-size:14px">מצב בדיקה: כרגע החשבון נשמר רק בדפדפן הזה, והסיסמה נשמרת בצורת גיבוב ולא כטקסט. החשבון אינו מגן על המידע מפני מי שמשתמש במכשיר הזה.</div></div>`);
-  const pw=$('#apw');
-  if(reg)pw.addEventListener('input',()=>{const s=pwStrength(pw.value);document.querySelectorAll('#pwm i').forEach((x,i)=>x.className=i<s?'on s'+s:'');$('#pwh').textContent=!pw.value?'לפחות 8 תווים, עם אותיות ומספרים.':['חלשה מאוד','חלשה','בינונית','טובה','חזקה'][s]});
-  setTimeout(()=>{const f=$('#aname')||$('#aid');if(f)f.focus({preventScroll:true})},60); /* the dialog may be gone by now */
-}
-async function submitAuth(){
-  const reg=AUTH.tab==='reg', err=m=>{const e=$('#aerr2');e.textContent=m;e.hidden=false}, btn=$('#asub');
-  const raw=$('#aid').value.trim(), pw=$('#apw').value, id=AUTH.m==='email'?raw.toLowerCase():normPhone(raw);
-  if(AUTH.m==='email'&&!okEmail(id))return err('כתובת האימייל לא נראית תקינה.');
-  if(AUTH.m==='phone'&&!okPhone(id))return err('מספר טלפון נייד צריך להיות 10 ספרות ולהתחיל ב-05.');
-  const L=ACC.list(), found=Object.values(L).find(a=>(AUTH.m==='email'?a.email:a.phone)===id);
-  btn.disabled=true;
+const legalVer=()=>LEGAL_UPDATED;  /* the version stored with every consent */
+const SUPA={cli:null,loading:null,user:null,did:null,flush:false};
+const SB_KEY='sb-'+SUPA_CFG.url.replace(/^https?:\/\//,'').split('.')[0]+'-auth-token';  /* where the library keeps the session */
+function supaStored(){try{const o=JSON.parse(localStorage.getItem(SB_KEY)||'null');return o&&o.user&&typeof o.user.id==='string'?o.user:null}catch(e){return null}}
+const supaFirst=u=>{const m=(u&&u.user_metadata)||{};return String(m.full_name||m.name||'').trim().split(/\s+/)[0].slice(0,30)};
+/* the name shown on the site (in the forum, in the greeting): chosen by the person, kept ONLY on this device; the default is the first name from Google */
+const ACC={
+  list:()=>store.get('accounts',{})||{},   /* the old local accounts: only read, to move them to the real account */
+  cur(){const u=SUPA.user;if(!u)return null;const nk=store.get('nicks',{})||{},n=String(nk[u.id]||supaFirst(u)||'').trim();return {id:u.id,name:n||'משתמש/ת',email:u.email||'',nick:!!nk[u.id]}}
+};
+const maskId=a=>a.email?a.email.replace(/^(.).*(@.*)$/,'$1•••$2'):'';
+let AUTH={step:'start',email:'',then:null,reason:'',cool:0};
+const SUPA_BASE=()=>location.href.split(/[?#]/)[0];   /* the page itself, without query or hash (a redirect URL that is listed in Supabase) */
+const G_SVG='<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>';
+
+/* ---------- the library: loaded on demand, never required (every failure ends as a friendly message, the site goes on) ---------- */
+function supaLoad(){
+  if(window.supabase&&window.supabase.createClient)return Promise.resolve(true);
+  if(SUPA.loading)return SUPA.loading;
+  return SUPA.loading=new Promise(res=>{
+    const s=document.createElement('script');s.src=SUPA_CFG.lib;s.integrity=SUPA_CFG.sri;s.async=true;let done=false;
+    const fin=ok=>{if(done)return;done=true;clearTimeout(t);if(!ok){SUPA.loading=null;s.remove()}res(ok)},t=setTimeout(()=>fin(false),10000);
+    s.onload=()=>fin(!!(window.supabase&&window.supabase.createClient));s.onerror=()=>fin(false);document.head.appendChild(s)})}
+async function supaClient(){
+  if(SUPA.cli)return SUPA.cli;
+  if(!(await supaLoad()))return null;
   try{
-    if(reg){
-      const name=$('#aname').value.trim();
-      if(name.length<2)return err('איך יקראו לי באתר? לפחות 2 תווים.');
-      if(modCheck(name))return err('השם כולל ביטוי שאי אפשר להציג.');
-      if(pw.length<8||!/[a-zA-Z]/.test(pw)||!/\d/.test(pw))return err('הסיסמה צריכה לכלול לפחות 8 תווים, עם אותיות באנגלית ומספרים.');
-      if(pw!==$('#apw2').value)return err('הסיסמאות לא זהות.');
-      if(found)return err(AUTH.m==='email'?'כבר יש חשבון עם האימייל הזה. אפשר להתחבר.':'כבר יש חשבון עם הטלפון הזה. אפשר להתחבר.');
-      const uid='u'+rid(), salt=rid()+rid();
-      L[uid]={id:uid,name,[AUTH.m]:id,salt,hash:await pwHash(pw,salt),created:Date.now(),data:{}};
-      ACC.save(L);signIn(uid,true);
-    }else{
-      if(Date.now()<AUTH.lock)return err('יותר מדי ניסיונות. אפשר לנסות שוב בעוד חצי דקה.');
-      if(!pw)return err('נא להקליד סיסמה.');
-      if(!found||await pwHash(pw,found.salt)!==found.hash){if(++AUTH.fails>=5){AUTH.lock=Date.now()+30000;AUTH.fails=0}return err('האימייל/הטלפון או הסיסמה לא נכונים.')}
-      AUTH.fails=0;signIn(found.id,false);
-    }
-  }catch(e){err(e&&e.code==='nocrypto'?'הדפדפן הזה לא תומך בהצפנה הנדרשת. אפשר לנסות דפדפן אחר.':'משהו השתבש. אפשר לנסות שוב.')}
-  finally{const b=$('#asub');if(b)b.disabled=false}
+    SUPA.cli=window.supabase.createClient(SUPA_CFG.url,SUPA_CFG.key,{auth:{flowType:'pkce',persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+    SUPA.cli.auth.onAuthStateChange((ev,ses)=>{setTimeout(()=>supaOnAuth(ev,ses),0)}); /* not inside the callback itself: the library waits for it to return */
+  }catch(e){SUPA.cli=null}
+  return SUPA.cli}
+const supaErr=e=>{const m=String((e&&(e.code||e.message))||e||''),st=e&&e.status;
+  return m==='google_off'?'ההתחברות עם Google לא פעילה כרגע. אפשר להמשיך להשתמש באתר בלי להתחבר.'
+    :/rate.?limit|too many|429/i.test(m)||st===429?'נשלחו יותר מדי בקשות. אפשר לנסות שוב בעוד כמה דקות.'
+    :/otp|token|expired|invalid/i.test(m)&&st!==0?'הקוד לא נכון או שפג תוקפו. אפשר לבקש קוד חדש.'
+    :'אין חיבור לשרת ההתחברות כרגע. אפשר להמשיך להשתמש באתר, ולנסות להתחבר מאוחר יותר.'};
+
+/* the Google redirect does not touch the network by itself: if Supabase were down, the person would be sent to a browser error page.
+   So first ask the auth server for its settings (it also says whether Google is switched on); only then go. Gives up after 5 seconds. */
+async function supaPing(){
+  const ac=window.AbortController?new AbortController():null,t=setTimeout(()=>ac&&ac.abort(),5000);
+  try{const r=await fetch(SUPA_CFG.url+'/auth/v1/settings',{headers:{apikey:SUPA_CFG.key},signal:ac?ac.signal:undefined});if(!r.ok)return {ok:false};
+    const j=await r.json().catch(()=>({}));return {ok:true,google:!(j&&j.external&&j.external.google===false)}}
+  catch(e){return {ok:false}}finally{clearTimeout(t)}}
+
+/* ---------- what happens when the session changes ---------- */
+function supaOnAuth(ev,ses){
+  const u=(ses&&ses.user)||null;SUPA.user=u;
+  if(!u){if(ev==='SIGNED_OUT'||ev==='INITIAL_SESSION'){SUPA.did=null;acctBtn()}return}
+  if(['INITIAL_SESSION','SIGNED_IN','USER_UPDATED','TOKEN_REFRESHED'].includes(ev)&&SUPA.did!==u.id){SUPA.did=u.id;supaAfterSignIn(u)}
+  else acctBtn();
 }
-function signIn(uid,isNew){
-  store.set('session',{id:uid,ts:Date.now()});
-  const L=ACC.list(), a=L[uid], d=a.data||{};
-  /* my saved things follow me: an existing account brings back its data, a new account keeps what I already did on this browser */
-  /* what an account holds goes through the same checks as a restored backup */
-  if(!isNew&&Object.keys(d).length){const nz=(k,v)=>{const n=NORM[k](v);return n===undefined?null:n};
-    if(d.prof!==undefined){S.prof=nz('prof',d.prof);store.set('prof',S.prof)}if(d.scores!==undefined){S.sc=nz('scores',d.scores);store.set('scores',S.sc)}if(d.dir!==undefined){store.set('dir',nz('dir',d.dir))}if(d.dir2!==undefined){store.set('dir2',nz('dir2',d.dir2));VQU.loaded=false;VQ_RC=null}if(d.path!==undefined){store.set('path',nz('path',d.path));PTH=null}if(d.calcRows!==undefined){store.set('calcRows',nz('calcRows',d.calcRows));CALC_ROWS=null;JR.sim=null}
-    if(d.list!==undefined){S.list=new Set(nz('list',d.list)||[]);store.set('list',[...S.list])}if(d.uni!==undefined){S.uni=nz('uni',d.uni);store.set('uni',S.uni)}if(d.sch!==undefined){store.set('sch',isObj(d.sch)?schParse(d.sch):null);SCHS=null}}
-  else{a.data={prof:S.prof,scores:S.sc,dir:store.get('dir',null),dir2:store.get('dir2',null),path:store.get('path',null),calcRows:store.get('calcRows',null),list:[...S.list],uni:S.uni,sch:store.get('sch',null)};L[uid]=a;ACC.save(L)}
-  const then=AUTH.then;AUTH.then=null;closeOv(true);
-  if(FM.local)localForum();
-  acctBtn();render();toast(isNew?`ברוך הבא, ${a.name}! החשבון נוצר`:`שלום ${a.name}, התחברת`);
-  if(then)setTimeout(then,80);
+async function supaAfterSignIn(u){
+  const ret=sessionStorage.getItem('kivun3.authret'),fresh=ret!==null||AUTH.step==='code';
+  try{sessionStorage.removeItem('kivun3.authret')}catch(e){}
+  if(fresh){const then=AUTH.then;AUTH.then=null;AUTH.step='start';closeOv(true);if(ret!==null&&ret!==location.hash)location.hash=ret
+    if(FM.local)localForum();acctBtn();render();toast('התחברת לחשבון');if(then)setTimeout(then,80)}
+  else{if(FM.local)localForum();acctBtn()}
+  await supaConsents(u);
+  if(ACC.cur()&&!ACC.cur().nick)openNick(true);
 }
-function signOut(){store.set('session',null);closeOv(true);if(FM.local)localForum();acctBtn();render();toast('התנתקת מהחשבון')}
+/* the approval before signing in is written once the account exists; what is still missing for this version of the legal text is asked for now */
+async function supaConsents(u){
+  const c=SUPA.cli;if(!c)return;
+  const need=[...new Set(AUTH_CONSENTS.flatMap(x=>x.kinds))],ver=legalVer();let pend=null;
+  try{pend=JSON.parse(localStorage.getItem('kivun3.consp')||'null')}catch(e){}
+  const rows=k=>k.map(kind=>({user_id:u.id,kind,version:ver}));
+  if(pend&&Array.isArray(pend.kinds)&&pend.ver===ver){
+    const {error}=await c.from('consents').upsert(rows(pend.kinds.filter(k=>need.includes(k))),{onConflict:'user_id,kind,version',ignoreDuplicates:true});
+    if(!error){try{localStorage.removeItem('kivun3.consp')}catch(e){}}
+  }
+  const {data,error}=await c.from('consents').select('kind').eq('version',ver);
+  if(error||!Array.isArray(data))return;   /* no connection: do not block, ask again next time */
+  const have=new Set(data.map(r=>r.kind)),miss=need.filter(k=>!have.has(k));
+  if(miss.length)openConsent(miss);
+}
+function consentBoxes(only){
+  return AUTH_CONSENTS.filter(x=>!only||x.kinds.some(k=>only.includes(k))).map(x=>`<label class="acons"><input type="checkbox" data-aconsent="${x.id}"><span>${vqT(x.html())}</span></label>`).join('')}
+const allConsented=()=>[...document.querySelectorAll('#ov [data-aconsent]')].every(i=>i.checked);
+
+/* ---------- screens ---------- */
+function openAuth(o={}){
+  AUTH.then=o.then||null;AUTH.reason=o.reason||'';if(AUTH.step!=='code')AUTH.step='start';
+  const code=AUTH.step==='code',em=SUPA_CFG.emailOtp;
+  openOv(`<div class="authw"><div class="auth-top"><span class="auth-logo" aria-hidden="true"><svg viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#FF6B4A"/><path d="M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28.5" cy="28.5" r="3" fill="#fff"/></svg></span>
+      <h2>התחברות לאתר</h2><p class="s">${o.reason?esc(o.reason):'חשבון שומר את הפרופיל, הרשימה והשאלון שלי, כדי שימשיכו איתי בכל מכשיר.'}</p></div>
+    ${code?`<form class="form" id="otpf" novalidate><p class="s" style="text-align:center">שלחנו קוד בן ${SUPA_CFG.otpLen} ספרות אל <b dir="ltr">${esc(AUTH.email)}</b></p>
+      <div class="field"><label for="otpc">הקוד מהמייל</label><input id="otpc" class="otp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="${SUPA_CFG.otpLen}" dir="ltr" placeholder="${'•'.repeat(SUPA_CFG.otpLen)}"></div>
+      <span class="err" id="aerr2" role="alert" hidden></span>
+      <button class="btn primary wide" type="submit" id="otpv">אישור והתחברות</button>
+      <p class="auth-sw"><button type="button" class="linkbtn" data-otpresend>שליחת קוד חדש</button> · <button type="button" class="linkbtn" data-otpback>כתובת אחרת</button></p></form>`
+    :`<div class="auth-consents">${consentBoxes()}</div>
+      <span class="err" id="aerr2" role="alert" hidden></span>
+      <button class="btn gbtn wide" type="button" id="gbtn" data-gauth>${G_SVG}<span>התחברות עם Google</span></button>
+      ${em?`<div class="auth-or" aria-hidden="true"><span>או</span></div>
+      <form class="form" id="emlf" novalidate><div class="field"><label for="aeml">אימייל</label><input id="aeml" type="email" dir="ltr" autocomplete="email" placeholder="name@example.com"></div>
+        <button class="btn soft wide" type="submit" id="emls">שליחת קוד למייל</button></form>`:''}
+      <p class="fine" style="margin-top:14px">אפשר להמשיך להשתמש באתר גם בלי להתחבר. ההתחברות רשות.</p>
+      <div class="fnote" style="margin:12px 0 0;font-size:14px"><b>מה נשמר ואיפה:</b> אחרי ההתחברות הפרופיל, הציונים, הרשימה, המסלול ותשובות השאלון נשמרים בשרת (Supabase, פרנקפורט) כדי שיופיעו בכל מכשיר. מצב כלכלי במשפחה ושאלות המלגות שתלויות בו נשארים רק במכשיר. הפירוט במדיניות הפרטיות (טיוטה).</div>`}
+  </div>`);
+  setTimeout(()=>{const f=$('#otpc')||$('#ov [data-aconsent]');if(f)f.focus({preventScroll:true})},60);
+}
+function openConsent(miss){
+  openOv(`<div class="authw"><div class="auth-top"><h2>אישור לפני שממשיכים</h2><p class="s">${vqT('כדי להמשיך להשתמש בחשבון צריך לאשר את הנוסח המעודכן.')}</p></div>
+    <div class="auth-consents">${consentBoxes(miss)}</div><span class="err" id="aerr2" role="alert" hidden></span>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="btn primary" type="button" data-cons-ok="${miss.join(',')}">אישור והמשך</button><button class="btn soft" type="button" data-signout>התנתקות</button></div></div>`);
+}
+function openNick(first){
+  const a=ACC.cur();if(!a)return;
+  openOv(`<div class="authw"><div class="auth-top"><h2>${first?'איך יקראו לי באתר?':'השם שמוצג באתר'}</h2><p class="s">השם מוצג ליד שאלות ותשובות שאני כותב בפורום, ונשמר רק במכשיר הזה. אפשר גם לכתוב בעילום שם.</p></div>
+    <form class="form" id="nickf" novalidate><div class="field"><label for="anm">שם</label><input id="anm" type="text" maxlength="30" autocomplete="nickname" value="${esc(a.name==='משתמש/ת'?'':a.name)}"></div>
+      <span class="err" id="acerr" role="alert" hidden></span><button class="btn primary" type="submit">שמירה</button></form></div>`);
+  setTimeout(()=>{const f=$('#anm');if(f)f.focus({preventScroll:true})},60);
+}
 function openAcct(){
   const a=ACC.cur();if(!a)return openAuth();
   const nQ=Object.keys(((FM.docs||{})[a.id]||{}).q||{}).length, nA=Object.keys(((FM.docs||{})[a.id]||{}).a||{}).length;
   openOv(`<div class="authw"><div class="acct-h">${avatarFor(a.id,a.name)}<div><h2 style="margin:0">${esc(a.name)}</h2><p class="s" style="margin:2px 0 0" dir="ltr">${esc(maskId(a))}</p></div></div>
     <div class="fstats num" style="margin:14px 0"><span><b>${S.list.size}</b>תארים ברשימה</span><span><b>${nQ}</b>שאלות</span><span><b>${nA}</b>תשובות</span></div>
-    <form class="form" id="acctf" novalidate><div class="field"><label for="anm">השם שמוצג באתר</label><input id="anm" type="text" maxlength="30" value="${esc(a.name)}"></div>
-      <span class="err" id="acerr" hidden></span>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary" type="submit">שמירת השם</button><button type="button" class="btn soft" data-prof>הפרופיל שלי</button><button type="button" class="btn soft" data-signout>התנתקות</button></div></form>
-    <p style="margin-top:18px"><button class="linkbtn" data-acctdel style="color:#C0392B;text-decoration:underline">מחיקת החשבון</button></p></div>`);
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn soft" type="button" data-nick>שינוי השם</button><button type="button" class="btn soft" data-prof>הפרופיל שלי</button><button type="button" class="btn soft" data-signout>התנתקות</button></div></div>`);
 }
 function avatarFor(uid,name){const c=AV_C[hash(uid||'x')%AV_C.length];return `<span class="av lg" style="background:${c}" aria-hidden="true">${esc((name||'?').trim().charAt(0))}</span>`}
 function acctBtn(){
@@ -7666,16 +7719,92 @@ function acctBtn(){
   if(!b){b=document.createElement('button');b.id='acctBtn';b.className='pillbtn acct';tools.appendChild(b)}
   const a=ACC.cur();
   b.innerHTML=a?`${avatarFor(a.id,a.name).replace('av lg','av sm')}<span>${esc(a.name.split(' ')[0])}</span>`:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span>התחברות</span>`;
-  b.classList.toggle('in',!!a);b.setAttribute('aria-label',a?'החשבון שלי':'התחברות או הרשמה');
+  b.classList.toggle('in',!!a);b.setAttribute('aria-label',a?'החשבון שלי':'התחברות');
 }
 /* forum writing needs an account (reading is open to everyone) */
-function needLogin(reason,then){if(!FM.local||ACC.cur())return false;openAuth({tab:'login',reason,then});return true}
+function needLogin(reason,then){if(!FM.local||ACC.cur())return false;openAuth({reason,then});return true}
+
+/* ---------- actions ---------- */
+const authErr=m=>{const e=$('#aerr2');if(e){e.textContent=m;e.hidden=false}};
+async function authGoogle(){
+  const err=authErr;if(!allConsented()){err(vqT('כדי להמשיך צריך לאשר את התקנון ואת מדיניות הפרטיות.'));const i=$('#ov [data-aconsent]:not(:checked)');if(i)i.focus();return}
+  const b=$('#gbtn');b.disabled=true;b.querySelector('span').textContent='מעביר ל-Google...';
+  try{
+    const c=await supaClient();if(!c)throw {status:0};
+    const pg=await supaPing();if(!pg.ok)throw {status:0};if(!pg.google)throw {code:'google_off'};
+    try{sessionStorage.setItem('kivun3.authret',location.hash)}catch(e){}
+    const kinds=[...new Set(AUTH_CONSENTS.flatMap(x=>x.kinds))];
+    try{localStorage.setItem('kivun3.consp',JSON.stringify({kinds,ver:legalVer(),ts:Date.now()}))}catch(e){}
+    const {error}=await c.auth.signInWithOAuth({provider:'google',options:{redirectTo:SUPA_BASE()}});
+    if(error)throw error;
+  }catch(e){try{sessionStorage.removeItem('kivun3.authret')}catch(x){}
+    const b2=$('#gbtn');if(b2){b2.disabled=false;b2.querySelector('span').textContent='התחברות עם Google'}err(supaErr(e))}
+}
+async function authSendCode(){
+  if(!SUPA_CFG.emailOtp)return;
+  const em=($('#aeml').value||'').trim().toLowerCase();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em))return authErr('כתובת האימייל לא נראית תקינה.');
+  if(!allConsented())return authErr(vqT('כדי להמשיך צריך לאשר את התקנון ואת מדיניות הפרטיות.'));
+  const b=$('#emls');b.disabled=true;
+  try{const c=await supaClient();if(!c)throw {status:0};
+    const {error}=await c.auth.signInWithOtp({email:em,options:{shouldCreateUser:true}});if(error)throw error;
+    const kinds=[...new Set(AUTH_CONSENTS.flatMap(x=>x.kinds))];try{localStorage.setItem('kivun3.consp',JSON.stringify({kinds,ver:legalVer(),ts:Date.now()}))}catch(e){}
+    AUTH.email=em;AUTH.step='code';openAuth({then:AUTH.then,reason:AUTH.reason});
+  }catch(e){const b2=$('#emls');if(b2)b2.disabled=false;authErr(supaErr(e))}
+}
+async function authVerify(){
+  const t=($('#otpc').value||'').replace(/\D/g,'');if(t.length!==SUPA_CFG.otpLen)return authErr(`הקוד הוא ${SUPA_CFG.otpLen} ספרות.`);
+  const b=$('#otpv');b.disabled=true;
+  try{const c=await supaClient();if(!c)throw {status:0};
+    const {error}=await c.auth.verifyOtp({email:AUTH.email,token:t,type:'email'});if(error)throw error;
+    /* the session event closes the screen */
+  }catch(e){const b2=$('#otpv');if(b2)b2.disabled=false;authErr(supaErr(e))}
+}
+async function signOut(){
+  closeOv(true);
+  try{const c=SUPA.cli||(SUPA.user?await supaClient():null);if(c)await Promise.race([c.auth.signOut({scope:'local'}),new Promise(r=>setTimeout(r,4000))])}catch(e){}
+  try{localStorage.removeItem(SB_KEY);localStorage.removeItem(SB_KEY+'-code-verifier')}catch(e){}   /* whatever the network did, this device is signed out */
+  SUPA.user=null;SUPA.did=null;if(FM.local)localForum();acctBtn();render();toast('התנתקת מהחשבון')}
+function saveNick(n){const a=ACC.cur();if(!a)return;const nk={...(store.get('nicks',{})||{})};nk[a.id]=n;store.set('nicks',nk);FM.names[a.id]=n;closeOv(true);if(FM.local)localForum();acctBtn();render();toast('השם נשמר')}
+
+/* called once at start-up */
+function initAccounts(){
+  {const a=store.get('techArea','');TF.area=typeof a==='string'&&MH_AREAS.includes(a)?a:''}
+  SUPA.user=supaStored();acctBtn();
+  const back=/[?&](code|error)=/.test(location.search);
+  if(back&&/[?&]error=/.test(location.search)){setTimeout(()=>toast('ההתחברות בוטלה או לא הצליחה'),400);try{localStorage.removeItem('kivun3.consp');sessionStorage.removeItem('kivun3.authret')}catch(e){}try{history.replaceState(null,'',SUPA_BASE()+location.hash)}catch(e){}}
+  if(back)setTimeout(()=>{supaClient()},0);else if(SUPA.user){const go=()=>{supaClient()};window.requestIdleCallback?requestIdleCallback(go,{timeout:1500}):setTimeout(go,1200)}   /* a signed-in or returning visitor: load in the idle time, off the first paint */
+  window.addEventListener('online',()=>{if(SUPA.user)supaClient()});
+  document.addEventListener('click',e=>{
+    const el=e.target.closest('[data-gauth],[data-otpresend],[data-otpback],[data-cons-ok],[data-nick]');if(!el)return;const ds=el.dataset;
+    if(ds.gauth!==undefined)authGoogle();
+    else if(ds.otpresend!==undefined){AUTH.step='start';authSendCodeAgain()}
+    else if(ds.otpback!==undefined){AUTH.step='start';openAuth({then:AUTH.then,reason:AUTH.reason})}
+    else if(ds.consOk!==undefined){if(!allConsented())return authErr(vqT('כדי להמשיך צריך לאשר.'));
+      const a=SUPA.user,c=SUPA.cli,kinds=ds.consOk.split(',');
+      Promise.resolve(c&&a?c.from('consents').upsert(kinds.map(kind=>({user_id:a.id,kind,version:legalVer()})),{onConflict:'user_id,kind,version',ignoreDuplicates:true}):{error:{}}).then(r=>{
+        if(r&&r.error){try{localStorage.setItem('kivun3.consp',JSON.stringify({kinds,ver:legalVer(),ts:Date.now()}))}catch(e){}}closeOv(true)})}
+    else if(ds.nick!==undefined)openNick(false);
+  });
+  document.addEventListener('submit',e=>{
+    if(e.target.id==='emlf'){e.preventDefault();authSendCode()}
+    else if(e.target.id==='otpf'){e.preventDefault();authVerify()}
+    else if(e.target.id==='nickf'){e.preventDefault();const n=$('#anm').value.trim(),er=$('#acerr');
+      if(n&&(n.length<2||modCheck(n))){er.textContent=n.length<2?'לפחות 2 תווים.':'השם כולל ביטוי שאי אפשר להציג.';er.hidden=false;return}
+      saveNick(n||supaFirst(SUPA.user)||'משתמש/ת')}
+  });
+}
+async function authSendCodeAgain(){
+  if(Date.now()<AUTH.cool)return;AUTH.cool=Date.now()+60000;
+  try{const c=await supaClient();if(!c)throw {status:0};const {error}=await c.auth.signInWithOtp({email:AUTH.email,options:{shouldCreateUser:true}});if(error)throw error;AUTH.step='code';openAuth({then:AUTH.then,reason:AUTH.reason});toast('שלחנו קוד חדש')}
+  catch(e){AUTH.step='code';openAuth({then:AUTH.then,reason:AUTH.reason});authErr(supaErr(e))}
+}
 
 /* ---------- events ---------- */
 document.addEventListener('click',e=>{
-  const el=e.target.closest('[data-mode],[data-techq],[data-jobsq],[data-shelfall],[data-jg],[data-jt],[data-jclear],[data-jclearq],[data-jmore],[data-tk],[data-tclear],[data-tclearq],[data-atab],[data-am],[data-eye],[data-auth],[data-signout],[data-acctdel],#acctBtn');
+  const el=e.target.closest('[data-mode],[data-techq],[data-jobsq],[data-shelfall],[data-jg],[data-jt],[data-jclear],[data-jclearq],[data-jmore],[data-tk],[data-tclear],[data-tclearq],[data-auth],[data-signout],#acctBtn');
   if(!el)return;const ds=el.dataset;
-  if(el.id==='acctBtn'){ACC.cur()?openAcct():openAuth({tab:'login'})}
+  if(el.id==='acctBtn'){ACC.cur()?openAcct():openAuth({})}
   else if(ds.mode!==undefined){if(S.mode===ds.mode)return;const v=($('#q')||{}).value||'';S.mode=ds.mode;store.set('mode',S.mode);
     render();const q=$('#q');if(q){q.value=v;if(v){q.focus({preventScroll:true});q.dispatchEvent(new Event('input'))}}}
   else if(ds.techq!==undefined){TF.q=(($('#q')||{}).value||'').trim();TF.kind='';go('tech')}
@@ -7689,19 +7818,8 @@ document.addEventListener('click',e=>{
   else if(ds.tk!==undefined){TF.kind=ds.tk;refreshTech()}
   else if(ds.tclear!==undefined){TF.kind='';TF.area='';store.set('techArea','');refreshTech()}
   else if(ds.tclearq!==undefined){TF.q='';const q=$('#tq');if(q)q.value='';refreshTech()}
-  else if(ds.atab!==undefined){AUTH.tab=ds.atab;openAuth({tab:ds.atab,then:AUTH.then})}
-  else if(ds.am!==undefined){AUTH.m=ds.am;openAuth({tab:AUTH.tab,then:AUTH.then})}
-  else if(ds.eye!==undefined){const i=document.getElementById(ds.eye);if(i){i.type=i.type==='password'?'text':'password';el.classList.toggle('on',i.type==='text')}}
-  else if(ds.auth!==undefined){openAuth({tab:ds.auth||'login'})}
+  else if(ds.auth!==undefined){openAuth({})}
   else if(ds.signout!==undefined){signOut()}
-  else if(ds.acctdel!==undefined){const a=ACC.cur();if(!a||!confirm('למחוק את החשבון? השאלות והתשובות שכתבתי יימחקו מהדפדפן הזה.'))return;
-    const L=ACC.list();delete L[a.id];ACC.save(L);if(FM.docs&&FM.docs[a.id]){delete FM.docs[a.id];store.set('forum',FM.docs)}signOut();toast('החשבון נמחק')}
-});
-document.addEventListener('submit',e=>{
-  if(e.target.id==='authf'){e.preventDefault();submitAuth()}
-  else if(e.target.id==='acctf'){e.preventDefault();const a=ACC.cur(),n=$('#anm').value.trim(),er=$('#acerr');
-    if(n.length<2||modCheck(n)){er.textContent=n.length<2?'לפחות 2 תווים.':'השם כולל ביטוי שאי אפשר להציג.';er.hidden=false;return}
-    const L=ACC.list();L[a.id].name=n;ACC.save(L);FM.names[a.id]=n;closeOv(true);acctBtn();render();toast('השם עודכן')}
 });
 document.addEventListener('input',e=>{if(e.target.id==='tq'){TF.q=e.target.value;refreshTech()}});
 document.addEventListener('change',e=>{const id=e.target.id;
@@ -8444,7 +8562,7 @@ function vqIntro(){
       ${part?`<button class="btn soft xl" data-vqresume>להמשיך מאיפה שעצרתי</button>`:''}${VQU.done?'<button class="btn soft xl" data-vqres>לתוצאות שלי</button>':''}</div>
     ${!VQU.done&&!n&&((store.get('dir',null)||{}).done)?`<p class="nodata vq-new" role="note"><b>יש שאלון חדש וקצר.</b> ${vqT('ענית פעם על השאלון הארוך. החדש לוקח כ-4 דקות, מנחש ומדייק, ואפשר לענות עליו שוב.')}</p>`:''}
     ${rec?`<p class="nodata" style="margin-top:14px">עברו יותר מ-30 יום מאז שענית. תחומי עניין משתנים, ושווה לענות שוב.</p>`:''}
-    <p class="fine" style="margin-top:18px">התשובות נשמרות אוטומטית בדפדפן${typeof ACC!=='undefined'&&ACC.cur()?' ובחשבון שלי':''}, ואפשר לעצור ולחזור. זה כלי לחקירה, לא מבחן פסיכולוגי.</p>
+    <p class="fine" style="margin-top:18px">התשובות נשמרות אוטומטית בדפדפן, ואפשר לעצור ולחזור. זה כלי לחקירה, לא מבחן פסיכולוגי.</p>
   </div></section>`;
 }
 function vqTrans(){

@@ -35,6 +35,13 @@ do $$ begin begin insert into consents(user_id,kind,version) values ('aaaaaaaa-0
 do $$ begin begin update consents set version='y'; raise exception 'FAIL  consents update allowed'; exception when insufficient_privilege then raise notice 'PASS  consents cannot be updated by users'; end; end $$;
 do $$ begin begin insert into user_data(user_id,key,value) values (auth.uid(),'anything','{}'); raise exception 'FAIL  free-form key accepted'; exception when check_violation then raise notice 'PASS  user_data accepts only the known keys'; end; end $$;
 
+do $$ begin begin insert into user_data(user_id,key,value) values (auth.uid(),'prof','{"stage":"g12","inc":"low"}'); raise exception 'FAIL  income field accepted in prof'; exception when check_violation then raise notice 'PASS  the server rejects local-only fields (inc) in prof'; end; end $$;
+do $$ begin begin insert into user_data(user_id,key,value) values (auth.uid(),'prof','{"stage":"g12","svc":"x"}'); raise exception 'FAIL  svc accepted in prof'; exception when check_violation then raise notice 'PASS  the server rejects local-only fields (svc) in prof'; end; end $$;
+insert into user_data(user_id,key,value) values (auth.uid(),'prof','{"stage":"g12","house":"home","work":"no","years":3}');
+select pg_temp.check('prof without the local-only fields is accepted', (select count(*) from user_data)=1);
+insert into consents(kind,version) values ('age','2026-11-03'),('parental','2026-11-03');
+do $$ begin begin insert into consents(kind,version) values ('marketing','x'); raise exception 'FAIL  unknown consent kind accepted'; exception when check_violation then raise notice 'PASS  consents: age/parental accepted (reserved), unknown kinds rejected'; end; end $$;
+
 -- anonymous: nothing at all
 reset role; set role anon; select pg_temp.as_user('');
 do $$ begin begin perform count(*) from user_data; raise exception 'FAIL  anon can read user_data'; exception when insufficient_privilege then raise notice 'PASS  anon cannot read user_data'; end; end $$;
@@ -46,8 +53,8 @@ reset role; set role authenticated; select pg_temp.as_user('aaaaaaaa-0000-0000-0
 select delete_my_account();
 reset role;
 select pg_temp.check('delete_my_account removed A and all of A rows', (select count(*) from auth.users where id='aaaaaaaa-0000-0000-0000-000000000001')=0
-  and (select count(*) from user_data)+(select count(*) from profiles)+(select count(*) from quiz_sessions)+(select count(*) from quiz_answers)+(select count(*) from consents)=0);
-select pg_temp.check('delete_my_account left B untouched', (select count(*) from auth.users where id='bbbbbbbb-0000-0000-0000-000000000002')=1);
+  and (select count(*) from user_data where user_id='aaaaaaaa-0000-0000-0000-000000000001')+(select count(*) from profiles where user_id='aaaaaaaa-0000-0000-0000-000000000001')+(select count(*) from quiz_sessions)+(select count(*) from quiz_answers)+(select count(*) from quiz_results)+(select count(*) from consents where user_id='aaaaaaaa-0000-0000-0000-000000000001')=0);
+select pg_temp.check('delete_my_account left B untouched (user and rows)', (select count(*) from auth.users where id='bbbbbbbb-0000-0000-0000-000000000002')=1 and (select count(*) from user_data where user_id='bbbbbbbb-0000-0000-0000-000000000002')=1 and (select count(*) from consents where user_id='bbbbbbbb-0000-0000-0000-000000000002')=2);
 set role authenticated; select pg_temp.as_user('');
 do $$ begin begin perform delete_my_account(); raise exception 'FAIL  no-uid call allowed'; exception when sqlstate '28000' then raise notice 'PASS  delete_my_account refuses a call without a user'; end; end $$;
 reset role;

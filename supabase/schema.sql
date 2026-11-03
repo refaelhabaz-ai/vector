@@ -38,7 +38,10 @@ create table if not exists public.user_data (
   -- רק המפתחות שהאתר מסנכרן. מפתח חדש באתר דורש להוסיף אותו כאן.
   constraint user_data_key_ok  check (key in ('prof','scores','dir','dir2','path','list','calcRows','calcAr','uni','sch')),
   -- הגבלת גודל (256KB לערך): מונע שימוש לרעה כאחסון כללי
-  constraint user_data_size_ok check (octet_length(value::text) <= 262144)
+  constraint user_data_size_ok check (octet_length(value::text) <= 262144),
+  -- שדות רגישים שנשארים רק במכשיר ולעולם לא עולים לשרת (החלטת הבעלים): הכנסה/מצב כלכלי במשפחה ושאלות המלגות
+  -- שתלויות בהם. האתר לא שולח אותם; זו הגנה שנייה: גם אם יהיה באג באתר, השרת ידחה. הרשימה: docs/accounts/PLAN.md
+  constraint user_data_prof_local_only check (key <> 'prof' or not (value ?| array['inc','first','svc','res','resAt']))
 );
 
 -- ----------------------------------------------------------------------------
@@ -108,11 +111,19 @@ create table if not exists public.quiz_results (
 -- ----------------------------------------------------------------------------
 create table if not exists public.consents (
   user_id     uuid        not null default auth.uid() references auth.users (id) on delete cascade,
-  kind        text        not null check (kind in ('terms','privacy')),
+  -- terms, privacy: אישור בהרשמה. age, parental: שמורים לעתיד (גיל מינימום / אישור הורה, לפי עורך הדין), בלי צורך לשנות סכמה
+  kind        text        not null,
   version     text        not null check (char_length(version) <= 32),  -- למשל תאריך עדכון התקנון
   accepted_at timestamptz not null default now(),
   primary key (user_id, kind, version)
 );
+
+-- אילוצים שנוספו אחרי היצירה הראשונה: עדכון בטוח גם אם הטבלאות כבר קיימות (drop + add, ללא איבוד נתונים)
+alter table public.user_data drop constraint if exists user_data_prof_local_only;
+alter table public.user_data add  constraint user_data_prof_local_only
+  check (key <> 'prof' or not (value ?| array['inc','first','svc','res','resAt']));
+alter table public.consents  drop constraint if exists consents_kind_check;
+alter table public.consents  add  constraint consents_kind_check check (kind in ('terms','privacy','age','parental'));
 
 -- ----------------------------------------------------------------------------
 -- טריגרים של updated_at
