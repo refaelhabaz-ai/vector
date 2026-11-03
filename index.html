@@ -8414,6 +8414,154 @@ VQE.run=(pick,env,limit)=>{
   return st;
 };
 /*@@/VQ-ENGINE@@*/
+/*@@VQ-RESULTS@@*/
+/* ================= "מה הכיוון שלי?" v2: scores and results (pure; the data comes from VQR.setData) =================
+   Spec chapter 9. S(o) = 0.5*W + 0.35*F + 0.15*V - penalties + bonus, for each of the 288 occupations (without ISCO major group 9).
+   The data: dirOcc = DATA.dir.occ (z-scores per feature, RIASEC), items = DATA.dir.items (the order of the features), oc = DATA.oc (salary, growth, hours, tasks). */
+const VQR={D:null,C:null};
+VQR.setData=d=>{VQR.D=d;VQR.C=null};
+VQR.RIA=['R','I','A','S','E','C'];
+const vqPct=(arr,x)=>{if(x==null)return null;let lo=0,eq=0,n=0;for(const v of arr){if(v==null)continue;n++;if(v<x)lo++;else if(v===x)eq++}return n?(lo+eq/2)/n:null}; /* the share of the values under x (a tie counts half) */
+/* per occupation, once: the z of every feature (RIASEC centred and scaled within the occupation), salary, growth, weekly hours, training years */
+VQR.prep=()=>{
+  if(VQR.C)return VQR.C;
+  const D=VQR.D,occ={},ids=Object.keys(VQ.occupations).filter(id=>!id.startsWith(VQ.engine.results.excludeIscoPrefix[0]));
+  const order={};for(const k of ['a','e','s','v'])order[k]=(D.items[k]||[]).map(x=>x[0]);
+  const sal=[],hrs=[],yrs=[];
+  for(const id of ids){
+    const P=D.dirOcc[id],o=D.oc[id],m=VQ.occupations[id];if(!P||!o)continue;
+    const z={};
+    const r=P.r,mu=r.reduce((a,b)=>a+b,0)/r.length,sd=Math.sqrt(r.reduce((a,b)=>a+(b-mu)*(b-mu),0)/r.length)||1;
+    VQR.RIA.forEach((L,i)=>z[L]=(r[i]-mu)/sd);
+    for(const k of ['a','e','s','v'])order[k].forEach((f,i)=>{if(P[k][i]!=null)z[f]=P[k][i]});
+    let hours=null;const sn=o.snap||[];for(let i=1;i<sn.length;i++)if(sn[i]==='ממוצע שבועי'){const h=parseFloat(String(sn[i-1]).replace(/,/g,''));if(isFinite(h))hours=h;break}
+    occ[id]={id,z,sal:o.sal==null?null:o.sal,grow:!!o.grow,hours,years:m.years,w:m.w,w2:m.w2||null,shifts:!!m.shifts,uniform:!!m.uniform};
+    sal.push(occ[id].sal);hrs.push(hours);yrs.push(m.years)}
+  for(const id in occ){const o=occ[id];o.salP=vqPct(sal,o.sal);o.hoursP=vqPct(hrs,o.hours);o.yearsP=vqPct(yrs,o.years)}
+  return VQR.C={occ,ids:Object.keys(occ)};
+};
+/* the world evidence, the feature fit and the values fit of one occupation (9.1) */
+VQR.parts=(st,o,P,F)=>{
+  const p=P.p,mx=Math.max(...VQE.W.map(w=>p[w])),W=(0.7*p[o.w]+0.3*p[o.w2||o.w])/mx;
+  let num=0,a=0,b=0;
+  for(const f in F){const z=o.z[f];if(z==null)continue;const {u,c}=F[f];num+=c*u*z;a+=c*u*u;b+=c*z*z}
+  const Fi=(a>0&&b>0)?(1+num/Math.sqrt(a*b))/2:0.5;
+  /* values I chose: a weighted mean of what each one means for this occupation. v10 (a short route) and the rest of the values are not in the occupation profiles */
+  let vs=0,vw=0;
+  const add=(w,v)=>{if(v!=null&&w>0){vs+=w*v;vw+=w}};
+  const u=f=>F[f]&&F[f].u>0?F[f].u:0;
+  add(u('v7'),o.salP);
+  add(u('v6'),0.3+0.7*(o.grow?1:0));add(u('v8'),0.3+0.7*(o.grow?1:0));
+  add(u('v9'),o.hoursP==null?null:1-o.hoursP);
+  add(u('v10'),o.yearsP==null?null:1-o.yearsP);
+  return {W,F:Fi,V:vw?vs/vw:0.5};
+};
+/* red lines: a hit is strong when the occupation reaches the threshold, borderline when it is within 0.5 of it */
+VQR.redHits=(st,o)=>{
+  const hits=[];
+  for(const r of st.set.redlines){const def=VQ.redlines[r];if(!def)continue;
+    if(def.tag){if(o[def.tag])hits.push({r,strong:true});continue}
+    const fs=Object.entries(def.items),ge=d=>fs.map(([f,t])=>o.z[f]!=null&&o.z[f]>=t-d);
+    const strong=def.all?ge(0).every(Boolean):ge(0).some(Boolean),weak=def.all?ge(0.5).every(Boolean):ge(0.5).some(Boolean);
+    if(strong)hits.push({r,strong:true});else if(weak)hits.push({r,strong:false})}
+  return hits};
+VQR.scores=st=>{
+  const C=VQR.prep(),E=VQ.engine,F=VQE.features(st),P={p:st.p},out=[];
+  for(const id of C.ids){
+    const o=C.occ[id],pt=VQR.parts(st,o,P,F),hits=VQR.redHits(st,o);
+    const red=Math.min(E.penalty.redCap,hits.reduce((s,h)=>s+(h.strong?E.penalty.redStrong:E.penalty.redWeak),0));
+    const yrs=st.set.years!=null&&o.years>st.set.years+1?E.penalty.years:0,bonus=st.bonus[id]||0;
+    const S0=E.weights.W*pt.W+E.weights.F*pt.F+E.weights.V*pt.V+bonus;
+    out.push({id,S:S0-red-yrs,S0,W:pt.W,F:pt.F,V:pt.V,hits,red,yrs,bonus,w:o.w,w2:o.w2})}
+  out.sort((a,b)=>b.S-a.S);
+  out.forEach((x,i)=>{x.rank=i+1;x.top=(i+1)/out.length});
+  return out;
+};
+/* how well it fits, by the place among all occupations: the top 5% very high, to 15% high, to 30% good, then partial (9.3) */
+VQR.fit=top=>top<=0.05?['גבוהה מאוד','vh']:top<=0.15?['גבוהה','h']:top<=0.30?['טובה','m']:['חלקית','l'];
+VQR.confidence=st=>{const rk=VQE.rank(st.p),p0=st.p[rk[0]];return p0>=0.5&&VQE.gap(st)>=0.15?'clear':p0>=0.3?'direction':'open'};
+VQR.inWorld=(x,w)=>x.w===w||x.w2===w;
+
+/* ---------- the sentences, from my own answers (9.3) ---------- */
+VQR.optZ=(opt,o)=>{ /* how much an answer's own features agree with the occupation: the average z, weighted by the strength of each feature */
+  let s=0,m=0;for(const f in opt.fx){const z=o.z[f];if(z==null)continue;s+=opt.fx[f]*z;m+=Math.abs(opt.fx[f])}return m?s/m:0};
+VQR.why=(st,id,max)=>{
+  const o=VQR.prep().occ[id],L=[];
+  for(const a of st.ans){if(!a.picks||!a.picks.length)continue;const q=VQE.Q[a.q];if(!q||q.phase==='hobby'||q.phase==='guess'||q.phase==='final')continue;
+    for(const pid of a.picks){const op=VQE.O[pid];if(!op||!op.fx||!Object.keys(op.fx).length)continue;const s=VQR.optZ(op,o);if(s>=0.5)L.push({s,q:q.id,opt:pid,text:op.t,title:q.title})}}
+  L.sort((a,b)=>b.s-a.s);const seen=new Set(),out=[];
+  for(const x of L){if(seen.has(x.q))continue;seen.add(x.q);out.push(x);if(out.length>=(max||3))break}
+  return out};
+VQR.less=(st,id,max)=>{
+  const o=VQR.prep().occ[id],F=VQE.features(st),out=[];
+  for(const h of VQR.redHits(st,o))out.push({k:'red',r:h.r,strong:h.strong,text:VQ.redlines[h.r].n});
+  for(const f in F){const x=F[f];if(x.u<=-0.3&&x.c>=0.3&&o.z[f]!=null&&o.z[f]>=0.9&&VQ.labels[f])out.push({k:'feat',f,text:VQ.labels[f]})}
+  if(st.set.years!=null&&o.years>st.set.years+1)out.push({k:'years',years:o.years,text:'אורך הכשרה'});
+  return out.slice(0,max||3)};
+
+/* ---------- directions (9.2) ---------- */
+VQR.results=st=>{
+  const E=VQ.engine,S=VQR.scores(st),byId=Object.fromEntries(S.map(x=>[x.id,x])),rk=VQE.rank(st.p),top=rk[0],nd=E.results.directions,per=E.results.perDirection;
+  const best=(w)=>S.filter(x=>VQR.inWorld(x,w));
+  const blend=w=>{const t3=best(w).slice(0,3),mf=t3.length?t3.reduce((s,x)=>s+x.F,0)/t3.length:0;return E.results.worldBlend.posterior*(st.p[w]/st.p[top])+E.results.worldBlend.featureFitTop3*mf};
+  const order=[top].concat(rk.slice(1).sort((a,b)=>blend(b)-blend(a)||rk.indexOf(a)-rk.indexOf(b)).slice(0,nd-1));
+  const used=new Set(),dirs=order.map(w=>{const occs=[];for(const x of best(w)){if(used.has(x.id))continue;occs.push(x);used.add(x.id);if(occs.length>=per)break}return {world:w,p:st.p[w],blend:blend(w),occs}});
+  const maxS=S[0].S,inDirs=new Set(order);
+  const wc=S.find(x=>!inDirs.has(x.w)&&x.S>=E.results.wildcardMinRatio*maxS&&!used.has(x.id))||null;
+  /* "what would change the picture": up to 2 occupations that would have been among the top (as many as the screen shows) if it were not for a penalty.
+     The reasons are the red lines that were hit strongly, and the length of the training (a borderline hit is only a small penalty, not a reason) */
+  const shown=new Set([...used,wc&&wc.id]),topN=nd*per,byS0=S.slice().sort((a,b)=>b.S0-a.S0).slice(0,topN);
+  const change=byS0.filter(x=>!shown.has(x.id)&&(x.red>0||x.yrs>0)).slice(0,2)
+    .map(x=>({id:x.id,S0:x.S0,S:x.S,reasons:x.hits.filter(h=>h.strong).map(h=>({k:'red',r:h.r,text:VQ.redlines[h.r].n})).concat(x.yrs?[{k:'years',years:VQR.prep().occ[x.id].years,text:'אורך הכשרה'}]:[])}));
+  return {conf:VQR.confidence(st),top:rk.slice(0,3),dirs,wildcard:wc,change,all:S,byId};
+};
+/* the two occupations of the guess screen (G): the best of the world by the answers so far, from two different ISCO groups (the first 3 digits) */
+VQR.guessOccs=(st,w)=>{const S=VQR.scores(st).filter(x=>VQR.inWorld(x,w)),out=[];for(const x of S){if(out.some(y=>y.id.slice(0,3)===x.id.slice(0,3)))continue;out.push(x);if(out.length>=2)break}return out};
+/* the three cards of the last question (DAY): the first occupation of direction 1 and the first of each of the next two (the surprise fills a missing one).
+   2-3 tasks of the occupation (up to 90 characters each) and 2 work-environment tags (e features with z of 0.8 or more). The name is not part of the card until the choice. */
+VQR.dayCards=st=>{
+  const R=VQR.results(st),C=VQR.prep(),pick=[];
+  for(const d of R.dirs){const x=d.occs.find(o=>((VQR.D.oc[o.id]||{}).tasks||[]).length>=2)||d.occs[0];if(x)pick.push(x.id)}
+  if(R.wildcard&&pick.length<3)pick.push(R.wildcard.id);
+  const cut=t=>t.length<=90?t:t.slice(0,89).replace(/\s+\S*$/,'')+'…';
+  return pick.slice(0,3).map(id=>{const o=C.occ[id],tasks=((VQR.D.oc[id]||{}).tasks||[]).filter(t=>t&&t.length>=10).slice(0,3).map(cut);
+    const tags=Object.keys(o.z).filter(f=>/^e\d+$/.test(f)&&o.z[f]>=0.8).sort((a,b)=>o.z[b]-o.z[a]).slice(0,2).map(f=>VQ.labels[f]||f);
+    return {occ:id,world:o.w,tasks,tags}});
+};
+/*@@/VQ-RESULTS@@*/
+/*@@VQ-SITE@@*/
+/* ================= "מה הכיוון שלי?" v2: from occupations to degrees and routes (uses the site's own functions) =================
+   Spec 9.4: the links that already exist (occDegs, degLinks, MAHAT-side routes of the occupation), marked and sorted by what I said in the practical block:
+   P1 (how far I will move: reloc), P2 (how long: years, and the kind of route: track), and the check of my grades that the degree page already has (degAdmit). */
+VQR.setData({dirOcc:DIRD.occ,items:DIRD.items,oc:OC});
+const VQ_ADJ={n:['c'],c:['n','j','s'],j:['c','s'],s:['c','j']}; /* regions next to each other (approved by the owner) */
+/* is the institution within what I said (reloc 0 = my region, 1 = my region and the ones next to it, 2 and 3 = everywhere). No region in the profile, or no answer: nothing is filtered */
+function vqReach(inst,reloc,reg){
+  if(reloc==null||reloc>=2||!reg||!VQ_ADJ[reg])return true;
+  const r=INSTR[inst];if(!r||r==='a')return true; /* online, or a place the site has no region for */
+  return r===reg||(reloc===1&&VQ_ADJ[reg].includes(r));
+}
+/* the ways to an occupation: degrees (what its workers studied) and the practical routes of the occupation (engineer-technician, vocational training) */
+function vqRoutes(id,set,prof){
+  const o=OC[id],reg=(prof||{}).reg,rel=set.reloc,yrs=set.years,dd=occDegs(id),deg=[];
+  [...dd.main.map(x=>({...x,main:true})),...dd.more.map(x=>({...x,main:false}))].forEach(x=>{
+    const d=x.d,inst=d.of.map(f=>f.i),near=inst.filter(i=>vqReach(i,rel,reg)),du=durOf(d),tags=[];
+    if(reg&&rel!=null&&rel<2&&!near.length)tags.push({k:'move',t:'דורש מעבר'});
+    if(yrs!=null&&du&&du.min>yrs+1)tags.push({k:'long',t:`דורש ${du.txt} שנים`});
+    deg.push({d,why:x.why,main:x.main,du,near:near.length,all:inst.length,tags,adm:safe(()=>degAdmit(d),null)})});
+  const far=r=>r.tags.some(t=>t.k==='move')?1:0;
+  deg.sort((a,b)=>far(a)-far(b)||(b.main-a.main)||(b.all-a.all)); /* what is out of reach goes last, it is not removed */
+  const prac=(o.edu||[]).filter(e=>e.kind!=='Academic').map(e=>({kind:e.kind==='MahatEducation'?'mahat':'training',n:e.n,t:e.t,dur:e.dur,sal:e.sal,id:e.id}));
+  return {degrees:deg,practical:prac,first:set.track==='practical'&&prac.length?'practical':'academic'};
+}
+/* a degree's fit, through the occupations its graduates work in (degLinks), by the scores S of this questionnaire */
+function vqDegScores(S){
+  const byId=S.byId||Object.fromEntries(S.map(x=>[x.id,x])),out={},L=[];
+  DEG.forEach(d=>{const links=degLinks(d);if(!links)return;let s=0,w=0;links.forEach(x=>{const r=byId[x.id];if(r){s+=r.S*x.w;w+=x.w}});if(w)L.push([d.id,s/w])});
+  L.sort((a,b)=>b[1]-a[1]);L.forEach(([id,t],i)=>{out[id]={t,top:(i+1)/L.length,pct:100*(1-i/L.length)}});
+  return out;
+}
+/*@@/VQ-SITE@@*/
 
 /* ================= F1: trust layer (where a fact comes from, how far it was checked, what the data covers) =================
    FACTS: the procedural facts the app writes by hand (fees, validity, exam rules, deadlines, professional paths). DATA keeps its own sources.
