@@ -8421,7 +8421,7 @@ VQE.run=(pick,env,limit)=>{
 const VQR={D:null,C:null};
 VQR.setData=d=>{VQR.D=d;VQR.C=null};
 VQR.RIA=['R','I','A','S','E','C'];
-const vqPct=(arr,x)=>{if(x==null)return null;let lo=0,eq=0,n=0;for(const v of arr){if(v==null)continue;n++;if(v<x)lo++;else if(v===x)eq++}return n?(lo+eq/2)/n:null}; /* the share of the values under x (a tie counts half) */
+const vqPct=(arr,x)=>{if(x==null)return null;let le=0,n=0;for(const v of arr){if(v==null)continue;n++;if(v<=x)le++}return n?le/n:null}; /* the share of the values up to x (a tie counts as under) */
 /* per occupation, once: the z of every feature (RIASEC centred and scaled within the occupation), salary, growth, weekly hours, training years */
 VQR.prep=()=>{
   if(VQR.C)return VQR.C;
@@ -8448,7 +8448,7 @@ VQR.parts=(st,o,P,F)=>{
   const Fi=(a>0&&b>0)?(1+num/Math.sqrt(a*b))/2:0.5;
   /* values I chose: a weighted mean of what each one means for this occupation. v10 (a short route) and the rest of the values are not in the occupation profiles */
   let vs=0,vw=0;
-  const add=(w,v)=>{if(v!=null&&w>0){vs+=w*v;vw+=w}};
+  const add=(w,v)=>{if(w>0){vs+=w*(v==null?0.5:v);vw+=w}}; /* a value this occupation has no data for counts as neutral (0.5) */
   const u=f=>F[f]&&F[f].u>0?F[f].u:0;
   add(u('v7'),o.salP);
   add(u('v6'),0.3+0.7*(o.grow?1:0));add(u('v8'),0.3+0.7*(o.grow?1:0));
@@ -8503,15 +8503,19 @@ VQR.less=(st,id,max)=>{
 VQR.results=st=>{
   const E=VQ.engine,S=VQR.scores(st),byId=Object.fromEntries(S.map(x=>[x.id,x])),rk=VQE.rank(st.p),top=rk[0],nd=E.results.directions,per=E.results.perDirection;
   const best=(w)=>S.filter(x=>VQR.inWorld(x,w));
-  const blend=w=>{const t3=best(w).slice(0,3),mf=t3.length?t3.reduce((s,x)=>s+x.F,0)/t3.length:0;return E.results.worldBlend.posterior*(st.p[w]/st.p[top])+E.results.worldBlend.featureFitTop3*mf};
+  /* the strength of a world for the blend: the average F of its 3 best occupations by score before penalties, only the ones whose main world it is (not the secondary ones) */
+  const byS0=S.slice().sort((a,b)=>b.S0-a.S0);
+  const blend=w=>{const t3=byS0.filter(x=>x.w===w).slice(0,3),mf=t3.length?t3.reduce((s,x)=>s+x.F,0)/t3.length:0;return E.results.worldBlend.posterior*(st.p[w]/st.p[top])+E.results.worldBlend.featureFitTop3*mf};
   const order=[top].concat(rk.slice(1).sort((a,b)=>blend(b)-blend(a)||rk.indexOf(a)-rk.indexOf(b)).slice(0,nd-1));
   const used=new Set(),dirs=order.map(w=>{const occs=[];for(const x of best(w)){if(used.has(x.id))continue;occs.push(x);used.add(x.id);if(occs.length>=per)break}return {world:w,p:st.p[w],blend:blend(w),occs}});
-  const maxS=S[0].S,inDirs=new Set(order);
+  /* the surprise: the best occupation of a world that is not among the directions, if its S is at least 60% of the best one in directions 2-3 (it is compared with what the other directions offer,
+     not with the leading world, which is far ahead by design; the spec says only "the maximum", this reading gives the document's surprise in all three examples) */
+  const inDirs=new Set(order),maxS=Math.max(...dirs.slice(1).flatMap(d=>d.occs.map(x=>x.S)),0);
   const wc=S.find(x=>!inDirs.has(x.w)&&x.S>=E.results.wildcardMinRatio*maxS&&!used.has(x.id))||null;
   /* "what would change the picture": up to 2 occupations that would have been among the top (as many as the screen shows) if it were not for a penalty.
      The reasons are the red lines that were hit strongly, and the length of the training (a borderline hit is only a small penalty, not a reason) */
-  const shown=new Set([...used,wc&&wc.id]),topN=nd*per,byS0=S.slice().sort((a,b)=>b.S0-a.S0).slice(0,topN);
-  const change=byS0.filter(x=>!shown.has(x.id)&&(x.red>0||x.yrs>0)).slice(0,2)
+  const shown=new Set([...used,wc&&wc.id]),topN=nd*per,topS0=byS0.slice(0,topN);
+  const change=topS0.filter(x=>!shown.has(x.id)&&(x.red>0||x.yrs>0)).slice(0,2)
     .map(x=>({id:x.id,S0:x.S0,S:x.S,reasons:x.hits.filter(h=>h.strong).map(h=>({k:'red',r:h.r,text:VQ.redlines[h.r].n})).concat(x.yrs?[{k:'years',years:VQR.prep().occ[x.id].years,text:'אורך הכשרה'}]:[])}));
   return {conf:VQR.confidence(st),top:rk.slice(0,3),dirs,wildcard:wc,change,all:S,byId};
 };

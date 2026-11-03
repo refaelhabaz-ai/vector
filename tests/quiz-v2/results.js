@@ -23,6 +23,7 @@ for(const name of Object.keys(personas)){
   console.log('would change: '+(R.change.length?R.change.map(c=>`${OCN(c.id)} (${c.reasons.map(r=>r.text).join(', ')})`).join(' | '):'none'));
   const psy=R.all.findIndex(x=>x.id==='2634');const rankOf=id=>{const i=R.all.findIndex(x=>x.id===id);return i<0?null:i+1};
   console.log(`psychologists rank: ${rankOf('2634')} of ${R.all.length} (document: ${D.psy[0]} of ${D.psy[1]})`);
+  ok(Math.abs(rankOf('2634')-D.psy[0])<=3,name+': the psychologists rank is far from the document');
   /* against the document */
   const chg=R.change.map(c=>[norm(OCN(c.id)),c.reasons.map(r=>r.text).join(', ')]),docChg=D.change.map(c=>[norm(c[0]),c[1]]);
   console.log('  vs document, what would change: '+(JSON.stringify(chg)===JSON.stringify(docChg)?'same':'different (document: '+(docChg.map(x=>x.join(' — ')).join(' | ')||'none')+')'));
