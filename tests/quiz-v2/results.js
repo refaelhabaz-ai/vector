@@ -2,6 +2,8 @@
 /* Stage 2 tests: scores and results (spec chapter 9) on the three personas. Run: node tests/quiz-v2/results.js */
 const {load}=require('./lib.js');const fs=require('fs'),path=require('path');
 const C=load(['VQ-RESULTS']),{VQ,VQE,VQR}=C;const personas=JSON.parse(fs.readFileSync(path.join(__dirname,'personas.json'),'utf8'));
+/* the occupation codes the owner gave for Daniel (the original implementation) */
+const DANIEL_IDS={dirs:[['5164','1311','6113'],['5411','5413','5419'],['8341','6111','6122']],wild:'2162'};
 const OCN=id=>VQR.D.oc[id].n,WN=w=>VQ.worlds.find(x=>x.id===w).n;
 let fails=0;const ok=(c,m)=>{if(!c){fails++;console.log('  FAIL: '+m)}return c};
 /* what the document says (12.2): the occupations of each direction, the surprise and "what would change the picture" */
@@ -23,7 +25,7 @@ for(const name of Object.keys(personas)){
   console.log('would change: '+(R.change.length?R.change.map(c=>`${OCN(c.id)} (${c.reasons.map(r=>r.text).join(', ')})`).join(' | '):'none'));
   const psy=R.all.findIndex(x=>x.id==='2634');const rankOf=id=>{const i=R.all.findIndex(x=>x.id===id);return i<0?null:i+1};
   console.log(`psychologists rank: ${rankOf('2634')} of ${R.all.length} (document: ${D.psy[0]} of ${D.psy[1]})`);
-  ok(Math.abs(rankOf('2634')-D.psy[0])<=3,name+': the psychologists rank is far from the document');
+  ok(rankOf('2634')===D.psy[0],name+': the psychologists rank is '+rankOf('2634')+', the document says '+D.psy[0]);
   /* against the document */
   const chg=R.change.map(c=>[norm(OCN(c.id)),c.reasons.map(r=>r.text).join(', ')]),docChg=D.change.map(c=>[norm(c[0]),c[1]]);
   console.log('  vs document, what would change: '+(JSON.stringify(chg)===JSON.stringify(docChg)?'same':'different (document: '+(docChg.map(x=>x.join(' — ')).join(' | ')||'none')+')'));
@@ -41,6 +43,8 @@ for(const name of Object.keys(personas)){
   ok(R.all.length===288-Object.keys(VQ.occupations).filter(i=>i.startsWith('9')).length,name+': number of scored occupations');
   ok(R.dirs[0].world===R.top[0],name+': direction 1 is not the leading world');
   const w1=R.dirs[0].occs[0];const wy=VQR.why(st,w1.id),ls=VQR.less(st,w1.id);
+  if(name==='daniel'){R.dirs.forEach((d,i)=>ok(JSON.stringify(d.occs.map(x=>x.id).sort())===JSON.stringify(DANIEL_IDS.dirs[i].slice().sort()),'daniel: direction '+(i+1)+' occupations are '+d.occs.map(x=>x.id)+', expected '+DANIEL_IDS.dirs[i]));ok(R.wildcard&&R.wildcard.id===DANIEL_IDS.wild,'daniel: the surprise is not 2162');
+    const x=R.byId['2263'],o=VQR.prep().occ['2263'];console.log(`  2263 penalties: red lines ${st.set.redlines.join(', ')} | math s1=${o.z.s1} strong -0.15 | reading s17=${o.z.s17}, s3=${o.z.s3} borderline -0.06 | total ${x.red.toFixed(2)} | years ${x.yrs} | W ${x.W.toFixed(3)} F ${x.F.toFixed(3)} V ${x.V.toFixed(3)} S ${x.S.toFixed(3)} (8341 S ${R.byId['8341'].S.toFixed(3)}, 6111 S ${R.byId['6111'].S.toFixed(3)})`)}
   console.log('  why ('+OCN(w1.id)+'): '+wy.map(x=>`${x.title}: ${x.text}`).join(' | '));console.log('  less: '+(ls.map(x=>x.text).join(' | ')||'—'));
   const cards=VQR.dayCards(st);console.log('  DAY cards: '+cards.map(c=>`${OCN(c.occ)} (${c.tasks.length} tasks, tags: ${c.tags.join('/')})`).join(' | '));
   ok(cards.length===3&&cards.every(c=>c.tasks.length>=2&&c.tasks.every(t=>t.length<=90)&&c.tags.length<=2),name+': DAY cards are not complete');

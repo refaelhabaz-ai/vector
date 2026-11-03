@@ -8522,7 +8522,7 @@ const vqPct=(arr,x)=>{if(x==null)return null;let le=0,n=0;for(const v of arr){if
 /* per occupation, once: the z of every feature (RIASEC centred and scaled within the occupation), salary, growth, weekly hours, training years */
 VQR.prep=()=>{
   if(VQR.C)return VQR.C;
-  const D=VQR.D,occ={},ids=Object.keys(VQ.occupations).filter(id=>!id.startsWith(VQ.engine.results.excludeIscoPrefix[0]));
+  const D=VQR.D,occ={},ids=Object.keys(VQ.occupations),ex=id=>id.startsWith(VQ.engine.results.excludeIscoPrefix[0]); /* the percentiles are taken over all 288 occupations; the ISCO 9 ones are only left out of what is shown */
   const order={};for(const k of ['a','e','s','v'])order[k]=(D.items[k]||[]).map(x=>x[0]);
   const sal=[],hrs=[],yrs=[];
   for(const id of ids){
@@ -8535,7 +8535,7 @@ VQR.prep=()=>{
     occ[id]={id,z,sal:o.sal==null?null:o.sal,grow:!!o.grow,hours,years:m.years,w:m.w,w2:m.w2||null,shifts:!!m.shifts,uniform:!!m.uniform};
     sal.push(occ[id].sal);hrs.push(hours);yrs.push(m.years)}
   for(const id in occ){const o=occ[id];o.salP=vqPct(sal,o.sal);o.hoursP=vqPct(hrs,o.hours);o.yearsP=vqPct(yrs,o.years)}
-  return VQR.C={occ,ids:Object.keys(occ)};
+  return VQR.C={occ,ids:Object.keys(occ).filter(id=>!ex(id))};
 };
 /* the world evidence, the feature fit and the values fit of one occupation (9.1) */
 VQR.parts=(st,o,P,F)=>{
@@ -8545,10 +8545,10 @@ VQR.parts=(st,o,P,F)=>{
   const Fi=(a>0&&b>0)?(1+num/Math.sqrt(a*b))/2:0.5;
   /* values I chose: a weighted mean of what each one means for this occupation. v10 (a short route) and the rest of the values are not in the occupation profiles */
   let vs=0,vw=0;
-  const add=(w,v)=>{if(w>0){vs+=w*(v==null?0.5:v);vw+=w}}; /* a value this occupation has no data for counts as neutral (0.5) */
+  const add=(w,v)=>{if(v!=null&&w>0){vs+=w*v;vw+=w}}; /* a value this occupation has no data for is left out of its mean */
   const u=f=>F[f]&&F[f].u>0?F[f].u:0;
   add(u('v7'),o.salP);
-  add(u('v6'),0.3+0.7*(o.grow?1:0));add(u('v8'),0.3+0.7*(o.grow?1:0));
+  add(Math.max(u('v6'),u('v8')),0.3+0.7*(o.grow?1:0)); /* v6 and v8 are one value (security), counted once, with the stronger of the two */
   add(u('v9'),o.hoursP==null?null:1-o.hoursP);
   add(u('v10'),o.yearsP==null?null:1-o.yearsP);
   return {W,F:Fi,V:vw?vs/vw:0.5};
