@@ -3,6 +3,7 @@
    Run: node tests/quiz-v2/all.js      Exit code 0 only if every test passed.  */
 const {spawnSync}=require('child_process');const path=require('path');
 const T=[
+  ['CSP: the policy hash matches the page script (tools/csp-hash.js)','../../tools/csp-hash.js',20],
   ['engine: personas, invariants, replay, simulation','run.js',120],
   ['results: scores and results against the document','results.js',60],
   ['gender forms: every form, three states','gx.js',30],
@@ -14,6 +15,8 @@ const T=[
   ['accounts, stage 2: sync between devices, merge, old accounts (page)','../accounts/stage2.js',300],
   ['accounts, stage 3: the questionnaire in the account (page)','../accounts/stage3.js',300],
   ['accounts, stage 4: download, delete, texts, live-check script (page)','../accounts/stage4.js',300],
+  ['security: CSP in the browser, what it blocks, the frame guard','../security/csp.js',120],
+  ['security: XSS fuzz (every place a person\'s text lives, every page)','../security/xss-fuzz.js',300],
   ['screens: personas through the page at 1280 and 360 (page)','ui.js',420],
 ];
 const rows=[];let bad=0;const t0=Date.now();

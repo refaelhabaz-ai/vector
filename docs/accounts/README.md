@@ -131,6 +131,9 @@ node tests/quiz-v2/all.js            # כל הסוויטה, ברצף (כ-8 דק�
 node tests/accounts/stage1.js        # התחברות (Google, קוד במייל כשהדגל דלוק)
 node tests/accounts/stage2.js        # סנכרון בין מכשירים, מיזוג, חשבונות ישנים, שעון השרת
 node tests/accounts/stage3.js        # השאלון בחשבון
+node tests/security/csp.js           # CSP, מה הוא חוסם, ושמירה מפני frame
+node tests/security/xss-fuzz.js      # מטענים בכל מקום שטקסט משתמש נשמר
+node tools/csp-hash.js --check       # ה-hash של ה-CSP מעודכן
 node tests/accounts/stage4.js        # הורדה, מחיקה, טקסטים, וסקריפט הבדיקה החי (מול שרת מדומה)
 node supabase/tests/run-local.js     # הסכמה, RLS ושאילתות הניתוח, על Postgres מקומי (דורש psql ושרת Postgres)
 node tests/accounts/screens.js && node tests/accounts/screens-sync.js   # צילומי מסך (docs/accounts/screens/)
@@ -139,6 +142,13 @@ node tests/accounts/screens.js && node tests/accounts/screens-sync.js   # ציל
 **איך זה עובד בלי חשבון אמיתי:** הבדיקות מריצות את `supabase-js` האמיתי (מ-`vendor/`) בדפדפן אמיתי, מול שרת **מדומה** (`tests/accounts/mock.js`) שמדמה את ההתחברות, הטבלאות, `save_quiz`, `server_time` ו-`delete_my_account`, ומשותף לכמה "מכשירים" (הקשרי דפדפן נפרדים). אין שום רשת, חשבון או מפתח. הבדיקות של הסכמה רצות על Postgres מקומי עם תחליף ל-`auth`.
 
 **מה דורש חשבון אמיתי ולא אפשר לאוטומט:** כניסה עם Google, קוד חד-פעמי במייל, ובדיקת ההרשאות והמחיקה על Supabase עצמו. אלה ב-[`live-test.md`](live-test.md), עם סקריפט הדבקה לדפדפן ([`live-check.js`](live-check.js)). **אל תכניס סיסמאות או מפתחות לריפו.** המפתח הציבורי (`sb_publishable_...`) נמצא בקוד בכוונה, והוא בטוח כל עוד ההרשאות בשרת נכונות (זה מה שנבדק). מפתח סודי (`service_role`, `sb_secret_...`) אסור שיופיע באתר או בריפו.
+
+## אבטחה: מדיניות Content-Security-Policy
+
+ב-`index.html` יש מדיניות CSP שמתירה את הסקריפט היחיד של האתר לפי ה-hash שלו, ולכן כל עריכה בסקריפט משנה את ה-hash.
+**אם האתר נחסם (מסך ריק) אחרי עריכה: מריצים `node tools/csp-hash.js --write` ועושים commit ל-`index.html`.** (`node tools/csp-hash.js --check` בודק בלי לשנות.)
+
+הגנה כפולה: הבדיקה הזאת רצה ב-`all.js`, וב-GitHub Action (`.github/workflows/csp-check.yml`) על כל push ל-`main` ועל כל pull request אליו. ה-Action מסמן את ה-commit באדום, אבל **לא עוצר את הפריסה של GitHub Pages** (זו עבודה נפרדת); כדי לחסום פריסה צריך להעביר את Pages לפריסה דרך Actions. בנוסף: האתר מסרב להיפתח בתוך frame של אתר אחר (חוץ מ-claude.ai), ובדיקת `tests/security/xss-fuzz.js` ב-`all.js` מזריקה מטענים לכל מקום שטקסט משתמש נשמר.
 
 ## איפה כל דבר
 

@@ -1,6 +1,6 @@
 # סקירת אבטחה: הזרקת קוד (XSS) בכל נקודות הפלט
 
-**סטטוס: דוח ממצאים בלבד. לא תוקן כלום באתר.** התיקונים ממתינים לאישור.
+**סטטוס: F1, F2 (הוקשח), F3 ו-F5 תוקנו (ראו "תיקונים" בסוף). F4 נשאר כמידע.**
 הסיבה לסקירה: אסימון ההתחברות (`sb-…-auth-token`) נשמר ב-localStorage, ולכן פרצת XSS באתר חושפת אותו.
 
 ## איך נבדק (שלוש שיטות)
@@ -70,3 +70,12 @@ SCAN_OUT=/tmp/a.json node tests/security/scan-sinks.js
 SCAN_OUT=/tmp/a.json SCAN2_OUT=/tmp/b.json node tests/security/scan-taint.js
 ```
 (`xss-fuzz.js` עדיין לא כלול ב-`all.js`, כדי שהסוויטה לא תיכשל על F1. אכלול אותו אחרי התיקון.)
+
+## תיקונים (אחרי אישור)
+
+- **F1:** `esc()` על כל הצבת מזהה פורום ב-`data-qo/follow/vote/report/fdel/fb/a/q/actxp` (20 הצבות ב-15 שורות), ובשכבה שנייה `fIdx` מדלג על משתמש/שאלה/תשובה שמזהה שלהם אינו `^[\w.-]{1,80}$`, ועל הפניות (`q:`/`a:`) שאינן בצורה `[qa]:uid--id`. הבדיקה הדינמית: 0 ממצאים.
+- **F2:** `pageHead` מבריח את הכותרת (תת-הכותרת נשארת HTML שנכתב בקובץ, עם הערה).
+- **F3:** `<meta http-equiv="Content-Security-Policy">`: `default-src 'none'`; סקריפט רק מאותו origin ולפי hash; `style-src 'unsafe-inline'`; תמונות `self`/`data:`; גופנים `data:`; `connect-src` רק לכתובת של Supabase; `object-src 'none'`; `base-uri 'none'`; `form-action 'self'`. הגנה כפולה על ה-hash: בדיקה ב-`all.js` ו-GitHub Action (`.github/workflows/csp-check.yml`). `tools/csp-hash.js` בודק גם שלא נוסף סקריפט מוטבע שני ושהמדיניות לא הוחלשה (`unsafe-eval`, הסרת `object-src`...). נבדק בדפדפן: אין שום הפרה בגלישה, בשאלון, בהתחברות מול שרת מדומה ובחלונות החשבון; והמדיניות חוסמת סקריפט מוטבע מוזרק, `onerror=` מוזרק, בקשה לאתר אחר, `eval` ו-frame לאתר אחר.
+- **F5:** שמירה מפני frame בתחילת הסקריפט: אתר אחר שמטמיע את הדף מקבל הודעה וקישור לפתיחה בחלון נפרד, והסקריפט נעצר. **מותר להטמיע רק מ-`claude.ai` ומ-`claudeusercontent.com`** (הסביבה שהאתר נבנה לרוץ בה); שרשרת הורים חייבת להיות כולה מורשית. הדפדפן ללא `ancestorOrigins` נבדק לפי ה-referrer.
+
+**מגבלות שנשארות:** (1) `frame-ancestors` לא נתמך ב-meta, ולכן ההגנה מ-frame היא בקוד ולא בדפדפן; (2) ה-Action לא עוצר פריסה של Pages (ראו README); (3) CSP עם `style-src 'unsafe-inline'` לא עוצר הזרקת CSS; (4) הכיסוי הדינמי של הבדיקה עדיין חלקי, כמפורט למעלה.

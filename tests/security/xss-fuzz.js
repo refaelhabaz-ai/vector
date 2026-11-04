@@ -72,7 +72,7 @@ const URLP=l=>`javascript:(window.__X=window.__X||[]).push('${l}')`;
     'cuOpenSheet(payload)':`cuOpenSheet({id:'x',t:${JSON.stringify(P('cu.t'))},d:'2026-12-03',kind:'event',note:${JSON.stringify(P('cu.note'))}})`,
     'openTargetPick':`openTargetPick&&openTargetPick('t1','add')`,
     'toast(payload)':`toast(${JSON.stringify(P('toast'))})`,'say(payload)':`say(${JSON.stringify(P('say'))})`,
-    'pageHead(payload)':`document.getElementById('app').innerHTML=pageHead(${JSON.stringify(P('pagehead.t'))},${JSON.stringify(P('pagehead.s'))})`,
+    'pageHead(payload)':`document.getElementById('app').innerHTML=pageHead(${JSON.stringify(P('pagehead.t'))},'fixed sub-title')`,
   };
   for(const [k,s] of Object.entries(calls))await call('call '+k,s);
   await p.keyboard.press('Escape');
