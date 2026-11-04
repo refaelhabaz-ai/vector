@@ -754,7 +754,7 @@ p.intro .linkbtn{color:var(--primary-dark);text-decoration:underline;text-underl
 .contbar{position:fixed;inset-inline:12px;bottom:150px;z-index:70;margin-inline:auto;max-width:560px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#fff;border-radius:18px;padding:12px 14px;box-shadow:0 14px 40px rgba(16,24,64,.28);border:1px solid #DADFEB}
 .contbar span{flex:1;min-width:8ch;font-weight:600}.contx{background:none;border:0;font-size:18px;color:var(--muted);min-width:44px;min-height:44px;cursor:pointer}
 @media(min-width:1081px){.contbar{bottom:84px}}
-.sy-st{margin:0 0 12px;font-size:14px;color:var(--muted)}.sy-merge fieldset{border:0;background:#F5F6FB;border-radius:16px;margin:0 0 12px;padding:12px 14px}.sy-merge legend{font-weight:800;padding:0 6px}
+.sy-note{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}.sy-st{margin:0 0 12px;font-size:14px;color:var(--muted)}.sy-merge fieldset{border:0;background:#F5F6FB;border-radius:16px;margin:0 0 12px;padding:12px 14px}.sy-merge legend{font-weight:800;padding:0 6px}
 .sy-opt{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer}.sy-opt input{width:20px;height:20px;margin-top:3px;accent-color:var(--primary);flex:none}.sy-opt small{display:block;color:var(--muted);font-size:13.5px}
 .sy-oldf>*{min-width:0}.sy-oldf .pwbox{width:100%}.sy-oldf input{width:100%;box-sizing:border-box}.sy-oldf .s{text-align:start;margin:0}
 .sy-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.sy-oldf{background:#F5F6FB;border-radius:16px;padding:14px;margin-bottom:12px;display:grid;gap:8px}
@@ -7922,22 +7922,33 @@ function syWriteLocal(vals){
     if(v===null){sySet(k,null);continue}
     sySet(k,k==='prof'?{...v,...syPick(live,SYNC_LOCAL_ONLY)}:v)}
   reloadState();STALE=true;staleRender()}
+/* Which of two changes came later is decided in the SERVER's time, not by the device clock: the server's updated_at is the time of the other change, and this device's own change
+   is placed on the same clock by the difference between the server's time (the SQL function server_time(), measured around the round trip) and this device's clock.
+   A device whose clock is wrong by minutes or hours therefore still decides correctly. Without a reachable server there is no conflict to decide at all. */
+async function syOffset(){
+  const m=syMeta()||{};
+  try{const c=await supaClient();if(!c)throw 0;const t0=Date.now(),r=await c.rpc('server_time').retry(false),t1=Date.now();
+    if(r.error||!r.data)throw 0;const off=Date.parse(r.data)-(t0+t1)/2;if(isFinite(off)){m.off=off;sySet('syncmeta',{...(syMeta()||m),off});return off}}catch(e){}
+  return typeof m.off==='number'?m.off:0}
 async function syPull(force){
   const a=ACC.cur();if(!a||!syEst()||SY.paused)return;
   if(!force&&Date.now()-SY.lastPull<20000)return;SY.lastPull=Date.now();
   try{
     const srv=await syFetch(),m=syMeta(),q=syQ(),apply={},up=[];m.seen=m.seen||{};
+    const clash=SYNC_KEYS.some(k=>srv[k]&&m.seen[k]!==srv[k].at&&q[k]&&k!=='list');   /* a key changed in both places */
+    const off=clash?await syOffset():0;
     for(const k of SYNC_KEYS){
       const row=srv[k],seen=m.seen[k],dirty=q[k];
       if(row){
         if(seen===row.at)continue;
         if(!dirty){apply[k]=row.v;m.seen[k]=row.at;delete (m.h||{})[k]}
         else if(k==='list'){const dv=syLocal('list')||[],u=[...new Set([...row.v,...dv])];apply.list=u;m.seen.list=row.at;up.push('list')}
-        else if(Date.parse(row.at)>=dirty){apply[k]=row.v;m.seen[k]=row.at;const q2=syQ();delete q2[k];sySet('syncq',q2)}   /* both changed: the later one wins */
+        else if(Date.parse(row.at)>=dirty+off){apply[k]=row.v;m.seen[k]=row.at;const q2=syQ();delete q2[k];sySet('syncq',q2)}   /* both changed: the later one wins */
         else m.seen[k]=row.at;   /* this device is newer: its upload will replace the server copy */
       }else if(seen&&!dirty){apply[k]=null;delete m.seen[k];delete (m.h||{})[k]}   /* removed from another device */
       else if(!seen&&!dirty){const v=syLocal(k);if(v!==undefined&&!syEmpty(k,v))up.push(k)}   /* something never sent: send it */
     }
+    if(clash){const m2=syMeta()||{};m.off=m2.off}
     sySet('syncmeta',m);
     if(Object.keys(apply).length)syWriteLocal(apply);
     up.forEach(k=>syDirty(k));
@@ -8067,6 +8078,8 @@ function syStatusText(){
     :n?'ממתין לסנכרון...':'הנתונים מסונכרנים'+(t?' · '+new Date(t).toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}):'')}
 function syUiRefresh(){const e=document.getElementById('syStatus');if(e)e.textContent=syStatusText()}
 const acctSynced=()=>!!(ACC.cur()&&syEst()&&!SY.paused);
+/* a small line under free text (notes, the personal story): for someone signed in, where it is kept */
+const syNote=()=>acctSynced()?'<span class="hint sy-note">נשמר בחשבון שלך ומסונכרן בין המכשירים</span>':'';
 async function syNow(){SY.paused=false;const u=SUPA.user;if(!u)return;
   if(!syEst()){await syStart(u)}else{await syPull(true);await syFlush()}syUiRefresh()}
 function syForget(){   /* sign-out on a shared device: also remove this account's data from the device */
@@ -10246,12 +10259,12 @@ function storyHTML(X){
   const P=X.P,M=X.M,fl=[X.q.fl.iv?'ראיון':'',X.q.fl.port?'תיק עבודות':'',X.q.fl.test?'מבחן קבלה או מיון':''].filter(Boolean),txt=P.story||'';
   return `<p>${fl.length?`בתנאי הקבלה של התוכנית שבחרתי מופיע: ${fl.join(', ')}. `:'בחלק מהתוכניות מבקשים ראיון, מכתב או תיק עבודות. '}כדאי לאסוף מראש את הסיפור שלי, כדי שיהיה לי מה להגיד כשיבקשו.</p>
     ${UL(['מה משך אותי לתחום הזה, ומתי זה התחיל','משהו אחד שעשיתי סביבו: פרויקט, התנדבות, עבודה או קורס','מה אני רוצה ללמוד, ומה אני רוצה שיזכרו ממני'])}
-    <div class="kp-story"><label for="kpStory">הסיפור שלי, בנקודות או בקצרה</label><textarea id="kpStory" rows="6" maxlength="${STORY_MAX}" placeholder="למשל: מה משך אותי לתחום, מה עשיתי בו, ומה אני רוצה ללמוד">${esc(txt)}</textarea>
-    <small id="kpStoryS">${storyCount(txt.length)}<span role="status">${txt?' · נשמר בדפדפן הזה':''}</span></small></div>
-    <p class="fine">הסיפור לא מחליף את הציונים ולא משנה את חישוב הסכם: זה מה שמכינים לראיון, למכתב או לתיק. מה שנכתב כאן נשמר רק בדפדפן הזה ולא נכנס לסיכום שאני משתף/ת.</p>${storyRecsHTML(X)}${BTNS([KB('data-kmark="story"',M.story?'✓ הסיפור שלי מוכן':'סימון: הסיפור שלי מוכן')])}`}
+    <div class="kp-story"><label for="kpStory">הסיפור שלי, בנקודות או בקצרה</label><textarea id="kpStory" rows="6" maxlength="${STORY_MAX}" placeholder="למשל: מה משך אותי לתחום, מה עשיתי בו, ומה אני רוצה ללמוד">${esc(txt)}</textarea>${syNote()}
+    <small id="kpStoryS">${storyCount(txt.length)}<span role="status">${txt?(acctSynced()?' · נשמר':' · נשמר בדפדפן הזה'):''}</span></small></div>
+    <p class="fine">הסיפור לא מחליף את הציונים ולא משנה את חישוב הסכם: זה מה שמכינים לראיון, למכתב או לתיק. מה שנכתב כאן ${acctSynced()?'נשמר בחשבון שלי':'נשמר רק בדפדפן הזה'} ולא נכנס לסיכום שאני משתף/ת.</p>${storyRecsHTML(X)}${BTNS([KB('data-kmark="story"',M.story?'✓ הסיפור שלי מוכן':'סימון: הסיפור שלי מוכן')])}`}
 function storySave(v){const P=pth();if(!P)return;P.story=String(v).slice(0,STORY_MAX);pthSave();PLC=null;storyStatus(persisted('path',PTH)?true:'lost')}
 /* the counter changes with every key but is not announced; only "saved" is (role=status) */
-function storyStatus(saved){const e=$('#kpStoryS'),t=$('#kpStory');if(!e||!t)return;e.firstChild.nodeValue=storyCount(t.value.length);const s=e.querySelector('[role="status"]');if(s)s.textContent=saved&&t.value?(saved==='lost'?` · לא נשמר: ${KEEPFAIL}`:' · נשמר בדפדפן הזה'):''}
+function storyStatus(saved){const e=$('#kpStoryS'),t=$('#kpStory');if(!e||!t)return;e.firstChild.nodeValue=storyCount(t.value.length);const s=e.querySelector('[role="status"]');if(s)s.textContent=saved&&t.value?(saved==='lost'?` · לא נשמר: ${KEEPFAIL}`:(acctSynced()?' · נשמר':' · נשמר בדפדפן הזה')):''}
 let STT=0;
 
 /* housing: the institution's page and my own date in the calendar (the dates I add here are ordinary custom dates, so they can be deleted from the dates tab) */
@@ -11891,7 +11904,7 @@ function cuSheetHTML(a){
         <div class="field" id="cuTmW"${timed?'':' hidden'}><label for="cuTm">באיזו שעה? <small>(לא חובה)</small></label><input id="cuTm" name="tm" type="time" value="${esc(a.tm||'')}"></div></div>
       <div class="field" id="cuLnW"${timed?'':' hidden'}><span class="cu-lb" id="cuLnL">כמה זמן? <small>(לא חובה)</small></span><div class="cu-ln2" role="radiogroup" aria-labelledby="cuLnL">${CU_LENS.map(m=>`<label class="chip cu-lc"><input type="radio" name="len" value="${m}"${(a.len||(k==='study'?60:0))===m?' checked':''}><span>${cuHrs(m)}</span></label>`).join('')}</div></div>
       <div class="field cu-rp" id="cuRpW"${k==='study'&&!edit?'':' hidden'}><label class="check"><input type="checkbox" name="rep" id="cuRp"> לחזור כל שבוע</label><label class="cu-rw" for="cuRn" id="cuRnW" hidden>במשך <select id="cuRn" name="rn">${[2,3,4,6,8,10,12].map(n=>`<option value="${n}"${n===4?' selected':''}>${n}</option>`).join('')}</select> שבועות</label></div>
-      <div class="field"><label for="cuN">הערה <small>(לא חובה)</small></label><textarea id="cuN" name="note" rows="2" maxlength="200" placeholder="למשל: איפה, עם מי, או מה לקחת">${esc(a.note||'')}</textarea></div>
+      <div class="field"><label for="cuN">הערה <small>(לא חובה)</small></label><textarea id="cuN" name="note" rows="2" maxlength="200" placeholder="למשל: איפה, עם מי, או מה לקחת">${esc(a.note||'')}</textarea>${syNote()}</div>
       <p class="cu-er" id="cuEr" role="alert" hidden></p>
       <div class="cu-fb"><button class="btn primary" type="submit">${edit?'שמירה':'הוספה'}</button><button type="button" class="btn quiet" data-close>ביטול</button></div></form>`}
 function cuOpenSheet(a){openOv(cuSheetHTML(a),'cu-sheet');const t=$('#cuT');if(t)t.focus({preventScroll:true})}
@@ -13130,7 +13143,7 @@ function openSchForm(id,rid){const it=id?schS().items.find(i=>i.id===id):null;if
       <div class="field"><label for="scD">מועד אחרון להגשה</label><input id="scD" class="sc-in" type="date" value="${esc(v.d)}"><span class="hint">אם המועד לא ידוע, משאירים ריק. כשיש מועד, מקבלים ספירה לאחור ותזכורות.</span></div>
       <div class="field"><label for="scU">קישור לדף של המלגה (לא חובה)</label><input id="scU" class="sc-in" dir="ltr" inputmode="url" maxlength="300" placeholder="https://" value="${esc(v.u)}" autocomplete="off"></div>
       <div class="field"><label for="scS">איפה אני עומד/ת</label><select id="scS" class="sc-in">${Object.entries(SC_ST).map(([k,l])=>`<option value="${k}" ${v.st===k?'selected':''}>${l}</option>`).join('')}</select><span class="hint">אחרי "הוגשה" התזכורות למלגה הזו נעצרות.</span></div>
-      <div class="field"><label for="scNt">הערות</label><textarea id="scNt" class="sc-in" rows="3" maxlength="300" aria-describedby="scNtC">${esc(v.note)}</textarea><span class="hint num" id="scNtC">${v.note.length}/300</span></div>
+      <div class="field"><label for="scNt">הערות</label><textarea id="scNt" class="sc-in" rows="3" maxlength="300" aria-describedby="scNtC">${esc(v.note)}</textarea><span class="hint num" id="scNtC">${v.note.length}/300</span>${syNote()}</div>
       <span class="err" id="scErr" role="alert" hidden></span>
       <div class="kp-btns"><button class="btn primary" type="submit">שמירה</button>${it?`<button type="button" class="btn soft" data-sch="del|${esc(it.id)}">מחיקה מהמעקב</button>`:''}</div>
       ${it?`<div id="scDelAsk" class="kp-btns" role="group" aria-labelledby="scDelQ" hidden><span class="kp-ask" id="scDelQ">להסיר את המלגה מהמעקב?</span><button type="button" class="btn soft sm" data-sch="delok|${esc(it.id)}">כן, להסיר</button><button type="button" class="linkbtn" data-sch="delno">ביטול</button></div>`:''}

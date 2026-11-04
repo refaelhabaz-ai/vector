@@ -5,7 +5,7 @@
    family finances and the scholarship questions never leave the device; the profiles row; both sides have data (the person chooses; nothing is lost; closing the sheet changes nothing);
    no connection (queue, survives a reload, sent later; a server that is down at sign-in); old local accounts (same address: moved; other address: password; wrong password; forum posts follow);
    a second Google account on the same device; signing out (and wiping a shared device); "continue to..." after the Google redirect.   Run: node tests/accounts/stage2.js */
-const {start,USERS}=require('./lib.js');
+const {start,USERS}=require('./lib.js');const {createBackend}=require('./mock.js');
 (async()=>{
   const T=await start(),ok=T.ok;
   const DANA=USERS.dana.id;
@@ -201,5 +201,36 @@ const {start,USERS}=require('./lib.js');
   await I.click('[data-contgo]');await wait(I,500);
   ok(await I.evaluate(()=>!!document.querySelector('#ov')&&!document.getElementById('contbar')),'pressing it opens the question sheet, and the bar goes');
   ok(I.errs.length===0,'no page errors '+I.errs.join(';'));
+  console.log('\n== two changes to the same thing: the later one wins by the SERVER\'s clock, even when a device clock is wrong');
+  const be2=createBackend(),OM=USERS.omer.id;
+  const sA=await T.device({user:'omer',backend:be2,seed:{prof:{bag:'full',psy:'plan',heb:'he',stage:'g10'}}});await T.login(sA);await T.nick(sA);
+  const sB=await T.device({user:'omer',backend:be2});await sB.evaluate(()=>localStorage.removeItem('kivun3.prof'));await sB.reload();await wait(sB,300);await T.login(sB);await T.nick(sB);
+  const setStage=(p,v)=>p.evaluate(v=>{S.prof={...S.prof,stage:v};store.set('prof',S.prof)},v);
+  const srvStage=()=>(be2.u(OM).data.prof||{value:{}}).value.stage;
+  ok((await lsGet(sB,'prof')||{}).stage==='g10','(two devices of one account, in step)');
+  /* 1. A's clock is 20 minutes AHEAD. A changes the stage first (offline), B changes it later. By the device clock A looks later; by the server's clock B is. */
+  await sA.evaluate(()=>{window.__skew=20*60*1000});await sA.mock.set({down:true});
+  await setStage(sA,'g11');await wait(sA,1500);await setStage(sB,'g12');await wait(sB,2600);
+  await sA.mock.set({down:false});await sA.evaluate(()=>window.dispatchEvent(new Event('online')));await wait(sA,3500);
+  ok(srvStage()==='g12'&&(await lsGet(sA,'prof')).stage==='g12','a fast clock does not win: the later change (B) did, on the server and on A: server '+srvStage()+', A '+(await lsGet(sA,'prof')).stage);
+  ok(sA.mock.log.some(r=>r.path==='/rest/v1/rpc/server_time'),'the device asked the server for its time');
+  /* 2. A's clock is 20 minutes BEHIND. B changes the stage first, A changes it later (offline). By the device clock A looks earlier; by the server's clock A is later. */
+  await sA.evaluate(()=>{window.__skew=-20*60*1000});await sA.mock.set({down:true});
+  await setStage(sB,'svc');await wait(sB,2600);await setStage(sA,'after');await wait(sA,1500);
+  await sA.mock.set({down:false});await sA.evaluate(()=>window.dispatchEvent(new Event('online')));await wait(sA,3500);
+  ok(srvStage()==='after'&&(await lsGet(sA,'prof')).stage==='after','a slow clock does not lose: the later change (A) won: server '+srvStage());
+  await pullNow(sB);ok((await lsGet(sB,'prof')).stage==='after','and B follows');
+  /* the server is out of reach when the clash is found: the older rule would guess from the device clock; here the last known difference is used, and nothing is lost either way */
+  ok(sA.errs.length===0&&sB.errs.length===0,'no page errors');
+
+  console.log('\n== a line under free text: "saved in your account and synced between your devices"');
+  ok((await sA.evaluate(()=>syNote())).includes('נשמר בחשבון שלך ומסונכרן בין המכשירים'),'for someone signed in and in step with the account');
+  await sA.evaluate(()=>{openSchForm()});await wait(sA,400);
+  ok(await sA.evaluate(()=>{const t=document.querySelector('#scNt');return !!t&&!!t.parentElement.querySelector('.sy-note')}),'under the scholarship notes');
+  await sA.keyboard.press('Escape');
+  const N=await T.device({backend:createBackend()});
+  ok((await N.evaluate(()=>syNote()))==='','nothing for someone who is not signed in');
+  await N.evaluate(()=>{openSchForm()});await wait(N,400);
+  ok(await N.evaluate(()=>!!document.querySelector('#scNt')&&!document.querySelector('.sy-note')),'(and no line under the scholarship notes)');
   await T.close();
 })().catch(e=>{console.log('ERROR',String(e).slice(0,600));process.exit(1)});

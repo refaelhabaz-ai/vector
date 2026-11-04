@@ -53,8 +53,11 @@ do $$ begin begin perform count(*) from user_data; raise exception 'FAIL  anon c
 do $$ begin begin perform count(*) from quiz_results; raise exception 'FAIL  anon can read quiz_results'; exception when insufficient_privilege then raise notice 'PASS  anon cannot read quiz_results'; end; end $$;
 do $$ begin begin perform delete_my_account(); raise exception 'FAIL  anon can run delete_my_account'; exception when insufficient_privilege then raise notice 'PASS  anon cannot run delete_my_account'; end; end $$;
 
+do $$ begin begin perform server_time(); raise exception 'FAIL  anon can read the server time function'; exception when insufficient_privilege then raise notice 'PASS  anon cannot run server_time'; end; end $$;
+
 -- delete_my_account: deletes only the caller, everything of the caller goes (cascade)
 reset role; set role authenticated; select pg_temp.as_user('aaaaaaaa-0000-0000-0000-000000000001');
+select pg_temp.check('a signed-in user can read the server time', abs(extract(epoch from (server_time()-now())))<5);
 select delete_my_account();
 reset role;
 select pg_temp.check('delete_my_account removed A and all of A rows', (select count(*) from auth.users where id='aaaaaaaa-0000-0000-0000-000000000001')=0

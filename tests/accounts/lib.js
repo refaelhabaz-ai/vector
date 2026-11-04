@@ -4,7 +4,10 @@ const USERS={dana:{id:'11111111-2222-3333-4444-555555555555',email:'dana@example
 async function start(){const web=await serve(),b=await chromium.launch();
   const T={web,b,URL:web.url,fails:0,ok:(c,m)=>{if(!c)T.fails++;console.log((c?'  ok   ':'  FAIL ')+m);return c},backend:createBackend()};
   /* a device: its own browser context (own storage), the same fake server */
-  T.device=async(o={})=>{const ctx=o.ctx||await b.newContext({viewport:{width:1100,height:900},acceptDownloads:true}),mock=await installMock(ctx,{backend:o.backend||T.backend,user:USERS[o.user||'dana'],...(o.mock||{})}),p=await ctx.newPage();
+  T.device=async(o={})=>{const ctx=o.ctx||await b.newContext({viewport:{width:1100,height:900},acceptDownloads:true});
+    /* window.__skew (ms): this device's clock is that far from the real time (changeable during a test) */
+    await ctx.addInitScript(()=>{const D=Date;window.__skew=0;class DD extends D{constructor(...a){if(a.length)super(...a);else super(D.now()+window.__skew)}static now(){return D.now()+window.__skew}}window.Date=DD});
+    const mock=await installMock(ctx,{backend:o.backend||T.backend,user:USERS[o.user||'dana'],...(o.mock||{})}),p=await ctx.newPage();
     p.setDefaultTimeout(8000);p.errs=[];p.on('pageerror',e=>p.errs.push(String(e)));p.ctx=ctx;p.mock=mock;
     await p.goto(T.URL);await p.evaluate(s=>{localStorage.setItem('kivun3.seenProf','true');localStorage.setItem('kivun3.jnTip','1');if(s)localStorage.setItem('kivun3.prof',JSON.stringify({bag:'full',psy:'plan',heb:'he',sex:s}))},o.sex||'');
     if(o.seed)await p.evaluate(seed=>{for(const [k,v] of Object.entries(seed))localStorage.setItem('kivun3.'+k,JSON.stringify(v))},o.seed);

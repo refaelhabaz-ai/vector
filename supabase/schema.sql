@@ -265,6 +265,21 @@ revoke all on function public.save_quiz(jsonb, jsonb, jsonb) from public, anon;
 grant execute on function public.save_quiz(jsonb, jsonb, jsonb) to authenticated;
 
 -- ----------------------------------------------------------------------------
+-- server_time: שעון השרת. האתר משתמש בו להכריע איזה מבין שני שינויים התרחש מאוחר יותר
+-- (בזמן השרת ולא לפי שעון המכשיר, שעלול להיות לא מדויק). אין בו מידע אישי ואין בו גישה לטבלאות.
+-- ----------------------------------------------------------------------------
+create or replace function public.server_time()
+returns timestamptz
+language sql
+stable
+security invoker
+set search_path = ''
+as $$ select now() $$;
+
+revoke all on function public.server_time() from public, anon;
+grant execute on function public.server_time() to authenticated;
+
+-- ----------------------------------------------------------------------------
 -- delete_my_account: מחיקת המשתמש מ-Auth. כל שאר הנתונים נמחקים בשרשרת (on delete cascade).
 -- security DEFINER: רצה עם הרשאות הבעלים (postgres), כי רק הוא רשאי למחוק מ-auth.users.
 -- הסיכונים והאמצעים מפורטים ב-docs/accounts/PLAN.md. בקצרה: היא מוחקת רק את auth.uid(), לא מקבלת פרמטרים,

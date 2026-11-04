@@ -42,6 +42,7 @@ async function installMock(ctx,opt={}){
       if(!uid)return json(401,{code:'PGRST301',message:'JWT'});
       if(be.fail&&be.fail(p,method))return json(500,{message:'boom'});
       const U=be.u(uid),tbl=p.slice('/rest/v1/'.length),q=url.searchParams;
+      if(tbl==='rpc/server_time'&&method==='POST')return json(200,be.now());
       if(tbl==='consents'){
         if(m.opt.consentsDown)return json(500,{message:'boom'});
         if(method==='GET'){const v=(q.get('version')||'').replace(/^eq\./,'');return json(200,U.consents.filter(r=>!v||r.version===v).map(r=>({kind:r.kind})))}
