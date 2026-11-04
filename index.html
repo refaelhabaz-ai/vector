@@ -7796,7 +7796,7 @@ async function authVerify(){
 }
 async function signOut(wipe){
   closeOv(true);clearTimeout(SY.timer);
-  if(SUPA.user&&syEst()&&Object.keys(syQ()).length){try{await Promise.race([syFlush(),new Promise(r=>setTimeout(r,3000))])}catch(e){}}   /* what is waiting goes out before the session ends */
+  if(SUPA.user&&syEst()&&(Object.keys(syQ()).length||Object.keys(syGet('quizq',{})||{}).length)){try{await Promise.race([syFlush().then(quizFlush),new Promise(r=>setTimeout(r,3000))])}catch(e){}}   /* what is waiting goes out before the session ends */
   try{const c=SUPA.cli||(SUPA.user?await supaClient():null);if(c)await Promise.race([c.auth.signOut({scope:'local'}),new Promise(r=>setTimeout(r,4000))])}catch(e){}
   try{localStorage.removeItem(SB_KEY);localStorage.removeItem(SB_KEY+'-code-verifier')}catch(e){}   /* whatever the network did, this device is signed out */
   SUPA.user=null;SUPA.did=null;SY.paused=false;SY.state='off';contHide();
@@ -7957,15 +7957,57 @@ async function syPull(force){
   syUiRefresh()}
 function syStartPolling(){
   if(SY.poll)return;
-  const tick=async()=>{if(!document.hidden&&ACC.cur()&&syEst()){await syPull(false);if(Object.keys(syQ()).length)await syFlush()}};   /* one after the other: read, then write */
+  const tick=async()=>{if(!document.hidden&&ACC.cur()&&syEst()){await syPull(false);if(Object.keys(syQ()).length)await syFlush();await quizFlush()}};   /* one after the other: read, then write */
   document.addEventListener('visibilitychange',tick);window.addEventListener('online',()=>{SY.fails=0;SY.lastPull=0;tick()});SY.poll=setInterval(tick,90000)}
+
+/* ---------- the questionnaire in the account (tables quiz_sessions, quiz_answers, quiz_results; function save_quiz) ----------
+   One run = one session id (made when the run starts, kept in dir2, so continuing on another device continues the same run).
+   After every answer, skip, "back", "3 more questions" and at the end, the whole run is queued (the latest state per run, kept across reloads) and sent in one call,
+   which replaces the answers and the results of that run. A run left in the middle stays with finished_at empty. Only signed-in people, and only once this device is in step with the account. */
+const QZ={timer:0,busy:false,fails:0};
+function quizUuid(){
+  try{if(window.crypto&&crypto.randomUUID)return crypto.randomUUID()}catch(e){}
+  const b=new Uint8Array(16);try{crypto.getRandomValues(b)}catch(e){for(let i=0;i<16;i++)b[i]=Math.floor(Math.random()*256)}
+  b[6]=b[6]&15|64;b[8]=b[8]&63|128;const h=[...b].map(x=>x.toString(16).padStart(2,'0')).join('');return h.slice(0,8)+'-'+h.slice(8,12)+'-'+h.slice(12,16)+'-'+h.slice(16,20)+'-'+h.slice(20)}
+function quizPayload(){
+  const d=syClean('dir2',syGet('dir2',null));if(!d||!d.answers.length||!d.sid)return null;
+  let st;try{st=VQE.replay(d.answers,vqEnv());st.more=d.more||0}catch(e){return null}
+  const r4=x=>Math.round(x*1e4)/1e4,iso=t=>new Date(t).toISOString(),res=[];
+  let start=d.st||d.answers[0].t||d.ts||Date.now();const fin=d.done||null;if(fin&&fin<start)start=fin;
+  let top,conf=null;
+  if(fin){const R=VQR.results(st);top=R.dirs.map(x=>x.world);conf=R.conf;
+    R.dirs.forEach((x,i)=>res.push({kind:'world',rank:i+1,code:x.world,score:r4(x.p)}));
+    let n=0;R.dirs.forEach(x=>x.occs.forEach(o=>res.push({kind:'occupation',rank:++n,code:o.id,score:r4(o.S)})));
+    if(R.wildcard)res.push({kind:'wildcard',rank:1,code:R.wildcard.id,score:r4(R.wildcard.S)})}
+  else top=VQE.rank(st.p).slice(0,3);
+  const meta=a=>{const m={};if(a.w)m.w=a.w;if(a.occ)m.occ=a.occ;if(a.never)m.never=a.never;if(a.cards&&a.cards.length)m.cards=a.cards;return Object.keys(m).length?m:null};
+  return {session:{id:d.sid,started_at:iso(start),finished_at:fin?iso(fin):null,n_questions:d.answers.length,quiz_version:String(VQ.version||'2.0').slice(0,16),top_worlds:top,confidence:conf},
+    answers:d.answers.map(a=>({q:a.q,picks:a.skip?[]:a.q==='DAY'?(a.occ?['DAY_pick']:[]):(a.picks||[]),meta:meta(a),at:iso(a.t||d.ts||start)})),results:res}}
+function quizEnqueue(){
+  try{if(!ACC.cur()||!syEst()||SY.paused)return;const p=quizPayload();if(!p)return;
+    const h=syStable(p),m=syMeta()||{};if((m.qh||{})[p.session.id]===h)return;   /* already in the account as it is */
+    const q=syGet('quizq',{})||{};q[p.session.id]={p,h};sySet('quizq',q);clearTimeout(QZ.timer);QZ.timer=setTimeout(quizFlush,2000)}catch(e){}}
+async function quizFlush(){
+  const a=ACC.cur();if(QZ.busy||!a||!syEst()||SY.paused)return;
+  const q=syGet('quizq',{})||{},ids=Object.keys(q);if(!ids.length)return;
+  QZ.busy=true;
+  try{
+    const c=await supaClient();if(!c)throw {status:0};
+    for(const id of ids){const {p,h}=q[id],r=await c.rpc('save_quiz',{p_session:p.session,p_answers:p.answers,p_results:p.results});
+      const st=r.status,perm=r.error&&st>=400&&st<500&&![401,408,429].includes(st);
+      if(r.error&&!perm)throw r.error;   /* no connection or a server problem: try again later */
+      const q2=syGet('quizq',{})||{};if(q2[id]&&q2[id].h===h)delete q2[id];sySet('quizq',q2);   /* sent, or refused for good (retrying cannot help) */
+      if(!r.error){const m=syMeta()||{};m.qh={...(m.qh||{}),[id]:h};const ks=Object.keys(m.qh);if(ks.length>20)delete m.qh[ks[0]];sySet('syncmeta',m)}}
+    QZ.fails=0;
+  }catch(e){QZ.fails++;clearTimeout(QZ.timer);QZ.timer=setTimeout(quizFlush,Math.min(60000,2000*2**Math.min(QZ.fails,5)))}
+  finally{QZ.busy=false}}
 
 /* ---------- the first meeting of this device and the account ---------- */
 async function syStart(u){
   if(SY.starting)return;SY.starting=true;
   try{
     const m=syMeta();
-    if(m&&m.uid===u.id&&m.est){syStartPolling();SY.state=Object.keys(syQ()).length?'pending':'ok';await syPull(true);syFlush();return}
+    if(m&&m.uid===u.id&&m.est){syStartPolling();SY.state=Object.keys(syQ()).length?'pending':'ok';await syPull(true);syFlush();quizEnqueue();quizFlush();return}
     if(m&&m.uid&&m.uid!==u.id&&m.est){   /* this device holds another account's data */
       const r=await ovAsk(`<div class="authw"><div class="auth-top"><h2>במכשיר יש נתונים של חשבון אחר</h2><p class="s">${vqT('הנתונים שבמכשיר הזה נשמרו כשהיית מחובר/ת לחשבון אחר. אני לא מעלה אותם לחשבון הזה בלי לשאול.')}</p></div>
         <div style="display:grid;gap:10px"><button class="btn primary" data-sy="clean">להתחיל נקי: מוחקים מהמכשיר את הנתונים של החשבון הקודם</button><button class="btn soft" data-sy="mine">אלה גם הנתונים שלי: להמשיך עם מה שבמכשיר</button></div>
@@ -8021,7 +8063,7 @@ async function syApply(u,dev,srv,final,olds){
   if(Object.keys(write).length)syWriteLocal(write);
   const q=syQ();up.forEach(k=>{q[k]=Date.now()});sySet('syncq',q);
   olds.forEach(o=>syRemoveOld(o.id,u.id));
-  SY.state='pending';await syFlush();
+  SY.state='pending';await syFlush();quizEnqueue();
   render()}
 
 /* ---------- accounts that lived only in this browser (password + local copy): moved to the real account once ---------- */
@@ -8083,7 +8125,7 @@ const syNote=()=>acctSynced()?'<span class="hint sy-note">נשמר בחשבון 
 async function syNow(){SY.paused=false;const u=SUPA.user;if(!u)return;
   if(!syEst()){await syStart(u)}else{await syPull(true);await syFlush()}syUiRefresh()}
 function syForget(){   /* sign-out on a shared device: also remove this account's data from the device */
-  SYNC_KEYS.forEach(k=>sySet(k,null));['syncq','syncmeta','nicks','premerge'].forEach(k=>sySet(k,null));reloadState()}
+  SYNC_KEYS.forEach(k=>sySet(k,null));['syncq','syncmeta','nicks','premerge','quizq'].forEach(k=>sySet(k,null));reloadState()}
 
 /* ---------- events ---------- */
 document.addEventListener('click',e=>{
@@ -8761,17 +8803,20 @@ function vqDegScores(S){
 /* ================= "מה הכיוון שלי?" v2: the screens (spec chapter 10) =================
    One question on the screen, big cards, a choice moves on by itself. Intro, question, transition, guess, a day in the life, results.
    The state is only the list of answers (saved at once in dir2); everything else is computed from it by the engine. */
-const VQU={mode:'intro',cur:null,sel:[],lock:0,pre:'',preDone:'',day:{pick:'',never:''},region:'',t0:0,tq:0,why:false,answers:[],more:0,done:0,loaded:false};
+const VQU={mode:'intro',cur:null,sel:[],lock:0,pre:'',preDone:'',day:{pick:'',never:''},region:'',t0:0,tq:0,why:false,answers:[],more:0,done:0,sid:'',st:0,loaded:false};
 const vqT=t=>VQX.text(t,sex()); /* every text goes through the gender form */
 const vqEnv=()=>({profile:{math:(S.prof||{}).mathQ?undefined:(S.prof||{}).math,reg:(S.prof||{}).reg}}); /* a math value that came from this questionnaire is not "already in the profile" (the answer is in the list) */
 const vqSt=()=>{const st=VQE.replay(VQU.answers,vqEnv());st.more=VQU.more||0;return st};
 function vqLoad(){
   if(VQU.loaded)return;VQU.loaded=true;
   const d=store.get('dir2',null);
-  if(d&&d.v===2&&Array.isArray(d.answers)){VQU.answers=d.answers.filter(a=>a&&VQE.Q[a.q]);VQU.more=d.more|0;VQU.done=d.done||0;
+  if(d&&d.v===2&&Array.isArray(d.answers)){VQU.answers=d.answers.filter(a=>a&&VQE.Q[a.q]);VQU.more=d.more|0;VQU.done=d.done||0;VQU.sid=d.sid||'';VQU.st=d.st||0;
     try{VQE.replay(VQU.answers,vqEnv())}catch(e){VQU.answers=[];VQU.done=0}} /* a damaged save starts again */
 }
-function vqSave(){const st=vqSt();store.set('dir2',{v:2,answers:VQU.answers,ctx:st.ctx,done:VQU.done||0,more:VQU.more||0,ts:Date.now()})}
+function vqSave(){const st=vqSt();
+  if(VQU.answers.length&&!VQU.sid){VQU.sid=quizUuid();VQU.st=VQU.st||(VQU.answers[0]&&VQU.answers[0].t)||Date.now()}   /* a run saved before there were run ids gets one now */
+  store.set('dir2',{v:2,answers:VQU.answers,ctx:st.ctx,done:VQU.done||0,more:VQU.more||0,sid:VQU.sid||undefined,st:VQU.st||undefined,ts:Date.now()});
+  if(typeof quizEnqueue==='function')quizEnqueue()}   /* a signed-in person's run goes to the account (SYNC region) */
 const vqDone=()=>{vqLoad();return !!VQU.done};
 /* measurement: one function, nothing is sent anywhere until something is connected to it (VQ_TRACK) */
 const VQ_TRACK=[];
@@ -8807,7 +8852,7 @@ function vqStep(){
 }
 function vqAnswer(a){
   if(VQU.lock)return;VQU.lock=1;
-  const nx=VQU.cur;if(nx&&nx.w)a.w=nx.w;
+  const nx=VQU.cur;if(nx&&nx.w)a.w=nx.w;a.t=Date.now();if(a.q==='DAY'&&VQU.dayCards)a.cards=VQU.dayCards.map(c=>c.occ);
   VQU.answers.push(a);vqSave();vqProfSync();
   if(a.skip)vqTrack('vq_skip',{q:a.q});
   else if(a.q==='G')vqTrack('vq_guess',{world:a.w,answer:{G_1:'bull',G_2:'warm',G_3:'curious',G_4:'cold'}[a.picks[0]],idx:VQU.answers.length});
@@ -8828,7 +8873,7 @@ function vqSay(){
   const k=vqPhaseIdx(VQU.cur.phase);if(k!==VQU.lastK){VQU.lastK=k;say('חלק '+(k+1)+' מתוך 4: '+VQ_STAGES[k])}
 }
 function vqFocus(){const h=$('#vqH');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}
-function vqStart(entry){vqLoad();VQU.answers=[];VQU.more=0;VQU.done=0;VQU.preDone='';VQU.t0=Date.now();vqSave();vqProfSync();vqTrack('vq_start',{entry:entry||'header'});vqStep();vqPaint()}
+function vqStart(entry){vqLoad();VQU.answers=[];VQU.more=0;VQU.done=0;VQU.sid=quizUuid();VQU.st=Date.now();VQU.preDone='';VQU.t0=Date.now();vqSave();vqProfSync();vqTrack('vq_start',{entry:entry||'header'});vqStep();vqPaint()}
 function vqResume(){vqLoad();VQU.t0=Date.now();VQU.preDone='';vqStep();vqPaint()}
 /* ---------- screens ---------- */
 const vqBar=(st,nx)=>{
@@ -12407,8 +12452,10 @@ const NORM={
     for(const a of v.answers.slice(0,60)){if(!isObj(a)||typeof a.q!=='string'||!own(VQE.Q,a.q)||seen.has(a.q))continue;seen.add(a.q);const o={q:a.q};
       if(a.skip)o.skip=1;else if(Array.isArray(a.picks)){o.picks=a.picks.filter(x=>typeof x==='string'&&own(VQE.O,x)&&VQE.O[x].q===a.q).slice(0,3);if(!o.picks.length)o.skip=1,delete o.picks}
       if(typeof a.w==='string'&&VQE.W.includes(a.w))o.w=a.w;
-      if(typeof a.occ==='string'&&own(VQ.occupations,a.occ))o.occ=a.occ;if(typeof a.never==='string'&&own(VQ.occupations,a.never))o.never=a.never;A.push(o)}
-    const r={v:2,answers:A,ctx:{},more:nin(v.more,0,10)?Math.floor(v.more):0,ts:nin(v.ts,1,1e14)?v.ts:0};if(nin(v.done,1,1e14))r.done=v.done;return r},
+      if(typeof a.occ==='string'&&own(VQ.occupations,a.occ))o.occ=a.occ;if(typeof a.never==='string'&&own(VQ.occupations,a.never))o.never=a.never;
+      if(nin(a.t,1,1e14))o.t=a.t;if(Array.isArray(a.cards))o.cards=a.cards.filter(x=>typeof x==='string'&&own(VQ.occupations,x)).slice(0,3);A.push(o)}
+    const r={v:2,answers:A,ctx:{},more:nin(v.more,0,10)?Math.floor(v.more):0,ts:nin(v.ts,1,1e14)?v.ts:0};if(nin(v.done,1,1e14))r.done=v.done;
+    if(typeof v.sid==='string'&&/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(v.sid))r.sid=v.sid.toLowerCase();if(nin(v.st,1,1e14))r.st=v.st;return r},
   uni:v=>typeof v==='string'&&own(INST,v)?v:null,
   mode:v=>v==='deg'||v==='occ'||v==='tech'?v:undefined,
   /* path and sch are cleaned in full where they are read (pth, schParse); here only their outer shape, so a wrong type never gets that far */

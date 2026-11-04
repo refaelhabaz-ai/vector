@@ -43,6 +43,19 @@ async function installMock(ctx,opt={}){
       if(be.fail&&be.fail(p,method))return json(500,{message:'boom'});
       const U=be.u(uid),tbl=p.slice('/rest/v1/'.length),q=url.searchParams;
       if(tbl==='rpc/server_time'&&method==='POST')return json(200,be.now());
+      if(tbl==='rpc/save_quiz'&&method==='POST'){
+        const b=JSON.parse(req.postData()||'{}'),se=b.p_session||{},an=b.p_answers||[],re=b.p_results||[];
+        for(const [oid,O] of Object.entries(be.users))if(oid!==uid&&O.quiz.sessions[se.id])return json(403,{code:'42501',message:'new row violates row-level security policy'});
+        if(!/^[0-9a-f-]{36}$/.test(se.id||''))return json(400,{code:'22P02',message:'bad uuid'});
+        if(!(se.n_questions>=0&&se.n_questions<=40)||!se.quiz_version||se.quiz_version.length>16)return json(400,{code:'23514',message:'quiz_sessions check'});
+        if(se.finished_at&&Date.parse(se.finished_at)<Date.parse(se.started_at))return json(400,{code:'23514',message:'quiz_sessions_dates_ok'});
+        if(an.some(a=>a.meta&&JSON.stringify(a.meta).length>2048))return json(400,{code:'23514',message:'quiz_answers_meta_size_ok'});
+        if(re.some(r=>!['world','occupation','wildcard'].includes(r.kind)))return json(400,{code:'23514',message:'quiz_results_kind_check'});
+        U.quiz.sessions[se.id]={id:se.id,user_id:uid,started_at:se.started_at,finished_at:se.finished_at||null,n_questions:se.n_questions,quiz_version:se.quiz_version,top_worlds:se.top_worlds||[],confidence:se.confidence||null};
+        U.quiz.answers[se.id]=an.map((a,i)=>({session_id:se.id,idx:i,question_id:a.q,picks:a.picks||[],meta:a.meta||null,answered_at:a.at||be.now()}));
+        U.quiz.results[se.id]=re.map(r=>({session_id:se.id,rank:r.rank,kind:r.kind,code:r.code,score:r.score}));
+        m.quizCalls=(m.quizCalls||0)+1;
+        return json(200,null)}
       if(tbl==='consents'){
         if(m.opt.consentsDown)return json(500,{message:'boom'});
         if(method==='GET'){const v=(q.get('version')||'').replace(/^eq\./,'');return json(200,U.consents.filter(r=>!v||r.version===v).map(r=>({kind:r.kind})))}
