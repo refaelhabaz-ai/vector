@@ -39,10 +39,15 @@ async function installMock(ctx,opt={}){
     if(p==='/auth/v1/verify'){const b=JSON.parse(req.postData()||'{}');return b.token===m.opt.otp?json(200,m.session()):json(403,{code:'otp_expired',message:'Token has expired or is invalid'})}
     const uid=uidOf(req);
     if(p.startsWith('/rest/v1/')){
-      if(!uid)return json(401,{code:'PGRST301',message:'JWT'});
+      if(!uid||(be.deleted&&be.deleted.has(uid)))return json(401,{code:'PGRST301',message:'JWT'});
       if(be.fail&&be.fail(p,method))return json(500,{message:'boom'});
       const U=be.u(uid),tbl=p.slice('/rest/v1/'.length),q=url.searchParams;
       if(tbl==='rpc/server_time'&&method==='POST')return json(200,be.now());
+      if(tbl==='rpc/delete_my_account'&&method==='POST'){if(m.opt.deleteFails)return json(500,{message:'boom'});delete be.users[uid];be.deleted=be.deleted||new Set();be.deleted.add(uid);m.deleteCalls=(m.deleteCalls||0)+1;return route.fulfill({status:204,headers:CORS})}
+      if(['profiles','quiz_sessions','quiz_answers','quiz_results'].includes(tbl)&&method==='GET'){
+        const ow=(q.get('user_id')||'').replace(/^eq\./,'');if(ow&&ow!==uid)return json(200,[]);
+        const rows=tbl==='profiles'?(U.profile?[{user_id:uid,...U.profile}]:[]):tbl==='quiz_sessions'?Object.values(U.quiz.sessions):tbl==='quiz_answers'?Object.values(U.quiz.answers).flat():Object.values(U.quiz.results).flat();
+        return json(200,rows)}
       if(tbl==='rpc/save_quiz'&&method==='POST'){
         const b=JSON.parse(req.postData()||'{}'),se=b.p_session||{},an=b.p_answers||[],re=b.p_results||[];
         for(const [oid,O] of Object.entries(be.users))if(oid!==uid&&O.quiz.sessions[se.id])return json(403,{code:'42501',message:'new row violates row-level security policy'});
@@ -58,13 +63,14 @@ async function installMock(ctx,opt={}){
         return json(200,null)}
       if(tbl==='consents'){
         if(m.opt.consentsDown)return json(500,{message:'boom'});
-        if(method==='GET'){const v=(q.get('version')||'').replace(/^eq\./,'');return json(200,U.consents.filter(r=>!v||r.version===v).map(r=>({kind:r.kind})))}
-        if(method==='POST'){const rows=JSON.parse(req.postData()||'[]');for(const r of rows){if(r.user_id!==uid)return json(403,{code:'42501',message:'rls'});if(!U.consents.some(x=>x.kind===r.kind&&x.version===r.version))U.consents.push({...r,accepted_at:be.now()})}return route.fulfill({status:201,headers:CORS,body:''})}
+        if(method==='GET'){const v=(q.get('version')||'').replace(/^eq\./,''),ow=(q.get('user_id')||'').replace(/^eq\./,'');if(ow&&ow!==uid)return json(200,[]);const rows=U.consents.filter(r=>!v||r.version===v);return json(200,q.get('select')==='kind'?rows.map(r=>({kind:r.kind})):rows)}
+        if(method==='POST'){const rows=[].concat(JSON.parse(req.postData()||'[]'));for(const r of rows){if(r.user_id!==uid)return json(403,{code:'42501',message:'rls'});if(!U.consents.some(x=>x.kind===r.kind&&x.version===r.version))U.consents.push({...r,accepted_at:be.now()})}return route.fulfill({status:201,headers:CORS,body:''})}
       }
       if(tbl==='user_data'){
         if(m.opt.dataDown)return json(503,{message:'down'});
+        if(method==='GET'&&((q.get('user_id')||'').replace(/^eq\./,'')||uid)!==uid)return json(200,[]);
         if(method==='GET')return json(200,Object.entries(U.data).map(([key,r])=>({key,value:r.value,updated_at:r.updated_at})));
-        if(method==='POST'){const rows=JSON.parse(req.postData()||'[]'),out=[];
+        if(method==='POST'){const rows=[].concat(JSON.parse(req.postData()||'[]')),out=[];
           for(const r of rows){if(r.user_id!==uid)return json(403,{code:'42501',message:'rls'});
             if(!KEYS.includes(r.key))return json(400,{code:'23514',message:'user_data_key_ok'});
             if(r.key==='prof'&&r.value&&LOCAL_ONLY.some(f=>f in r.value))return json(400,{code:'23514',message:'user_data_prof_local_only'});

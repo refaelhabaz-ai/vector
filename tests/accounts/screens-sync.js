@@ -14,6 +14,7 @@ const OUT=path.join(__dirname,'..','..','docs','accounts','screens');fs.mkdirSyn
   await T.login(C);await shot(C,'6-merge');
   await C.click('#syf button[type=submit]');await w(C);await T.nick(C);await w(C);
   await C.click('#acctBtn');await shot(C,'7-account-synced');
+  await C.click('#ov [data-acctdelete]');await C.waitForSelector('#delf');await shot(C,'10-delete-account');await C.keyboard.press('Escape');
   const G=await mk({user:'omer',backend:require('./mock.js').createBackend()});
   await G.evaluate(async()=>{const salt='s1',a={uOLD2:{id:'uOLD2',name:'נועם',email:'someone@else.com',salt,hash:await pwHash('hunter22x',salt),created:1,data:{list:[]}},uOLD3:{id:'uOLD3',name:'שיר',phone:'0501234567',salt,hash:await pwHash('x',salt),created:1,data:{}}};localStorage.setItem('kivun3.accounts',JSON.stringify(a))});
   await G.reload();await w(G);await T.login(G);await shot(G,'8-old-accounts');

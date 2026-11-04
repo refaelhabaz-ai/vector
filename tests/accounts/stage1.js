@@ -49,13 +49,13 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   await p.ctx.close();
 
   console.log('\n== coming back from Google (first time on this device)');
-  p=await open({sex:'f'});
+  p=await open({sex:'f'});const LEGALV=await p.evaluate(()=>LEGAL_UPDATED);
   await logIn(p,'');
   ok(await p.evaluate(()=>!location.search&&location.hash==='#dir'),'the code is gone from the address and the page is restored: '+(await p.evaluate(()=>location.search+location.hash)));
   ok((await p.textContent('#acctBtn')).includes('דנה'),'the header shows the first name from Google');
   const cons=p.mock.consents.map(r=>r.kind).sort().join(',');
   ok(cons==='privacy,terms','both consents written: '+cons+' (version '+(p.mock.consents[0]||{}).version+')');
-  ok(p.mock.consents.every(r=>r.user_id===p.mock.opt.user.id&&r.version===('2026-10-25')),'for this user and the current legal version');
+  ok(p.mock.consents.every(r=>r.user_id===p.mock.opt.user.id&&r.version===LEGALV),'for this user and the current legal version');
   ok(await p.evaluate(()=>!localStorage.getItem('kivun3.consp')),'the pending consent is cleared once written');
   ok(await p.evaluate(()=>!!document.querySelector('#nickf')&&document.querySelector('#anm').value==='דנה'),'asked once for a name, filled with the first name');
   await p.fill('#anm','דנה כ.');await p.click('#nickf button[type=submit]');await p.waitForTimeout(300);

@@ -13,6 +13,7 @@ const T=[
   ['accounts, stage 1: sign-in against a fake Supabase (page)','../accounts/stage1.js',200],
   ['accounts, stage 2: sync between devices, merge, old accounts (page)','../accounts/stage2.js',300],
   ['accounts, stage 3: the questionnaire in the account (page)','../accounts/stage3.js',300],
+  ['accounts, stage 4: download, delete, texts, live-check script (page)','../accounts/stage4.js',300],
   ['screens: personas through the page at 1280 and 360 (page)','ui.js',420],
 ];
 const rows=[];let bad=0;const t0=Date.now();

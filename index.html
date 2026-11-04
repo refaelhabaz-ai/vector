@@ -754,6 +754,7 @@ p.intro .linkbtn{color:var(--primary-dark);text-decoration:underline;text-underl
 .contbar{position:fixed;inset-inline:12px;bottom:150px;z-index:70;margin-inline:auto;max-width:560px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#fff;border-radius:18px;padding:12px 14px;box-shadow:0 14px 40px rgba(16,24,64,.28);border:1px solid #DADFEB}
 .contbar span{flex:1;min-width:8ch;font-weight:600}.contx{background:none;border:0;font-size:18px;color:var(--muted);min-width:44px;min-height:44px;cursor:pointer}
 @media(min-width:1081px){.contbar{bottom:84px}}
+.lg-draft{background:#FFF3C4;color:#5A4300;border:1px dashed #8A6A00;border-radius:12px;padding:10px 14px;margin:0 0 14px}
 .sy-note{display:block;font-size:13.5px;color:var(--muted);margin-top:4px}.sy-st{margin:0 0 12px;font-size:14px;color:var(--muted)}.sy-merge fieldset{border:0;background:#F5F6FB;border-radius:16px;margin:0 0 12px;padding:12px 14px}.sy-merge legend{font-weight:800;padding:0 6px}
 .sy-opt{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer}.sy-opt input{width:20px;height:20px;margin-top:3px;accent-color:var(--primary);flex:none}.sy-opt small{display:block;color:var(--muted);font-size:13.5px}
 .sy-oldf>*{min-width:0}.sy-oldf .pwbox{width:100%}.sy-oldf input{width:100%;box-sizing:border-box}.sy-oldf .s{text-align:start;margin:0}
@@ -4643,7 +4644,7 @@ function fErr(e){const c=e&&e.code;
   return 'השמירה נכשלה. אפשר לנסות שוב בעוד רגע.'}
 async function savePriv(){if(FM.local){if(!FM.me)return;const pv=store.get('forumPriv',{})||{};if(pv.follow!==undefined||pv.seen!==undefined){for(const k of Object.keys(pv))delete pv[k]}pv[FM.me]=FM.priv;store.set('forumPriv',pv);return}try{await FM.db.doc('data/users/'+FM.me+'/forum').set(FM.priv)}catch(e){}}
 const canWrite=()=>FM.state==='ready'&&FM.me&&FM.can!==false;
-const localNote=()=>FM.local?`<div class='fnote fsmall'>מצב בדיקה: שאלות ותשובות חדשות נשמרות רק בדפדפן הזה ואינן מוצגות לאחרים. שאלות שמסומנות "שאלה נפוצה" נענו על ידי צוות וקטור, ואפשר להוסיף להן תשובות.</div>`:'';
+const localNote=()=>FM.local?`<div class='fnote fsmall'>מצב בדיקה: שאלות ותשובות חדשות נשמרות רק בדפדפן הזה ואינן מוצגות לאחרים${ACC.cur()?' (גם כשמחוברים: הפורום לא מסונכרן בין מכשירים)':''}. שאלות שמסומנות "שאלה נפוצה" נענו על ידי צוות וקטור, ואפשר להוסיף להן תשובות.</div>`:'';
 const loginNote=(what='לשאול ולענות')=>`<div class="loginbox"><div><b>כדי ${what} צריך להתחבר</b><p>קריאה פתוחה לכולם. ההתחברות לוקחת כמה שניות, עם חשבון Google.</p></div><div class="lb-b"><button class="btn ask" data-auth="login">התחברות</button></div></div>`;
 function writeNote(){
   if(FM.state==='loading')return `<div class="fnote">טוען את הפורום…</div>`;
@@ -4940,7 +4941,7 @@ function openAsk(pre={}){
     ${r?'':roleFields()}
     <div class="aform-f"><label class="switch"><input type="checkbox" id="aqanon"><span></span>לשאול בעילום שם</label>
       <button class="btn ask" type="submit" id="aqsend">פרסום השאלה</button></div>
-    <span class="hint">${FM.local?'השאלה נשמרת בדפדפן הזה בלבד ואינה מוצגת לאחרים. בעילום שם: השם לא יוצג בה.':'בעילום שם: השם לא יוצג למשתמשים, אבל מפעיל האתר והסביבה שמארחת את הפורום עשויים לראות מי כתב.'}</span>${lgConsent('בפרסום')}
+    <span class="hint">${FM.local?'השאלה נשמרת בדפדפן הזה בלבד ואינה מוצגת לאחרים'+(ACC.cur()?' ואינה מסונכרנת לחשבון':'')+'. בעילום שם: השם לא יוצג בה.':'בעילום שם: השם לא יוצג למשתמשים, אבל מפעיל האתר והסביבה שמארחת את הפורום עשויים לראות מי כתב.'}</span>${lgConsent('בפרסום')}
     <span class="err" id="aqerr" hidden></span></form>`,'wide');
   askPreview();
 }
@@ -7745,7 +7746,8 @@ function openAcct(){
     <div class="fstats num" style="margin:14px 0"><span><b>${S.list.size}</b>תארים ברשימה</span><span><b>${nQ}</b>שאלות</span><span><b>${nA}</b>תשובות</span></div>
     <p class="sy-st" id="syStatus" role="status">${esc(syStatusText())}</p>
     <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn soft" type="button" data-nick>שינוי השם</button><button type="button" class="btn soft" data-prof>הפרופיל שלי</button><button type="button" class="btn soft" data-synow>סנכרון עכשיו</button><button type="button" class="btn soft" data-signout>התנתקות</button></div>
-    <p style="margin-top:16px"><button class="linkbtn" type="button" data-signoutwipe>התנתקות ומחיקת הנתונים מהמכשיר הזה</button><small class="fine" style="display:block">למכשיר משותף. הנתונים נשארים בחשבון בשרת.</small></p></div>`);
+    <p style="margin-top:16px"><button class="linkbtn" type="button" data-signoutwipe>התנתקות ומחיקת הנתונים מהמכשיר הזה</button><small class="fine" style="display:block">למכשיר משותף. הנתונים נשארים בחשבון בשרת.</small></p>
+    <p style="margin-top:14px;display:flex;gap:16px;flex-wrap:wrap"><button class="linkbtn" type="button" data-acctexport>הורדת הנתונים שלי</button><button class="linkbtn" type="button" data-acctdelete style="color:#C0392B">מחיקת החשבון וכל הנתונים</button></p></div>`);
 }
 function avatarFor(uid,name){const c=AV_C[hash(uid||'x')%AV_C.length];return `<span class="av lg" style="background:${c}" aria-hidden="true">${esc((name||'?').trim().charAt(0))}</span>`}
 function acctBtn(){
@@ -7815,13 +7817,15 @@ function initAccounts(){
   /* every write of a synced key is also queued for the server (only while this device is in step with the account) */
   const set0=store.set;store.set=(k,v)=>{set0(k,v);if(SYNC_KEYS.includes(k))syDirty(k)};
   document.addEventListener('click',e=>{
-    const el=e.target.closest('[data-gauth],[data-otpresend],[data-otpback],[data-nick],[data-contgo],[data-contx],[data-synow],[data-signoutwipe]');if(!el)return;const ds=el.dataset;
+    const el=e.target.closest('[data-gauth],[data-otpresend],[data-otpback],[data-nick],[data-contgo],[data-contx],[data-synow],[data-signoutwipe],[data-acctexport],[data-acctdelete]');if(!el)return;const ds=el.dataset;
     if(ds.gauth!==undefined)authGoogle();
     else if(ds.otpresend!==undefined){AUTH.step='start';authSendCodeAgain()}
     else if(ds.otpback!==undefined){AUTH.step='start';openAuth({intent:AUTH.intent,reason:AUTH.reason})}
     else if(ds.nick!==undefined)openNick(false);
     else if(ds.contgo!==undefined){const it=SUPA.intent,d=it&&AUTH_INTENTS[it.id];contHide();if(d)d.run(it.args)}
     else if(ds.contx!==undefined)contHide();
+    else if(ds.acctexport!==undefined)acctExport();
+    else if(ds.acctdelete!==undefined)acctDelete();
     else if(ds.synow!==undefined){const b=el;b.disabled=true;syNow().finally(()=>{b.disabled=false})}
     else if(ds.signoutwipe!==undefined){const n=Object.keys(syQ()).length;if(n&&!confirm('יש שינויים שעדיין לא נשלחו לחשבון. אם תמחקו עכשיו הם יאבדו. להמשיך?'))return;signOut(true)}
   });
@@ -8121,9 +8125,46 @@ function syStatusText(){
 function syUiRefresh(){const e=document.getElementById('syStatus');if(e)e.textContent=syStatusText()}
 const acctSynced=()=>!!(ACC.cur()&&syEst()&&!SY.paused);
 /* a small line under free text (notes, the personal story): for someone signed in, where it is kept */
+/* where something is kept, for texts: f = 's' (נשמר) | 'f' (נשמרת) | 'p' (נשמרים). local=true: it never goes to the account (income, family education, service, reserve days). */
+const keptTxt=(f,local)=>{const v={s:'נשמר',f:'נשמרת',p:'נשמרים'}[f]||'נשמר';
+  if(local)return `${v} בדפדפן הזה בלבד${ACC.cur()?(f==='p'?' ואינם נשלחים לחשבון':f==='f'?' ואינה נשלחת לחשבון':' ואינו נשלח לחשבון'):''}`;
+  return acctSynced()?`${v} בחשבון שלי ובדפדפן הזה`:`${v} בדפדפן הזה בלבד`};
 const syNote=()=>acctSynced()?'<span class="hint sy-note">נשמר בחשבון שלך ומסונכרן בין המכשירים</span>':'';
 async function syNow(){SY.paused=false;const u=SUPA.user;if(!u)return;
   if(!syEst()){await syStart(u)}else{await syPull(true);await syFlush()}syUiRefresh()}
+/* ---------- the person's rights: download all of it, delete the account and everything in it ---------- */
+async function syFetchAll(c,t){const out=[];for(let i=0;i<50;i++){const r=await c.from(t).select('*').range(i*1000,i*1000+999).retry(false);if(r.error)throw r.error;out.push(...(r.data||[]));if((r.data||[]).length<1000)break}return out}
+async function acctExport(){
+  const a=ACC.cur();if(!a)return;
+  try{
+    const c=await supaClient();if(!c)throw 0;const T={};
+    for(const t of ['user_data','profiles','quiz_sessions','quiz_answers','quiz_results','consents'])T[t]=await syFetchAll(c,t);
+    const data={exported_at:new Date().toISOString(),account:{id:a.id,email:a.email},
+      profile:T.profiles[0]||null,
+      synced_data:Object.fromEntries(T.user_data.map(r=>[r.key,{value:r.value,updated_at:r.updated_at}])),
+      quiz_sessions:T.quiz_sessions.map(x=>({...x,answers:T.quiz_answers.filter(y=>y.session_id===x.id).sort((p,q)=>p.idx-q.idx),results:T.quiz_results.filter(y=>y.session_id===x.id)})),
+      consents:T.consents,
+      only_on_this_device:syPick(syGet('prof',null),SYNC_LOCAL_ONLY)};   /* what never went to the server: shown here so the file is the whole picture */
+    dl('vector-my-data.json',JSON.stringify(data,null,1),'application/json');toast('הקובץ ירד');
+  }catch(e){toast('לא הצלחתי להוריד את הנתונים כרגע. אפשר לנסות שוב כשיש חיבור')}}
+async function acctDelete(){
+  const a=ACC.cur();if(!a)return;
+  const res=await ovAsk(`<div class="authw"><div class="auth-top"><h2>מחיקת החשבון וכל הנתונים</h2><p class="s">${vqT('זה ימחק לצמיתות את החשבון ואת כל המידע שנשמר עליו בשרת: הפרופיל, הציונים, הרשימה, המסלול, המלגות, השאלון והאישורים. אי אפשר לשחזר.')}</p></div>
+    <form class="form" id="delf" novalidate><label class="acons"><input type="checkbox" id="delloc"><span>למחוק גם את הנתונים מהמכשיר הזה</span></label>
+      <div class="field"><label for="delw">כדי לאשר, כותבים: <b>מחיקה</b></label><input id="delw" autocomplete="off"></div>
+      <span class="err" id="delerr" role="alert" hidden></span>
+      <div class="sy-acts"><button class="btn primary" style="background:#C0392B" type="submit" id="delgo">מחיקת החשבון וכל הנתונים</button><button class="btn soft" type="button" data-del-no>ביטול</button></div>
+      <small class="fine" style="display:block;margin-top:10px">כדאי להוריד קודם את הנתונים, מ"החשבון שלי".</small></form></div>`,(ov,done)=>{
+      ov.querySelector('[data-del-no]').onclick=()=>done(null);
+      ov.querySelector('#delf').onsubmit=async e=>{e.preventDefault();const er=ov.querySelector('#delerr'),go=ov.querySelector('#delgo');
+        if(ov.querySelector('#delw').value.trim()!=='מחיקה'){er.textContent='כדי לאשר צריך לכתוב: מחיקה';er.hidden=false;return}
+        go.disabled=true;er.hidden=true;
+        try{const c=await supaClient();if(!c)throw {status:0};const r=await c.rpc('delete_my_account');if(r.error)throw r.error;done({wipe:ov.querySelector('#delloc').checked})}
+        catch(x){go.disabled=false;er.textContent='המחיקה לא הצליחה, ושום דבר לא נמחק. אפשר לנסות שוב.'+(x&&x.status===0?' (אין חיבור לשרת.)':'');er.hidden=false}}});
+  if(!res)return;
+  /* gone from the server: nothing of this device may be sent for it again */
+  clearTimeout(SY.timer);clearTimeout(QZ.timer);['syncq','syncmeta','nicks','premerge','quizq'].forEach(k=>sySet(k,null));try{localStorage.removeItem('kivun3.consp')}catch(e){}
+  await signOut(res.wipe===true);toast('החשבון וכל הנתונים שלו נמחקו')}
 function syForget(){   /* sign-out on a shared device: also remove this account's data from the device */
   SYNC_KEYS.forEach(k=>sySet(k,null));['syncq','syncmeta','nicks','premerge','quizq'].forEach(k=>sySet(k,null));reloadState()}
 
@@ -11080,7 +11121,7 @@ function qCardHTML(pl){
     ${q.t==='date'?`<div class="kp-qd"><label class="sr" for="kqD">${esc(qTxt(q,X))}</label><input type="date" id="kqD" min="${lo}" max="${hi}"><button class="btn primary sm" data-kqd="${q.id}">שמירה</button></div>`
       :`<div class="pick">${qOpts(q,pl).map(([v,l])=>`<button type="button" class="chip" data-kq="${q.id}|${esc(v)}" style="--c2:#FF8A65"><i></i>${esc(l)}</button>`).join('')}</div>`}
     <div class="kp-btns"><button class="btn soft sm" data-kqskip="${q.id}">לא עכשיו</button></div>
-    <details class="kp-qwy"${KP.qwy?' open':''}><summary>${q.ex?'דוגמה, ולמה אנחנו שואלים':'למה אנחנו שואלים'}</summary>${q.ex?`<p><b>דוגמה:</b> ${esc(q.ex)}</p>`:''}<p>${esc(q.why)}${q.ch?' '+esc(q.ch()):''} התשובה נשמרת בדפדפן הזה בלבד, ואפשר לשנות או למחוק אותה ב"עליי". אם בחרתי "לא עכשיו", לא תהיה שאלה כזאת ${Q_SNOOZE} ימים.</p></details></section>`}
+    <details class="kp-qwy"${KP.qwy?' open':''}><summary>${q.ex?'דוגמה, ולמה אנחנו שואלים':'למה אנחנו שואלים'}</summary>${q.ex?`<p><b>דוגמה:</b> ${esc(q.ex)}</p>`:''}<p>${esc(q.why)}${q.ch?' '+esc(q.ch()):''} התשובה ${keptTxt('f',SYNC_LOCAL_ONLY.includes(q.k))}, ואפשר לשנות או למחוק אותה ב"עליי". אם בחרתי "לא עכשיו", לא תהיה שאלה כזאת ${Q_SNOOZE} ימים.</p></details></section>`}
 /* an answer: the change is made by the question itself, then its visible effect replaces the card */
 function qAnswer(id,v){
   const pl=safe(plan),P=pth(),q=pl&&QBANK().find(x=>x.id===id);if(!q||!P)return;
@@ -11408,7 +11449,7 @@ function saveHTML(X){
   if(X.q.tier>0&&!X.hasP)row.push(X.P.goalP===LAB.p?'<span class="kp-tag ok">✓ זה היעד שלי בפסיכומטרי</span>':`<button class="btn soft sm" data-lbsavep>לשמור ${LAB.p} כיעד בפסיכומטרי</button>`);
   if(labDirty()||LAB.tp||LAB.tb)row.push('<button class="btn soft sm" data-lbreset>איפוס</button>');
   if(row.length)out.push(`<div class="kp-btns kp-sv">${row.join('')}</div>`);
-  return `${out.join('')}<p class="fine">הנתונים נשמרים בדפדפן הזה בלבד.</p>`}
+  return `${out.join('')}<p class="fine">הנתונים ${keptTxt('p')}.</p>`}
 function labRepaint(parts){
   const X=safe(()=>plan().X);if(!X||!$('#kpOut'))return;
   const m={v:['#kpVerdict',()=>labVerdictHTML(X)],c:['#kpChart',()=>labChartHTML(X)],s:['#kpSave',()=>saveHTML(X)]};
@@ -11892,7 +11933,7 @@ function cuInnerHTML(pl){
     <div class="cu-stage v-${v}"><div class="cu-main" id="cuMain">${main}</div>
       <div class="cu-side">${v==='list'?'':cuDayPanelHTML(by)}${cuWeekHTML(wk)}${cuOfficialCta()}</div></div>
     ${bagN?`<details class="cu-bag" id="cuBag"${BG_OPEN.has('cuBag')?' open':''}><summary><span>הבגרויות שלי: מה לסגור או לשפר, ומתי</span><span class="num">${bagN}</span></summary><div class="cu-bagb">${safe(()=>bagPlanHTML(pl,{how:true}),'')}</div></details>`:''}
-    <p class="fine cu-fn">מה שנכנס ליומן נשמר בדפדפן הזה בלבד. הבגרויות לפי לוח הבחינות של משרד החינוך${factChip('bagrut.2027')}, והפסיכומטרי לפי לוח מאל"ו: <a href="${NITE.reg}" target="_blank" rel="noopener">הרשמה במאל"ו</a>. קובץ היומן יורד למכשיר ואינו נשלח לשום מקום, והוספה ל-Google פותחת את האתר שלהם רק כשלוחצים.</p>`}
+    <p class="fine cu-fn">מה שנכנס ליומן ${keptTxt('s')}. הבגרויות לפי לוח הבחינות של משרד החינוך${factChip('bagrut.2027')}, והפסיכומטרי לפי לוח מאל"ו: <a href="${NITE.reg}" target="_blank" rel="noopener">הרשמה במאל"ו</a>. קובץ היומן יורד למכשיר ואינו נשלח לשום מקום, והוספה ל-Google פותחת את האתר שלהם רק כשלוחצים.</p>`}
 function calHTML(pl){return `<div class="cu" id="cuRoot">${cuInnerHTML(pl)}</div>`}
 /* drawn again in place: the page keeps its place, and the focus goes to what I name */
 function cuRepaint(focusSel){
@@ -11941,7 +11982,7 @@ document.addEventListener('keydown',e=>{
 /* ---------- adding and editing: a sheet ---------- */
 function cuSheetHTML(a){
   const edit=!!a.id,k=a.kind||'task',d=isoOk(a.d)?a.d:todayISO(),timed=k==='study'||k==='event';
-  return `<h2>${edit?'עריכה':'הוספה ליומן'}</h2><p class="s">${edit?'משנים מה שצריך, והיומן מתעדכן.':'משימה, אירוע, שעות למידה או ציון דרך. הכול נשאר בדפדפן הזה.'}</p>
+  return `<h2>${edit?'עריכה':'הוספה ליומן'}</h2><p class="s">${edit?'משנים מה שצריך, והיומן מתעדכן.':'משימה, אירוע, שעות למידה או ציון דרך. הכול '+(acctSynced()?'נשמר בחשבון שלי ובדפדפן הזה':'נשאר בדפדפן הזה')+'.'}</p>
     <form class="cu-f" id="cuForm" autocomplete="off" novalidate><input type="hidden" name="eid" value="${esc(a.id||'')}">
       <fieldset class="cu-kn"><legend class="sr">מה להוסיף</legend>${CU_KINDS.map(([v,l,h])=>`<label class="cu-kk ${v}"><input type="radio" name="cuK" value="${v}"${v===k?' checked':''}><span>${ki(CU_CAT[v][1])}<b>${l}</b><small>${h}</small></span></label>`).join('')}</fieldset>
       <div class="field"><label for="cuT">מה זה?</label><input id="cuT" name="t" maxlength="80" required placeholder="${esc(CU_IDEAS[k][0])}" value="${esc(a.t||'')}"><div class="cu-id" id="cuIdeas">${CU_IDEAS[k].map(s=>`<button type="button" class="chip" data-cuidea="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>
@@ -12079,7 +12120,7 @@ function badgesHTML(pl){const B=badges(pl);return `<div class="bdg">${B.map(([n,
 const MEQ=()=>[
   {k:'stage',q:'איפה אני עכשיו?',o:STAGES,off:0},
   {k:'start',q:'מתי אני רוצה להתחיל ללמוד?',o:startOpts().map(y=>[y,`אוקטובר ${y} (${HY[y]||''})`]).concat([[0,'עוד לא יודע']]),off:0},
-  {k:'end',q:endQ(),hide:()=>stageNow()==='other'&&!meVal('end'),h:stageNow()==='after'?'תאריך משוער מספיק, ואפשר להשאיר ריק. הוא נשמר בדפדפן הזה ומשמש רק להצעה מתי להתחיל ללמוד':'תאריך משוער מספיק, ואפשר להשאיר ריק. הוא נשמר בדפדפן הזה ומשמש רק לחישוב כמה זמן נשאר',t:'date'},
+  {k:'end',q:endQ(),hide:()=>stageNow()==='other'&&!meVal('end'),h:stageNow()==='after'?'תאריך משוער מספיק, ואפשר להשאיר ריק. הוא '+keptTxt('s')+' ומשמש רק להצעה מתי להתחיל ללמוד':'תאריך משוער מספיק, ואפשר להשאיר ריק. הוא '+keptTxt('s')+' ומשמש רק לחישוב כמה זמן נשאר',t:'date'},
   {k:'sex',q:'אני',o:[['m','זכר'],['f','נקבה'],['x','מעדיף/ה לא לציין']],off:1},
   {k:'reg',q:'איפה אני גר/ה?',o:Object.entries(REGN),off:1},
   {k:'nat',q:'שפת האם שלי',h:'משפיעה על מועדי הפסיכומטרי שמתאימים לי',o:LANGS,off:1},
@@ -12119,9 +12160,9 @@ function endSync(){const h=$('#kpEndH'),b=$('[data-kendx]'),v=(pth()||{}).end||'
 /* the profile form shows the same questions, folded, under "עוד קצת עליי" */
 const PROF_OPT=['stage','stageAt','sex','reg','nat','svc','res','resAt','inc','first','house','work','hrs','math','mathQ','years','track','qvals']; /* svc, res (with resAt), inc and first come from the scholarships page (optional, sensitive, kept in this browser) */
 function profMoreHTML(){const p=S.prof||{};
-  return `<details class="kp-more-me" ${p.sex||p.reg||p.nat?'open':''}><summary>עוד קצת עליי <small>(לא חובה, מדייק את המסלול)</small></summary>${meFieldsHTML('prof',['sex','reg','nat'])}<p class="fine">${MENOTE}</p></details>
-    <details class="kp-more-me" ${p.house||p.work||p.first||p.svc?'open':''}><summary>שאלות קצרות מהמסלול <small>(לא חובה)</small></summary>${meFieldsHTML('prof',['house','work','first','svc'])}<p class="fine">${MENOTE}</p></details>`}
-const MENOTE='המידע נשמר רק בדפדפן הזה. הוא משמש להתאמת הניסוח, מועדי הבחינות והמוסדות שמוצגים לי, ואפשר לדלג על כל שאלה.';
+  return `<details class="kp-more-me" ${p.sex||p.reg||p.nat?'open':''}><summary>עוד קצת עליי <small>(לא חובה, מדייק את המסלול)</small></summary>${meFieldsHTML('prof',['sex','reg','nat'])}<p class="fine">${menote()}</p></details>
+    <details class="kp-more-me" ${p.house||p.work||p.first||p.svc?'open':''}><summary>שאלות קצרות מהמסלול <small>(לא חובה)</small></summary>${meFieldsHTML('prof',['house','work','first','svc'])}<p class="fine">${menote()}</p></details>`}
+const menote=()=>`המידע ${acctSynced()?'נשמר בחשבון שלי ובדפדפן הזה (מצב כלכלי במשפחה, השכלת ההורים, שירות ומילואים נשארים רק במכשיר הזה)':'נשמר רק בדפדפן הזה'}. הוא משמש להתאמת הניסוח, מועדי הבחינות והמוסדות שמוצגים לי, ואפשר לדלג על כל שאלה.`;
 function setMe(k,v){
   if(k==='start'){const P=pth()||pthNew();P.start=+v;PTH=P;pthSave();return}
   if(k==='svc'||k==='res'||k==='first'){const had=schAns(k)===v;schSetProf(k,v);if(had)qSnooze(k);return} /* the scholarships page's writer: res keeps its date */
@@ -12133,13 +12174,13 @@ function setMe(k,v){
 function openMe(){
   openOv(`<h2>עליי</h2><p class="s">כמה פרטים שעוזרים למסלול להתאים לי: הכיתה, מתי להתחיל, וגם ניסוח נכון ומועדים שמתאימים לשפה שלי. הכול אופציונלי.</p>
     <div class="form kp-me">${meFieldsHTML('path',['stage','start','end','sex','reg','nat'])}
-    <details class="kp-more-me"><summary>שאלות קצרות מהמסלול <small>(מגורים, עבודה, שעות הכנה)</small></summary>${meFieldsHTML('path',['house','work','hrs'])}${qPostponedHTML()}</details></div><p class="fine">${MENOTE}</p><div class="kp-btns"><button class="btn primary" data-kmedone>סיום</button></div>`,'')}
+    <details class="kp-more-me"><summary>שאלות קצרות מהמסלול <small>(מגורים, עבודה, שעות הכנה)</small></summary>${meFieldsHTML('path',['house','work','hrs'])}${qPostponedHTML()}</details></div><p class="fine">${menote()}</p><div class="kp-btns"><button class="btn primary" data-kmedone>סיום</button></div>`,'')}
 function moreHTML(pl){
   const X=pl.X,P=X.P,p=X.prof;
   const me=[(STAGES.find(s=>s[0]===p.stage)||[])[1],P.end?`${endTitle()}: ${dLong(P.end)}`:'',p.sex?{m:'זכר',f:'נקבה',x:''}[p.sex]:'',p.reg?REGN[p.reg]:'',p.nat?(LANGS.find(l=>l[0]===p.nat)||[])[1]:'',p.house&&QDEF.house.o.find(o=>o[0]===p.house)?'מגורים: '+QDEF.house.o.find(o=>o[0]===p.house)[1]:'',p.work==='full'||p.work==='part'?'עובד/ת לצד הלימודים':''].filter(Boolean);
-  return `<div class="kp-card"><div class="pc-h"><h2>${ki('user')}עליי</h2></div><p>${me.length?esc(me.join(' · ')):'עוד לא סיפרתי. אפשר לדלג, אבל כדאי: זה משפר את הניסוח, המועדים והאפשרויות.'}</p><div class="kp-btns">${KB('data-kme','עריכה')}${KB('data-prof','הפרופיל והציונים')}</div><p class="fine">${MENOTE}</p></div>
+  return `<div class="kp-card"><div class="pc-h"><h2>${ki('user')}עליי</h2></div><p>${me.length?esc(me.join(' · ')):'עוד לא סיפרתי. אפשר לדלג, אבל כדאי: זה משפר את הניסוח, המועדים והאפשרויות.'}</p><div class="kp-btns">${KB('data-kme','עריכה')}${KB('data-prof','הפרופיל והציונים')}</div><p class="fine">${menote()}</p></div>
     <details class="adm dmeth kp-adm"><summary>שיתוף, גיבוי והגדרות</summary><div class="admb">
-      <p>אפשר להעתיק סיכום קצר של המסלול ולשלוח להורה, ליועץ/ת או לחבר/ה. המסלול עצמו נשמר בדפדפן הזה, וכדי להעביר אותו למכשיר אחר: גיבוי לקובץ ושחזור ממנו במכשיר השני. קובץ הגיבוי כולל גם את התשובות האישיות שלי (שירות, מילואים, מצב כלכלי, דור ראשון), הערות על מלגות והסיפור שלי, בטקסט גלוי. כדאי לשמור אותו במקום פרטי.</p>
+      <p>אפשר להעתיק סיכום קצר של המסלול ולשלוח להורה, ליועץ/ת או לחבר/ה. המסלול עצמו ${acctSynced()?'נשמר בחשבון שלי ומופיע בכל מכשיר שאני מתחבר אליו בו. גיבוי לקובץ עדיין אפשר':'נשמר בדפדפן הזה, וכדי להעביר אותו למכשיר אחר: גיבוי לקובץ ושחזור ממנו במכשיר השני'}. קובץ הגיבוי כולל גם את התשובות האישיות שלי (שירות, מילואים, מצב כלכלי, דור ראשון), הערות על מלגות והסיפור שלי, בטקסט גלוי. כדאי לשמור אותו במקום פרטי.</p>
       <div class="kp-btns"><button class="btn soft sm" data-kcopy>העתקת סיכום לשיתוף</button><button class="btn soft sm" data-kexp>גיבוי לקובץ</button><label class="btn soft sm">שחזור מקובץ<input type="file" accept="application/json,.json" id="pimp" hidden></label>${KP.undo?'<button class="btn soft sm" data-kundo>ביטול השחזור האחרון</button>':''}</div>
       <div class="kp-btns kp-danger">${KP.rm===P.active?`<span class="kp-ask">להסיר את ${esc(X.d.n)} ${esc(bIn(X.I.n))} מהיעדים שלי?</span><button class="btn soft sm" data-krmok="${esc(P.active)}">כן, להסיר</button><button class="linkbtn" data-krmno>ביטול</button>`:`<button class="btn soft sm" data-krm="${P.active}">הסרת היעד הזה</button>`}
         ${KP.rst?'<span class="kp-ask">למחוק את כל היעדים והמסלול? הפרופיל והציונים נשארים.</span><button class="btn soft sm" data-kresetok>כן, למחוק הכול</button><button class="linkbtn" data-kresetno>ביטול</button>':'<button class="btn soft sm" data-kreset>מחיקת כל היעדים</button>'}</div>
@@ -12164,7 +12205,7 @@ function profileGateHTML(){
   const p=S.prof||{},need=[['stage','איפה אני עכשיו (כיתה, שירות או אחר)'],...PROF_NEED(p).map(k=>[k,{bag:'איזו תעודה יש לי',y12:'12 שנות לימוד',age:'הגיל שלי',psy:'פסיכומטרי',heb:'שפת הלימוד בתיכון'}[k]])];
   return `<section class="hero pth-hero wiz kp-wizhero"><div class="wrap">${BACK}<span class="kicker" style="margin-top:10px">${ki('map')}המסלול שלי</span>
     <h1 class="pth-h1">קודם מכירים: הפרופיל שלי</h1>
-    <div class="wz-card"><h2>המסלול נבנה מהפרופיל שלי</h2><p class="sub">כדי שהמסלול, המועדים והבדיקות יתאימו לי, הוא נבנה מהנתונים שבפרופיל: הכיתה שאני בה, התעודה, הפסיכומטרי והשפה. כך כל האתר משתמש באותו מידע, ואין צורך לענות שוב על אותן שאלות. זה לוקח פחות מדקה, והכול נשמר רק בדפדפן הזה.</p>
+    <div class="wz-card"><h2>המסלול נבנה מהפרופיל שלי</h2><p class="sub">כדי שהמסלול, המועדים והבדיקות יתאימו לי, הוא נבנה מהנתונים שבפרופיל: הכיתה שאני בה, התעודה, הפסיכומטרי והשפה. כך כל האתר משתמש באותו מידע, ואין צורך לענות שוב על אותן שאלות. זה לוקח פחות מדקה, והכול ${acctSynced()?'נשמר בחשבון שלי ובדפדפן הזה':'נשמר רק בדפדפן הזה'}.</p>
       <ul class="kp-gate">${need.map(([k,l])=>`<li class="${p[k]?'ok':''}"><i aria-hidden="true">${p[k]?ki('check'):''}</i>${l}</li>`).join('')}</ul>
       <div class="wz-nav"><button class="btn primary xl" data-kprofgo>${profileOK()||p.stage?'השלמת הפרופיל':'למילוי הפרופיל'}</button></div></div></div></section>`}
 function wizardHTML(){
@@ -12183,7 +12224,7 @@ function wizardHTML(){
     body=`<h2>איפה הכי הייתי רוצה ללמוד ${esc(d.n)}?</h2><p class="sub">${profileOK()?`בירוק: לפי הנתונים שלי אני כבר ${gx('עומד','עומדת')} בתנאים שפורסמו.`:`אחרי מילוי הפרופיל אראה גם איפה אני כבר ${gx('עומד','עומדת')} בתנאים.`} את הכול אפשר להחליף אחר כך.</p>${instPick(d,i=>`data-kwi="${i}"`,true)}`}
   else body=`<h2>ועוד כמה שאלות קטנות, כדי שהתוכנית תתאים לי</h2><p class="sub">מתחילים מהנקודה שבה אני ${gx('נמצא','נמצאת')} היום, ומכאן נחשב לאן אפשר להגיע. כולן אופציונליות: הכיתה והמועד עוזרים לסדר את הדרך לפי הזמן שנשאר.</p>
     <div class="form kp-me">${meFieldsHTML('path',['stage','start','end'])}
-    <details class="kp-more-me"><summary>עוד קצת עליי <small>(לא חובה, מדייק את התוכנית)</small></summary>${meFieldsHTML('path',['sex','reg','nat'])}<p class="fine">${MENOTE}</p></details></div>`;
+    <details class="kp-more-me"><summary>עוד קצת עליי <small>(לא חובה, מדייק את התוכנית)</small></summary>${meFieldsHTML('path',['sex','reg','nat'])}<p class="fine">${menote()}</p></details></div>`;
   return `<section class="hero pth-hero wiz kp-wizhero"><div class="wrap">${BACK}
     <span class="kicker" style="margin-top:10px">${ki('map')}המסלול שלי</span>
     <h1 class="pth-h1">${W.add?'מוסיפים יעד':hasGoal()?'מחליפים יעד':'התוכנית האישית שלי, צעד אחר צעד'}</h1>
@@ -12841,7 +12882,7 @@ function srcSection(){
    a field that is still empty is shown as "not entered yet", never as a made-up name, phone number or address. */
 const OPERATOR={name:'',phone:'',address:''};
 const A11Y_COORD={name:'',email:'',phone:'',address:''};
-const LEGAL_UPDATED='2026-10-25',A11Y_CHECKED='2026-10-25'; /* update the first whenever a legal text changes; the second only when the checks are run again */
+const LEGAL_UPDATED='2026-11-04',A11Y_CHECKED='2026-10-25'; /* update the first whenever a legal text changes; the second only when the checks are run again */
 const lgConsent=w=>`<p class="fine lg-cons">${w} אתם מסכימים ל<a href="#terms" target="_blank" rel="noopener">תקנון</a> ול<a href="#privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> של האתר.</p>`;
 const lgMail=e=>/^[^\s@<>"']+@[^\s@<>"']+$/.test(e||'')?`<a href="mailto:${esc(e)}" dir="ltr">${esc(e)}</a>`:'';
 const lgTel=p=>String(p||'').replace(/[^\d+]/g,'').length>=7?`<a href="tel:${esc(String(p).replace(/[^\d+]/g,''))}" dir="ltr">${esc(p)}</a>`:'';
@@ -12870,32 +12911,40 @@ function lgSections(){return [
   <p>בכלי "מה הכיוון שלי?" נעשה שימוש במידע ממאגר O*NET של משרד העבודה האמריקאי (USDOL/ETA), ברישיון CC BY 4.0. וקטור שינה את המידע (תרגום, קישור למקצועות בישראל ושקלול), ו-USDOL/ETA לא אישר או בדק את השינויים. O*NET® הוא סימן מסחרי של USDOL/ETA.</p>
   <p>הגופנים Rubik ו-Heebo מוטמעים באתר ברישיון SIL Open Font License 1.1, ואינם נטענים משירות חיצוני.</p>
   <p>סברתם שתוכן באתר פוגע בזכויות שלכם? פנו אלינו לפי הפרטים בסעיף "יצירת קשר" עם פירוט התוכן והקישור אליו, ונשתדל לבדוק את הפנייה ולהשיב בהקדם האפשרי.</p>`],
- ['t-privacy','מדיניות פרטיות',`<p>מדיניות זו מסבירה איזה מידע האתר שומר, איפה, ולמה.</p>
+ ['t-privacy','מדיניות פרטיות',`<p class="lg-draft"><b>טיוטה לבדיקת עורך דין.</b> הנוסח הזה עדיין לא אושר משפטית, ופרטי המפעיל טרם הוזנו. אין לפתוח את האתר לציבור לפני בדיקה.</p>
+  <p>מדיניות זו מסבירה איזה מידע האתר שומר, איפה, למה, כמה זמן, ואיך אפשר לקבל אותו או למחוק אותו.</p>
   <h3>מי מפעיל את האתר</h3><p>${lgOpLine()} פרטי הקשר בסעיף "יצירת קשר".</p>
-  <h3>מה נשמר ואיפה</h3>
-  <p>האתר פועל בדפדפן שלכם. האתר עצמו אינו שולח את המידע שאתם מזינים לשרת, ואינו מציב עוגיות (cookies). מה שאתם בוחרים או כותבים נשמר בזיכרון המקומי של הדפדפן (localStorage) במכשיר שלכם, ואינו מועבר מהאתר לאף גורם. המילוי הוא רשות בכל שאלה, וחלק מהפרטים עשויים להיחשב רגישים. הדברים שנשמרים:</p>
-  <ul><li>העדפות ופרופיל: שלב הלימודים או השירות, מין, אזור מגורים, שפת אם, תחומי עניין ותשובות לשאלות ההתאמה. מי שבוחר לענות, נשמרים גם שירות צבאי או לאומי, ימי מילואים, מצב כלכלי במשפחה, השכלת ההורים, מגורים ועבודה במהלך הלימודים.</li>
-   <li>ציונים: ציוני בגרות ופסיכומטרי ושורות במחשבון.</li>
-   <li>הרשימה שלי, מעקב המלגות והמסלול האישי: יעדים, תאריכים, הערות וסיפור אישי שכתבתם.</li>
-   <li>חשבון מקומי, אם יצרתם: כינוי, אימייל או טלפון, גיבוב של הסיסמה (הסיסמה עצמה אינה נשמרת) ועותק של הפרופיל, הציונים, המסלול, הרשימה והמלגות. החשבון קיים בדפדפן הזה בלבד, ואינו מגן על המידע מפני מי שמשתמש במכשיר שלכם.</li>
-   <li>שאלות ותשובות שכתבתם בפורום. כשהאתר פועל כאתר רגיל, הן שמורות בדפדפן הזה בלבד ואינן מוצגות לאחרים. אם האתר נפתח בסביבה שמספקת מאגר נתונים משותף (למשל claude.ai), הן נשמרות במאגר הזה ועשויות להיות גלויות לאחרים, ולמפעיל האתר ולמפעיל הסביבה.</li>
-   <li>הגדרות נגישות ותצוגה.</li></ul>
-  <h3>למה</h3><p>כדי להתאים את מה שמוצג לכם, לשמור את ההתקדמות שלכם ולאפשר לכם לחזור אליה. איננו משתמשים במידע לפרסום ואיננו מוכרים אותו.</p>
-  <h3>צדדים שלישיים</h3>
-  <p>האתר עצמו אינו מעביר את המידע שלכם לצדדים שלישיים. הגופנים מוטמעים באתר ואינם נטענים משירות חיצוני. ספק האחסון של האתר ורשתות התקשורת עשויים לתעד נתוני גישה טכניים (כגון כתובת IP, סוג הדפדפן ומועד הגישה) כמקובל בכל אתר. קישורים לאתרים אחרים נפתחים באתרים שלהם, והם כפופים למדיניות הפרטיות שלהם. שימו לב: קישורי החיפוש בגוגל וביוטיוב כוללים את שם התואר או המקצוע שחיפשתם, ואתר שאליו עוברים עשוי לקבל מהדפדפן את כתובת העמוד שממנו הגעתם. כך גם הכפתור "Google" ליד מועד ביומן שלי: הוא פותח את Google Calendar עם שם המועד ותאריכו בכתובת, ורק אם לחצתם עליו. קובץ היומן, לעומת זאת, יורד למכשיר שלכם ואינו נשלח לשום מקום. האתר אינו שולח הודעות או דיוור. התראות דפדפן, אם הפעלתם, נוצרות במכשיר שלכם בלבד.</p>
-  <h3>מסירת מידע היא מרצון</h3><p>אין חובה חוקית למסור מידע לאתר. אפשר להשתמש בחלק גדול ממנו בלי להזין דבר. מי שבוחר לא למלא פרטים לא יקבל את ההתאמות האישיות שמבוססות עליהם.</p>
-  <h3>עיון, תיקון ומחיקה</h3>
-  <p>המידע שלכם נמצא במכשיר שלכם. אפשר לעיין בו ולשנות אותו בעמודי הפרופיל, הרשימה, המסלול והמלגות. פרטי ההתחברות של חשבון מקומי אפשר להסיר רק במחיקת החשבון. אפשר למחוק את כל המידע בכל עת בכפתור שלמטה או בניקוי נתוני האתר בהגדרות הדפדפן. מחיקה אינה ניתנת לשחזור, אלא אם שמרתם קובץ גיבוי (הקובץ כולל את המסלול, הפרופיל, הציונים, הרשימה ומעקב המלגות, ואינו כולל חשבון, שאלות ותשובות והגדרות).</p>
+  <h3>בלי חשבון: הכול נשאר אצלכם</h3>
+  <p>אפשר להשתמש באתר בלי להתחבר. אז האתר פועל בדפדפן שלכם, ואינו שולח לשרת את המידע שאתם מזינים. מה שאתם בוחרים או כותבים נשמר בזיכרון המקומי של הדפדפן (localStorage) במכשיר שלכם, ואינו מועבר מהאתר לאף גורם. האתר אינו מציב עוגיות (cookies).</p>
+  <h3>עם חשבון: חלק מהמידע נשמר גם בשרת</h3>
+  <p>מי שבוחר להתחבר (בחשבון Google) מקבל חשבון שמחבר בין המכשירים שלו. אז נשמר בשרת העתק של המידע הבא, כדי שיופיע בכל מכשיר וכדי שנוכל לנתח באופן מצרפי איך משתמשים באתר:</p>
+  <ul><li><b>פרטי התחברות:</b> כתובת הדוא"ל ומזהה החשבון מ-Google. אין סיסמה. הם נשמרים אצל שירות ההתחברות (Supabase), ולא בטבלאות המידע שלנו.</li>
+   <li><b>פרופיל:</b> שלב (כיתה או שירות), אזור מגורים, סוג תעודת הבגרות, מצב הפסיכומטרי, יחידות מתמטיקה ומין (אם נבחר), ועוד פרטים שנבחרו בעמוד הפרופיל (למשל שנים מתוכננות, סוג המסלול, שפת אם, תכנון מגורים ועבודה בזמן הלימודים).</li>
+   <li><b>ציונים:</b> ציוני בגרות, פסיכומטרי ושורות במחשבון.</li>
+   <li><b>הרשימה שלי, המסלול ומעקב המלגות:</b> תארים ברשימה, יעדים, תאריכים, <b>הערות וסיפור אישי שכתבתם</b> (טקסט חופשי), מלגות במעקב והערות עליהן, והמוסד שבחרתם.</li>
+   <li><b>השאלון "מה הכיוון שלי?":</b> התשובות (ואילו שאלות דולגו), מתי התחלתם וסיימתם, והתוצאות שהוצגו לכם (העולמות והמקצועות).</li>
+   <li><b>אישורים:</b> אישור התקנון ומדיניות הפרטיות, הגרסה ומועד האישור.</li></ul>
+  <p>בטבלאות שלנו אין שם, תאריך לידה או מספר טלפון.</p>
+  <h3>מה נשאר רק במכשיר, גם בחשבון</h3>
+  <p>הדברים האלה <b>לעולם לא נשלחים לשרת</b> (והשרת בנוי כך שידחה אותם גם אם יהיה באג באתר): <b>המצב הכלכלי של המשפחה</b>, <b>האם להורים יש תואר אקדמי</b>, <b>סוג השירות הצבאי או הלאומי</b> ו<b>ימי המילואים</b> (התשובות לשאלות בעמוד המלגות). עוד דברים שנשארים רק במכשיר: שאלות ותשובות שכתבתם בפורום (הפורום מקומי), השם שמוצג באתר, והגדרות נגישות ותצוגה. במכשיר חדש התשובות האלה לא יופיעו, ותצטרכו לענות עליהן שוב אם תרצו.</p>
+  <h3>איפה המידע נשמר ומי מעבד אותו</h3>
+  <p>המידע בחשבון נשמר בשירות Supabase, בשרתים באזור פרנקפורט (גרמניה, האיחוד האירופי). ההתחברות היא דרך Google. Supabase ו-Google הם ספקים שמעבדים מידע עבורנו או מאפשרים את ההתחברות, בכפוף לתנאים שלהם. האתר עצמו מוגש מ-GitHub Pages. הגופנים וספריית ההתחברות מוטמעים באתר ואינם נטענים משירות חיצוני. ספק האחסון ורשתות התקשורת עשויים לתעד נתוני גישה טכניים (כגון כתובת IP, סוג הדפדפן ומועד הגישה) כמקובל בכל אתר. קישורים לאתרים אחרים נפתחים באתרים שלהם, והם כפופים למדיניות הפרטיות שלהם. שימו לב: קישורי החיפוש בגוגל וביוטיוב כוללים את שם התואר או המקצוע שחיפשתם, ואתר שאליו עוברים רואה את ההפניה.</p>
+  <h3>למה</h3><p>כדי להציג את האתר ואת ההתאמות האישיות, לשמור את ההתקדמות ולהציג אותה בכל מכשיר, ולנתח באופן מצרפי (למשל כמה אנשים התחילו וסיימו את השאלון, ובאיזו שאלה נוטשים) כדי לשפר את האתר. הניתוח נעשה על ידי מפעיל האתר בלבד. איננו משתמשים במידע לפרסום ואיננו מוכרים אותו.</p>
+  <h3>כמה זמן המידע נשמר</h3><p>בלי חשבון: עד שתמחקו אותו מהדפדפן. עם חשבון: עד שתמחקו אותו או את החשבון. מחיקת חשבון מוחקת את כל המידע שלכם בשרת. עותקי גיבוי של ספק האחסון עשויים להישמר תקופה מוגבלת לפי תנאיו.</p>
+  <h3>מסירת מידע היא מרצון</h3><p>אין חובה חוקית למסור מידע לאתר, ואין חובה להתחבר. אפשר להשתמש בחלק גדול ממנו בלי להזין דבר. מי שבוחר לא למלא פרטים לא יקבל את ההתאמות שמבוססות עליהם. חלק מהפרטים עשויים להיחשב רגישים, והמילוי בהם הוא רשות.</p>
+  <h3>עיון, הורדה, תיקון ומחיקה</h3>
+  <p>אפשר לעיין במידע ולשנות אותו בעמודי הפרופיל, הרשימה, המסלול והמלגות. מי שמחובר יכול <b>להוריד את כל המידע שלו</b> בקובץ JSON ו<b>למחוק את החשבון ואת כל המידע שבו</b>, מ"החשבון שלי" (בכותרת האתר). מחיקה אינה ניתנת לשחזור. פרטי ההתחברות מוסרים גם הם. אפשר למחוק את כל המידע מהדפדפן הזה בכל עת בכפתור שלמטה או בניקוי נתוני האתר בהגדרות הדפדפן. קובץ גיבוי (המסלול, הפרופיל, הציונים, הרשימה ומעקב המלגות) אפשר להוריד מעמוד המסלול.</p>
+  ${ACC.cur()?`<div class="lg-wipe"><button type="button" class="btn soft" data-acctexport>הורדת הנתונים שלי</button> <button type="button" class="btn soft" data-acctdelete style="color:#C0392B">מחיקת החשבון וכל הנתונים</button></div>`:''}
   <div class="lg-wipe"><button type="button" class="btn soft" data-twipe="ask">מחיקת כל הנתונים שלי מהדפדפן הזה</button>
-   <div id="twAsk" hidden role="group" aria-label="אישור מחיקה"><p><b>זה ימחק את הפרופיל, הציונים, הרשימה, המסלול, המלגות, החשבון המקומי, השאלות והתשובות שכתבתי וההגדרות מהדפדפן הזה, ולא ניתן יהיה לשחזר אותם. למחוק?</b></p>
+   <div id="twAsk" hidden role="group" aria-label="אישור מחיקה"><p><b>זה ימחק מהדפדפן הזה את הפרופיל, הציונים, הרשימה, המסלול, המלגות, החשבונות המקומיים הישנים, השאלות והתשובות שכתבתי וההגדרות, ולא ניתן יהיה לשחזר אותם מכאן.${ACC.cur()?' זה לא מוחק את החשבון: הנתונים שבחשבון נשארים בשרת, וישובו למכשיר בסנכרון הבא. למחיקה גם מהשרת: "מחיקת החשבון וכל הנתונים".':''} למחוק?</b></p>
     <div class="kp-btns"><button type="button" class="btn primary" data-twipe="yes">כן, למחוק הכול</button><button type="button" class="btn soft" data-twipe="no">לא, לבטל</button></div></div></div>
-  <h3>אבטחה</h3><p>המידע נשמר בדפדפן ומוגן ברמת הדפדפן והמכשיר בלבד. מי שמשתמש במכשיר משותף או ציבורי מתבקש למחוק את הנתונים בסיום. קובץ גיבוי שתייצאו מכיל את המידע האישי שלכם בצורה קריאה, ולכן יש לשמור עליו כמידע אישי.</p>
-  <h3>קטינים</h3><p>משתמשים באתר גם בני נוער. מי שמתחת לגיל 18 מתבקש להשתמש באתר בהיוועצות עם הורה או איש חינוך, ולא להזין פרטים מזהים על עצמו או על אחרים (כגון שם מלא, טלפון או כתובת) מעבר למה שהאתר מבקש.</p>
-  <h3>שינויים עתידיים</h3><p>אם נוסיף בעתיד שרת, התחברות מכל מכשיר, פורום משותף או שירות חיצוני, נעדכן את המדיניות בעת השינוי ונבקש הסכמה במקום שבו הדין דורש זאת.</p>
+  <h3>אבטחה</h3><p>התקשורת עם השרת מוצפנת. בשרת, הגישה לנתונים מוגנת בהרשאות ברמת השורה: כל משתמש קורא וכותב רק את המידע שלו. המידע שנשמר במכשיר מוגן ברמת הדפדפן והמכשיר בלבד. מי שמשתמש במכשיר משותף או ציבורי מתבקש להתנתק עם "התנתקות ומחיקת הנתונים מהמכשיר הזה". קובץ גיבוי או הורדת נתונים שתייצאו מכילים את המידע האישי שלכם בצורה קריאה, ולכן יש לשמור עליהם כמידע אישי.</p>
+  <h3>קטינים</h3><p>משתמשים באתר גם בני נוער. מי שמתחת לגיל 18 מתבקש להשתמש באתר בהיוועצות עם הורה או איש חינוך, ולא להזין פרטים מזהים על עצמו או על אחרים (כגון שם מלא, טלפון או כתובת) מעבר למה שהאתר מבקש. <span class="lg-miss">גיל מינימום לפתיחת חשבון ואישור הורה: ממתין לבדיקת עורך דין.</span></p>
+  <h3>שינויים</h3><p>אם נשנה את אופן שמירת המידע או נוסיף שירות, נעדכן את המדיניות בעת השינוי, ונבקש אישור מחדש מכל משתמש מחובר בכניסה הבאה, ובמקום שבו הדין דורש זאת.</p>
   <h3>פניות בנושא פרטיות</h3><p>אפשר לפנות לפי הפרטים בסעיף "יצירת קשר". ניתן לפנות גם לרשות להגנת הפרטיות.</p>`],
- ['t-7','שאלות ותשובות והתכנים שאתם כותבים',`<p>כשהאתר פועל כאתר רגיל, שאלות ותשובות שתכתבו נשמרות בדפדפן שלכם בלבד ואינן מוצגות לאחרים. אם האתר נפתח בסביבה שמספקת מאגר נתונים משותף (למשל claude.ai), הן עשויות להיות מוצגות לאחרים, וכללי הפורום שלהלן חלים עליהן. שאלות שמסומנות "שאלה נפוצה" נוסחו על ידי צוות האתר מתוך מידע כללי, ואינן ייעוץ אישי.</p>
+ ['t-7','שאלות ותשובות והתכנים שאתם כותבים',`<p>כשהאתר פועל כאתר רגיל, שאלות ותשובות שתכתבו נשמרות בדפדפן שלכם בלבד ואינן מוצגות לאחרים. הפורום מקומי: גם למי שמחובר לחשבון, השאלות והתשובות בו אינן נשמרות בשרת ואינן מסונכרנות בין מכשירים. אם האתר נפתח בסביבה שמספקת מאגר נתונים משותף (למשל claude.ai), הן עשויות להיות מוצגות לאחרים, וכללי הפורום שלהלן חלים עליהן. שאלות שמסומנות "שאלה נפוצה" נוסחו על ידי צוות האתר מתוך מידע כללי, ואינן ייעוץ אישי.</p>
   <p>אם יופעל בעתיד פורום משותף, יחולו הכללים האלה: אתם אחראים לתוכן שאתם מפרסמים. אסור לפרסם תוכן מאיים, משמיץ, פוגעני, גזעני, בלתי חוקי או כזה שפוגע בפרטיות או בזכויות יוצרים, וכן מספרי טלפון, כתובות דוא"ל, פרטים מזהים של אחרים ופרסומות. בפרסום אתם מעניקים למפעיל האתר רישיון לא בלעדי וללא תמלוגים להציג את התוכן באתר. המפעיל רשאי, אך אינו חייב, להסיר תוכן, ובפרט לאחר פנייה מנומקת. תשובות של משתמשים אינן משקפות את עמדת האתר ולא נבדקו על ידינו.</p>`],
- ['t-8','גיבוי, ייצוא וייבוא נתונים',`<p>האתר מאפשר לשמור בקובץ את המסלול, הפרופיל, הציונים, הרשימה ומעקב המלגות, ולטעון קובץ כזה. אפשר גם להוריד קובץ יומן עם מועדים, ולהעתיק סיכום של המסלול. הקבצים נשמרים במכשיר שלכם בלבד. שמרו עליו כמידע אישי, ואל תטענו קבצים ממקור שאינכם סומכים עליו. איננו אחראים לאובדן נתונים, לרבות עקב ניקוי הדפדפן, או לתקינות קובץ שנוצר או שונה מחוץ לאתר.</p>`],
+ ['t-8','גיבוי, ייצוא וייבוא נתונים',`<p>האתר מאפשר לשמור בקובץ את המסלול, הפרופיל, הציונים, הרשימה ומעקב המלגות, ולטעון קובץ כזה. אפשר גם להוריד קובץ יומן עם מועדים, ולהעתיק סיכום של המסלול. הקבצים נשמרים במכשיר שלכם בלבד. מי שמחובר לחשבון מקבל את הנתונים שלו בכל מכשיר גם בלי קובץ, וקובץ הגיבוי נשאר אפשרות נוספת. שמרו עליו כמידע אישי, ואל תטענו קבצים ממקור שאינכם סומכים עליו. איננו אחראים לאובדן נתונים, לרבות עקב ניקוי הדפדפן, או לתקינות קובץ שנוצר או שונה מחוץ לאתר.</p>`],
  ['t-9','נגישות',`<p>אנחנו פועלים להנגיש את האתר לכל אדם. ההגדרות, מה נעשה ואיך לפנות בנושא מופיעים ב<button type="button" class="linkbtn" data-go="a11y">הצהרת הנגישות</button>.</p>`],
  ['t-10','שינויים בתקנון ובאתר',`<p>אנו רשאים לעדכן את האתר ואת התקנון מעת לעת. הנוסח העדכני מתפרסם באתר עם תאריך העדכון, והשינויים חלים מרגע פרסומם. אנו רשאים לשנות את האתר או להפסיק את פעילותו, כולו או חלקו.</p>`],
  ['t-11','דין חל וסמכות שיפוט',`<p>על השימוש באתר ועל תקנון זה יחולו דיני מדינת ישראל. לבתי המשפט המוסמכים בישראל תהיה סמכות השיפוט, בכפוף לכל דין.</p>`],
@@ -12906,7 +12955,7 @@ function renderTerms(){
   const sec=lgSections();
   return pageHead('תקנון','תנאי השימוש באתר, מדיניות הפרטיות, ומאיפה כל נתון מגיע. עודכן ב-'+dLong(LEGAL_UPDATED)+'.')+
   `<section class="sec"><div class="wrap legal">
-    <div class="lg-sum"><b>בקצרה:</b><ul><li>האתר נותן מידע והכוונה, לא ייעוץ אישי.</li><li>הנתונים נאספו ממקורות רשמיים ועשויים להשתנות. לפני כל החלטה או הרשמה בודקים אצל הגוף הרשמי.</li><li>המידע שאתם מזינים נשמר בדפדפן שלכם, ואפשר למחוק אותו בכל עת.</li><li>מצאתם טעות? אפשר לדווח.</li></ul><p>זה סיכום להתמצאות. התנאים המחייבים הם הסעיפים שלהלן.</p></div>
+    <div class="lg-sum"><b>בקצרה:</b><ul><li>האתר נותן מידע והכוונה, לא ייעוץ אישי.</li><li>הנתונים נאספו ממקורות רשמיים ועשויים להשתנות. לפני כל החלטה או הרשמה בודקים אצל הגוף הרשמי.</li><li>בלי חשבון, המידע שאתם מזינים נשמר בדפדפן שלכם בלבד. מי שמתחבר: חלק ממנו נשמר גם בחשבון בשרת (פרנקפורט), והשאר (מצב כלכלי במשפחה ושאלות המלגות שתלויות בו) נשאר במכשיר. אפשר להוריד את המידע ולמחוק את החשבון בכל עת.</li><li>מצאתם טעות? אפשר לדווח.</li></ul><p>זה סיכום להתמצאות. התנאים המחייבים הם הסעיפים שלהלן.</p></div>
     <nav class="lg-toc" aria-label="תוכן העניינים"><b>תוכן העניינים</b><ol>${sec.map(([id,t])=>`<li><button type="button" class="linkbtn" data-scroll="${id}">${t}</button></li>`).join('')}<li><button type="button" class="linkbtn" data-scroll="t-data">מקורות ובדיקת נתונים</button></li></ol></nav>
     ${sec.map(([id,t,h],i)=>`<h2 id="${id}" tabindex="-1">${i+1}. ${t}</h2>${h}`).join('')}
   </div></section>`+srcSection();
@@ -13184,7 +13233,7 @@ function openSch(id){const r=schRec(id);if(!r)return;const e=schEval(r),u=httpUr
 /* the tracker sheet: add, edit, delete (the confirmation is inside the sheet: no browser dialog) */
 function openSchForm(id,rid){const it=id?schS().items.find(i=>i.id===id):null;if(id&&!it)return;
   const r=!it&&rid?schRec(rid):null,v=it||{n:r?r.name.slice(0,80):'',u:r?r.url:'',d:'',st:'interested',note:'',rid:r?r.id:''};
-  const ov=openOv(`<h2>${it?'עריכת מלגה במעקב':'הוספה למעקב'}</h2><p class="s">${r?'אפשר להשלים את מועד ההגשה אחרי שבודקים אותו בדף של הגוף. אנחנו לא ממלאים תאריך במקומך.':'המלגה נשמרת בדפדפן הזה בלבד.'}</p>
+  const ov=openOv(`<h2>${it?'עריכת מלגה במעקב':'הוספה למעקב'}</h2><p class="s">${r?'אפשר להשלים את מועד ההגשה אחרי שבודקים אותו בדף של הגוף. אנחנו לא ממלאים תאריך במקומך.':'המלגה '+keptTxt('f')+'.'}</p>
     <form id="scF" class="form sc-form" novalidate data-id="${esc(it?it.id:'')}" data-rid="${esc(v.rid||'')}">
       <div class="field"><label for="scN">שם המלגה</label><input id="scN" class="sc-in" maxlength="80" required value="${esc(v.n)}" autocomplete="off" aria-describedby="scNC"><span class="hint num" id="scNC">${v.n.length}/80</span></div>
       <div class="field"><label for="scD">מועד אחרון להגשה</label><input id="scD" class="sc-in" type="date" value="${esc(v.d)}"><span class="hint">אם המועד לא ידוע, משאירים ריק. כשיש מועד, מקבלים ספירה לאחור ותזכורות.</span></div>
@@ -13243,13 +13292,13 @@ function schQHTML(){const q=schNextQ();if(!q)return '';
   return `<div class="sc-q" role="group" aria-labelledby="scqT"><p class="sc-qk">עוד שאלה אחת</p><h2 id="scqT" class="sc-qh" tabindex="-1">${q.q}</h2>
     <p class="sc-qw"><b>מה זה אומר:</b> ${esc(q.what)}</p>
     <div class="pick">${q.o.map(([v,l])=>`<button type="button" class="chip" data-sch="q|${q.k}|${esc(v)}" aria-pressed="false" style="--c2:#FF8A65"><i></i>${esc(l)}</button>`).join('')}<button type="button" class="btn soft sm" data-sch="qskip|${q.k}">לא רוצה לענות</button></div>
-    <details class="sc-wy"${SCF.wy?' open':''}><summary>דוגמה, ולמה אנחנו שואלים</summary><p><b>דוגמה:</b> ${esc(q.ex)}</p><p>${esc(q.why)}</p><p>${esc(q.ch())}</p><p>התשובה משפיעה רק על הסדר והסימון בדף הזה, נשמרת בדפדפן הזה בלבד, ואפשר לשנות או למחוק אותה בכל רגע. אנחנו לא קובעים זכאות: ההכרעה אצל הגוף המעניק.</p></details></div>`}
+    <details class="sc-wy"${SCF.wy?' open':''}><summary>דוגמה, ולמה אנחנו שואלים</summary><p><b>דוגמה:</b> ${esc(q.ex)}</p><p>${esc(q.why)}</p><p>${esc(q.ch())}</p><p>התשובה משפיעה רק על הסדר והסימון בדף הזה, ${keptTxt('f',SYNC_LOCAL_ONLY.includes(q.k))}, ואפשר לשנות או למחוק אותה בכל רגע. אנחנו לא קובעים זכאות: ההכרעה אצל הגוף המעניק.</p></details></div>`}
 function schMeHTML(){const s=schS(),Q=SCQ(),any=Q.some(q=>schAns(q.k)||s.skip[q.k]);
   if(!SCF.edit)return any||!schNextQ()?`<div class="kp-btns" style="margin-top:0">${KB('data-sch="edit"','עריכת מה שסיפרתי להתאמה')}</div>`:'';
   return `<div class="kp-card sc-me"><div class="pc-h"><h2 id="scMeH" tabindex="-1">${ki('user')}מה סיפרתי להתאמה</h2></div>
     ${Q.map(q=>`<div class="field kp-mq"><label>${q.q}</label><span class="hint">${esc(q.what)}</span><div class="pick">${q.o.map(([v,l])=>`<button type="button" class="chip" data-sch="q|${q.k}|${esc(v)}" aria-pressed="${schAns(q.k)===v}" style="--c2:#FF8A65"><i></i>${esc(l)}</button>`).join('')}</div>
       ${s.skip[q.k]?`<span class="sc-fine">בחרתי לא לענות. <button type="button" class="linkbtn" data-sch="qask|${q.k}">לשאול שוב</button></span>`:''}</div>`).join('')}
-    <p class="fine">הפרטים נשמרים בדפדפן הזה בלבד. לחיצה על תשובה שנבחרה מוחקת אותה.</p><div class="kp-btns">${KB('data-sch="edit"','סיום')}</div></div>`}
+    <p class="fine">${acctSynced()?'הפרטים נשארים בדפדפן הזה בלבד ולא נשלחים לחשבון (חוץ מאזור המגורים).':'הפרטים נשמרים בדפדפן הזה בלבד.'} לחיצה על תשובה שנבחרה מוחקת אותה.</p><div class="kp-btns">${KB('data-sch="edit"','סיום')}</div></div>`}
 const schPass=r=>(SCF.f==='all'||[r.type,...(r.also||[])].some(t=>SC_GRP[SCF.f].includes(t)))&&(!SCF.inst||!r.inst||r.inst===SCF.inst);
 const schRank=r=>({verified:0,unverified:1,conflict:2}[r.status]||0);
 const schCt=(n,one,many)=>`<b class="num">${n}</b> ${n===1?one:many}`; /* "1 מתאימה", "2 מתאימות" */
@@ -13279,7 +13328,7 @@ function schBody(){
     <div class="srcnote sc-foot">${ICON.check}<div><b>על הנתונים:</b> אנחנו לא גוף מעניק ולא קובעים זכאות. כל רשומה מציינת מי מפרסם אותה, ומה מצב הבדיקה שלה. הבדיקה נעשתה בחיפוש ב-${esc(dLong(FT_D))}, ולא בקריאה ישירה של הדפים הרשמיים. <button type="button" class="linkbtn" data-go="terms">איך אנחנו בודקים</button> · ${RPT_LEAD()} <button type="button" class="btn soft sm" data-ftr="gen">מצאתי טעות</button></div></div>`}
 function renderSch(){
   return pageHead('מלגות וזכויות','מלגות, הטבות וזכויות ללומדים, עם מקור ומצב בדיקה לכל אחת. הדף עובד גם בלי פרופיל, ומתאים את עצמו למה שאספר עליי.')+
-  `<section class="sec" style="padding-top:8px"><div class="wrap sc-wrap"><div class="srcnote sc-trust">${ICON.check}<div><b>מה אפשר לסמוך עליו כאן:</b> סכום ומועד מוצגים רק כשהוצלבו בכמה מקורות, ואז עם המחזור שבו פורסמו, כשהמקור מציין אותו. בכל מקרה אחר כתוב "לפי פרסום הגוף המעניק" והקישור לדף שלו. את הפרטים האישיים שאספר כאן אפשר להשאיר ריקים, והם נשמרים בדפדפן הזה בלבד.</div></div>
+  `<section class="sec" style="padding-top:8px"><div class="wrap sc-wrap"><div class="srcnote sc-trust">${ICON.check}<div><b>מה אפשר לסמוך עליו כאן:</b> סכום ומועד מוצגים רק כשהוצלבו בכמה מקורות, ואז עם המחזור שבו פורסמו, כשהמקור מציין אותו. בכל מקרה אחר כתוב "לפי פרסום הגוף המעניק" והקישור לדף שלו. את הפרטים האישיים שאספר כאן אפשר להשאיר ריקים, והם נשמרים בדפדפן הזה בלבד${ACC.cur()?' ולא נשלחים לחשבון':''}.</div></div>
     <div id="schHost">${schBody()}</div></div></section>`}
 /* repaint, then focus the first selector that still exists: the control that was activated keeps the keyboard focus (the host is rebuilt) */
 const schPaint=(...sel)=>{const h=$('#schHost');if(!h)return;h.innerHTML=schBody();for(const q of sel){const e=$(q);if(e){e.focus({preventScroll:true});break}}};
@@ -13293,7 +13342,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-sch]');if(
   else if(a==='edit'){SCF.edit=!SCF.edit;schPaint(SCF.edit?'#scMeH':self)}
   else if(a==='q'){const q=SCQ().find(q=>q.k===x);if(!q||!q.o.some(o=>String(o[0])===y))return;schSetProf(x,y);
     const n=SCH.filter(r=>schEval(r).st!=='check').length;SCF.wy=false;schPaint(...(b.closest('.sc-me')?['.sc-me '+self]:['#scqT','#scSum']));const cnt=n?n===1?'רשומה אחת נראית מתאימה או כנראה מתאימה':n+' רשומות נראות מתאימות או כנראה מתאימות':'עוד אין רשומות שנראות מתאימות';
-    toast(persisted('prof',S.prof)?`נשמר בדפדפן הזה. ${cnt}`:`התשובה נרשמה בדף הזה, אבל ${KEEPFAIL}. היא תישאר רק עד שסוגרים אותו. ${cnt}`)}
+    toast(persisted('prof',S.prof)?`${SYNC_LOCAL_ONLY.includes(x)||!acctSynced()?'נשמר בדפדפן הזה':'נשמר בחשבון שלי'}. ${cnt}`:`התשובה נרשמה בדף הזה, אבל ${KEEPFAIL}. היא תישאר רק עד שסוגרים אותו. ${cnt}`)}
   else if(a==='qskip'){if(['svc','res','reg','first','inc'].includes(x)){s.skip[x]=1;schSave();SCF.wy=false;schPaint('#scqT','#scSum')}}
   else if(a==='qask'){delete s.skip[x];schSave();schPaint('.sc-me [data-sch^="q|'+CSS.escape(x)+'|"]','#scMeH')}
   else if(a==='info')openSch(x);

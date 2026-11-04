@@ -9,3 +9,5 @@ let r=psql(['-c','drop database if exists vt_rls','-c','create database vt_rls']
 const out=[];for(const f of [here('stub_supabase.sql'),schema,schema,here('rls_test.sql')]){r=psql(['-d','vt_rls','-f',f]);out.push(r.stderr);if(r.status){console.log(r.stderr);console.log('FAILED in '+path.basename(f));process.exit(1)}}
 const lines=out.join('\n').split('\n').filter(l=>/NOTICE:\s+(PASS|FAIL)/.test(l)).map(l=>l.replace(/^.*NOTICE:\s+/,''));
 lines.forEach(l=>console.log('  '+l));console.log(`\n${lines.length} checks, schema applied twice (idempotent), all passed`);
+console.log('\nanalytics queries (supabase/analytics.sql) on made-up data:');
+const bad=require('./analytics_test.js')(env);if(bad){console.log(bad+' FAILED');process.exit(1)}console.log('all analytics checks passed');
