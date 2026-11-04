@@ -11,6 +11,7 @@ const T=[
   ['review fixes: day screen, focus, results layout, gender (page)','fixes.js',120],
   ['gender across the site: first-person forms on every page (page)','gender-site.js',120],
   ['accounts, stage 1: sign-in against a fake Supabase (page)','../accounts/stage1.js',200],
+  ['accounts, stage 2: sync between devices, merge, old accounts (page)','../accounts/stage2.js',300],
   ['screens: personas through the page at 1280 and 360 (page)','ui.js',420],
 ];
 const rows=[];let bad=0;const t0=Date.now();

@@ -751,6 +751,13 @@ p.intro .linkbtn{color:var(--primary-dark);text-decoration:underline;text-underl
 .acons input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--primary)}.acons a{color:var(--primary-dark);text-decoration:underline}
 .auth-or{display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--muted);font-size:14px}.auth-or:before,.auth-or:after{content:'';height:1px;background:#DADFEB;flex:1}
 .otp{font-size:26px;letter-spacing:.5em;text-align:center}
+.contbar{position:fixed;inset-inline:12px;bottom:150px;z-index:70;margin-inline:auto;max-width:560px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#fff;border-radius:18px;padding:12px 14px;box-shadow:0 14px 40px rgba(16,24,64,.28);border:1px solid #DADFEB}
+.contbar span{flex:1;min-width:8ch;font-weight:600}.contx{background:none;border:0;font-size:18px;color:var(--muted);min-width:44px;min-height:44px;cursor:pointer}
+@media(min-width:1081px){.contbar{bottom:84px}}
+.sy-st{margin:0 0 12px;font-size:14px;color:var(--muted)}.sy-merge fieldset{border:0;background:#F5F6FB;border-radius:16px;margin:0 0 12px;padding:12px 14px}.sy-merge legend{font-weight:800;padding:0 6px}
+.sy-opt{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer}.sy-opt input{width:20px;height:20px;margin-top:3px;accent-color:var(--primary);flex:none}.sy-opt small{display:block;color:var(--muted);font-size:13.5px}
+.sy-oldf>*{min-width:0}.sy-oldf .pwbox{width:100%}.sy-oldf input{width:100%;box-sizing:border-box}.sy-oldf .s{text-align:start;margin:0}
+.sy-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.sy-oldf{background:#F5F6FB;border-radius:16px;padding:14px;margin-bottom:12px;display:grid;gap:8px}
 .auth-top{text-align:center}.auth-top h2{margin:10px 0 4px}.auth-top .s{margin:0 auto 16px;max-width:38ch}
 .auth-logo svg{width:52px;height:52px}
 .seg{display:flex;gap:4px;background:var(--bg);border-radius:999px;padding:4px}
@@ -4919,7 +4926,7 @@ function roleFields(){
 }
 let ASK={ctx:'',inst:'',topic:''};
 function openAsk(pre={}){
-  if(needLogin('כדי לשאול שאלה צריך להתחבר. השאלה תיוצג בשם שלי או בעילום שם, לפי מה שאבחר.',()=>openAsk(pre)))return;
+  if(needLogin('כדי לשאול שאלה צריך להתחבר. השאלה תיוצג בשם שלי או בעילום שם, לפי מה שאבחר.',{id:'ask',args:{ctx:pre.ctx||'',inst:pre.inst||'',topic:pre.topic||''}}))return;
   if(!canWrite()){openOv(`<h2>שאלה חדשה</h2>${writeNote()||''}`);return}
   ASK={ctx:pre.ctx||FF.ctx||'',inst:pre.inst||'',topic:pre.topic||''};
   const insts=[...DATA.inst].sort((a,b)=>a.n.localeCompare(b.n,'he')), r=fIdx().roles[FM.me];
@@ -7602,8 +7609,11 @@ const ACC={
   list:()=>store.get('accounts',{})||{},   /* the old local accounts: only read, to move them to the real account */
   cur(){const u=SUPA.user;if(!u)return null;const nk=store.get('nicks',{})||{},n=String(nk[u.id]||supaFirst(u)||'').trim();return {id:u.id,name:n||'משתמש/ת',email:u.email||'',nick:!!nk[u.id]}}
 };
-const maskId=a=>a.email?a.email.replace(/^(.).*(@.*)$/,'$1•••$2'):'';
-let AUTH={step:'start',email:'',then:null,reason:'',cool:0};
+const maskId=a=>a.email?a.email.replace(/^(.).*(@.*)$/,'$1•••$2'):a.phone?String(a.phone).slice(0,3)+'-•••-'+String(a.phone).slice(-2):'';
+let AUTH={step:'start',email:'',intent:null,reason:'',cool:0};
+/* what a person was about to do when the site asked them to sign in. It is kept across the redirect to Google (sessionStorage) and, after coming back, offered as a button:
+   the site never performs it by itself. To add one: an entry here, and pass {id,args} to needLogin. */
+const AUTH_INTENTS={ask:{to:'שאילת שאלה בפורום',run:a=>openAsk(a||{})}};
 const SUPA_BASE=()=>location.href.split(/[?#]/)[0];   /* the page itself, without query or hash (a redirect URL that is listed in Supabase) */
 const G_SVG='<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>';
 
@@ -7615,11 +7625,15 @@ function supaLoad(){
     const s=document.createElement('script');s.src=SUPA_CFG.lib;s.integrity=SUPA_CFG.sri;s.async=true;let done=false;
     const fin=ok=>{if(done)return;done=true;clearTimeout(t);if(!ok){SUPA.loading=null;s.remove()}res(ok)},t=setTimeout(()=>fin(false),10000);
     s.onload=()=>fin(!!(window.supabase&&window.supabase.createClient));s.onerror=()=>fin(false);document.head.appendChild(s)})}
+/* every request to Supabase gives up after 15 seconds, so a server that never answers cannot leave anything waiting for ever */
+function supaFetch(u,o){const ac=window.AbortController?new AbortController():null,t=setTimeout(()=>ac&&ac.abort(),15000);
+  if(ac&&o&&o.signal)o.signal.addEventListener('abort',()=>ac.abort());
+  return fetch(u,ac?{...o,signal:ac.signal}:o).finally(()=>clearTimeout(t))}
 async function supaClient(){
   if(SUPA.cli)return SUPA.cli;
   if(!(await supaLoad()))return null;
   try{
-    SUPA.cli=window.supabase.createClient(SUPA_CFG.url,SUPA_CFG.key,{auth:{flowType:'pkce',persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+    SUPA.cli=window.supabase.createClient(SUPA_CFG.url,SUPA_CFG.key,{auth:{flowType:'pkce',persistSession:true,autoRefreshToken:true,detectSessionInUrl:true},global:{fetch:supaFetch}});
     SUPA.cli.auth.onAuthStateChange((ev,ses)=>{setTimeout(()=>supaOnAuth(ev,ses),0)}); /* not inside the callback itself: the library waits for it to return */
   }catch(e){SUPA.cli=null}
   return SUPA.cli}
@@ -7645,17 +7659,23 @@ function supaOnAuth(ev,ses){
   else acctBtn();
 }
 async function supaAfterSignIn(u){
-  const ret=sessionStorage.getItem('kivun3.authret'),fresh=ret!==null||AUTH.step==='code';
-  try{sessionStorage.removeItem('kivun3.authret')}catch(e){}
-  if(fresh){const then=AUTH.then;AUTH.then=null;AUTH.step='start';closeOv(true);if(ret!==null&&ret!==location.hash)location.hash=ret
-    if(FM.local)localForum();acctBtn();render();toast('התחברת לחשבון');if(then)setTimeout(then,80)}
+  const ret=sessionStorage.getItem('kivun3.authret'),fresh=ret!==null||AUTH.step==='code';let intent=AUTH.intent;
+  try{const x=JSON.parse(sessionStorage.getItem('kivun3.authintent')||'null');if(x&&x.id)intent=x;sessionStorage.removeItem('kivun3.authret');sessionStorage.removeItem('kivun3.authintent')}catch(e){}
+  if(fresh){AUTH.intent=null;AUTH.step='start';closeOv(true);if(ret!==null&&ret!==location.hash)location.hash=ret;if(FM.local)localForum();acctBtn();render()}
   else{if(FM.local)localForum();acctBtn()}
-  await supaConsents(u);
-  if(ACC.cur()&&!ACC.cur().nick)openNick(true);
-}
+  if(!(await supaConsents(u))){await signOut();toast('ההתחברות בוטלה: לא אושרו התנאים');return}
+  await syStart(u);                                   /* the first meeting of this device and the account, or a quiet pull */
+  if(ACC.cur()&&!ACC.cur().nick)await openNick(true);
+  if(fresh&&ACC.cur()){toast('התחברת לחשבון');if(intent)contShow(intent)}}
+/* "continue to ...": offered after signing in, never done by itself */
+function contShow(it){const d=AUTH_INTENTS[it&&it.id];if(!d)return;contHide();
+  const b=document.createElement('div');b.className='contbar';b.id='contbar';b.setAttribute('role','status');SUPA.intent=it;
+  b.innerHTML=`<span>${vqT('התחברתי לחשבון.')}</span><button class="btn primary sm" type="button" data-contgo>להמשיך ל${esc(d.to)}</button><button class="contx" type="button" data-contx aria-label="סגירה">✕</button>`;
+  document.body.appendChild(b);setTimeout(()=>{if(SUPA.intent===it)contHide()},45000)}
+function contHide(){const b=document.getElementById('contbar');if(b)b.remove();SUPA.intent=null}
 /* the approval before signing in is written once the account exists; what is still missing for this version of the legal text is asked for now */
 async function supaConsents(u){
-  const c=SUPA.cli;if(!c)return;
+  const c=SUPA.cli;if(!c)return true;
   const need=[...new Set(AUTH_CONSENTS.flatMap(x=>x.kinds))],ver=legalVer();let pend=null;
   try{pend=JSON.parse(localStorage.getItem('kivun3.consp')||'null')}catch(e){}
   const rows=k=>k.map(kind=>({user_id:u.id,kind,version:ver}));
@@ -7663,18 +7683,25 @@ async function supaConsents(u){
     const {error}=await c.from('consents').upsert(rows(pend.kinds.filter(k=>need.includes(k))),{onConflict:'user_id,kind,version',ignoreDuplicates:true});
     if(!error){try{localStorage.removeItem('kivun3.consp')}catch(e){}}
   }
-  const {data,error}=await c.from('consents').select('kind').eq('version',ver);
-  if(error||!Array.isArray(data))return;   /* no connection: do not block, ask again next time */
+  const {data,error}=await c.from('consents').select('kind').eq('version',ver).retry(false);
+  if(error||!Array.isArray(data))return true;   /* no connection: do not block, ask again next time */
   const have=new Set(data.map(r=>r.kind)),miss=need.filter(k=>!have.has(k));
-  if(miss.length)openConsent(miss);
+  if(!miss.length)return true;
+  return !!(await openConsent(miss,u));
 }
 function consentBoxes(only){
   return AUTH_CONSENTS.filter(x=>!only||x.kinds.some(k=>only.includes(k))).map(x=>`<label class="acons"><input type="checkbox" data-aconsent="${x.id}"><span>${vqT(x.html())}</span></label>`).join('')}
 const allConsented=()=>[...document.querySelectorAll('#ov [data-aconsent]')].every(i=>i.checked);
 
+/* a sheet that gives back an answer: resolves with what the buttons pass to done(); closing it (X, Escape, outside) resolves null */
+function ovAsk(html,wire){
+  return new Promise(res=>{let done=false,mo=null;const fin=v=>{if(done)return;done=true;if(mo)mo.disconnect();res(v)};
+    openOv(html);const ov=$('#ov');mo=new MutationObserver(()=>{if(!ov.isConnected)fin(null)});mo.observe(document.body,{childList:true});
+    if(wire)wire(ov,v=>{fin(v);closeOv(true)})})}
+
 /* ---------- screens ---------- */
 function openAuth(o={}){
-  AUTH.then=o.then||null;AUTH.reason=o.reason||'';if(AUTH.step!=='code')AUTH.step='start';
+  AUTH.intent=o.intent||null;AUTH.reason=o.reason||'';if(AUTH.step!=='code')AUTH.step='start';
   const code=AUTH.step==='code',em=SUPA_CFG.emailOtp;
   openOv(`<div class="authw"><div class="auth-top"><span class="auth-logo" aria-hidden="true"><svg viewBox="0 0 40 40"><rect width="40" height="40" rx="11" fill="#FF6B4A"/><path d="M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28.5" cy="28.5" r="3" fill="#fff"/></svg></span>
       <h2>התחברות לאתר</h2><p class="s">${o.reason?esc(o.reason):'חשבון שומר את הפרופיל, הרשימה והשאלון שלי, כדי שימשיכו איתי בכל מכשיר.'}</p></div>
@@ -7694,24 +7721,31 @@ function openAuth(o={}){
   </div>`);
   setTimeout(()=>{const f=$('#otpc')||$('#ov [data-aconsent]');if(f)f.focus({preventScroll:true})},60);
 }
-function openConsent(miss){
-  openOv(`<div class="authw"><div class="auth-top"><h2>אישור לפני שממשיכים</h2><p class="s">${vqT('כדי להמשיך להשתמש בחשבון צריך לאשר את הנוסח המעודכן.')}</p></div>
+function openConsent(miss,u){
+  return ovAsk(`<div class="authw"><div class="auth-top"><h2>אישור לפני שממשיכים</h2><p class="s">${vqT('כדי להמשיך להשתמש בחשבון צריך לאשר את הנוסח המעודכן.')}</p></div>
     <div class="auth-consents">${consentBoxes(miss)}</div><span class="err" id="aerr2" role="alert" hidden></span>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="btn primary" type="button" data-cons-ok="${miss.join(',')}">אישור והמשך</button><button class="btn soft" type="button" data-signout>התנתקות</button></div></div>`);
-}
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="btn primary" type="button" data-cons-ok>אישור והמשך</button><button class="btn soft" type="button" data-cons-no>התנתקות</button></div></div>`,(ov,done)=>{
+      ov.querySelector('[data-cons-no]').onclick=()=>done(null);
+      ov.querySelector('[data-cons-ok]').onclick=async()=>{if(!allConsented())return authErr(vqT('כדי להמשיך צריך לאשר.'));
+        const c=SUPA.cli,r=c&&u?await c.from('consents').upsert(miss.map(kind=>({user_id:u.id,kind,version:legalVer()})),{onConflict:'user_id,kind,version',ignoreDuplicates:true}):{error:{}};
+        if(r&&r.error){try{localStorage.setItem('kivun3.consp',JSON.stringify({kinds:miss,ver:legalVer(),ts:Date.now()}))}catch(e){}}done(true)}})}
 function openNick(first){
-  const a=ACC.cur();if(!a)return;
-  openOv(`<div class="authw"><div class="auth-top"><h2>${first?'איך יקראו לי באתר?':'השם שמוצג באתר'}</h2><p class="s">השם מוצג ליד שאלות ותשובות שאני כותב בפורום, ונשמר רק במכשיר הזה. אפשר גם לכתוב בעילום שם.</p></div>
+  const a=ACC.cur();if(!a)return Promise.resolve(null);
+  return ovAsk(`<div class="authw"><div class="auth-top"><h2>${first?'איך יקראו לי באתר?':'השם שמוצג באתר'}</h2><p class="s">השם מוצג ליד שאלות ותשובות שאני כותב בפורום, ונשמר רק במכשיר הזה. אפשר גם לכתוב בעילום שם.</p></div>
     <form class="form" id="nickf" novalidate><div class="field"><label for="anm">שם</label><input id="anm" type="text" maxlength="30" autocomplete="nickname" value="${esc(a.name==='משתמש/ת'?'':a.name)}"></div>
-      <span class="err" id="acerr" role="alert" hidden></span><button class="btn primary" type="submit">שמירה</button></form></div>`);
-  setTimeout(()=>{const f=$('#anm');if(f)f.focus({preventScroll:true})},60);
-}
+      <span class="err" id="acerr" role="alert" hidden></span><button class="btn primary" type="submit">שמירה</button></form></div>`,(ov,done)=>{
+      setTimeout(()=>{const f=$('#anm');if(f)f.focus({preventScroll:true})},60);
+      ov.querySelector('#nickf').onsubmit=e=>{e.preventDefault();const n=$('#anm').value.trim(),er=$('#acerr');
+        if(n&&(n.length<2||modCheck(n))){er.textContent=n.length<2?'לפחות 2 תווים.':'השם כולל ביטוי שאי אפשר להציג.';er.hidden=false;return}
+        saveNick(n||supaFirst(SUPA.user)||'משתמש/ת',true);done(true)}})}
 function openAcct(){
   const a=ACC.cur();if(!a)return openAuth();
   const nQ=Object.keys(((FM.docs||{})[a.id]||{}).q||{}).length, nA=Object.keys(((FM.docs||{})[a.id]||{}).a||{}).length;
   openOv(`<div class="authw"><div class="acct-h">${avatarFor(a.id,a.name)}<div><h2 style="margin:0">${esc(a.name)}</h2><p class="s" style="margin:2px 0 0" dir="ltr">${esc(maskId(a))}</p></div></div>
     <div class="fstats num" style="margin:14px 0"><span><b>${S.list.size}</b>תארים ברשימה</span><span><b>${nQ}</b>שאלות</span><span><b>${nA}</b>תשובות</span></div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn soft" type="button" data-nick>שינוי השם</button><button type="button" class="btn soft" data-prof>הפרופיל שלי</button><button type="button" class="btn soft" data-signout>התנתקות</button></div></div>`);
+    <p class="sy-st" id="syStatus" role="status">${esc(syStatusText())}</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn soft" type="button" data-nick>שינוי השם</button><button type="button" class="btn soft" data-prof>הפרופיל שלי</button><button type="button" class="btn soft" data-synow>סנכרון עכשיו</button><button type="button" class="btn soft" data-signout>התנתקות</button></div>
+    <p style="margin-top:16px"><button class="linkbtn" type="button" data-signoutwipe>התנתקות ומחיקת הנתונים מהמכשיר הזה</button><small class="fine" style="display:block">למכשיר משותף. הנתונים נשארים בחשבון בשרת.</small></p></div>`);
 }
 function avatarFor(uid,name){const c=AV_C[hash(uid||'x')%AV_C.length];return `<span class="av lg" style="background:${c}" aria-hidden="true">${esc((name||'?').trim().charAt(0))}</span>`}
 function acctBtn(){
@@ -7722,7 +7756,7 @@ function acctBtn(){
   b.classList.toggle('in',!!a);b.setAttribute('aria-label',a?'החשבון שלי':'התחברות');
 }
 /* forum writing needs an account (reading is open to everyone) */
-function needLogin(reason,then){if(!FM.local||ACC.cur())return false;openAuth({reason,then});return true}
+function needLogin(reason,intent){if(!FM.local||ACC.cur())return false;openAuth({reason,intent});return true}
 
 /* ---------- actions ---------- */
 const authErr=m=>{const e=$('#aerr2');if(e){e.textContent=m;e.hidden=false}};
@@ -7732,12 +7766,12 @@ async function authGoogle(){
   try{
     const c=await supaClient();if(!c)throw {status:0};
     const pg=await supaPing();if(!pg.ok)throw {status:0};if(!pg.google)throw {code:'google_off'};
-    try{sessionStorage.setItem('kivun3.authret',location.hash)}catch(e){}
+    try{sessionStorage.setItem('kivun3.authret',location.hash);if(AUTH.intent)sessionStorage.setItem('kivun3.authintent',JSON.stringify(AUTH.intent));else sessionStorage.removeItem('kivun3.authintent')}catch(e){}
     const kinds=[...new Set(AUTH_CONSENTS.flatMap(x=>x.kinds))];
     try{localStorage.setItem('kivun3.consp',JSON.stringify({kinds,ver:legalVer(),ts:Date.now()}))}catch(e){}
     const {error}=await c.auth.signInWithOAuth({provider:'google',options:{redirectTo:SUPA_BASE()}});
     if(error)throw error;
-  }catch(e){try{sessionStorage.removeItem('kivun3.authret')}catch(x){}
+  }catch(e){try{sessionStorage.removeItem('kivun3.authret');sessionStorage.removeItem('kivun3.authintent')}catch(x){}
     const b2=$('#gbtn');if(b2){b2.disabled=false;b2.querySelector('span').textContent='התחברות עם Google'}err(supaErr(e))}
 }
 async function authSendCode(){
@@ -7749,7 +7783,7 @@ async function authSendCode(){
   try{const c=await supaClient();if(!c)throw {status:0};
     const {error}=await c.auth.signInWithOtp({email:em,options:{shouldCreateUser:true}});if(error)throw error;
     const kinds=[...new Set(AUTH_CONSENTS.flatMap(x=>x.kinds))];try{localStorage.setItem('kivun3.consp',JSON.stringify({kinds,ver:legalVer(),ts:Date.now()}))}catch(e){}
-    AUTH.email=em;AUTH.step='code';openAuth({then:AUTH.then,reason:AUTH.reason});
+    AUTH.email=em;AUTH.step='code';openAuth({intent:AUTH.intent,reason:AUTH.reason});
   }catch(e){const b2=$('#emls');if(b2)b2.disabled=false;authErr(supaErr(e))}
 }
 async function authVerify(){
@@ -7760,45 +7794,283 @@ async function authVerify(){
     /* the session event closes the screen */
   }catch(e){const b2=$('#otpv');if(b2)b2.disabled=false;authErr(supaErr(e))}
 }
-async function signOut(){
-  closeOv(true);
+async function signOut(wipe){
+  closeOv(true);clearTimeout(SY.timer);
+  if(SUPA.user&&syEst()&&Object.keys(syQ()).length){try{await Promise.race([syFlush(),new Promise(r=>setTimeout(r,3000))])}catch(e){}}   /* what is waiting goes out before the session ends */
   try{const c=SUPA.cli||(SUPA.user?await supaClient():null);if(c)await Promise.race([c.auth.signOut({scope:'local'}),new Promise(r=>setTimeout(r,4000))])}catch(e){}
   try{localStorage.removeItem(SB_KEY);localStorage.removeItem(SB_KEY+'-code-verifier')}catch(e){}   /* whatever the network did, this device is signed out */
-  SUPA.user=null;SUPA.did=null;if(FM.local)localForum();acctBtn();render();toast('התנתקת מהחשבון')}
-function saveNick(n){const a=ACC.cur();if(!a)return;const nk={...(store.get('nicks',{})||{})};nk[a.id]=n;store.set('nicks',nk);FM.names[a.id]=n;closeOv(true);if(FM.local)localForum();acctBtn();render();toast('השם נשמר')}
+  SUPA.user=null;SUPA.did=null;SY.paused=false;SY.state='off';contHide();
+  if(wipe===true)syForget();
+  if(FM.local)localForum();acctBtn();render();toast(wipe===true?'התנתקת, והנתונים הוסרו מהמכשיר':'התנתקת מהחשבון')}
+function saveNick(n,quiet){const a=ACC.cur();if(!a)return;const nk={...(store.get('nicks',{})||{})};nk[a.id]=n;store.set('nicks',nk);FM.names[a.id]=n;if(!quiet)closeOv(true);if(FM.local)localForum();acctBtn();if(!quiet){render();toast('השם נשמר')}}
 
 /* called once at start-up */
 function initAccounts(){
   {const a=store.get('techArea','');TF.area=typeof a==='string'&&MH_AREAS.includes(a)?a:''}
-  SUPA.user=supaStored();acctBtn();
+  SUPA.user=supaStored();acctBtn();if(SUPA.user)syStartPolling();   /* coming back online or to the tab works at once, even before the library has loaded */
   const back=/[?&](code|error)=/.test(location.search);
   if(back&&/[?&]error=/.test(location.search)){setTimeout(()=>toast('ההתחברות בוטלה או לא הצליחה'),400);try{localStorage.removeItem('kivun3.consp');sessionStorage.removeItem('kivun3.authret')}catch(e){}try{history.replaceState(null,'',SUPA_BASE()+location.hash)}catch(e){}}
   if(back)setTimeout(()=>{supaClient()},0);else if(SUPA.user){const go=()=>{supaClient()};window.requestIdleCallback?requestIdleCallback(go,{timeout:1500}):setTimeout(go,1200)}   /* a signed-in or returning visitor: load in the idle time, off the first paint */
   window.addEventListener('online',()=>{if(SUPA.user)supaClient()});
+  /* every write of a synced key is also queued for the server (only while this device is in step with the account) */
+  const set0=store.set;store.set=(k,v)=>{set0(k,v);if(SYNC_KEYS.includes(k))syDirty(k)};
   document.addEventListener('click',e=>{
-    const el=e.target.closest('[data-gauth],[data-otpresend],[data-otpback],[data-cons-ok],[data-nick]');if(!el)return;const ds=el.dataset;
+    const el=e.target.closest('[data-gauth],[data-otpresend],[data-otpback],[data-nick],[data-contgo],[data-contx],[data-synow],[data-signoutwipe]');if(!el)return;const ds=el.dataset;
     if(ds.gauth!==undefined)authGoogle();
     else if(ds.otpresend!==undefined){AUTH.step='start';authSendCodeAgain()}
-    else if(ds.otpback!==undefined){AUTH.step='start';openAuth({then:AUTH.then,reason:AUTH.reason})}
-    else if(ds.consOk!==undefined){if(!allConsented())return authErr(vqT('כדי להמשיך צריך לאשר.'));
-      const a=SUPA.user,c=SUPA.cli,kinds=ds.consOk.split(',');
-      Promise.resolve(c&&a?c.from('consents').upsert(kinds.map(kind=>({user_id:a.id,kind,version:legalVer()})),{onConflict:'user_id,kind,version',ignoreDuplicates:true}):{error:{}}).then(r=>{
-        if(r&&r.error){try{localStorage.setItem('kivun3.consp',JSON.stringify({kinds,ver:legalVer(),ts:Date.now()}))}catch(e){}}closeOv(true)})}
+    else if(ds.otpback!==undefined){AUTH.step='start';openAuth({intent:AUTH.intent,reason:AUTH.reason})}
     else if(ds.nick!==undefined)openNick(false);
+    else if(ds.contgo!==undefined){const it=SUPA.intent,d=it&&AUTH_INTENTS[it.id];contHide();if(d)d.run(it.args)}
+    else if(ds.contx!==undefined)contHide();
+    else if(ds.synow!==undefined){const b=el;b.disabled=true;syNow().finally(()=>{b.disabled=false})}
+    else if(ds.signoutwipe!==undefined){const n=Object.keys(syQ()).length;if(n&&!confirm('יש שינויים שעדיין לא נשלחו לחשבון. אם תמחקו עכשיו הם יאבדו. להמשיך?'))return;signOut(true)}
   });
   document.addEventListener('submit',e=>{
     if(e.target.id==='emlf'){e.preventDefault();authSendCode()}
     else if(e.target.id==='otpf'){e.preventDefault();authVerify()}
-    else if(e.target.id==='nickf'){e.preventDefault();const n=$('#anm').value.trim(),er=$('#acerr');
-      if(n&&(n.length<2||modCheck(n))){er.textContent=n.length<2?'לפחות 2 תווים.':'השם כולל ביטוי שאי אפשר להציג.';er.hidden=false;return}
-      saveNick(n||supaFirst(SUPA.user)||'משתמש/ת')}
   });
 }
 async function authSendCodeAgain(){
   if(Date.now()<AUTH.cool)return;AUTH.cool=Date.now()+60000;
-  try{const c=await supaClient();if(!c)throw {status:0};const {error}=await c.auth.signInWithOtp({email:AUTH.email,options:{shouldCreateUser:true}});if(error)throw error;AUTH.step='code';openAuth({then:AUTH.then,reason:AUTH.reason});toast('שלחנו קוד חדש')}
-  catch(e){AUTH.step='code';openAuth({then:AUTH.then,reason:AUTH.reason});authErr(supaErr(e))}
+  try{const c=await supaClient();if(!c)throw {status:0};const {error}=await c.auth.signInWithOtp({email:AUTH.email,options:{shouldCreateUser:true}});if(error)throw error;AUTH.step='code';openAuth({intent:AUTH.intent,reason:AUTH.reason});toast('שלחנו קוד חדש')}
+  catch(e){AUTH.step='code';openAuth({intent:AUTH.intent,reason:AUTH.reason});authErr(supaErr(e))}
 }
+
+/* ================= SYNC (accounts, stage 2) =================
+   While signed in, every SYNC_KEYS key is also kept in the table user_data, so it follows the person to every device.
+   Rules: (1) the site always works from this device's storage; the server is a copy that is written to in the background and read from now and then.
+   (2) A person's data is never deleted or overwritten without asking (the first meeting of a device and an account, a second Google account on a device).
+   (3) Family finances and the scholarship questions that depend on them (SYNC_LOCAL_ONLY) never leave the device; schema.sql refuses them too.
+   (4) No network, or Supabase down: nothing breaks, changes wait in a queue that survives a reload, and go out when the connection is back.
+   Design: docs/accounts/PLAN.md */
+const SYNC_LOCAL_ONLY=['inc','first','svc','res','resAt']; /* inside prof. Keep in step with user_data_prof_local_only in supabase/schema.sql */
+const SYNC_NAMES={prof:'הפרופיל',scores:'הציונים',dir:'שאלון ההכוונה הישן',dir2:'השאלון "מה הכיוון שלי?"',path:'המסלול',list:'הרשימה שלי',calcRows:'שורות המחשבון',calcAr:'הגדרת המחשבון',uni:'המוסד שבחרתי',sch:'מעקב המלגות'};
+const SY={timer:0,busy:false,state:'off',fails:0,lastPull:0,poll:0,paused:false,starting:false,t:0};
+const syGet=(k,f)=>{try{const v=localStorage.getItem('kivun3.'+k);return v?JSON.parse(v):f}catch(e){return f}};
+const sySet=(k,v)=>{try{v==null?localStorage.removeItem('kivun3.'+k):localStorage.setItem('kivun3.'+k,JSON.stringify(v))}catch(e){}};
+const syStable=v=>JSON.stringify(v,(k,x)=>x&&typeof x==='object'&&!Array.isArray(x)?Object.keys(x).sort().reduce((o,y)=>(o[y]=x[y],o),{}):x);
+const syPick=(o,ks)=>Object.fromEntries(ks.filter(k=>isObj(o)&&o[k]!==undefined).map(k=>[k,o[k]]));
+const syMeta=()=>syGet('syncmeta',null);
+const syEst=()=>{const m=syMeta(),a=ACC.cur();return !!(m&&a&&m.uid===a.id&&m.est)};
+const syQ=()=>syGet('syncq',{})||{};
+/* a value as the site would accept it from a backup file (undefined: not usable). Everything that comes from the server goes through this first. */
+function syClean(k,v){
+  if(v===undefined||v===null)return undefined;
+  if(k==='uni'){const n=NORM.uni(v);return n||undefined}
+  if(k==='sch')return isObj(v)?schParse(v):undefined;
+  if(!own(NORM,k))return undefined;
+  const n=NORM[k](v);return n===null?undefined:n}
+const syStrip=(k,v)=>k==='prof'&&isObj(v)?Object.fromEntries(Object.entries(v).filter(([f])=>!SYNC_LOCAL_ONLY.includes(f))):v;
+const syEmpty=(k,v)=>v==null||(Array.isArray(v)&&!v.length)||(isObj(v)&&(!Object.keys(v).length||(k==='dir2'&&!(v.answers||[]).length)||(k==='dir'&&!Object.keys(v.a||{}).length&&!v.done)||(k==='sch'&&!(v.items||[]).length&&!Object.keys(v.skip||{}).length)));
+const syLocal=k=>{const c=syClean(k,syGet(k,null));return c===undefined?undefined:syStrip(k,c)};   /* this device's value, without the local-only fields */
+function syTs(k,v){try{if(k==='dir2')return v.done||v.ts||null;if(k==='dir')return v.done||null;if(k==='prof')return v.stageAt||null;if(k==='sch')return Math.max(0,...(v.items||[]).map(i=>i.ts||0))||null}catch(e){}return null}
+function syDescribe(k,v){
+  try{
+    if(k==='prof'){const st=(STAGES.find(s=>s[0]===v.stage)||[])[1],rg=REGN[v.reg];return [st&&'שלב: '+st,rg&&'אזור: '+rg].filter(Boolean).join(' · ')||'פרופיל'}
+    if(k==='list')return v.length+' תארים';
+    if(k==='dir2')return (v.done?'שאלון שהסתיים ב-'+new Date(v.done).toLocaleDateString('he-IL'):'שאלון באמצע')+', '+v.answers.length+' תשובות';
+    if(k==='dir')return v.done?'שאלון ישן מ-'+new Date(v.done).toLocaleDateString('he-IL'):'שאלון ישן';
+    if(k==='scores')return [v.p&&'פסיכומטרי '+v.p,v.b&&'ממוצע בגרות '+v.b].filter(Boolean).join(' · ')||'ציונים';
+    if(k==='path')return ((v.targets||[]).length)+' יעדים, '+((v.dates||[]).length)+' תאריכים';
+    if(k==='sch')return (v.items||[]).length+' מלגות במעקב';
+    if(k==='calcRows')return (Array.isArray(v)?v.length:0)+' שורות';
+  }catch(e){}
+  return 'יש נתונים'}
+
+/* ---------- writing to the server (background, queued) ---------- */
+function syDirty(k){
+  if(!syEst()||SY.paused)return;
+  const q=syQ();q[k]=Date.now();sySet('syncq',q);SY.state='pending';clearTimeout(SY.timer);SY.timer=setTimeout(syFlush,1500)}
+const syProfileRow=(uid,p)=>{const num=Number(p&&p.math),t=x=>typeof x==='string'?x.slice(0,32):null;
+  return {user_id:uid,stage:t(p&&p.stage),reg:t(p&&p.reg),bag:t(p&&p.bag),psy_status:t(p&&p.psy),math:Number.isInteger(num)&&num>=1&&num<=5?num:null,sex:t(p&&p.sex)}};
+async function syFlush(){
+  const a=ACC.cur();if(SY.busy||!a||!syEst()||SY.paused)return;
+  const q=syQ(),keys=Object.keys(q);if(!keys.length){SY.state='ok';return}
+  SY.busy=true;
+  try{
+    if(Date.now()-SY.lastPull>30000){SY.busy=false;await syPull(true);SY.busy=true;if(SY.state==='offline')throw {status:0}}   /* look at the account before writing over it (a change made elsewhere while this device was away is joined or compared, not overwritten) */
+    const c=await supaClient();if(!c)throw {status:0};
+    const m=syMeta(),up=[],del=[];m.h=m.h||{};const sent={};
+    for(const k of keys){const v=syLocal(k);
+      if(v===undefined||syEmpty(k,v)&&!(k==='list'&&Array.isArray(v))){del.push(k);continue}
+      const h=syStable(v);if(m.h[k]===h&&m.seen[k]){continue}   /* nothing new for the server (e.g. only a local-only field changed) */
+      up.push({user_id:a.id,key:k,value:v});sent[k]=h}
+    if(up.length){const r=await c.from('user_data').upsert(up,{onConflict:'user_id,key'}).select('key,updated_at');
+      if(r.error)throw r.error;(r.data||[]).forEach(x=>{m.seen[x.key]=x.updated_at;m.h[x.key]=sent[x.key]})}
+    if(del.length){const r=await c.from('user_data').delete().in('key',del);if(r.error)throw r.error;del.forEach(k=>{delete m.seen[k];delete m.h[k]})}
+    if(up.some(r=>r.key==='prof')){const r=await c.from('profiles').upsert(syProfileRow(a.id,syLocal('prof')),{onConflict:'user_id'});if(r.error)throw r.error}
+    const q2=syQ();keys.forEach(k=>{if(q2[k]===q[k])delete q2[k]});sySet('syncq',q2);
+    m.t=Date.now();sySet('syncmeta',m);SY.fails=0;SY.state=Object.keys(q2).length?'pending':'ok';SY.t=m.t;
+    if(Object.keys(q2).length){clearTimeout(SY.timer);SY.timer=setTimeout(syFlush,800)}
+  }catch(e){
+    SY.fails++;const st=e&&e.status,perm=st>=400&&st<500&&![401,403,408,429].includes(st)&&!(e&&e.code==='PGRST301');
+    if(perm){const q3=syQ();keys.forEach(k=>{if(q3[k]===q[k])delete q3[k]});sySet('syncq',q3);SY.state='error'}   /* the server refuses this value: retrying will not help */
+    else{SY.state='offline';clearTimeout(SY.timer);SY.timer=setTimeout(syFlush,Math.min(60000,2000*2**Math.min(SY.fails,5)))}
+  }finally{SY.busy=false;syUiRefresh()}
+}
+
+/* ---------- reading from the server ---------- */
+async function syFetch(){
+  const c=await supaClient();if(!c)throw {status:0};
+  const r=await c.from('user_data').select('key,value,updated_at').retry(false);if(r.error)throw r.error;
+  const out={};for(const row of r.data||[]){if(!SYNC_KEYS.includes(row.key))continue;const v=syClean(row.key,row.value);if(v!==undefined)out[row.key]={v:syStrip(row.key,v),at:row.updated_at}}
+  return out}
+/* write values into this device (not through store.set, which would queue them again), then make the page read them */
+function syWriteLocal(vals){
+  const live=syGet('prof',null);
+  for(const [k,v] of Object.entries(vals)){
+    if(v===null){sySet(k,null);continue}
+    sySet(k,k==='prof'?{...v,...syPick(live,SYNC_LOCAL_ONLY)}:v)}
+  reloadState();STALE=true;staleRender()}
+async function syPull(force){
+  const a=ACC.cur();if(!a||!syEst()||SY.paused)return;
+  if(!force&&Date.now()-SY.lastPull<20000)return;SY.lastPull=Date.now();
+  try{
+    const srv=await syFetch(),m=syMeta(),q=syQ(),apply={},up=[];m.seen=m.seen||{};
+    for(const k of SYNC_KEYS){
+      const row=srv[k],seen=m.seen[k],dirty=q[k];
+      if(row){
+        if(seen===row.at)continue;
+        if(!dirty){apply[k]=row.v;m.seen[k]=row.at;delete (m.h||{})[k]}
+        else if(k==='list'){const dv=syLocal('list')||[],u=[...new Set([...row.v,...dv])];apply.list=u;m.seen.list=row.at;up.push('list')}
+        else if(Date.parse(row.at)>=dirty){apply[k]=row.v;m.seen[k]=row.at;const q2=syQ();delete q2[k];sySet('syncq',q2)}   /* both changed: the later one wins */
+        else m.seen[k]=row.at;   /* this device is newer: its upload will replace the server copy */
+      }else if(seen&&!dirty){apply[k]=null;delete m.seen[k];delete (m.h||{})[k]}   /* removed from another device */
+      else if(!seen&&!dirty){const v=syLocal(k);if(v!==undefined&&!syEmpty(k,v))up.push(k)}   /* something never sent: send it */
+    }
+    sySet('syncmeta',m);
+    if(Object.keys(apply).length)syWriteLocal(apply);
+    up.forEach(k=>syDirty(k));
+    SY.state=Object.keys(syQ()).length?'pending':'ok';SY.t=Date.now()
+  }catch(e){SY.state='offline';SY.lastPull=0}   /* a failed read must not delay the next try */
+  syUiRefresh()}
+function syStartPolling(){
+  if(SY.poll)return;
+  const tick=async()=>{if(!document.hidden&&ACC.cur()&&syEst()){await syPull(false);if(Object.keys(syQ()).length)await syFlush()}};   /* one after the other: read, then write */
+  document.addEventListener('visibilitychange',tick);window.addEventListener('online',()=>{SY.fails=0;SY.lastPull=0;tick()});SY.poll=setInterval(tick,90000)}
+
+/* ---------- the first meeting of this device and the account ---------- */
+async function syStart(u){
+  if(SY.starting)return;SY.starting=true;
+  try{
+    const m=syMeta();
+    if(m&&m.uid===u.id&&m.est){syStartPolling();SY.state=Object.keys(syQ()).length?'pending':'ok';await syPull(true);syFlush();return}
+    if(m&&m.uid&&m.uid!==u.id&&m.est){   /* this device holds another account's data */
+      const r=await ovAsk(`<div class="authw"><div class="auth-top"><h2>במכשיר יש נתונים של חשבון אחר</h2><p class="s">${vqT('הנתונים שבמכשיר הזה נשמרו כשהיית מחובר/ת לחשבון אחר. אני לא מעלה אותם לחשבון הזה בלי לשאול.')}</p></div>
+        <div style="display:grid;gap:10px"><button class="btn primary" data-sy="clean">להתחיל נקי: מוחקים מהמכשיר את הנתונים של החשבון הקודם</button><button class="btn soft" data-sy="mine">אלה גם הנתונים שלי: להמשיך עם מה שבמכשיר</button></div>
+        <p class="fine">הנתונים של החשבון הקודם נשארים בו בשרת, ואפשר לחזור אליהם בהתחברות אליו.</p></div>`,(ov,done)=>{ov.querySelectorAll('[data-sy]').forEach(b=>b.onclick=()=>done(b.dataset.sy))});
+      if(r===null){SY.paused=true;SY.state='paused';return}
+      if(r==='clean'){SYNC_KEYS.forEach(k=>sySet(k,null));sySet('syncq',null);sySet('nicks',null);reloadState();render()}
+    }
+    sySet('syncmeta',{uid:u.id,est:false,seen:{},h:{}});
+    const olds=await syMigrateOld(u);
+    if(olds===null){SY.paused=true;SY.state='paused';return}
+    const srv=await syFetch().catch(()=>null);
+    if(srv===null){SY.paused=true;SY.state='offline';return}   /* cannot reach the server: ask again at the next visit; nothing is changed */
+    const dev=Object.fromEntries(SYNC_KEYS.map(k=>[k,syLocal(k)]).filter(([k,v])=>v!==undefined&&!syEmpty(k,v)));
+    const final=await syDecide(dev,srv,olds);
+    if(final===null){SY.paused=true;SY.state='paused';return}
+    await syApply(u,dev,srv,final,olds);
+    syStartPolling();
+  }finally{SY.starting=false;syUiRefresh()}
+}
+/* for every key: who has it, and where the values differ, ask. Returns {key: value} (the value the person ends up with) or null (the dialog was closed). */
+async function syDecide(dev,srv,olds){
+  const final={},conf=[];
+  for(const k of SYNC_KEYS){
+    const cand=[];
+    if(dev[k]!==undefined)cand.push({id:'dev',label:'במכשיר הזה',v:dev[k]});
+    olds.forEach(o=>{const v=o.vals[k];if(v!==undefined&&!syEmpty(k,v))cand.push({id:'old:'+o.id,label:'בחשבון הישן '+o.mask,v})});
+    if(srv[k]&&!syEmpty(k,srv[k].v))cand.push({id:'srv',label:'בחשבון (בשרת)',v:srv[k].v,at:srv[k].at});
+    const distinct=[...new Set(cand.map(c=>syStable(c.v)))];
+    if(!distinct.length)continue;
+    if(distinct.length===1){final[k]=cand[0].v;continue}
+    conf.push({k,cand:distinct.map(s=>cand.filter(c=>syStable(c.v)===s))})}
+  if(!conf.length)return final;
+  const rowsHtml=conf.map(({k,cand},i)=>{
+    const ts=cand.map(grp=>{const c=grp[0];return c.id==='srv'?Date.parse(c.at):(syTs(k,c.v)||0)}),best=ts.some(x=>x)?ts.indexOf(Math.max(...ts)):cand.findIndex(g=>g.some(c=>c.id==='srv'));
+    return `<fieldset class="sy-row"><legend>${esc(SYNC_NAMES[k])}</legend>${cand.map((grp,j)=>`<label class="sy-opt"><input type="radio" name="sy${i}" value="${j}"${j===best?' checked':''}><span><b>${esc(grp.map(c=>c.label).join(' ובחשבון '))}</b><small>${esc(syDescribe(k,grp[0].v))}</small></span></label>`).join('')}
+      ${k==='list'?`<label class="sy-opt"><input type="radio" name="sy${i}" value="union"><span><b>לאחד את שתי הרשימות</b><small>כל התארים משני המקומות</small></span></label>`:''}</fieldset>`}).join('');
+  const res=await ovAsk(`<div class="authw sy-merge"><div class="auth-top"><h2>יש נתונים גם במכשיר וגם בחשבון</h2><p class="s">${vqT('בחרו מה לשמור בכל פריט. שום דבר לא נמחק לפני שבחרתם.')}</p></div>
+    <form id="syf">${rowsHtml}<div class="sy-acts"><button class="btn primary" type="submit">שמירה והמשך</button><button class="btn soft" type="button" data-sy="bk">הורדת גיבוי של מה שבמכשיר</button></div></form></div>`,(ov,done)=>{
+      ov.querySelector('[data-sy="bk"]').onclick=()=>{const o={kivun:1,ts:Date.now()};SYNC_KEYS.forEach(k=>{o[k]=syGet(k,null)});dl('vector-device-backup.json',JSON.stringify(o),'application/json')};
+      ov.querySelector('#syf').onsubmit=e=>{e.preventDefault();const pick={};conf.forEach(({k},i)=>{const r=ov.querySelector(`input[name="sy${i}"]:checked`);pick[k]=r?r.value:'0'});done(pick)}});
+  if(res===null)return null;
+  for(const {k,cand} of conf){const p=res[k];
+    if(p==='union')final[k]=[...new Set(cand.flatMap(g=>g[0].v))];else final[k]=cand[+p][0].v}
+  return final}
+async function syApply(u,dev,srv,final,olds){
+  const m=syMeta();m.uid=u.id;m.seen=m.seen||{};m.h=m.h||{};
+  const write={},up=[],changed=[];
+  for(const k of Object.keys(final)){
+    if(syStable(final[k])!==syStable(dev[k]===undefined?null:dev[k])){write[k]=final[k];if(dev[k]!==undefined)changed.push(k)}
+    if(!srv[k]||syStable(srv[k].v)!==syStable(final[k]))up.push(k);else m.seen[k]=srv[k].at}
+  if(changed.length)sySet('premerge',{ts:Date.now(),uid:u.id,vals:Object.fromEntries(changed.map(k=>[k,syGet(k,null)]))});   /* a safety copy of what was replaced */
+  m.est=true;sySet('syncmeta',m);
+  if(Object.keys(write).length)syWriteLocal(write);
+  const q=syQ();up.forEach(k=>{q[k]=Date.now()});sySet('syncq',q);
+  olds.forEach(o=>syRemoveOld(o.id,u.id));
+  SY.state='pending';await syFlush();
+  render()}
+
+/* ---------- accounts that lived only in this browser (password + local copy): moved to the real account once ---------- */
+/* REMOVE-AFTER 2027-05: the password check below is only for this move. After about six months it goes, together with the local accounts. */
+const b64=u=>btoa(String.fromCharCode(...new Uint8Array(u)));
+async function pwHash(pw,salt){
+  if(!(window.crypto&&crypto.subtle))throw {code:'nocrypto'};
+  const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);
+  return b64(await crypto.subtle.deriveBits({name:'PBKDF2',salt:new TextEncoder().encode(salt),iterations:120000,hash:'SHA-256'},k,256));
+}
+const syOldVals=a=>{const d=(a&&a.data)||{},o={};for(const k of SYNC_KEYS){const c=syClean(k,d[k]);if(c!==undefined){const s=syStrip(k,c);if(!syEmpty(k,s))o[k]=s}}return o};
+function syRemoveOld(oldId,newId){
+  const L=ACC.list();if(!L[oldId])return;
+  /* the forum posts written under the old account now belong to the new one */
+  try{const D=store.get('forum',{})||{};
+    if(D[oldId]){D[newId]=D[newId]?{...D[oldId],...D[newId],q:{...D[oldId].q,...D[newId].q},a:{...D[oldId].a,...D[newId].a}}:D[oldId];delete D[oldId]}
+    for(const d of Object.values(D))for(const x of Object.values(d.a||{}))if(x&&typeof x.q==='string'&&x.q.startsWith(oldId+'--'))x.q=newId+'--'+x.q.slice(oldId.length+2);
+    store.set('forum',D);
+    const pv=store.get('forumPriv',{})||{};if(pv[oldId]){pv[newId]=pv[newId]||pv[oldId];delete pv[oldId];store.set('forumPriv',pv)}}catch(e){}
+  delete L[oldId];store.set('accounts',L);const s=store.get('session',null);if(s&&s.id===oldId)store.set('session',null);
+  if(FM.local)localForum()}
+async function syMigrateOld(u){
+  const L=ACC.list(),ids=Object.keys(L);if(!ids.length)return [];
+  const ses=store.get('session',null),mine=(u.email||'').toLowerCase(),out=[];
+  /* the account that was signed in on this browser, with the same address as the Google account: already proven, no password */
+  let left=ids.filter(id=>{const a=L[id];if(ses&&ses.id===id&&a.email&&a.email.toLowerCase()===mine&&mine){out.push({id,mask:maskId(a),vals:syOldVals(a)});return false}return true});
+  if(!left.length)return out;
+  let fails=0,lock=0;
+  const res=await ovAsk(`<div class="authw"><div class="auth-top"><h2>מצאנו חשבונות ישנים בדפדפן הזה</h2><p class="s">${vqT('אפשר להעביר אותם לחשבון החדש. כדי להבטיח שזה החשבון שלי, מקלידים את הסיסמה הישנה, פעם אחת. היא נבדקת במכשיר בלבד ולא נשלחת לשום מקום.')}</p></div>
+    <div class="sy-old">${left.map(id=>{const a=L[id];return `<form class="sy-oldf" data-old="${esc(id)}"><b>${esc(a.name||'חשבון')}</b> <span class="s" dir="ltr">${esc(maskId(a)||a.phone||'')}</span>
+      <div class="pwbox"><input type="password" autocomplete="current-password" aria-label="הסיסמה הישנה של ${esc(a.name||'החשבון')}" placeholder="הסיסמה הישנה"></div><span class="err" role="alert" hidden></span>
+      <div class="sy-acts"><button class="btn primary sm" type="submit">העברה לחשבון החדש</button><button class="linkbtn sy-del" type="button" style="color:#C0392B">מחיקת החשבון הישן מהדפדפן</button></div></form>`}).join('')}</div>
+    <p style="margin-top:14px"><button class="btn soft" type="button" data-sy="later">דילוג, אשאל אותי שוב בהתחברות הבאה</button></p></div>`,(ov,done)=>{
+      const finish=()=>{if(!ov.querySelector('.sy-oldf'))done(out)};
+      ov.querySelector('[data-sy="later"]').onclick=()=>done(out);
+      ov.querySelectorAll('.sy-oldf').forEach(f=>{const id=f.dataset.old,a=L[id],er=f.querySelector('.err');
+        f.onsubmit=async e=>{e.preventDefault();const pw=f.querySelector('input').value;
+          if(Date.now()<lock){er.textContent='יותר מדי ניסיונות. אפשר לנסות שוב בעוד חצי דקה.';er.hidden=false;return}
+          try{if(!pw||await pwHash(pw,a.salt)!==a.hash){if(++fails>=5){lock=Date.now()+30000;fails=0}er.textContent='הסיסמה לא נכונה.';er.hidden=false;return}}
+          catch(x){er.textContent='הדפדפן הזה לא תומך בבדיקה. אפשר לדלג.';er.hidden=false;return}
+          out.push({id,mask:maskId(a)||a.name,vals:syOldVals(a)});f.remove();finish()};
+        f.querySelector('.sy-del').onclick=()=>{if(!confirm('למחוק את החשבון הישן הזה מהדפדפן? הנתונים שלו יימחקו מכאן.'))return;const L2=ACC.list();delete L2[id];store.set('accounts',L2);f.remove();finish()}});
+      if(!ov.querySelector('.sy-oldf'))done(out)});
+  return res}
+
+/* ---------- what the person sees ---------- */
+function syStatusText(){
+  const a=ACC.cur();if(!a)return '';
+  if(SY.paused)return SY.state==='offline'?'אין חיבור: הסנכרון ימשיך כשיחזור.':'ממתין להכרעה: מה לשמור כשיש נתונים גם במכשיר וגם בחשבון.';
+  if(!syEst())return 'הסנכרון עדיין לא התחיל.';
+  const n=Object.keys(syQ()).length,t=SY.t||(syMeta()||{}).t;
+  return SY.state==='offline'?'אין חיבור כרגע. השינויים נשמרים במכשיר ויישלחו כשהחיבור יחזור.'
+    :SY.state==='error'?'פריט אחד לא נשמר בשרת. הוא נשאר במכשיר.'
+    :n?'ממתין לסנכרון...':'הנתונים מסונכרנים'+(t?' · '+new Date(t).toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit'}):'')}
+function syUiRefresh(){const e=document.getElementById('syStatus');if(e)e.textContent=syStatusText()}
+const acctSynced=()=>!!(ACC.cur()&&syEst()&&!SY.paused);
+async function syNow(){SY.paused=false;const u=SUPA.user;if(!u)return;
+  if(!syEst()){await syStart(u)}else{await syPull(true);await syFlush()}syUiRefresh()}
+function syForget(){   /* sign-out on a shared device: also remove this account's data from the device */
+  SYNC_KEYS.forEach(k=>sySet(k,null));['syncq','syncmeta','nicks','premerge'].forEach(k=>sySet(k,null));reloadState()}
 
 /* ---------- events ---------- */
 document.addEventListener('click',e=>{
@@ -8562,7 +8834,7 @@ function vqIntro(){
       ${part?`<button class="btn soft xl" data-vqresume>להמשיך מאיפה שעצרתי</button>`:''}${VQU.done?'<button class="btn soft xl" data-vqres>לתוצאות שלי</button>':''}</div>
     ${!VQU.done&&!n&&((store.get('dir',null)||{}).done)?`<p class="nodata vq-new" role="note"><b>יש שאלון חדש וקצר.</b> ${vqT('ענית פעם על השאלון הארוך. החדש לוקח כ-4 דקות, מנחש ומדייק, ואפשר לענות עליו שוב.')}</p>`:''}
     ${rec?`<p class="nodata" style="margin-top:14px">עברו יותר מ-30 יום מאז שענית. תחומי עניין משתנים, ושווה לענות שוב.</p>`:''}
-    <p class="fine" style="margin-top:18px">התשובות נשמרות אוטומטית בדפדפן, ואפשר לעצור ולחזור. זה כלי לחקירה, לא מבחן פסיכולוגי.</p>
+    <p class="fine" style="margin-top:18px">התשובות נשמרות אוטומטית בדפדפן${acctSynced()?' ובחשבון שלי':''}, ואפשר לעצור ולחזור. זה כלי לחקירה, לא מבחן פסיכולוגי.</p>
   </div></section>`;
 }
 function vqTrans(){

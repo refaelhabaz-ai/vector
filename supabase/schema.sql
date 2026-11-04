@@ -88,7 +88,9 @@ create table if not exists public.quiz_answers (
   picks       text[]      not null default '{}',
   meta        jsonb,
   answered_at timestamptz not null default now(),
-  primary key (session_id, idx)
+  primary key (session_id, idx),
+  -- meta הוא נתון נלווה קטן (עולם, מקצוע); לא מקום לאחסון חופשי
+  constraint quiz_answers_meta_size_ok check (meta is null or octet_length(meta::text) <= 2048)
 );
 
 -- ----------------------------------------------------------------------------
@@ -122,6 +124,9 @@ create table if not exists public.consents (
 alter table public.user_data drop constraint if exists user_data_prof_local_only;
 alter table public.user_data add  constraint user_data_prof_local_only
   check (key <> 'prof' or not (value ?| array['inc','first','svc','res','resAt']));
+alter table public.quiz_answers drop constraint if exists quiz_answers_meta_size_ok;
+alter table public.quiz_answers add  constraint quiz_answers_meta_size_ok
+  check (meta is null or octet_length(meta::text) <= 2048);
 alter table public.consents  drop constraint if exists consents_kind_check;
 alter table public.consents  add  constraint consents_kind_check check (kind in ('terms','privacy','age','parental'));
 

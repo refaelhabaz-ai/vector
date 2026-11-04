@@ -61,7 +61,7 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   await p.fill('#anm','דנה כ.');await p.click('#nickf button[type=submit]');await p.waitForTimeout(300);
   ok(await p.evaluate(()=>(JSON.parse(localStorage.getItem('kivun3.nicks')||'{}'))['11111111-2222-3333-4444-555555555555']==='דנה כ.'),'the name is kept on this device');
   ok(!(await p.evaluate(()=>JSON.stringify(p2=window.__x||'')+Object.keys(localStorage).join(',')))?.includes('password'),'nothing about passwords is stored');
-  ok(!p.mock.log.some(r=>/\/rest\/v1\/(?!consents)/.test(r.path)),'nothing but consents is written to the server in this stage');
+  ok(!p.mock.log.some(r=>/\/rest\/v1\//.test(r.path)&&!/\/rest\/v1\/(consents|user_data|profiles)$/.test(r.path)),'the only tables the site talks to are consents, user_data and profiles');
   ok(p.errs.length===0,'no page errors '+p.errs.join(';'));
 
   console.log('\n== a stored session at start (a later visit)');

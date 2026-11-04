@@ -9,6 +9,8 @@
 ```bash
 node tests/quiz-v2/all.js          # כל הסוויטה, כולל tests/accounts/stage1.js
 node tests/accounts/stage1.js      # רק ההתחברות
+node tests/accounts/stage2.js      # סנכרון בין מכשירים, מיזוג, חשבונות ישנים
+node tests/accounts/screens-sync.js # צילומי מסך של מסכי שלב 2
 node tests/accounts/screens.js     # צילומי מסך של מסכי החשבון (docs/accounts/screens/)
 node supabase/tests/run-local.js   # סכמה + RLS על Postgres מקומי (דורש psql ושרת Postgres מקומי; אין בו שום מפתח)
 ```

@@ -25,7 +25,7 @@ select pg_temp.check('save_quiz replaces answers and results', (select count(*) 
 
 -- user B cannot see or touch A's rows
 select pg_temp.as_user('bbbbbbbb-0000-0000-0000-000000000002');
-select pg_temp.check('B reads nothing of A', (select count(*) from user_data)+(select count(*) from profiles)+(select count(*) from quiz_sessions)+(select count(*) from quiz_answers)+(select count(*) from quiz_results)+(select count(*) from consents)=0);
+select pg_temp.check('B reads nothing of A', (select count(*) from user_data)+(select count(*) from profiles)+(select count(*) from quiz_sessions where user_id='aaaaaaaa-0000-0000-0000-000000000001')+(select count(*) from quiz_answers where session_id='11111111-1111-1111-1111-111111111111')+(select count(*) from quiz_results where session_id='11111111-1111-1111-1111-111111111111')+(select count(*) from consents)=0);
 do $$ declare n int; begin update user_data set value='{}'; get diagnostics n = row_count; if n<>0 then raise exception 'FAIL  B updated % of A rows', n; end if; raise notice 'PASS  B cannot update A rows'; end $$;
 do $$ declare n int; begin delete from quiz_sessions; get diagnostics n = row_count; if n<>0 then raise exception 'FAIL  B deleted % of A sessions', n; end if; raise notice 'PASS  B cannot delete A rows'; end $$;
 do $$ begin begin insert into user_data(user_id,key,value) values ('aaaaaaaa-0000-0000-0000-000000000001','prof','{}'); raise exception 'FAIL  B inserted as A'; exception when insufficient_privilege then raise notice 'PASS  B cannot insert rows as A (user_data)'; end; end $$;
@@ -42,6 +42,11 @@ select pg_temp.check('prof without the local-only fields is accepted', (select c
 insert into consents(kind,version) values ('age','2026-11-03'),('parental','2026-11-03');
 do $$ begin begin insert into consents(kind,version) values ('marketing','x'); raise exception 'FAIL  unknown consent kind accepted'; exception when check_violation then raise notice 'PASS  consents: age/parental accepted (reserved), unknown kinds rejected'; end; end $$;
 
+do $$ begin begin insert into quiz_sessions(id,quiz_version) values ('22222222-2222-2222-2222-222222222222','2.0'); insert into quiz_answers(session_id,idx,question_id,meta) values ('22222222-2222-2222-2222-222222222222',0,'G',jsonb_build_object('w', repeat('x',3000))); raise exception 'FAIL  oversized meta accepted'; exception when check_violation then raise notice 'PASS  quiz_answers.meta over 2KB is rejected'; end; end $$;
+insert into quiz_sessions(id,quiz_version) values ('33333333-3333-3333-3333-333333333333','2.0');
+insert into quiz_answers(session_id,idx,question_id,meta) values ('33333333-3333-3333-3333-333333333333',0,'G','{"w":"eng"}');
+select pg_temp.check('a normal meta is accepted', (select count(*) from quiz_answers where session_id='33333333-3333-3333-3333-333333333333')=1);
+
 -- anonymous: nothing at all
 reset role; set role anon; select pg_temp.as_user('');
 do $$ begin begin perform count(*) from user_data; raise exception 'FAIL  anon can read user_data'; exception when insufficient_privilege then raise notice 'PASS  anon cannot read user_data'; end; end $$;
@@ -53,7 +58,7 @@ reset role; set role authenticated; select pg_temp.as_user('aaaaaaaa-0000-0000-0
 select delete_my_account();
 reset role;
 select pg_temp.check('delete_my_account removed A and all of A rows', (select count(*) from auth.users where id='aaaaaaaa-0000-0000-0000-000000000001')=0
-  and (select count(*) from user_data where user_id='aaaaaaaa-0000-0000-0000-000000000001')+(select count(*) from profiles where user_id='aaaaaaaa-0000-0000-0000-000000000001')+(select count(*) from quiz_sessions)+(select count(*) from quiz_answers)+(select count(*) from quiz_results)+(select count(*) from consents where user_id='aaaaaaaa-0000-0000-0000-000000000001')=0);
+  and (select count(*) from user_data where user_id='aaaaaaaa-0000-0000-0000-000000000001')+(select count(*) from profiles where user_id='aaaaaaaa-0000-0000-0000-000000000001')+(select count(*) from quiz_sessions where user_id='aaaaaaaa-0000-0000-0000-000000000001')+(select count(*) from quiz_answers where session_id='11111111-1111-1111-1111-111111111111')+(select count(*) from quiz_results where session_id='11111111-1111-1111-1111-111111111111')+(select count(*) from consents where user_id='aaaaaaaa-0000-0000-0000-000000000001')=0);
 select pg_temp.check('delete_my_account left B untouched (user and rows)', (select count(*) from auth.users where id='bbbbbbbb-0000-0000-0000-000000000002')=1 and (select count(*) from user_data where user_id='bbbbbbbb-0000-0000-0000-000000000002')=1 and (select count(*) from consents where user_id='bbbbbbbb-0000-0000-0000-000000000002')=2);
 set role authenticated; select pg_temp.as_user('');
 do $$ begin begin perform delete_my_account(); raise exception 'FAIL  no-uid call allowed'; exception when sqlstate '28000' then raise notice 'PASS  delete_my_account refuses a call without a user'; end; end $$;
