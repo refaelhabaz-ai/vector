@@ -70,7 +70,10 @@ const {start,USERS}=require('./lib.js');const {createBackend}=require('./mock.js
   console.log('   -- lines that still say "only in this browser" while signed in (outside the forum and the legal text):');allowed.forEach(l=>console.log('      '+l));
   ok(allowed.length===0,'signed in and in step: no page claims that synced data is only in this browser');
   const priv=signedIn.find(x=>x[0]==='terms')[1];
-  ok(priv.includes('טיוטה לבדיקת עורך דין')&&priv.includes('פרנקפורט')&&priv.includes('הכלכלי של המשפחה')&&priv.includes('למחוק את החשבון ואת כל המידע שבו'),'the privacy policy draft: marked as a draft, says Frankfurt, lists the local-only fields, explains deletion');
+  ok(priv.includes('עודכן לאחרונה: 5.11.2026')&&priv.includes('פרנקפורט')&&priv.includes('הכלכלי של המשפחה')&&priv.includes('למחוק את החשבון ואת כל המידע שבו'),'the privacy policy: dated "עודכן לאחרונה: 5.11.2026", says Frankfurt, lists the local-only fields, explains deletion');
+  ok(!/טיוטה|עורך דין|נבדק משפטית|אושר משפטית|טרם הוזן/.test(priv.replace(/עורך דין/g,'').replace(/שם המפעיל: טרם הוזן באתר|השם: טרם הוזן באתר/g,'')),'no draft banner, no mention of a legal review, no "not entered" marker for the phone or the address');
+  if(await B.evaluate(()=>!OPERATOR.name))console.log('  WARN the operator name (OPERATOR.name) is not set: the legal pages still say it was not entered');
+  ok(priv.includes('vector.israel.team@gmail.com')&&!(await B.evaluate(()=>[...document.querySelectorAll('.lg-ct')].map(x=>x.textContent).join(' '))).match(/טלפון|כתובת למשלוח/),'the contact e-mail is shown, and no empty phone or address row');
   ok(!/האתר עצמו אינו שולח את המידע שאתם מזינים לשרת, ואינו מציב|אינו מעביר את המידע שלכם לצדדים שלישיים\./.test(priv),'the old "nothing is sent to a server" statements are gone');
   ok(await B.evaluate(()=>{location.hash='#terms';return new Promise(r=>setTimeout(()=>r(!!document.querySelector('[data-acctexport]')&&!!document.querySelector('[data-acctdelete]')),500))}),'signed in: the privacy section has the download and delete buttons');
   ok(await out.evaluate(()=>!document.querySelector('[data-acctexport]')),'signed out: it does not');
