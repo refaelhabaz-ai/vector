@@ -18,7 +18,7 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
     await p.goto(URL+(o.hash||'#dir'));await p.reload();await p.waitForTimeout(500);return p};
   const sbLoaded=p=>p.evaluate(()=>!!(window.supabase&&window.supabase.createClient));
   const openScreen=async p=>{await p.click('#acctBtn');await p.waitForSelector('#ov .authw')};
-  const tick=p=>p.check('#ov [data-aconsent]');
+  const tick=p=>(async()=>{for(const c of await p.locator('#ov [data-aconsent]').all())await c.check()})();
   const logIn=async(p,hash)=>{ /* the whole Google round trip, with the redirect to Google replaced by a direct return to the page */
     await openScreen(p);await tick(p);await p.click('#gbtn');await p.waitForTimeout(600);
     await p.goto(URL+'?code=abc123'+(hash||''));await p.waitForTimeout(1500)};
@@ -54,7 +54,7 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   ok(await p.evaluate(()=>!location.search&&location.hash==='#dir'),'the code is gone from the address and the page is restored: '+(await p.evaluate(()=>location.search+location.hash)));
   ok((await p.textContent('#acctBtn')).includes('דנה'),'the header shows the first name from Google');
   const cons=p.mock.consents.map(r=>r.kind).sort().join(',');
-  ok(cons==='privacy,terms','both consents written: '+cons+' (version '+(p.mock.consents[0]||{}).version+')');
+  ok(cons==='age,privacy,terms','the terms, the privacy policy and the age declaration are all written: '+cons+' (version '+(p.mock.consents[0]||{}).version+')');
   ok(p.mock.consents.every(r=>r.user_id===p.mock.opt.user.id&&r.version===LEGALV),'for this user and the current legal version');
   ok(await p.evaluate(()=>!localStorage.getItem('kivun3.consp')),'the pending consent is cleared once written');
   ok(await p.evaluate(()=>!!document.querySelector('#nickf')&&document.querySelector('#anm').value==='דנה'),'asked once for a name, filled with the first name');
@@ -73,7 +73,7 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   ok(!(await sbLoaded(p2))||true,'(library loads in the idle time)');
   await p2.waitForTimeout(2200);
   ok(await sbLoaded(p2),'the library loaded in the idle time, off the first paint');
-  ok(!p2.mock.consents.length||p2.mock.consents.length===2,'consents are not written twice ('+p2.mock.consents.length+')');
+  ok(!p2.mock.consents.length||p2.mock.consents.length===3,'consents are not written twice ('+p2.mock.consents.length+')');
   console.log('   -- offline now');
   p2.mock.set({down:true});await p2.reload();await p2.waitForTimeout(2500);
   ok((await p2.textContent('#acctBtn')).includes('דנה'),'offline: still signed in on this device');
@@ -109,7 +109,7 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   console.log('   -- the library file is missing');
   {const ctx=await b.newContext({viewport:{width:1100,height:900}});await installMock(ctx,{});await ctx.route('**/vendor/supabase-js-*.js',r=>r.abort());const q=await ctx.newPage();q.setDefaultTimeout(8000);q.errs=[];q.on('pageerror',e=>q.errs.push(String(e)));
     await q.goto(URL);await q.evaluate(()=>{localStorage.setItem('kivun3.seenProf','true')});await q.goto(URL+'#dir');await q.reload();await q.waitForTimeout(400);
-    await q.click('#acctBtn');await q.waitForSelector('#ov .authw');await q.check('#ov [data-aconsent]');await q.click('#gbtn');await q.waitForTimeout(800);
+    await q.click('#acctBtn');await q.waitForSelector('#ov .authw');await (async()=>{for(const c of await q.locator('#ov [data-aconsent]').all())await c.check()})();await q.click('#gbtn');await q.waitForTimeout(800);
     ok((await q.textContent('#aerr2')).includes('אין חיבור'),'a library that cannot load: a friendly message');ok(q.errs.length===0,'no page errors');await ctx.close()}
 
   console.log('\n== the email code (off by the flag, ready behind it)');
@@ -125,27 +125,48 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   ok((await p.textContent('#aerr2')).includes('לא נכון'),'a wrong code: a clear message');
   await p.fill('#otpc','123456');await p.click('#otpv');await p.waitForTimeout(1500);
   ok((await p.textContent('#acctBtn')).includes('דנה')&&await p.evaluate(()=>!!document.querySelector('#nickf')),'the right code signs in (and asks for a name)');
-  ok(p.mock.consents.length===2,'consents written after the code too');
+  ok(p.mock.consents.length===3,'consents written after the code too');
   await p.ctx.close();
   p=await open({mock:{rateLimit:true}});await p.evaluate(()=>{SUPA_CFG.emailOtp=true});await openScreen(p);await tick(p);await p.fill('#aeml','dana@example.com');await p.click('#emls');await p.waitForTimeout(700);
   ok((await p.textContent('#aerr2')).includes('יותר מדי'),'rate limit from the server: a clear message');await p.ctx.close();
 
   console.log('\n== gender forms in the screens');
   for(const [sex,want] of [['f','מאשרת'],['m','מאשר'],['','מאשר/ת']]){
-    p=await open({sex});await openScreen(p);const t=await p.textContent('#ov .acons');
+    p=await open({sex});await openScreen(p);const t=await p.locator('#ov [data-aconsent="tp"]').locator('xpath=..').textContent();
     ok(sex==='m'?/מאשר /.test(t)&&!/מאשרת|מאשר\//.test(t):t.includes(want),`consent text for ${sex||'no gender'}: ${t.slice(0,40)}`);await p.ctx.close()}
 
+  console.log('\n== the age declaration (16 or more, or a parent\'s approval)');
+  for(const [sex,want] of [['f','בת 16'],['m','בן 16'],['','בן/בת 16']]){
+    p=await open({sex});await openScreen(p);const t=await p.locator('#ov [data-aconsent="age"]').locator('xpath=..').textContent();
+    ok(t.includes('אני '+want+' ומעלה, או שקיבלתי אישור מהורה להשתמש באתר'),`text for ${sex||'no gender'}: ${t.trim()}`);await p.ctx.close()}
+  p=await open();await openScreen(p);
+  ok(await p.evaluate(()=>!!document.querySelector('#ov [data-aconsent="age"]')&&document.querySelectorAll('#ov [data-aconsent]').length===2),'a second required box is on the sign-in screen');
+  await p.check('#ov [data-aconsent="tp"]');await p.click('#gbtn');await p.waitForTimeout(300);
+  ok((await p.textContent('#aerr2')).includes('לאשר')&&p.mock.authorize.length===0,'without the age box there is no sign-in (no redirect to Google)');
+  await p.check('#ov [data-aconsent="age"]');await p.uncheck('#ov [data-aconsent="tp"]');await p.click('#gbtn');await p.waitForTimeout(300);
+  ok(p.mock.authorize.length===0,'and with only the age box, neither');
+  await p.check('#ov [data-aconsent="tp"]');await p.click('#gbtn');await p.waitForTimeout(800);
+  ok(p.mock.authorize.length===1,'with both, the redirect to Google starts');
+  await p.ctx.close();
+  p=await open();await logIn(p,'#dir');
+  const age=p.mock.consents.find(r=>r.kind==='age');
+  ok(age&&age.user_id===p.mock.opt.user.id&&age.version===(await p.evaluate(()=>LEGAL_UPDATED)),'after signing in, the age declaration is kept in consents with the version of the legal text');
+  await p.ctx.close();
+  p=await open();await p.evaluate(()=>{SUPA_CFG.emailOtp=true});await openScreen(p);await p.check('#ov [data-aconsent="tp"]');await p.fill('#aeml','dana@example.com');await p.click('#emls');await p.waitForTimeout(300);
+  ok((await p.textContent('#aerr2')).includes('לאשר')&&!p.mock.log.some(r=>r.path==='/auth/v1/otp'),'the same for the email code: without the age box no code is requested');
+  await p.ctx.close();
+
   console.log('\n== a new consent item (the hook for a minimum age) and a new legal version');
-  p=await open();await p.evaluate(()=>{AUTH_CONSENTS.push({id:'age',kinds:['age'],html:()=>'אני בן/בת 16 לפחות'})});await openScreen(p);
-  ok(await p.evaluate(()=>document.querySelectorAll('#ov [data-aconsent]').length===2),'one more item in the list shows up with no other change');
+  p=await open();await p.evaluate(()=>{AUTH_CONSENTS.push({id:'extra',kinds:['parental'],html:()=>'פריט נוסף לבדיקה'})});await openScreen(p);
+  ok(await p.evaluate(()=>document.querySelectorAll('#ov [data-aconsent]').length===3),'one more item in the list shows up with no other change');
   await p.check('#ov [data-aconsent="tp"]');await p.click('#gbtn');await p.waitForTimeout(300);
   ok((await p.textContent('#aerr2')).includes('לאשר')&&p.mock.authorize.length===0,'every item is required before Google');
   await p.ctx.close();
   p=await open();await logIn(p,'#dir');await p.fill('#anm','דנה');await p.click('#nickf button[type=submit]');await p.waitForTimeout(300);
   p.mock.consents.length=0;await p.reload();await p.waitForTimeout(2800);
   ok(await p.evaluate(()=>!!document.querySelector('#ov [data-cons-ok]')),'a signed-in person without the consent for this version is asked again');
-  await p.check('#ov [data-aconsent]');await p.click('#ov [data-cons-ok]');await p.waitForTimeout(600);
-  ok(p.mock.consents.length===2&&await p.evaluate(()=>!document.querySelector('#ov')),'approving writes the rows and closes');
+  await (async()=>{for(const c of await p.locator('#ov [data-aconsent]').all())await c.check()})();await p.click('#ov [data-cons-ok]');await p.waitForTimeout(600);
+  ok(p.mock.consents.length===3&&await p.evaluate(()=>!document.querySelector('#ov')),'approving writes the rows and closes');
   await p.ctx.close();
 
   await b.close();await web.close();

@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-B1CJp3nJmnKy1zQMibna014kQXuxYax1miTpmNsvT/4='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-34+DjxVc1yIpyrnDBBrnHA/CbSJWsndaIb236WmhCxM='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%23FF6B4A'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -7609,11 +7609,11 @@ const SUPA_CFG={
   otpLen:6
 };
 /* what a person must approve before signing in. Every item writes one consent row per kind, with the version of the legal text.
-   A minimum age or a parent's approval (waiting for a lawyer) is one more item here, e.g.
-     {id:'age', kinds:['age'], html:()=>'אני בן/בת 16 לפחות, או שיש לי אישור של הורה'}
-   (the consents table already accepts the kinds 'age' and 'parental'); people who already signed in are asked again for the new kind. */
+   One more item here (e.g. kind 'parental') shows up as one more required box with no other change; people who already signed in are asked again for the new kind. */
 const AUTH_CONSENTS=[
-  {id:'tp',kinds:['terms','privacy'],html:()=>`אני מאשר/ת את <a href="#terms" target="_blank" rel="noopener">התקנון</a> ואת <a href="#privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> של האתר`}
+  {id:'tp',kinds:['terms','privacy'],html:()=>`אני מאשר/ת את <a href="#terms" target="_blank" rel="noopener">התקנון</a> ואת <a href="#privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> של האתר`},
+  /* a minimum age, or a parent's approval: required before signing in, kept in consents (kind 'age') with the version of the legal text */
+  {id:'age',kinds:['age'],html:()=>`אני ${gx('בן','בת')} 16 ומעלה, או שקיבלתי אישור מהורה להשתמש באתר`}
 ];
 /* the keys stage 2 will keep in the account (income and the scholarship questions that depend on it never leave the device) */
 const SYNC_KEYS=['prof','scores','dir','dir2','path','list','calcRows','calcAr','uni','sch'];
@@ -12898,8 +12898,8 @@ function srcSection(){
 /* ================= legal pages: תקנון (terms and privacy) and the accessibility statement =================
    The owner fills in OPERATOR and A11Y_COORD (and CONTACT_EMAIL, defined with the error report). Nothing here is invented:
    a field that is still empty is shown as "not entered yet", never as a made-up name, phone number or address. */
-const OPERATOR={name:'',phone:'',address:''};
-const A11Y_COORD={name:'',email:'',phone:'',address:''};
+const OPERATOR={name:'רפאל חבאז',phone:'',address:''};
+const A11Y_COORD={name:'רפאל חבאז',email:'vector.israel.team@gmail.com',phone:'',address:''};
 const LEGAL_UPDATED='2026-11-05',A11Y_CHECKED='2026-10-25'; /* update the first whenever a legal text changes; the second only when the checks are run again */
 const lgConsent=w=>`<p class="fine lg-cons">${w} אתם מסכימים ל<a href="#terms" target="_blank" rel="noopener">תקנון</a> ול<a href="#privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> של האתר.</p>`;
 const lgMail=e=>/^[^\s@<>"']+@[^\s@<>"']+$/.test(e||'')?`<a href="mailto:${esc(e)}" dir="ltr">${esc(e)}</a>`:'';
@@ -12942,7 +12942,7 @@ function lgSections(){return [
    <li><b>ציונים:</b> ציוני בגרות, פסיכומטרי ושורות במחשבון.</li>
    <li><b>הרשימה שלי, המסלול ומעקב המלגות:</b> תארים ברשימה, יעדים, תאריכים, <b>הערות וסיפור אישי שכתבתם</b> (טקסט חופשי), מלגות במעקב והערות עליהן, והמוסד שבחרתם.</li>
    <li><b>השאלון "מה הכיוון שלי?":</b> התשובות (ואילו שאלות דולגו), מתי התחלתם וסיימתם, והתוצאות שהוצגו לכם (העולמות והמקצועות).</li>
-   <li><b>אישורים:</b> אישור התקנון ומדיניות הפרטיות, הגרסה ומועד האישור.</li></ul>
+   <li><b>אישורים:</b> אישור התקנון ומדיניות הפרטיות, וההצהרה שהמשתמש בן 16 ומעלה או קיבל אישור מהורה להשתמש באתר, עם הגרסה ומועד האישור.</li></ul>
   <p>בטבלאות שלנו אין שם, תאריך לידה או מספר טלפון.</p>
   <h3>מה נשאר רק במכשיר, גם בחשבון</h3>
   <p>הדברים האלה <b>לעולם לא נשלחים לשרת</b> (והשרת בנוי כך שידחה אותם גם אם יהיה באג באתר): <b>המצב הכלכלי של המשפחה</b>, <b>האם להורים יש תואר אקדמי</b>, <b>סוג השירות הצבאי או הלאומי</b> ו<b>ימי המילואים</b> (התשובות לשאלות בעמוד המלגות). עוד דברים שנשארים רק במכשיר: שאלות ותשובות שכתבתם בפורום (הפורום מקומי), השם שמוצג באתר, והגדרות נגישות ותצוגה. במכשיר חדש התשובות האלה לא יופיעו, ותצטרכו לענות עליהן שוב אם תרצו.</p>
@@ -12958,7 +12958,7 @@ function lgSections(){return [
    <div id="twAsk" hidden role="group" aria-label="אישור מחיקה"><p><b>זה ימחק מהדפדפן הזה את הפרופיל, הציונים, הרשימה, המסלול, המלגות, החשבונות המקומיים הישנים, השאלות והתשובות שכתבתי וההגדרות, ולא ניתן יהיה לשחזר אותם מכאן.${ACC.cur()?' זה לא מוחק את החשבון: הנתונים שבחשבון נשארים בשרת, וישובו למכשיר בסנכרון הבא. למחיקה גם מהשרת: "מחיקת החשבון וכל הנתונים".':''} למחוק?</b></p>
     <div class="kp-btns"><button type="button" class="btn primary" data-twipe="yes">כן, למחוק הכול</button><button type="button" class="btn soft" data-twipe="no">לא, לבטל</button></div></div></div>
   <h3>אבטחה</h3><p>התקשורת עם השרת מוצפנת. בשרת, הגישה לנתונים מוגנת בהרשאות ברמת השורה: כל משתמש קורא וכותב רק את המידע שלו. המידע שנשמר במכשיר מוגן ברמת הדפדפן והמכשיר בלבד. מי שמשתמש במכשיר משותף או ציבורי מתבקש להתנתק עם "התנתקות ומחיקת הנתונים מהמכשיר הזה". קובץ גיבוי או הורדת נתונים שתייצאו מכילים את המידע האישי שלכם בצורה קריאה, ולכן יש לשמור עליהם כמידע אישי.</p>
-  <h3>קטינים</h3><p>משתמשים באתר גם בני נוער. מי שמתחת לגיל 18 מתבקש להשתמש באתר בהיוועצות עם הורה או איש חינוך, ולא להזין פרטים מזהים על עצמו או על אחרים (כגון שם מלא, טלפון או כתובת) מעבר למה שהאתר מבקש.</p>
+  <h3>קטינים</h3><p>משתמשים באתר גם בני נוער. כדי להתחבר לחשבון צריך להצהיר שהמשתמש בן 16 ומעלה, או שקיבל אישור מהורה להשתמש באתר; ההצהרה נשמרת עם שאר האישורים. מי שמתחת לגיל 18 מתבקש להשתמש באתר בהיוועצות עם הורה או איש חינוך, ולא להזין פרטים מזהים על עצמו או על אחרים (כגון שם מלא, טלפון או כתובת) מעבר למה שהאתר מבקש.</p>
   <h3>שינויים</h3><p>אם נשנה את אופן שמירת המידע או נוסיף שירות, נעדכן את המדיניות בעת השינוי, ונבקש אישור מחדש מכל משתמש מחובר בכניסה הבאה, ובמקום שבו הדין דורש זאת.</p>
   <h3>פניות בנושא פרטיות</h3><p>אפשר לפנות לפי הפרטים בסעיף "יצירת קשר". ניתן לפנות גם לרשות להגנת הפרטיות.</p>`],
  ['t-7','שאלות ותשובות והתכנים שאתם כותבים',`<p>כשהאתר פועל כאתר רגיל, שאלות ותשובות שתכתבו נשמרות בדפדפן שלכם בלבד ואינן מוצגות לאחרים. הפורום מקומי: גם למי שמחובר לחשבון, השאלות והתשובות בו אינן נשמרות בשרת ואינן מסונכרנות בין מכשירים. אם האתר נפתח בסביבה שמספקת מאגר נתונים משותף (למשל claude.ai), הן עשויות להיות מוצגות לאחרים, וכללי הפורום שלהלן חלים עליהן. שאלות שמסומנות "שאלה נפוצה" נוסחו על ידי צוות האתר מתוך מידע כללי, ואינן ייעוץ אישי.</p>

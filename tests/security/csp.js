@@ -29,7 +29,7 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   await p.goto(web.url+'#dir');await p.reload();await p.waitForTimeout(500);
   ok(await p.evaluate(()=>typeof VQE==='object'),'the page script runs (the hash is accepted)');
   await p.click('[data-vqstart]');await p.waitForTimeout(300);await p.click('[data-vqo="A1_4"]');await p.click('[data-vqo="A1_5"]');await p.click('[data-vqnext]');await p.waitForTimeout(400);
-  await p.click('#acctBtn');await p.check('#ov [data-aconsent]');await p.click('#gbtn');await p.waitForTimeout(600);
+  await p.click('#acctBtn');await (async()=>{for(const c of await p.locator('#ov [data-aconsent]').all())await c.check()})();await p.click('#gbtn');await p.waitForTimeout(600);
   await p.goto(web.url+'?code=abc#dir');await p.waitForTimeout(2200);
   ok(await p.evaluate(()=>!!window.supabase&&!!SUPA.user),'the library loads from the same origin and sign-in works (connect-src allows only the Supabase address)');
   await p.evaluate(()=>{const n=document.querySelector('#nickf');if(n)n.querySelector('button[type=submit]').click()});await p.waitForTimeout(300);

@@ -192,7 +192,7 @@ const {start,USERS}=require('./lib.js');const {createBackend}=require('./mock.js
   const I=await T.device({hash:'#forum'});
   await I.evaluate(()=>{FM.local=true;openAsk({ctx:'deg:'+DEG[0].id})});await wait(I,500);
   ok(await I.evaluate(()=>!!document.querySelector('#ov .authw')),'asking a question without an account opens the sign-in sheet');
-  await I.check('#ov [data-aconsent]');await I.click('#gbtn');await wait(I,600);
+  await (async()=>{for(const c of await I.locator('#ov [data-aconsent]').all())await c.check()})();await I.click('#gbtn');await wait(I,600);
   await I.goto(T.URL+'?code=abc123#forum');await wait(I,1700);
   await T.nick(I);await wait(I,300);
   const bar=await I.evaluate(()=>{const b=document.getElementById('contbar');return b&&b.textContent});

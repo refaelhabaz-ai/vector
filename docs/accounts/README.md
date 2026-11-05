@@ -150,6 +150,10 @@ node tests/accounts/screens.js && node tests/accounts/screens-sync.js   # ציל
 
 הגנה כפולה: הבדיקה הזאת רצה ב-`all.js`, וב-GitHub Action (`.github/workflows/csp-check.yml`) על כל push ל-`main` ועל כל pull request אליו. ה-Action מסמן את ה-commit באדום, אבל **לא עוצר את הפריסה של GitHub Pages** (זו עבודה נפרדת); כדי לחסום פריסה צריך להעביר את Pages לפריסה דרך Actions. בנוסף: האתר מסרב להיפתח בתוך frame של אתר אחר (חוץ מ-claude.ai), ובדיקת `tests/security/xss-fuzz.js` ב-`all.js` מזריקה מטענים לכל מקום שטקסט משתמש נשמר.
 
+## עמודי המסמכים עם כתובת ישירה (privacy.html ו-terms.html)
+
+`privacy.html` ו-`terms.html` בשורש הריפו הם עמודים סטטיים (בלי סקריפט ובלי התחברות) שנוצרים מהטקסט המשפטי שבתוך `index.html`, כך שיש טקסט אחד: `node tools/build-legal.js`. **אחרי כל עריכה של הטקסט המשפטי ב-`index.html` מריצים את הפקודה הזאת ועושים commit לשני הקבצים**; `node tools/build-legal.js --check` רץ ב-`all.js` ונכשל אם הם לא עדכניים. הכתובות: `https://refaelhabaz-ai.github.io/vector/privacy.html` ו-`https://refaelhabaz-ai.github.io/vector/terms.html`. (בתוך האתר הם נפתחים גם ב-`#privacy` וב-`#terms`.)
+
 ## איפה כל דבר
 
 | מה | איפה |

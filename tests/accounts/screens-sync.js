@@ -20,7 +20,7 @@ const OUT=path.join(__dirname,'..','..','docs','accounts','screens');fs.mkdirSyn
   await G.reload();await w(G);await T.login(G);await shot(G,'8-old-accounts');
   await G.keyboard.press('Escape');
   const I=await mk({hash:'#forum'});
-  await I.evaluate(()=>{FM.local=true;openAsk({})});await w(I);await I.check('#ov [data-aconsent]');await I.click('#gbtn');await w(I);
+  await I.evaluate(()=>{FM.local=true;openAsk({})});await w(I);await (async()=>{for(const c of await I.locator('#ov [data-aconsent]').all())await c.check()})();await I.click('#gbtn');await w(I);
   await I.goto(T.URL+'?code=abc#forum');await I.waitForTimeout(1700);await T.nick(I);await w(I);
   await I.screenshot({path:path.join(OUT,'9-continue-bar.png')});console.log('saved 9-continue-bar');
   await T.close()})().catch(e=>{console.log('ERROR',String(e).slice(0,300));process.exit(1)});

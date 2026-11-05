@@ -13,7 +13,7 @@ async function start(){const web=await serve(),b=await chromium.launch();
     if(o.seed)await p.evaluate(seed=>{for(const [k,v] of Object.entries(seed))localStorage.setItem('kivun3.'+k,JSON.stringify(v))},o.seed);
     await p.goto(T.URL+(o.hash||'#dir'));await p.reload();await p.waitForTimeout(500);return p};
   /* the whole Google round trip (the redirect to Google replaced by a direct return to the page) */
-  T.login=async(p,hash)=>{await p.click('#acctBtn');await p.waitForSelector('#ov .authw');await p.check('#ov [data-aconsent]');await p.click('#gbtn');await p.waitForTimeout(500);
+  T.login=async(p,hash)=>{await p.click('#acctBtn');await p.waitForSelector('#ov .authw');await (async()=>{for(const c of await p.locator('#ov [data-aconsent]').all())await c.check()})();await p.click('#gbtn');await p.waitForTimeout(500);
     await p.goto(T.URL+'?code=abc123'+(hash||''));await p.waitForTimeout(1500)};
   T.nick=async p=>{if(await p.$('#nickf')){await p.click('#nickf button[type=submit]');await p.waitForTimeout(250)}};
   T.close=async()=>{await b.close();await web.close();console.log(T.fails?`\n${T.fails} FAILED`:'\nall checks passed');process.exit(T.fails?1:0)};
