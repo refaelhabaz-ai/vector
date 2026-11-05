@@ -1,0 +1,22 @@
+# The page's Content-Security-Policy allows its one inline script by hash. If index.html is edited and the hash is not updated, the browser blocks the whole site.
+# This fails the push (or pull request) when the hash is stale. Fix: node tools/csp-hash.js --write, then commit index.html.
+# Note: it marks the commit red; GitHub Pages' own deployment is a separate job and is not stopped by it.
+name: CSP hash check
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  csp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: The policy hash matches the page script
+        run: node tools/csp-hash.js --check
