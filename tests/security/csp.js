@@ -12,9 +12,12 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   const html=fs.readFileSync(path.join(__dirname,'..','..','index.html'),'utf8');
   console.log('\n== the hash and the checker');
   const a=analyse(html);
-  ok(a.problems.length===0,'the policy hash matches the page script'+(a.problems.length?': '+a.problems.join('; '):''));
-  ok(analyse(html.replace('const FRAME_OK','const FRAME_OK /* an edit */')).problems.some(p=>/hash in the policy/.test(p)),'a changed script is reported');
-  ok(analyse(html.replace('<head>','<head><script>alert(1)</script>')).problems.some(p=>/exactly one inline/.test(p)),'a second inline script is reported');
+  ok(a.problems.length===0,'the policy hashes match the inline scripts'+(a.problems.length?': '+a.problems.join('; '):''));
+  ok(analyse(html.replace('const FRAME_OK','const FRAME_OK /* an edit */')).problems.some(p=>/not allowed by the policy/.test(p))&&analyse(html.replace('const FRAME_OK','const FRAME_OK /* an edit */')).problems.some(p=>/no inline script has any more/.test(p)),'a changed script is reported (its new hash is missing, the old one is stale)');
+  ok(analyse(html.replace('<head>','<head><script>alert(1)</script>')).problems.some(p=>/not allowed by the policy/.test(p)),'an inline script that is not in the policy is reported');
+  ok(analyse(write(html.replace('<head>','<head><script>alert(1)</script>'),analyse(html.replace('<head>','<head><script>alert(1)</script>')))).problems.length===0,'... and --write adds its hash');
+  ok(analyse(html.replace("script-src 'self'","script-src 'self' 'sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='")).problems.some(p=>/no inline script has any more/.test(p)),'a stale hash in the policy is reported');
+  ok(a.scripts>=1&&a.want.length===a.have.length,'every inline script ('+a.scripts+') has its hash in the policy');
   ok(analyse(html.replace("object-src 'none'","object-src *")).problems.some(p=>/object-src/.test(p)),'a weakened policy is reported');
   ok(analyse(html.replace("script-src 'self'","script-src 'unsafe-eval' 'self'")).problems.some(p=>/unsafe-eval/.test(p)),"'unsafe-eval' is reported");
   ok(analyse(write(html.replace('const FRAME_OK','const FRAME_OK /* an edit */'),analyse(html.replace('const FRAME_OK','const FRAME_OK /* an edit */')))).problems.length===0,'--write repairs it');
