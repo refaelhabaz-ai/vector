@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-ZQ12N8WuSasgq/Xwk2q7MutaQddDmr6hCFYGHOCCAnk=' 'sha256-RUsIf+h3lPuTiQAnj5OPDDCAgPV+2mkK5v5NGpF2y24='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-u4wtEneuMHd6526EL2YNQy7HZrG58EM+Ead4uNZ5RzY=' 'sha256-RUsIf+h3lPuTiQAnj5OPDDCAgPV+2mkK5v5NGpF2y24='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%23FF6B4A'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -3370,6 +3370,12 @@ html.rm .vq-card.in{animation:none}
 .a11y-fab:focus-visible{outline:3px solid var(--cta);outline-offset:3px}
 html.hc .a11y-fab{background:#000;color:#fff;outline:2px solid #fff}
 @media(max-width:1080px){.a11y-fab{bottom:calc(86px + env(safe-area-inset-bottom,0px))}}
+.hdr-more{display:none;width:var(--tap);height:var(--tap);place-items:center;color:var(--ink)}
+.hdr-more:hover{background:var(--tint)}
+@media(max-width:1080px){.hdr-more{display:grid}}
+.botnav .link.bn{padding-inline:0}
+.botnav .link.bn .bi{width:100%}
+@media(max-width:400px){.botnav{padding-inline:0}.botnav .link.bn{font-size:11px}}
 @media print{.a11y-fab{display:none}}
 </style>
 
@@ -3382,7 +3388,7 @@ html.hc .a11y-fab{background:#000;color:#fff;outline:2px solid #fff}
     </button>
     <nav class="links" id="links" aria-label="ניווט ראשי"></nav>
     <div class="tools">
-      
+      <button type="button" class="hdr-more" data-navmore aria-haspopup="dialog" aria-label="עוד באתר"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg></button>
     </div>
   </div>
 </header>
@@ -5037,7 +5043,7 @@ const BELL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wi
 function fBell(){
   let b=document.getElementById('fBell');
   if(FM.state!=='ready'||!FM.me){if(b)b.remove();return}
-  if(!b){b=document.createElement('button');b.id='fBell';b.className='pillbtn bell';b.setAttribute('aria-label','התראות');b.dataset.bell='';document.getElementById('uniBtn').before(b)}
+  if(!b){b=document.createElement('button');b.id='fBell';b.className='pillbtn bell';b.setAttribute('aria-label','התראות');b.dataset.bell='';(document.getElementById('acctBtn')||document.querySelector('.tools .hdr-more')).before(b)}
   const n=fNotifs().filter(x=>x.ts>(FM.priv.seen||0)).length;
   b.innerHTML=BELL+(n?`<span class="bdot num">${n>9?'9+':n}</span>`:'');
 }
@@ -13420,15 +13426,15 @@ function schSrcNote(){const n=SCH.length,c=SCH.reduce((a,r)=>(a[r.status]=(a[r.s
 /* icons of the bottom bar (the top bar has text only) */
 const BI={deg:KI.cap,job:IC.bag,tech:IC.tool,path:'<circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M12 19h4.5a3.5 3.5 0 0 0 0-7h-8a3.5 3.5 0 0 1 0-7H12"/>',chat:KI.chat,more:'<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>'};
 function renderChrome(){
-  const v=S.route.v,sect={deg:'degrees',sp:'degrees',specs:'degrees',tech:'degrees',mh:'degrees',occ:'jobs',q:'forum',me:'path',dir:'path'}[v]||v; /* the section a page belongs to */
+  const v=S.route.v,sect={deg:'degrees',sp:'degrees',specs:'degrees',tech:'tech',mh:'tech',occ:'jobs',q:'forum',me:'path',dir:'path'}[v]||v; /* the section a page belongs to */
   const lk=(k,l,x='')=>`<button class="link ${k==='path'?'path-l':''}" data-go="${k}" aria-current="${sect===k}">${l}${x}</button>`;
   const more=on=>`<button class="link" data-navmore aria-haspopup="dialog" aria-current="${on}">עוד</button>`;
   /* the bottom bar (phones and tablets): an icon over a short label, five equal places, nothing to scroll sideways */
   const bk=(k,l,ic,x='')=>`<button class="link bn ${k==='path'?'path-l':''}" data-go="${k}" aria-current="${sect===k}"><span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ic}</svg>${x}</span><span class="bl">${l}</span></button>`;
   const bmore=on=>`<button class="link bn" data-navmore aria-haspopup="dialog" aria-current="${on}"><span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${BI.more}</svg></span><span class="bl">עוד</span></button>`;
   const inMore=['calc','terms','a11y','sch'].includes(v);
-  $('#links').innerHTML=[lk('degrees','תארים'),lk('jobs','מקצועות וקריירה'),lk('path','המסלול שלי',navRing()),lk('forum','פורום וקטור'),more(inMore)].join('');
-  $('#botnav').innerHTML=[bk('degrees','תארים',BI.deg),bk('jobs','מקצועות',BI.job),bk('path','המסלול שלי',BI.path,navRing()),bk('forum','פורום',BI.chat),bmore(inMore)].join('');
+  $('#links').innerHTML=[lk('degrees','תארים'),lk('tech','הנדסאים וטכנאים'),lk('jobs','מקצועות וקריירה'),lk('path','המסלול שלי',navRing()),lk('forum','פורום וקטור'),more(inMore)].join('');
+  $('#botnav').innerHTML=[bk('degrees','תארים',BI.deg),bk('tech','הנדסאים',BI.tech),bk('jobs','מקצועות',BI.job),bk('path','המסלול',BI.path,navRing()),bk('forum','פורום',BI.chat)].join('');
   const stx=$('#tbarTxt');if(stx){const age=-daysTo(DATA.built);stx.textContent=`נתוני התארים והמוסדות: המל"ג ואתרי המוסדות, נאספו ב-${dLong(DATA.built)}${age>0?` (לפני ${age===1?'יום':age+' ימים'})`:''}${age>120?'. הנתונים ישנים, בודקים באתר המוסד':''}`}
   $('#counts').textContent=`${fmt(DEG.length)} תארים ו-${fmt(DATA.offersRaw)} תוכניות ב-${DATA.inst.length} מוסדות, לפי המל"ג.`;
 }
