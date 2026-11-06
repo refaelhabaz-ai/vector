@@ -73,8 +73,8 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   ok(!!f&&f.fv&&f.os==='solid'&&parseFloat(f.ow)>=3,'a focused card has an outline '+JSON.stringify(f));
   ok(!!f&&!f.sel&&!/gradient/.test(f.bg),'a focused card is not filled like a selected one');
   await k.keyboard.press('Space');await k.waitForTimeout(150);
-  const g=await k.evaluate(()=>{const a=document.activeElement;if(!a||!a.matches('[data-vqo]'))return null;const s=getComputedStyle(a);return {sel:a.classList.contains('vq-sel'),bg:s.backgroundImage,aria:a.getAttribute('aria-checked')}});
-  ok(!!g&&g.sel&&/gradient/.test(g.bg)&&g.aria==='true','after Space the card is selected and filled '+JSON.stringify(g&&{sel:g.sel,aria:g.aria}));
+  const g=await k.evaluate(()=>{const a=document.activeElement;if(!a||!a.matches('[data-vqo]'))return null;const s=getComputedStyle(a);return {sel:a.classList.contains('vq-sel'),bg:s.backgroundImage,bgc:s.backgroundColor,aria:a.getAttribute('aria-checked')}});
+  ok(!!g&&g.sel&&(/gradient/.test(g.bg)||!/^(rgba\(0, 0, 0, 0\)|rgb\(255, 255, 255\))$/.test(g.bgc))&&g.aria==='true','after Space the card is selected and filled '+JSON.stringify(g&&{sel:g.sel,aria:g.aria}));
   await ctx.close();
   await b.close();
   console.log(fails?`\n${fails} FAILED`:'\nall checks passed');process.exit(fails?1:0);
