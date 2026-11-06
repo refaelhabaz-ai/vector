@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-u4wtEneuMHd6526EL2YNQy7HZrG58EM+Ead4uNZ5RzY=' 'sha256-RUsIf+h3lPuTiQAnj5OPDDCAgPV+2mkK5v5NGpF2y24='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-i5MNQcpvAIBQeR2Xy3bATmIdBI8oSLRDbELQQzKpdGw=' 'sha256-RUsIf+h3lPuTiQAnj5OPDDCAgPV+2mkK5v5NGpF2y24='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%23FF6B4A'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -3376,6 +3376,30 @@ html.hc .a11y-fab{background:#000;color:#fff;outline:2px solid #fff}
 .botnav .link.bn{padding-inline:0}
 .botnav .link.bn .bi{width:100%}
 @media(max-width:400px){.botnav{padding-inline:0}.botnav .link.bn{font-size:11px}}
+/* review fixes (stage 1): flat overlays, bottom bar, nav, bot, a11y panel */
+.ov,.vx-sh-bg{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(22,19,15,.62)}
+.filters,.kp-nav,.botnav{backdrop-filter:none;-webkit-backdrop-filter:none}
+.botnav{background:#fff;padding:0;border-top:2px solid var(--ink)}
+.botnav .link.bn{border-radius:0;padding:8px 0 6px;font-size:12px;font-weight:600;min-height:56px;justify-content:center;box-shadow:inset 0 3px 0 transparent}
+.botnav .link.bn[aria-current="true"]{box-shadow:inset 0 3px 0 var(--cta);font-weight:800;background:none}
+.botnav .link.bn .bi,.botnav .link.bn[aria-current="true"] .bi{background:none;height:26px}
+.botnav .link.bn.path-l{color:inherit}
+.links .path-l,.links .path-l:hover{color:inherit;font-weight:inherit}
+.links .path-l[aria-current="true"]{font-weight:700}
+.link{font-size:16px}
+.links .link[aria-current="true"]{box-shadow:inset 0 -3px 0 var(--cta);font-weight:700}
+.tbar{color:#33384F;font-size:13.5px}
+.vb-in:focus{outline:none;border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.vb-in:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.vb-chip{min-height:44px}
+.vb-ttl small i{display:none}
+.vb-panel{background:#fff;border:2px solid var(--ink);box-shadow:0 0 24px rgba(22,19,15,.28)}
+.a11y-fab{width:44px;height:44px}
+.a-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.a-row>b{grid-column:1/-1}
+.a-row .fb2,.a-row .a-tg{border:2px solid var(--ink);min-height:48px;background:#fff}
+.a-row .a-tg[aria-pressed="true"]{background:var(--ink);color:#fff}
+.a-row .linkbtn{text-decoration:underline;text-underline-offset:3px;font-weight:600;min-height:44px}
 @media print{.a11y-fab{display:none}}
 </style>
 
@@ -13430,11 +13454,11 @@ function renderChrome(){
   const lk=(k,l,x='')=>`<button class="link ${k==='path'?'path-l':''}" data-go="${k}" aria-current="${sect===k}">${l}${x}</button>`;
   const more=on=>`<button class="link" data-navmore aria-haspopup="dialog" aria-current="${on}">עוד</button>`;
   /* the bottom bar (phones and tablets): an icon over a short label, five equal places, nothing to scroll sideways */
-  const bk=(k,l,ic,x='')=>`<button class="link bn ${k==='path'?'path-l':''}" data-go="${k}" aria-current="${sect===k}"><span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ic}</svg>${x}</span><span class="bl">${l}</span></button>`;
+  const bk=(k,l,ic,x='',full)=>`<button class="link bn ${k==='path'?'path-l':''}" data-go="${k}" aria-current="${sect===k}"${full?` aria-label="${full}"`:''}><span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${ic}</svg>${x}</span><span class="bl">${l}</span></button>`;
   const bmore=on=>`<button class="link bn" data-navmore aria-haspopup="dialog" aria-current="${on}"><span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${BI.more}</svg></span><span class="bl">עוד</span></button>`;
   const inMore=['calc','terms','a11y','sch'].includes(v);
   $('#links').innerHTML=[lk('degrees','תארים'),lk('tech','הנדסאים וטכנאים'),lk('jobs','מקצועות וקריירה'),lk('path','המסלול שלי',navRing()),lk('forum','פורום וקטור'),more(inMore)].join('');
-  $('#botnav').innerHTML=[bk('degrees','תארים',BI.deg),bk('tech','הנדסאים',BI.tech),bk('jobs','מקצועות',BI.job),bk('path','המסלול',BI.path,navRing()),bk('forum','פורום',BI.chat)].join('');
+  $('#botnav').innerHTML=[bk('degrees','תארים',BI.deg),bk('tech','הנדסאים',BI.tech,'','הנדסאים וטכנאים'),bk('jobs','מקצועות',BI.job,'','מקצועות וקריירה'),bk('path','המסלול',BI.path,navRing(),'המסלול שלי'),bk('forum','פורום',BI.chat,'','פורום וקטור')].join('');
   const stx=$('#tbarTxt');if(stx){const age=-daysTo(DATA.built);stx.textContent=`נתוני התארים והמוסדות: המל"ג ואתרי המוסדות, נאספו ב-${dLong(DATA.built)}${age>0?` (לפני ${age===1?'יום':age+' ימים'})`:''}${age>120?'. הנתונים ישנים, בודקים באתר המוסד':''}`}
   $('#counts').textContent=`${fmt(DEG.length)} תארים ו-${fmt(DATA.offersRaw)} תוכניות ב-${DATA.inst.length} מוסדות, לפי המל"ג.`;
 }
