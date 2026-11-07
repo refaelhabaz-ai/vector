@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-T/MEHAHX2lQh42ExwhN4QtFEM/R+W0Ra+vsZhsuFaDY=' 'sha256-z/f8vjKaLzZnSWiUTETrPlD6xEynDGe2NlT7m/CyKkw='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-esWTXVSal+Y0kTyGwTlwqQyqpHBk7kb0aPy1S4s0p80=' 'sha256-GTMZjDjr5mb0annIxYZIrq+BLo7bhKToLSZMffxyuyI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -3476,6 +3476,32 @@ body:has(.hm) footer{background:var(--v-wash);border-top:0}
 /* Vecti, the helper, wears the same blue */
 html body .vb{--vb-coral:#1D4FC4;--vb-cta:#1D4FC4;--vb-soft:#DCE8FF;--vb-bg:#F1F6FF;--vb-ink:#0F1E3D;--vb-muted:#55627F;--vb-line:#D6E0F2}
 html body .vb .vb-send{background:#1D4FC4}
+/* ---------- Vecti the scarlet macaw (vectiMacaw) ---------- */
+.vecti{display:block;overflow:visible}
+.vecti-head-only .vecti-body{display:none}
+.vecti .vecti-crest,.vecti .vecti-tongue,.vecti .vecti-eyes-thinking,.vecti .vecti-eyes-happy{display:none}
+.vecti-head,.vecti-beak-lower{transition:transform .2s;transform-box:view-box}
+.vecti-head{transform-origin:175px 105px}
+.vecti-beak-lower{transform-origin:214px 134px}
+.vecti-blink{transform-box:fill-box;transform-origin:top;transform:scaleY(0)}
+.vecti-thinking .vecti-eyes-calm{display:none}
+.vecti-thinking .vecti-eyes-thinking{display:inline}
+.vecti-thinking .vecti-head{transform:rotate(-12deg)}
+.vecti-happy .vecti-eyes-calm{display:none}
+.vecti-happy .vecti-eyes-happy,.vecti-happy .vecti-crest,.vecti-happy .vecti-tongue{display:inline}
+.vecti-happy .vecti-beak-lower{transform:rotate(16deg)}
+.vecti-happy .vecti-blink{display:none}
+.vecti-anim .vecti-blink{animation:vecti-blink 5s infinite}
+.vecti-anim.vecti-full.vecti-calm .vecti-head{animation:vecti-nod 4s ease-in-out infinite}
+@keyframes vecti-blink{0%,94%,100%{transform:scaleY(0)}97%{transform:scaleY(1)}}
+@keyframes vecti-nod{0%,100%{transform:rotate(0)}50%{transform:rotate(-3deg)}}
+@keyframes vecti-hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}70%{transform:translateY(0)}85%{transform:translateY(-2px)}}
+.vecti-wrap{display:block;width:100%;height:100%;box-sizing:border-box;padding:7px;border-radius:50%;background:#E8F0FE;box-shadow:0 6px 16px rgba(29,79,196,.22)}
+.vecti-wrap .vecti{width:100%;height:100%}
+.vb-launch:hover .vecti-wrap{animation:vecti-hop .5s ease-out}
+@media(prefers-reduced-motion:reduce){.vecti *,.vecti-wrap{animation:none!important;transition:none!important}}
+html.rm .vecti *,html.rm .vecti-wrap,html.rg .vecti *,html.rg .vecti-wrap{animation:none!important;transition:none!important}
+
 /* ---------- home ---------- */
 .hm{font-family:var(--v-font-text);font-size:var(--v-fs-md);line-height:var(--v-lh-text);color:var(--v-text)}
 .hm h1,.hm h2,.hm h3{font-family:var(--v-font-display);font-weight:400;letter-spacing:0;text-wrap:balance;margin:0}
@@ -3527,10 +3553,8 @@ html body .vb .vb-send{background:#1D4FC4}
 .hm-say.fade{opacity:0}
 .hm-say:hover{background:var(--v-wash)}
 .hm-say:hover::after{background:var(--v-wash)}
-.hm-mascot{width:clamp(150px,17vw,250px);aspect-ratio:1;padding:0;background:none;border:0;cursor:pointer}
+.hm-mascot{width:clamp(130px,15vw,230px);aspect-ratio:4/5;padding:0;background:none;border:0;cursor:pointer}
 .hm-mascot svg{width:100%;height:100%;overflow:visible}
-.hm-mascot:hover .vb-arm{animation:vb-wave .9s ease-in-out 2}
-.hm-mascot:hover .vb-eye{opacity:0}.hm-mascot:hover .vb-happy{opacity:1}
 
 /* what interests you: the fields, each with its own picture */
 .hm-fields{background:var(--v-paper);padding:clamp(48px,6vw,96px) var(--v-gutter)}
@@ -3581,7 +3605,7 @@ html body .vb .vb-send{background:#1D4FC4}
   .hm-hero-in{grid-template-columns:1fr;gap:var(--v-s5)}
   .hm-guide{order:-1;flex-direction:row;min-height:0;justify-content:flex-start;gap:var(--v-s4)}
   .hm-guide::before{display:none}
-  .hm-mascot{width:110px;flex:none}
+  .hm-mascot{width:96px;flex:none}
   .hm-say{flex:1;max-width:none;min-height:0;order:2}
   .hm-say::after{bottom:auto;left:auto;right:-10px;top:50%;margin:-9px 0 0;border-right:2px solid var(--v-ink);border-bottom:0;border-top:2px solid var(--v-ink);transform:rotate(45deg)}
 }
@@ -12920,6 +12944,66 @@ function refreshExplore(){
 }
 const exploreHead=()=>`<div><h2>${S.q?'תוצאות החיפוש':'כל התארים'}</h2><p>${S.q?'התארים שמתאימים למה שחיפשתי. אפשר לסנן ולמיין.':'כל התארים הראשונים בישראל. אפשר לחפש, לסנן ולמיין.'}</p></div>`;
 const MODE_PH={deg:'למשל: פסיכולוגיה, הנדסת חשמל, מדעי המחשב…',occ:'למשל: מפתח תוכנה, אחות, מעצב גרפי, רואה חשבון…',tech:'למשל: הנדסאי תוכנה, טכנאי רכב, חשמל, אדריכלות…'};
+/* Vecti, the scarlet macaw. variant: 'full' (whole body) | 'head'; expression: 'calm' | 'thinking' | 'happy'; size: CSS length or number (px); animated: blink, nod */
+function vectiMacaw({variant='full',expression='calm',size=null,animated=false}={}){
+  const head=variant==='head',ex=['thinking','happy'].includes(expression)?expression:'calm';
+  const cls=`vecti vecti-${head?'head-only':'full'} vecti-${head?'head':'full'} vecti-${ex}${animated?' vecti-anim':''}`;
+  const sz=size==null?'':` style="width:${typeof size==='number'?size+'px':size}"`;
+  const a11y=head?'aria-hidden="true" focusable="false"':'role="img" aria-label="וקטי, תוכי ארה אדום"';
+  return `<svg class="${cls}" viewBox="${head?'112 34 160 156':'0 0 320 400'}" xmlns="http://www.w3.org/2000/svg" ${a11y}${sz}><g class="vecti-body">
+    <path d="M140 290 L112 398 L132 398 L160 295 Z" fill="#C81E1E"/>
+    <path d="M156 292 L140 398 L158 398 L172 296 Z" fill="#1D6FE0"/>
+    <path d="M128 292 L100 380 L114 382 L144 294 Z" fill="#FBBF24"/>
+    <path d="M150 140 C200 140 222 190 214 240 C206 285 176 305 150 300 C122 296 104 268 108 230 C112 185 118 140 150 140 Z" fill="#E02424"/>
+    <path d="M200 170 C214 196 214 236 204 262" stroke="#F05252" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M120 170 C150 165 170 190 168 220 C150 225 125 222 108 212 C106 195 110 180 120 170 Z" fill="#C81E1E"/>
+    <path d="M108 212 C125 222 150 225 168 220 C168 238 160 250 150 256 C130 254 112 246 102 236 Z" fill="#FBBF24"/>
+    <path d="M102 236 C112 246 130 254 150 256 C146 266 138 272 130 274 C116 270 104 262 98 252 Z" fill="#22A06B"/>
+    <path d="M98 252 C104 262 116 270 130 274 C126 300 116 325 100 340 C92 320 90 285 98 252 Z" fill="#1D6FE0"/>
+    <path d="M106 270 L102 318 M117 274 L110 320" stroke="#1650B8" stroke-width="3" stroke-linecap="round"/>
+    <g class="vecti-perch" style="fill:var(--v-brand,#1D4ED8)">
+      <rect x="56" y="300" width="230" height="18" rx="9"/>
+      <path d="M280 288 L306 309 L280 330 Z"/>
+    </g>
+    <rect x="150" y="288" width="15" height="20" rx="7" fill="#64748B"/>
+    <rect x="178" y="288" width="15" height="20" rx="7" fill="#64748B"/>
+  </g>
+  <g class="vecti-head">
+    <g class="vecti-crest">
+      <ellipse cx="158" cy="56" rx="7" ry="16" fill="#E02424" transform="rotate(-22 158 56)"/>
+      <ellipse cx="172" cy="50" rx="7" ry="18" fill="#FBBF24"/>
+      <ellipse cx="186" cy="56" rx="7" ry="16" fill="#E02424" transform="rotate(22 186 56)"/>
+    </g>
+    <circle cx="175" cy="105" r="55" fill="#E02424"/>
+    <path d="M146 72 Q168 58 192 64" stroke="#F05252" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M180 80 C205 72 228 88 230 110 C230 130 214 142 196 140 C182 138 174 120 176 100 C177 92 178 86 180 80 Z" fill="#F8FAFC"/>
+    <path d="M190 122 Q200 120 210 124 M188 130 Q198 128 206 132" stroke="#CBD5E1" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <g class="vecti-eyes-calm">
+      <circle cx="200" cy="100" r="9" fill="#FDF3C4"/>
+      <circle cx="200" cy="100" r="4.5" fill="#111827"/>
+      <circle cx="202" cy="98" r="1.5" fill="#FFFFFF"/>
+      <path d="M189 100 Q200 92 211 100 L211 88 L189 88 Z" fill="#F8FAFC"/>
+      <path d="M189 100 Q200 92 211 100" stroke="#94A3B8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </g>
+    <g class="vecti-eyes-thinking">
+      <circle cx="200" cy="100" r="9" fill="#FDF3C4"/>
+      <circle cx="203" cy="96" r="4.5" fill="#111827"/>
+      <circle cx="205" cy="94" r="1.5" fill="#FFFFFF"/>
+    </g>
+    <g class="vecti-eyes-happy">
+      <path d="M191 103 Q200 92 209 103" stroke="#111827" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    </g>
+    <rect class="vecti-blink" x="189" y="90" width="22" height="20" fill="#F8FAFC"/>
+    <circle cx="208" cy="127" r="6" fill="#F9A8B8" opacity="0.6"/>
+    <g class="vecti-beak-lower">
+      <path d="M214 134 C224 132 236 138 240 150 C242 162 232 172 220 170 C208 168 200 156 204 144 C206 138 210 135 214 134 Z" fill="#1F2937"/>
+    </g>
+    <ellipse class="vecti-tongue" cx="222" cy="146" rx="7" ry="5" fill="#F472B6"/>
+    <path d="M218 96 C246 92 266 116 262 150 C260 166 252 178 240 182 C246 168 246 152 238 142 C230 134 222 132 214 134 C212 120 212 106 218 96 Z" fill="#F1EADB"/>
+    <path d="M224 104 C240 104 252 120 254 140" stroke="#D6CDB8" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g></svg>`;
+}
+function vectiSet(svg,ex){if(svg)svg.setAttribute('class',svg.getAttribute('class').replace(/vecti-(calm|thinking|happy)/,'vecti-'+ex))}
 /* Vecti and the search box come alive on the home page: the speech bubble changes, the search box shows examples being typed */
 const HM={t:0,p:0,s:0};
 const HM_SAY=['היי, אני וקטי! אפשר לשאול אותי על תארים, מקצועות ושכר.','לא יודעים מה מעניין אתכם? גם זה בסדר. מתחילים בשאלון קצר.','בואו נעשה סדר. מה מושך אתכם?'];
@@ -12927,8 +13011,7 @@ const HM_EX={deg:['פסיכולוגיה','הנדסת חשמל','מדעי המח�
 function hmStop(){clearInterval(HM.t);clearInterval(HM.p);HM.t=HM.p=0}
 function hmAlive(){
   const m=document.getElementById('hmMascot');if(!m)return;
-  const src=document.querySelector('.vb-launch svg');if(!src){setTimeout(hmAlive,60);return} /* the helper's script comes right after this one: its picture is copied from its button */
-  if(!m.firstChild)m.innerHTML=src.outerHTML.replace(/vbg/g,'vbgh');
+  if(!m.firstChild)m.innerHTML=vectiMacaw({variant:'full',expression:'calm',animated:true});
   const say=document.getElementById('hmSay');
   if(RM())return;
   let n=0;clearInterval(HM.t);HM.t=setInterval(()=>{if(!say.isConnected){hmStop();return}n=(n+1)%HM_SAY.length;say.classList.add('fade');setTimeout(()=>{say.textContent=HM_SAY[n];say.classList.remove('fade')},350)},6000);
@@ -13946,7 +14029,7 @@ try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);se
 .vb-launch:hover{transform:translateY(-3px) scale(1.04)}
 .vb-launch:active{transform:scale(.95)}
 .vb-launch:focus-visible{outline:3px solid var(--vb-cta);outline-offset:4px;border-radius:50%}
-.vb-launch svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 10px 16px rgba(29,79,196,.28))}
+.vb-launch .vecti-wrap{filter:none}
 .vb-launch .vb-dot{position:absolute;top:6px;left:4px;width:14px;height:14px;border-radius:50%;background:#12B886;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.15)}
 .vb.open .vb-launch .vb-dot{display:none}
 
@@ -13958,23 +14041,6 @@ try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);se
 .vb-tip-x:hover{background:var(--vb-bg)}
 .vb.open .vb-tip{display:none}
 
-/* character parts */
-.vb-bob{animation:vb-bob 3.2s ease-in-out infinite;transform-origin:60px 70px}
-.vb-tassel{animation:vb-sway 2.6s ease-in-out infinite;transform-origin:92px 27px}
-.vb-eyes{transition:transform .25s ease-out}
-.vb-eye{animation:vb-blink 4.6s infinite;transform-box:fill-box;transform-origin:center}
-.vb-eye:nth-child(2){animation-delay:.04s}
-.vb-happy{opacity:0;transition:opacity .2s}
-.vb-arm{transform-box:fill-box;transform-origin:50% 90%;transition:transform .3s}
-.vb-launch:hover .vb-arm,.vb-av.wave .vb-arm{animation:vb-wave .9s ease-in-out 2}
-.vb-launch:hover .vb-eye{opacity:0}.vb-launch:hover .vb-happy{opacity:1}
-.vb-av.happy .vb-eye{opacity:0}.vb-av.happy .vb-happy{opacity:1}
-.vb-av.think .vb-eyes{transform:translate(-3px,-3px)}
-.vb-av.think .vb-bob{animation-duration:1.2s}
-@keyframes vb-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@keyframes vb-sway{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(9deg)}}
-@keyframes vb-blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
-@keyframes vb-wave{0%,100%{transform:rotate(0)}30%{transform:rotate(-28deg)}65%{transform:rotate(14deg)}}
 
 /* the chat panel */
 .vb-panel{position:fixed;z-index:58;right:20px;bottom:calc(106px + env(safe-area-inset-bottom,0px));width:384px;height:min(600px,calc(100vh - 140px));height:min(600px,calc(100dvh - 140px));display:flex;flex-direction:column;background:#fff;color:var(--vb-ink);border-radius:24px;box-shadow:0 24px 60px rgba(31,37,68,.24),0 0 0 1px rgba(31,37,68,.05);overflow:hidden;opacity:0;transform:translateY(16px) scale(.96);transform-origin:right bottom;pointer-events:none;visibility:hidden;transition:opacity .25s,transform .35s cubic-bezier(.2,1.2,.4,1),visibility 0s .35s}
@@ -14114,30 +14180,6 @@ const INTENTS=[
 ];
 
 /* ---------- the character ---------- */
-function botSVG(){return `<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-<defs><linearGradient id="vbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FA8FF"/><stop offset="1" stop-color="#1D4FC4"/></linearGradient></defs>
-<ellipse cx="60" cy="114" rx="28" ry="4.5" fill="#1F2544" opacity=".12"/>
-<g class="vb-bob">
- <ellipse class="vb-arm" cx="103" cy="86" rx="7" ry="10" fill="#1A47B0"/>
- <ellipse cx="17" cy="86" rx="7" ry="10" fill="#1A47B0"/>
- <circle cx="16" cy="66" r="7" fill="#1A47B0"/><circle cx="104" cy="66" r="7" fill="#1A47B0"/>
- <rect x="18" y="34" width="84" height="74" rx="32" fill="url(#vbg)"/>
- <ellipse cx="44" cy="44" rx="12" ry="5" fill="#fff" opacity=".28" transform="rotate(-18 44 44)"/>
- <rect x="29" y="50" width="62" height="42" rx="20" fill="#1F2544"/>
- <g class="vb-eyes">
-  <g><ellipse class="vb-eye" cx="47" cy="69" rx="6.2" ry="7.6" fill="#fff"/><ellipse class="vb-eye" cx="73" cy="69" rx="6.2" ry="7.6" fill="#fff"/></g>
-  <circle cx="49" cy="66" r="2" fill="#1F2544" class="vb-eye"/><circle cx="75" cy="66" r="2" fill="#1F2544" class="vb-eye"/>
-  <g class="vb-happy" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round"><path d="M41 71q6-8 12 0"/><path d="M67 71q6-8 12 0"/></g>
- </g>
- <ellipse cx="38" cy="82" rx="5" ry="3" fill="#FF8FA3" opacity=".75"/><ellipse cx="82" cy="82" rx="5" ry="3" fill="#FF8FA3" opacity=".75"/>
- <path d="M54 81q6 5 12 0" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
- <rect x="44" y="96" width="32" height="7" rx="3.5" fill="#fff" opacity=".35"/>
- <path d="M36 30v10q24 11 48 0V30z" fill="#2D3561"/>
- <path d="M60 12 106 27 60 42 14 27z" fill="#1F2544"/>
- <path d="M60 12 106 27 60 32 14 27z" fill="#39405F"/>
- <g class="vb-tassel"><path d="M60 27q20 0 32 0v16" fill="none" stroke="#FFC53D" stroke-width="2.6" stroke-linecap="round"/><rect x="88.5" y="41" width="7" height="11" rx="3" fill="#FFC53D"/></g>
- <circle cx="60" cy="27" r="3.6" fill="#FFC53D"/>
-</g></svg>`}
 const IC={
   close:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
   home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7M5 10v10h14V10"/></svg>',
@@ -14200,10 +14242,10 @@ function byKey(k){
 const root=document.createElement('div');root.className='vb';root.setAttribute('dir','rtl');root.setAttribute('lang','he');
 root.innerHTML=`
 <div class="vb-tip" role="status"><button class="vb-tip-x" type="button" aria-label="סגירת ההודעה">×</button>היי! אני <b>וקטי</b> 👋<br>צריכים עזרה למצוא משהו באתר?</div>
-<button class="vb-launch" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="vb-panel" aria-label="פתיחת וקטי, המדריך של האתר">${botSVG()}<span class="vb-dot" aria-hidden="true"></span></button>
+<button class="vb-launch" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="vb-panel" aria-label="פתיחת וקטי, המדריך של האתר"><span class="vecti-wrap">${vectiMacaw({variant:'head'})}</span><span class="vb-dot" aria-hidden="true"></span></button>
 <section class="vb-panel" id="vb-panel" role="dialog" aria-modal="false" aria-label="וקטי, המדריך של האתר">
   <header class="vb-head">
-    <div class="vb-av">${botSVG()}</div>
+    <div class="vb-av">${vectiMacaw({variant:'head'})}</div>
     <div class="vb-ttl"><b>וקטי</b><small><i></i><span>המדריך שלך באתר</span></small></div>
     <button class="vb-hb vb-home" type="button" aria-label="לתפריט הראשי" title="תפריט ראשי">${IC.home}</button>
     <button class="vb-hb vb-close" type="button" aria-label="סגירה" title="סגירה">${IC.close}</button>
@@ -14221,7 +14263,7 @@ const launch=$('.vb-launch',root),log=$('.vb-log',root),form=$('.vb-form',root),
 let opened=false,busy=false;
 const coarse=()=>tryv(()=>matchMedia('(pointer:coarse)').matches,false);
 
-function mood(m){av.classList.remove('happy','think','wave');if(m)av.classList.add(m);if(m==='happy'||m==='wave')setTimeout(()=>av.classList.remove(m),1800)}
+function mood(m){const s=av.querySelector('svg');av.classList.remove('happy','think','wave');if(m)av.classList.add(m);vectiSet(s,m==='think'?'thinking':m==='happy'?'happy':'calm');if(m==='happy'||m==='wave')setTimeout(()=>{av.classList.remove(m);vectiSet(s,av.classList.contains('think')?'thinking':'calm')},1800)}
 function scroll(){requestAnimationFrame(()=>{log.scrollTop=log.scrollHeight})}
 function persist(){ss.set('vb.log',[...log.children].slice(-30).map(m=>m.outerHTML))}
 function addMsg(k,html){const m=document.createElement('div');m.className='vb-msg '+k;m.innerHTML=html;log.appendChild(m);scroll();return m}
