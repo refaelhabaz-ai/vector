@@ -3622,6 +3622,17 @@ html.rm .vecti *,html.rm .vecti-wrap,html.rg .vecti *,html.rg .vecti-wrap{animat
   .hm-btn{width:100%}
 }
 html.rm .hm-tile,html.rm .hm-tile .ill{transition:none}
+/* ---------- the same language on every page: tokens remapped, shapes squared, headings in Secular One ---------- */
+:root{--bg:#F1F6FF;--ink:#0F1E3D;--muted:#55627F;--line:#D6E0F2;--primary:#1D4FC4;--primary-dark:#1D4FC4;--primary-soft:#DCE8FF;--cta:#1D4FC4;--cta-dark:#12358F;--cta-grad:linear-gradient(#1D4FC4,#1D4FC4);--accent-ink:#1D4FC4;--nav:#0F1E3D;--tint:#DCE8FF;--head:'Heebo',system-ui,'Segoe UI',Arial,sans-serif;--body:'Heebo',system-ui,'Segoe UI',Arial,sans-serif;--r:4px;--shadow:none;--shadow-h:none}
+body{background:var(--v-wash)}
+h1,h2,h3{font-family:var(--v-font-display);font-weight:400}
+#app *:not(svg):not(svg *):not(.av):not([class*="av-"]):not(.nring):not(.ring):not(.rfg):not(.bdot):not(.cnt):not(.dot):not(i):not(.vecti-wrap):not(.vecti-wrap *){border-radius:var(--v-r-md)!important;box-shadow:none!important}
+.ov .sheet,.ov .sheet *:not(svg):not(svg *):not(.av):not(i){border-radius:var(--v-r-md)!important}
+.ov .sheet{box-shadow:none!important;border:2px solid var(--v-ink)}
+.toast{border-radius:var(--v-r-sm)}
+.btn.primary,.btn.on{background:var(--v-brand)!important;color:#fff}
+.hero{background:var(--v-wash)!important}
+.hero::before,.hero::after{display:none!important}
 .hm-steps{background:var(--v-paper);padding:clamp(24px,3vw,44px) var(--v-gutter);border-bottom:1px solid var(--v-line)}
 .hm-steps ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--v-s5);counter-reset:s}
 .hm-steps li{counter-increment:s;position:relative;display:flex;flex-direction:column;gap:2px;padding-inline-start:52px;min-height:44px}
