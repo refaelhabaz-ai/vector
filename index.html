@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-cWWcvJZX53NY7Rs3Ve0MlCESQ/QCk6vu29vOTuCybpc=' 'sha256-VeulJ8q9CWi++Pnr1CDdDMwjtcM9vdbrOyCSvVwg/Kk='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-ZWTPbjoC62D2QG4KfeHPtBULQCFt/Ced9KR+Ls9NT2U=' 'sha256-VeulJ8q9CWi++Pnr1CDdDMwjtcM9vdbrOyCSvVwg/Kk='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -3622,6 +3622,21 @@ html.rm .vecti *,html.rm .vecti-wrap,html.rg .vecti *,html.rg .vecti-wrap{animat
   .hm-btn{width:100%}
 }
 html.rm .hm-tile,html.rm .hm-tile .ill{transition:none}
+/* the profile: one question on the screen */
+#pform .pstep:not([hidden]){display:block}
+#pform .field>label{display:block;font:400 clamp(1.5rem,3vw,2rem)/1.25 var(--v-font-display);color:var(--v-ink);margin-bottom:var(--v-s3)}
+#pform .hint{display:block;margin-bottom:var(--v-s4);color:var(--v-muted)}
+#pform .pick{display:flex;flex-direction:column;gap:var(--v-s2)}
+#pform .pick .chip{width:100%;min-height:56px;justify-content:flex-start;padding:0 var(--v-s5);font:600 1.125rem/1.3 var(--v-font-text);background:#fff;border:1px solid var(--v-muted);color:var(--v-ink);white-space:normal;text-align:start}
+#pform .pick .chip i{display:none}
+#pform .pick .chip:hover{background:var(--v-soft)}
+#pform .pick .chip[aria-pressed="true"]{background:var(--v-brand);border-color:var(--v-brand);color:#fff}
+#pform input[type=number]{width:100%;min-height:56px;padding:0 var(--v-s4);font:500 1.25rem/1 var(--v-font-text);border:1px solid var(--v-muted);border-radius:var(--v-r-sm)}
+.pnav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--v-s3);margin-top:var(--v-s6);padding-top:var(--v-s4);border-top:1px solid var(--v-line)}
+.pprog{font-weight:600;color:var(--v-muted)}
+.pbtns{display:flex;flex-wrap:wrap;gap:var(--v-s2)}
+.pbtns .btn{min-height:52px;padding:0 var(--v-s5);font:700 1rem/1 var(--v-font-text)}
+.pbtns .btn.primary{background:var(--v-brand);color:#fff}
 /* forum: wide, quiet filters, questions by field */
 .fhero{background:var(--v-wash)!important;border-bottom:1px solid var(--v-line)}
 .fhero .wrap,.fsx .wrap{max-width:none;padding-inline:var(--v-gutter)}
@@ -4270,9 +4285,9 @@ function openProfile(opt){
   opt=opt&&opt.path?opt:{};
   const p=S.prof||{}, sc=S.sc||{}, Q=Object.fromEntries(PROF_Q.map(q=>[q.k,q]));
   const qf=(k,extra='')=>{const q=Q[k];return `<div class="field pstep" id="pq-${k}" hidden><label>${q.q}</label>${q.h?`<span class="hint">${q.h}</span>`:''}<div class="pick">${q.o.map(([v,l])=>`<button type="button" class="chip" data-pq="${q.k}" data-pv="${v}" aria-pressed="${p[q.k]===v}" style="--c2:#FF8A65"><i></i>${l}</button>`).join('')}</div>${extra}</div>`};
-  openOv(`<h2>${opt.path?'קודם הפרופיל שלי, ואז המסלול':'הפרופיל שלי'}</h2><p class="s">${opt.path?'המסלול נבנה מהפרופיל: הכיתה שאני בה, התעודה, הפסיכומטרי והשפה. כל האתר משתמש באותם נתונים, כך שהמסלול, הבדיקות והמועדים תמיד מתאימים לי. אפשר לשנות בכל רגע.':'עונים על כמה שאלות קצרות, ורק על מה שרלוונטי. לפי התשובות אראה אילו תארים אני '+gx('יכול','יכולה')+' ללמוד כבר עכשיו, ובכל תואר מה כבר יש לי ומה צריך להשלים.'}</p>
+  openOv(`<h2>${opt.path?'קודם הפרופיל שלי, ואז המסלול':'הפרופיל שלי'}</h2><p class="s">${opt.path?'המסלול נבנה מהתשובות האלה. אפשר לשנות בכל רגע.':'כמה שאלות קצרות, שאלה אחת בכל פעם. אפשר לשנות בכל רגע.'}</p>
    <form class="form" id="pform" novalidate>
-   <div id="pq-stage">${meFieldsHTML('prof',['stage']).replace('איפה אני עכשיו?','איפה אני עכשיו?'+(opt.path?' (חובה לפתיחת מסלול)':' (לא חובה, אבל מדייק את המסלול)'))}</div>
+   <div id="pq-stage" class="pstep">${meFieldsHTML('prof',['stage']).replace('איפה אני עכשיו?','איפה אני עכשיו?'+(opt.path?' (חובה לפתיחת מסלול)':' (לא חובה, אבל מדייק את המסלול)'))}</div>
    ${qf('bag')}
    <div class="field pstep" id="fbagw" hidden><label for="pbag">מה ממוצע הבגרות שלי?</label>
      <span class="hint">${sc.bi?'הממוצע חושב במחשבון שלנו, וכל אוניברסיטה מקבלת את הממוצע שלה לפי הכללים שלה. ':''}לא בטוח מה הממוצע? <button type="button" class="linkbtn" data-tocalc style="color:var(--primary-dark);text-decoration:underline">אחשב אותו במחשבון</button> והוא יישמר כאן. אפשר גם להשאיר ריק.</span>
@@ -4282,21 +4297,45 @@ function openProfile(opt){
    ${qf('y12')}${qf('age')}
    ${qf('psy',`<div id="fpsyw" class="pstep sub-f" hidden><label for="ppsy">מה הציון הכללי בפסיכומטרי?</label><input id="ppsy" type="number" inputmode="numeric" min="200" max="800" value="${esc(sc.p||'')}" placeholder="למשל 640"><span class="hint">הבחינה עד סתיו 2026 רב-תחומית, ומדצמבר 2026 דו-תחומית. ציונים ישנים נשארים תקפים, ובדרך כלל לפחות 7 שנים, לפי מדיניות המוסד. ${factChip('psy.rename',{static:1})}</span></div>${sc.estP&&sc.p?`<span class="hint">שמרתי ציון צפוי: ${esc(sc.p)}. הוא נשאר בפרופיל עד שיהיה ציון אמיתי.</span>`:''}`)}
    ${qf('heb')}
-   ${profMoreHTML()}
+   <div id="pq-more" class="pstep" hidden>${profMoreHTML()}</div>
    <span class="err" id="perr" hidden></span>
-   <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary" type="submit" id="psave">${opt.path?'שמירה והמשך לבניית המסלול':'שמירה והצגת התארים שאני '+gx('יכול','יכולה')+' להתקבל אליהם'}</button>${S.prof||S.sc?'<button type="button" class="btn soft" data-profclear>מחיקת הפרופיל</button>':''}</div></form>`,'wide');
+   <div class="pnav"><span class="pprog num" id="pprog" aria-live="polite"></span><div class="pbtns"><button type="button" class="btn soft" id="pback">הקודם</button><button type="button" class="btn soft" id="pskip" hidden>דלג</button><button type="button" class="btn primary" id="pnext" hidden>המשך</button><button class="btn primary" type="submit" id="psave" hidden>${opt.path?'שמירה והמשך לבניית המסלול':'שמירה והצגת התארים שאני '+gx('יכול','יכולה')+' להתקבל אליהם'}</button>${S.prof||S.sc?'<button type="button" class="btn soft" data-profclear>מחיקת הפרופיל</button>':''}</div></div></form>`,'wide');
   const f=$('#pform'), cur={...p};
-  /* each question opens only after the one before it is answered, and only if it is relevant */
-  const sync=()=>{
-    const nc=NO_CERT(cur.bag), show=(id,on)=>{const e=$('#'+id);if(!e)return;if(on&&e.hidden){e.hidden=false;e.classList.remove('reveal');void e.offsetWidth;e.classList.add('reveal')}else if(!on)e.hidden=true};
-    show('pq-bag',true);
-    show('fbagw',cur.bag==='full'); show('faltw',cur.bag==='mechina'||cur.bag==='handesai');
-    show('pq-y12',nc); show('pq-age',nc&&!!cur.y12);
-    const psyOn=!!cur.bag&&(!nc||!!cur.age); show('pq-psy',psyOn); show('fpsyw',psyOn&&cur.psy==='has');
-    show('pq-heb',psyOn&&!!cur.psy);
-    const done=PROF_NEED(cur).every(k=>cur[k])&&(!opt.path||!!cur.stage); $('#psave').classList.toggle('dim',!done); $('#perr').hidden=true};
-  sync();
-  f.querySelectorAll('[data-pq]').forEach(b=>b.addEventListener('click',()=>{cur[b.dataset.pq]=b.dataset.pv;f.querySelectorAll(`[data-pq="${b.dataset.pq}"]`).forEach(x=>x.setAttribute('aria-pressed',x===b));sync()}));
+  /* one question at a time: the list depends on my answers (a student in school is not asked about a certificate or an average they do not have yet), a pick moves on by itself */
+  const inSchool=c=>['g10','g11','g12'].includes(c.stage);
+  const stepList=c=>{const L=['stage'];if(!inSchool(c)){L.push('bag');if(c.bag==='full')L.push('bagavg');if(NO_CERT(c.bag))L.push('y12','age')}L.push('psy','heb','more');return L};
+  const SID={stage:'pq-stage',bag:'pq-bag',bagavg:'fbagw',y12:'pq-y12',age:'pq-age',psy:'pq-psy',heb:'pq-heb',more:'pq-more'};
+  let idx=0;
+  const cur0=()=>stepList(cur)[Math.min(idx,stepList(cur).length-1)];
+  const draw=()=>{
+    const L=stepList(cur);if(idx>=L.length)idx=L.length-1;const st=L[idx];
+    Object.values(SID).forEach(id=>{const e=$('#'+id);if(e)e.hidden=true});
+    const e=$('#'+SID[st]);e.hidden=false;e.classList.remove('reveal');void e.offsetWidth;e.classList.add('reveal');
+    $('#faltw').hidden=!(st==='bag'&&(cur.bag==='mechina'||cur.bag==='handesai'));
+    const fp=$('#fpsyw');if(fp)fp.hidden=!(st==='psy'&&cur.psy==='has');
+    const optional=st==='stage'&&!opt.path||st==='bagavg';
+    $('#pprog').textContent=st==='more'?'אחרון, לא חובה':'שאלה '+(idx+1)+' מתוך '+(L.length-1);
+    $('#pback').hidden=idx===0;
+    $('#pskip').hidden=!optional;
+    $('#pnext').hidden=!(st==='bagavg'||st==='psy'&&cur.psy==='has');
+    $('#psave').hidden=st!=='more';
+    $('#perr').hidden=true;
+    const first=e.querySelector('input:not([type=checkbox]),.chip');if(first&&st!=='more')first.focus({preventScroll:true});
+  };
+  const go2=n=>{idx=Math.max(0,Math.min(n,stepList(cur).length-1));draw()};
+  const next=()=>go2(idx+1);
+  draw();
+  $('#pback').addEventListener('click',()=>go2(idx-1));
+  $('#pnext').addEventListener('click',next);
+  $('#pskip').addEventListener('click',next);
+  f.querySelectorAll('[data-pq]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.pq;cur[k]=b.dataset.pv;f.querySelectorAll(`[data-pq="${k}"]`).forEach(x=>x.setAttribute('aria-pressed',x===b));
+    if(k==='stage'&&inSchool(cur))cur.bag='full';
+    const st=cur0();
+    if(k!==st&&!(k==='psy'&&st==='psy'))return;
+    if(k==='psy'&&cur.psy==='has'){draw();return}
+    if(k==='psy'&&cur.psy!=='has')cur.psy=b.dataset.pv;
+    setTimeout(next,220)}));
+  f.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'&&e.target.type!=='checkbox'){e.preventDefault();const n=$('#pnext');if(!n.hidden)n.click()}});
   const relevant=c=>Object.fromEntries(PROF_NEED(c).concat(PROF_OPT).filter(k=>c[k]).map(k=>[k,c[k]]));
   f.querySelector('[data-tocalc]').addEventListener('click',()=>{
     const P=Number($('#ppsy').value);
@@ -4308,8 +4347,8 @@ function openProfile(opt){
   if(clr)clr.addEventListener('click',()=>{S.prof=null;S.sc=null;['prof','scores'].forEach(k=>store.set(k,null));if(S.sort==='fit')S.sort='many';closeOv(true);render();toast('הפרופיל נמחק')});
   f.addEventListener('submit',e=>{e.preventDefault();
     const err=m=>{$('#perr').textContent=m;$('#perr').hidden=false};
-    if(opt.path&&!cur.stage)return err('צריך לבחור איפה אני עכשיו, כדי לבנות את המסלול');
-    if(!PROF_NEED(cur).every(k=>cur[k]))return err('נשארו שאלות בלי תשובה');
+    if(opt.path&&!cur.stage){go2(0);return err('צריך לבחור איפה אני עכשיו, כדי לבנות את המסלול')}
+    {const miss=PROF_NEED(cur).find(k=>!cur[k]);if(miss){const i=stepList(cur).indexOf(miss);go2(i<0?0:i);return err('נשארה שאלה בלי תשובה')}}
     const P=Number($('#ppsy').value), B=Number($('#pbag').value);
     if(cur.psy==='has'&&(!P||P<200||P>800))return err('ציון פסיכומטרי צריך להיות בין 200 ל-800');
     if(cur.bag==='full'&&B&&(B<55||B>120))return err('ממוצע בגרות צריך להיות בין 55 ל-120');
