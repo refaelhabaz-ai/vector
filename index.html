@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-NFVhto4EFyAxZt5NTOjtmI10TWMTEiuRH3XYq2Q6Cqs=' 'sha256-VeulJ8q9CWi++Pnr1CDdDMwjtcM9vdbrOyCSvVwg/Kk='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-CXNu8gGVFnQ+3ZfJzH9pzvUYKs3Rq7QuGmey4wKTfnE=' 'sha256-VeulJ8q9CWi++Pnr1CDdDMwjtcM9vdbrOyCSvVwg/Kk='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -3622,6 +3622,23 @@ html.rm .vecti *,html.rm .vecti-wrap,html.rg .vecti *,html.rg .vecti-wrap{animat
   .hm-btn{width:100%}
 }
 html.rm .hm-tile,html.rm .hm-tile .ill{transition:none}
+/* scholarships: wide, even cards, big questions, no side stripes */
+.sc-wrap{max-width:none;padding-inline:var(--v-gutter)}
+.sc-card{border:1px solid var(--v-line);border-inline-start:1px solid var(--v-line);background:#fff;padding:clamp(16px,1.6vw,22px)}
+.sc-card.yes,.sc-card.maybe{border-inline-start-color:var(--v-line)}
+.sc-card:hover{border-color:var(--v-brand)}
+.sc-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:20px}
+.sc-q{border:2px solid var(--v-ink);border-inline-start:2px solid var(--v-ink);background:#fff;padding:clamp(20px,3vw,40px)}
+.sc-qk{color:var(--v-brand);font-family:var(--v-font-text);font-weight:700;font-size:.9375rem}
+.sc-qh{font-family:var(--v-font-display);font-weight:400;font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.2;margin-bottom:var(--v-s4)}
+.sc-qw{font-size:var(--v-fs-md)}
+.sc-q .pick{gap:var(--v-s3)}
+.sc-q .chip{min-height:56px;padding:0 var(--v-s5);font:600 1.125rem/1.3 var(--v-font-text);background:#fff;border:1px solid var(--v-muted);color:var(--v-ink)}
+.sc-q .chip:hover{background:var(--v-soft)}
+.sc-q .chip i{display:none}
+.sc-me .chip,.kp-qc .chip{min-height:48px}
+.sc-g h2{font:400 clamp(1.5rem,2.4vw,2rem)/1.2 var(--v-font-display);color:var(--v-ink)}
+.sc-sum{padding:var(--v-s4) var(--v-s5);background:#fff;border:1px solid var(--v-line)}
 /* ---------- the same language on every page: tokens remapped, shapes squared, headings in Secular One ---------- */
 :root{--bg:#F1F6FF;--ink:#0F1E3D;--muted:#55627F;--line:#D6E0F2;--primary:#1D4FC4;--primary-dark:#1D4FC4;--primary-soft:#DCE8FF;--cta:#1D4FC4;--cta-dark:#12358F;--cta-grad:linear-gradient(#1D4FC4,#1D4FC4);--accent-ink:#1D4FC4;--nav:#0F1E3D;--tint:#DCE8FF;--head:'Heebo',system-ui,'Segoe UI',Arial,sans-serif;--body:'Heebo',system-ui,'Segoe UI',Arial,sans-serif;--r:4px;--shadow:none;--shadow-h:none}
 body{background:var(--v-wash)}
@@ -13797,10 +13814,6 @@ function schBody(){
     ${grp('maybe','כנראה מתאימות','חלק מהתנאים מתקיימים וחלק עוד לא ידועים או נבדקים רק מול הגוף.',8)}
     ${grp('check','לבדוק','אין לנו מספיק מידע כדי לדעת, או שיש תנאי שלא נראה שמתקיים. כדאי לקרוא את התנאים בדף של הגוף.',8)}
     ${L.length?'':'<div class="empty"><h3 aria-level="2">אין רשומות לסינון הזה</h3><p>אפשר לשנות את סוג המלגה או להציג את כל המוסדות.</p></div>'}
-    <section class="sc-g" aria-labelledby="scg-i"><h2 id="scg-i">מלגות וסיוע לפי מוסד <span class="num">(${I.length})</span></h2>
-      <p class="sc-fine">כל מוסד מפרסם בעצמו מלגות והטבות. אין לנו כתובת מאומתת של עמוד המלגות בכל מוסד, ולכן הקישורים כאן הם לאתרי המוסדות, ושם מחפשים "מלגות" או "דיקנאט הסטודנטים".</p>
-      ${SCF.inst?'':`<button type="button" class="btn soft sm" data-sch="insts">${SCF.insts?'הסתרת הרשימה':'הצגת כל המוסדות'}</button>`}
-      ${SCF.inst||SCF.insts?`<ul class="sc-il">${I.map(r=>{const e=schEval(r);return `<li><span><b>${esc(r.provider)}</b>${e.st==='maybe'?' <span class="sc-st maybe"><i aria-hidden="true">≈</i>ביעדים שלי</span>':''}</span><a class="btn soft sm" href="${esc(r.url)}" target="_blank" rel="noopener">${INST[r.inst].site?'לאתר המוסד':'לדף המוסד במל"ג'}</a></li>`}).join('')}</ul>`:''}</section>
     <div class="srcnote sc-foot">${ICON.check}<div><b>על הנתונים:</b> אנחנו לא גוף מעניק ולא קובעים זכאות. כל רשומה מציינת מי מפרסם אותה, ומה מצב הבדיקה שלה. הבדיקה נעשתה בחיפוש ב-${esc(dLong(FT_D))}, ולא בקריאה ישירה של הדפים הרשמיים. <button type="button" class="linkbtn" data-go="terms">איך אנחנו בודקים</button> · ${RPT_LEAD()} <button type="button" class="btn soft sm" data-ftr="gen">מצאתי טעות</button></div></div>`}
 function renderSch(){
   return pageHead('מלגות וזכויות','מלגות, הטבות וזכויות ללומדים, עם מקור ומצב בדיקה לכל אחת. הדף עובד גם בלי פרופיל, ומתאים את עצמו למה שאספר עליי.')+
