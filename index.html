@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-CXNu8gGVFnQ+3ZfJzH9pzvUYKs3Rq7QuGmey4wKTfnE=' 'sha256-VeulJ8q9CWi++Pnr1CDdDMwjtcM9vdbrOyCSvVwg/Kk='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-cWWcvJZX53NY7Rs3Ve0MlCESQ/QCk6vu29vOTuCybpc=' 'sha256-VeulJ8q9CWi++Pnr1CDdDMwjtcM9vdbrOyCSvVwg/Kk='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -3622,6 +3622,36 @@ html.rm .vecti *,html.rm .vecti-wrap,html.rg .vecti *,html.rg .vecti-wrap{animat
   .hm-btn{width:100%}
 }
 html.rm .hm-tile,html.rm .hm-tile .ill{transition:none}
+/* forum: wide, quiet filters, questions by field */
+.fhero{background:var(--v-wash)!important;border-bottom:1px solid var(--v-line)}
+.fhero .wrap,.fsx .wrap{max-width:none;padding-inline:var(--v-gutter)}
+.fhero-in{grid-template-columns:minmax(0,1fr) minmax(0,.5fr)}
+.fhero-art{border-radius:0!important;box-shadow:none!important;transform:none;max-height:none;max-width:220px;aspect-ratio:4/5;justify-self:end;overflow:visible}
+.fhero-art svg{width:100%;height:100%}
+.fhero h1{font-size:clamp(2.25rem,4.4vw,3.75rem)}
+.fkick{background:var(--v-soft)!important;color:var(--v-brand)!important}
+.ffilt{margin:var(--v-s4) 0 var(--v-s5)}
+.ffilt>summary{display:inline-flex;align-items:center;gap:var(--v-s3);min-height:52px;padding:0 var(--v-s5);cursor:pointer;list-style:none;font:700 1rem/1 var(--v-font-text);color:#fff;background:var(--v-brand);border-radius:var(--v-r-sm)}
+.ffilt>summary::-webkit-details-marker{display:none}
+.ffilt[open]>summary{background:var(--v-brand-deep)}
+.ffilt .fpanel{margin-top:var(--v-s3);border:1px solid var(--v-line)}
+.fb2{min-height:44px}
+.hotgrid{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))!important;gap:20px}
+.hcard,.hcard.big{display:flex;flex-direction:column;background:#fff;border:1px solid var(--v-line);overflow:hidden}
+.hcard .hpic{aspect-ratio:3/2;max-height:150px;overflow:hidden}
+.hcard .hpic svg{width:100%;height:100%;object-fit:cover}
+.hcard h3,.hcard.big h3{font:400 1.125rem/1.35 var(--v-font-display)}
+.hcard:hover{border-color:var(--v-brand)}
+.fgroups{display:flex;flex-direction:column;gap:var(--v-s3)}
+.fgroup{background:#fff;border:1px solid var(--v-line)}
+.fgroup>summary{display:flex;align-items:center;justify-content:space-between;gap:var(--v-s4);min-height:60px;padding:0 var(--v-s5);cursor:pointer;list-style:none;font:400 1.25rem/1.2 var(--v-font-display);color:var(--v-ink)}
+.fgroup>summary::-webkit-details-marker{display:none}
+.fgroup>summary b{font:inherit}
+.fgroup>summary span{margin-inline-start:auto;font:600 .9375rem/1 var(--v-font-text);color:var(--v-muted)}
+.fgroup>summary::after{content:"";flex:none;width:12px;height:12px;border:solid var(--v-brand);border-width:0 3px 3px 0;transform:rotate(45deg);transition:transform .2s;margin-inline-start:var(--v-s3)}
+.fgroup[open]>summary::after{transform:rotate(-135deg)}
+.fgroup[open]>summary{border-bottom:1px solid var(--v-line)}
+.fgbody{padding:var(--v-s4) var(--v-s5) var(--v-s5)}
 /* scholarships: wide, even cards, big questions, no side stripes */
 .sc-wrap{max-width:none;padding-inline:var(--v-gutter)}
 .sc-card{border:1px solid var(--v-line);border-inline-start:1px solid var(--v-line);background:#fff;padding:clamp(16px,1.6vw,22px)}
@@ -5197,6 +5227,11 @@ function fFiltered(){
   return L;
 }
 const IDEAS=['כמה קשה שנה א\' במדעי המחשב?','אפשר לעבוד במשרה חלקית בזמן התואר בסיעוד?','מה ההבדל בין פסיכולוגיה באוניברסיטה למכללה?','איך שיפרתם את הבגרות אחרי הצבא?','שווה ללמוד הנדסאות לפני תואר בהנדסה?','איך האווירה בקמפוס של בן-גוריון?'];
+/* a field of the questions: its rows are drawn only when it is opened */
+function fgBody(k){const n=(FF.gn&&FF.gn[k])||15,L=fFiltered().filter(q=>(q.bc||'other')===k);
+  return `<div class="qlist2">${L.slice(0,n).map(qRow).join('')}</div>${L.length>n?`<div class="more"><button type="button" class="btn soft" data-fgmore="${k}">להציג עוד (${L.length-n})</button></div>`:''}`}
+document.addEventListener('toggle',e=>{const d=e.target;if(!d.classList||!d.classList.contains('fgroup'))return;const k=d.dataset.fg;FF.gopen=FF.gopen||{};FF.gopen[k]=d.open;const b=d.querySelector('.fgbody');if(d.open&&b&&!b.firstChild)b.innerHTML=fgBody(k)},true);
+document.addEventListener('click',e=>{const m=e.target.closest('[data-fgmore]');if(!m)return;const k=m.dataset.fgmore;FF.gn=FF.gn||{};FF.gn[k]=((FF.gn[k])||15)+15;const b=m.closest('.fgbody');if(b)b.innerHTML=fgBody(k);const t=b&&b.querySelector('[data-fgmore]');if(t)t.focus({preventScroll:true})});
 function fMainHTML(){
   if(FM.state!=='ready')return writeNote()||`<div class="fnote">טוען…</div>`;
   const all=fIdx().Q, L=fFiltered(), filtering=FF.ctx||FF.topic||FF.inst||FF.cat||FF.f!=='all'||(FF.q&&FF.q.trim());
@@ -5207,10 +5242,13 @@ function fMainHTML(){
   let h='';
   if(!filtering&&all.length>=4){
     const hot=[...all].sort((a,b)=>hotScore(b)-hotScore(a)).slice(0,3);
-    h+=`<div class="fsec"><div class="fsec-h"><h2><span class="fi">${FIC.fire}</span>שאלות חמות</h2></div><div class="hotgrid">${hot.map((q,i)=>hotCard(q,i===0)).join('')}</div></div>`;
+    h+=`<div class="fsec"><div class="fsec-h"><h2><span class="fi">${FIC.fire}</span>שאלות חמות</h2></div><div class="hotgrid">${hot.map(q=>hotCard(q,false)).join('')}</div></div>`;
   }
+  const grouped=L.length&&!(FF.q&&FF.q.trim())&&!FF.cat;
   h+=`<div class="fsec"><div class="fsec-h"><h2>${FF.q&&FF.q.trim()?'שאלות שמתאימות לחיפוש':'כל השאלות'}${L.length?` <span class="cnt-b num">${fmt(L.length)}</span>`:""}</h2></div>`;
-  if(L.length)h+=`<div class="qlist2">${L.slice(0,FF.shown||30).map(qRow).join('')}</div>${L.length>(FF.shown||30)?`<div class="more"><button class="btn soft" data-fmore>להציג עוד שאלות</button></div>`:''}`;
+  if(grouped){const G=new Map();L.forEach(q=>{const k=q.bc||'other';if(!G.has(k))G.set(k,[]);G.get(k).push(q)});
+    h+='<div class="fgroups">'+[...G.entries()].sort((a,b)=>b[1].length-a[1].length).map(([k,A])=>`<details class="fgroup" data-fg="${k}"${FF.gopen&&FF.gopen[k]?' open':''}><summary><b>${esc(QA_CAT[k]||'אחר')}</b><span class="num">${fmt(A.length)} שאלות</span></summary><div class="fgbody">${FF.gopen&&FF.gopen[k]?fgBody(k):''}</div></details>`).join('')+'</div>';
+  }else if(L.length)h+=`<div class="qlist2">${L.slice(0,FF.shown||30).map(qRow).join('')}</div>${L.length>(FF.shown||30)?`<div class="more"><button class="btn soft" data-fmore>להציג עוד שאלות</button></div>`:''}`;
   else h+=`<div class="fnote">${FF.f==='mine'?'עוד לא שאלתי שאלות.':FF.f==='follow'?'אני עדיין לא עוקב/ת אחרי שאלות.':'אין עדיין שאלות כאן.'} <button class="linkbtn" data-fall>להציג את כל השאלות</button>${canWrite()||FM.local?' · <button class="linkbtn" data-ask>לשאול שאלה</button>':''}</div>`;
   h+='</div>';
   return h;
@@ -5264,22 +5302,23 @@ function renderForum(){
     <div class="fhero-in"><div class="fhero-t"><span class="fkick">הקהילה של וקטור</span><h1>שאלות ותשובות</h1>
       <p>שואלים את מי שכבר עבר את זה: סטודנטים, בוגרים ויועצים. על תנאי קבלה, עומס, אווירה, עבודה תוך כדי לימודים ומה שביניהם.</p>
       <div id="fStats">${fStats()}</div></div>
-      <div class="fhero-art" aria-hidden="true">${ill({id:'forumhero',n:'שאלות ותשובות קהילה',c:'social'})}</div></div>
+      <div class="fhero-art">${vectiMacaw({variant:'full',expression:'happy'})}</div></div>
     <div class="fsearch"><div class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="fsq" type="search" autocomplete="off" placeholder="חיפוש שאלות שכבר נשאלו" value="${esc(FF.q)}" aria-label="חיפוש בשאלות"><div class="sugg" id="fsugg" hidden></div></div>
       <button class="btn ask" data-ask>${FIC.plus}שאלה חדשה</button></div>
   </div></section>
-  <section class="sec" style="padding-top:18px"><div class="wrap">
+  <section class="sec fsx"><div class="wrap">
     <div id="fStatus">${localNote()}</div>
     <div id="fInstant"></div>
     <div id="fSuggest">${fSuggest()}</div>
+    <details class="ffilt" id="fFilt"${(FF.topic||FF.cat||FF.inst||FF.ctx||FF.f!=='all')?' open':''}><summary><span>סינון</span>${(FF.topic||FF.cat||FF.inst||FF.ctx||FF.f!=='all')?'<span class="fm-n">פעיל</span>':''}</summary>
     <div class="fpanel">
       <div class="fprow"><span class="fpl">נושא</span><div class="fbtns" role="group" aria-label="נושאים"><button class="fb2" data-ftopic="" aria-pressed="${!FF.topic}">הכל</button>${Object.entries(TOPICS).map(([k,l])=>`<button class="fb2" data-ftopic="${k}" aria-pressed="${FF.topic===k}" style="--tc:${TOPIC_C[k]}"><i></i>${l}</button>`).join('')}</div></div>
       ${QA_I.length?`<div class="fprow"><span class="fpl">תחום</span><div class="fbtns" role="group" aria-label="תחומים"><button class="fb2" data-fcat="" aria-pressed="${!FF.cat}">הכל</button>${Object.entries(QA_CAT).map(([k,l])=>`<button class="fb2" data-fcat="${k}" aria-pressed="${FF.cat===k}">${esc(l)}</button>`).join('')}</div></div>`:''}
       <div class="fprow"><span class="fpl">הצגה</span><div class="fbtns" role="group" aria-label="סינון">${chips.map(([k,l])=>`<button class="fb2" data-ff="${k}" aria-pressed="${FF.f===k}">${l}</button>`).join('')}
         ${FF.ctx?`<span class="qchip">${esc(ctxLabel(FF.ctx))}<button data-fctxclr aria-label="הסרת הסינון">✕</button></span>`:''}
         <label class="fsel"><span>מוסד</span><select id="finst"><option value="">כל המוסדות</option>${insts.map(i=>`<option value="${i.id}" ${FF.inst===i.id?'selected':''}>${esc(i.n)}</option>`).join('')}</select></label></div></div>
-    </div>
+    </div></details>
     <div class="fgrid"><div id="fMain">${fMainHTML()}</div>
       <aside><div id="fSideW">${waitingBox()}</div><div id="fModH">${fMod()}</div>
         <div class="side how"><h3>איך זה עובד</h3><ol><li>שואלים ומתייגים תואר, מוסד ונושא.</li><li>נכנסים לשאלה, קוראים את התשובות או עונים בעצמנו.</li><li>מי ששאל/ה כותב/ת ליד כל תשובה אם היא עזרה.</li><li>כדי לשאול ולענות מתחברים לחשבון, ואפשר לכתוב בעילום שם.</li></ol></div></aside></div>
