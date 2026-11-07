@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-YAaGNkzJ+MHxp47f27jAR6qLYUxtprVNmOuoHuPR84U=' 'sha256-qy7hLMYe5GTLq6Y/i5dtNOmmqvG3AbPx2NYX+hfrz4s='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-T/MEHAHX2lQh42ExwhN4QtFEM/R+W0Ra+vsZhsuFaDY=' 'sha256-z/f8vjKaLzZnSWiUTETrPlD6xEynDGe2NlT7m/CyKkw='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -3473,6 +3473,9 @@ html[dir="rtl"] .a11y-fab{border-radius:0 var(--v-r-md) var(--v-r-md) 0}
 main:has(.hm){padding-bottom:0}
 body:has(.hm) footer{background:var(--v-wash);border-top:0}
 
+/* Vecti, the helper, wears the same blue */
+html body .vb{--vb-coral:#1D4FC4;--vb-cta:#1D4FC4;--vb-soft:#DCE8FF;--vb-bg:#F1F6FF;--vb-ink:#0F1E3D;--vb-muted:#55627F;--vb-line:#D6E0F2}
+html body .vb .vb-send{background:#1D4FC4}
 /* ---------- home ---------- */
 .hm{font-family:var(--v-font-text);font-size:var(--v-fs-md);line-height:var(--v-lh-text);color:var(--v-text)}
 .hm h1,.hm h2,.hm h3{font-family:var(--v-font-display);font-weight:400;letter-spacing:0;text-wrap:balance;margin:0}
@@ -3484,10 +3487,11 @@ body:has(.hm) footer{background:var(--v-wash);border-top:0}
 .hm-schbar button{min-height:40px;padding:0 var(--v-s4);font:700 1rem/1 var(--v-font-text);color:#fff;background:var(--v-brand);border:0;border-radius:var(--v-r-sm);transition:background-color .2s}
 .hm-schbar button:hover{background:var(--v-brand-deep)}
 
-.hm-hero{background:var(--v-wash);color:var(--v-ink);border-bottom:1px solid var(--v-line)}
-.hm-hero-in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,112px);align-items:center;padding:clamp(36px,5.5vw,88px) var(--v-gutter)}
-.hm-hero h1{font-size:clamp(2rem,4.2vw,3.75rem);line-height:1.12;color:var(--v-ink)}
-.hm-sub{max-width:52ch;margin:var(--v-s4) 0 0;font-size:var(--v-fs-lg);line-height:1.55;color:var(--v-text)}
+/* hero: a question, a search, and Vecti, who is there to talk to */
+.hm-hero{background:var(--v-wash);color:var(--v-ink);border-bottom:1px solid var(--v-line);overflow-x:clip}
+.hm-hero-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,96px);align-items:center;padding:clamp(32px,5vw,80px) var(--v-gutter) clamp(36px,5vw,72px)}
+.hm-hero h1{font-size:clamp(2.25rem,5vw,4.5rem);line-height:1.08;color:var(--v-ink)}
+.hm-sub{max-width:50ch;margin:var(--v-s4) 0 0;font-size:var(--v-fs-lg);line-height:1.55;color:var(--v-text)}
 .hm-find{margin-top:clamp(24px,3vw,40px);max-width:720px}
 .hm-modes{display:flex;flex-wrap:wrap;gap:var(--v-s1) clamp(18px,2.6vw,32px);margin-bottom:var(--v-s2)}
 .hm-modes button{min-height:44px;padding:0;font:600 1rem/1 var(--v-font-text);color:var(--v-text);background:none;border:0;border-bottom:3px solid transparent}
@@ -3512,35 +3516,88 @@ body:has(.hm) footer{background:var(--v-wash);border-top:0}
 .hm .sugg small,.hm .sugg .sg-none,.hm .sugg .sg-h{color:var(--v-muted)}
 .hm .sugg .all{justify-content:center;color:var(--v-brand);font-family:var(--v-font-text);font-weight:700;font-size:var(--v-fs-sm);border-bottom:0}
 .hm .searchbox input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;width:20px;height:20px;margin-inline-start:8px;cursor:pointer;background:var(--v-muted);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4'%3E%3Cpath d='M6 6l12 12M18 6 6 18'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4'%3E%3Cpath d='M6 6l12 12M18 6 6 18'/%3E%3C/svg%3E") center/contain no-repeat}
+.hm-unsure{margin:var(--v-s4) 0 0;font-size:var(--v-fs-md);color:var(--v-text)}
+.hm-unsure button{min-height:44px;padding:0 var(--v-s1);font:700 1rem/1 var(--v-font-text);color:var(--v-brand);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.hm-unsure button:hover{color:var(--v-brand-deep)}
 
-/* where to start: four ways in, one list */
-.hm-start h2{font-size:var(--v-fs-h3);color:var(--v-ink);margin-bottom:var(--v-s3)}
-.hm-start ul{list-style:none;margin:0;padding:0;border-top:2px solid var(--v-ink)}
-.hm-opt{display:flex;align-items:center;justify-content:space-between;gap:var(--v-s4);width:100%;padding:clamp(14px,1.6vw,20px) var(--v-s3);text-align:start;color:var(--v-ink);background:transparent;border-bottom:1px solid var(--v-line);transition:background-color .2s,color .2s}
-.hm-opt b{display:block;font:400 clamp(1.25rem,1.9vw,1.625rem)/1.2 var(--v-font-display)}
-.hm-opt small{display:block;margin-top:2px;font-size:var(--v-fs-sm);line-height:1.45;color:var(--v-muted)}
-.hm-opt svg{flex:none;width:28px;height:28px;fill:none;stroke:var(--v-brand);stroke-width:2.2;stroke-linecap:square;stroke-linejoin:miter;transition:transform .2s,stroke .2s}
-.hm-opt:hover{background:var(--v-soft)}
-.hm-opt:hover svg{transform:translate(-4px,-4px)}
-.hm-opt.main{background:var(--v-brand);color:#fff;border-bottom-color:var(--v-brand)}
-.hm-opt.main small{color:#E3ECFF}
-.hm-opt.main svg{stroke:#fff}
-.hm-opt.main:hover{background:var(--v-brand-deep)}
-.hm-opt:focus-visible{outline-offset:-3px}
-.hm-opt.main:focus-visible{outline-color:var(--v-ink);outline-offset:3px}
+.hm-guide{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--v-s4);min-height:clamp(260px,30vw,420px)}
+.hm-guide::before{content:"";position:absolute;z-index:-1;width:min(100%,420px);aspect-ratio:1;border-radius:50%;background:var(--v-soft);top:50%;left:50%;transform:translate(-50%,-44%)}
+.hm-say{position:relative;max-width:300px;min-height:84px;padding:14px 18px;text-align:start;font:600 1.0625rem/1.45 var(--v-font-text);color:var(--v-ink);background:#fff;border:2px solid var(--v-ink);border-radius:var(--v-r-md);transition:opacity .35s}
+.hm-say::after{content:"";position:absolute;bottom:-12px;left:50%;margin-left:-10px;width:18px;height:18px;background:#fff;border-right:2px solid var(--v-ink);border-bottom:2px solid var(--v-ink);transform:rotate(45deg)}
+.hm-say.fade{opacity:0}
+.hm-say:hover{background:var(--v-wash)}
+.hm-say:hover::after{background:var(--v-wash)}
+.hm-mascot{width:clamp(150px,17vw,250px);aspect-ratio:1;padding:0;background:none;border:0;cursor:pointer}
+.hm-mascot svg{width:100%;height:100%;overflow:visible}
+.hm-mascot:hover .vb-arm{animation:vb-wave .9s ease-in-out 2}
+.hm-mascot:hover .vb-eye{opacity:0}.hm-mascot:hover .vb-happy{opacity:1}
+
+/* what interests you: the fields, each with its own picture */
+.hm-fields{background:var(--v-paper);padding:clamp(48px,6vw,96px) var(--v-gutter)}
+.hm-fields h2{font-size:var(--v-fs-h2);line-height:1.1;color:var(--v-ink)}
+.hm-fields>p{max-width:56ch;margin:var(--v-s3) 0 0;font-size:var(--v-fs-lg);line-height:1.5;color:var(--v-text)}
+.hm-tiles{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(14px,1.8vw,28px);margin-top:clamp(28px,4vw,56px)}
+.hm-tile{--rot:0deg;position:relative;display:flex;flex-direction:column;overflow:hidden;text-align:start;color:var(--v-ink);background:var(--v-wash);border:1px solid var(--v-line);border-radius:var(--v-r-md);transform:rotate(var(--rot));transition:transform .25s cubic-bezier(.2,.9,.3,1.3),border-color .2s}
+.hm-tile .ill{display:block;width:100%;height:clamp(130px,13vw,200px);transition:transform .5s cubic-bezier(.2,.9,.3,1.2)}
+.hm-tile .ill{--c1:#1D4FC4!important;--c2:#74A7FF!important;--c3:#E6EEFF!important}
+.hm-tile:nth-child(3n+2) .ill{--c1:#12358F!important;--c2:#5C86E8!important;--c3:#DCE8FF!important}
+.hm-tile:nth-child(3n) .ill{--c1:#2F6FED!important;--c2:#9DBBFF!important;--c3:#EEF3FF!important}
+.hm-tile>span{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--v-s3);padding:14px 16px 16px;background:#fff;border-top:1px solid var(--v-line)}
+.hm-tile b{display:block;font:400 clamp(1.125rem,1.5vw,1.375rem)/1.2 var(--v-font-display)}
+.hm-tile small{display:block;margin-top:2px;font-size:var(--v-fs-sm);color:var(--v-muted)}
+.hm-tile svg.go{flex:none;width:24px;height:24px;fill:none;stroke:var(--v-brand);stroke-width:2.2;stroke-linecap:square;stroke-linejoin:miter;transition:transform .2s}
+.hm-tile:hover{transform:translateY(-6px) rotate(0);border-color:var(--v-brand)}
+.hm-tile:hover .ill{transform:scale(1.07)}
+.hm-tile:hover svg.go{transform:translate(-3px,-3px)}
+.hm-tile:focus-visible{outline-offset:4px}
+.hm-tile:nth-child(1){grid-column:span 5;--rot:-.8deg}
+.hm-tile:nth-child(2){grid-column:span 4;--rot:.7deg}
+.hm-tile:nth-child(3){grid-column:span 3;--rot:-.5deg}
+.hm-tile:nth-child(4){grid-column:span 3;--rot:.6deg}
+.hm-tile:nth-child(5){grid-column:span 5;--rot:-.7deg}
+.hm-tile:nth-child(6){grid-column:span 4;--rot:.5deg}
+.hm-tile:nth-child(7){grid-column:span 4;--rot:-.6deg}
+.hm-tile:nth-child(8){grid-column:span 3;--rot:.8deg}
+.hm-tile:nth-child(9){grid-column:span 5;--rot:-.4deg}
+
+/* the end: not sure yet? */
+.hm-end{background:var(--v-brand);color:#fff;padding:clamp(48px,6vw,96px) var(--v-gutter)}
+.hm-end h2{font-size:var(--v-fs-h2);line-height:1.1;color:#fff;max-width:18ch}
+.hm-end p{max-width:48ch;margin:var(--v-s3) 0 0;font-size:var(--v-fs-lg);line-height:1.5;color:#E3ECFF}
+.hm-end-act{display:flex;flex-wrap:wrap;align-items:center;gap:var(--v-s4) var(--v-s6);margin-top:var(--v-s6)}
+.hm-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 var(--v-s6);font:700 1.125rem/1 var(--v-font-text);color:var(--v-brand);background:#fff;border:2px solid #fff;border-radius:var(--v-r-sm);transition:background-color .2s,color .2s}
+.hm-btn:hover{background:var(--v-ink);border-color:var(--v-ink);color:#fff}
+.hm-end nav{display:flex;flex-wrap:wrap;gap:var(--v-s2) var(--v-s5)}
+.hm-end nav button{min-height:44px;font:600 1rem/1 var(--v-font-text);color:#fff;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.hm-end nav button:hover{text-decoration-color:transparent}
+.hm-end :focus-visible{outline-color:#fff}
+
 .hm-resume{padding:var(--v-s5) var(--v-gutter);background:var(--v-paper)}
 .hm-resume .wrap{max-width:none;padding:0}
 .hm .pth-home{margin:0;border:1px solid var(--v-line);border-radius:var(--v-r-sm);background:var(--v-paper);box-shadow:none;transition:background-color .2s}
 .hm .pth-home:hover{transform:none;box-shadow:none;background:var(--v-wash)}
 
 @media(max-width:1000px){
-  .hm-hero-in{grid-template-columns:1fr;gap:var(--v-s7)}
+  .hm-hero-in{grid-template-columns:1fr;gap:var(--v-s5)}
+  .hm-guide{order:-1;flex-direction:row;min-height:0;justify-content:flex-start;gap:var(--v-s4)}
+  .hm-guide::before{display:none}
+  .hm-mascot{width:110px;flex:none}
+  .hm-say{flex:1;max-width:none;min-height:0;order:2}
+  .hm-say::after{bottom:auto;left:auto;right:-10px;top:50%;margin:-9px 0 0;border-right:2px solid var(--v-ink);border-bottom:0;border-top:2px solid var(--v-ink);transform:rotate(45deg)}
+}
+@media(max-width:860px){
+  .hm-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hm-tile:nth-child(n){grid-column:span 1}
+  .hm-tile:nth-child(9){grid-column:span 2}
+  .hm-tile .ill{height:clamp(110px,28vw,170px)}
 }
 @media(max-width:560px){
   .hm-go{min-width:84px;padding:0 var(--v-s4)}
   .hm .searchbox input{font-size:1.0625rem;padding-inline-start:48px}
   .hm .searchbox>svg{right:14px;width:20px;height:20px}
+  .hm-btn{width:100%}
 }
+html.rm .hm-tile,html.rm .hm-tile .ill{transition:none}
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
 <header class="hdr vn" id="hdr">
@@ -12863,11 +12920,33 @@ function refreshExplore(){
 }
 const exploreHead=()=>`<div><h2>${S.q?'תוצאות החיפוש':'כל התארים'}</h2><p>${S.q?'התארים שמתאימים למה שחיפשתי. אפשר לסנן ולמיין.':'כל התארים הראשונים בישראל. אפשר לחפש, לסנן ולמיין.'}</p></div>`;
 const MODE_PH={deg:'למשל: פסיכולוגיה, הנדסת חשמל, מדעי המחשב…',occ:'למשל: מפתח תוכנה, אחות, מעצב גרפי, רואה חשבון…',tech:'למשל: הנדסאי תוכנה, טכנאי רכב, חשמל, אדריכלות…'};
+/* Vecti and the search box come alive on the home page: the speech bubble changes, the search box shows examples being typed */
+const HM={t:0,p:0,s:0};
+const HM_SAY=['היי, אני וקטי! אפשר לשאול אותי על תארים, מקצועות ושכר.','לא יודעים מה מעניין אתכם? גם זה בסדר. מתחילים בשאלון קצר.','בואו נעשה סדר. מה מושך אתכם?'];
+const HM_EX={deg:['פסיכולוגיה','הנדסת חשמל','מדעי המחשב','סיעוד','עיצוב'],occ:['מפתח תוכנה','אחות','מעצב גרפי','רואה חשבון'],tech:['הנדסאי תוכנה','טכנאי רכב','חשמל','אדריכלות']};
+function hmStop(){clearInterval(HM.t);clearInterval(HM.p);HM.t=HM.p=0}
+function hmAlive(){
+  const m=document.getElementById('hmMascot');if(!m)return;
+  const src=document.querySelector('.vb-launch svg');if(!src){setTimeout(hmAlive,60);return} /* the helper's script comes right after this one: its picture is copied from its button */
+  if(!m.firstChild)m.innerHTML=src.outerHTML.replace(/vbg/g,'vbgh');
+  const say=document.getElementById('hmSay');
+  if(RM())return;
+  let n=0;clearInterval(HM.t);HM.t=setInterval(()=>{if(!say.isConnected){hmStop();return}n=(n+1)%HM_SAY.length;say.classList.add('fade');setTimeout(()=>{say.textContent=HM_SAY[n];say.classList.remove('fade')},350)},6000);
+  const q=document.getElementById('q');if(!q)return;
+  const md=S.mode==='occ'||S.mode==='tech'?S.mode:'deg',L=HM_EX[md],base=q.getAttribute('aria-label');let w=0,c=0,hold=0,dir=1;
+  clearInterval(HM.p);HM.p=setInterval(()=>{
+    if(!q.isConnected){hmStop();return}
+    if(document.activeElement===q||q.value){q.placeholder=base;return}
+    if(hold>0){hold--;return}
+    const word=L[w];c+=dir;q.placeholder=base+': '+word.slice(0,c);
+    if(dir>0&&c>=word.length){hold=16;dir=-1}else if(dir<0&&c<=0){dir=1;w=(w+1)%L.length;hold=3}
+  },90);
+}
 function renderHome(){
   const md=S.mode==='occ'||S.mode==='tech'?S.mode:'deg';
   const tab=(k,l)=>`<button type="button" data-mode="${k}" aria-pressed="${md===k}">${l}</button>`;
-  const AR='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 18 6 6M6 15V6h9"/></svg>';
-  const opt=(k,t,m,c='')=>`<li><button type="button" class="hm-opt ${c}" data-go="${k}"><span><b>${t}</b><small>${m}</small></span>${AR}</button></li>`;
+  const AR='<svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 18 6 6M6 15V6h9"/></svg>';
+  const tile=([k,v])=>{const n=DEG.filter(d=>d.c===k).length;return `<button type="button" class="hm-tile" data-hmc="${k}">${ill({id:'hm'+k,n:'',c:k}).replace('<svg class="ill"','<svg class="ill" preserveAspectRatio="xMidYMid slice"')}<span><span><b>${v.n}</b><small>${fmt(n)} תארים</small></span>${AR}</span></button>`};
   const lab=md==='occ'?'חיפוש מקצוע':md==='tech'?'חיפוש הנדסאים וטכנאים':'חיפוש תואר או מוסד';
   const resume=pathHomeHTML();
   return `<div class="hm">
@@ -12875,26 +12954,33 @@ function renderHome(){
   <section class="hm-hero" aria-labelledby="hmH1">
     <div class="hm-hero-in">
       <div class="hm-copy">
-        <h1 id="hmH1">בוחרים מה ללמוד לפי מידע, לא לפי ניחושים.</h1>
+        <h1 id="hmH1">בואו נגלה מה מדליק אתכם</h1>
         <p class="hm-sub">תארים ומקצועות בישראל, עם שכר וספי קבלה ממקורות רשמיים.</p>
         <div class="hm-find">
           <div class="hm-modes" role="group" aria-label="מה מחפשים">${tab('deg','תארים')}${tab('occ','מקצועות')}${tab('tech','הנדסאים וטכנאים')}</div>
           <div class="hm-row"><div class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
             <input id="q" type="search" autocomplete="off" placeholder="${lab}" aria-label="${lab}" value=""><div class="sugg" id="sugg" hidden></div></div><button type="button" class="hm-go" id="hmGo">חיפוש</button></div>
+          <p class="hm-unsure">לא יודעים איפה להתחיל? <button type="button" data-go="dir">${dirDone()?'לתוצאות השאלון':'שאלון קצר'}</button></p>
         </div>
       </div>
-      <nav class="hm-start" aria-labelledby="hmStartT">
-        <h2 id="hmStartT">מאיפה מתחילים?</h2>
-        <ul>
-          ${opt('dir',dirDone()?'לתוצאות השאלון':'לא בטוחים מה ללמוד?','שאלון קצר שמציע כיוונים','main')}
-          ${opt('degrees','תארים',fmt(DEG.length)+' תארים ב-'+DATA.inst.length+' מוסדות')}
-          ${opt('jobs','מקצועות וקריירה','מה עושים, כמה מרוויחים ואילו תארים מובילים אליהם')}
-          ${opt('path','המסלול שלי',hasGoal()?'ממשיכים מאיפה שעצרתם':'בוחרים תואר ומקבלים מפה, צעד אחר צעד')}
-        </ul>
-      </nav>
+      <div class="hm-guide">
+        <button type="button" class="hm-say" id="hmSay" data-hmbot>${HM_SAY[0]}</button>
+        <button type="button" class="hm-mascot" id="hmMascot" data-hmbot aria-label="וקטי, העוזר האישי. לפתיחת השיחה"></button>
+      </div>
     </div>
   </section>
   ${resume?`<div class="hm-resume">${resume}</div>`:''}
+  <section class="hm-fields" aria-labelledby="hmFT">
+    <h2 id="hmFT">מה מעניין אתכם?</h2>
+    <p>בוחרים תחום ורואים תארים, שכר ומוסדות.</p>
+    <div class="hm-tiles">${Object.entries(CATS).map(tile).join('')}</div>
+  </section>
+  <section class="hm-end" aria-labelledby="hmET">
+    <h2 id="hmET">עדיין לא בטוחים? נעשה סדר יחד.</h2>
+    <p>שאלון קצר שמציע תחומים, מקצועות ותארים שמתאימים לכם.</p>
+    <div class="hm-end-act"><button type="button" class="hm-btn" data-go="dir">${dirDone()?'לתוצאות השאלון':'לשאלון הקצר'}</button>
+      <nav aria-label="עוד דרכים להתחיל"><button type="button" data-go="degrees">כל התארים</button><button type="button" data-go="jobs">מקצועות וקריירה</button><button type="button" data-go="path">המסלול שלי</button></nav></div>
+  </section>
 </div>`;
 }
 
@@ -13620,7 +13706,7 @@ function renderTray(){
   host.innerHTML=`<div class="tray"><div class="tray-in"><span>להשוואה:</span>${S.cmp.map(id=>`<span class="t">${esc(BY[id].n)}<button data-uncmp="${id}" aria-label="הסרה מההשוואה">✕</button></span>`).join('')}<button class="go" data-showcmp aria-disabled="${S.cmp.length<2}">${S.cmp.length<2?'צריך עוד תואר':'להשוואה'}</button></div></div>`;
 }
 function render(){
-  jnReset();renderChrome();
+  hmStop();jnReset();renderChrome();
   const app=$('#app'),r=S.route;let html;
   if(r.v==='deg')html=renderDegree(BY[r.id]);
   else if(r.v==='occ')html=renderOcc(r.id);
@@ -13646,7 +13732,7 @@ function render(){
   if(r.v!=='path')KP.labOpen=false;document.documentElement.classList.toggle('vx-lock',r.v==='path'&&!!KP.labOpen);
   app.innerHTML=`<div class="view ${S.navDir==='back'?'vw-ret':S.navDir==='fwd'?'vw-new':'vw-same'}">${html}</div>`;S.navDir='';
   renderTray();
-  if(r.v==='home')bindSearch();
+  if(r.v==='home'){bindSearch();hmAlive()}
   if(r.v==='jobs')bindJobs();
   if(r.v==='degrees')bindDegrees();
   afterRender();
@@ -13822,6 +13908,10 @@ document.addEventListener('change',e=>{const id=e.target.id;
 document.addEventListener('click',e=>{const b=$('#sugg');if(b&&!e.target.closest('.searchbox'))b.hidden=true});
 /* scrolling the page down to the (live-filtered) results closes the suggestions box */
 addEventListener('scroll',()=>{const b=$('#sugg');if(b&&!b.hidden&&Math.abs(scrollY-(b._y0||0))>160)b.hidden=true},{passive:true});
+/* the fields on the home page open the degrees list on that field; Vecti opens the helper */
+document.addEventListener('click',e=>{
+  const c=e.target.closest('[data-hmc]');if(c){degReset();S.cat=c.dataset.hmc;S.keepQ=true;go('degrees');return}
+  if(e.target.closest('[data-hmbot]')){const l=document.querySelector('.vb-launch');if(l)l.click()}});
 /* the menu (burger and three dots): opens and closes, Escape gives focus back to its button, leaving it closes it */
 document.addEventListener('click',e=>{
   if(e.target.closest('[data-vmenu]')){vmSet(!VM.open);return}
@@ -13848,7 +13938,7 @@ try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);se
 <!-- vector-bot:hash sha256-qy7hLMYe5GTLq6Y/i5dtNOmmqvG3AbPx2NYX+hfrz4s= -->
 <style id="vector-bot-css">
 /* ================= וקטי: the academic helper bot (bottom-right corner) ================= */
-.vb{--vb-coral:var(--primary,#FF6B4A);--vb-cta:var(--cta,#D6401D);--vb-ink:var(--ink,#1F2544);--vb-muted:var(--muted,#5E6582);--vb-line:var(--line,#E4E7F1);--vb-bg:var(--bg,#F5F6FB);--vb-soft:var(--primary-soft,#FFEAE4);--vb-sun:var(--sun,#FFC53D);--vb-head:var(--head,'Rubik',system-ui,sans-serif);font-family:var(--vb-head)}
+.vb{--vb-coral:var(--primary,#1D4FC4);--vb-cta:var(--cta,#1D4FC4);--vb-ink:var(--ink,#1F2544);--vb-muted:var(--muted,#55627F);--vb-line:var(--line,#D6E0F2);--vb-bg:var(--bg,#F1F6FF);--vb-soft:var(--primary-soft,#DCE8FF);--vb-sun:var(--sun,#FFC53D);--vb-head:var(--head,'Rubik',system-ui,sans-serif);font-family:var(--vb-head)}
 .vb *{box-sizing:border-box}
 
 /* launcher: the character itself */
@@ -13856,7 +13946,7 @@ try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);se
 .vb-launch:hover{transform:translateY(-3px) scale(1.04)}
 .vb-launch:active{transform:scale(.95)}
 .vb-launch:focus-visible{outline:3px solid var(--vb-cta);outline-offset:4px;border-radius:50%}
-.vb-launch svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 10px 16px rgba(214,64,29,.28))}
+.vb-launch svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 10px 16px rgba(29,79,196,.28))}
 .vb-launch .vb-dot{position:absolute;top:6px;left:4px;width:14px;height:14px;border-radius:50%;background:#12B886;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.15)}
 .vb.open .vb-launch .vb-dot{display:none}
 
@@ -13920,13 +14010,13 @@ try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);se
 .vb-chip{border:1.5px solid var(--vb-line);background:#fff;color:var(--vb-ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
 .vb-chip:hover{border-color:var(--vb-coral);background:var(--vb-soft);transform:translateY(-1px)}
 .vb-chip:focus-visible{outline:2px solid var(--vb-cta);outline-offset:2px}
-.vb-chip.go{border-color:transparent;background:var(--vb-soft);color:var(--primary-dark,#C23A1B);font-weight:600}
+.vb-chip.go{border-color:transparent;background:var(--vb-soft);color:var(--primary-dark,#12358F);font-weight:600}
 .vb-chip.go:hover{background:var(--vb-cta);color:#fff;border-color:transparent}
 
 .vb-form{flex:none;display:flex;align-items:flex-end;gap:8px;padding:10px 12px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--vb-line);background:#fff}
 .vb-in{flex:1;min-height:44px;overflow-y:hidden;max-height:120px;resize:none;border:1.5px solid var(--vb-line);border-radius:16px;padding:11px 14px;font:inherit;font-size:15px;line-height:1.4;color:var(--vb-ink);background:var(--vb-bg);outline:none;transition:border-color .2s,background .2s}
 .vb-in:focus{border-color:var(--vb-coral);background:#fff}
-.vb-send{flex:none;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:14px;background:var(--cta-grad,linear-gradient(120deg,#D6401D,#C73817));color:#fff;cursor:pointer;transition:transform .2s,opacity .2s}
+.vb-send{flex:none;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:14px;background:var(--cta-grad,linear-gradient(120deg,#1D4FC4,#12358F));color:#fff;cursor:pointer;transition:transform .2s,opacity .2s}
 .vb-send:hover{transform:scale(1.05)}
 .vb-send:disabled{opacity:.45;cursor:default;transform:none}
 .vb-send:focus-visible{outline:2px solid var(--vb-ink);outline-offset:2px}
@@ -14025,12 +14115,12 @@ const INTENTS=[
 
 /* ---------- the character ---------- */
 function botSVG(){return `<svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
-<defs><linearGradient id="vbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF8A6B"/><stop offset="1" stop-color="#F0583A"/></linearGradient></defs>
+<defs><linearGradient id="vbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FA8FF"/><stop offset="1" stop-color="#1D4FC4"/></linearGradient></defs>
 <ellipse cx="60" cy="114" rx="28" ry="4.5" fill="#1F2544" opacity=".12"/>
 <g class="vb-bob">
- <ellipse class="vb-arm" cx="103" cy="86" rx="7" ry="10" fill="#E8553A"/>
- <ellipse cx="17" cy="86" rx="7" ry="10" fill="#E8553A"/>
- <circle cx="16" cy="66" r="7" fill="#E8553A"/><circle cx="104" cy="66" r="7" fill="#E8553A"/>
+ <ellipse class="vb-arm" cx="103" cy="86" rx="7" ry="10" fill="#1A47B0"/>
+ <ellipse cx="17" cy="86" rx="7" ry="10" fill="#1A47B0"/>
+ <circle cx="16" cy="66" r="7" fill="#1A47B0"/><circle cx="104" cy="66" r="7" fill="#1A47B0"/>
  <rect x="18" y="34" width="84" height="74" rx="32" fill="url(#vbg)"/>
  <ellipse cx="44" cy="44" rx="12" ry="5" fill="#fff" opacity=".28" transform="rotate(-18 44 44)"/>
  <rect x="29" y="50" width="62" height="42" rx="20" fill="#1F2544"/>
