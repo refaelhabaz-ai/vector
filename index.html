@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-P1rYK4D96KTEvDuKy2k5a2nK+av3NUD1ZneQ/skNVxc=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-pas45pMZjF7DF9QoizOaMtmEmSUEpEe2SyZgCL/PTK0=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -4271,6 +4271,18 @@ html[data-sec="forum"] .cg-tg[aria-pressed="true"] i::after{border-color:var(--a
 html.rm .cg-panel,html.rm .cg-backdrop,html.rg .cg-panel,html.rg .cg-backdrop{transition:none}
 html.rg .card.dg:hover .dg-ic,html.rm .card.dg:hover .dg-ic{transform:none}
 html.hc .dg-facts,html.hc .cg-panel{border:2px solid #000;box-shadow:none}
+/* technician tracks: the area select and its note, the long intro */
+.cg-sel{display:block}
+.cg-sel select{min-height:44px;min-width:230px;max-width:100%;padding:0 16px;border-radius:999px;border:2px solid transparent;background:var(--v3-cream);color:var(--v3-ink);font:700 .9375rem/1 'Heebo',sans-serif}
+.cg-sel select:focus{border-color:var(--acc-fill);outline:0}
+.cg-note{margin:8px 0 0;max-width:52ch;font-size:.8125rem;line-height:1.5;color:var(--v3-muted)}
+.cg-tech .cg-sub{max-width:60ch;font-size:1rem;line-height:1.6}
+.cg-tech .cg-t{flex:1 1 420px}
+@media(max-width:900px){.cg-sel select{width:100%}}
+.cg-tech .cg-panel{padding:14px 22px}
+.cg-tech .cg-g{display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px}
+.cg-tech .cg-lg{margin:0}
+.cg-tech .cg-note{margin:0;flex:1 1 280px}
 
 /* ---------- the three motion states and high contrast ---------- */
 html.rg .btn,html.rg .card,html.rg .hm-en,html.rg .hcard,html.rg .vn-link,html.rg .chip,html.rg .fb2,html.rg .vn-ic,html.rg .hm-mascot{transition-property:background-color,border-color,color,box-shadow!important}
@@ -7983,16 +7995,6 @@ const ocWhy=(o,q)=>{const s=ocScore(o,q);if(s>=75)return '';const T=(o.titles||[
 const ocSearch=q=>OCLIST.map(o=>[o,ocScore(o,q)]).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]||(b[0].sal||0)-(a[0].sal||0)).map(x=>x[0]);
 
 /* ---------- occupation card ---------- */
-function ocCard(o,opt={}){
-  const g=ocGroup(o.id), n=occDegs(o.id), nd=n.main.length+n.more.length, fit=occFitN(o.id);
-  return `<article class="card occ" style="${cv(OGCAT[g])}${opt.delay!=null?`;animation-delay:${opt.delay}ms`:''}"><button class="hit" data-occ="${o.id}" aria-label="${esc(o.n)}"></button>
-    <div class="pic">${ocIll(o)}</div>
-    <div class="body"><span class="cat">${esc(OGN[g])}</span><h3>${esc(o.n)}</h3>
-      ${(o.titles||[]).length?`<p class="otl">${o.titles.slice(0,3).map(esc).join(' · ')}</p>`:''}
-      <div class="tags num">${o.sal?`<span class="tag" title="שכר חודשי ממוצע בתחום (עבודאטה)">₪${fmt(Math.round(o.sal/100)/10,1)}K לחודש</span>`:''}${occHot(o)?'<span class="tag hot">חם בשוק</span>':''}
-        ${fit?`<span class="tag m">אפשר להתקבל ל-${fit} ${fit===1?'תואר':'תארים'} שמובילים לכאן</span>`:nd?`<span class="tag">${nd} ${nd===1?'תואר מוביל':'תארים מובילים'}</span>`:''}</div></div></article>`;
-}
-
 /* ---------- careers page ---------- */
 const JOBF={q:'',g:'',grow:false,acad:false,sal:0,sort:'',shown:36};
 function jobsPool(){
@@ -8008,40 +8010,9 @@ function jobsPool(){
   return [...P].sort(by[k]||by.sal);
 }
 const jobsSortKey=()=>JOBF.sort||(JOBF.q?'rel':'sal');
-function jobsFiltersHTML(){
-  const n=jobsPool().length, k=jobsSortKey(), on=JOBF.g||JOBF.grow||JOBF.acad||JOBF.sal;
-  const strip=lpStrip([['','הכל',null,OCLIST.length,'מקצועות'],...OGRP.map(g=>[g[0],g[1],g[2],OCLIST.filter(o=>ocGroup(o.id)===g[0]).length,'מקצועות'])],JOBF.g,'data-jg');
-  const sorts=[...(JOBF.q?[['rel','הכי רלוונטי לחיפוש']]:[]),['sal','שכר (הגבוה ביותר)'],['grow','חם בשוק קודם'],['emp','הכי הרבה עובדים בתחום'],...(profileOK()?[['fit','הכי הרבה תארים שאני '+gx('יכול','יכולה')+' להתקבל אליהם']]:[]),...(dirResult()?[['dir','הכי מתאימים לי (לפי השאלון)']]:[]),['az','א-ב']];
-  return strip+`<aside class="lp-side${S.fOpen?' open':''}" id="lpSide" aria-label="סינון">
-    <div class="lp-sh"><h2>סינון</h2>${on?'<button type="button" class="lp-clear" data-jclear>ניקוי הכל</button>':''}</div>
-    <div class="lp-fs" role="group" aria-labelledby="lpl1"><b class="lp-lg" id="lpl1">שכר בחודש</b><div class="lp-segs">${lpSeg('j','sal',0,'הכל',JOBF.sal)}${[10000,15000,20000,30000].map(v=>lpSeg('j','sal',v,'מעל ₪'+fmt(v/1000)+'K',JOBF.sal)).join('')}</div></div>
-    <div class="lp-fs" role="group" aria-labelledby="lpl2"><b class="lp-lg" id="lpl2">עוד</b>
-      ${lpSw('data-jt','grow','חם בשוק',JOBF.grow)}
-      ${lpSw('data-jt','acad','מגיעים אליו עם תואר אקדמי',JOBF.acad)}
-    </div></aside>
-  <div class="lp-bar"><span class="num">${JOBF.q?`<span class="qchip">חיפוש: ${esc(JOBF.q)}<button data-jclearq aria-label="ניקוי החיפוש">✕</button></span> · `:''}${fmt(n)} מקצועות</span>
-    <button type="button" class="lp-fbtn" data-fopen aria-expanded="${!!S.fOpen}" aria-controls="lpSide">סינון${on?' (פעיל)':''}</button>
-    <label>מיון: <select id="jsort">${sorts.map(([v,l])=>`<option value="${v}" ${k===v?'selected':''}>${l}</option>`).join('')}</select></label></div>`;
-}
-function jobsGridHTML(){
-  const P=jobsPool();
-  if(!P.length)return `<div class="empty"><h3 aria-level="2">לא נמצאו מקצועות</h3><p>אפשר לנסות מילה אחרת, שם של תפקיד (למשל "מפתח" או "מעצב") או להסיר חלק מהסינונים.</p></div>`;
-  return `<div class="grid">${P.slice(0,JOBF.shown).map((o,i)=>ocCard(o,{delay:Math.min(i%36,12)*30})).join('')}</div>${P.length>JOBF.shown?`<div class="more"><button class="btn soft" data-jmore>להציג עוד (${P.length-JOBF.shown} נוספים)</button></div>`:''}`;
-}
 function refreshJobs(){const f=$('#jfilters'),top0=f?f.getBoundingClientRect().top:0;if(!f||!$('#jHost'))return; /* the page may be gone: the timer of a search typed on it fires after I left */
   $('#jfilters').innerHTML=jobsFiltersHTML();$('#jHost').innerHTML=jobsGridHTML();
   if(f){const dy=f.getBoundingClientRect().top-top0;if(Math.abs(dy)>1)window.scrollBy({top:dy,behavior:'instant'})}}
-function renderJobs(){
-  return `<div class="lp">
-  <section class="lp-head"><div class="lp-head-in">
-    <div><h1>מקצועות וקריירה</h1><p class="lp-count num">${fmt(OCLIST.length)} מקצועות, לפי משרד העבודה</p></div>
-    <div class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="jq" type="search" autocomplete="off" placeholder="חיפוש מקצוע" aria-label="חיפוש מקצוע" value="${esc(JOBF.q)}"></div>
-  </div></section>
-  <div class="lp-body"><div id="jfilters">${jobsFiltersHTML()}</div><h2 class="sr">רשימת המקצועות</h2><div id="jHost" class="gridhost">${jobsGridHTML()}</div></div>
-  <p class="fine lp-fine">המקצועות, התפקידים, השכר והחלוקות: <a href="${AVURL}/occupations" target="_blank" rel="noopener">עבודאטה</a> (משרד העבודה, לפי עיבוד נתוני הלמ"ס). החלוקה לתחומים לפי קוד הסיווג הבין-לאומי של המקצוע (ISCO).</p>
-  </div>`;
-}
 function bindJobs(){
   const q=$('#jq');if(!q)return;let t;
   q.addEventListener('input',()=>{clearTimeout(t);t=setTimeout(()=>{JOBF.q=q.value.trim();JOBF.shown=36;if(!JOBF.q&&JOBF.sort==='rel')JOBF.sort='';refreshJobs()},220)});
@@ -8522,42 +8493,8 @@ function techPool(){
   const by={rel:(a,b)=>b.r-a.r||mhFit(b.m).s-mhFit(a.m).s,fit:(a,b)=>mhFit(b.m).s-mhFit(a.m).s,sal:(a,b)=>mhSal(b.m)-mhSal(a.m),many:(a,b)=>b.m.col.length-a.m.col.length,az:(a,b)=>a.m.n.localeCompare(b.m.n,'he')};
   return L.sort(by[k]||by.fit);
 }
-function mahatCard(m,i){
-  const sal=mhSal(m), f=mhFit(m), nA=TF.area?m.col.filter(c=>c.area===TF.area).length:0;
-  return `<article class="card" style="${cv(mhCat(m))}"><button class="hit" data-mh="${i}" aria-label="${esc(m.n)}"></button>
-    <div class="pic">${ill({id:'mh'+i,n:m.n,c:mhCat(m)})}</div>
-    <div class="body"><span class="cat">${m.kind==='טכנאי'?'טכנאי מוסמך':m.kind==='מכינה'?'מכינה טכנולוגית':'הנדסאי'} · מה"ט</span><h3>${esc(m.n)}</h3>
-    <div class="tags num"><span class="tag">${nA?nA+' מכללות באזור':m.col.length+' מכללות'}</span>${sal?`<span class="tag" title="שכר ממוצע לבוגרים שעובדים במקצוע, 3–4 שנים אחרי הלימודים (סקר בוגרי מה&quot;ט)">₪${fmt(Math.round(sal/100)/10,1)}K לחודש</span>`:''}
-      ${f.why.filter(w=>!/מכללות? ב/.test(w)).slice(0,1).map(w=>`<span class="tag m">${esc(w)}</span>`).join('')}</div></div></article>`;
-}
-function techFiltersHTML(){
-  const n=techPool().length, k=TF.sort||(TF.q?'rel':'fit');
-  const kinds=[['','הכל'],['הנדסאי','הנדסאים'],['טכנאי','טכנאים'],['מכינה','מכינה טכנולוגית']];
-  const sorts=[...(TF.q?[['rel','הכי רלוונטי לחיפוש']]:[]),['fit',profileOK()?'הכי מתאים לי':'מומלץ'],['sal','שכר הבוגרים'],['many','הכי הרבה מכללות'],['az','א–ת']];
-  return `<div class="chips" role="group" aria-label="סוג הלימודים">${kinds.map(([v,l])=>`<button class="chip" data-tk="${v}" aria-pressed="${TF.kind===v}" style="--c2:#FFA94D"><i></i>${l}</button>`).join('')}</div>
-    <div class="frow"><label class="fsel"><span>אזור</span><select id="tarea"><option value="">כל הארץ</option>${MH_AREAS.map(a=>`<option ${TF.area===a?'selected':''}>${esc(a)}</option>`).join('')}</select></label>
-      ${TF.kind||TF.area?'<button class="linkbtn fclear" data-tclear>ניקוי הסינון</button>':''}</div>
-    <p class="fine">${MH_AREA_NOTE}</p>
-    <div class="subbar"><span class="num">${TF.q?`<span class="qchip">חיפוש: ${esc(TF.q)}<button data-tclearq aria-label="ניקוי החיפוש">✕</button></span> · `:''}${fmt(n)} מגמות</span>
-      <label>מיון: <select id="tsort">${sorts.map(([v,l])=>`<option value="${v}" ${k===v?'selected':''}>${l}</option>`).join('')}</select></label></div>`;
-}
-const techGridHTML=()=>{const L=techPool();return L.length?`<div class="grid">${L.map(x=>mahatCard(x.m,x.i)).join('')}</div>`:`<div class="empty"><h3 aria-level="2">לא נמצאו מגמות</h3><p>אפשר לנסות מילה אחרת או להסיר חלק מהסינונים.</p></div>`};
 function refreshTech(){const f=$('#tfilters'),top0=f?f.getBoundingClientRect().top:0;$('#tfilters').innerHTML=techFiltersHTML();$('#tHost').innerHTML=techGridHTML();
   if(f){const dy=f.getBoundingClientRect().top-top0;if(Math.abs(dy)>1)window.scrollBy({top:dy,behavior:'instant'})}}
-function renderTech(){
-  const p=S.prof, noCert=profileOK()&&!BAG_EQUIV(p)&&p.bag!=='handesai';
-  return pageHead('הנדסאים וטכנאים','לימודי מה"ט (המכון הממשלתי להכשרה בטכנולוגיה ובמדע) במכללות הטכנולוגיות: כל המגמות, איפה לומדים כל אחת, מה לומדים ומה השכר לפי סקר בוגרי מה"ט.')+
-  `<section class="sec" style="padding-top:8px"><div class="wrap" style="display:flex;flex-direction:column;gap:18px">
-   <div class="searchbox" style="margin:0;max-width:640px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-     <input id="tq" type="search" autocomplete="off" placeholder="למשל: תוכנה, חשמל, אדריכלות, רכב…" aria-label="חיפוש מגמה" value="${esc(TF.q)}"></div>
-   ${noCert?`<div class="ck no band" style="margin:0"><span class="cki" aria-hidden="true">✕</span><div><b>לפי הפרופיל שלי חסרים לי מקצועות בבגרות</b><span class="sub">אפשר להתחיל במכינה טכנולוגית של מה"ט, ולכן היא מופיעה ראשונה ברשימה.</span></div></div>`:''}
-   <div class="filters" id="tfilters">${techFiltersHTML()}</div>
-   <h2 class="sr">רשימת המגמות</h2><div id="tHost" class="gridhost">${techGridHTML()}</div>
-   <div class="srcnote">${ICON.check}<div><b>תנאי קבלה בסיסיים ללימודי הנדסאים</b>, לפי עבודאטה (משרד העבודה): ציון עובר ב-3 יח"ל מתמטיקה, 3 יח"ל אנגלית ו-2 יח"ל עברית.${factChip('mahat.basic')} המכללות רשאיות להוסיף תנאים משלהן. מי שחסרים לו מקצועות יכול להתחיל ב<button class="linkbtn" data-mh="${MAHAT.findIndex(m=>m.kind==='מכינה')}" style="color:inherit;text-decoration:underline">מכינה טכנולוגית</button>. <a href="${AVURL}/MahatEducation/${(MAV[0]||{}).id||''}" target="_blank" rel="noopener">מקור</a></div></div>
-   <p class="fine">מקורות: <a href="${MAHAT_SRC}" target="_blank" rel="noopener">אתר דירוג מכללות מה"ט</a> (רשימת המגמות, המכללות והאזורים), <a href="${MAHAT_LIST}" target="_blank" rel="noopener">עמודי המגמות באתר gov.il</a> (תוכן ושכר), <a href="${AVURL}" target="_blank" rel="noopener">עבודאטה</a>. ההתאמה לתחומי העניין לפי שם המגמה.</p>
-  </div></section>`;
-}
-
 /* ================= ACCOUNTS (Supabase) =================
    Sign-in with Google (and an email one-time code, ready but switched off by SUPA_CFG.emailOtp). No passwords anywhere.
    Signing in is optional: a visitor who does not sign in gets exactly the site as before (this file's code does not even load the library for them).
@@ -15071,6 +15008,85 @@ function card(d,opt={}){
     <dl class="dg-facts num"><div><dt>מוסדות</dt><dd>${nI===1?'1':nI}</dd></div><div><dt>משך</dt><dd>${du?du.txt+' <small>שנים</small>':dash}</dd></div><div><dt>שכר בוגרים</dt><dd title="${esc(salT)}">${sal?'₪'+fmt(Math.round(sal/100)/10,1)+'K':dash}</dd></div></dl>
     ${opt.foot||''}</article>`;
 }
+
+/* ================= v3: careers and technician tracks on the same catalogue pattern ================= */
+const cgK=v=>v>=1000?fmt(Math.round(v/100)/10,1)+'K':fmt(v);
+/* ---------- careers ---------- */
+function jobsFiltersHTML(){
+  const n=jobsPool().length,k=jobsSortKey(),cnt=(JOBF.sal?1:0)+(JOBF.grow?1:0)+(JOBF.acad?1:0),on=cnt>0||!!JOBF.g||!!JOBF.q;
+  const cats=cgCats([['','הכל',OCLIST.length,null],...OGRP.map(g=>[g[0],g[1],OCLIST.filter(o=>ocGroup(o.id)===g[0]).length,g[2]])],JOBF.g,'data-jg');
+  const sorts=[...(JOBF.q?[['rel','הכי רלוונטי לחיפוש']]:[]),['sal','שכר (מהגבוה)'],['grow','חם בשוק קודם'],['emp','הכי הרבה עובדים'],...(profileOK()?[['fit','הכי מתאים לתארים שלי']]:[]),...(dirResult()?[['dir','הכי מתאימים לי (לפי השאלון)']]:[]),['az','א-ב']];
+  const act=[];
+  if(JOBF.q)act.push(cgChip('חיפוש: '+JOBF.q,'data-jclearq'));
+  if(JOBF.g)act.push(cgChip(OGN[JOBF.g],'data-jg=""'));
+  if(JOBF.sal)act.push(cgChip('שכר מעל ₪'+fmt(JOBF.sal/1000)+'K','data-fset="j|sal|0"'));
+  if(JOBF.grow)act.push(cgChip('חם בשוק','data-jt="grow"'));
+  if(JOBF.acad)act.push(cgChip('עם תואר אקדמי','data-jt="acad"'));
+  const groups=[
+    ['שכר בחודש',`<div class="cg-segs">${cgSeg('j','sal',0,'הכל',JOBF.sal)}${[10000,15000,20000,30000].map(v=>cgSeg('j','sal',v,'₪'+fmt(v/1000)+'K ומעלה',JOBF.sal)).join('')}</div>`],
+    ['עוד',`<div class="cg-segs">${cgTg('data-jt','grow','חם בשוק',JOBF.grow)}${cgTg('data-jt','acad','מגיעים אליו עם תואר אקדמי',JOBF.acad)}</div>`]
+  ];
+  return cats+cgBar({n,unit:'מקצועות',cnt,sortId:'jsort',sorts,cur:k,active:act,clearAttr:'data-jclear',on})+cgPanel({groups,n,unit:'מקצועות',on,clearAttr:'data-jclear'});
+}
+function jobsGridHTML(){
+  const P=jobsPool();
+  if(!P.length)return cgEmpty('לא נמצאו מקצועות','אפשר לנסות מילה אחרת, שם של תפקיד (למשל "מפתח" או "מעצב") או להסיר חלק מהסינונים.',(JOBF.g||JOBF.grow||JOBF.acad||JOBF.sal)?'<button class="btn soft" data-jclear>ניקוי הסינון</button>':'');
+  return `<div class="cg-grid">${P.slice(0,JOBF.shown).map((o,i)=>ocCard(o,{delay:Math.min(i%36,12)*30})).join('')}</div>${P.length>JOBF.shown?`<div class="more"><button class="btn soft" data-jmore>להציג עוד (${P.length-JOBF.shown} נוספים)</button></div>`:''}`;
+}
+function ocCard(o,opt={}){
+  const g=ocGroup(o.id),n=occDegs(o.id),nd=n.main.length+n.more.length,fit=occFitN(o.id),emp=ocEmp(o),dash='<span class="cg-na" title="אין נתון">—</span>';
+  const titles=(o.titles||[]).slice(0,2).map(esc).join(' · ');
+  return `<article class="card dg occ" style="${cv(OGCAT[g])}${opt.delay!=null?`;animation-delay:${opt.delay}ms`:''}"><button class="hit" data-occ="${o.id}" aria-label="${esc(o.n)}"></button>
+    <div class="dg-top"><span class="dg-ic">${ocIll(o).replace('<svg class="ill"','<svg class="ill" preserveAspectRatio="xMidYMid slice"')}</span>
+      <div class="dg-meta"><span class="cat">${esc(OGN[g])}</span><div class="dg-b">${occHot(o)?'<span class="tag hot">חם בשוק</span>':''}</div></div></div>
+    <h3>${esc(o.n)}</h3>${titles?`<p class="dg-types">${titles}</p>`:''}
+    ${fit?`<div class="dg-foot"><span class="tag m">אפשר להתקבל ל-${fit} ${fit===1?'תואר':'תארים'} שמובילים לכאן</span></div>`:''}
+    <dl class="dg-facts num"><div><dt>שכר חודשי</dt><dd title="שכר חודשי ממוצע בתחום (עבודאטה)">${o.sal?'₪'+cgK(o.sal):dash}</dd></div><div><dt>תארים מובילים</dt><dd>${nd||dash}</dd></div><div><dt>עובדים</dt><dd title="מספר העובדים בשנה האחרונה שיש עליה נתון (עבודאטה)">${emp?cgK(emp):dash}</dd></div></dl></article>`;
+}
+function renderJobs(){
+  return `<div class="cg cg-job">${cgHero({title:'מקצועות וקריירה',sub:`${fmt(OCLIST.length)} מקצועות, לפי משרד העבודה`,inputId:'jq',ph:'חיפוש מקצוע',aria:'חיפוש מקצוע',val:JOBF.q})}
+  <div class="cg-body"><div id="jfilters">${jobsFiltersHTML()}</div><h2 class="sr">רשימת המקצועות</h2><div id="jHost" class="gridhost">${jobsGridHTML()}</div></div>
+  <p class="fine cg-fine">המקצועות, התפקידים, השכר והחלוקות: <a href="${AVURL}/occupations" target="_blank" rel="noopener">עבודאטה</a> (משרד העבודה, לפי עיבוד נתוני הלמ"ס). החלוקה לתחומים לפי קוד הסיווג הבין-לאומי של המקצוע (ISCO).</p></div>`;
+}
+
+/* ---------- technician tracks (מה"ט) ---------- */
+function techFiltersHTML(){
+  const n=techPool().length,k=TF.sort||(TF.q?'rel':'fit'),cnt=TF.area?1:0,on=!!(TF.kind||TF.area||TF.q);
+  const kinds=[['','הכל',MAHAT.length],['הנדסאי','הנדסאים',MAHAT.filter(m=>m.kind==='הנדסאי').length],['טכנאי','טכנאים',MAHAT.filter(m=>m.kind==='טכנאי').length],['מכינה','מכינה טכנולוגית',MAHAT.filter(m=>m.kind==='מכינה').length]];
+  const cats=cgCats(kinds.map(([v,l,c])=>[v,l,c,null]),TF.kind,'data-tk','סוג הלימודים');
+  const sorts=[...(TF.q?[['rel','הכי רלוונטי לחיפוש']]:[]),['fit',profileOK()?'הכי מתאים לי':'מומלץ'],['sal','שכר הבוגרים'],['many','הכי הרבה מכללות'],['az','א–ת']];
+  const act=[];
+  if(TF.q)act.push(cgChip('חיפוש: '+TF.q,'data-tclearq'));
+  if(TF.kind)act.push(cgChip(kinds.find(x=>x[0]===TF.kind)[1],'data-tk=""'));
+  if(TF.area)act.push(cgChip('אזור: '+TF.area,'data-tarea'));
+  const groups=[['אזור',`<label class="cg-sel"><select id="tarea" aria-label="אזור"><option value="">כל הארץ</option>${MH_AREAS.map(a=>`<option ${TF.area===a?'selected':''}>${esc(a)}</option>`).join('')}</select></label><p class="cg-note">${MH_AREA_NOTE}</p>`]];
+  return cats+cgBar({n,unit:'מגמות',cnt,sortId:'tsort',sorts,cur:k,active:act,clearAttr:'data-tclear',on})+cgPanel({groups,n,unit:'מגמות',on,clearAttr:'data-tclear'});
+}
+function mahatCard(m,i){
+  const sal=mhSal(m),f=mhFit(m),nA=TF.area?m.col.filter(c=>c.area===TF.area).length:0,dash='<span class="cg-na" title="אין נתון">—</span>';
+  const kind=m.kind==='טכנאי'?'טכנאי מוסמך':m.kind==='מכינה'?'מכינה טכנולוגית':'הנדסאי';
+  const why=f.why.filter(w=>!/מכללות? ב/.test(w)).slice(0,1);
+  return `<article class="card dg" style="${cv(mhCat(m))}"><button class="hit" data-mh="${i}" aria-label="${esc(m.n)}"></button>
+    <div class="dg-top"><span class="dg-ic">${ill({id:'mh'+i,n:m.n,c:mhCat(m)}).replace('<svg class="ill"','<svg class="ill" preserveAspectRatio="xMidYMid slice"')}</span>
+      <div class="dg-meta"><span class="cat">${kind} · מה"ט</span></div></div>
+    <h3>${esc(m.n)}</h3>
+    ${why.length?`<div class="dg-foot">${why.map(w=>`<span class="tag m">${esc(w)}</span>`).join('')}</div>`:''}
+    <dl class="dg-facts num"><div><dt>${nA?'מכללות באזור':'מכללות'}</dt><dd>${nA||m.col.length}</dd></div><div><dt>שכר בוגרים</dt><dd title="שכר ממוצע לבוגרים שעובדים במקצוע, 3–4 שנים אחרי הלימודים (סקר בוגרי מה&quot;ט)">${sal?'₪'+cgK(sal):dash}</dd></div><div><dt>סוג</dt><dd>${m.kind==='טכנאי'?'טכנאי':m.kind==='מכינה'?'מכינה':'הנדסאי'}</dd></div></dl></article>`;
+}
+const techGridHTML=()=>{const L=techPool();return L.length?`<div class="cg-grid">${L.map(x=>mahatCard(x.m,x.i)).join('')}</div>`:cgEmpty('לא נמצאו מגמות','אפשר לנסות מילה אחרת או להסיר חלק מהסינונים.',(TF.kind||TF.area)?'<button class="btn soft" data-tclear>ניקוי הסינון</button>':'')};
+function renderTech(){
+  const p=S.prof,noCert=profileOK()&&!BAG_EQUIV(p)&&p.bag!=='handesai';
+  return `<div class="cg cg-tech">${cgHero({title:'הנדסאים וטכנאים',sub:'לימודי מה"ט (המכון הממשלתי להכשרה בטכנולוגיה ובמדע) במכללות הטכנולוגיות: כל המגמות, איפה לומדים כל אחת, מה לומדים ומה השכר לפי סקר בוגרי מה"ט.',inputId:'tq',ph:'למשל: תוכנה, חשמל, אדריכלות, רכב…',aria:'חיפוש מגמה',val:TF.q})}
+  <div class="cg-body">
+   ${noCert?`<div class="ck no band" style="margin:0 0 16px"><span class="cki" aria-hidden="true">✕</span><div><b>לפי הפרופיל שלי חסרים לי מקצועות בבגרות</b><span class="sub">אפשר להתחיל במכינה טכנולוגית של מה"ט, ולכן היא מופיעה ראשונה ברשימה.</span></div></div>`:''}
+   <div id="tfilters">${techFiltersHTML()}</div>
+   <h2 class="sr">רשימת המגמות</h2><div id="tHost" class="gridhost">${techGridHTML()}</div>
+   <div class="srcnote" style="margin-top:26px">${ICON.check}<div><b>תנאי קבלה בסיסיים ללימודי הנדסאים</b>, לפי עבודאטה (משרד העבודה): ציון עובר ב-3 יח"ל מתמטיקה, 3 יח"ל אנגלית ו-2 יח"ל עברית.${factChip('mahat.basic')} המכללות רשאיות להוסיף תנאים משלהן. מי שחסרים לו מקצועות יכול להתחיל ב<button class="linkbtn" data-mh="${MAHAT.findIndex(m=>m.kind==='מכינה')}" style="color:inherit;text-decoration:underline">מכינה טכנולוגית</button>. <a href="${AVURL}/MahatEducation/${(MAV[0]||{}).id||''}" target="_blank" rel="noopener">מקור</a></div></div>
+   <p class="fine" style="margin-top:14px">מקורות: <a href="${MAHAT_SRC}" target="_blank" rel="noopener">אתר דירוג מכללות מה"ט</a> (רשימת המגמות, המכללות והאזורים), <a href="${MAHAT_LIST}" target="_blank" rel="noopener">עמודי המגמות באתר gov.il</a> (תוכן ושכר), <a href="${AVURL}" target="_blank" rel="noopener">עבודאטה</a>. ההתאמה לתחומי העניין לפי שם המגמה.</p>
+  </div></div>`;
+}
+/* the area chip takes the area off */
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('[data-tarea]');if(a){TF.area='';store.set('techArea','');refreshTech()}});
 /*@@V3-JS-END@@*/
 initAccounts();motionInit();a11yApply();S.route=parse();tourPrep();S.navDir='fwd';render();a11yRoute(false);initForum(); /* the first screen comes in like any new screen */
 try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);if(VT.pending)setTimeout(()=>vtStart({first:true}),900);else setTimeout(openProfile,600)}}catch(e){}
