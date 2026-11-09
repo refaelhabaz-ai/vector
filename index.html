@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-pas45pMZjF7DF9QoizOaMtmEmSUEpEe2SyZgCL/PTK0=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-DWjnY/0NfXMVWUh3Hmoj5t7l/HvQxxTsljk0wwNJAb4=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -4283,6 +4283,54 @@ html.hc .dg-facts,html.hc .cg-panel{border:2px solid #000;box-shadow:none}
 .cg-tech .cg-g{display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px}
 .cg-tech .cg-lg{margin:0}
 .cg-tech .cg-note{margin:0;flex:1 1 280px}
+
+/* ================= v3: the route as a flight ================= */
+/* the sky card: it warms from morning blue to evening gold as my progress grows (--wm) */
+.sm{border-radius:32px;background:linear-gradient(180deg,color-mix(in srgb,#3D9BF5 calc((1 - var(--wm,0))*100%),#FF8A63) 0,color-mix(in srgb,#9ED5FF calc((1 - var(--wm,0))*100%),#FFC08F) 52%,#FFF3DA 100%);box-shadow:0 26px 60px -20px rgba(10,60,120,.5)}
+.sm::before{inset:0;background:radial-gradient(70% 36% at 82% 4%,rgba(255,246,200,.75),transparent 70%),radial-gradient(60% 30% at 8% 70%,rgba(255,255,255,.25),transparent 70%)}
+.sm-hills,.sm-tr,.sm-bush,.sm-fl,.sm-rock,.sm-pond,.sm-edge,.sm-yl,.sm-bed{display:none}
+.sm-sea{position:absolute;left:-10px;right:-10px;bottom:-14px;height:88px;background:radial-gradient(circle at 50% 100%,#fff 0 58%,transparent 60%) 0 0/130px 74px repeat-x,radial-gradient(circle at 50% 100%,rgba(255,255,255,.7) 0 58%,transparent 60%) 65px -22px/130px 74px repeat-x}
+.sm-cl{width:92px;height:26px;opacity:.96;box-shadow:0 10px 18px -6px rgba(10,60,120,.18)}
+.sm-sp{position:absolute;width:7px;height:7px;background:#fff;border-radius:50%;opacity:.0;animation:smTw var(--d,3s) ease-in-out infinite}
+@keyframes smTw{50%{opacity:.85;transform:scale(1.6)}}
+/* the contrail: dotted white where the road was, and a warm solid line over the part I have already flown */
+.sm-base{stroke:#fff;stroke-width:6px;stroke-dasharray:1.5 15;opacity:.95;filter:drop-shadow(0 2px 3px rgba(10,60,120,.3))}
+.sm-prog{stroke:#FFC22E;stroke-width:9px;stroke-linecap:round;opacity:.96;filter:drop-shadow(0 0 8px rgba(255,194,46,.85))}
+/* a cloud under every stop */
+.sm-b::before{content:"";position:absolute;left:50%;top:calc(var(--oy) + 2px);width:92px;height:46px;transform:translateX(-50%);pointer-events:none;
+  background:radial-gradient(circle at 24% 62%,#fff 0 22%,transparent 23%),radial-gradient(circle at 50% 40%,#fff 0 30%,transparent 31%),radial-gradient(circle at 77% 62%,#fff 0 22%,transparent 23%),radial-gradient(ellipse at 50% 76%,#fff 0 40%,transparent 41%);filter:drop-shadow(0 9px 6px rgba(10,60,120,.2))}
+.sm-n.g .sm-b::before{width:116px;height:56px;top:calc(var(--oy) + 4px)}
+.sm-n.e .sm-b::before{width:132px;height:64px;filter:drop-shadow(0 0 14px rgba(255,194,46,.95)) drop-shadow(0 9px 6px rgba(10,60,120,.2))}
+.sm-n.done .sm-b::before{filter:drop-shadow(0 0 9px rgba(255,194,46,.85)) drop-shadow(0 9px 6px rgba(10,60,120,.2))}
+.sm-n.nxt .sm-b::before{filter:drop-shadow(0 0 10px rgba(212,39,47,.55)) drop-shadow(0 9px 6px rgba(10,60,120,.2))}
+.sm-c{border:0;box-shadow:0 8px 14px -4px rgba(10,60,120,.35),inset 0 0 0 3px #fff}
+.sm-n.st.nxt .sm-c{background:var(--v3-red);box-shadow:0 0 0 5px rgba(212,39,47,.25),0 8px 16px rgba(212,39,47,.45)}
+.sm-n.g.cur .sm-c{background:var(--v3-red)}
+.sm-n.st.nxt .sm-l{background:var(--v3-sun)}
+.sm-pin{background:var(--v3-ink)}
+/* Vecti where the car was */
+.jn-car{width:calc(var(--u)*200px);height:auto;aspect-ratio:290/215;transform:translate(-50%,-62%) rotate(var(--a,0deg))}
+.jn-car>svg{width:100%;height:100%;transform:scaleX(var(--f,1));transform-origin:50% 50%;filter:drop-shadow(0 calc(var(--u)*12px) calc(var(--u)*8px) rgba(10,40,90,.3))}
+.jn-pf,.sm-car.smrev::after{display:none}
+.jn-car .vf-w{animation:vf-flap .64s ease-in-out infinite}
+.jn-car .vf-w.wf{animation-delay:-.08s}
+.jn-car .vf-tail{animation:vf-wag .9s ease-in-out infinite}
+.jn-car:not(.jc-go) .vf-pose{animation:smHov 2.8s ease-in-out infinite}
+.jn-car.jc-go .vf-w{animation-duration:.4s}
+.jn-car.jc-go .vf-pose{animation:vf-bob .4s ease-in-out infinite}
+@keyframes smHov{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+html.rg .jn-car .vf-w,html.rm .jn-car .vf-w{animation:none;transform:rotate(18deg)}
+html.rg .jn-car .vf-pose,html.rm .jn-car .vf-pose,html.rg .jn-car .vf-tail,html.rm .jn-car .vf-tail{animation:none}
+@media(prefers-reduced-motion:reduce){.jn-car .vf-w{animation:none;transform:rotate(18deg)}.jn-car .vf-pose,.jn-car .vf-tail{animation:none}.sm-sp,.sm-cl{animation:none}}
+/* the top of the route page: a morning sky instead of a night road */
+html.vx .vx-top{background:linear-gradient(135deg,#0A74BD 0%,#2A9BEA 60%,#58B7F5 100%)!important;box-shadow:0 26px 50px -22px rgba(10,60,120,.55)}
+html.vx .vx-top::before{background:radial-gradient(circle at 92% 8%,rgba(255,226,120,.55) 0 8%,transparent 30%)!important;opacity:1}
+.vx-inst,.vx-msg{color:#fff}
+.vx-inst b{color:var(--v3-sun)}
+.vx-top .vx-kick{background:var(--v3-sun);color:#2B1F00}
+.vx-go{background:var(--v3-red)!important;color:#fff!important}
+.vx-top .vx-me,.vx-top .linkbtn{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.vx-top .vx-me:hover{color:var(--v3-sun)}
 
 /* ---------- the three motion states and high contrast ---------- */
 html.rg .btn,html.rg .card,html.rg .hm-en,html.rg .hcard,html.rg .vn-link,html.rg .chip,html.rg .fb2,html.rg .vn-ic,html.rg .hm-mascot{transition-property:background-color,border-color,color,box-shadow!important}
@@ -11394,15 +11442,7 @@ const ZTH={g10:{c:'#1F9D55',bg:'#C9F2D6'},g11:{c:'#3B5BDB',bg:'#D3DEFF'},g12:{c:
 const miniCar=(c='#F2502F')=>`<svg class="mcar" viewBox="0 0 120 64" aria-hidden="true" focusable="false"><ellipse cx="60" cy="60" rx="48" ry="4" fill="rgba(20,24,52,.25)"/><path d="M8 45Q8 34 19 32L35 30 47 16Q51 12 58 12H84Q91 12 95 18L104 30Q114 32 114 42V48Q114 52 110 52H12Q8 52 8 48Z" fill="${c}"/><path d="M39 31 49 18Q51 16 54 16H66V31Z" fill="#BFE3FF"/><path d="M70 16H82Q87 16 90 20L98 31H70Z" fill="#BFE3FF"/><circle cx="60" cy="25" r="5" fill="#2B2F55"/><path d="M52 20.5 60 16.5 68 20.5 60 23.5Z" fill="#1B1F3B"/><rect x="8" y="36" width="7" height="5" rx="2" fill="#FFE066"/><rect x="110" y="36" width="4" height="6" rx="1.5" fill="#FF4D4D"/><circle cx="30" cy="51" r="9.5" fill="#1B1F3B"/><circle cx="30" cy="51" r="4.5" fill="#D9DEF0"/><circle cx="92" cy="51" r="9.5" fill="#1B1F3B"/><circle cx="92" cy="51" r="4.5" fill="#D9DEF0"/></svg>`;
 const CARC=['#F2502F','#3B5BDB','#12A26B','#7048E8','#E67700','#0C8599']; /* a colour for the car of each target */
 /* the car: me on the road. It parks just before the stop in focus, and drives (or reverses) there when another stop is picked */
-const CAR_SVG='<svg viewBox="-40 0 160 64" aria-hidden="true" focusable="false"><defs><linearGradient id="jnCg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF8A5B"/><stop offset=".55" stop-color="#F2502F"/><stop offset="1" stop-color="#C2361A"/></linearGradient><linearGradient id="jnBm" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#FFE066" stop-opacity=".85"/><stop offset="1" stop-color="#FFE066" stop-opacity="0"/></linearGradient></defs>'
- +'<path class="jc-bm" d="M10 37 -38 26V52Z" fill="url(#jnBm)"/><ellipse cx="60" cy="60" rx="50" ry="4" fill="rgba(20,24,52,.28)"/>'
- +'<g class="jc-bd"><path d="M8 45Q8 34 19 32L35 30 47 16Q51 12 58 12H84Q91 12 95 18L104 30Q114 32 114 42V48Q114 52 110 52H12Q8 52 8 48Z" fill="url(#jnCg)"/>'
- +'<path d="M39 31 49 18Q51 16 54 16H66V31Z" fill="#BFE3FF"/><path d="M70 16H82Q87 16 90 20L98 31H70Z" fill="#BFE3FF"/><path d="M39 31 49 18Q51 16 54 16H58L46 31Z" fill="#fff" opacity=".55"/>'
- +'<circle cx="60" cy="25" r="5" fill="#2B2F55"/><path d="M52 20.5 60 16.5 68 20.5 60 23.5Z" fill="#1B1F3B"/><path d="M67 21v4" stroke="#FFD43B" stroke-width="1.6" stroke-linecap="round"/>'
- +'<path d="M68 31V50" stroke="#B8341A" stroke-width="1.2"/><rect x="72" y="35" width="7" height="2.4" rx="1.2" fill="#fff" opacity=".8"/><rect x="8" y="36" width="7" height="5" rx="2" fill="#FFE066"/><rect x="110" y="36" width="4" height="6" rx="1.5" fill="#FF4D4D"/>'
- +'<path d="M14 33Q30 30 46 29" stroke="#fff" stroke-width="2" opacity=".35" stroke-linecap="round" fill="none"/></g>'
- +'<g class="jc-wh" transform="translate(30 51)"><g><circle r="9.5" fill="#1B1F3B"/><circle r="5" fill="#D9DEF0"/><path d="M0-5V5M-5 0H5" stroke="#1B1F3B" stroke-width="1.6"/></g></g>'
- +'<g class="jc-wh" transform="translate(92 51)"><g><circle r="9.5" fill="#1B1F3B"/><circle r="5" fill="#D9DEF0"/><path d="M0-5V5M-5 0H5" stroke="#1B1F3B" stroke-width="1.6"/></g></g></svg>';
+const CAR_SVG=vfSVG({decor:true,cls:'vf-hover'}); /* v3: Vecti flies where the car drove (the name stays, the rest of the map code is the old one) */
 /* a stop that has a screen of its own (the scholarships) opens that screen from the map; it does not unfold under the map */
 const GO_NAME={sch:'מסך המלגות'};
 /* the stops on the road: the start, every stage as a gate, the steps of the stage that is open (after its gate), and the finish */
@@ -11446,34 +11486,17 @@ function smDrive(toS,car,then){
   car=car||$('#jnCar');if(!car||!car.isConnected){if(then)then();return}cancelAnimationFrame(KP.carRaf);clearTimeout(KP.carTm);
   const g=car._g||SMG.cur;if(!g){if(then)then();return}
   const from=+car.dataset.s||0;car._g=g;
-  if(RM()||Math.abs(toS-from)<2){smPlace(car,g,toS);if(then)then();return}
+  if(RM()||vtReduce()||Math.abs(toS-from)<2){smPlace(car,g,toS);if(then)then();return}
   const rev=toS<from,ns=[...car.parentElement.querySelectorAll('.sm-n[data-s]')].map(n=>[+n.dataset.s,n]),T=Math.min(3400,Math.max(800,Math.abs(toS-from)*2.1)),t0=performance.now(),ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
   car.classList.remove('jc-park');car.classList.add('jc-go');car.classList.toggle('smrev',rev);let ps=from;
   const next=()=>{KP.carRaf=requestAnimationFrame(()=>{clearTimeout(KP.carTm);step(performance.now())});clearTimeout(KP.carTm);KP.carTm=setTimeout(()=>{cancelAnimationFrame(KP.carRaf);step(performance.now())},60)}; /* a browser that holds frames back still gets one from the timer */
-  const step=now=>{if(!car.isConnected)return;const k=Math.min(1,(now-t0)/T),s=from+(toS-from)*ease(k);smPlace(car,g,s);
+  const step=now=>{if(!car.isConnected)return;const k=Math.min(1,(now-t0)/T),s=from+(toS-from)*ease(k);smPlace(car,g,s);smTrail(car);
     ns.forEach(([ns_,n])=>{if((ns_-ps)*(ns_-s)<=0&&ns_!==ps){n.classList.remove('smhit');void n.offsetWidth;n.classList.add('smhit')}});ps=s;
     if(k<1)next();else{car.classList.remove('jc-go','smrev');car.classList.add('jc-park');if(then)then()}};
   next()}
 /* the car to a stop of the stage that is open (a tap on the map, or the next and previous buttons) */
 function carToStop(id,then){const b=document.querySelector(`#kpJ [data-kstop="${id}"]`),car=$('#jnCar');if(!b||!car){if(then)then();return}
   smDrive(+b.closest('.sm-n').dataset.t,car,then)}
-/* the landscape: hills on the horizon, the sun, clouds, birds, and trees, bushes, flowers and ponds wherever the road and the signs leave room. Decoration only, placed the same way every time */
-function smScene(g,boxes,pct){
-  const W=g.W,H=g.H,hz=SM_TOP-18,hill=(b,a1,f1,a2,f2,p)=>{let d=`M0 ${hz+60}L0 ${b}`;for(let x=0;x<=W+30;x+=30)d+=`L${x} ${Math.round(b-a1*(1+Math.sin(x/f1+p))-a2*(1+Math.sin(x/f2+p*2)))}`;return d+`L${W+30} ${hz+60}Z`};
-  let s=`<svg class="sm-hills" width="${W}" height="${hz+60}" aria-hidden="true" focusable="false"><path d="${hill(hz-22,16,120,6,47,.8)}" fill="#B9DCA9"/><path d="${hill(hz-2,11,92,5,37,2.4)}" fill="#8FCB84"/></svg>`;
-  /* the sky changes with the way I did: a morning blue at the start, a warm evening light near the end */
-  const road=[];g.segs.forEach(sg=>sg.T.forEach((p,i)=>{if(i%3===0)road.push([p[1],p[2]])}));
-  const hit=(x,y,r)=>road.some(p=>Math.hypot(p[0]-x,p[1]-y)<r+26)||boxes.some(b=>x+r>b[0]-4&&x-r<b[2]+4&&y+r*.3>b[1]-4&&y-r<b[3]+4);
-  let n=0,o='';
-  const R=i=>{const v=Math.sin(i*127.1+311.7)*43758.5453;return v-Math.floor(v)};
-  for(let i=0;i<260&&n<46;i++){const x=Math.round(R(i)*W),y=Math.round(hz+16+R(i+500)*(H-hz-20)),kind=Math.floor(R(i+900)*7),r=kind<4?14:kind<6?10:16;
-    if(x<8||x>W-8||y>H-6||hit(x,y,r))continue;n++;
-    const z=(.8+R(i+77)*.5).toFixed(2);
-    o+=kind===0||kind===1?`<i class="sm-tr" style="left:${x}px;top:${y}px;--z:${z}"></i>`:kind===2?`<i class="sm-tr pine" style="left:${x}px;top:${y}px;--z:${z}"></i>`:kind===3?`<i class="sm-bush" style="left:${x}px;top:${y}px;--z:${z}"></i>`:kind===4?`<i class="sm-fl" style="left:${x}px;top:${y}px;--c:${['#FF6B8B','#FFD43B','#fff','#B197FC'][Math.floor(R(i+31)*4)]}"></i>`:kind===5?`<i class="sm-rock" style="left:${x}px;top:${y}px;--z:${z}"></i>`:`<i class="sm-pond" style="left:${x}px;top:${y}px;--z:${z}"></i>`}
-  const nc=Math.max(3,Math.round(W/190));
-  for(let k=0;k<nc;k++){const x=Math.round((k+.3)*W/nc+((k*97)%60-30)),y=Math.round(6+(k*37)%36),z=(.7+((k*37)%40)/100).toFixed(2);
-    o+=`<i class="sm-cl" style="left:${x}px;top:${y}px;--z:${z};--d:${10+k%5*2}s"></i>`;if(k%2===1)o+=`<i class="sm-bd" style="left:${x+80}px;top:${y+26}px;--d:${7+k%4}s"></i>`}
-  return `<div class="sm-sky" aria-hidden="true"><i class="sm-sun"></i>${s}${o}</div>`}
 function smArc(z,r){const pct=z.total?z.done/z.total:0,L=2*Math.PI*r,m=r+5;return `<svg class="sm-arc" viewBox="0 0 ${2*m} ${2*m}" aria-hidden="true" focusable="false"><circle cx="${m}" cy="${m}" r="${r}" class="a0"/><circle cx="${m}" cy="${m}" r="${r}" class="a1" stroke-dasharray="${(L*pct).toFixed(1)} ${L.toFixed(1)}" transform="rotate(-90 ${m} ${m})"/></svg>`}
 const SMG={cur:null};
 /* what a stop says beside the map: the stage, its steps (each one can be opened, the ones I did too), and where it stands in time */
@@ -11503,7 +11526,7 @@ function journeyHTML(pl,t,o){
     if(i.k==='e'){bx(34,56);
       return `<li class="sm-n e" style="${pos}" ${sd}><div class="sm-b"><span class="sm-c">${ki('cap')}<i class="jn-sp a" aria-hidden="true"></i><i class="jn-sp b" aria-hidden="true"></i><i class="jn-sp c" aria-hidden="true"></i></span><span class="sm-l"><span class="sm-k">${ki('flag')}קו הסיום</span><b>היום הראשון בלימודים</b>${goW?`<small>${esc(goW)}</small>`:''}</span></div></li>`}
     if(i.k==='g'){bx(32,88);const z=i.z,s=trState(z,pl),open=z.id===fz,th=ZTH[z.id]||ZTH.g10;
-      return `<li class="sm-n g ${s}${open?' pick':''}" style="${pos};--rc:${th.c};--rb:${th.bg}" ${sd}><button type="button" class="sm-b" data-kgate="${z.id}" aria-pressed="${open}"><span class="sm-c">${smArc(z,arcR)}${ki(z.ic)}<i class="sm-gn" aria-hidden="true">${zn[z.id]}</i>${s==='done'?`<i class="sm-ok">${ki('check')}</i>`:''}</span><span class="sm-l"><span class="sm-k">שלב ${zn[z.id]} · ${open?'פתוח':trStateTxt[s]}</span><b>${z.t}</b><em class="num">${z.done} מתוך ${z.total} צעדים</em>${open?'':'<small>לחצו לפתיחה</small>'}<span class="sr">${open?'. השלב פתוח':'. לחיצה פותחת את השלב והרכב חוזר או נוסע אליו'}</span></span>${z.id===pl.cur?`<span class="sm-pin" aria-hidden="true">${ki('pin')}אני כאן</span>`:''}</button></li>`}
+      return `<li class="sm-n g ${s}${open?' pick':''}" style="${pos};--rc:${th.c};--rb:${th.bg}" ${sd}><button type="button" class="sm-b" data-kgate="${z.id}" aria-pressed="${open}"><span class="sm-c">${smArc(z,arcR)}${ki(z.ic)}<i class="sm-gn" aria-hidden="true">${zn[z.id]}</i>${s==='done'?`<i class="sm-ok">${ki('check')}</i>`:''}</span><span class="sm-l"><span class="sm-k">שלב ${zn[z.id]} · ${open?'פתוח':trStateTxt[s]}</span><b>${z.t}</b><em class="num">${z.done} מתוך ${z.total} צעדים</em>${open?'':'<small>לחצו לפתיחה</small>'}<span class="sr">${open?'. השלב פתוח':'. לחיצה פותחת את השלב ווקטי חוזר או טס אליו'}</span></span>${z.id===pl.cur?`<span class="sm-pin" aria-hidden="true">${ki('pin')}אני כאן</span>`:''}</button></li>`}
     const q=i.t,on=q.id===sel,isNx=q.id===nx,ext=q.go,ix=i.z.tasks.indexOf(q)+1,st=q.done?'בוצע':isNx?'הצעד הבא שלי':q.soon?'כדאי בקרוב':'בהמשך',th=ZTH[i.z.id]||ZTH.g10;bx(26,66);
     return `<li class="sm-n st${q.done?' done':''}${isNx?' nxt':''}${on?' pick':''}${ext?' ext':''}${q.soon&&!q.done?' soon':''}" style="${pos};--rc:${th.c};--rb:${th.bg}" ${sd}><button type="button" class="sm-b" ${ext?`data-kgoto="${esc(ext)}"`:`data-kstop="${q.id}"`}${on?' aria-pressed="true"':ext?'':' aria-pressed="false"'}${isNx?' aria-current="step"':''}><span class="sm-c">${q.done?ki('check'):ki(q.ic)}<i class="sm-no" aria-hidden="true">${ix}</i>${ext?`<i class="sm-gt" aria-hidden="true">${ki('arrow')}</i>`:''}</span><span class="sm-l">${q.soon&&!q.done?'<i class="sm-wr" aria-hidden="true">!</i>':''}<small class="sm-s" aria-hidden="true">${st}</small><b>${esc(q.t)}</b></span>${isNx?'<span class="sm-tag">הבא</span>':''}<span class="sr">: ${q.done?'הושלם':isNx?'זה הצעד הבא שלי':'עוד לא הושלם'}${ext?`. פותח את ${GO_NAME[ext]||'מסך אחר'}`:''}</span></button></li>`}).join('');
   /* where the car parks: just before the stop in focus, or before the gate of the open stage; where it comes from when it has to drive */
@@ -11513,7 +11536,7 @@ function journeyHTML(pl,t,o){
   else if(o.fromZ){const fi=I.findIndex(x=>x.k==='g'&&x.z.id===o.fromZ);if(fi>=0)from=smStopS(g,I,fi)}
   else if(o.fromS!=null)from=Math.min(g.total,o.fromS);
   const drive=Math.abs(from-to)>=2,p0=smPt(g,from),tip=!store.get('jnTip',0);
-  const car=`<div class="jn-car sm-car" id="jnCar" data-s="${from.toFixed(1)}" data-f="1" data-to="${drive?to.toFixed(1):''}" style="left:${p0.x.toFixed(1)}px;top:${p0.y.toFixed(1)}px" aria-hidden="true">${CAR_SVG}<i class="jn-pf a"></i><i class="jn-pf b"></i><i class="jn-pf c"></i>${tip?`<div class="jn-tip sm-tip${p0.y<200?' below':''}" role="note"><b>זה אני!</b><span>הרכב הזה הוא אני. לוחצים על שלט של צעד והרכב נוסע אליו. לוחצים על שלב כדי לפתוח אותו, ואם הוא מאחוריי, הרכב נוסע אחורה.</span><button type="button" class="btn sm" data-kjtip>הבנתי</button></div>`:''}</div>`;
+  const car=`<div class="jn-car sm-car" id="jnCar" data-s="${from.toFixed(1)}" data-f="1" data-to="${drive?to.toFixed(1):''}" style="left:${p0.x.toFixed(1)}px;top:${p0.y.toFixed(1)}px" aria-hidden="true">${CAR_SVG}<i class="jn-pf a"></i><i class="jn-pf b"></i><i class="jn-pf c"></i>${tip?`<div class="jn-tip sm-tip${p0.y<200?' below':''}" role="note"><b>זה אני!</b><span>וקטי הוא אני. לוחצים על ענן של צעד, ווקטי טס אליו. לוחצים על שלב כדי לפתוח אותו, ואם הוא מאחוריי, ווקטי טס אחורה.</span><button type="button" class="btn sm" data-kjtip>הבנתי</button></div>`:''}</div>`;
   const hue=Math.max(0,Math.min(1,pl.pct/100));
   return `<div class="sm${intro?' sm-intro':''}" id="kpTrail" data-w="${W}" data-drive="${drive?1:0}" data-wait="${intro?900:o.wait||120}" style="--u:${u};width:${W}px;height:${g.H}px;--wm:${hue.toFixed(2)};--hz:${SM_TOP-18}px">
     ${smScene(g,boxes,pl.pct)}
@@ -11617,7 +11640,7 @@ function hubPageHTML(){
   const P=pth(),L=tInfos(),best=L.length>1?L.slice().sort((a,b)=>b.pct-a.pct)[0]:null;
   return `<section class="hero kp-hero kp-hubhero"><div class="wrap">${BACK}<span class="kicker" style="margin-top:10px">${ki('map')}המסלול שלי</span>
       <h1 class="kp-hub-h">היעדים שלי</h1>
-      <p class="sub">${L.length>1?'כל יעד הוא נסיעה משלו: הרכב של כל יעד מראה כמה מהדרך כבר עשיתי, ומתחת רואים את מצב הציונים מול הסף. בוחרים יעד כדי להמשיך בדרך שלו. כל היעדים נשארים.':'היעד שהצבתי, וכמה אחוזים מהדרך עשיתי. אפשר להוסיף עוד יעד ולהשוות: אותו תואר במוסד אחר, או תואר אחר.'}</p>
+      <p class="sub">${L.length>1?'כל יעד הוא טיסה משלו: וקטי של כל יעד מראה כמה מהדרך כבר עשיתי, ומתחת רואים את מצב הציונים מול הסף. בוחרים יעד כדי להמשיך בדרך שלו. כל היעדים נשארים.':'היעד שהצבתי, וכמה אחוזים מהדרך עשיתי. אפשר להוסיף עוד יעד ולהשוות: אותו תואר במוסד אחר, או תואר אחר.'}</p>
       ${best&&best.pct>0?`<p class="kp-hubbest">${ki('star')}<span>הכי מתקדם עכשיו: <b>${esc(best.d.n)}</b> ${esc(bIn(best.I.n))} (${best.pct}%)</span></p>`:''}</div></section>
     <div class="wrap kp-body"><div class="kp-hub">${L.map(x=>hubCard(x,P)).join('')}${L.length<MAXT?`<button class="kp-hc add" data-kadd><span class="kp-addi">${FIC.plus}</span><b>הוספת יעד</b><small>תואר אחר, או אותו תואר במוסד אחר. כך אפשר להשוות כמה אני קרוב לכל אחד</small></button>`:''}</div>
       <details class="adm dmeth kp-adm"><summary>איך מחושב האחוז?</summary><div class="admb"><p>האחוז הוא כמה מהצעדים בדרך ליעד כבר עשיתי. צעדים שאני מסמן ✓ נספרים, וגם צעדים שהמערכת מסמנת לפי הנתונים שלי (למשל, שיש לי ציון פסיכומטרי). כשאני קרוב לסף הקבלה, נספר גם חלק מהצעד "לעבור את סף הקבלה". זה לא סיכוי להתקבל: אין לנו נתונים רשמיים על סיכוי, והמוסד הוא שמחליט.</p></div></details></div>`}
@@ -11676,7 +11699,7 @@ function odoHTML(pl){const d=String(pl.done).padStart(3,'0'),left=Math.max(0,pl.
     <div class="pg-ol"><span class="pg-oi">${ki('flag')}</span><span><small>עד קו הסיום</small><b><span class="num">${left}</span> ${left===1?'צעד':'צעדים'}</b></span></div>
     <div class="pg-ol"><span class="pg-oi">${ki('fire')}</span><span><small>דלק: ימים ברצף שהתקדמתי</small><b><span class="num">${sx}</span> ${sx===1?'יום':'ימים'}</b></span></div></div>`}
 function progHTML(pl){
-  return `<div class="sec-h"><div><h2>${ki('chart')}ההתקדמות שלי</h2><p>כל שלב בדרך הוא נתיב, והרכב שבו מראה כמה מהשלב כבר עשיתי. כשהרכב מגיע לדגל, השלב הושלם. לוחצים על שלב כדי לראות את הצעדים שלו, ומסמנים ✓ כשמסיימים צעד.</p></div></div>
+  return `<div class="sec-h"><div><h2>${ki('chart')}ההתקדמות שלי</h2><p>כל שלב בדרך הוא נתיב טיסה, ווקטי שבו מראה כמה מהשלב כבר עשיתי. כשווקטי מגיע לדגל, השלב הושלם. לוחצים על שלב כדי לראות את הצעדים שלו, ומסמנים ✓ כשמסיימים צעד.</p></div></div>
     ${odoHTML(pl)}<div class="pg">${pgChart(pl,pgSel(pl))}${panelHTML(pl)}</div>${standHTML(pl)}${achieveHTML(pl)}`}
 /* the columns are drawn at their height when the view opens; a chart that is already in the page moves to a new height when I mark a step */
 /* a step was marked: the chart, its list and the achievements change in place, so the columns move and nothing flickers */
@@ -12128,15 +12151,15 @@ function nowHTML(pl){
         <li><span>${ki('fire')}</span><small>ימים ברצף</small><b><span class="num">${sk}</span></b></li>
         <li><span>${ki('cap')}</span><small>הגעה ליעד</small><b>${esc(goW||'עוד לא בחרתי שנה')}</b></li></ul></div>
     <div class="jn-gauge vx-gauge" role="img" aria-label="עשיתי ${p}% מהצעדים בדרך">${vxSpd(p)}<div class="jn-gv"><b class="num">${p}<small>%</small></b><span>מהצעדים בדרך עשיתי</span></div></div>
-    ${nx?`<div class="vx-nx"><span class="vx-na" aria-hidden="true">${ki('arrow')}</span><div class="vx-nt"><small>הפנייה הבאה${nz?` · ${esc(nz)}`:''}</small><b>${esc(nx.t)}</b>${nx.due?`<span>${esc(dueText(nx))}</span>`:''}</div>
-        <button type="button" class="vx-go" data-kstop="${nx.id}">סעו לשם${ki('arrow')}</button></div>`:`<div class="vx-nx done"><span class="vx-na" aria-hidden="true">${ki('flag')}</span><div class="vx-nt"><small>הגעתי</small><b>כל הצעדים בדרך הושלמו</b></div></div>`}</section>`;
-  const map=`<section class="vx-mapcard" aria-labelledby="vxMapH"><div class="vx-mh"><div><h2 id="vxMapH">המפה שלי</h2><p>לוחצים על שלב או על צעד, והרכב נוסע אליו. אפשר לחזור לכל שלב שעברתי, והרכב יחזור אחורה.</p></div>
+    ${nx?`<div class="vx-nx"><span class="vx-na" aria-hidden="true">${ki('arrow')}</span><div class="vx-nt"><small>הנחיתה הבאה${nz?` · ${esc(nz)}`:''}</small><b>${esc(nx.t)}</b>${nx.due?`<span>${esc(dueText(nx))}</span>`:''}</div>
+        <button type="button" class="vx-go" data-kstop="${nx.id}">טוסו לשם${ki('arrow')}</button></div>`:`<div class="vx-nx done"><span class="vx-na" aria-hidden="true">${ki('flag')}</span><div class="vx-nt"><small>הגעתי</small><b>כל הצעדים בדרך הושלמו</b></div></div>`}</section>`;
+  const map=`<section class="vx-mapcard" aria-labelledby="vxMapH"><div class="vx-mh"><div><h2 id="vxMapH">המפה שלי</h2><p>לוחצים על ענן של שלב או של צעד, ווקטי טס אליו. אפשר לחזור לכל שלב שעברתי, ווקטי יטוס אחורה.</p></div>
       <div class="vx-mt"><details class="vx-how"><summary>איך קוראים את המפה?</summary><ul>
-        <li><i class="c" aria-hidden="true"></i><span><b>הרכב</b> הוא אני. לוחצים על צעד והרכב נוסע אליו. לוחצים על שלב שכבר עברתי והרכב נוסע אחורה אליו.</span></li>
-        <li><i class="g" aria-hidden="true"></i><span><b>שלט צבעוני</b> הוא שלב: תקופה בדרך, כמו כיתה י"א או ההרשמה. לוחצים כדי לפתוח את הצעדים שבו, גם בשלב שסיימתי.</span></li>
-        <li><i class="s" aria-hidden="true"></i><span><b>שלט לבן</b> הוא צעד: דבר אחד שעושים. לוחצים כדי לראות מה עושים ולמה.</span></li>
-        <li><i class="n" aria-hidden="true"></i><span><b>שלט צהוב</b> הוא הצעד הבא: מה הכי כדאי לעשות עכשיו.</span></li>
-        <li><i class="d" aria-hidden="true"></i><span><b>כביש ירוק</b> הוא הדרך שכבר עשיתי.</span></li>
+        <li><i class="c" aria-hidden="true"></i><span><b>וקטי</b> הוא אני. לוחצים על צעד, ווקטי טס אליו. לוחצים על שלב שכבר עברתי, ווקטי טס אחורה אליו.</span></li>
+        <li><i class="g" aria-hidden="true"></i><span><b>ענן צבעוני</b> הוא שלב: תקופה בדרך, כמו כיתה י"א או ההרשמה. לוחצים כדי לפתוח את הצעדים שבו, גם בשלב שסיימתי.</span></li>
+        <li><i class="s" aria-hidden="true"></i><span><b>ענן לבן</b> הוא צעד: דבר אחד שעושים. לוחצים כדי לראות מה עושים ולמה.</span></li>
+        <li><i class="n" aria-hidden="true"></i><span><b>ענן אדום</b> הוא הצעד הבא: מה הכי כדאי לעשות עכשיו.</span></li>
+        <li><i class="d" aria-hidden="true"></i><span><b>שובל צהוב</b> הוא הדרך שכבר טסתי.</span></li>
         <li class="jn-hint"><span>האחוז הוא כמה מהצעדים עשיתי, ולא סיכוי להתקבל.</span></li></ul></details></div></div>
     <div class="jn-w" id="kpJw"><div id="kpJ">${journeyHTML(pl,t)}</div></div></section>`;
   const side=`<aside class="vx-side" aria-label="הסבר על הצעד"><div class="vx-sidein">
@@ -15087,6 +15110,27 @@ function renderTech(){
 }
 /* the area chip takes the area off */
 document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('[data-tarea]');if(a){TF.area='';store.set('techArea','');refreshTech()}});
+
+/* ================= v3: the route page as a flight =================
+   The geometry, the stops and the driving logic of the old road map are kept (smGeo, smPlace, smDrive, journeyHTML); what changed is how it looks:
+   a sky with clouds and a sun that warms with my progress, a dotted contrail where the road was, a cloud under every stop, and Vecti flying where the car drove. */
+function smScene(g,boxes,pct){
+  const W=g.W,H=g.H,R=i=>{const v=Math.sin(i*127.1+311.7)*43758.5453;return v-Math.floor(v)};
+  const hit=(x,y,r)=>boxes.some(b=>x+r>b[0]-6&&x-r<b[2]+6&&y+r*.4>b[1]-6&&y-r*.4<b[3]+6);
+  let o='<i class="sm-sun"></i>',n=0;const want=Math.max(4,Math.round(H/110)+2);
+  for(let i=0;i<200&&n<want;i++){const x=Math.round(R(i)*W),y=Math.round(10+R(i+500)*(H-60)),z=(.75+R(i+77)*.7).toFixed(2);
+    if(x<20||x>W-60||hit(x,y,40*+z))continue;n++;o+=`<i class="sm-cl" style="left:${x}px;top:${y}px;--z:${z};--d:${12+i%5*3}s"></i>`}
+  for(let k=0;k<3;k++)o+=`<i class="sm-bd" style="left:${Math.round(W*(.2+k*.28))}px;top:${Math.round(H*(.18+k*.23))}px;--d:${8+k*2}s"></i>`;
+  for(let i=0;i<14;i++){const x=Math.round(R(i+900)*W),y=Math.round(R(i+1300)*(H-30));if(hit(x,y,10))continue;o+=`<i class="sm-sp" style="left:${x}px;top:${y}px;--d:${2+i%4}s;animation-delay:${(i%5)*.4}s"></i>`}
+  return `<div class="sm-sky" aria-hidden="true">${o}<i class="sm-sea"></i></div>`;
+}
+/* a feather behind him while he flies between two stops */
+let SM_TR=0;
+function smTrail(car){
+  const now=performance.now();if(now-SM_TR<85||vtReduce())return;SM_TR=now;
+  const r=car.getBoundingClientRect(),k=Math.random();
+  vfDrop(r.left+r.width/2+(Math.random()-.5)*16,r.top+r.height*.55,{kind:k<.6?'feather':'star',dx:(Math.random()-.5)*44,dy:40+Math.random()*60,rot:(Math.random()-.5)*280,ms:800+Math.random()*500});
+}
 /*@@V3-JS-END@@*/
 initAccounts();motionInit();a11yApply();S.route=parse();tourPrep();S.navDir='fwd';render();a11yRoute(false);initForum(); /* the first screen comes in like any new screen */
 try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);if(VT.pending)setTimeout(()=>vtStart({first:true}),900);else setTimeout(openProfile,600)}}catch(e){}
