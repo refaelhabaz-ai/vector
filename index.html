@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-HnvVPCKtwXzU1NEIJzMxc8z+TGFeSQPXi0xa2+jTPz8=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-cFbwoXQraDk2U3X2Dn7v8Ci73bInaUKGz4MuKLvEqwk=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -3968,8 +3968,8 @@ html body .vb-launch .vecti-wrap{background:#fff;box-shadow:0 12px 28px -8px rgb
 
 /* ---------- small joy ---------- */
 @keyframes v3-pop{0%{opacity:0;transform:translateY(14px) scale(.96)}70%{opacity:1;transform:translateY(-3px) scale(1.01)}100%{transform:none}}
-@media(prefers-reduced-motion:no-preference){
-  html:not(.rg):not(.rm) .view>*{animation:v3-pop .5s var(--v3-ease-out) backwards} /* backwards only: a filled transform would make this a containing block for every position:fixed inside */
+@media all{
+  html:not(.rg):not(.rm):not(.rr) .view>*{animation:v3-pop .5s var(--v3-ease-out) backwards} /* backwards only: a filled transform would make this a containing block for every position:fixed inside */
 }
 
 /* ---------- home ---------- */
@@ -4070,10 +4070,10 @@ html.vt-on .hm-mascot,html.vt-on .hm-say,html.vt-pending .hm-mascot,html.vt-pend
 .vf-talk .vf-jaw{animation:vf-talk .3s ease-in-out infinite alternate}
 @keyframes vf-talk{from{transform:rotate(0)}to{transform:rotate(11deg)}}
 /* idle: blink, a curious head tilt, a hop now and then */
-@media(prefers-reduced-motion:no-preference){
-  html:not(.rg):not(.rm) .vf-idle .vf-lid{animation:vf-blink 5.2s infinite}
-  html:not(.rg):not(.rm) .vf-idle .vf-head{animation:vf-tilt 8s ease-in-out infinite}
-  html:not(.rg):not(.rm) .vf.vf-hop{animation:vf-hopa .6s cubic-bezier(.3,1.4,.5,1)}
+@media all{
+  html:not(.rg):not(.rm):not(.rr) .vf-idle .vf-lid{animation:vf-blink 5.2s infinite}
+  html:not(.rg):not(.rm):not(.rr) .vf-idle .vf-head{animation:vf-tilt 8s ease-in-out infinite}
+  html:not(.rg):not(.rm):not(.rr) .vf.vf-hop{animation:vf-hopa .6s cubic-bezier(.3,1.4,.5,1)}
 }
 @keyframes vf-blink{0%,93%,100%{transform:scaleY(0)}96%{transform:scaleY(1)}}
 @keyframes vf-tilt{0%,60%,100%{transform:rotate(0)}68%,80%{transform:rotate(-9deg)}}
@@ -4100,7 +4100,7 @@ html.vt-on .hm-mascot,html.vt-on .hm-say,html.vt-pending .hm-mascot,html.vt-pend
   transition:left .6s var(--v3-ease-out),top .6s var(--v3-ease-out),width .6s var(--v3-ease-out),height .6s var(--v3-ease-out),opacity .3s}
 #vt-spot.on{opacity:1}
 #vt-spot::after{content:"";position:absolute;inset:-4px;border-radius:inherit;border:4px solid var(--v3-sun);opacity:0}
-@media(prefers-reduced-motion:no-preference){html:not(.rg):not(.rm) #vt-spot.on::after{animation:vt-ring 1.8s ease-out infinite}}
+@media all{html:not(.rg):not(.rm):not(.rr) #vt-spot.on::after{animation:vt-ring 1.8s ease-out infinite}}
 @keyframes vt-ring{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.08,1.18);opacity:0}}
 #vt-bird{position:absolute;left:0;top:0;z-index:5;pointer-events:none;will-change:transform;opacity:0;transition:opacity .25s}
 #vt-bird.on{opacity:1}
@@ -4141,7 +4141,7 @@ header.hdr.vn .vn-tour svg{width:18px;height:18px}
 header.hdr.vn .vn-tour:hover{background:#FFD45E!important}
 @media(max-width:1499px){header.hdr.vn .tools .vn-btn.vn-tour{display:none}}
 html.rg .vf-perch .vf-w,html.rm .vf-perch .vf-w{animation:none;transform:rotate(108deg) scale(.84)}
-@media(prefers-reduced-motion:reduce){.vf-perch .vf-w{animation:none;transform:rotate(108deg) scale(.84)}.vf-pose{transition:none}}
+@media all{html.rr .vf-perch .vf-w{animation:none;transform:rotate(108deg) scale(.84)}html.rr .vf-pose{transition:none}}
 html.vt-on .hdr.tuck,html.vt-on .hdr{transform:none!important}
 
 /* ================= v3: the catalogue pattern ================= */
@@ -4329,7 +4329,7 @@ html.hc .dg-facts,html.hc .cg-panel{border:2px solid #000;box-shadow:none}
 @keyframes smHov{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 html.rg .jn-car .vf-w,html.rm .jn-car .vf-w{animation:none;transform:rotate(18deg)}
 html.rg .jn-car .vf-pose,html.rm .jn-car .vf-pose,html.rg .jn-car .vf-tail,html.rm .jn-car .vf-tail{animation:none}
-@media(prefers-reduced-motion:reduce){.jn-car .vf-w{animation:none;transform:rotate(18deg)}.jn-car .vf-pose,.jn-car .vf-tail{animation:none}.sm-sp,.sm-cl{animation:none}}
+@media all{html.rr .jn-car .vf-w{animation:none;transform:rotate(18deg)}html.rr .jn-car .vf-pose,html.rr .jn-car .vf-tail{animation:none}html.rr .sm-sp,html.rr .sm-cl{animation:none}}
 /* the top of the route page: a morning sky instead of a night road */
 html.vx .vx-top{background:linear-gradient(135deg,#0A74BD 0%,#2A9BEA 60%,#58B7F5 100%)!important;box-shadow:0 26px 50px -22px rgba(10,60,120,.55)}
 html.vx .vx-top::before{background:radial-gradient(circle at 92% 8%,rgba(255,226,120,.55) 0 8%,transparent 30%)!important;opacity:1}
@@ -4355,7 +4355,7 @@ html:has(.hdr.tuck) .dp-tabs{top:10px}
 .dp-tab:focus-visible{outline-offset:-3px}
 .dp-panel[hidden]{display:none}
 .dp-panel>section:first-child{margin-top:0}
-@media(prefers-reduced-motion:no-preference){html:not(.rg):not(.rm) .dp-panel:not([hidden]){animation:v3-pop .4s var(--v3-ease-out) backwards}}
+@media all{html:not(.rg):not(.rm):not(.rr) .dp-panel:not([hidden]){animation:v3-pop .4s var(--v3-ease-out) backwards}}
 /* blocks: round cards */
 .dp-body .blk{border-radius:28px}
 /* the summary at the top: the key facts as compact tiles, not a wall */
@@ -4471,9 +4471,9 @@ html.rm .vx-side,html.rg .vx-side,html.rm .vx-sbk,html.rg .vx-sbk{transition:non
 html.rg .btn,html.rg .card,html.rg .hm-en,html.rg .hcard,html.rg .vn-link,html.rg .chip,html.rg .fb2,html.rg .vn-ic,html.rg .hm-mascot{transition-property:background-color,border-color,color,box-shadow!important}
 html.rg .btn:hover,html.rg .card:hover,html.rg .hm-en:hover,html.rg .hcard:hover,html.rg .vn-link:hover,html.rg .chip:hover,html.rg .fb2:hover,html.rg .hm-mascot:hover{transform:none!important}
 html.rm *,html.rm *::before,html.rm *::after{animation:none!important;transition:none!important}
-@media(prefers-reduced-motion:reduce){
-  .btn,.card,.hm-en,.hcard,.vn-link,.chip,.fb2,.vn-ic,.hm-mascot{transition-property:background-color,border-color,color,box-shadow!important}
-  .btn:hover,.card:hover,.hm-en:hover,.hcard:hover,.vn-link:hover,.chip:hover,.fb2:hover,.hm-mascot:hover{transform:none!important}
+@media all{
+  html.rr .btn,html.rr .card,html.rr .hm-en,html.rr .hcard,html.rr .vn-link,html.rr .chip,html.rr .fb2,html.rr .vn-ic,html.rr .hm-mascot{transition-property:background-color,border-color,color,box-shadow!important}
+  html.rr .btn:hover,html.rr .card:hover,html.rr .hm-en:hover,html.rr .hcard:hover,html.rr .vn-link:hover,html.rr .chip:hover,html.rr .fb2:hover,html.rr .hm-mascot:hover{transform:none!important}
 }
 html.hc{--acc-fill:#8A1F05;--acc-deep:#000;--acc-soft:#fff;--acc-ink:#8A1F05;--acc-on:#fff;--v3-cream:#fff;--v3-ink:#000}
 html.hc body::before{display:none}
@@ -4505,7 +4505,7 @@ html.hc .btn.primary,html.hc .hm-go{box-shadow:none!important;border:2px solid #
 .vq-say{margin:-4px 6px 12px;font-weight:800;font-size:.9375rem;color:var(--v3-sky-ink)}
 html.rg .vq-fly .vf-w,html.rm .vq-fly .vf-w,html.rg .vq-fly .vf-tail,html.rm .vq-fly .vf-tail{animation:none;transform:rotate(18deg)}
 html.rg .vq-fly-v,html.rm .vq-fly-v,html.rg .vq-fly-d,html.rm .vq-fly-d{transition:none}
-@media(prefers-reduced-motion:reduce){.vq-fly .vf-w,.vq-fly .vf-tail{animation:none;transform:rotate(18deg)}.vq-fly-v,.vq-fly-d{transition:none}}
+@media all{html.rr .vq-fly .vf-w,html.rr .vq-fly .vf-tail{animation:none;transform:rotate(18deg)}html.rr .vq-fly-v,html.rr .vq-fly-d{transition:none}}
 /* the card and the answers */
 .vq-card{border-radius:34px;box-shadow:var(--shadow-h);padding:clamp(22px,4vw,42px)}
 .vq-card::before{content:"";position:absolute;inset:0 0 auto 0;height:8px;background:linear-gradient(90deg,var(--v3-sun),var(--v3-red),var(--v3-sky))}
@@ -4534,17 +4534,17 @@ html.rg .vq-fly-v,html.rm .vq-fly-v,html.rg .vq-fly-d,html.rm .vq-fly-d{transiti
 .vq-inter{text-align:center}
 .dq-badge{background:var(--v3-leaf)}
 /* the results come in one by one */
-@media(prefers-reduced-motion:no-preference){
-  html:not(.rg):not(.rm) .dres-hero .wrap>*{animation:v3-pop .55s var(--v3-ease-out) backwards}
-  html:not(.rg):not(.rm) .dres-hero .wrap>*:nth-child(2){animation-delay:.08s}
-  html:not(.rg):not(.rm) .dres-hero .wrap>*:nth-child(3){animation-delay:.16s}
-  html:not(.rg):not(.rm) .dres-hero .wrap>*:nth-child(4){animation-delay:.24s}
-  html:not(.rg):not(.rm) .dres-hero .wrap>*:nth-child(5){animation-delay:.32s}
-  html:not(.rg):not(.rm) .vq-dir,html:not(.rg):not(.rm) .vq-sur,html:not(.rg):not(.rm) .vq-chg{animation:v3-pop .55s var(--v3-ease-out) backwards}
-  html:not(.rg):not(.rm) .vq-dir:nth-child(1){animation-delay:.35s}
-  html:not(.rg):not(.rm) .vq-dir:nth-child(2){animation-delay:.5s}
-  html:not(.rg):not(.rm) .vq-dir:nth-child(3){animation-delay:.65s}
-  html:not(.rg):not(.rm) .vq-sur{animation-delay:.8s}
+@media all{
+  html:not(.rg):not(.rm):not(.rr) .dres-hero .wrap>*{animation:v3-pop .55s var(--v3-ease-out) backwards}
+  html:not(.rg):not(.rm):not(.rr) .dres-hero .wrap>*:nth-child(2){animation-delay:.08s}
+  html:not(.rg):not(.rm):not(.rr) .dres-hero .wrap>*:nth-child(3){animation-delay:.16s}
+  html:not(.rg):not(.rm):not(.rr) .dres-hero .wrap>*:nth-child(4){animation-delay:.24s}
+  html:not(.rg):not(.rm):not(.rr) .dres-hero .wrap>*:nth-child(5){animation-delay:.32s}
+  html:not(.rg):not(.rm):not(.rr) .vq-dir,html:not(.rg):not(.rm):not(.rr) .vq-sur,html:not(.rg):not(.rm):not(.rr) .vq-chg{animation:v3-pop .55s var(--v3-ease-out) backwards}
+  html:not(.rg):not(.rm):not(.rr) .vq-dir:nth-child(1){animation-delay:.35s}
+  html:not(.rg):not(.rm):not(.rr) .vq-dir:nth-child(2){animation-delay:.5s}
+  html:not(.rg):not(.rm):not(.rr) .vq-dir:nth-child(3){animation-delay:.65s}
+  html:not(.rg):not(.rm):not(.rr) .vq-sur{animation-delay:.8s}
 }
 .vq-dir{border-radius:26px;background:#fff;box-shadow:var(--shadow);border:0}
 .vq-dir summary{border-radius:26px}
@@ -4578,7 +4578,7 @@ html.rg .vq-fly-v,html.rm .vq-fly-v,html.rg .vq-fly-d,html.rm .vq-fly-d{transiti
 .kp-lane>i>span .mcar{width:100%;height:auto}
 .kp-lane>i>span .vf-w{animation:vf-flap .8s ease-in-out infinite}
 html.rg .kp-lane>i>span .vf-w,html.rm .kp-lane>i>span .vf-w{animation:none;transform:rotate(18deg)}
-@media(prefers-reduced-motion:reduce){.kp-lane>i>span .vf-w{animation:none;transform:rotate(18deg)}}
+@media all{html.rr .kp-lane>i>span .vf-w{animation:none;transform:rotate(18deg)}}
 .kp-lane>em{inset-inline-end:-26px;bottom:-8px}
 .kp-hubhero{padding-block:8px 0!important;background:none!important;border-radius:0}
 .kp-hubhero::before,.kp-hubhero::after{display:none!important}
@@ -4653,7 +4653,7 @@ html.rg .kp-lane>i>span .vf-w,html.rm .kp-lane>i>span .vf-w{animation:none;trans
   html:has(.vr) .vb-launch,html:has(.vr) .vb-tip{display:none!important}
   html:has(.vr) .a11y-fab{bottom:150px}
 }
-@media(prefers-reduced-motion:no-preference){html:not(.rg):not(.rm) .vr-pn:not([hidden]) .vr-oc{animation:v3-pop .45s var(--v3-ease-out) backwards}html:not(.rg):not(.rm) .vr-pn:not([hidden]) .vr-oc:nth-child(2){animation-delay:.08s}html:not(.rg):not(.rm) .vr-pn:not([hidden]) .vr-oc:nth-child(3){animation-delay:.16s}}
+@media all{html:not(.rg):not(.rm):not(.rr) .vr-pn:not([hidden]) .vr-oc{animation:v3-pop .45s var(--v3-ease-out) backwards}html:not(.rg):not(.rm):not(.rr) .vr-pn:not([hidden]) .vr-oc:nth-child(2){animation-delay:.08s}html:not(.rg):not(.rm):not(.rr) .vr-pn:not([hidden]) .vr-oc:nth-child(3){animation-delay:.16s}}
 .vr-back{margin-bottom:4px}.vr-back .back{min-height:38px}
 
 /* ================= v3: the forum, alive ================= */
@@ -9644,7 +9644,7 @@ const NM=()=>document.documentElement.classList.contains('rm'); /* no animation 
 function motionInit(){const m=motionMode(),h=document.documentElement;h.classList.toggle('rm',m==='off');h.classList.toggle('rg',m==='gentle')}
 const MOT_L={on:'מלאים',gentle:'עדינים, בלי תנועה',off:'כבויים'};
 const motionNow=()=>{const m=motionMode();
-  return m==='off'?'האפקטים כבויים: שום דבר לא זז ולא מתעמעם.':m==='gentle'?'האתר מתחלף בעמעום ובשינוי צבע, בלי הזזות ובלי תנועה חוזרת.':'כל האפקטים פועלים. אם התנועה מפריעה, אפשר לעבור לאפקטים עדינים או לכבות אותם כאן.'};
+  return m==='off'?'האפקטים כבויים: שום דבר לא זז ולא מתעמעם.':m==='gentle'?'האתר מתחלף בעמעום ובשינוי צבע, בלי הזזות ובלי תנועה חוזרת.':(document.documentElement.classList.contains('rr')?'המכשיר שלך מבקש תנועה מופחתת, ולכן וקטי לא טס. לחיצה על "מלאים" מפעילה את כל האפקטים בכל זאת, בדפדפן הזה.':'כל האפקטים פועלים. אם התנועה מפריעה, אפשר לעבור לאפקטים עדינים או לכבות אותם כאן.')};
 const motionHTML=()=>{const m=motionPref();return `<div class="mset"><b id="motL">אנימציות ואפקטים</b><div class="mset-b" role="group" aria-labelledby="motL">${MOTION.map(k=>`<button class="fb2" data-motion="${k}" aria-pressed="${m===k}">${MOT_L[k]}</button>`).join('')}</div><p class="fine mset-n" role="status">${motionNow()}</p></div>`};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-motion]');if(!b||!MOTION.includes(b.dataset.motion))return;store.set('motion',b.dataset.motion);motionInit();
   document.querySelectorAll('[data-motion]').forEach(x=>x.setAttribute('aria-pressed',x===b));document.querySelectorAll('.mset-n').forEach(n=>n.textContent=motionNow());
@@ -15004,7 +15004,15 @@ function vfHop(svg){if(!svg||vtReduce())return;svg.classList.remove('vf-hop');vo
 function vfMood(svg,mood,ms=1800){if(!svg)return;const c=svg.classList;
   if(mood==='happy'){c.add('vf-happy');if(!vtReduce()&&c.contains('vf-perch')){c.remove('vf-perch');c.add('vf-hover','vf-cheer');setTimeout(()=>{c.remove('vf-hover','vf-cheer');c.add('vf-perch')},Math.min(ms,1400))}setTimeout(()=>c.remove('vf-happy'),ms)}
   if(mood==='talk'){c.add('vf-talk');setTimeout(()=>c.remove('vf-talk'),ms)}}
-const vtReduce=()=>RM()||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+/* The device asks for reduced motion (html.rr) unless I chose "מלאים" on the site myself: an explicit choice here wins over the device's setting, as the site always promised ("full ... does not depend on the computer's reduce-motion setting"). Settings are per device. */
+function vtSyncRR(){
+  let sys=false,exp=false;try{sys=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)}catch(e){}
+  try{exp=localStorage.getItem('kivun3.motion')==='"on"'}catch(e){}
+  document.documentElement.classList.toggle('rr',sys&&!exp);
+}
+const vtReduce=()=>RM()||document.documentElement.classList.contains('rr');
+const __vtMotionInit=motionInit;motionInit=function(){__vtMotionInit();vtSyncRR()};
+try{matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',vtSyncRR)}catch(e){}
 
 /* feathers and sparkles: a trail while he flies, a burst when something good happens. DOM + Web Animations, a few dozen nodes at most */
 const VFX={el:null,n:0};
