@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-BMhfVs4ZRe/2VfqYraSrv5JOQs1TG7jAQerAHFrJfqI=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-xdsnjRM8h7Dd5INhybLcdk7fUNm7M5uqeADdkJUYsaU=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -4393,6 +4393,84 @@ html.hc body::before{display:none}
 html.hc .hero,html.hc .fhero,html.hc .lp-head,html.hc .hm-hero,html.hc .pq-gate{background:#fff!important}
 html.hc .hero::before,html.hc .hm-hero::before,html.hc .hm-hero::after,html.hc .fhero::before,html.hc .fhero::after,html.hc .lp-head::before,html.hc .lp-head::after{display:none!important}
 html.hc .btn.primary,html.hc .hm-go{box-shadow:none!important;border:2px solid #000!important}
+
+/* ================= v3: the questionnaire as a game ================= */
+.dirq{padding-top:8px}
+.vq-top{margin-bottom:6px}
+.vq-left{font-weight:800;color:var(--v3-text);background:#fff;padding:8px 16px;border-radius:999px;box-shadow:var(--shadow)}
+/* the stages: coloured pills */
+.vq-steps li i{height:8px;border-radius:99px}
+.vq-steps li.done i{background:var(--v3-leaf)}
+.vq-steps li.cur i{background:linear-gradient(90deg,var(--v3-sun),var(--v3-red))}
+.vq-steps li span{font-weight:800}
+.vq-steps li.cur span{color:var(--v3-ink)}
+/* Vecti flies along a dotted line, from the start (right) to the flag (left) */
+.vq-fly{position:relative;height:62px;margin:2px 4px 0}
+.vq-fly-t{position:absolute;inset-inline:26px 30px;top:36px;height:0;border-top:5px dotted rgba(10,116,189,.35)}
+.vq-fly-d{position:absolute;right:26px;top:34px;height:8px;width:calc((100% - 56px)*var(--p,0)/100);border-radius:99px;background:linear-gradient(90deg,var(--v3-sun),var(--v3-red));transition:width .75s var(--v3-ease-out)}
+.vq-fly-v{position:absolute;right:calc(10px + (100% - 76px)*var(--p,0)/100);top:-12px;width:76px;transition:right .75s var(--v3-ease-out)}
+.vq-fly-v .vf{filter:drop-shadow(0 8px 6px rgba(10,60,120,.25))}
+.vq-fly .vf-w{animation:vf-flap .7s ease-in-out infinite}
+.vq-fly .vf-w.wf{animation-delay:-.1s}
+.vq-fly.go .vf-w{animation-duration:.3s}
+.vq-fly .vf-tail{animation:vf-wag 1s ease-in-out infinite}
+.vq-fly-f{position:absolute;left:0;top:14px;width:30px;height:30px;fill:none;stroke:var(--v3-red);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.vq-say{margin:-4px 6px 12px;font-weight:800;font-size:.9375rem;color:var(--v3-sky-ink)}
+html.rg .vq-fly .vf-w,html.rm .vq-fly .vf-w,html.rg .vq-fly .vf-tail,html.rm .vq-fly .vf-tail{animation:none;transform:rotate(18deg)}
+html.rg .vq-fly-v,html.rm .vq-fly-v,html.rg .vq-fly-d,html.rm .vq-fly-d{transition:none}
+@media(prefers-reduced-motion:reduce){.vq-fly .vf-w,.vq-fly .vf-tail{animation:none;transform:rotate(18deg)}.vq-fly-v,.vq-fly-d{transition:none}}
+/* the card and the answers */
+.vq-card{border-radius:34px;box-shadow:var(--shadow-h);padding:clamp(22px,4vw,42px)}
+.vq-card::before{content:"";position:absolute;inset:0 0 auto 0;height:8px;background:linear-gradient(90deg,var(--v3-sun),var(--v3-red),var(--v3-sky))}
+.dq-sec{display:inline-block;margin-bottom:6px;padding:4px 12px;border-radius:99px;background:var(--acc-soft);color:var(--acc-ink);font-weight:800}
+.vq-t{font:400 clamp(1.5rem,3.2vw,2.2rem)/1.25 'Secular One','Heebo',sans-serif;color:var(--v3-ink)}
+.vq-opts{gap:14px}
+.vq-o{--oc:var(--v3-sky-fill);--os:var(--v3-sky-soft);min-height:64px;padding:14px 18px;border-radius:24px;background:#fff;border:2px solid var(--v3-line);box-shadow:0 5px 0 var(--v3-line);color:var(--v3-ink);font:700 1.0625rem/1.35 'Heebo',sans-serif;transition:transform .15s var(--v3-ease-pop),box-shadow .15s,background-color .15s,border-color .15s}
+.vq-o:nth-child(6n+1){--oc:var(--v3-red);--os:var(--v3-red-soft)}
+.vq-o:nth-child(6n+2){--oc:var(--v3-orange);--os:var(--v3-orange-soft)}
+.vq-o:nth-child(6n+3){--oc:var(--v3-leaf);--os:var(--v3-leaf-soft)}
+.vq-o:nth-child(6n+4){--oc:var(--v3-sky-fill);--os:var(--v3-sky-soft)}
+.vq-o:nth-child(6n+5){--oc:var(--v3-violet);--os:var(--v3-violet-soft)}
+.vq-o:nth-child(6n){--oc:var(--v3-blue);--os:var(--v3-blue-soft)}
+.vq-o:hover{background:var(--os);border-color:var(--oc);transform:translateY(-3px);box-shadow:0 8px 0 var(--os)}
+.vq-o:active{transform:translateY(3px) scale(.98);box-shadow:0 1px 0 var(--os)}
+.vq-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:16px;background:var(--os);color:var(--oc);flex:none}
+.vq-ic svg{width:26px;height:26px}
+.vq-o.vq-sel{background:var(--oc);border-color:var(--oc);color:#fff;box-shadow:0 5px 0 rgba(0,0,0,.25);animation:vq-pick .45s var(--v3-ease-pop)}
+.vq-o.vq-sel .vq-ic{background:rgba(255,255,255,.22);color:#fff}
+.vq-o.vq-sel::after{content:'✓';position:absolute;top:8px;inset-inline-start:10px;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--oc);font:900 14px/1 'Heebo',sans-serif}
+@keyframes vq-pick{0%{transform:scale(.94)}60%{transform:scale(1.04)}100%{transform:scale(1)}}
+.vq-k{border-radius:8px;background:rgba(27,33,66,.08);color:var(--v3-muted)}
+@media(hover:none){.vq-k{display:none}}
+.vq-go{margin-top:18px}
+.vq-day{border-radius:28px}
+.vq-inter{text-align:center}
+.dq-badge{background:var(--v3-leaf)}
+/* the results come in one by one */
+@media(prefers-reduced-motion:no-preference){
+  html:not(.rg):not(.rm) .dres-hero .wrap>*{animation:v3-pop .55s var(--v3-ease-out) backwards}
+  html:not(.rg):not(.rm) .dres-hero .wrap>*:nth-child(2){animation-delay:.08s}
+  html:not(.rg):not(.rm) .dres-hero .wrap>*:nth-child(3){animation-delay:.16s}
+  html:not(.rg):not(.rm) .dres-hero .wrap>*:nth-child(4){animation-delay:.24s}
+  html:not(.rg):not(.rm) .dres-hero .wrap>*:nth-child(5){animation-delay:.32s}
+  html:not(.rg):not(.rm) .vq-dir,html:not(.rg):not(.rm) .vq-sur,html:not(.rg):not(.rm) .vq-chg{animation:v3-pop .55s var(--v3-ease-out) backwards}
+  html:not(.rg):not(.rm) .vq-dir:nth-child(1){animation-delay:.35s}
+  html:not(.rg):not(.rm) .vq-dir:nth-child(2){animation-delay:.5s}
+  html:not(.rg):not(.rm) .vq-dir:nth-child(3){animation-delay:.65s}
+  html:not(.rg):not(.rm) .vq-sur{animation-delay:.8s}
+}
+.vq-dir{border-radius:26px;background:#fff;box-shadow:var(--shadow);border:0}
+.vq-dir summary{border-radius:26px}
+.vq-conf .vq-gauge{border-radius:99px;overflow:hidden}
+.vq-conf .vq-gauge i{background:linear-gradient(90deg,var(--v3-sun),var(--v3-red))}
+.dir-hero,.dres-hero{border-radius:0 0 44px 44px}
+/* a phone: card answers two to a row, so a question fits the screen */
+@media(max-width:600px){
+  .vq-opts.cards,.vq-opts.multi{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .vq-opts.cards .vq-o,.vq-opts.multi .vq-o{flex-direction:column;justify-content:center;text-align:center;min-height:128px;padding:12px 10px;font-size:.9688rem}
+  .vq-opts.cards .vq-ic,.vq-opts.multi .vq-ic{width:42px;height:42px}
+  .vq-card{padding:20px 16px 22px}
+}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -9474,7 +9552,7 @@ function burst(x,y,n=26){
 }
 
 /* everything that has to run after each screen is drawn */
-function afterRender(){try{dpTabsInit()}catch(e){}requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(!document.querySelector('#app .view.vw-ret'))document.querySelectorAll('#app .ax').forEach(countUp);if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
+function afterRender(){try{dpTabsInit();vqFlyGo()}catch(e){}requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(!document.querySelector('#app .view.vw-ret'))document.querySelectorAll('#app .ax').forEach(countUp);if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
 /* a table that scrolls sideways can be reached and scrolled from the keyboard */
 function scrollRegions(){const used=new Set(); /* every region has a name of its own: the heading above it, and a number when two share it */
   document.querySelectorAll('.thr').forEach(t=>{if(t.scrollWidth>t.clientWidth+1){const b=t.closest('.blk,section'),h=b&&b.querySelector('h2,h3'),base=(h?h.textContent.replace(/\s+/g,' ').trim()+': ':'')+'טבלה שאפשר לגלול לצדדים';
@@ -9939,7 +10017,7 @@ const vqBar=(st,nx)=>{
   const k=vqPhaseIdx(nx.phase),left=vqLeft(st,nx);
   return `<div class="vq-top"><button class="back" data-vqback><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>${VQU.answers.length?'הקודם':'יציאה'}</button>
     <span class="vq-left num">עוד כ-${left} שאלות</span></div>
-    <ol class="vq-steps" aria-label="התקדמות">${VQ_STAGES.map((s,i)=>`<li class="${i<k?'done':i===k?'cur':''}"${i===k?' aria-current="step"':''}><i></i><span>${s}</span></li>`).join('')}</ol>`;
+    <ol class="vq-steps" aria-label="התקדמות">${VQ_STAGES.map((s,i)=>`<li class="${i<k?'done':i===k?'cur':''}"${i===k?' aria-current="step"':''}><i></i><span>${s}</span></li>`).join('')}</ol>${vqFly(st,nx)}`;
 };
 function vqIntro(){
   vqLoad();const n=VQU.answers.length,part=n>0&&!VQU.done,rec=VQU.done&&Date.now()-VQU.done>30*864e5;
@@ -15254,6 +15332,29 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft')j=(i+1)%L.length;else if(e.key==='ArrowRight')j=(i-1+L.length)%L.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=L.length-1;
   if(j<0)return;e.preventDefault();dpShow(L[j].dataset.dpt);L[j].focus();
 });
+
+/* ================= v3: the questionnaire as a game =================
+   The questions, the engine and the answers are untouched. What is new: Vecti flies along the progress line (from where the last question left him to where this one puts him),
+   the answer cards are big, coloured and press like buttons, a pick gives a small burst, and the results come in one by one. */
+function vqFly(st,nx){
+  const n=VQU.answers.length,left=vqLeft(st,nx),p=Math.round(100*n/Math.max(1,n+left)),prev=n===0?0:(VQU._p||0);
+  const say=n===0?'יוצאים לדרך!':left<=3?'כמעט שם!':p>=50?'מעבר לחצי הדרך, ממשיכים':'עוד קצת ונדע לאן לטוס';
+  return `<div class="vq-fly" aria-hidden="true" style="--p:${prev}" data-to="${p}"><i class="vq-fly-t"></i><i class="vq-fly-d"></i><span class="vq-fly-v">${vfSVG({decor:true,cls:'vf-hover'})}</span>
+    <svg class="vq-fly-f" viewBox="0 0 24 24"><path d="M6 21V4M6 5h11l-2.5 4L17 13H6"/></svg></div><p class="vq-say" aria-hidden="true">${say}</p>`;
+}
+/* after the screen is drawn: Vecti flies to his new place */
+function vqFlyGo(){
+  const f=document.querySelector('.vq-fly');if(!f)return;
+  const to=+f.dataset.to;VQU._p=to;
+  if(vtReduce()){f.style.setProperty('--p',to);return}
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{f.style.setProperty('--p',to);const s=f.querySelector('.vf-w');if(s)f.classList.add('go');setTimeout(()=>f.classList.remove('go'),900)}));
+}
+/* a pick: a few feathers from the card, and Vecti smiles */
+document.addEventListener('click',e=>{
+  const o=e.target.closest&&e.target.closest('.vq-o,.vq-day');if(!o||!vqHere())return;
+  const r=o.getBoundingClientRect();vfBurst(r.left+r.width/2,r.top+r.height/2,{n:9,power:.55});
+  const v=document.querySelector('.vq-fly-v svg');if(v)vfMood(v,'happy',900);
+},true);
 /*@@V3-JS-END@@*/
 initAccounts();motionInit();a11yApply();S.route=parse();tourPrep();S.navDir='fwd';render();a11yRoute(false);initForum(); /* the first screen comes in like any new screen */
 try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);if(VT.pending)setTimeout(()=>vtStart({first:true}),900);else setTimeout(openProfile,600)}}catch(e){}
