@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* The Content-Security-Policy and the frame guard.
-   1. the policy's hash is the hash of the page script, and the checker (tools/csp-hash.js) fails on a changed script, a second inline script, or a weakened policy;
+   1. the policy's hashes are the hashes of the page's inline scripts (the site and the helper bot), and the checker (tools/csp-hash.js) fails on a changed script, an inline script without its hash, or a weakened policy;
    2. in a real browser the site runs under the policy with no violation (pages, the questionnaire, sign-in against the fake server, the account sheet),
       and the policy really blocks: an injected inline script, an inline event handler, a request to another site, eval;
    3. another site cannot show this site in a frame (the page stops and shows a link), a direct visit is untouched, and the allow-list accepts only claude.ai.
@@ -13,8 +13,8 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   console.log('\n== the hash and the checker');
   const a=analyse(html);
   ok(a.problems.length===0,'the policy hash matches the page script'+(a.problems.length?': '+a.problems.join('; '):''));
-  ok(analyse(html.replace('const FRAME_OK','const FRAME_OK /* an edit */')).problems.some(p=>/hash in the policy/.test(p)),'a changed script is reported');
-  ok(analyse(html.replace('<head>','<head><script>alert(1)</script>')).problems.some(p=>/exactly one inline/.test(p)),'a second inline script is reported');
+  ok(analyse(html.replace('const FRAME_OK','const FRAME_OK /* an edit */')).problems.some(p=>/is not allowed/.test(p)),'a changed script is reported');
+  ok(analyse(html.replace('<head>','<head><script>alert(1)</script>')).problems.some(p=>/is not allowed/.test(p)),'a new inline script without its hash is reported');
   ok(analyse(html.replace("object-src 'none'","object-src *")).problems.some(p=>/object-src/.test(p)),'a weakened policy is reported');
   ok(analyse(html.replace("script-src 'self'","script-src 'unsafe-eval' 'self'")).problems.some(p=>/unsafe-eval/.test(p)),"'unsafe-eval' is reported");
   ok(analyse(write(html.replace('const FRAME_OK','const FRAME_OK /* an edit */'),analyse(html.replace('const FRAME_OK','const FRAME_OK /* an edit */')))).problems.length===0,'--write repairs it');
