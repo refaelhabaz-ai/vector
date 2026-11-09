@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-DWjnY/0NfXMVWUh3Hmoj5t7l/HvQxxTsljk0wwNJAb4=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-BMhfVs4ZRe/2VfqYraSrv5JOQs1TG7jAQerAHFrJfqI=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -4331,6 +4331,54 @@ html.vx .vx-top::before{background:radial-gradient(circle at 92% 8%,rgba(255,226
 .vx-go{background:var(--v3-red)!important;color:#fff!important}
 .vx-top .vx-me,.vx-top .linkbtn{color:#fff;text-decoration:underline;text-underline-offset:3px}
 .vx-top .vx-me:hover{color:var(--v3-sun)}
+
+/* ================= v3: detail pages ================= */
+.dp-hero{border-radius:0 0 44px 44px}
+.dp-hero h1{font-family:'Secular One','Heebo',sans-serif;font-weight:400;letter-spacing:0}
+.dp-body{padding-top:22px}
+/* the tabs */
+.dp-tabs{position:sticky;top:calc(var(--hh,72px) + 8px);z-index:17;display:flex;gap:6px;margin:0 0 22px;padding:7px;border-radius:999px;background:#fff;box-shadow:var(--shadow);overflow-x:auto;scrollbar-width:none;transition:top .25s}
+.dp-tabs::-webkit-scrollbar{display:none}
+html:has(.hdr.tuck) .dp-tabs{top:10px}
+.dp-tab{flex:1 0 auto;min-height:46px;padding:0 22px;border-radius:999px;color:var(--v3-ink);font:800 1rem/1 'Heebo',sans-serif;white-space:nowrap;transition:background-color .18s,color .18s,transform .15s var(--v3-ease-pop)}
+.dp-tab:hover{background:var(--acc-soft)}
+.dp-tab:active{transform:scale(.96)}
+.dp-tab[aria-selected="true"]{background:var(--acc-fill);color:var(--acc-on);box-shadow:0 4px 0 var(--acc-deep)}
+.dp-tab:focus-visible{outline-offset:-3px}
+.dp-panel[hidden]{display:none}
+.dp-panel>section:first-child{margin-top:0}
+@media(prefers-reduced-motion:no-preference){html:not(.rg):not(.rm) .dp-panel:not([hidden]){animation:v3-pop .4s var(--v3-ease-out) backwards}}
+/* blocks: round cards */
+.dp-body .blk{border-radius:28px}
+/* the summary at the top: the key facts as compact tiles, not a wall */
+.dp-hero .ax-c{border-radius:24px}
+@media(max-width:760px){
+  .dp-hero .ax{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .dp-hero .ax .ax-c{grid-column:span 1;padding:14px 14px 12px}
+  .dp-hero-in{z-index:auto}
+  .dp-hero .ax-q{font-size:.875rem}
+  .dp-hero .ax-v b.num{font-size:1.75rem}
+  .dp-hero .ax-v b:not(.num){font-size:1rem;line-height:1.4;font-weight:700}
+  .dp-hero .ax-lbl{font-size:.875rem;line-height:1.3;min-height:0}
+  .dp-hero .ax-cap,.dp-hero .ax .az{display:none}
+  .dp-hero ul.ax-f{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0;padding:0;list-style:none}
+  .dp-hero ul.ax-f li{padding:10px 12px;border-radius:16px;font-size:.8125rem;line-height:1.35}
+  .dp-hero ul.ax-f li:last-child{display:none}
+  .dp-hero .ax>.ax-s{grid-column:1/-1}
+  /* actions stay under the thumb: a copy of them at the level of the page (#dpbar), the hero's own row is hidden */
+  .dp-hero .dp-actions{display:none}
+  .dp-mbar{position:fixed;z-index:70;inset-inline:0;bottom:0;display:flex;gap:8px;margin:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.97);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 -12px 32px -14px rgba(27,33,66,.4);border-radius:24px 24px 0 0}
+  .dp-mbar .btn{flex:1 1 0;min-width:0;min-height:48px;padding:0 8px;font-size:.875rem}
+  main:has(.dp-hero){padding-bottom:96px}
+  .qa-fab{display:none!important}
+  html:has(.dp-hero) .vb-launch,html:has(.dp-hero) .vb-tip{display:none!important}
+  html:has(.dp-hero) .a11y-fab{bottom:96px}
+  html:has(.dp-hero) .to-top{bottom:150px}
+  .dp-tabs{margin-inline:-4px}
+  .dp-tab{padding:0 16px;min-height:44px;font-size:.9375rem}
+}
+#dpbar{display:none}
+@media(max-width:760px){#dpbar{display:flex}}
 
 /* ---------- the three motion states and high contrast ---------- */
 html.rg .btn,html.rg .card,html.rg .hm-en,html.rg .hcard,html.rg .vn-link,html.rg .chip,html.rg .fb2,html.rg .vn-ic,html.rg .hm-mascot{transition-property:background-color,border-color,color,box-shadow!important}
@@ -9426,7 +9474,7 @@ function burst(x,y,n=26){
 }
 
 /* everything that has to run after each screen is drawn */
-function afterRender(){requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(!document.querySelector('#app .view.vw-ret'))document.querySelectorAll('#app .ax').forEach(countUp);if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
+function afterRender(){try{dpTabsInit()}catch(e){}requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(!document.querySelector('#app .view.vw-ret'))document.querySelectorAll('#app .ax').forEach(countUp);if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
 /* a table that scrolls sideways can be reached and scrolled from the keyboard */
 function scrollRegions(){const used=new Set(); /* every region has a name of its own: the heading above it, and a number when two share it */
   document.querySelectorAll('.thr').forEach(t=>{if(t.scrollWidth>t.clientWidth+1){const b=t.closest('.blk,section'),h=b&&b.querySelector('h2,h3'),base=(h?h.textContent.replace(/\s+/g,' ').trim()+': ':'')+'טבלה שאפשר לגלול לצדדים';
@@ -15131,6 +15179,81 @@ function smTrail(car){
   const r=car.getBoundingClientRect(),k=Math.random();
   vfDrop(r.left+r.width/2+(Math.random()-.5)*16,r.top+r.height*.55,{kind:k<.6?'feather':'star',dx:(Math.random()-.5)*44,dy:40+Math.random()*60,rot:(Math.random()-.5)*280,ms:800+Math.random()*500});
 }
+
+/* ================= v3: the detail pages (degree, career, technician track) in tabs =================
+   The pages were one endless scroll of blocks. The blocks are the old ones and are not touched: after the page is drawn they are sorted into tabs
+   (overview, where and how to get in, pay and career, questions), the first tab opens, and a bar under the hero switches between them.
+   Everything that scrolls to a block (the questions button, "to the full map") opens the tab that holds it first. */
+const DPT={tab:{}};
+const DP_TABS={
+  deg:[['ov','סקירה'],['adm','מוסדות ותנאי קבלה'],['pay','שכר וקריירה'],['qa','שאלות נפוצות']],
+  occ:[['ov','סקירה'],['road','איך מגיעים'],['pay','שכר ועובדים'],['qa','שאלות נפוצות']],
+  mh:[['ov','סקירה'],['adm','איפה לומדים'],['pay','שכר וקריירה'],['qa','שאלות נפוצות']]
+};
+function dpClassify(sec){
+  const id=sec.id,h=(sec.querySelector('h2')||{}).textContent||'';
+  if(id==='qa')return 'qa';
+  if(sec.classList.contains('admit')||id==='learn'||/תנאי קבלה/.test(h))return 'adm';
+  if(id==='road')return 'road';
+  if(id==='employers'||id==='regmap'||/כמה מרוויחים|לאן זה מוביל|שכר|השוואות/.test(h))return 'pay';
+  return 'ov';
+}
+function dpShow(key,{scroll=false}={}){
+  const body=document.querySelector('#app .dp-body');if(!body)return;
+  const h=location.hash;DPT.tab[h]=key;
+  body.querySelectorAll('.dp-panel').forEach(p=>{p.hidden=p.id!=='dpp-'+key});
+  body.querySelectorAll('.dp-tab').forEach(b=>{const on=b.dataset.dpt===key;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1});
+  const bar=body.querySelector('.dp-tabs'),act=body.querySelector('.dp-tab[aria-selected="true"]');
+  if(bar&&act){const d=(act.getBoundingClientRect().left+act.offsetWidth/2)-(bar.getBoundingClientRect().left+bar.clientWidth/2);if(Math.abs(d)>2)bar.scrollBy({left:d,behavior:'instant'})} /* only the tab bar moves, never the page */
+  if(scroll&&bar){const hh=(document.getElementById('hdr')||{}).offsetHeight||72;window.scrollTo({top:Math.max(0,bar.getBoundingClientRect().top+scrollY-hh-10),behavior:vtReduce()?'instant':'smooth'})}
+}
+function dpTabsInit(){
+  const old=document.getElementById('dpbar'),body=document.querySelector('#app .dp-body');
+  if(!body){if(old)old.remove();return}
+  if(body.dataset.dpt)return;
+  if(old)old.remove();
+  const kind={deg:'deg',occ:'occ',mh:'mh'}[S.route.v];if(!kind)return;
+  dpBar();
+  const secs=[...body.children].filter(e=>e.tagName==='SECTION');if(secs.length<3)return;
+  const groups={};DP_TABS[kind].forEach(([k])=>groups[k]=[]);
+  secs.forEach(s=>(groups[dpClassify(s)]||groups.ov).push(s));
+  const tabs=DP_TABS[kind].filter(([k])=>groups[k].length);if(tabs.length<2)return;
+  body.dataset.dpt='1';
+  const host=document.createElement('div');host.className='dp-panels';body.insertBefore(host,secs[0]);
+  tabs.forEach(([k])=>{const p=document.createElement('div');p.className='dp-panel';p.id='dpp-'+k;p.setAttribute('role','tabpanel');p.setAttribute('aria-labelledby','dpt-'+k);groups[k].forEach(s=>p.appendChild(s));host.appendChild(p)});
+  const nav=document.createElement('div');nav.className='dp-tabs';nav.setAttribute('role','tablist');nav.setAttribute('aria-label','חלקי העמוד');
+  nav.innerHTML=tabs.map(([k,l])=>`<button type="button" role="tab" class="dp-tab" id="dpt-${k}" data-dpt="${k}" aria-controls="dpp-${k}" aria-selected="false">${l}</button>`).join('');
+  body.insertBefore(nav,host);
+  /* which tab: the one I was on, the one that holds the section a link points to, or the first */
+  let want=DPT.tab[location.hash];
+  if(S.route.sec){const t=document.getElementById(S.route.sec);const p=t&&t.closest('.dp-panel');if(p)want=p.id.slice(4)}
+  dpShow(tabs.some(([k])=>k===want)?want:tabs[0][0]);
+}
+/* the actions of the page, kept under the thumb on a phone: the page's own buttons (target, comparison, where to study...) and Vecti. A copy at the level of the page, so nothing covers it */
+function dpBar(){
+  const act=document.querySelector('#app .dp-actions');if(!act)return;
+  const bar=document.createElement('div');bar.id='dpbar';bar.className='dp-mbar';
+  [...act.children].forEach(c=>{if(c.matches('.qa-jump,.dbadge'))return;bar.appendChild(c.cloneNode(true))});
+  bar.insertAdjacentHTML('beforeend','<button type="button" class="btn soft dp-ask" data-hmbot>שאלו את וקטי</button>');
+  document.body.appendChild(bar);
+}
+document.addEventListener('click',e=>{
+  const t=e.target.closest&&e.target.closest('.dp-tab');
+  if(t){dpShow(t.dataset.dpt,{scroll:true});return}
+},false);
+/* a button that scrolls to a block inside a closed tab opens the tab first */
+document.addEventListener('click',e=>{
+  const b=e.target.closest&&e.target.closest('[data-scroll],[data-qajump]');if(!b)return;
+  const t=document.getElementById(b.dataset.scroll||'qa'),p=t&&t.closest&&t.closest('.dp-panel');
+  if(p&&p.hidden)dpShow(p.id.slice(4));
+},true);
+/* the keyboard on the tabs: arrows follow the reading direction (left is the next one), Home and End */
+document.addEventListener('keydown',e=>{
+  const t=e.target.closest&&e.target.closest('.dp-tab');if(!t)return;
+  const L=[...t.parentElement.querySelectorAll('.dp-tab')],i=L.indexOf(t);let j=-1;
+  if(e.key==='ArrowLeft')j=(i+1)%L.length;else if(e.key==='ArrowRight')j=(i-1+L.length)%L.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=L.length-1;
+  if(j<0)return;e.preventDefault();dpShow(L[j].dataset.dpt);L[j].focus();
+});
 /*@@V3-JS-END@@*/
 initAccounts();motionInit();a11yApply();S.route=parse();tourPrep();S.navDir='fwd';render();a11yRoute(false);initForum(); /* the first screen comes in like any new screen */
 try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);if(VT.pending)setTimeout(()=>vtStart({first:true}),900);else setTimeout(openProfile,600)}}catch(e){}
