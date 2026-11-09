@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-IzhFUxNAfBv8fvP3xgwUCp9Cd2LytlU9r3if9jEsj6A=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-HnvVPCKtwXzU1NEIJzMxc8z+TGFeSQPXi0xa2+jTPz8=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -4559,6 +4559,103 @@ html.rg .vq-fly-v,html.rm .vq-fly-v,html.rg .vq-fly-d,html.rm .vq-fly-d{transiti
   .vq-card{padding:20px 16px 22px}
 }
 
+/* ================= v3: the home of my routes ================= */
+.hq{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:6px 20px;margin:0 0 18px;padding:14px clamp(16px,3vw,28px);border-radius:30px;overflow:hidden;isolation:isolate;background:linear-gradient(135deg,var(--v3-sky-soft),#fff 70%);box-shadow:var(--shadow)}
+.hq-v{width:120px;margin-block:-14px -8px}
+.hq-k{display:flex;align-items:center;gap:6px;margin:0;font-weight:800;font-size:.8125rem;color:var(--v3-sky-ink)}
+.hq-k svg{width:16px;height:16px}
+.hq h2{font:400 clamp(1.25rem,2.6vw,1.75rem)/1.2 'Secular One','Heebo',sans-serif;margin:2px 0 2px;color:var(--v3-ink)}
+.hq-s{margin:0;font-size:.9375rem;color:var(--v3-text)}
+.hq-a{display:flex;flex-wrap:wrap;gap:8px}
+.hq-a .btn{min-height:48px;padding:0 20px;font-size:.9375rem}
+.hq-a .btn svg{width:18px;height:18px}
+@media(max-width:760px){.hq{grid-template-columns:auto minmax(0,1fr);border-radius:26px}.hq-v{width:84px}.hq-a{grid-column:1/-1}.hq-a .btn{flex:1 1 0}}
+/* the progress line of a route card: a dotted sky line, Vecti at the front */
+.kp-lane{height:8px;margin:34px 2px 6px 30px;border-radius:99px;background:rgba(10,116,189,.18);box-shadow:none}
+.kp-lane::before{display:none}
+.kp-lane>i{border-radius:99px;background:linear-gradient(90deg,var(--v3-sun),var(--v3-red));box-shadow:none}
+.kp-lane>i>span{inset-inline-end:-36px;bottom:-4px;width:72px;height:auto}
+.kp-lane>i>span .mcar{width:100%;height:auto}
+.kp-lane>i>span .vf-w{animation:vf-flap .8s ease-in-out infinite}
+html.rg .kp-lane .vf-w,html.rm .kp-lane .vf-w{animation:none;transform:rotate(18deg)}
+@media(prefers-reduced-motion:reduce){.kp-lane .vf-w{animation:none;transform:rotate(18deg)}}
+.kp-lane>em{inset-inline-end:-26px;bottom:-8px}
+.kp-hubhero{padding-block:8px 0!important;background:none!important;border-radius:0}
+.kp-hubhero::before,.kp-hubhero::after{display:none!important}
+.kp-hubhero .kp-hub-h{font-size:clamp(1.75rem,3.4vw,2.5rem)}
+.kp-hubhero .sub{font-size:.9375rem;margin-top:4px}
+.kp-hub{margin-top:0}
+
+/* ================= v3: the questionnaire results on one screen ================= */
+.vr{padding:0;background:none;border-radius:0}
+.vr-in{max-width:1100px;margin:0 auto;padding:14px clamp(14px,4vw,32px) 10px}
+.vr-hd{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.vr-v{flex:none;width:96px;margin-block:-10px -4px}
+.vr-k{margin:0;font-weight:800;font-size:.8125rem;color:var(--acc-ink)}
+.vr-h{font:400 clamp(1.5rem,3.6vw,2.4rem)/1.15 'Secular One','Heebo',sans-serif;margin:2px 0 4px}
+.vr .vq-conf{margin:0;font-size:.875rem}
+.vr-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 2px 8px}
+.vr-tabs::-webkit-scrollbar{display:none}
+.vr-tab{flex:1 0 auto;display:flex;align-items:center;gap:10px;min-height:56px;padding:6px 16px 6px 12px;border-radius:20px;background:#fff;border:2px solid var(--v3-line);box-shadow:0 4px 0 var(--v3-line);text-align:start;transition:transform .15s var(--v3-ease-pop),background-color .15s,border-color .15s}
+.vr-ti{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:13px;background:var(--acc-soft);color:var(--acc-ink)}
+.vr-ti svg{width:22px;height:22px}
+.vr-tt{display:flex;flex-direction:column;min-width:0}
+.vr-tt small{font-weight:800;font-size:.6875rem;color:var(--v3-muted)}
+.vr-tt b{font:800 .9375rem/1.2 'Heebo',sans-serif;color:var(--v3-ink)}
+.vr-tab:hover{transform:translateY(-2px);border-color:var(--acc-fill)}
+.vr-tab[aria-selected="true"]{background:var(--v3-ink);border-color:var(--v3-ink);box-shadow:0 4px 0 #000}
+.vr-tab[aria-selected="true"] .vr-tt b{color:#fff}.vr-tab[aria-selected="true"] .vr-tt small{color:var(--v3-sun)}
+.vr-tab[aria-selected="true"] .vr-ti{background:rgba(255,255,255,.16);color:#fff}
+.vr-pn[hidden]{display:none}
+.vr-wd{margin:6px 2px 10px;font-size:.9375rem;line-height:1.5;color:var(--v3-text);max-width:80ch}
+.vr-gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.vr-oc{display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:24px;background:#fff;box-shadow:var(--shadow);min-width:0}
+.vr-oh{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.vr-oh h3{margin:0;font:800 1.0625rem/1.3 'Heebo',sans-serif}
+.vr-oh .linkbtn{text-align:start;color:var(--v3-ink);padding:0}
+.vr-oc .vq-fit{flex:none;font-size:.75rem}
+.vr-meta{display:flex;flex-wrap:wrap;gap:4px 10px;margin:0;font-size:.8125rem;font-weight:700;color:var(--v3-muted)}
+.vr-why{margin:0;font-size:.875rem;line-height:1.45;color:var(--v3-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vr-deg{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0}
+.vr-deg small{font-weight:800;color:var(--v3-muted)}
+.vr-chip{min-height:34px;padding:0 12px;border-radius:999px;background:var(--acc-soft);color:var(--acc-ink);font:800 .8125rem/1 'Heebo',sans-serif;text-align:start}
+.vr-chip i{font-style:normal;font-weight:700;opacity:.8}
+.vr-det{margin-top:auto}
+.vr-det>summary{cursor:pointer;min-height:36px;display:flex;align-items:center;font-weight:800;font-size:.8125rem;color:var(--acc-ink);list-style:none}
+.vr-det>summary::-webkit-details-marker{display:none}
+.vr-det>summary::after{content:"";width:7px;height:7px;margin-inline-start:8px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .2s}
+.vr-det[open]>summary::after{transform:rotate(-135deg)}
+.vr-det .vq-occ{padding:6px 0 0;box-shadow:none;background:none}
+.vr-det .vq-oh{display:none}
+.vr-more{margin-top:12px}
+.vr-more>summary{cursor:pointer;font-weight:800;color:var(--acc-ink);min-height:40px;display:flex;align-items:center}
+.vr-note{margin:10px 2px 0;font-size:.75rem;color:var(--v3-muted)}
+/* the actions stay in view */
+.vr-bar{position:sticky;bottom:0;z-index:20;padding:10px clamp(12px,4vw,32px) calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 -12px 30px -14px rgba(27,33,66,.35);border-radius:24px 24px 0 0}
+.vr-bar-in{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.vr-bar .btn{min-height:50px;padding:0 20px;font-size:.9375rem}
+.vr-bar .btn.primary{flex:1 1 220px}
+.vr-again{margin-inline-start:auto;min-height:44px;padding:0 8px;font:800 .875rem/1 'Heebo',sans-serif;color:var(--v3-muted);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){
+  .vr-in{padding-top:6px}
+  .vr-v{width:62px}
+  .vr-h{font-size:1.375rem}
+  .vr-tab{padding:4px 12px 4px 8px;min-height:50px}
+  .vr-ti{width:32px;height:32px;border-radius:11px}
+  .vr-wd{font-size:.8125rem;margin:4px 2px 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .vr-gr{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding:2px 2px 10px;scrollbar-width:none;margin-inline:-14px;padding-inline:14px}
+  .vr-gr::-webkit-scrollbar{display:none}
+  .vr-oc{flex:0 0 84%;scroll-snap-align:center;padding:12px 14px}
+  .vr-bar .btn.primary{flex:1 1 100%;min-height:48px}
+  .vr-bar .btn.soft{flex:1 1 0;min-height:42px;padding:0 8px;font-size:.8125rem}
+  .vr-again{margin:0;flex:0 0 auto;min-height:42px;font-size:.75rem;text-align:center}
+  .vr-bar{padding-top:8px}
+  html:has(.vr) .vb-launch,html:has(.vr) .vb-tip{display:none!important}
+  html:has(.vr) .a11y-fab{bottom:150px}
+}
+@media(prefers-reduced-motion:no-preference){html:not(.rg):not(.rm) .vr-pn:not([hidden]) .vr-oc{animation:v3-pop .45s var(--v3-ease-out) backwards}html:not(.rg):not(.rm) .vr-pn:not([hidden]) .vr-oc:nth-child(2){animation-delay:.08s}html:not(.rg):not(.rm) .vr-pn:not([hidden]) .vr-oc:nth-child(3){animation-delay:.16s}}
+.vr-back{margin-bottom:4px}.vr-back .back{min-height:38px}
+
 /* ================= v3: the forum, alive ================= */
 .fhero-art{max-width:260px;aspect-ratio:290/215;transform:none}
 .fhero-art svg{width:100%;height:auto}
@@ -4611,6 +4708,7 @@ html body .fq-a .btn.primary{background:var(--v3-ink)!important;color:#fff!impor
 .fchip.on{background:var(--v3-red-soft);color:var(--v3-red-ink)}
 .side{border-radius:26px;background:#fff;box-shadow:var(--shadow);border:0}
 html.hc .fq{background:#fff;border:2px solid #000}
+.fq-last{margin:0 0 14px;padding:10px 14px;border-radius:16px;background:rgba(255,255,255,.7);font-size:.9375rem;color:var(--v3-text)}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -6179,7 +6277,7 @@ function qThreadHTML(key){
   const followed=FM.priv.follow&&FM.priv.follow[key];
   const da=dataAnswer(q.t+' '+(q.b||''),q.ctx,q.inst,q.topic);
   return `<article class="qfull" style="${cv(qCat(q))}">
-    <div class="qfull-top"><div class="htags">${q.faq?'<span class="dtag faq">שאלה נפוצה</span>':''}${topicTag(q.topic)}${qLabel(q)?(q.ctx&&ctxLabel(q.ctx)?`<button class="ctag" data-go="${ctxRoute(q.ctx)}">${esc(qLabel(q))}</button>`:`<span class="ctag">${esc(qLabel(q))}</span>`):''}${q.inst&&INST[q.inst]?`<span class="ctag">${esc(INST[q.inst].n)}</span>`:''}</div>
+    <div class="qfull-top"><div class="htags">${q.daily?'<span class="dtag faq">שאלת היום של וקטי</span>':''}${q.faq?'<span class="dtag faq">שאלה נפוצה</span>':''}${topicTag(q.topic)}${qLabel(q)?(q.ctx&&ctxLabel(q.ctx)?`<button class="ctag" data-go="${ctxRoute(q.ctx)}">${esc(qLabel(q))}</button>`:`<span class="ctag">${esc(qLabel(q))}</span>`):''}${q.inst&&INST[q.inst]?`<span class="ctag">${esc(INST[q.inst].n)}</span>`:''}</div>
       <h1 class="qh">${esc(q.t)}</h1></div>
     <div class="qrow"><div style="flex:1;min-width:0">${q.b?`<p class="qb">${esc(q.b)}</p>`:''}
       <div class="qby">${avatar(q.uid,q.anon)}<span><b>${esc(who(q.uid,q.anon))}</b>${q.anon?'':roleBadge(q.uid)}<small class="muted">${ago(q.ts)}</small></span>
@@ -8187,7 +8285,7 @@ const QA_I=[
 [315,"life-groups.4f81e3","study","מה קורה למי שלא סיים תיכון רגיל ורוצה להגיע לאקדמיה?","מי שלא סיים תיכון רגיל יכול להגיע לאקדמיה בכמה דרכים: השלמת בגרות, מכינה קדם-אקדמית, האוניברסיטה הפתוחה (שמקבלת בלי בגרות){ft:openu.open} ומסלולי קבלה מיוחדים בחלק מהמוסדות. התנאים משתנים. כדאי לבדוק מה חסר, לפנות למכינות מוכרות ולהתייעץ עם יועץ הכוון."]
 ];
 /* QA:end */
-let DEMO_C=null,DEMO_SX=null; /* the answers are written once per gender form (vqT) */
+let DEMO_C=null,DEMO_SX=null,DEMO_D=null; /* the answers are written once per gender form (vqT) */
 const FAQ_MISS=[];
 /* live numbers from the site's own data (never typed by hand) */
 function faqFill(s){
@@ -8205,7 +8303,7 @@ function faqFill(s){
     return miss(t)});
 }
 function demoDocs(){
-  if(!DEMO_ON)return {}; if(DEMO_C&&DEMO_SX===sex())return DEMO_C;DEMO_SX=sex();
+  if(!DEMO_ON)return {}; const fqDay=fqNow().day;if(DEMO_C&&DEMO_SX===sex()&&DEMO_D===fqDay)return DEMO_C;DEMO_SX=sex();DEMO_D=fqDay;
   const D={[FAQ_UID]:{role:{k:'team',inst:null},q:{},a:{}}}, doc=D[FAQ_UID];
   const resolve=c=>{if(!c)return null;const i=c.indexOf(':'),k=c.slice(0,i),n=c.slice(i+1);
     if(k==='deg'){const L=DEG.filter(d=>d.n===n).sort((a,b)=>b.of.length-a.of.length);return L[0]?'deg:'+L[0].id:null}
@@ -8223,6 +8321,9 @@ function demoDocs(){
     doc.q[qid]={t:vqT(t),b:'',ctx:T.cx[0]||'',cx:T.cx,tl:T.title,bc:T.cat,inst:null,topic,anon:false,ts,fb:{},fbTs:{},demo:1,faq:1};
     doc.a[qid+'a']={q:FAQ_UID+'--'+qid,b:vqT(faqFill(b)),anon:false,ts:ts+30000,demo:1,faq:1};
   });
+  /* v3: the question of the day is a real question that Vecti's team asked, open to answers from the first minute: one for every day since the launch, so yesterday's answers stay */
+  for(let d=Math.min(FQ_LAUNCH,fqDay);d<=fqDay;d++){const [qt,tp]=fqPick(d);
+    doc.q['d'+fqKey(d)]={t:qt,b:'',ctx:'',bc:'life',inst:null,topic:tp,anon:false,ts:d*864e5+3*36e5,fb:{},fbTs:{},demo:1,daily:1}}
   return DEMO_C=D;
 }
 const demoNames=()=>DEMO_ON?{[FAQ_UID]:FAQ_NAME}:{};
@@ -9694,7 +9795,7 @@ function burst(x,y,n=26){
 }
 
 /* everything that has to run after each screen is drawn */
-function afterRender(){try{dpTabsInit();vqFlyGo();fqTick()}catch(e){}requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(!document.querySelector('#app .view.vw-ret'))document.querySelectorAll('#app .ax').forEach(countUp);if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
+function afterRender(){try{dpTabsInit();vqFlyGo();fqTick();fqFocusAns()}catch(e){}requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(!document.querySelector('#app .view.vw-ret'))document.querySelectorAll('#app .ax').forEach(countUp);if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
 /* a table that scrolls sideways can be reached and scrolled from the keyboard */
 function scrollRegions(){const used=new Set(); /* every region has a name of its own: the heading above it, and a number when two share it */
   document.querySelectorAll('.thr').forEach(t=>{if(t.scrollWidth>t.clientWidth+1){const b=t.closest('.blk,section'),h=b&&b.querySelector('h2,h3'),base=(h?h.textContent.replace(/\s+/g,' ').trim()+': ':'')+'טבלה שאפשר לגלול לצדדים';
@@ -10250,27 +10351,6 @@ function vqOccHTML(x,st,R){
     <div class="dc-cols"><div><h5>למה זה מתאים לי</h5><ul class="dc-why">${why.length?why.map(w=>`<li>${esc(vqWhyTxt(w))}</li>`).join(''):'<li>ההתאמה מגיעה מהשילוב של כל התשובות</li>'}</ul></div>
       ${less.length?`<div><h5>מה פחות</h5><ul class="dc-less">${less.map(l=>`<li>${esc(vqLessTxt(l))}</li>`).join('')}</ul></div>`:''}</div>
     ${ord.length?`<h5 class="vq-h5">איך מגיעים לשם</h5><ul class="vq-routes">${ord.join('')}</ul>${noData?'<p class="vq-adm na vq-nodata">אין מספיק נתונים כדי לבדוק אוטומטית אם אפשר להתקבל</p>':''}`:''}</article>`;
-}
-function vqRes(){
-  const st=vqSt(),R=VQR.results(st),d1=R.dirs[0],w1=VQW[d1.world];
-  const lead=VQR.why(st,d1.occs[0].id,2).map(w=>w.text);
-  const conf={clear:['התמונה די ברורה','ok'],direction:['יש כיוון, שווה לבדוק עוד','mid'],open:['עדיין פתוח','open']}[R.conf];
-  const dir=(d,i)=>`<details class="vq-dir"${i===0?' open':''}><summary><span class="vq-ic big">${ki(VQW_IC[d.world]||'compass')}</span><span><small>כיוון ${i+1}</small><b>${esc(VQW[d.world].n)}</b></span></summary>
-    <p class="vq-dd">${esc(VQW[d.world].d)}</p><div class="vq-occs">${d.occs.map(x=>vqOccHTML(x,st,R)).join('')}</div></details>`;
-  const wc=R.wildcard?(()=>{const x=R.wildcard,w=VQR.why(st,x.id,1)[0];return `<section class="vq-sur"><h3>${ki('compass')}כיוון שלא חשבת עליו</h3>
-    <p><button class="linkbtn" data-occ="${x.id}">${esc(vqOcN(x.id))}</button> · ${esc(VQW[x.w].n)}</p>${w?`<p class="vq-sw">${esc(vqWhyTxt(w))}</p>`:''}</section>`})():'';
-  const ch=R.change.length?`<section class="vq-chg"><h3>${ki('fire')}מה היה משנה את התמונה</h3><ul>${R.change.map(c=>{const yr=c.reasons.find(r=>r.k==='years'),rd=c.reasons.filter(r=>r.k==='red').map(r=>r.text);
-    return `<li><b>${esc(vqOcN(c.id))}</b>: ${[yr?vqT(`אם היית מוכן/ה ללמוד ${yr.years} שנים`):'',rd.length?vqT(`אם ${rd.join(' ו')} לא היו מפריעים`):''].filter(Boolean).join(', ')} ${yr||rd.length?'הוא היה עולה':''}</li>`}).join('')}</ul></section>`:'';
-  return `<section class="hero dres-hero"><div class="wrap">${BACK}
-    <span class="kicker" style="margin-top:10px">התוצאות שלי${VQU.done?' · '+new Date(VQU.done).toLocaleDateString('he-IL'):''}</span>
-    <h1 class="dir-h1" id="vqH">הכיוון שלך: ${esc(w1.n)}</h1>
-    <p class="vq-conf ${conf[1]}"><span class="vq-gauge" aria-hidden="true"><i style="width:${Math.round(100*Math.min(1,R.dirs[0].p/.65))}%"></i></span>${conf[0]}</p>
-    ${lead.length?`<p class="sub">${esc(vqT('בחרת: '+lead.map(t=>'"'+t+'"').join(' ו')))}</p>`:''}
-    <div class="hero-btns"><button class="btn primary" data-go="path">${vqT('שמור והמשך למסלול שלי')}</button></div></div></section>
-  <section class="sec"><div class="wrap"><div class="sec-h"><div><h2>הכיוונים שמתאימים לי</h2><p>הראשון פתוח, ואפשר לפתוח את האחרים</p></div></div>
-    <div class="vq-dirs">${R.dirs.map(dir).join('')}</div>${wc}${ch}
-    <div class="hero-btns vq-after"><button class="btn soft" data-go="degrees">להשוות תארים</button><button class="btn soft" data-vqmore>עוד 3 שאלות לדיוק</button><button class="btn soft" data-vqstart>להתחיל מחדש</button></div>
-    <p class="fine vq-note">השאלון הוא כלי לחקירה ולא מבחן פסיכולוגי מתוקף. תחומי עניין מתפתחים, ושווה לבדוק כמה כיוונים.</p></div></section>`;
 }
 function vqRender(){
   vqLoad();
@@ -11661,7 +11741,7 @@ const safe=(fn,fb='')=>{try{return fn()}catch(e){console.error('path:',e);return
 const KP={open:new Set(),zt:{},wiz:{active:false,step:1,tq:'',d:'',i:'',change:false,add:false},
   tab:'now',view:'',land:'',navT:0,fid:'',skip:new Set(),hist:[],rm:'',rst:false,back:'',zsel:'',lp:null};
 /* the page has three views (the map, the progress, the calendar) and three tools beside them: see "the three views" below */
-const curView=()=>KP.view||(tList().length>1?'hub':'road');
+const curView=()=>KP.view||'hub';
 
 /* ---------- the zones: where I am, and the whole road ahead ---------- */
 function zoneRange(id,X){
@@ -11707,7 +11787,7 @@ new MutationObserver(trailScan).observe(document.getElementById('app'),{childLis
    The stage I open unfolds its steps after its gate. Nothing is invented here: the stops are the plan's own steps. */
 const ZTH={g10:{c:'#1F9D55',bg:'#C9F2D6'},g11:{c:'#3B5BDB',bg:'#D3DEFF'},g12:{c:'#E8590C',bg:'#FFD9C2'},svc:{c:'#5C8A1E',bg:'#E0EEC4'},prep:{c:'#7048E8',bg:'#E0D6FF'},reg:{c:'#0C8599',bg:'#C5EEF4'},go:{c:'#E67700',bg:'#FFE6A8'}};
 /* a small car for the other views: solid colours only, so many can stand on one page. It faces the way the road goes (to the left) */
-const miniCar=(c='#F2502F')=>`<svg class="mcar" viewBox="0 0 120 64" aria-hidden="true" focusable="false"><ellipse cx="60" cy="60" rx="48" ry="4" fill="rgba(20,24,52,.25)"/><path d="M8 45Q8 34 19 32L35 30 47 16Q51 12 58 12H84Q91 12 95 18L104 30Q114 32 114 42V48Q114 52 110 52H12Q8 52 8 48Z" fill="${c}"/><path d="M39 31 49 18Q51 16 54 16H66V31Z" fill="#BFE3FF"/><path d="M70 16H82Q87 16 90 20L98 31H70Z" fill="#BFE3FF"/><circle cx="60" cy="25" r="5" fill="#2B2F55"/><path d="M52 20.5 60 16.5 68 20.5 60 23.5Z" fill="#1B1F3B"/><rect x="8" y="36" width="7" height="5" rx="2" fill="#FFE066"/><rect x="110" y="36" width="4" height="6" rx="1.5" fill="#FF4D4D"/><circle cx="30" cy="51" r="9.5" fill="#1B1F3B"/><circle cx="30" cy="51" r="4.5" fill="#D9DEF0"/><circle cx="92" cy="51" r="9.5" fill="#1B1F3B"/><circle cx="92" cy="51" r="4.5" fill="#D9DEF0"/></svg>`;
+const miniCar=()=>vfSVG({decor:true,cls:'vf-hover mcar'}); /* v3: Vecti on the progress line of a route */
 const CARC=['#F2502F','#3B5BDB','#12A26B','#7048E8','#E67700','#0C8599']; /* a colour for the car of each target */
 /* the car: me on the road. It parks just before the stop in focus, and drives (or reverses) there when another stop is picked */
 const CAR_SVG=vfSVG({decor:true,cls:'vf-hover'}); /* v3: Vecti flies where the car drove (the name stays, the rest of the map code is the old one) */
@@ -11910,7 +11990,7 @@ function hubPageHTML(){
       <h1 class="kp-hub-h">היעדים שלי</h1>
       <p class="sub">${L.length>1?'כל יעד הוא טיסה משלו: וקטי של כל יעד מראה כמה מהדרך כבר עשיתי, ומתחת רואים את מצב הציונים מול הסף. בוחרים יעד כדי להמשיך בדרך שלו. כל היעדים נשארים.':'היעד שהצבתי, וכמה אחוזים מהדרך עשיתי. אפשר להוסיף עוד יעד ולהשוות: אותו תואר במוסד אחר, או תואר אחר.'}</p>
       ${best&&best.pct>0?`<p class="kp-hubbest">${ki('star')}<span>הכי מתקדם עכשיו: <b>${esc(best.d.n)}</b> ${esc(bIn(best.I.n))} (${best.pct}%)</span></p>`:''}</div></section>
-    <div class="wrap kp-body"><div class="kp-hub">${L.map(x=>hubCard(x,P)).join('')}${L.length<MAXT?`<button class="kp-hc add" data-kadd><span class="kp-addi">${FIC.plus}</span><b>הוספת יעד</b><small>תואר אחר, או אותו תואר במוסד אחר. כך אפשר להשוות כמה אני קרוב לכל אחד</small></button>`:''}</div>
+    <div class="wrap kp-body">${hubQuizHTML()}<div class="kp-hub">${L.map(x=>hubCard(x,P)).join('')}${L.length<MAXT?`<button class="kp-hc add" data-kadd><span class="kp-addi">${FIC.plus}</span><b>הוספת יעד</b><small>תואר אחר, או אותו תואר במוסד אחר. כך אפשר להשוות כמה אני קרוב לכל אחד</small></button>`:''}</div>
       <details class="adm dmeth kp-adm"><summary>איך מחושב האחוז?</summary><div class="admb"><p>האחוז הוא כמה מהצעדים בדרך ליעד כבר עשיתי. צעדים שאני מסמן ✓ נספרים, וגם צעדים שהמערכת מסמנת לפי הנתונים שלי (למשל, שיש לי ציון פסיכומטרי). כשאני קרוב לסף הקבלה, נספר גם חלק מהצעד "לעבור את סף הקבלה". זה לא סיכוי להתקבל: אין לנו נתונים רשמיים על סיכוי, והמוסד הוא שמחליט.</p></div></details></div>`}
 
 /* ---------- the gauge: my score against the threshold (the roads screen and the progress view) ---------- */
@@ -12476,7 +12556,7 @@ function renderPath(){
   /* arriving from another page starts at the landing (all my targets when I have several); a redraw in place keeps where I am */
   if(typeof NAVT!=='undefined'&&KP.navT!==NAVT){KP.navT=NAVT;KP.trXf=null;KP.trXc=null;KP.zsel='';KP.back='';KP.lp=null;KP.qfx=null;KP.qpause=false;if(S.navDir!=='back'||KP.land){KP.view=KP.land;KP.tab='now'}KP.land=''}
   /* the landing is decided once, on arrival; after that the view stays where I put it (adding a target from the options must not throw me to the hub) */
-  if(!KP.view)KP.view=tList().length>1?'hub':'road';
+  if(!KP.view)KP.view='hub'; /* v3: every entry, by hand or by a link, lands on the home of my routes */
   if(curView()==='hub')return safe(hubPageHTML,'');
   const pl=safe(plan);
   if(!pl)return `<section class="hero"><div class="wrap">${BACK}<h1>משהו השתבש במסלול</h1><p class="sub">אפשר להתחיל מחדש, והפרופיל והציונים לא יימחקו.</p><button class="btn primary" data-kresetok>התחלה מחדש</button></div></section>`;
@@ -13371,7 +13451,7 @@ function endSync(){const h=$('#kpEndH'),b=$('[data-kendx]'),v=(pth()||{}).end||'
 const PROF_OPT=['stage','stageAt','sex','reg','nat','svc','res','resAt','inc','first','house','work','hrs','math','mathQ','years','track','qvals']; /* svc, res (with resAt), inc and first come from the scholarships page (optional, sensitive, kept in this browser) */
 function profMoreHTML(){const p=S.prof||{};
   return `<details class="kp-more-me" ${p.sex||p.reg||p.nat?'open':''}><summary>עוד קצת עליי <small>(לא חובה, מדייק את המסלול)</small></summary>${meFieldsHTML('prof',['sex','reg','nat'])}<p class="fine">${menote()}</p></details>
-    <details class="kp-more-me" ${p.house||p.work||p.first||p.svc?'open':''}><summary>שאלות קצרות מהמסלול <small>(לא חובה)</small></summary>${meFieldsHTML('prof',['house','work','first','svc'])}<p class="fine">${menote()}</p></details>`}
+    <details class="kp-more-me" ${p.house||p.work?'open':''}><summary>שאלות קצרות מהמסלול <small>(לא חובה)</small></summary>${meFieldsHTML('prof',['house','work'])}<p class="fine">${menote()}</p></details>`}
 const menote=()=>`המידע ${acctSynced()?'נשמר בחשבון שלי ובדפדפן הזה (מצב כלכלי במשפחה, השכלת ההורים, שירות ומילואים נשארים רק במכשיר הזה)':'נשמר רק בדפדפן הזה'}. הוא משמש להתאמת הניסוח, מועדי הבחינות והמוסדות שמוצגים לי, ואפשר לדלג על כל שאלה.`;
 function setMe(k,v){
   if(k==='start'){const P=pth()||pthNew();P.start=+v;PTH=P;pthSave();return}
@@ -13518,12 +13598,12 @@ document.addEventListener('click',e=>{
   else if(ds.kendx!==undefined){qSnooze('end');setEnd('');const i=$('#kpEnd');if(i){i.value='';i.focus({preventScroll:true})}endSync()}
   else if(ds.kmedone!==undefined){closeOv(true);if(S.route.v==='path'&&!KP.wiz.active)keepY(render)}
   /* my targets */
-  else if(ds.ktgt!==undefined){if(activate(ds.ktgt)){KP.view='road';KP.tab='now';KP.land='road';if(S.route.v==='path'){render();top0()}else go('path')}}
+  else if(ds.ktgt!==undefined){if(activate(ds.ktgt)){KP.view='road';KP.tab='now';KP.land='road';if(S.route.v==='path'){KP.land='';render();top0()}else go('path')}}
   else if(ds.khub!==undefined){KP.view='hub';render();top0()}
   else if(ds.kadd!==undefined){wizReset(false,true);render();top0()}
   else if(ds.krm!==undefined){KP.rm=ds.krm;keepY(render)}
   else if(ds.krmno!==undefined){KP.rm='';keepY(render)}
-  else if(ds.krmok!==undefined){removeTarget(ds.krmok);KP.rm='';KP.view=tList().length>1?'hub':'road';KP.tab='now';toast('היעד הוסר');render();top0()}
+  else if(ds.krmok!==undefined){removeTarget(ds.krmok);KP.rm='';KP.view='hub';KP.tab='now';toast('היעד הוסר');render();top0()}
   /* the tabs, and the step in focus */
   else if(ds.ktab!==undefined){const k=KALIAS[ds.ktab]||ds.ktab;gotoTab(!isView(k)&&KP.tab===k?(KP.back||'now'):k,ds.kto?{to:ds.kto}:{})} /* a tool that is open closes with the same button */
   /* the progress chart and the calendar */
@@ -14692,7 +14772,7 @@ function onRoute(){
   const rest=back&&NAV.y[h]!=null;
   S.route=parse();S.navDir=rest?'back':'fwd';NAVT=Date.now();
   if(S.route.v==='degrees'){if(!back&&!S.keepQ)degReset();S.keepQ=false}
-  if(rest&&S.route.v==='forum')FF.keep=true; /* going back to the Q&A keeps the filters I chose */if((S.route.v==='dir'||(S.route.v==='path'&&!hasGoal()&&!dirDone()))&&!['q','guess','day','trans'].includes(VQU.mode))VQU.mode='intro';
+  if(rest&&S.route.v==='forum')FF.keep=true; /* going back to the Q&A keeps the filters I chose */if((S.route.v==='dir'||(S.route.v==='path'&&!hasGoal()&&!dirDone()))&&!['q','guess','day','trans'].includes(VQU.mode)&&!VQU.keepRes)VQU.mode='intro';VQU.keepRes=0;
   const swap=()=>{closeOv(true);render();
     /* back: the previous screen at the exact same place, set before it is painted (and once more after, in case something grew) */
     if(rest){const y=NAV.y[h];window.scrollTo({top:y,left:0,behavior:'instant'});requestAnimationFrame(()=>{if(Math.abs(scrollY-y)>2)window.scrollTo({top:y,left:0,behavior:'instant'})})}
@@ -15504,6 +15584,66 @@ document.addEventListener('click',e=>{
   const v=document.querySelector('.vq-fly-v svg');if(v)vfMood(v,'happy',900);
 },true);
 
+/* ================= v3: the home of my routes: the questionnaire is one tap away ================= */
+function hubQuizHTML(){
+  vqLoad();const done=dirDone();let w=null;
+  if(done){try{const R=VQR.results(vqSt());w=VQW[R.dirs[0].world]}catch(e){}}
+  const dt=VQU.done?new Date(VQU.done).toLocaleDateString('he-IL'):'';
+  return `<section class="hq" aria-labelledby="hqH"><div class="hq-v" aria-hidden="true">${vfSVG({decor:true,cls:'vf-perch vf-idle'+(done?' vf-happy':'')})}</div>
+    <div class="hq-b"><p class="hq-k">${ki('compass')}השאלון שלי${dt?` · ${dt}`:''}</p>
+      <h2 id="hqH">${done&&w?`הכיוון שלי: ${esc(w.n)}`:'עוד לא ענית על השאלון'}</h2>
+      <p class="hq-s">${done?'אפשר לראות שוב את התוצאות, או להתחיל מחדש אם משהו השתנה.':'ארבע דקות של שאלות, ואני אנחש לאן כדאי לטוס. בלי תשובות נכונות.'}</p></div>
+    <div class="hq-a">${done?`<button type="button" class="btn primary" data-hqres>${ki('chart')}לתוצאות השאלון</button><button type="button" class="btn soft" data-hqnew>להתחיל מחדש</button>`:`<button type="button" class="btn primary" data-hqstart>מתחילים בשאלון</button>`}</div></section>`;
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest&&e.target.closest('[data-hqres],[data-hqstart],[data-hqnew],[data-hqnewok]');if(!b)return;const d=b.dataset;
+  if(d.hqres!==undefined){vqLoad();VQU.mode='res';VQU.keepRes=1;go('dir')}
+  else if(d.hqstart!==undefined||d.hqnewok!==undefined){closeOv(true);vqLoad();VQU.keepRes=1;go('dir');setTimeout(()=>vqStart('hub'),150)}
+  else if(d.hqnew!==undefined){openOv(`<h2>להתחיל את השאלון מחדש?</h2><p class="s">התשובות והתוצאות הנוכחיות יוחלפו בחדשות. המסלולים שלי לא ישתנו.</p><div class="kp-btns"><button type="button" class="btn primary" data-hqnewok>כן, מתחילים מחדש</button><button type="button" class="btn soft" data-close>ביטול</button></div>`)}
+});
+
+/* ================= v3: the questionnaire results on one screen =================
+   The engine and the numbers are the old ones (VQR.results, vqOccHTML). The page is new: the leading direction on top, the three directions as tabs, a few compact cards
+   for each, the long reasons behind a fold, and the actions in a bar that stays in view, so nothing needs scrolling to get to "continue to my route". */
+function vqRes(){
+  const st=vqSt(),R=VQR.results(st),d1=R.dirs[0],w1=VQW[d1.world],sel=Math.min(VQU.rt||0,R.dirs.length-1);
+  const conf={clear:['התמונה די ברורה','ok'],direction:['יש כיוון, שווה לבדוק עוד','mid'],open:['עדיין פתוח','open']}[R.conf];
+  const tabs=R.dirs.map((d,i)=>`<button type="button" class="vr-tab" role="tab" id="vrt${i}" data-vrtab="${i}" aria-selected="${i===sel}" aria-controls="vrp${i}" tabindex="${i===sel?0:-1}"><span class="vr-ti">${ki(VQW_IC[d.world]||'compass')}</span><span class="vr-tt"><small>${i===0?'הכי מתאים':'כיוון '+(i+1)}</small><b>${esc(VQW[d.world].n)}</b></span></button>`).join('');
+  const occ=x=>{
+    const o=OC[x.id],[fl,fc]=VQR.fit(x.top),why=VQR.why(st,x.id,1)[0],rt=vqRoutes(x.id,st.set,S.prof),dg=rt.degrees.slice(0,2);
+    return `<article class="vr-oc"><div class="vr-oh"><h3><button type="button" class="linkbtn" data-occ="${x.id}">${esc(o.n)}</button></h3><span class="vq-fit ${fc}">התאמה ${fl}</span></div>
+      <p class="vr-meta num">${o.sal?`<span>שכר ממוצע ${shek(o.sal)}</span>`:''}${occHot(o)?'<span class="hotc">חם בשוק</span>':''}</p>
+      ${why?`<p class="vr-why">${esc(vqWhyTxt(why))}</p>`:''}
+      ${dg.length?`<p class="vr-deg"><small>איך מגיעים:</small>${dg.map(r=>`<button type="button" class="vr-chip" data-open="${r.d.id}">${esc(r.d.n)}${r.du?` <i class="num">${r.du.txt} שנים</i>`:''}</button>`).join('')}</p>`:''}
+      <details class="vr-det"><summary>למה זה מתאים לי ואיך מגיעים</summary>${vqOccHTML(x,st,R)}</details></article>`};
+  const panels=R.dirs.map((d,i)=>`<div class="vr-pn" role="tabpanel" id="vrp${i}" aria-labelledby="vrt${i}"${i===sel?'':' hidden'}><p class="vr-wd">${esc(VQW[d.world].d)}</p><div class="vr-gr">${d.occs.map(occ).join('')}</div></div>`).join('');
+  const wc=R.wildcard?(()=>{const x=R.wildcard,w=VQR.why(st,x.id,1)[0];return `<section class="vq-sur"><h3>${ki('compass')}כיוון שלא חשבת עליו</h3><p><button class="linkbtn" data-occ="${x.id}">${esc(vqOcN(x.id))}</button> · ${esc(VQW[x.w].n)}</p>${w?`<p class="vq-sw">${esc(vqWhyTxt(w))}</p>`:''}</section>`})():'';
+  const ch=R.change.length?`<section class="vq-chg"><h3>${ki('fire')}מה היה משנה את התמונה</h3><ul>${R.change.map(c=>{const yr=c.reasons.find(r=>r.k==='years'),rd=c.reasons.filter(r=>r.k==='red').map(r=>r.text);
+    return `<li><b>${esc(vqOcN(c.id))}</b>: ${[yr?vqT(`אם היית מוכן/ה ללמוד ${yr.years} שנים`):'',rd.length?vqT(`אם ${rd.join(' ו')} לא היו מפריעים`):''].filter(Boolean).join(', ')} ${yr||rd.length?'הוא היה עולה':''}</li>`}).join('')}</ul></section>`:'';
+  return `<section class="vr dres-hero"><div class="vr-in"><div class="vr-back">${BACK}</div>
+    <header class="vr-hd"><div class="vr-v" aria-hidden="true">${vfSVG({decor:true,cls:'vf-perch vf-idle vf-happy'})}</div>
+      <div><p class="vr-k">התוצאות שלי${VQU.done?' · '+new Date(VQU.done).toLocaleDateString('he-IL'):''}</p><h1 class="vr-h" id="vqH">הכיוון שלך: ${esc(w1.n)}</h1>
+        <p class="vq-conf ${conf[1]}"><span class="vq-gauge" aria-hidden="true"><i style="width:${Math.round(100*Math.min(1,R.dirs[0].p/.65))}%"></i></span>${conf[0]}</p></div></header>
+    <div class="vr-tabs" role="tablist" aria-label="הכיוונים שמתאימים לי">${tabs}</div>
+    ${panels}
+    ${(wc||ch)?`<details class="vr-more"><summary>עוד: כיוון מפתיע ומה היה משנה את התמונה</summary>${wc}${ch}</details>`:''}
+    <p class="vr-note">השאלון הוא כלי לחקירה ולא מבחן פסיכולוגי מתוקף. תחומי עניין מתפתחים, ושווה לבדוק כמה כיוונים.</p>
+  </div>
+  <div class="vr-bar"><div class="vr-bar-in"><button type="button" class="btn primary" data-go="path">${vqT('שמור והמשך למסלול שלי')}</button>
+    <button type="button" class="btn soft" data-go="degrees">להשוות תארים</button><button type="button" class="btn soft" data-vqmore>עוד 3 שאלות לדיוק</button><button type="button" class="vr-again" data-vqstart>להתחיל מחדש</button></div></div></section>`;
+}
+function vrShow(i){
+  const root=document.querySelector('.vr');if(!root)return;VQU.rt=i;
+  root.querySelectorAll('.vr-tab').forEach((b,k)=>{b.setAttribute('aria-selected',k===i);b.tabIndex=k===i?0:-1});
+  root.querySelectorAll('.vr-pn').forEach((p,k)=>{p.hidden=k!==i});
+  const bar=root.querySelector('.vr-tabs'),a=bar&&bar.querySelector('[aria-selected="true"]');
+  if(bar&&a){const d=(a.getBoundingClientRect().left+a.offsetWidth/2)-(bar.getBoundingClientRect().left+bar.clientWidth/2);if(Math.abs(d)>2)bar.scrollBy({left:d,behavior:'instant'})}
+}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-vrtab]');if(b)vrShow(+b.dataset.vrtab)});
+document.addEventListener('keydown',e=>{const t=e.target.closest&&e.target.closest('.vr-tab');if(!t)return;
+  const L=[...t.parentElement.querySelectorAll('.vr-tab')],i=L.indexOf(t);let j=-1;
+  if(e.key==='ArrowLeft')j=(i+1)%L.length;else if(e.key==='ArrowRight')j=(i-1+L.length)%L.length;if(j<0)return;e.preventDefault();vrShow(j);L[j].focus()});
+
 /* ================= v3: the forum, alive =================
    "שאלת היום": one question a day, the same for everyone (it depends only on the date in Israel), from a list written for this: they are questions to the community,
    not statements of fact. "I want to know too" uses the existing follow of a question. The forum's storage, moderation (official links only) and filters are the old ones. */
@@ -15543,19 +15683,24 @@ function fqNow(){
 const fqPick=day=>FQOD[(day*17)%FQOD.length];
 const fqPad=n=>String(n).padStart(2,'0');
 const fqCD=s=>`${fqPad(Math.floor(s/3600))}:${fqPad(Math.floor(s%3600/60))}:${fqPad(s%60)}`;
+const FQ_LAUNCH=Math.floor(Date.UTC(2026,10,9)/864e5);
+const fqKey=d=>{const x=new Date(d*864e5);return x.getUTCFullYear()+fqPad(x.getUTCMonth()+1)+fqPad(x.getUTCDate())};
+const fqRef=d=>FAQ_UID+'--d'+fqKey(d);
 function fDailyHTML(){
-  const n=fqNow(),[q,tp]=fqPick(n.day),want=(store.get('fqWant',{})||{})[n.key];
+  const n=fqNow(),[q,tp]=fqPick(n.day),want=(store.get('fqWant',{})||{})[n.key],key=fqRef(n.day);
   const dateTxt=new Intl.DateTimeFormat('he-IL',{timeZone:'Asia/Jerusalem',weekday:'long',day:'numeric',month:'long'}).format(new Date());
-  let th=null;try{if(FM.state==='ready')th=fIdx().Q.find(x=>x.t===q)}catch(e){}
-  const ans=th?fAns(th.key).length:0;
+  let ans=[];try{if(FM.state==='ready')ans=fAns(key)}catch(e){}
+  const last=ans.slice().sort((a,b)=>b.ts-a.ts)[0];
   return `<section class="fq" aria-labelledby="fqH">
     <div class="fq-v" aria-hidden="true">${vfSVG({decor:true,cls:'vf-perch vf-idle vf-happy'})}</div>
     <div class="fq-b">
-      <p class="fq-k"><span>שאלת היום</span><time>${dateTxt}</time></p>
+      <p class="fq-k"><span>וקטי שואל</span><time>${dateTxt}</time></p>
       <h2 class="fq-q" id="fqH">${esc(q)}</h2>
-      <div class="fq-t">${topicTag(tp)}${th?`<span class="fq-c">${FIC.chat}${ans?ans+(ans===1?' תשובה':' תשובות')+' בדיון':'הדיון מחכה לתשובה ראשונה'}</span>`:''}</div>
+      <div class="fq-t">${topicTag(tp)}<span class="fq-c">${FIC.chat}${ans.length?ans.length+(ans.length===1?' תשובה':' תשובות')+' עד עכשיו':'אפשר להיות הראשונים לענות'}</span></div>
+      ${last?`<p class="fq-last"><b>${esc(who(last.uid,last.anon))}:</b> ${esc(last.b.length>110?last.b.slice(0,110)+'…':last.b)}</p>`:''}
       <div class="fq-a">
-        ${th?`<button type="button" class="btn primary" data-qo="${esc(th.key)}">לדיון ולתשובות</button>`:`<button type="button" class="btn primary" data-ask data-at="${esc(q)}" data-atopic="${tp}">לפתוח את הדיון</button>`}
+        <button type="button" class="btn primary" data-fqans="${esc(key)}">לענות על השאלה</button>
+        <button type="button" class="btn soft" data-qo="${esc(key)}">לקרוא את התשובות</button>
         <button type="button" class="btn soft fq-want" data-fqwant aria-pressed="${!!want}"><span class="fq-heart" aria-hidden="true"></span>גם אני רוצה לדעת</button>
       </div>
       <p class="fq-n">השאלה הבאה בעוד <b class="num" id="fqCD">${fqCD(n.left)}</b>. אותה שאלה לכולם, כל יום מחדש.</p>
@@ -15567,7 +15712,7 @@ function fqTick(){
   clearInterval(FQ_T);const el=document.getElementById('fqCD');if(!el)return;
   let day=fqNow().day;
   FQ_T=setInterval(()=>{const e=document.getElementById('fqCD');if(!e){clearInterval(FQ_T);return}
-    const n=fqNow();if(n.day!==day){const h=document.getElementById('fDaily');if(h){h.innerHTML=fDailyHTML();day=n.day}}else e.textContent=fqCD(n.left)},1000);
+    const n=fqNow();if(n.day!==day){FM.idx=null;const h=document.getElementById('fDaily');if(h){h.innerHTML=fDailyHTML();day=n.day}}else e.textContent=fqCD(n.left)},1000);
 }
 document.addEventListener('click',e=>{
   const w=e.target.closest&&e.target.closest('[data-fqwant]');if(!w)return;
@@ -15577,6 +15722,14 @@ document.addEventListener('click',e=>{
 });
 function fTopicsHTML(){
   return `<div class="ftopics" role="group" aria-label="נושאים"><button type="button" class="ft" data-ftopic="" aria-pressed="${!FF.topic}">הכל</button>${Object.entries(TOPICS).map(([k,v])=>`<button type="button" class="ft" data-ftopic="${k}" aria-pressed="${FF.topic===k}" style="--tc:${TOPIC_C[k]}"><i aria-hidden="true"></i>${v}</button>`).join('')}</div>`;
+}
+
+/* "לענות על השאלה": straight into the question, with the answer box in front of me */
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-fqans]');if(!b)return;window.__fqa=1;closeOv(true);go('q-'+b.dataset.fqans)});
+function fqFocusAns(){
+  if(!window.__fqa||S.route.v!=='q')return;
+  let n=0;const t=setInterval(()=>{n++;const f=document.getElementById('atext'),h=document.getElementById('aFormH');
+    if(f||n>12){clearInterval(t);window.__fqa=0;const x=f||h;if(x){x.scrollIntoView({block:'center',behavior:vtReduce()?'instant':'smooth'});if(f&&!document.getElementById('ov'))f.focus({preventScroll:true})}}},250);
 }
 /*@@V3-JS-END@@*/
 initAccounts();motionInit();a11yApply();S.route=parse();tourPrep();S.navDir='fwd';render();a11yRoute(false);initForum(); /* the first screen comes in like any new screen */

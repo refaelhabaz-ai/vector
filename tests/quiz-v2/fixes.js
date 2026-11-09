@@ -37,17 +37,14 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   await p.click('[data-vqnext]');await p.waitForTimeout(500);
   ok(await p.evaluate(()=>VQU.mode)==='res','the results screen opens after the day');
   /* ---- results layout ---- */
-  const lay=await p.evaluate(()=>{const top=[...document.querySelectorAll('.dres-hero [data-go],.dres-hero [data-vqmore],.dres-hero [data-vqstart]')].map(x=>x.textContent.trim());
-    const dirs=[...document.querySelectorAll('.vq-dir')],last=dirs[dirs.length-1],after=document.querySelector('.vq-after');
-    const sur=document.querySelector('.vq-sur'),chg=document.querySelector('.vq-chg');
-    const below=el=>!!el&&!!(last.compareDocumentPosition(el)&Node.DOCUMENT_POSITION_FOLLOWING);
-    const afterSur=!sur||!!(sur.compareDocumentPosition(after)&Node.DOCUMENT_POSITION_FOLLOWING);
-    return {top,after:after?[...after.querySelectorAll('button')].map(x=>x.textContent.trim()):[],below:below(after),afterSur,afterChg:!chg||!!(chg.compareDocumentPosition(after)&Node.DOCUMENT_POSITION_FOLLOWING)}});
-  ok(lay.top.length===1&&/למסלול שלי/.test(lay.top[0]),'one button at the top: '+JSON.stringify(lay.top));
-  ok(lay.after.length===3&&lay.below&&lay.afterSur&&lay.afterChg,'three buttons below the directions, the surprise and "what would change": '+JSON.stringify(lay.after));
-  ok(!lay.after.some(t=>/^(השווה|התחל)/.test(t)),'the labels are not masculine imperatives');
+  const lay=await p.evaluate(()=>{const bar=document.querySelector('.vr-bar');
+    return {top:[...document.querySelectorAll('.vr-bar .btn.primary')].map(x=>x.textContent.trim()),all:bar?[...bar.querySelectorAll('button')].map(x=>x.textContent.trim()):[],tabs:document.querySelectorAll('.vr-tab').length,
+      inView:bar?(()=>{const r=bar.getBoundingClientRect();return r.bottom<=innerHeight+1&&r.top>=0})():false}});
+  ok(lay.top.length===1&&/למסלול שלי/.test(lay.top[0]),'one primary button, in the bar that stays in view: '+JSON.stringify(lay.top));
+  ok(lay.tabs===3&&lay.all.length===4&&lay.inView,'three direction tabs, four actions in the bar, and the bar is in view: '+JSON.stringify(lay.all));
+  ok(!lay.all.some(t=>/^(השווה|התחל)/.test(t)),'the labels are not masculine imperatives');
   /* ---- the routes block: gender and the data line ---- */
-  const routes=async pg=>pg.evaluate(()=>{document.querySelectorAll('.vq-dir').forEach(d=>d.setAttribute('open',''));
+  const routes=async pg=>pg.evaluate(()=>{document.querySelectorAll('.vr-det').forEach(d=>d.setAttribute('open',''));
     const occ=[...document.querySelectorAll('.vq-occ')].map(o=>{const r=o.querySelector('.vq-routes');return {txt:r?r.textContent:'',naInLi:r?r.querySelectorAll('li .vq-adm.na').length:0,naLines:[...o.querySelectorAll('.vq-adm.na')].length,deg:r?r.querySelectorAll('li').length:0}});
     return occ});
   const rf=await routes(p);

@@ -29,7 +29,7 @@ async function drive(browser,width,name,sex){
   }
   ok(await p.evaluate(()=>VQU.mode)==='res',`${label}: did not reach the results`);
   await p.waitForTimeout(300);await shot('res');
-  const R=await p.evaluate(()=>({n:VQU.answers.length,order:VQU.answers.map(a=>a.q),dirs:[...document.querySelectorAll('.vq-dir b')].map(b=>b.textContent),h1:document.querySelector('#vqH').textContent,saved:JSON.parse(localStorage.getItem('kivun3.dir2')||'null'),sw:document.documentElement.scrollWidth<=innerWidth+1,text:document.body.innerText}));
+  const R=await p.evaluate(()=>({n:VQU.answers.length,order:VQU.answers.map(a=>a.q),dirs:[...document.querySelectorAll('.vr-tab b')].map(b=>b.textContent),h1:document.querySelector('#vqH').textContent,saved:JSON.parse(localStorage.getItem('kivun3.dir2')||'null'),sw:document.documentElement.scrollWidth<=innerWidth+1,text:document.body.innerText}));
   console.log(`${label}: ${R.n} questions · ${R.h1} · ${R.dirs.join(' / ')}`);
   ok(R.n<=20,label+': more than 20 answers');ok(R.sw,label+': horizontal scroll on the results');
   ok(R.saved&&R.saved.v===2&&R.saved.answers.length===R.n&&R.saved.done&&R.saved.ts,label+': dir2 was not saved as {v,answers,ctx,done,ts}');
