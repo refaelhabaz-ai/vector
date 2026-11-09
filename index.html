@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-haxhMOeA2EQw2awx10gIJo2fCWO6psKaEPdvSsEs4c4=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-IzhFUxNAfBv8fvP3xgwUCp9Cd2LytlU9r3if9jEsj6A=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -4387,6 +4387,85 @@ html:has(.hdr.tuck) .dp-tabs{top:10px}
 }
 #dpbar{display:none}
 @media(max-width:760px){#dpbar{display:flex}}
+
+/* ================= v3: the route page: the map first, the step beside it ================= */
+.vx-sec{padding-top:6px}
+.vx-stage{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:20px;align-items:start}
+.vx-mapcard{border:0;border-radius:32px;gap:10px}
+.vx-mh h2{font:400 1.5rem/1.2 'Secular One','Heebo',sans-serif}
+.vx-mh p.vx-hint{margin:2px 0 0;font-size:.9375rem;color:var(--v3-muted)}
+.vx-mini{gap:10px}
+.vx-me b{font-weight:800}
+.vx-det{margin-inline-start:auto;font-size:.875rem;font-weight:700;color:var(--acc-ink);text-decoration:underline;text-underline-offset:3px;min-height:40px}
+/* the panel: it stays beside the map while the map scrolls */
+.vx-stage .vx-side{position:sticky;top:calc(var(--hh,72px) + 74px)}
+.vx-stage .vx-side .vx-sidein{display:grid;gap:12px;align-content:start;max-height:calc(100vh - var(--hh,72px) - 96px);overflow-y:auto;padding:2px 4px 8px 2px;scrollbar-width:thin}
+.vx-nl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:0;padding:10px 16px;border-radius:999px;background:var(--v3-sky-soft);color:var(--v3-sky-ink);font-size:.9375rem;font-weight:700}
+.vx-nl-p{padding:2px 10px;border-radius:99px;background:#fff;color:var(--v3-ink);font-weight:800}
+.vx-nl .linkbtn{color:var(--v3-ink);font-weight:800;text-decoration:underline;text-underline-offset:3px;padding:0;text-align:start}
+.vx-peekbtn,.vx-grab,.vx-sclose,.vx-sbk{display:none}
+.vx-sidein .vx-nl{order:-2}
+.vx-sidein #kpStep{order:-1}
+.vx-sidein #smStage{order:1}
+.vx-how summary{min-height:40px;padding:0 14px;font-size:.875rem;border-radius:999px}
+/* what else can I do: small tiles */
+.bey{margin-top:22px;padding:0;background:none;box-shadow:none;border:0;border-radius:0}
+.bey-h h2{font:400 1.375rem/1.2 'Secular One','Heebo',sans-serif;margin:4px 0 4px}
+.bey-h p{margin:0 0 10px;font-size:.9375rem;color:var(--v3-muted);max-width:70ch}
+.bey-me{display:inline-block;margin-inline-start:6px;padding:2px 10px;border-radius:99px;background:var(--v3-cream);color:var(--v3-text);font-weight:700;font-size:.8125rem}
+.bey .tn-f{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:8px;margin-bottom:10px;padding-bottom:4px}
+.bey .tn-f::-webkit-scrollbar{display:none}
+.bey .tn-f .fb2{flex:none;min-height:38px;padding:0 14px;font-size:.875rem}
+.bey .tn-sub{margin:0 0 8px;font-size:.875rem}
+.bey .tn-g{grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px}
+.bey .tn-c{padding:14px 16px;gap:6px;border-radius:22px}
+.bey .tn-h h3{font:800 1rem/1.3 'Heebo',sans-serif}
+.bey .tn-ok{font-size:.75rem;padding:2px 8px}
+.bey .tn-by{font-size:.8125rem;margin:0}
+.bey .tn-t{font-size:.875rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bey .tn-more{margin-top:2px}
+.bey .tn-more summary{cursor:pointer;font-weight:800;font-size:.8125rem;color:var(--acc-ink);list-style:none;min-height:32px;display:flex;align-items:center}
+.bey .tn-more summary::-webkit-details-marker{display:none}
+.bey .tn-more summary::after{content:"";width:7px;height:7px;margin-inline-start:8px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .2s}
+.bey .tn-more[open] summary::after{transform:rotate(-135deg)}
+.bey .tn-more p{font-size:.8125rem;line-height:1.55;margin:4px 0}
+.bey .tn-c .btn,.bey .tn-c .kp-lnk,.bey .tn-c a.btn{align-self:flex-start;min-height:38px;padding:0 14px;font-size:.8125rem}
+.bey>.fine{font-size:.75rem;margin-top:14px}
+/* a phone: the map, and a sheet at the bottom with the stop I chose */
+@media(max-width:900px){
+  .vx-stage{display:block}
+  .vx-stage .vx-side{position:fixed;z-index:58;inset-inline:0;bottom:0;top:auto;max-height:var(--pk,292px);overflow:hidden;background:#fff;border-radius:30px 30px 0 0;box-shadow:0 -18px 44px -14px rgba(10,60,120,.5);transition:max-height .4s var(--v3-ease-out)}
+  .vx-stage .vx-side.open{max-height:84dvh}
+  .vx-stage .vx-side .vx-sidein{display:flex;flex-direction:column;gap:10px;padding:28px 14px 14px;max-height:none;overflow:hidden}
+  .vx-stage .vx-side.open .vx-sidein{max-height:84dvh;overflow-y:auto;overscroll-behavior:contain;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+  .vx-sidein{display:flex}
+  .vx-sidein .vx-nl{padding:7px 12px;font-size:.8125rem;border-radius:16px}
+  .vx-side:not(.open) .kp-fdots,.vx-side:not(.open) .kp-ftip{display:none}
+  .vx-side:not(.open) .kp-focus{display:flex;flex-direction:column;gap:8px;padding:12px 14px}
+  .vx-side:not(.open) .kp-fnav{order:2;position:relative;z-index:4;margin:0;padding:0}
+  .vx-side:not(.open) .kp-fhow{order:3}
+  .vx-side:not(.open) .kp-ftt h2{font-size:1.1875rem}
+  .vx-side:not(.open) .kp-fwhy{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.875rem}
+  .vx-side:not(.open)::after{content:"";position:absolute;inset:auto 0 0 0;height:70px;background:linear-gradient(rgba(255,255,255,0),#fff 85%);pointer-events:none;z-index:2}
+  .vx-peekbtn{display:block;position:absolute;inset:0;z-index:3;background:none;cursor:pointer}
+  .vx-side.open .vx-peekbtn{display:none}
+  .vx-grab{display:block;position:absolute;top:9px;left:50%;width:46px;height:5px;margin-left:-23px;border-radius:9px;background:var(--v3-line);z-index:4}
+  .vx-sclose{position:absolute;z-index:5;top:8px;inset-inline-start:10px;width:40px;height:40px;place-items:center;border-radius:50%;background:var(--v3-cream)}
+  .vx-side.open .vx-sclose{display:grid}
+  .vx-sclose svg{width:18px;height:18px;fill:none;stroke:var(--v3-ink);stroke-width:2.6;stroke-linecap:round}
+  .vx-sbk{display:block;position:fixed;z-index:57;inset:0;background:rgba(27,33,66,.5);opacity:0;pointer-events:none;transition:opacity .3s}
+  .vx-sbk.on{opacity:1;pointer-events:auto}
+  .kp-body{padding-bottom:310px}
+  html.vx .vb-launch,html.vx .vb-tip{display:none!important}
+  html.vx .a11y-fab{bottom:306px}
+  html.vx .to-top{bottom:310px}
+  .bey .tn-g{grid-template-columns:1fr 1fr;gap:10px}
+}
+@media(max-width:520px){.bey .tn-g{grid-template-columns:1fr}}
+html.rm .vx-side,html.rg .vx-side,html.rm .vx-sbk,html.rg .vx-sbk{transition:none}
+
+.bey .tn-full{color:var(--v3-text)}
+@media(max-width:900px){.vx-mapcard{padding:12px 12px 14px}.vx-mh{flex-wrap:nowrap;gap:8px}.vx-mh h2{font-size:1.25rem}.vx-hint{display:none}.vx-how summary{padding:0 12px}}
 
 /* ---------- the three motion states and high contrast ---------- */
 html.rg .btn,html.rg .card,html.rg .hm-en,html.rg .hcard,html.rg .vn-link,html.rg .chip,html.rg .fb2,html.rg .vn-ic,html.rg .hm-mascot{transition-property:background-color,border-color,color,box-shadow!important}
@@ -11787,8 +11866,8 @@ const TEEN=[
  {id:'council',n:'מועצת התלמידים והנוער הארצית',by:'הגוף הנבחר שמייצג את בני הנוער בישראל',fl:['social','hum'],g:'לא צוין',t:'לפי מסמך של משרד החינוך, המועצה היא הגוף הנבחר והמייצג הרשמי של בני הנוער בארץ. הנציגים נבחרים בבתי הספר, משם למועצות הרשותיות והמחוזיות, ומכל מחוז למועצה הארצית.',a:'לא נמצא מידע על השפעה על הקבלה. זה ניסיון בהנהגה ובשליחות ציבורית.',j:'מתחילים במועצת התלמידים של בית הספר. אתר המועצה: www.mtna.org.il. המסמך אינו מתוארך, ולכן בודקים באתר.',u:'https://meyda.education.gov.il/files/noar/profilmoaza.pdf',ok:1,y:''}];
 const TEEN_GAP={health:'אין כאן תוכנית מאומתת להתנדבות נוער בבתי חולים או לחשיפה בפקולטות לרפואה. כדאי לשאול ישירות את מוקד ההתנדבות של בית החולים הקרוב ואת הפקולטות.',design:'אין כאן תוכנית מאומתת לנוער בעיצוב, באדריכלות או באמנויות. כדאי לשאול את מורי האמנות ואת המוסדות על ימים פתוחים ומכינות.',teach:'אין כאן תוכנית מאומתת להוראה או לחינוך לתלמידי תיכון. כדאי לשאול את תנועות הנוער, את בית הספר ואת מכללות החינוך.',biz:'אין כאן תוכנית מאומתת לתלמידי תיכון בכלכלה או בניהול. אפשר לשאול את בית הספר על תוכניות יזמות.',hum:'אין כאן תוכנית מאומתת לתלמידי תיכון במדעי הרוח. המועצה הארצית ו"אקדמיה בתיכון" הכי קרובות.',social:'',tech:'',eng:'',science:''};
 const tnOk=p=>`<span class="tn-ok ${p.ok?'y':'n'}">${p.ok?'נקרא בדף הרשמי':'הדף לא נפתח אצלנו'}</span>`;
-function tnCard(p){return `<article class="tn-c"><div class="tn-h"><h3>${esc(p.n)}</h3>${tnOk(p)}</div><p class="tn-by">${esc(p.by)} · ${esc(p.g)}</p><p>${esc(p.t)}</p>${p.cl?`<p class="tn-cl"><b>שימו לב:</b> ${esc(p.cl)}</p>`:''}
-  <p class="tn-a"><b>נקודות קבלה?</b> ${esc(p.a)}</p><p><b>איך מצטרפים:</b> ${esc(p.j)}</p><p class="tn-y">נבדק ב-${esc(dLong(TEEN_DATE))}${p.y?` · תאריך המסמך: ${esc(p.y)}`:''}</p>${KA(p.u,'לאתר התוכנית')}</article>`}
+function tnCard(p){return `<article class="tn-c"><div class="tn-h"><h3>${esc(p.n)}</h3>${tnOk(p)}</div><p class="tn-by">${esc(p.by)} · ${esc(p.g)}</p><p class="tn-t">${esc(p.t)}</p>
+  <details class="tn-more"><summary>קבלה, הצטרפות ומועדים</summary><p class="tn-full">${esc(p.t)}</p>${p.cl?`<p class="tn-cl"><b>שימו לב:</b> ${esc(p.cl)}</p>`:''}<p class="tn-a"><b>נקודות קבלה?</b> ${esc(p.a)}</p><p><b>איך מצטרפים:</b> ${esc(p.j)}</p><p class="tn-y">נבדק ב-${esc(dLong(TEEN_DATE))}${p.y?` · תאריך המסמך: ${esc(p.y)}`:''}</p></details>${KA(p.u,'לאתר התוכנית')}</article>`}
 function teenList(f){const L=TEEN.filter(p=>f==='all'||p.fl.includes(f)).sort((a,b)=>(b.ok-a.ok)||(!!a.cl-!!b.cl));
   return L.length?`<div class="tn-g">${L.map(tnCard).join('')}</div>`:''}
 /* "Expanding horizons": what else a high-school student can do beside the road. Only for a student in grades 10 to 12 (the stage comes from the profile), by the field of the target.
@@ -11798,7 +11877,7 @@ function beyondHTML(pl){
   const f0=CATS[X.d.c]?X.d.c:'all',stN=(STAGES.find(s=>s[0]===(S.prof||{}).stage)||[])[1]||'',me=[stN,`התואר שבחרתי: ${X.d.n}`].filter(Boolean).join(' · ');
   const f=KP.tf==='all'||(KP.tf&&CATS[KP.tf])?KP.tf:f0,nm=f==='all'?'כל התחומים':CATS[f].n,gap=f==='all'?'':TEEN_GAP[f]||'';
   return `<section class="bey" id="kpTeen" aria-labelledby="beyH"><div class="bey-h"><span class="vx-kick">${ki('compass')}הרחבת אופקים</span><h2 id="beyH">מה אפשר לעשות עוד, כבר עכשיו</h2>
-    <p>המסלול שלמעלה הוא החלק "היבש": ציונים, בחינות והרשמה. כאן מה שאפשר לעשות לצידו כדי להכיר את התחום באמת ולבדוק שהוא מתאים לי. מותאם לפרופיל שלי (${esc(me)}). אף אחת מהפעילויות האלה אינה תנאי קבלה.</p></div>
+    <p>מה אפשר לעשות לצד המסלול כדי להכיר את התחום באמת. אף אחת מהפעילויות אינה תנאי קבלה. <span class="bey-me">${esc(me)}</span></p></div>
     <div class="tn-f" role="group" aria-label="תחום">${['all',...Object.keys(CATS)].map(k=>`<button type="button" class="fb2" data-ktf="${k}" aria-pressed="${f===k}">${k==='all'?'כל התחומים':CATS[k].n}</button>`).join('')}</div>
     <div id="kpTeenL"><p class="tn-sub">מוצגות פעילויות בתחום: <b>${esc(nm)}</b></p>${teenList(f)}${gap?`<p class="tn-gap">${esc(gap)}</p>`:''}</div>
     <p class="fine">המידע נקרא ב-${esc(dLong(TEEN_DATE))} מדפי התוכניות עצמן ומהמסמכים של משרד החינוך (חוץ ממד"א, שהדף שלה לא נפתח אצלנו, ולכן לא נכתבו עליה גיל וכיתה). מועדים, גיל, עלות ותנאי קבלה משתנים משנה לשנה, ולכן לפני כל הרשמה בודקים בדף התוכנית. הרשימה אינה ממצה. לא מצאנו מקור שאומר שפעילות כזאת מוסיפה נקודות לקבלה, חוץ מ"אקדמיה בתיכון" שמזכה בציון בגרות ובנקודות אקדמיות לתואר.</p></section>`}
@@ -12306,7 +12385,7 @@ const vxMsg=p=>p>=100?'הגעת! כל הצעדים בדרך מאחוריך. כל
 function vxMini(pl){
   const {d,I}=pl.X,p=Math.max(0,Math.min(100,pl.pct));
   return `<button type="button" class="vx-exit" data-khub aria-label="כל המסלולים שלי">${ki('arrow','kp-flip')}<span>כל המסלולים</span></button>
-    <span class="vx-me"><b>${esc(d.n)}</b><small>${esc(I.n)}</small></span>
+    <span class="vx-me"><b>${esc(d.n)}</b><small>${esc(I.n)}${pl.X.P.auto?' · מוסד לדוגמה':''}</small></span><button type="button" class="linkbtn vx-det" data-kme="">הפרטים שלי</button>
     <span class="vx-pc" role="img" aria-label="${p}% מהדרך"><i style="--p:${p}"></i><b class="num">${p}%</b></span>`}
 /* the grade game: my numbers, the verdict and the map of admission. It lives in a sheet that opens on a button, so the road page stays calm */
 function playHTML(pl){
@@ -12333,16 +12412,7 @@ function nowHTML(pl){
   const t=focusTask(pl),nx=pl.next,p=Math.max(0,Math.min(100,pl.pct)),nz=nx&&(ZN[nx.z]||{}).t;
   const cz=pl.zones.find(z=>z.id===pl.cur)||pl.zones[0],goW=pl.X.start?safe(()=>zoneRange('go',pl.X),''):'',sk=safe(streak,0);
   const extra=safe(()=>stepsNoteHTML(),'')+safe(()=>welcomeHTML(pl),''),hs=/^g1[012]$/.test(pl.X.stg);
-  const top=`<section class="vx-top" aria-labelledby="jnH"><div class="vx-hi"><span class="vx-kick">${ki('map')}המסלול שלי</span><h1 id="jnH">יוצאים לדרך: ${esc(pl.X.d.n)}</h1>
-      <p class="vx-inst">${esc(pl.X.I.n)}${pl.X.P.auto?' · <b>מוסד לדוגמה</b>':''} · <button type="button" class="linkbtn vx-me" data-kme="">הפרטים שלי</button></p><p class="vx-msg">${vxMsg(p)}</p>
-      <ul class="vx-chips"><li><span>${ki('pin')}</span><small>איפה אני</small><b>${esc(cz.t)}</b></li>
-        <li><span>${ki('check')}</span><small>צעדים שעשיתי</small><b><span class="num">${pl.done}</span> מתוך <span class="num">${pl.total}</span></b></li>
-        <li><span>${ki('fire')}</span><small>ימים ברצף</small><b><span class="num">${sk}</span></b></li>
-        <li><span>${ki('cap')}</span><small>הגעה ליעד</small><b>${esc(goW||'עוד לא בחרתי שנה')}</b></li></ul></div>
-    <div class="jn-gauge vx-gauge" role="img" aria-label="עשיתי ${p}% מהצעדים בדרך">${vxSpd(p)}<div class="jn-gv"><b class="num">${p}<small>%</small></b><span>מהצעדים בדרך עשיתי</span></div></div>
-    ${nx?`<div class="vx-nx"><span class="vx-na" aria-hidden="true">${ki('arrow')}</span><div class="vx-nt"><small>הנחיתה הבאה${nz?` · ${esc(nz)}`:''}</small><b>${esc(nx.t)}</b>${nx.due?`<span>${esc(dueText(nx))}</span>`:''}</div>
-        <button type="button" class="vx-go" data-kstop="${nx.id}">טוסו לשם${ki('arrow')}</button></div>`:`<div class="vx-nx done"><span class="vx-na" aria-hidden="true">${ki('flag')}</span><div class="vx-nt"><small>הגעתי</small><b>כל הצעדים בדרך הושלמו</b></div></div>`}</section>`;
-  const map=`<section class="vx-mapcard" aria-labelledby="vxMapH"><div class="vx-mh"><div><h2 id="vxMapH">המפה שלי</h2><p>לוחצים על ענן של שלב או של צעד, ווקטי טס אליו. אפשר לחזור לכל שלב שעברתי, ווקטי יטוס אחורה.</p></div>
+  const map=`<section class="vx-mapcard" aria-labelledby="vxMapH"><div class="vx-mh"><div><h2 id="vxMapH">המפה שלי</h2><p class="vx-hint">לוחצים על ענן כדי לראות מה עושים בשלב.</p></div>
       <div class="vx-mt"><details class="vx-how"><summary>איך קוראים את המפה?</summary><ul>
         <li><i class="c" aria-hidden="true"></i><span><b>וקטי</b> הוא אני. לוחצים על צעד, ווקטי טס אליו. לוחצים על שלב שכבר עברתי, ווקטי טס אחורה אליו.</span></li>
         <li><i class="g" aria-hidden="true"></i><span><b>ענן צבעוני</b> הוא שלב: תקופה בדרך, כמו כיתה י"א או ההרשמה. לוחצים כדי לפתוח את הצעדים שבו, גם בשלב שסיימתי.</span></li>
@@ -12351,14 +12421,15 @@ function nowHTML(pl){
         <li><i class="d" aria-hidden="true"></i><span><b>שובל צהוב</b> הוא הדרך שכבר טסתי.</span></li>
         <li class="jn-hint"><span>האחוז הוא כמה מהצעדים עשיתי, ולא סיכוי להתקבל.</span></li></ul></details></div></div>
     <div class="jn-w" id="kpJw"><div id="kpJ">${journeyHTML(pl,t)}</div></div></section>`;
-  const side=`<aside class="vx-side" aria-label="הסבר על הצעד"><div class="vx-sidein">
+  const nl=nx?`<p class="vx-nl"><span class="vx-nl-p num">${p}% מהדרך</span><span>הצעד הבא: <button type="button" class="linkbtn" data-kstop="${nx.id}">${esc(nx.t)}</button>${nx.due?` · ${esc(dueText(nx))}`:''}</span></p>`:`<p class="vx-nl"><span class="vx-nl-p num">${p}% מהדרך</span><span>כל הצעדים בדרך הושלמו</span></p>`;
+  const side=`<aside class="vx-side" aria-label="הסבר על הצעד"><button type="button" class="vx-peekbtn" data-vxpeek aria-expanded="false" aria-label="פתיחת המידע על השלב"></button><span class="vx-grab" aria-hidden="true"></span><button type="button" class="vx-sclose" data-vxpeek aria-label="סגירה"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button><div class="vx-sidein">${nl}
       <div id="smStage">${safe(()=>smStageHTML(pl,t),'')}</div>
       <div class="kp-main" id="kpStep">${t?focusHTML(pl,t):doneHTML(pl)}</div></div></aside>`;
   const feats=`<ul class="vx-feats" aria-label="כלים שעוזרים בדרך"><li><button type="button" class="vx-act" data-vxlab aria-haspopup="dialog"><i>${ki('chart')}</i><span><b>בדיקת ציונים</b><small>כמה חסר לי כדי להתקבל?</small></span></button></li>
       <li><button type="button" class="vx-act" data-ktab="opt"><i>${ki('compass')}</i><span><b>מה עוד אפשר?</b><small>מוסדות ותארים נוספים לפי הציונים</small></span></button></li>
       ${hs?`<li><button type="button" class="vx-act" data-kteen><i>${ki('star')}</i><span><b>הרחבת אופקים</b><small>תוכניות והתנסויות שמתאימות לי</small></span></button></li>`:''}
       <li><button type="button" class="vx-act" data-kgoto="sch"><i>${ki('coin')}</i><span><b>מלגות</b><small>מה מתאים לי ומה המועדים</small></span></button></li></ul>`;
-  return `<section class="jn-sec vx-sec">${extra?`<div class="vx-notes">${extra}</div>`:''}${top}<div class="vx-stage">${map}${side}</div>${feats}
+  return `<section class="jn-sec vx-sec">${extra?`<div class="vx-notes">${extra}</div>`:''}<div class="vx-stage">${map}<div class="vx-sbk" data-vxpeek></div>${side}</div>${feats}
     ${hs?`<div id="kpBeyond">${safe(()=>beyondHTML(pl),'')}</div>`:''}<section class="wy" id="kpWhy">${safe(()=>whyHTML(pl),'')}</section></section>${labSheetHTML(pl)}`}
 const button=(attr,label,ic='')=>`<button class="linkbtn kp-lnk" ${attr}>${label}${ic}</button>`;
 
@@ -15395,6 +15466,20 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft')j=(i+1)%L.length;else if(e.key==='ArrowRight')j=(i-1+L.length)%L.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=L.length-1;
   if(j<0)return;e.preventDefault();dpShow(L[j].dataset.dpt);L[j].focus();
 });
+
+/* ================= v3: the route page: the map first, the step beside it =================
+   On a wide screen the panel of the chosen stop stays next to the map; on a phone it is a sheet at the bottom that shows the top of it and opens on a tap. */
+function vxSheet(on){
+  const s=document.querySelector('.vx-side'),b=document.querySelector('.vx-sbk');if(!s)return;
+  on=on===undefined?!s.classList.contains('open'):!!on;
+  s.classList.toggle('open',on);if(b)b.classList.toggle('on',on);
+  s.querySelectorAll('[data-vxpeek]').forEach(x=>x.setAttribute('aria-expanded',on));
+  if(on){const sc=s.querySelector('.vx-sidein');if(sc)sc.scrollTop=0}
+}
+document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('[data-vxpeek]'))vxSheet()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.vx-side.open'))vxSheet(false)});
+/* choosing another stop on the map keeps the sheet as it is (closed); a link from inside it closes it */
+document.addEventListener('click',e=>{const s=document.querySelector('.vx-side.open');if(s&&e.target.closest&&e.target.closest('.vx-side [data-kgoto],.vx-side [data-go]'))vxSheet(false)},true);
 
 /* ================= v3: the questionnaire as a game =================
    The questions, the engine and the answers are untouched. What is new: Vecti flies along the progress line (from where the last question left him to where this one puts him),
