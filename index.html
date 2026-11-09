@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-cFbwoXQraDk2U3X2Dn7v8Ci73bInaUKGz4MuKLvEqwk=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-FKkSP9n54VkMhuAOnJ6QcVv31Nve/9XNWlFZ3EWLhyM=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -15004,15 +15004,12 @@ function vfHop(svg){if(!svg||vtReduce())return;svg.classList.remove('vf-hop');vo
 function vfMood(svg,mood,ms=1800){if(!svg)return;const c=svg.classList;
   if(mood==='happy'){c.add('vf-happy');if(!vtReduce()&&c.contains('vf-perch')){c.remove('vf-perch');c.add('vf-hover','vf-cheer');setTimeout(()=>{c.remove('vf-hover','vf-cheer');c.add('vf-perch')},Math.min(ms,1400))}setTimeout(()=>c.remove('vf-happy'),ms)}
   if(mood==='talk'){c.add('vf-talk');setTimeout(()=>c.remove('vf-talk'),ms)}}
-/* The device asks for reduced motion (html.rr) unless I chose "מלאים" on the site myself: an explicit choice here wins over the device's setting, as the site always promised ("full ... does not depend on the computer's reduce-motion setting"). Settings are per device. */
-function vtSyncRR(){
-  let sys=false,exp=false;try{sys=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)}catch(e){}
-  try{exp=localStorage.getItem('kivun3.motion')==='"on"'}catch(e){}
-  document.documentElement.classList.toggle('rr',sys&&!exp);
-}
-const vtReduce=()=>RM()||document.documentElement.classList.contains('rr');
+/* What is marked in the site menu ("אנימציות ואפקטים") decides, on every device: "מלאים" is full motion even when the operating system asks for less (that was always the site's rule).
+   Someone who wants calm picks "עדינים" or "כבויים" there. html.rr stays unused. */
+function vtSyncRR(){document.documentElement.classList.remove('rr')}
+const vtReduce=()=>RM();
 const __vtMotionInit=motionInit;motionInit=function(){__vtMotionInit();vtSyncRR()};
-try{matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',vtSyncRR)}catch(e){}
+
 
 /* feathers and sparkles: a trail while he flies, a burst when something good happens. DOM + Web Animations, a few dozen nodes at most */
 const VFX={el:null,n:0};
