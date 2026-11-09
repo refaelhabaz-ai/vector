@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-xdsnjRM8h7Dd5INhybLcdk7fUNm7M5uqeADdkJUYsaU=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-haxhMOeA2EQw2awx10gIJo2fCWO6psKaEPdvSsEs4c4=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -4471,6 +4471,59 @@ html.rg .vq-fly-v,html.rm .vq-fly-v,html.rg .vq-fly-d,html.rm .vq-fly-d{transiti
   .vq-opts.cards .vq-ic,.vq-opts.multi .vq-ic{width:42px;height:42px}
   .vq-card{padding:20px 16px 22px}
 }
+
+/* ================= v3: the forum, alive ================= */
+.fhero-art{max-width:260px;aspect-ratio:290/215;transform:none}
+.fhero-art svg{width:100%;height:auto}
+.fhero-in{grid-template-columns:minmax(0,1fr) minmax(0,.45fr)}
+/* the question of the day */
+.fq{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 210px;align-items:end;gap:6px 24px;margin:0 0 26px;padding:clamp(22px,3.4vw,38px) clamp(20px,3.4vw,40px);border-radius:36px;overflow:hidden;isolation:isolate;
+  background:linear-gradient(135deg,#FFE9A8 0%,#FFF3CF 45%,#fff 100%);box-shadow:var(--shadow-h)}
+.fq::before{content:"";position:absolute;z-index:-1;width:380px;aspect-ratio:1;inset:-150px auto auto -110px;border-radius:50%;background:radial-gradient(circle,#FFD45E 0 34%,rgba(255,212,94,.35) 35% 62%,transparent 63%)}
+.fq-b{min-width:0;grid-column:1;grid-row:1}
+.fq-k{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:0 0 8px;font-weight:800}
+.fq-k span{padding:5px 14px;border-radius:99px;background:var(--v3-ink);color:#fff;font-size:.875rem;letter-spacing:.02em}
+.fq-k time{color:var(--v3-sun-ink);font-size:.9375rem}
+.fq-q{font:400 clamp(1.55rem,3.3vw,2.55rem)/1.2 'Secular One','Heebo',sans-serif;color:var(--v3-ink);margin:0 0 14px;text-wrap:balance}
+.fq-t{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:16px}
+.fq-c{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--v3-text);font-size:.9375rem}
+.fq-c svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
+.fq-a{display:flex;flex-wrap:wrap;gap:10px}
+html body .fq-a .btn.primary{background:var(--v3-ink)!important;color:#fff!important;box-shadow:0 5px 0 #000,0 16px 26px -10px rgba(27,33,66,.5)}
+.fq-want{gap:8px}
+.fq-heart::before{content:"♡";font-size:1.25em;line-height:1;color:var(--v3-red)}
+.fq-want[aria-pressed="true"]{background:var(--v3-red-soft);border-color:var(--v3-red);color:var(--v3-red-ink)}
+.fq-want[aria-pressed="true"] .fq-heart::before{content:"♥"}
+.fq-n{margin:16px 0 0;font-size:.875rem;color:var(--v3-muted)}
+.fq-n b{display:inline-block;min-width:5.2ch;padding:2px 10px;border-radius:99px;background:#fff;color:var(--v3-ink);font-size:.9375rem}
+.fq-v{grid-column:2;grid-row:1;align-self:end;justify-self:end;width:210px;margin-bottom:-8px}
+@media(max-width:700px){
+  .fq{grid-template-columns:1fr;border-radius:30px}
+  .fq-v{position:absolute;inset:8px auto auto 8px;width:104px;margin:0;opacity:.95;grid-column:auto;grid-row:auto}
+  .fq-b{grid-column:1}
+  .fq-k{padding-inline-end:0;margin-top:70px}
+}
+/* the topics as colourful chips, always in sight */
+.ftopics{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.ft{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 16px 0 14px;border-radius:999px;background:#fff;border:2px solid var(--v3-line);color:var(--v3-ink);font:700 .9375rem/1 'Heebo',sans-serif;transition:transform .15s var(--v3-ease-pop),border-color .15s,background-color .15s,color .15s}
+.ft i{flex:none;width:11px;height:11px;border-radius:50%;background:var(--tc,var(--v3-ink))}
+.ft:hover{transform:translateY(-2px);border-color:var(--tc,var(--v3-ink))}
+.ft[aria-pressed="true"]{background:var(--v3-ink);border-color:var(--v3-ink);color:#fff}
+@media(max-width:900px){.ftopics{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1 * clamp(16px,4vw,40px));padding:2px clamp(16px,4vw,40px) 8px}.ftopics::-webkit-scrollbar{display:none}.ft{flex:none}}
+/* tags, cards, empty state */
+.ttag{background:color-mix(in srgb,var(--tc,#868E96) 16%,#fff);color:color-mix(in srgb,var(--tc,#868E96) 55%,#1B2142);border-radius:999px;padding:3px 11px;font-weight:800}
+.qrowl{background:#fff;border-radius:22px;box-shadow:var(--shadow);border:0;transition:transform .2s var(--v3-ease-pop),box-shadow .2s}
+.qrowl:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
+.fsec-h h2{font-family:'Secular One','Heebo',sans-serif;font-weight:400}
+.fempty{border-radius:34px;background:#fff;box-shadow:var(--shadow);padding:clamp(24px,4vw,44px)}
+.fe-art{width:min(230px,60vw);margin:-10px auto 8px;border-radius:0;background:none}
+.fe-art svg{width:100%;height:auto}
+.idea{border-radius:999px;background:var(--v3-sun-soft);color:var(--v3-sun-ink);font-weight:700;border:2px solid transparent;transition:transform .15s var(--v3-ease-pop),border-color .15s}
+.idea:hover{transform:translateY(-2px);border-color:var(--v3-sun)}
+.fchip{border-radius:999px}
+.fchip.on{background:var(--v3-red-soft);color:var(--v3-red-ink)}
+.side{border-radius:26px;background:#fff;box-shadow:var(--shadow);border:0}
+html.hc .fq{background:#fff;border:2px solid #000}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -5936,7 +5989,7 @@ document.addEventListener('click',e=>{const m=e.target.closest('[data-fgmore]');
 function fMainHTML(){
   if(FM.state!=='ready')return writeNote()||`<div class="fnote">טוען…</div>`;
   const all=fIdx().Q, L=fFiltered(), filtering=FF.ctx||FF.topic||FF.inst||FF.cat||FF.f!=='all'||(FF.q&&FF.q.trim());
-  if(!all.length)return `<div class="fempty"><div class="fe-art">${ill({id:'forum0',n:'שאלות ותשובות קהילה',c:'social'})}</div>
+  if(!all.length)return `<div class="fempty"><div class="fe-art">${vfSVG({decor:true,cls:'vf-perch vf-idle vf-happy'})}</div>
     <h3>הפורום מחכה לשאלה הראשונה</h3><p>אפשר לשאול את מה שבאמת מעניין אותי: עומס, אווירה, עבודה תוך כדי לימודים, איך אחרים התקבלו. סטודנטים ובוגרים יענו.</p>
     <div class="ideas">${IDEAS.map(t=>`<button class="idea" data-ask data-at="${esc(t)}">${esc(t)}</button>`).join('')}</div>
     <p class="sub" style="margin-top:10px">אלה רעיונות לשאלות. לחיצה פותחת טופס עם השאלה, ואפשר לשנות אותה.</p></div>`;
@@ -6003,15 +6056,17 @@ function renderForum(){
     <div class="fhero-in"><div class="fhero-t"><span class="fkick">הקהילה של וקטור</span><h1>שאלות ותשובות</h1>
       <p>שואלים את מי שכבר עבר את זה: סטודנטים, בוגרים ויועצים. על תנאי קבלה, עומס, אווירה, עבודה תוך כדי לימודים ומה שביניהם.</p>
       <div id="fStats">${fStats()}</div></div>
-      <div class="fhero-art">${vectiMacaw({variant:'full',expression:'happy'})}</div></div>
+      <div class="fhero-art">${vfSVG({perch:true,flip:true,cls:'vf-perch vf-idle vf-happy'})}</div></div>
     <div class="fsearch"><div class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="fsq" type="search" autocomplete="off" placeholder="חיפוש שאלות שכבר נשאלו" value="${esc(FF.q)}" aria-label="חיפוש בשאלות"><div class="sugg" id="fsugg" hidden></div></div>
       <button class="btn ask" data-ask>${FIC.plus}שאלה חדשה</button></div>
   </div></section>
   <section class="sec fsx"><div class="wrap">
+    <div id="fDaily">${fDailyHTML()}</div>
     <div id="fStatus">${localNote()}</div>
     <div id="fInstant"></div>
     <div id="fSuggest">${fSuggest()}</div>
+    ${fTopicsHTML()}
     <details class="ffilt" id="fFilt"${(FF.topic||FF.cat||FF.inst||FF.ctx||FF.f!=='all')?' open':''}><summary><span>סינון</span>${(FF.topic||FF.cat||FF.inst||FF.ctx||FF.f!=='all')?'<span class="fm-n">פעיל</span>':''}</summary>
     <div class="fpanel">
       <div class="fprow"><span class="fpl">נושא</span><div class="fbtns" role="group" aria-label="נושאים"><button class="fb2" data-ftopic="" aria-pressed="${!FF.topic}">הכל</button>${Object.entries(TOPICS).map(([k,l])=>`<button class="fb2" data-ftopic="${k}" aria-pressed="${FF.topic===k}" style="--tc:${TOPIC_C[k]}"><i></i>${l}</button>`).join('')}</div></div>
@@ -6041,7 +6096,7 @@ function qThreadHTML(key){
       <h1 class="qh">${esc(q.t)}</h1></div>
     <div class="qrow"><div style="flex:1;min-width:0">${q.b?`<p class="qb">${esc(q.b)}</p>`:''}
       <div class="qby">${avatar(q.uid,q.anon)}<span><b>${esc(who(q.uid,q.anon))}</b>${q.anon?'':roleBadge(q.uid)}<small class="muted">${ago(q.ts)}</small></span>
-      <span class="qact">${FM.me?`<button class="fchip sm ${followed?'on':''}" data-follow="${esc(key)}">${followed?'✓ במעקב':'מעקב'}</button>`:''}${tools('q:'+key,q.uid)}</span></div></div></div></article>
+      <span class="qact">${FM.me?`<button class="fchip sm ${followed?'on':''}" data-follow="${esc(key)}">${followed?'✓ אני עוקב/ת':'גם אני רוצה לדעת'}</button>`:''}${tools('q:'+key,q.uid)}</span></div></div></div></article>
     <h2 class="ah">${ans.length?(ans.length===1?'תשובה אחת':`${ans.length} תשובות`):'עוד אין תשובות'}</h2>
     ${ans.length?ans.map(a=>`<div class="ans ${fb[a.key]>0?'best':''}">
       ${fb[a.key]>0?`<div class="bestl">${FIC.ok}עזר לשואל/ת</div>`:fb[a.key]<0?`<div class="bestl no">לא עזר לשואל/ת</div>`:''}
@@ -9552,7 +9607,7 @@ function burst(x,y,n=26){
 }
 
 /* everything that has to run after each screen is drawn */
-function afterRender(){try{dpTabsInit();vqFlyGo()}catch(e){}requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(!document.querySelector('#app .view.vw-ret'))document.querySelectorAll('#app .ax').forEach(countUp);if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
+function afterRender(){try{dpTabsInit();vqFlyGo();fqTick()}catch(e){}requestAnimationFrame(()=>{revealInit();stripInit();scrollRegions();if(!document.querySelector('#app .view.vw-ret'))document.querySelectorAll('#app .ax').forEach(countUp);if(S.route.sec){const t=document.getElementById(S.route.sec);if(t){t.scrollIntoView({block:'start'});t.focus({preventScroll:true})}}})}
 /* a table that scrolls sideways can be reached and scrolled from the keyboard */
 function scrollRegions(){const used=new Set(); /* every region has a name of its own: the heading above it, and a number when two share it */
   document.querySelectorAll('.thr').forEach(t=>{if(t.scrollWidth>t.clientWidth+1){const b=t.closest('.blk,section'),h=b&&b.querySelector('h2,h3'),base=(h?h.textContent.replace(/\s+/g,' ').trim()+': ':'')+'טבלה שאפשר לגלול לצדדים';
@@ -15355,6 +15410,81 @@ document.addEventListener('click',e=>{
   const r=o.getBoundingClientRect();vfBurst(r.left+r.width/2,r.top+r.height/2,{n:9,power:.55});
   const v=document.querySelector('.vq-fly-v svg');if(v)vfMood(v,'happy',900);
 },true);
+
+/* ================= v3: the forum, alive =================
+   "שאלת היום": one question a day, the same for everyone (it depends only on the date in Israel), from a list written for this: they are questions to the community,
+   not statements of fact. "I want to know too" uses the existing follow of a question. The forum's storage, moderation (official links only) and filters are the old ones. */
+const FQOD=[
+  ['איך התכוננתם לפסיכומטרי, ומה הייתם עושים אחרת?','adm'],['מה עזר לכם להחליט אם לשפר ציון בבגרות או לוותר?','adm'],['ראיון קבלה או מבחן התאמה: איך הכנתם את עצמכם?','adm'],
+  ['מה הדבר שהכי הפתיע אתכם בתהליך ההרשמה?','adm'],['איך בחרתם בין שני תארים שהתקבלתם אליהם?','adm'],['מי עזר לכם לבחור תואר, וכמה זה היה חשוב?','adm'],
+  ['מה הייתם רוצים לדעת על מכינה לפני שנרשמתם?','adm'],['איך מתמודדים כשלא מתקבלים לתואר שרצית?','adm'],
+  ['מה הקורס שהכי הפתיע אתכם בשנה הראשונה?','study'],['איך מתמודדים עם קורס מתמטיקה קשה בלי להישבר?','study'],['מה הכי עזר לכם ללמוד למבחנים?','study'],
+  ['קבוצת לימוד או לבד: מה עבד לכם?','study'],['איך בוחרים התמחות באמצע התואר?','study'],['החלפתם תואר או חוג באמצע? איך זה היה?','study'],
+  ['מה הייתם עושים אחרת בשנה א\'?','study'],['איזה מרצה או שיעור שינו לכם את הדעה על התחום?','study'],['איך משלבים לימודים עם תחביב או ספורט?','study'],
+  ['מה הכי חסר בתיאורים של התארים באתרי המוסדות?','study'],
+  ['איך מצאתם עבודה ראשונה אחרי התואר?','jobs'],['עבדתם תוך כדי הלימודים? מה למדתם מזה?','jobs'],['מה בעבודה שלכם שונה ממה שחשבתם לפני שהתחלתם ללמוד?','jobs'],
+  ['איך נראה יום עבודה רגיל במקצוע שלכם?','jobs'],['מה הכישור שהכי חשוב בעבודה שלכם ולא לימדו בתואר?','jobs'],['התואר שלכם הוביל למקצוע אחר ממה שתכננתם? ספרו.','jobs'],
+  ['איך מתכוננים לראיון עבודה ראשון?','jobs'],['התמחות, סטאז\' או פרויקט: מה עזר לכם להיכנס לתחום?','jobs'],['מה הייתם אומרים למי שמתלבט בין שני מקצועות?','jobs'],
+  ['איך בודקים כמה באמת מרוויחים במקצוע שמעניין אתכם?','jobs'],
+  ['איך נראה שבוע לימודים טיפוסי אצלכם?','sched'],['כמה שעות למידה עצמית נדרשות מעבר לשיעורים?','sched'],['איך מתמודדים עם עומס בתקופת מבחנים?','sched'],
+  ['מה עזר לכם לא להישחק במהלך הסמסטר?','sched'],['איך בונים מערכת שעות שמאפשרת גם לעבוד?','sched'],['לימודי ערב או יום: מה בחרתם ולמה?','sched'],
+  ['איך שומרים על איזון בין לימודים לחיים?','sched'],
+  ['איך מכירים חברים חדשים בקמפוס?','social'],['מה האווירה בחוג שלכם: תחרותית או שיתופית?','social'],['איזה אירוע או מועדון בקמפוס שווה להצטרף אליו?','social'],
+  ['איך מתמודדים עם בדידות בשנה הראשונה?','social'],['מה הדבר הטוב ביותר בחיי הסטודנטים בעיניכם?','social'],['איך הרגשתם בתחילת הלימודים, ואיך זה השתנה?','social'],
+  ['יש לכם טיפ למי שמגיע ללמוד רחוק מהבית?','social'],
+  ['איך מימנתם את הלימודים?','money'],['איזו מלגה או הטבה לא ידעתם עליה עד שהיה מאוחר?','money'],['איך מנהלים תקציב כסטודנטים?','money'],
+  ['מה כדאי לבדוק לפני שמגישים בקשה למלגה?','money'],['איך חשבתם על הלוואה ללימודים?','money'],['איך חוסכים בציוד ובספרים?','money'],
+  ['אילו הוצאות בתואר הפתיעו אתכם?','money'],
+  ['מעונות או דירה: מה בחרתם ולמה?','dorm'],['איך מוצאים שותפים טובים לדירה?','dorm'],['מה כדאי לבדוק לפני שחותמים על שכירות?','dorm'],
+  ['איך נראים החיים במעונות באמת?','dorm'],['איך מתמודדים עם נסיעות ארוכות לקמפוס?','dorm'],
+  ['איך החלטתם מה ללמוד כשלא ידעתם מה אתם אוהבים?','other'],['מה הייתם אומרים לעצמכם בגיל 17?','other'],['שנה אחרי התיכון: עבודה, טיול או שירות? איך זה השפיע?','other'],
+  ['מה עזר לכם לדעת שבחרתם נכון?','other'],['איך מדברים עם ההורים על בחירת תואר כשיש חילוקי דעות?','other'],['איזה טיפ אחד הייתם נותנים למי שמתחיל לחפש כיוון?','other']
+];
+/* the date in Israel, whatever the clock of the device says */
+function fqNow(){
+  const f=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Jerusalem',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'});
+  const o={};f.formatToParts(new Date()).forEach(p=>{o[p.type]=+p.value});
+  return {y:o.year,m:o.month,d:o.day,left:86400-(o.hour*3600+o.minute*60+o.second),key:`${o.year}-${String(o.month).padStart(2,'0')}-${String(o.day).padStart(2,'0')}`,day:Math.floor(Date.UTC(o.year,o.month-1,o.day)/864e5)};
+}
+/* 17 and 60 have no common factor: the 60 questions come in a fixed mixed order and none repeats before all were shown */
+const fqPick=day=>FQOD[(day*17)%FQOD.length];
+const fqPad=n=>String(n).padStart(2,'0');
+const fqCD=s=>`${fqPad(Math.floor(s/3600))}:${fqPad(Math.floor(s%3600/60))}:${fqPad(s%60)}`;
+function fDailyHTML(){
+  const n=fqNow(),[q,tp]=fqPick(n.day),want=(store.get('fqWant',{})||{})[n.key];
+  const dateTxt=new Intl.DateTimeFormat('he-IL',{timeZone:'Asia/Jerusalem',weekday:'long',day:'numeric',month:'long'}).format(new Date());
+  let th=null;try{if(FM.state==='ready')th=fIdx().Q.find(x=>x.t===q)}catch(e){}
+  const ans=th?fAns(th.key).length:0;
+  return `<section class="fq" aria-labelledby="fqH">
+    <div class="fq-v" aria-hidden="true">${vfSVG({decor:true,cls:'vf-perch vf-idle vf-happy'})}</div>
+    <div class="fq-b">
+      <p class="fq-k"><span>שאלת היום</span><time>${dateTxt}</time></p>
+      <h2 class="fq-q" id="fqH">${esc(q)}</h2>
+      <div class="fq-t">${topicTag(tp)}${th?`<span class="fq-c">${FIC.chat}${ans?ans+(ans===1?' תשובה':' תשובות')+' בדיון':'הדיון מחכה לתשובה ראשונה'}</span>`:''}</div>
+      <div class="fq-a">
+        ${th?`<button type="button" class="btn primary" data-qo="${esc(th.key)}">לדיון ולתשובות</button>`:`<button type="button" class="btn primary" data-ask data-at="${esc(q)}" data-atopic="${tp}">לפתוח את הדיון</button>`}
+        <button type="button" class="btn soft fq-want" data-fqwant aria-pressed="${!!want}"><span class="fq-heart" aria-hidden="true"></span>גם אני רוצה לדעת</button>
+      </div>
+      <p class="fq-n">השאלה הבאה בעוד <b class="num" id="fqCD">${fqCD(n.left)}</b>. אותה שאלה לכולם, כל יום מחדש.</p>
+    </div></section>`;
+}
+/* the countdown: it only ticks while the card is on the page */
+let FQ_T=0;
+function fqTick(){
+  clearInterval(FQ_T);const el=document.getElementById('fqCD');if(!el)return;
+  let day=fqNow().day;
+  FQ_T=setInterval(()=>{const e=document.getElementById('fqCD');if(!e){clearInterval(FQ_T);return}
+    const n=fqNow();if(n.day!==day){const h=document.getElementById('fDaily');if(h){h.innerHTML=fDailyHTML();day=n.day}}else e.textContent=fqCD(n.left)},1000);
+}
+document.addEventListener('click',e=>{
+  const w=e.target.closest&&e.target.closest('[data-fqwant]');if(!w)return;
+  const k=fqNow().key,m={...(store.get('fqWant',{})||{})};m[k]=!m[k];if(!m[k])delete m[k];
+  const keep=Object.keys(m).sort().slice(-30);const o={};keep.forEach(x=>o[x]=1);store.set('fqWant',o);
+  w.setAttribute('aria-pressed',!!o[k]);if(o[k]){toast('נשמר: גם אני רוצה לדעת');const r=w.getBoundingClientRect();vfBurst(r.left+r.width/2,r.top+r.height/2,{n:12,power:.6})}
+});
+function fTopicsHTML(){
+  return `<div class="ftopics" role="group" aria-label="נושאים"><button type="button" class="ft" data-ftopic="" aria-pressed="${!FF.topic}">הכל</button>${Object.entries(TOPICS).map(([k,v])=>`<button type="button" class="ft" data-ftopic="${k}" aria-pressed="${FF.topic===k}" style="--tc:${TOPIC_C[k]}"><i aria-hidden="true"></i>${v}</button>`).join('')}</div>`;
+}
 /*@@V3-JS-END@@*/
 initAccounts();motionInit();a11yApply();S.route=parse();tourPrep();S.navDir='fwd';render();a11yRoute(false);initForum(); /* the first screen comes in like any new screen */
 try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);if(VT.pending)setTimeout(()=>vtStart({first:true}),900);else setTimeout(openProfile,600)}}catch(e){}
