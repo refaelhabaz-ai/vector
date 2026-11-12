@@ -65,7 +65,7 @@ const {start,USERS}=require('./lib.js');const {createBackend}=require('./mock.js
   ok(await C.evaluate(()=>!!document.querySelector('#syf')),'a sheet asks what to keep');
   const names=await C.evaluate(()=>[...document.querySelectorAll('#syf legend')].map(x=>x.textContent));
   ok(names.includes('הפרופיל')&&names.includes('המוסד שבחרתי'),'it lists only what differs: '+names.join(', '));
-  ok(!names.includes('הציונים')&&await C.evaluate(()=>document.querySelectorAll('#syf fieldset').length===names.length||true),'the grades (only in the account) are not asked about');
+  ok(!names.includes('הציונים')&&await C.evaluate(()=>document.querySelectorAll('#syf fieldset').length===2),'the grades (only in the account) are not asked about; both rows are inside the form');
   const dl=C.waitForEvent('download');await C.click('#ov [data-sy="bk"]');const dlf=await dl;
   ok(/backup/.test(dlf.suggestedFilename()),'a backup file of this device can be downloaded first: '+dlf.suggestedFilename());
   await choose(C,'הפרופיל','בחשבון (בשרת)');await choose(C,'המוסד שבחרתי','בחשבון (בשרת)');
