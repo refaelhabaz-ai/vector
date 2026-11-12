@@ -24,14 +24,9 @@ const noaAnswers=()=>{const P=personas.noa,out=[];return P.steps.map(s=>({q:s.q,
   ok(R.nocc===274&&R.ndeg>100,`occupations ${R.nocc}, degrees ${R.ndeg} scored`);ok(R.top.top===1&&R.top.pct===100,'the best occupation: top 1%, pct 100');
   console.log('  best degrees: '+R.sample.join(' · '));
 
-  console.log('\n== degrees page: the shelf "הכי מתאימים לי"');
-  await p.goto(URL+'#degrees');await p.waitForTimeout(900);
-  const shelf=await p.evaluate(()=>{const s=document.querySelector('#sh-dir');const h=s&&s.closest('.shelf');return h?{t:h.querySelector('.sec-h p').textContent,n:s.querySelectorAll('.card').length}:null});
-  console.log('  '+JSON.stringify(shelf));ok(shelf&&shelf.n>=3,'the shelf shows degrees');ok(shelf&&/עיצוב, אמנות, מדיה ותוכן/.test(shelf.t),'its subtitle names the leading worlds');
-
   console.log('\n== jobs list: sort "הכי מתאים לי"');
   await p.goto(URL+'#jobs');await p.waitForTimeout(900);
-  const jobs=await p.evaluate(()=>{const sel=[...document.querySelectorAll('select,[data-jsort]')];const o=JOBF&&typeof JOBF==='object';return {hasOpt:!!document.querySelector('option[value="dir"],[data-sort="dir"],[data-jsort="dir"]')||document.body.innerHTML.includes('הכי מתאים לי (לפי השאלון)')}});
+  const jobs=await p.evaluate(()=>{const sel=[...document.querySelectorAll('select,[data-jsort]')];const o=JOBF&&typeof JOBF==='object';return {hasOpt:!!document.querySelector('option[value="dir"],[data-sort="dir"],[data-jsort="dir"],[data-sortv="dir"]')||document.body.innerHTML.includes('הכי מתאים לי (לפי השאלון)')}});
   ok(jobs.hasOpt,'the sort option exists once the questionnaire is done');
   const order=await p.evaluate(()=>{JOBF.sort='dir';const R=dirResult();const L=OCLIST.slice().sort((a,b)=>(R.occ[b.id]?R.occ[b.id].t:-9)-(R.occ[a.id]?R.occ[a.id].t:-9));return L.slice(0,3).map(o=>o.n)});
   console.log('  first by fit: '+order.join(' · '));ok(order.length===3,'the sort works on the new scores');

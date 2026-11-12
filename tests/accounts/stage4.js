@@ -11,8 +11,8 @@ const {start,USERS}=require('./lib.js');const {createBackend}=require('./mock.js
 
   console.log('\n== download my data');
   const A=await T.device({seed:{prof:prof0,scores:{p:700,b:105}}});
-  const ids=await A.evaluate(()=>DEG.filter(d=>d.of.length>2).slice(0,2).map(d=>d.id));
-  await A.evaluate(l=>localStorage.setItem('kivun3.list',JSON.stringify(l)),ids);await A.reload();await wait(A,400);
+  const ids=await A.evaluate(()=>Object.keys(INST)[0]);   /* the synced value used here: the chosen institution */
+  await A.evaluate(l=>localStorage.setItem('kivun3.uni',JSON.stringify(l)),ids);await A.reload();await wait(A,400);
   await T.login(A,'#dir');await T.nick(A);
   await A.click('[data-vqstart]');await wait(A,300);
   for(const pid of ['A1_4','A1_5']){await A.click(`[data-vqo="${pid}"]`)}await A.click('[data-vqnext]');await wait(A,3000);
@@ -21,7 +21,7 @@ const {start,USERS}=require('./lib.js');const {createBackend}=require('./mock.js
   const data=JSON.parse(require('fs').readFileSync(await f.path(),'utf8'));
   ok(f.suggestedFilename()==='vector-my-data.json','a JSON file: '+f.suggestedFilename());
   ok(data.account.email==='dana@example.com'&&data.account.id===DANA,'the account (id and email)');
-  ok(data.profile&&data.profile.stage==='g12'&&data.synced_data.list&&data.synced_data.scores&&data.synced_data.prof,'the profile row and the synced data: '+Object.keys(data.synced_data).join(', '));
+  ok(data.profile&&data.profile.stage==='g12'&&data.synced_data.uni&&data.synced_data.scores&&data.synced_data.prof,'the profile row and the synced data: '+Object.keys(data.synced_data).join(', '));
   ok(data.quiz_sessions.length===1&&data.quiz_sessions[0].answers.length===1&&data.quiz_sessions[0].answers[0].question_id==='A1','the quiz run with its answers');
   ok(data.consents.map(c=>c.kind).sort().join()==='age,privacy,terms','the consents');
   ok(data.only_on_this_device&&data.only_on_this_device.inc==='low'&&data.only_on_this_device.svc==='combat'&&!('inc' in data.synced_data.prof),'and, apart from the server data, what exists only on this device');
@@ -34,23 +34,23 @@ const {start,USERS}=require('./lib.js');const {createBackend}=require('./mock.js
   A.mock.deleteCalls=0;await A.fill('#delw','delete');await A.click('#delgo');await wait(A,300);
   ok((await A.textContent('#delerr')).includes('מחיקה')&&!A.mock.deleteCalls,'without the typed word nothing is called');
   A.mock.set({deleteFails:true});await A.fill('#delw','מחיקה');await A.click('#delgo');await wait(A,800);
-  ok((await A.textContent('#delerr')).includes('שום דבר לא נמחק')&&(await A.textContent('#acctBtn')).includes('דנה')&&T.backend.u(DANA).data.list,'a server error: a clear message, nothing changed, still signed in');
+  ok((await A.textContent('#delerr')).includes('שום דבר לא נמחק')&&(await A.textContent('#acctBtn')).includes('דנה')&&T.backend.u(DANA).data.uni,'a server error: a clear message, nothing changed, still signed in');
   A.mock.set({deleteFails:false});await A.click('#delgo');await wait(A,2500);
   ok(A.mock.deleteCalls===1,'one call to delete_my_account');
   ok(!T.backend.users[DANA],'the server holds nothing of this user any more (user, data, profile, quiz, consents)');
   ok((await A.textContent('#acctBtn')).includes('התחברות')&&!(await A.evaluate(()=>Object.keys(localStorage).some(k=>/^sb-.*auth-token$/.test(k)))),'signed out on the device');
   ok(!(await lsGet(A,'syncmeta'))&&!(await lsGet(A,'syncq'))&&!(await lsGet(A,'quizq'))&&!(await lsGet(A,'nicks')),'no sync record, queue or name left');
-  ok(!!(await lsGet(A,'list'))&&(await lsGet(A,'prof')).inc==='low','the device data stays when the person did not ask to delete it');
+  ok(!!(await lsGet(A,'uni'))&&(await lsGet(A,'prof')).inc==='low','the device data stays when the person did not ask to delete it');
   ok(A.errs.length===0&&await A.evaluate(()=>typeof VQE==='object'),'no errors, the site works');
   console.log('   -- signing in again is a new account');
   const NEW='abababab-1111-2222-3333-444444444444';A.mock.set({user:{...USERS.dana,id:NEW}});
   await T.login(A,'#dir');await wait(A,500);
   ok(await A.evaluate(()=>!!document.querySelector('#ov'))||true,'(the new account meets this device)');
   await T.nick(A);await wait(A,2500);
-  ok(T.backend.u(NEW).data.list&&JSON.stringify(T.backend.u(NEW).data.list.value)===JSON.stringify(ids)&&!T.backend.users[DANA],'the device data went up to the new, empty account (nothing from the deleted one came back)');
+  ok(T.backend.u(NEW).data.uni&&T.backend.u(NEW).data.uni.value===ids&&!T.backend.users[DANA],'the device data went up to the new, empty account (nothing from the deleted one came back)');
   console.log('   -- with "also delete from this device"');
   await A.click('#acctBtn');await A.click('#ov [data-acctdelete]');await A.waitForSelector('#delf');await A.check('#delloc');await A.fill('#delw','מחיקה');await A.click('#delgo');await wait(A,2500);
-  ok(!(await lsGet(A,'prof'))&&!(await lsGet(A,'list'))&&!(await lsGet(A,'scores')),'the data is gone from the device too');
+  ok(!(await lsGet(A,'prof'))&&!(await lsGet(A,'uni'))&&!(await lsGet(A,'scores')),'the data is gone from the device too');
 
   console.log('\n== the texts: where things are kept');
   const text=async(p,h)=>p.evaluate(async h=>{location.hash='#'+h;await new Promise(r=>setTimeout(r,500));const c=document.body.cloneNode(true);c.querySelectorAll('script,style,noscript,template').forEach(e=>e.remove());return c.textContent},h);
