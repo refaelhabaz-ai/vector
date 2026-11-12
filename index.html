@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-u8Uj8ifbMGYm4ig28Jhf+KbdIKxH9cusGwhD1jP4VaY=' 'sha256-clq1Oqqy6TlCtDnoTTCr2b5aGnGwU4zNtAX2Pgcm/gU='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-u8Uj8ifbMGYm4ig28Jhf+KbdIKxH9cusGwhD1jP4VaY=' 'sha256-gE173DqRPTv8HMQsnxqBrnEDsNAYzoLLjiS+7onVwpY='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -15884,73 +15884,294 @@ try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);if
 <!-- vector-bot:start -->
 <!-- vector-bot:hash sha256-qy7hLMYe5GTLq6Y/i5dtNOmmqvG3AbPx2NYX+hfrz4s= -->
 <style id="vector-bot-css">
-/* ================= וקטי: the academic helper bot (bottom-right corner) ================= */
-.vb{--vb-coral:var(--primary,#1D4FC4);--vb-cta:var(--cta,#1D4FC4);--vb-ink:var(--ink,#1F2544);--vb-muted:var(--muted,#55627F);--vb-line:var(--line,#D6E0F2);--vb-bg:var(--bg,#F1F6FF);--vb-soft:var(--primary-soft,#DCE8FF);--vb-sun:var(--sun,#FFC53D);--vb-head:var(--head,'Rubik',system-ui,sans-serif);font-family:var(--vb-head)}
+/* ================= וקטי: a conversation up in the sky =================
+   The panel is a window onto Vecti's sky, and the sky follows the visitor's clock: dawn, day, dusk or night
+   (.vb[data-sky]). Clouds drift in three layers and move with the scroll (parallax), Vecti flies in the header,
+   his words are clouds, the visitor's words are sunny notes, data comes on glass panels, and the message is sent
+   with a paper plane. Opening the panel parts the clouds. Text always sits on white or near-white glass (WCAG AA).
+   Every movement is transform/opacity, and all of it stops with prefers-reduced-motion or the site's gentle modes. */
+.vb{--k-red:#D4272F;--k-red-d:#9E1A20;--k-sun:#FFC22E;--k-sun-d:#E0A100;--k-sun-s:#FFF0C7;
+  --k-sky-i:#0A5FA0;--k-blue:#1D4FC4;--k-orange:#C2410C;--k-leaf:#0B7F41;
+  --k-ink:#14204A;--k-text:#26335E;--k-muted:#4F5B82;
+  --k-glass:rgba(255,255,255,.74);--k-glass-b:rgba(255,255,255,.95);--k-shadow:rgba(22,68,140,.22);
+  --k-head:'Secular One','Rubik','Heebo',system-ui,sans-serif;
+  /* the sky (day) */
+  --s1:#2F8FE8;--s2:#6CBDFB;--s3:#BFE5FF;--s4:#FFF3DC;--sun:#FFE27A;--sun-g:rgba(255,214,90,.55);--cloud:#fff;--cloud-o:.95;--far-o:.7;--stars:0;--moon:0;--birds:.55;
+  font-family:'Rubik','Heebo',system-ui,sans-serif}
+.vb[data-sky="dawn"]{--s1:#5C7FD6;--s2:#B79BD9;--s3:#F6B9C6;--s4:#FFE3BD;--sun:#FFD08A;--sun-g:rgba(255,170,120,.6);--cloud:#FFF4F1;--far-o:.75;--birds:.45}
+.vb[data-sky="dusk"]{--s1:#2E2F7A;--s2:#8C4E9C;--s3:#F07F6A;--s4:#FFC98A;--sun:#FF9E57;--sun-g:rgba(255,120,70,.6);--cloud:#FFE6DA;--cloud-o:.9;--far-o:.6;--stars:.35;--birds:.5}
+.vb[data-sky="night"]{--s1:#060D33;--s2:#12215C;--s3:#26387E;--s4:#3D4C92;--sun:#F4F1DE;--sun-g:rgba(200,215,255,.35);--cloud:#AFBDF0;--cloud-o:.42;--far-o:.3;--stars:1;--moon:1;--birds:0;--k-shadow:rgba(0,0,20,.45)}
 .vb *{box-sizing:border-box}
+.vb button{font:inherit}
 
-/* launcher: the character itself */
+/* ---------- launcher: Vecti peeking out of a cloud ---------- */
 .vb-launch{position:fixed;z-index:43;right:20px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:76px;height:76px;padding:0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .35s cubic-bezier(.2,1.4,.4,1)}
-.vb-launch:hover{transform:translateY(-3px) scale(1.04)}
-.vb-launch:active{transform:scale(.95)}
-.vb-launch:focus-visible{outline:3px solid var(--vb-cta);outline-offset:4px;border-radius:50%}
-.vb-launch .vecti-wrap{filter:none}
-.vb-launch .vb-dot{position:absolute;top:6px;left:4px;width:14px;height:14px;border-radius:50%;background:#12B886;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.vb-launch:hover{transform:translateY(-4px) scale(1.05)}
+.vb-launch:active{transform:scale(.94)}
+.vb-launch:focus-visible{outline:3px solid var(--k-sky-i);outline-offset:4px;border-radius:50%}
+html body .vb-launch .vecti-wrap{position:relative;z-index:1;background:linear-gradient(180deg,#BFE5FF,#fff 70%);box-shadow:0 0 0 4px #fff,0 0 0 7px #8FD0FF,0 14px 30px -8px rgba(22,68,140,.55)}
+.vb-puff{position:absolute;z-index:2;left:-14px;right:-14px;bottom:-12px;height:30px;pointer-events:none;
+  background:radial-gradient(circle at 22% 70%,#fff 0 13px,transparent 14px),radial-gradient(circle at 45% 55%,#fff 0 17px,transparent 18px),radial-gradient(circle at 70% 65%,#fff 0 14px,transparent 15px),radial-gradient(circle at 88% 78%,#fff 0 9px,transparent 10px);
+  filter:drop-shadow(0 4px 6px rgba(22,68,140,.25))}
+.vb-launch .vb-dot{position:absolute;z-index:3;top:0;left:0;width:24px;height:24px;border-radius:50%;background:var(--k-sun);border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.2);display:grid;place-items:center;color:var(--k-ink);font:700 12px/1 var(--k-head)}
 .vb.open .vb-launch .vb-dot{display:none}
 
-/* the speech bubble beside the launcher */
-.vb-tip{position:fixed;z-index:43;right:104px;bottom:calc(46px + env(safe-area-inset-bottom,0px));max-width:220px;padding:10px 14px 10px 32px;background:#fff;color:var(--vb-ink);border-radius:16px 16px 4px 16px;box-shadow:0 12px 30px rgba(31,37,68,.16);font-size:14px;line-height:1.45;font-weight:500;opacity:0;transform:translateX(10px) scale(.92);transform-origin:right bottom;pointer-events:none;transition:opacity .3s,transform .4s cubic-bezier(.2,1.4,.4,1)}
+/* ---------- the speech bubble is a little cloud ---------- */
+.vb-tip{position:fixed;z-index:43;right:106px;bottom:calc(46px + env(safe-area-inset-bottom,0px));max-width:240px;padding:14px 18px 12px 34px;background:#fff;color:var(--k-ink);border-radius:26px 26px 6px 26px;filter:drop-shadow(0 12px 22px rgba(22,68,140,.28));font-size:13px;line-height:1.5;font-weight:500;opacity:0;transform:translateX(12px) scale(.9);transform-origin:right bottom;pointer-events:none;transition:opacity .3s,transform .45s cubic-bezier(.2,1.4,.4,1);cursor:pointer}
+.vb-tip::before,.vb-tip::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.vb-tip::before{width:38px;height:38px;top:-14px;right:26px}
+.vb-tip::after{width:24px;height:24px;top:-8px;right:62px}
 .vb-tip.show{opacity:1;transform:none;pointer-events:auto}
-.vb-tip b{color:var(--vb-cta)}
-.vb-tip-x{position:absolute;top:4px;left:4px;width:24px;height:24px;border:0;border-radius:50%;background:none;color:var(--vb-muted);font-size:16px;line-height:1;cursor:pointer}
-.vb-tip-x:hover{background:var(--vb-bg)}
+.vb-tip b{color:var(--k-sky-i)}
+.vb-tip .vb-tip-go{display:block;margin-top:6px;color:var(--k-red);font-weight:700;font-size:13px}
+.vb-tip-x{position:absolute;z-index:1;top:6px;left:6px;width:26px;height:26px;border:0;border-radius:50%;background:none;color:var(--k-muted);font-size:17px;line-height:1;cursor:pointer}
+.vb-tip-x:hover{background:#EEF6FF}
 .vb.open .vb-tip{display:none}
 
+/* ---------- the window onto the sky ---------- */
+.vb-panel{position:fixed;z-index:58;right:20px;bottom:calc(106px + env(safe-area-inset-bottom,0px));width:410px;height:min(660px,calc(100vh - 140px));height:min(660px,calc(100dvh - 140px));display:flex;flex-direction:column;isolation:isolate;
+  background:linear-gradient(180deg,var(--s1) 0%,var(--s2) 34%,var(--s3) 68%,var(--s4) 100%);color:var(--k-text);border-radius:32px;
+  box-shadow:0 40px 80px -24px rgba(12,40,100,.55),0 0 0 1px rgba(255,255,255,.5) inset;overflow:hidden;
+  opacity:0;transform:translateY(18px) scale(.94);transform-origin:right bottom;pointer-events:none;visibility:hidden;transition:opacity .2s,transform .25s,visibility 0s .25s}
+.vb.open .vb-panel{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .25s,transform .45s cubic-bezier(.2,1.25,.4,1),visibility 0s}
+/* opening: a round window grows out of the launcher */
+.vb.opening .vb-panel{animation:vb-portal .75s cubic-bezier(.2,.9,.2,1)}
+@keyframes vb-portal{from{clip-path:circle(0% at 88% 100%)}to{clip-path:circle(150% at 88% 100%)}}
 
-/* the chat panel */
-.vb-panel{position:fixed;z-index:58;right:20px;bottom:calc(106px + env(safe-area-inset-bottom,0px));width:384px;height:min(600px,calc(100vh - 140px));height:min(600px,calc(100dvh - 140px));display:flex;flex-direction:column;background:#fff;color:var(--vb-ink);border-radius:24px;box-shadow:0 24px 60px rgba(31,37,68,.24),0 0 0 1px rgba(31,37,68,.05);overflow:hidden;opacity:0;transform:translateY(16px) scale(.96);transform-origin:right bottom;pointer-events:none;visibility:hidden;transition:opacity .25s,transform .35s cubic-bezier(.2,1.2,.4,1),visibility 0s .35s}
-.vb.open .vb-panel{opacity:1;transform:none;pointer-events:auto;visibility:visible;transition:opacity .25s,transform .35s cubic-bezier(.2,1.2,.4,1),visibility 0s}
+/* the sky layers */
+.vb-sky{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.vb-stars{position:absolute;inset:0 0 35% 0;opacity:var(--stars);transition:opacity 1s;
+  background-image:radial-gradient(1.6px 1.6px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 28% 42%,#fff 50%,transparent 51%),radial-gradient(1.8px 1.8px at 47% 12%,#fff 50%,transparent 51%),radial-gradient(1.1px 1.1px at 63% 33%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 78% 9%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 88% 46%,#fff 50%,transparent 51%),radial-gradient(1.3px 1.3px at 38% 26%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 55% 52%,#fff 50%,transparent 51%),radial-gradient(1.4px 1.4px at 7% 58%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 70% 61%,#fff 50%,transparent 51%);
+  animation:vb-twinkle 4s ease-in-out infinite alternate}
+@keyframes vb-twinkle{from{filter:brightness(.7)}to{filter:brightness(1.3)}}
+/* sun by day, moon by night (a crescent: a shadow eats one side) */
+.vb-sun{position:absolute;top:96px;left:34px;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fff,var(--sun) 62%);box-shadow:0 0 0 14px var(--sun-g),0 0 60px 30px var(--sun-g);transform:translateY(calc(var(--py,0) * -.05px));transition:background .8s,box-shadow .8s}
+.vb[data-sky="night"] .vb-sun{width:58px;height:58px;background:var(--sun);box-shadow:inset -16px -6px 0 0 #CFCBB0,0 0 40px 12px var(--sun-g)}
+.vb[data-sky="dusk"] .vb-sun{top:auto;bottom:150px;left:20px}
+.vb[data-sky="dawn"] .vb-sun{top:auto;bottom:190px;left:46px}
+/* birds far away */
+.vb-birds{position:absolute;top:150px;left:-60px;width:60px;height:22px;opacity:var(--birds);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 22' fill='none' stroke='%231B3A6B' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M2 8q5-5 9 0q4-5 9 0'/%3E%3Cpath d='M28 15q4-4 7 0q3-4 7 0'/%3E%3Cpath d='M44 4q3-3 6 0q3-3 6 0'/%3E%3C/svg%3E") no-repeat center/contain;
+  animation:vb-birds 26s linear infinite}
+@keyframes vb-birds{from{transform:translate(0,0)}50%{transform:translate(260px,-14px)}to{transform:translate(540px,6px)}}
+/* clouds: three layers, each drifts on its own, and moves with the scroll at its own depth */
+.vb-cl{position:absolute;left:0;right:0;pointer-events:none}
+.vb-cl i{display:block;width:200%;height:100%;background-repeat:repeat-x;animation:vb-drift linear infinite}
+@keyframes vb-drift{from{transform:translateX(0)}to{transform:translateX(50%)}}
+.vb-cl.c1{top:118px;height:70px;opacity:var(--far-o);transform:translateY(calc(var(--py,0) * -.12px))}
+.vb-cl.c1 i{background-size:260px 70px;animation-duration:90s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 70'%3E%3Cg fill='white'%3E%3Ccircle cx='40' cy='44' r='14'/%3E%3Ccircle cx='62' cy='36' r='20'/%3E%3Ccircle cx='88' cy='42' r='15'/%3E%3Crect x='28' y='44' width='76' height='14' rx='7'/%3E%3Ccircle cx='190' cy='26' r='9'/%3E%3Ccircle cx='204' cy='20' r='12'/%3E%3Ccircle cx='220' cy='26' r='9'/%3E%3Crect x='182' y='26' width='46' height='9' rx='4.5'/%3E%3C/g%3E%3C/svg%3E")}
+.vb-cl.c2{top:330px;height:110px;opacity:calc(var(--far-o) * .85);transform:translateY(calc(var(--py,0) * -.25px))}
+.vb-cl.c2 i{background-size:420px 110px;animation-duration:60s;animation-direction:reverse;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 110'%3E%3Cg fill='white'%3E%3Ccircle cx='70' cy='66' r='22'/%3E%3Ccircle cx='104' cy='50' r='32'/%3E%3Ccircle cx='146' cy='62' r='24'/%3E%3Ccircle cx='176' cy='72' r='16'/%3E%3Crect x='50' y='66' width='140' height='24' rx='12'/%3E%3Ccircle cx='320' cy='40' r='13'/%3E%3Ccircle cx='340' cy='30' r='18'/%3E%3Ccircle cx='362' cy='40' r='13'/%3E%3Crect x='306' y='40' width='70' height='13' rx='6.5'/%3E%3C/g%3E%3C/svg%3E")}
+/* the cloud bank the input rests on */
+.vb-cl.c3{bottom:-14px;height:150px;opacity:var(--cloud-o)}
+.vb-cl.c3 i{background-size:340px 150px;animation-duration:44s;filter:drop-shadow(0 -6px 14px rgba(22,68,140,.12));
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 340 150'%3E%3Cg fill='white'%3E%3Ccircle cx='20' cy='92' r='34'/%3E%3Ccircle cx='72' cy='70' r='44'/%3E%3Ccircle cx='132' cy='86' r='38'/%3E%3Ccircle cx='186' cy='64' r='46'/%3E%3Ccircle cx='246' cy='84' r='40'/%3E%3Ccircle cx='300' cy='74' r='42'/%3E%3Ccircle cx='350' cy='90' r='34'/%3E%3Crect x='0' y='96' width='340' height='60'/%3E%3C/g%3E%3C/svg%3E")}
+.vb[data-sky="dusk"] .vb-cl.c3 i,.vb[data-sky="dawn"] .vb-cl.c3 i{filter:sepia(.35) saturate(1.6) hue-rotate(-20deg) brightness(1.02)}
+.vb[data-sky="night"] .vb-cl.c3 i{filter:brightness(.62) saturate(1.4) hue-rotate(200deg) sepia(.2)}
+/* opening: two banks of cloud part like curtains */
+.vb-part{position:absolute;z-index:5;pointer-events:none;top:-4%;bottom:-4%;width:70%;opacity:0;filter:blur(1px) drop-shadow(0 0 18px rgba(120,170,230,.35))}
+.vb-part.l{background:radial-gradient(circle at 64% 2%,#fff 0 64px,transparent 65px),radial-gradient(circle at 56% 15%,#fff 0 78px,transparent 79px),radial-gradient(circle at 64% 28%,#fff 0 70px,transparent 71px),radial-gradient(circle at 56% 41%,#fff 0 84px,transparent 85px),radial-gradient(circle at 64% 54%,#fff 0 66px,transparent 67px),radial-gradient(circle at 56% 67%,#fff 0 80px,transparent 81px),radial-gradient(circle at 64% 80%,#fff 0 72px,transparent 73px),radial-gradient(circle at 56% 93%,#fff 0 68px,transparent 69px),linear-gradient(#fff,#fff) 0 0/64% 100% no-repeat}
+.vb-part.r{background:radial-gradient(circle at 36% 2%,#fff 0 64px,transparent 65px),radial-gradient(circle at 44% 15%,#fff 0 78px,transparent 79px),radial-gradient(circle at 36% 28%,#fff 0 70px,transparent 71px),radial-gradient(circle at 44% 41%,#fff 0 84px,transparent 85px),radial-gradient(circle at 36% 54%,#fff 0 66px,transparent 67px),radial-gradient(circle at 44% 67%,#fff 0 80px,transparent 81px),radial-gradient(circle at 36% 80%,#fff 0 72px,transparent 73px),radial-gradient(circle at 44% 93%,#fff 0 68px,transparent 69px),linear-gradient(#fff,#fff) 100% 0/64% 100% no-repeat}
+  background:radial-gradient(circle at 50% 0%,#fff 0 125px,transparent 126px),radial-gradient(circle at 22% 12%,#fff 0 130px,transparent 131px),radial-gradient(circle at 74% 26%,#fff 0 140px,transparent 141px),radial-gradient(circle at 26% 42%,#fff 0 140px,transparent 141px),radial-gradient(circle at 76% 56%,#fff 0 130px,transparent 131px),radial-gradient(circle at 28% 72%,#fff 0 140px,transparent 141px),radial-gradient(circle at 72% 88%,#fff 0 130px,transparent 131px),radial-gradient(circle at 45% 100%,#fff 0 125px,transparent 126px)}
+  background:radial-gradient(circle at 30% 20%,#fff 0 60px,transparent 61px),radial-gradient(circle at 70% 38%,#fff 0 80px,transparent 81px),radial-gradient(circle at 35% 58%,#fff 0 90px,transparent 91px),radial-gradient(circle at 75% 78%,#fff 0 80px,transparent 81px),radial-gradient(circle at 30% 95%,#fff 0 70px,transparent 71px),linear-gradient(#fff,#fff) center/40% 100% no-repeat}
+.vb-part.l{left:-8%}.vb-part.r{right:-8%}
+.vb.opening .vb-part{animation:vb-part-l 1.15s cubic-bezier(.5,0,.2,1) forwards}
+.vb.opening .vb-part.r{animation-name:vb-part-r}
+@keyframes vb-part-l{0%{opacity:1;transform:none}25%{opacity:1;transform:none}100%{opacity:.2;transform:translateX(-105%) scale(1.1)}}
+@keyframes vb-part-r{0%{opacity:1;transform:none}25%{opacity:1;transform:none}100%{opacity:.2;transform:translateX(105%) scale(1.1)}}
+/* a feather drifting down */
+.vb-feather{position:absolute;top:-20px;left:var(--x);width:12px;height:26px;border-radius:50% 50% 50% 50%/70% 70% 30% 30%;background:linear-gradient(90deg,var(--c) 48%,rgba(0,0,0,.18) 49% 52%,var(--c) 53%);opacity:.9;animation:vb-fall var(--d) ease-in forwards;z-index:0}
+@keyframes vb-fall{0%{transform:translate(0,0) rotate(var(--r))}25%{transform:translate(28px,25vh) rotate(calc(var(--r) + 40deg))}50%{transform:translate(-18px,45vh) rotate(calc(var(--r) - 30deg))}75%{transform:translate(22px,62vh) rotate(calc(var(--r) + 30deg));opacity:.85}100%{transform:translate(0,80vh) rotate(var(--r));opacity:0}}
 
-.vb-head{position:relative;display:flex;align-items:center;gap:12px;padding:14px 16px 14px 12px;background:linear-gradient(130deg,#2A3160,var(--vb-ink));color:#fff;flex:none}
-.vb-head::after{content:"";position:absolute;inset:auto 0 -1px;height:14px;background:#fff;border-radius:14px 14px 0 0}
-.vb-av{flex:none;width:52px;height:52px;margin-block:-4px 6px}
+/* ---------- header: Vecti flying ---------- */
+.vb-head{position:relative;z-index:2;flex:none;display:flex;align-items:center;gap:8px;padding:12px 14px 8px;min-height:88px}
+.vb-av{position:relative;flex:none;width:76px;height:82px;margin:-6px -4px -10px 0;animation:vb-flap 3.2s ease-in-out infinite;filter:drop-shadow(0 12px 10px rgba(10,40,90,.28))}
 .vb-av svg{width:100%;height:100%;overflow:visible}
-.vb-ttl{flex:1;min-width:0;margin-bottom:8px}
-.vb-ttl b{display:block;font-size:17px;font-weight:700;letter-spacing:.2px}
-.vb-ttl small{display:flex;align-items:center;gap:6px;font-size:12.5px;opacity:.85}
-.vb-ttl small i{width:8px;height:8px;border-radius:50%;background:#12B886;box-shadow:0 0 0 3px rgba(18,184,134,.25)}
-.vb-hb{flex:none;display:grid;place-items:center;width:36px;height:36px;margin-bottom:8px;border:0;border-radius:12px;background:rgba(255,255,255,.1);color:#fff;cursor:pointer;transition:background .2s}
-.vb-hb:hover{background:rgba(255,255,255,.2)}
-.vb-hb:focus-visible{outline:2px solid #fff;outline-offset:2px}
-.vb-hb svg{width:18px;height:18px}
+.vb-av .vecti-perch,.vb-av rect[fill="#64748B"]{display:none}
+@keyframes vb-flap{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+.vb-ttl{flex:1;min-width:0;padding:8px 14px 9px;border-radius:20px;background:var(--k-glass);-webkit-backdrop-filter:blur(10px) saturate(1.4);backdrop-filter:blur(10px) saturate(1.4);border:1px solid var(--k-glass-b);box-shadow:0 10px 24px -14px var(--k-shadow)}
+.vb-ttl b{display:block;font:400 21px/1.05 var(--k-head);color:var(--k-ink);letter-spacing:.3px}
+.vb-ttl small{display:block;margin-top:2px;font-size:11.5px;color:var(--k-muted);line-height:1.35}
+.vb-hi{color:var(--k-ink);font-weight:600}
+.vb-hb{flex:none;display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--k-glass-b);border-radius:50%;background:var(--k-glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--k-ink);cursor:pointer;box-shadow:0 8px 18px -10px var(--k-shadow);transition:transform .25s cubic-bezier(.2,1.4,.4,1),background .2s}
+.vb-hb:hover{transform:translateY(-2px);background:#fff}
+.vb-hb:focus-visible{outline:2px solid var(--k-ink);outline-offset:2px}
+.vb-hb svg{width:16px;height:16px}
 
-.vb-log{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:8px 14px 12px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
-.vb-msg{max-width:88%;padding:10px 14px;border-radius:18px;font-size:14.5px;line-height:1.6;word-wrap:break-word;animation:vb-in .35s cubic-bezier(.2,1.2,.4,1)}
-.vb-msg.bot{align-self:flex-start;background:var(--vb-bg);border-start-start-radius:6px}
-.vb-msg.me{align-self:flex-end;background:var(--vb-cta);color:#fff;border-start-end-radius:6px}
-.vb-msg p{margin:0 0 6px}.vb-msg p:last-child{margin:0}
-.vb-msg b,.vb-msg strong{font-weight:700}
-@keyframes vb-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+/* ---------- the log: what is said floats in the sky ---------- */
+.vb-log{position:relative;z-index:1;flex:1;overflow-y:auto;overscroll-behavior:contain;padding:22px 14px 24px;display:flex;flex-direction:column;gap:15px;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.7) transparent;
+  -webkit-mask:linear-gradient(transparent,#000 22px,#000 calc(100% - 18px),transparent);mask:linear-gradient(transparent,#000 22px,#000 calc(100% - 18px),transparent)}
 
-.vb-typing{display:inline-flex;gap:4px;padding:4px 2px}
-.vb-typing i{width:7px;height:7px;border-radius:50%;background:var(--vb-muted);opacity:.5;animation:vb-dot 1.1s infinite}
-.vb-typing i:nth-child(2){animation-delay:.15s}.vb-typing i:nth-child(3){animation-delay:.3s}
-@keyframes vb-dot{0%,60%,100%{transform:none;opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.vb-turn{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;align-items:start;animation:vb-float-in .7s cubic-bezier(.2,1.1,.3,1)}
+@keyframes vb-float-in{from{opacity:0;transform:translate(28px,10px) scale(.92);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+.vb-turn>.vb-mini{width:30px;height:30px;padding:3px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.7),0 6px 14px -6px var(--k-shadow);margin-top:6px}
+.vb-turn>.vb-mini svg{width:100%;height:100%;overflow:visible;display:block}
+.vb-col{display:flex;flex-direction:column;gap:9px;align-items:flex-start;min-width:0}
 
-.vb-chips{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start;max-width:100%}
-.vb-chip{border:1.5px solid var(--vb-line);background:#fff;color:var(--vb-ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
-.vb-chip:hover{border-color:var(--vb-coral);background:var(--vb-soft);transform:translateY(-1px)}
-.vb-chip:focus-visible{outline:2px solid var(--vb-cta);outline-offset:2px}
-.vb-chip.go{border-color:transparent;background:var(--vb-soft);color:var(--primary-dark,#12358F);font-weight:600}
-.vb-chip.go:hover{background:var(--vb-cta);color:#fff;border-color:transparent}
+.vb-msg{position:relative;max-width:100%;padding:10px 14px;font-size:13.5px;line-height:1.6;word-wrap:break-word;overflow-wrap:anywhere}
+.vb-msg p{position:relative;margin:0 0 6px}.vb-msg p:last-child{margin:0}
+/* Vecti speaks in clouds: a white body with two puffs on top, one soft shadow for all of it */
+.vb-msg.bot{background:#fff;color:var(--k-text);border-radius:26px;border-start-start-radius:10px;margin-top:10px;filter:drop-shadow(0 10px 16px var(--k-shadow))}
+.vb-msg.bot::before,.vb-msg.bot::after{content:"";position:absolute;background:#fff;border-radius:50%;pointer-events:none}
+.vb-msg.bot::before{width:44px;height:44px;top:-15px;inset-inline-start:34px}
+.vb-msg.bot::after{width:28px;height:28px;top:-9px;inset-inline-start:72px}
+.vb-msg.bot b{font-weight:700;color:var(--k-ink);background:linear-gradient(transparent 58%,#CDEBFF 58%);padding:0 2px;border-radius:2px}
+/* the visitor writes on sunny paper, and it lifts off like a balloon */
+.vb-msg.me{align-self:flex-end;max-width:82%;background:linear-gradient(160deg,#FFE48A,var(--k-sun) 70%);color:var(--k-ink);font-weight:500;border-radius:24px;border-start-end-radius:8px;box-shadow:0 3px 0 var(--k-sun-d),0 14px 24px -12px rgba(160,100,0,.55);animation:vb-lift .55s cubic-bezier(.2,1.3,.4,1)}
+@keyframes vb-lift{from{opacity:0;transform:translate(-20px,24px) rotate(-4deg) scale(.9)}to{opacity:1;transform:none}}
+.vb-msg a{color:var(--k-sky-i);font-weight:600}
 
-.vb-form{flex:none;display:flex;align-items:flex-end;gap:8px;padding:10px 12px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--vb-line);background:#fff}
-.vb-in{flex:1;min-height:44px;overflow-y:hidden;max-height:120px;resize:none;border:1.5px solid var(--vb-line);border-radius:16px;padding:11px 14px;font:inherit;font-size:15px;line-height:1.4;color:var(--vb-ink);background:var(--vb-bg);outline:none;transition:border-color .2s,background .2s}
-.vb-in:focus{border-color:var(--vb-coral);background:#fff}
-.vb-send{flex:none;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:14px;background:var(--cta-grad,linear-gradient(120deg,#1D4FC4,#12358F));color:#fff;cursor:pointer;transition:transform .2s,opacity .2s}
-.vb-send:hover{transform:scale(1.05)}
-.vb-send:disabled{opacity:.45;cursor:default;transform:none}
-.vb-send:focus-visible{outline:2px solid var(--vb-ink);outline-offset:2px}
-.vb-send svg{width:20px;height:20px;transform:scaleX(-1)}
+/* thinking: three little clouds hop */
+.vb-typing{display:inline-flex;gap:7px;padding:8px 4px 4px}
+.vb-typing i{width:16px;height:9px;border-radius:9px;background:#CFE8FF;position:relative;animation:vb-hop 1.1s infinite}
+.vb-typing i::before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:inherit;top:-5px;left:3px}
+.vb-typing i:nth-child(2){animation-delay:.15s;background:#B3DBFF}
+.vb-typing i:nth-child(3){animation-delay:.3s;background:#96CCFF}
+@keyframes vb-hop{0%,60%,100%{transform:none}30%{transform:translateY(-6px)}}
+
+/* data on glass panels hanging in the sky */
+.vb-card{position:relative;width:100%;background:rgba(255,255,255,.86);-webkit-backdrop-filter:blur(14px) saturate(1.5);backdrop-filter:blur(14px) saturate(1.5);border-radius:22px;border:1px solid #fff;box-shadow:0 18px 30px -18px var(--k-shadow);padding:10px 13px 9px;font-size:12.5px;line-height:1.55;overflow:hidden}
+.vb-card::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,var(--c,#2AA7F0),transparent)}
+.vb-card.deg{--c:var(--k-blue);--cs:#E4ECFF}
+.vb-card.occ{--c:var(--k-orange);--cs:#FFEBDD}
+.vb-card.mh{--c:var(--k-leaf);--cs:#DDF6E8}
+.vb-card.sp{--c:var(--k-red);--cs:#FFE7E4}
+.vb-card-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.vb .vb-card-t{border:0;background:none;padding:0;cursor:pointer;font:400 15px/1.3 var(--k-head);color:var(--k-ink);text-align:start}
+.vb .vb-card-t:hover{color:var(--c);text-decoration:underline;text-underline-offset:3px}
+.vb .vb-card-t:focus-visible{outline:2px solid var(--k-ink);outline-offset:2px;border-radius:4px}
+.vb-kind{font-size:10.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--cs,#DDF1FF);color:var(--k-ink)}
+.vb-card ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.vb-card li{position:relative;padding-inline-start:18px;color:var(--k-text)}
+.vb-card li::before{content:"";position:absolute;inset-inline-start:2px;top:.45em;width:7px;height:14px;border-radius:50% 50% 50% 50%/70% 70% 30% 30%;background:#E02424;transform:rotate(25deg)}
+.vb-card li:nth-child(4n+2)::before{background:#FBBF24}
+.vb-card li:nth-child(4n+3)::before{background:#1D6FE0}
+.vb-card li:nth-child(4n+4)::before{background:#22A06B}
+.vb-src{margin:8px 0 0;padding-top:7px;border-top:1px dashed #D7E6F7;font-size:11px;color:var(--k-muted)}
+.vb-src a{color:var(--k-sky-i);font-weight:600}
+
+/* side by side */
+.vb-cmp{width:100%;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-radius:22px;border:1px solid #fff;overflow:hidden;font-size:12px;box-shadow:0 18px 30px -18px var(--k-shadow)}
+.vb-cmp table{width:100%;min-width:0;max-width:100%;table-layout:fixed;border-collapse:collapse;margin:0;display:table}
+.vb-cmp col.h{width:68px}
+.vb-cmp th,.vb-cmp td{padding:6px 9px;text-align:start;vertical-align:top;border-bottom:1px solid #E3EEF9;overflow-wrap:anywhere;font-size:12px}
+.vb-cmp tr:last-child td,.vb-cmp tr:last-child th{border-bottom:0}
+.vb-cmp thead th{font:400 13px/1.3 var(--k-head);color:var(--k-ink);background:linear-gradient(180deg,#DDF1FF,#F3FAFF)}
+.vb-cmp tbody th{font-weight:500;color:var(--k-muted)}
+.vb-cmp td b{color:var(--k-ink)}
+
+/* buttons float like small balloons */
+.vb-chips{display:flex;flex-wrap:wrap;gap:8px;max-width:100%}
+.vb-chip{border:1px solid #fff;background:rgba(255,255,255,.8);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:var(--k-ink);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:500;line-height:1.35;cursor:pointer;box-shadow:0 8px 16px -10px var(--k-shadow);transition:transform .3s cubic-bezier(.2,1.5,.4,1),box-shadow .3s,background .2s;text-align:start}
+.vb-chip:hover{transform:translateY(-3px);background:#fff;box-shadow:0 14px 22px -10px var(--k-shadow)}
+.vb-chip:active{transform:translateY(0) scale(.97)}
+.vb-chip:focus-visible{outline:2px solid var(--k-ink);outline-offset:2px}
+.vb-chip.go{background:#fff;color:#A3161D;font-weight:600;border-color:#fff}
+.vb-chip.go:hover{background:var(--k-red);color:#fff}
+.vb-chip.act{background:linear-gradient(160deg,#FFE48A,var(--k-sun));border-color:#FFE9A8;color:var(--k-ink);font-weight:600}
+.vb-chip.act:hover{filter:brightness(1.05)}
+.vb-chip small{opacity:.75;font-weight:400}
+.vb-turn .vb-chips .vb-chip{animation:vb-pop .5s cubic-bezier(.2,1.5,.4,1) backwards}
+.vb-turn .vb-chips .vb-chip:nth-child(2){animation-delay:.06s}.vb-turn .vb-chips .vb-chip:nth-child(3){animation-delay:.12s}.vb-turn .vb-chips .vb-chip:nth-child(4){animation-delay:.18s}.vb-turn .vb-chips .vb-chip:nth-child(n+5){animation-delay:.24s}
+@keyframes vb-pop{from{opacity:0;transform:translateY(10px) scale(.85)}}
+
+/* ---------- writing to Vecti, on the cloud bank ---------- */
+.vb-form{position:relative;z-index:2;flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px calc(16px + env(safe-area-inset-bottom,0px));background:none}
+.vb-in{flex:1;min-width:0;height:46px;border:1.5px solid #CFE6FA;border-radius:999px;padding:0 20px;font:inherit;font-size:14px;color:var(--k-ink);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);outline:none;box-shadow:0 12px 26px -14px var(--k-shadow),inset 0 1px 0 #fff;transition:box-shadow .25s,background .2s}
+.vb-in::placeholder{color:#6B7699}
+.vb-in:focus-visible{outline:none}
+.vb-in:focus{background:#fff;box-shadow:0 0 0 4px rgba(143,208,255,.65),0 14px 28px -14px var(--k-shadow)}
+.vb-send{position:relative;flex:none;display:grid;place-items:center;width:46px;height:46px;border:0;border-radius:50%;background:linear-gradient(150deg,#FF6A55,var(--k-red) 65%);color:#fff;cursor:pointer;box-shadow:0 4px 0 var(--k-red-d),0 14px 24px -10px rgba(212,39,47,.7);transition:transform .25s cubic-bezier(.2,1.4,.4,1),opacity .2s}
+.vb-send:hover{transform:translateY(-2px) rotate(-6deg)}
+.vb-send:active{transform:translateY(2px);box-shadow:0 1px 0 var(--k-red-d)}
+.vb-send:disabled{opacity:.5;cursor:default;transform:none}
+.vb-send:focus-visible{outline:2px solid var(--k-ink);outline-offset:3px}
+.vb-send svg{width:22px;height:22px;transform:scaleX(-1)}
+/* the paper plane takes off */
+.vb-send.fly svg{animation:vb-plane .75s cubic-bezier(.5,0,.6,1)}
+@keyframes vb-plane{0%{transform:scaleX(-1)}45%{transform:scaleX(-1) translate(26px,-30px) rotate(-12deg) scale(.7);opacity:0}46%{transform:scaleX(-1) translate(-22px,18px);opacity:0}100%{transform:scaleX(-1);opacity:1}}
+
+
+/* ---------- more life in the sky, far away and slow, so it never pulls the eye from the text ---------- */
+/* sun rays turning slowly */
+.vb-sun::before{content:"";position:absolute;inset:-46px;border-radius:50%;opacity:.38;pointer-events:none;
+  background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.75) 0 6deg,transparent 6deg 22deg);
+  -webkit-mask:radial-gradient(circle,transparent 38px,#000 40px,transparent 82px);mask:radial-gradient(circle,transparent 38px,#000 40px,transparent 82px);
+  animation:vb-spin 70s linear infinite}
+.vb[data-sky="night"] .vb-sun::before{display:none}
+@keyframes vb-spin{to{transform:rotate(360deg)}}
+/* a hot-air balloon in Vecti's colours drifts across */
+.vb-balloon{position:absolute;top:44%;left:-12%;width:30px;height:44px;opacity:.6;animation:vb-balloon 85s linear infinite;animation-delay:-20s}
+.vb-balloon svg{display:block;width:100%;height:100%;animation:vb-bob 6s ease-in-out infinite}
+.vb[data-sky="night"] .vb-balloon{opacity:.28}
+@keyframes vb-balloon{from{left:-12%}to{left:108%}}
+@keyframes vb-bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-14px) rotate(3deg)}}
+/* now and then a paper plane passes far away */
+.vb-plane{position:absolute;top:24%;left:110%;width:22px;height:22px;opacity:0;color:#fff;animation:vb-plane-far 34s linear infinite;animation-delay:6s}
+.vb-plane svg{width:100%;height:100%;transform:scaleX(-1) rotate(-8deg)}
+.vb-plane::after{content:"";position:absolute;top:50%;left:100%;width:70px;border-top:2px dashed rgba(255,255,255,.7)}
+@keyframes vb-plane-far{0%{left:110%;opacity:0;transform:translateY(0)}2%{opacity:.75}22%{opacity:.75}26%{left:-30%;opacity:0;transform:translateY(-40px)}100%{left:-30%;opacity:0}}
+.vb[data-sky="night"] .vb-plane{display:none}
+/* at night, a shooting star every few seconds */
+.vb-shoot{position:absolute;top:12%;left:70%;width:120px;height:2px;border-radius:2px;opacity:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0));transform:rotate(-24deg);animation:vb-shoot 9s ease-in infinite;animation-delay:3s;display:none}
+.vb[data-sky="night"] .vb-shoot,.vb[data-sky="dusk"] .vb-shoot{display:block}
+@keyframes vb-shoot{0%{opacity:0;transform:translate(0,0) rotate(-24deg)}2%{opacity:1}9%{opacity:0;transform:translate(-220px,100px) rotate(-24deg)}100%{opacity:0;transform:translate(-220px,100px) rotate(-24deg)}}
+/* the light breathes a little */
+.vb-panel::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 15% 20%,rgba(255,255,255,.22),transparent 55%);animation:vb-breathe 12s ease-in-out infinite alternate}
+@keyframes vb-breathe{from{opacity:.4}to{opacity:1}}
+
+/* ---------- the whole site's height: the sky opens wide ---------- */
+.vb.full .vb-panel{top:16px;left:16px;right:16px;bottom:16px;width:auto;height:auto;z-index:80;border-radius:34px}
+html body .vb.full .vb-panel{bottom:16px;height:auto}
+.vb.full.open .vb-launch,.vb.full.open .vb-tip{opacity:0;pointer-events:none}
+.vb.full .vb-head,.vb.full .vb-log,.vb.full .vb-form{padding-inline:max(14px,calc((100% - 780px) / 2))}
+.vb.full .vb-msg{font-size:14px}
+.vb.full .vb-card{font-size:13px}
+.vb.full .vb-av{width:96px;height:104px}
+.vb.full .vb-sun{left:7%;top:110px;width:90px;height:90px}
+.vb.full .vb-balloon{width:40px;height:58px}
+.vb.full .vb-cl.c1 i{background-size:340px 92px}
+.vb.full .vb-cl.c1{height:92px}
+.vb.full .vb-cl.c2 i{background-size:560px 146px}
+.vb.full .vb-cl.c2{height:146px;top:46%}
+.vb-full svg{transition:transform .3s}
+
+
+/* ---------- the mini bar: Vecti waits up top while the page he opened is read ---------- */
+.vb-minibar,.vb-mini-x{display:none}
+.vb.mini .vb-panel{top:calc(82px + env(safe-area-inset-top,0px));bottom:auto;right:auto;left:18px;width:330px;height:62px;border-radius:999px;z-index:58;box-shadow:0 18px 40px -14px rgba(12,40,100,.55),0 0 0 2px rgba(255,255,255,.8) inset}
+html body .vb.mini .vb-panel{bottom:auto;height:62px}
+.vb.mini .vb-head,.vb.mini .vb-log,.vb.mini .vb-form,.vb.mini .vb-part,.vb.mini .vb-sun,.vb.mini .vb-balloon,.vb.mini .vb-plane,.vb.mini .vb-birds,.vb.mini .vb-feather,.vb.mini .vb-cl.c2,.vb.mini .vb-cl.c3{display:none}
+.vb.mini .vb-cl.c1{top:8px;height:46px}
+.vb.mini.open .vb-launch,.vb.mini.open .vb-tip{opacity:0;pointer-events:none}
+.vb.mini .vb-minibar{position:relative;z-index:3;display:flex;align-items:center;gap:10px;width:100%;height:100%;padding:0 52px 0 8px;border:0;background:none;cursor:pointer;text-align:start;color:var(--k-ink);animation:vb-minin .5s .15s cubic-bezier(.2,1.2,.4,1) backwards}
+@keyframes vb-minin{from{opacity:0;transform:translateY(-6px)}}
+.vb.mini .vb-minibar:focus-visible{outline:2px solid #fff;outline-offset:-4px;border-radius:999px}
+.vb-mini-av{flex:none;width:46px;height:46px;padding:4px;border-radius:50%;background:#fff;box-shadow:0 4px 12px -4px rgba(12,40,100,.4);animation:vb-flap 3.2s ease-in-out infinite}
+.vb-mini-av svg{width:100%;height:100%;overflow:visible;display:block}
+.vb-mini-t{flex:1;min-width:0;padding:5px 12px;border-radius:999px;background:var(--k-glass);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.vb-mini-t b{display:block;font:400 14px/1.2 var(--k-head);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vb-mini-t small{display:block;font-size:11px;color:var(--k-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vb-mini-up{flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--k-ink);box-shadow:0 4px 10px -4px rgba(12,40,100,.4)}
+.vb-mini-up svg{width:16px;height:16px;transform:rotate(180deg)}
+.vb.mini .vb-mini-x{position:absolute;z-index:4;top:50%;left:12px;transform:translateY(-50%);display:grid;place-items:center;width:30px;height:30px;border:0;border-radius:50%;background:rgba(255,255,255,.85);color:var(--k-ink);font-size:18px;line-height:1;cursor:pointer}
+.vb.mini .vb-mini-x:hover{background:#fff}
+.vb.mini .vb-minibar{padding-left:48px}
+.vb.mini .vb-mini-up{margin-left:0}
+@media(max-width:560px){
+  .vb.mini .vb-panel{top:calc(68px + env(safe-area-inset-top,0px));left:10px;right:10px;width:auto;height:58px}
+  html body .vb.mini .vb-panel{bottom:auto;height:58px}
+}
+/* the new kinds of cards */
+.vb-card.faq{--c:#6A44C9;--cs:#EEE7FF}
+.vb-card.sch{--c:#0B7F41;--cs:#DDF6E8}
+.vb-card.date{--c:#C2410C;--cs:#FFEBDD}
+.vb-card.inst{--c:#0A5FA0;--cs:#DDF1FF}
+.vb-card.me{--c:#E0A100;--cs:#FFF0C7}
+.vb-card.faq ul li::before{display:none}
+.vb-card.faq ul li{padding-inline-start:0}
 
 /* make room: the site's back-to-top button sits in the same corner */
 .to-top{bottom:112px}
@@ -15961,39 +16182,56 @@ body:has(.tray) .to-top{bottom:186px}
   .vb-launch{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
   .vb-tip{bottom:calc(124px + env(safe-area-inset-bottom,0px))}
   .to-top{bottom:184px}
-  .vb-panel{bottom:calc(180px + env(safe-area-inset-bottom,0px));height:min(600px,calc(100dvh - 200px))}
+  .vb-panel{bottom:calc(180px + env(safe-area-inset-bottom,0px));height:min(660px,calc(100dvh - 200px))}
   body:has(.tray) .vb-launch{bottom:166px}
   body:has(.tray) .vb-tip{bottom:194px}
   body:has(.tray) .to-top{bottom:254px}
 }
 @media(max-width:560px){
   .vb-launch{width:64px;height:64px;right:14px}
-  .vb-tip{right:86px;max-width:190px;font-size:13.5px}
-  .vb-panel{right:8px;left:8px;width:auto;top:calc(8px + env(safe-area-inset-top,0px));bottom:calc(8px + env(safe-area-inset-bottom,0px));height:auto;border-radius:22px;z-index:65}
+  .vb-tip{right:88px;max-width:200px;font-size:12.5px}
+  .vb-panel{right:8px;left:8px;width:auto;top:calc(8px + env(safe-area-inset-top,0px));bottom:calc(8px + env(safe-area-inset-bottom,0px));height:auto;border-radius:28px;z-index:65}
+  html body .vb-panel{bottom:calc(8px + env(safe-area-inset-bottom,0px));height:auto}
   .vb.open .vb-launch{opacity:0;pointer-events:none}
+  .vb-av{width:74px;height:80px}
+  .vb-ttl b{font-size:19px}
+  .vb-in{font-size:16px} /* below 16px iOS zooms the page */
+  .vb-full{display:none!important}
 }
 
-@media (prefers-reduced-motion:reduce){.vb *,.vb *::before{animation:none!important;transition:none!important}}
-html.rg .vb *{animation:none!important}
+@media (prefers-reduced-motion:reduce){.vb *,.vb *::before,.vb *::after{animation:none!important;transition:none!important}.vb-feather,.vb-part,.vb-plane,.vb-shoot{display:none}}
+html.rg .vb *,html.rm .vb *,html.rg .vb *::before,html.rm .vb *::before{animation:none!important}
+html.rg .vb-part,html.rm .vb-part,html.rg .vb-feather,html.rm .vb-feather{display:none}
 @media print{.vb{display:none!important}}
-
 </style>
-<script>
-/* ================= וקטי: the site guide =================
-   A small character in the bottom-right corner that explains the site and takes people where they want to go.
-   No server and no AI: it matches what was typed to the site's sections, and to degree / occupation /
-   specialty / MAHAT names from the site's own data, then offers a button to the right page. */
+<script>/* ================= וקטי: the site guide =================
+   A scarlet macaw in the bottom-right corner. He explains the site, answers short questions straight from the site's
+   own data (salaries, admission thresholds, length of study, where to study), remembers what the conversation is about,
+   reads the visitor's profile when there is one, and takes people to the right page.
+   No AI and no server: everything is matched against the data already in this page.
+   Optional: BOT_LOG_MISSES sends questions he could not answer (the text only, nothing else) to the rpc bot_miss in
+   Supabase, so the team can see what to add. It is off; before turning it on, create the function (supabase/schema.sql)
+   and add a line about it to the privacy policy. */
 (function(){
 'use strict';
 if(window.__vb)return;window.__vb=1;
+const BOT_LOG_MISSES=false;
 
 const $=(s,r=document)=>r.querySelector(s);
 const tryv=(f,d)=>{try{const v=f();return v===undefined?d:v}catch(e){return d}};
 const escH=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ss={get(k,d){try{const v=sessionStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{sessionStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const ls={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-const RM=()=>tryv(()=>matchMedia('(prefers-reduced-motion: reduce)').matches,false)||document.documentElement.classList.contains('rg');
+const RM=()=>tryv(()=>matchMedia('(prefers-reduced-motion: reduce)').matches,false)||document.documentElement.classList.contains('rg')||document.documentElement.classList.contains('rm');
 const pick=a=>a[Math.floor(Math.random()*a.length)];
+const nf=n=>tryv(()=>fmt(n),String(n));
+
+/* ---------- speaking to her or to him: the profile says, otherwise both forms ---------- */
+function G(s){
+  const sx=tryv(()=>sex(),'');if(sx!=='m'&&sx!=='f')return s;
+  return String(s).replace(/את\/ה/g,sx==='f'?'את':'אתה')
+    .replace(/([א-ת]+)\/(ית|ה|ת|י)(?![א-ת])/g,(m,w,suf)=>sx==='f'?w+suf:w);
+}
 
 /* ---------- the site's sections, in the site's own words ---------- */
 const SEC={
@@ -16015,184 +16253,726 @@ const SEC={
 const ACTIONS={
   tour:{n:'סיור עם וקטי',run:()=>{if(typeof vtStart==='function')vtStart({replay:true})}},
   profile:{n:'מילוי הפרופיל',run:()=>{if(typeof openProfile==='function')openProfile()}},
-  a11yset:{n:'הגדרות נגישות',run:()=>{const b=document.querySelector('[data-a11yopen]');if(b)b.click()}}
+  a11yset:{n:'הגדרות נגישות',run:()=>{const b=document.querySelector('[data-a11yopen]');if(b)b.click()}},
+  ask:{n:'לשאול את הקהילה',run:a=>{if(typeof openAsk==='function')openAsk(tryv(()=>JSON.parse(a||'{}'),{}))}},
+  cat:{n:'לכל התארים בתחום',run:k=>{tryv(()=>{degReset();S.cat=k});if(typeof go==='function')go('degrees')}},
+  uni:{n:'לכל התארים במוסד',run:i=>{tryv(()=>{degReset();S.uni=i;store.set('uni',i)});if(typeof go==='function')go('degrees')}},
+  cmp:{n:'להשוואה המלאה',run:a=>{const ids=String(a||'').split(',').filter(id=>tryv(()=>BY[id]));if(!ids.length)return;
+    tryv(()=>{S.cmp=ids.slice(0,3);if(typeof renderTray==='function')renderTray();if(typeof openCmp==='function')openCmp()})}}
 };
-const MENU=['מה יש באתר?','לא יודע/ת מה ללמוד','לאן אני יכול/ה להתקבל?','לחפש תואר','לחפש מקצוע','מלגות','לשאול סטודנטים'];
+const MENU=()=>['מה אתה יודע לעשות?',G('לא יודע/ת מה ללמוד'),G('לאן אני יכול/ה להתקבל?'),'כמה מרוויח רואה חשבון?','מדעי המחשב או הנדסת תוכנה?','מתי הפסיכומטרי?','מלגות לחיילים משוחררים','תפתיע אותי'];
 
-/* what people type → where it leads (first match wins) */
-const INTENTS=[
+/* ================= understanding Hebrew a little better =================
+   Spelling (תוכנה / תכנה), prefixes (בפסיכולוגיה, למשפטים), plurals and the female form (פסיכולוגיות), and a typo in a long word. */
+const FIN={'ך':'כ','ם':'מ','ן':'נ','ף':'פ','ץ':'צ'};
+const norm=s=>String(s||'').replace(/[֑-ׇ]/g,'').replace(/[ךםןףץ]/g,c=>FIN[c]).replace(/[״"׳'`]/g,'').replace(/[^א-תa-zA-Z0-9]+/g,' ').toLowerCase().trim();
+const SUF=['יות','ים','ות','ית','יה','ה','י','ת'];
+function key(w){for(const s of SUF){if(w.length-s.length>=3&&w.endsWith(s)){w=w.slice(0,-s.length);break}}return w.replace(/[וי]/g,'')}
+const NSTOP=new Set(['ו','של','עם','או','את','כולל','ב','ל','ה','אחר','אחרת','אחרים','שונים','כללי'].map(norm));
+const QSTOP=new Set(['מה','כמה','איך','איפה','למה','מתי','האם','אני','אנחנו','יש','אין','זה','זאת','את','אתה','של','על','עם','או','גם','רק','לי','אותי','רוצה','רוצים','צריך','צריכה','אפשר','ללמוד','לומדים','לימודים','תואר','תארים','מקצוע','מקצועות','עבודה','לעבוד','שכר','משכורת','מרוויח','מרוויחה','מרוויחים','כסף','כדאי','טוב','יותר','פחות','הכי','בין','לבין','או','ההבדל','הבדל','השוואה','להשוות','תנאי','קבלה','להתקבל','סף','ציון','ממוצע','שנים','שנה','זמן','משך','מוסד','מוסדות','באיזה','איזה','איזו','שאלה','בבקשה','תודה','היי','שלום','וקטי','אם','כן','לא','עכשיו','אחרי','לפני','יכול','יכולה','מגיעים','להגיע','להיות','עושים','עושה','בתחום','תחום','הזה','הזאת','שם','בו','בה','מקבלים','דורשים','צריכים','אוניברסיטה','מכללה','בארץ','בישראל','חם','בשוק','ביקוש','תעסוקה','דרך','דרכים','איתו','זהו','ככה','למשל','נהיים','נהיה','נעשים','לומד','לומדת','הסף','ספי','תנאים','הקבלה','פסיכומטרי','בגרות','ציונים','מגיע','מגיעה','שווה','משתלם','קשה','קל','עולה','עולים','ומה','וכמה','ואיפה','ואיך','אז','הם','היא','הוא','לאן','זמן','מסלול','דרישות','לי','שלי','רוצה','חושב','חושבת','מתאים','מתאימה','משהו','דבר','קשור','קשורה','תחומים'].map(norm));
+const PFX='בהולמשכ';
+function wordForms(w){const out=[w];
+  if(w.length>=4&&PFX.includes(w[0]))out.push(w.slice(1));
+  if(w.length>=5&&PFX.includes(w[0])&&PFX.includes(w[1]))out.push(w.slice(2));
+  return out}
+const isStop=w=>wordForms(w).some(f=>QSTOP.has(f));
+const wordKeys=w=>{const f=wordForms(w);return {raw:f,k:f.map(key)}};
+function lev(a,b,max){if(Math.abs(a.length-b.length)>max)return max+1;let p=Array.from({length:b.length+1},(_,i)=>i);
+  for(let i=1;i<=a.length;i++){const c=[i];let m=i;for(let j=1;j<=b.length;j++){c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));if(c[j]<m)m=c[j]}if(m>max)return max+1;p=c}return p[b.length]}
+/* 0 = same word, 1 = a typo away, -1 = no. A short word must be written as is. */
+function tokMatch(t,W){
+  if(t.k.length<=3)return W.raw.includes(t.raw)||(t.raw.length>=4&&W.k.includes(t.k)&&W.raw.some(r=>r.length>=4&&Math.abs(r.length-t.raw.length)<=1))?0:-1;
+  if(W.k.includes(t.k))return 0;
+  if(t.k.length>=5){const m=t.k.length>=9?2:1;if(W.k.some(v=>lev(v,t.k,m)<=m))return 1}
+  return -1;
+}
+function nameToks(n){return norm(n).split(' ').filter(w=>w&&!NSTOP.has(w)).map(w=>w.length>=5&&w[0]==='ו'?w.slice(1):w).map(w=>({raw:w,k:key(w)})).filter(t=>t.k.length>=2)}
+
+let IDX=null;
+function buildIdx(){
+  const E=[],seen=new Set();
+  const add=(k,id,n,w)=>{const toks=nameToks(n);if(!toks.length)return;const sig=k+'|'+id+'|'+toks.map(t=>t.raw).join(' ');if(seen.has(sig))return;seen.add(sig);E.push({k,id,n,toks,w,len:toks.map(t=>t.k).join('').length})};
+  tryv(()=>DEG,[]).forEach(d=>add('deg',d.id,d.n,3));
+  tryv(()=>OCLIST,[]).forEach(o=>{add('occ',o.id,o.n,2);[...(o.titles||[]),...(o.tw||[])].forEach(t=>add('occ',o.id,t,1))});
+  tryv(()=>MAHAT,[]).forEach((m,i)=>add('mh',i,m.n,1));
+  tryv(()=>SPEC,[]).forEach(s=>add('sp',s.id,s.n,1));
+  IDX=E;return E;
+}
+function findEnts(text){
+  const idx=IDX||buildIdx(), words=norm(text).split(' ').filter(Boolean), W=words.map(wordKeys), ST=words.map(isStop);
+  if(ST.every(Boolean))return [];
+  const t=String(text), wantMh=/הנדסאי|טכנאי|מה"ט|מה״ט|מהט|מכללה טכנולוגית/.test(t), wantSp=/התמחות|התמחויות|מתמח|רופא מומחה/.test(t), wantOcc=/מקצוע|לעבוד כ|עובד(ת|ים)? כ|להיות/.test(t);
+  const hits=[];
+  for(const e of idx){
+    if(e.toks.length>W.length)continue;
+    const used=[];let ok=true,fz=0;
+    for(const tk of e.toks){let f=-1,q=9;for(let i=0;i<W.length;i++){if(used.includes(i))continue;const m=tokMatch(tk,W[i]);if(m>=0&&m<q){f=i;q=m;if(!m)break}}if(f<0){ok=false;break}used.push(f);fz+=q}
+    if(!ok||used.every(i=>ST[i]))continue; /* question words alone are not a name */
+    if(Math.max(...used)-Math.min(...used)>=e.toks.length)continue; /* the words of a name stand together */
+    let sc=e.len*10+e.toks.length*4+e.w-fz*25;
+    if(e.k==='mh')sc+=wantMh?60:-6;
+    if(e.k==='sp')sc+=wantSp?60:-6;
+    if(e.k==='occ'&&wantOcc)sc+=8;
+    hits.push({...e,used,sc});
+  }
+  if(wantMh&&!hits.some(h=>h.k==='mh')){const q=t.replace(/הנדסאי(ת|ם|ות)?|טכנאי(ת|ם|ות)?|מה"ט|מה״ט|לימודי|מגמת|מגמה|כמה|מרוויח(ים|ה)?|איפה|לומדים|ללמוד|\?/g,' ').replace(/\s+/g,' ').trim();
+    const m=q.length>=2?tryv(()=>mhSearch(q),[])[0]:null;if(m)hits.push({k:'mh',id:m.i,n:m.m.n,toks:[],used:[],sc:999})}
+  hits.sort((a,b)=>b.sc-a.sc);
+  const out=[],cov=new Set();
+  for(const h of hits){
+    if(out.some(o=>o.k===h.k&&o.id===h.id))continue;
+    if(h.used.length&&h.used.every(i=>cov.has(i)))continue;
+    out.push(h);h.used.forEach(i=>cov.add(i));if(out.length>=3)break;
+  }
+  return out;
+}
+const entName=e=>tryv(()=>e.k==='deg'?BY[e.id].n:e.k==='occ'?OC[e.id].n:e.k==='mh'?MAHAT[e.id].n:SPBY[e.id].n,'');
+const entGo=e=>({deg:'deg-',occ:'occ-',mh:'mh-',sp:'sp-'}[e.k])+e.id;
+const KIND={deg:'תואר',occ:'מקצוע',mh:'מגמת הנדסאים',sp:'התמחות ברפואה',faq:'מהקהילה',sch:'מלגה',date:'מועד רשמי',inst:'מוסד',me:'פרופיל'};
+
+/* ---------- what is being asked ---------- */
+const TOPIC=[
+  ['jobs',/מרוויח|משכורת|שכר(?!\s*ה?לימוד)|הכנסה|תעסוקה|ביקוש|חם בשוק|יש עבודה|למצוא עבודה|במה עובדים|איפה עובדים|מובטל|כמה כסף/],
+  ['adm',/סף|תנאי(ם)? (ה)?קבלה|(ה)?תנאים|להתקבל|אתקבל|מתקבלים|מתקבל|קבלה|פסיכומטרי|ממוצע|דרישות|סכם|מספיק(ים)? לי|ציון|ציונים/],
+  ['study',/מה לומדים|כמה שנים|כמה זמן|משך|קורסים|איפה (לומדים|אפשר ללמוד|ללמוד)|באיזה (מוסד|מקום|מוסדות)|אילו מוסדות|תוכנית (ה)?לימודים|קשה|איך מגיעים|איך נהיים|איך להיות|מסלול/]
+];
+const topicOf=t=>{for(const [k,rx] of TOPIC)if(rx.test(t))return k;return null};
+const FOLLOW=/^(ו|אז |ומה|וכמה|ואיפה|ומתי|ואיך|ובאיזה|וב|ול|ומ)|(^|\s)(בו|בה|בזה|שם|הזה|הזאת|בתחום|באותו|אותו)(?=[\s?!.,]|$)/;
+const CMP_RX=/ההבדל|הבדל בין|להשוות|השוואה|עדיף|לעומת|(^|\s)או(?=\s)|(^|\s)מול(?=\s)|vs/;
+const ME_RX=/להתקבל|אתקבל|יכול(ה)? ללמוד|סיכוי|מספיק(ים)? לי|עם הציונים|מה אני יכול|לאן אני/;
+
+/* what people type → which part of the site (first match wins). Meta questions come before data; topics after it. */
+const META=[
   {rx:/מה (יש|אפשר לעשות) (ב|פה|כאן)?(ה)?אתר|מה (זה )?(ה)?אתר|מה זה וקטור|על (ה)?אתר|איך (משתמשים|להשתמש|זה עובד)|^עזרה$|^תפריט|מה אתה יודע/,k:'overview'},
-  {rx:/(ה)?עמוד הזה|הדף הזה|איפה אני|מה (יש )?(פה|כאן)|מה רואים (פה|כאן)/,k:'here'},
-  {rx:/מי את(ה)?|מה את(ה)?\b|איך קוראים לך/,k:'who'},
+  {rx:/(ה)?עמוד הזה|הדף הזה|איפה אני|מה (יש )?(פה|כאן)\??$|מה רואים (פה|כאן)/,k:'here'},
+  {rx:/מי את(ה)?(?=[\s?!.,]|$)|^מה את(ה)?\??$|איך קוראים לך|אתה תוכי|אתה בוט/,k:'who'},
   {rx:/סיור|הדרכה|תראה לי את האתר|תסביר לי את האתר/,k:'tour'},
   {rx:/פרופיל/,k:'profile'},
   {rx:/הגדרות נגישות|(טקסט|גופן|אותיות|כתב|פונט).{0,12}(גדול|קטן)|(להגדיל|מגדיל|להקטין|מקטינ|הגדלת|גודל).{0,12}(טקסט|גופן|אותיות|כתב|פונט)|ניגודיות|אנימציות/,k:'a11yset'},
   {rx:/נגישות/,k:'a11y'},
-  {rx:/פרטיות|מידע אישי|מה (אתם )?שומרים|נשמר/,k:'privacy'},
-  {rx:/צור קשר|ליצור קשר|לפנות|לדווח|דיווח|טעות בנתונים|מייל של/,k:'contact'},
-  {rx:/תקנון|תנאי שימוש|מקורות|מאיפה (ה)?נתונים|אמין/,k:'terms'},
-  {rx:/לא יודע|לא יודעת|לא בטוח|מה (כדאי )?ללמוד|כיוון|שאלון|מתאים לי|לבחור/,k:'dir'},
-  {rx:/להתקבל|אתקבל|יכול(ה)? ללמוד|סיכוי|מספיק(ים)? לי|עם הציונים/,k:'me'},
-  {rx:/מחשבון|ממוצע|בגרות|בונוס/,k:'calc'},
-  {rx:/מלג|זכויות|הטב(ה|ות)|סיוע|שכר לימוד|מילואים/,k:'sch'},
-  {rx:/לשאול|סטודנטים|קהילה|פורום|שאלות ותשובות|יועץ|יועצים/,k:'forum'},
-  {rx:/מסלול|תוכנית אישית|צעד|מועדים|מה (ה)?הלאה|מה עכשיו|מה הצעד/,k:'path'},
+  {rx:/פרטיות|מידע אישי|מה (אתם )?שומרים/,k:'privacy'},
+  {rx:/צור קשר|ליצור קשר|לפנות אליכם|לדווח|דיווח|טעות בנתונים|מייל של/,k:'contact'},
+  {rx:/תקנון|תנאי שימוש|מקורות|מאיפה (ה)?נתונים|אמין/,k:'terms'}
+];
+const INTENTS=[
+  {rx:/מלג|זכויות|הטב(ה|ות)|סיוע|שכר\s*ה?לימוד|מילואים|מעונות/,k:'sch'},
+  {rx:/עבודה (בזמן|במהלך|תוך כדי) (ה)?לימודים|אווירה|עומס|מערכת שעות|לשאול|סטודנטים|קהילה|פורום|שאלות ותשובות|יועץ|יועצים/,k:'forum'},
+  {rx:/לא יודע|לא יודעת|לא בטוח|לא בטוחה|מה (כדאי )?ללמוד|כיוון|שאלון|מתאים לי|לבחור/,k:'dir'},
+  {rx:/מחשבון|ממוצע (ה)?בגרות|בונוס|לחשב ממוצע/,k:'calc'},
+  {rx:/תוכנית אישית|המסלול שלי|צעד|מועדים|מה (ה)?הלאה|מה עכשיו|מה הצעד/,k:'path'},
   {rx:/התמחו|סטאז/,k:'specs'},
   {rx:/הנדסאי|טכנאי|מה"ט|מה״ט|מכללה טכנולוגית/,k:'tech'},
   {rx:/מקצוע|עבודה|לעבוד|קריירה|שכר|משכורת|מרוויח|חם בשוק/,k:'jobs'},
   {rx:/תואר|תארים|חוג|אוניברסיט|מכלל|מוסד|ללמוד|לימודים/,k:'degrees'}
 ];
+const CRISIS=/להתאבד|התאבדות|לא רוצה לחיות|לא רוצה להמשיך לחיות|לשים קץ|לפגוע בעצמי|רוצה למות|בא לי למות|אין טעם לחיות|אין טעם לכלום|עדיף שאמות|לגמור עם (ה)?כל|אין לי בשביל מה לחיות/;
+const STRESS=/לחוץ|לחוצה|בלחץ|לחץ (של|מה|לפני)|נכשלתי|נכשל(ת)? ב|לא אצליח|לא הצלחתי|ציון (נמוך|גרוע)|ציונים (נמוכים|גרועים)|אין לי סיכוי|אין סיכוי|מיואש|מיואשת|מפחד|מפחדת|חרדה|דיכאון|בוכה|הרסתי|פספסתי/;
 
-/* ---------- the character ---------- */
-const IC={
-  close:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
-  home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7M5 10v10h14V10"/></svg>',
-  send:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
-};
-
-/* ---------- tiny markdown: **bold** and line breaks ---------- */
-const md=s=>String(s).split('\n').map(l=>`<p>${escH(l).replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>')}</p>`).join('');
-
-/* ---------- where am I ---------- */
-function here(){
-  const r=tryv(()=>S.route,{v:'home'})||{v:'home'};
-  if(r.v==='deg'){const d=tryv(()=>BY[r.id]);if(d)return {t:`זה העמוד של התואר **${d.n}**. כאן רואים מה לומדים, באילו מוסדות, ספי קבלה, שכר ותעסוקה של הבוגרים.\nאפשר לשמור אותו ב"שמירה לרשימה", להוסיף להשוואה, או לקרוא שאלות של סטודנטים בתחום.`,b:['list','forum']}}
-  if(r.v==='occ'){const o=tryv(()=>OC[r.id]);if(o)return {t:`זה העמוד של המקצוע **${o.n}**: מה עושים בו, כמה מרוויחים, האם הוא חם בשוק, ובסוף אילו תארים מובילים אליו.`,b:['jobs','degrees']}}
-  if(r.v==='sp'){const s=tryv(()=>SPBY[r.id]);if(s)return {t:`זה העמוד של ההתמחות **${s.n}**: משך ההתמחות, מה כוללת התוכנית ומספר המומחים.`,b:['specs']}}
-  if(r.v==='mh'){const m=tryv(()=>MAHAT[r.id]);if(m)return {t:`זה העמוד של מגמת ההנדסאים **${m.n}**: איפה לומדים, מה לומדים והשכר של הבוגרים.`,b:['tech']}}
-  if(r.v==='q')return {t:'זה עמוד של שאלה מהקהילה, עם התשובות שלה. אפשר לענות או לשאול שאלה משלך.',b:['forum']};
-  if(r.v==='home')return {t:'זה **דף הבית**. מכאן אפשר לחפש תואר, מקצוע או מגמת הנדסאים, או להתחיל מהשאלון "מה הכיוון שלי?".',b:['dir','degrees']};
-  const s=SEC[r.v]||(r.v==='terms'&&SEC.terms);
-  return s?{t:`זה העמוד **${s.n}**.\n${s.d}`,b:[]}:{t:'כאן אפשר להתחיל מכל אחד מהחלקים של האתר:',b:['degrees','jobs','dir']};
+/* ---------- context: what the conversation is about ---------- */
+let ctx=ss.get('vb.ctx',null); /* {k,id,topic} */
+const setCtx=c=>{ctx=c;ss.set('vb.ctx',c)};
+function pageEnt(){
+  const r=tryv(()=>S.route,{})||{};
+  if(r.v==='deg'&&tryv(()=>BY[r.id]))return {k:'deg',id:r.id};
+  if(r.v==='occ'&&tryv(()=>OC[r.id]))return {k:'occ',id:r.id};
+  if(r.v==='mh'&&tryv(()=>MAHAT[r.id]))return {k:'mh',id:r.id};
+  if(r.v==='sp'&&tryv(()=>SPBY[r.id]))return {k:'sp',id:r.id};
+  return null;
 }
 
-/* ---------- names from the site's data: a degree, an occupation, a specialty or a MAHAT program ---------- */
-function findPage(t){
-  const hit=[];
-  tryv(()=>findDegs(t,''),[]).forEach(d=>hit.push({go:'deg-'+d.id,n:d.n,kind:'תואר'}));
-  if(!hit.length)for(const o of tryv(()=>OCLIST,[])){const ns=[o.n,...(o.titles||[]),...(o.tw||[])];if(ns.some(n=>n&&n.length>=4&&t.includes(n))){hit.push({go:'occ-'+o.id,n:o.n,kind:'מקצוע'});if(hit.length>=2)break}}
-  tryv(()=>SPEC,[]).filter(s=>s.n&&s.n.length>=4&&t.includes(s.n)).slice(0,1).forEach(s=>hit.push({go:'sp-'+s.id,n:s.n,kind:'התמחות ברפואה'}));
-  tryv(()=>MAHAT,[]).forEach((m,i)=>{if(hit.length<3&&m.n&&m.n.length>5&&t.includes(m.n))hit.push({go:'mh-'+i,n:m.n,kind:'מגמת הנדסאים'})});
-  return hit.slice(0,3);
+/* ================= answers built from the site's data ================= */
+const clip=(s,n)=>{s=String(s||'');return s.length>n?s.slice(0,n).replace(/\s\S*$/,'')+'…':s};
+const firstSentence=s=>clip(String(s||'').split(/(?<=\.)\s/)[0],170);
+const MY_INST=[[/טכניון/,'technion'],[/(^|[\sבול])חיפה/,'haifa'],[/ירושלים|העברית/,'huji'],[/באר[\s-]?שבע|בן[\s-]?גוריון/,'bgu'],[/תל[\s-]?אביב|ת"א/,'tau'],[/בר[\s-]?אילן/,'biu'],[/הפתוחה/,'open'],[/אריאל/,'ariel'],[/רייכמן/,'reichman']];
+function oneInst(t){
+  for(const [rx,id] of MY_INST)if(rx.test(t)&&tryv(()=>INST[id],null))return id;
+  const a=tryv(()=>findInsts(t),[]);return a.length===1?a[0]:'';
+}
+/* the words of a question that are not question words or an institution: a follow-up has none */
+function contentWords(t){let x=String(t);MY_INST.forEach(([rx])=>{x=x.replace(new RegExp(rx.source,'g'),' ')});return x.replace(/[^\u05D0-\u05EAa-zA-Z0-9"״׳'\s-]/g,' ').split(/\s+/).filter(w=>{const n=norm(w);return n.length>2&&!isStop(n)&&!tryv(()=>findInsts(w).length,0)})}
+const instName=i=>tryv(()=>INST[i].n,'');
+
+function degFacts(d){
+  const L=[];
+  const du=tryv(()=>durOf(d),null), nI=new Set(d.of.map(o=>o.i)).size, f=tryv(()=>fieldOf(d),null), s=tryv(()=>mainStat(f),null), ps=tryv(()=>proSal(d),null);
+  L.push(`נלמד ${nI===1?'במוסד אחד':'ב-'+nI+' מוסדות'}${du&&du.txt?`, ${du.txt} שנים`:''}.`);
+  if(ps)L.push(`שכר ממוצע: ₪${nf(ps)} בחודש (עבודאטה).`);
+  else if(s&&s.sal)L.push(`שכר ממוצע 5–6 שנים אחרי התואר: ₪${nf(s.sal)} בחודש (עבודאטה).`);
+  if(s&&s.emp)L.push(`שיעור תעסוקה: ${s.emp}% שלוש–ארבע שנים אחרי התואר.`);
+  const occ=((f&&f.occ)||[]).slice(0,3);if(occ.length&&!d.pro)L.push('במה הבוגרים עובדים: '+occ.map(o=>o.n).join(', ')+'.');
+  return {L,du,nI,s,ps};
+}
+function eligLine(d){
+  if(!tryv(()=>profileOK(),false)||!tryv(()=>S.sc,null))return '';
+  const e=tryv(()=>eligibility(d),null);if(!e)return '';
+  const now=[...e.now].map(instName).filter(Boolean), part=e.part.size;
+  if(now.length)return G(`לפי הפרופיל שלך: הנתונים שלך כבר עומדים בתנאים ב-${now.length===1?'מוסד אחד':now.length+' מוסדות'} (${now.slice(0,3).join(', ')}${now.length>3?' ועוד':''}).`);
+  if(part)return G(`לפי הפרופיל שלך: את/ה קרוב/ה. ב-${part} מוסדות חסר רק חלק מהתנאים.`);
+  return G('לפי הפרופיל שלך: בינתיים הנתונים עוד לא מספיקים לתואר הזה, אבל יש דרכים לסגור את הפער.');
+}
+function cardsFrom(a,prefer){
+  if(!a||!a.blocks||!a.blocks.length)return [];
+  let B=a.blocks;if(prefer){const p=B.filter(b=>b.go===prefer);if(p.length)B=p}
+  const src=(a.src||[]).slice(0,3);
+  return B.slice(0,2).map((b,i)=>({k:b.go.split('-')[0],t:b.t,go:b.go,L:b.L.slice(0,5).map(l=>clip(l,260)),src:i===B.slice(0,2).length-1?src:[]}));
+}
+const TOPIC_INTRO={jobs:n=>`עבודה ושכר ב**${n}**:`,adm:n=>`תנאי הקבלה ל**${n}**:`,study:n=>`על הלימודים ב**${n}**:`};
+const FOLLOW_Q={deg:{jobs:'כמה מרוויחים?',adm:'מה תנאי הקבלה?',study:'כמה שנים לומדים?'},occ:{jobs:'כמה מרוויחים?',study:'איך מגיעים למקצוע?'},mh:{jobs:'כמה מרוויחים?',study:'איפה לומדים?'},sp:{study:'כמה זמן ההתמחות?'}};
+const moreQs=(k,topic)=>Object.entries(FOLLOW_Q[k]||{}).filter(([t])=>t!==topic).map(([,q])=>q);
+
+function entityAnswer(e,text,topic,inst){
+  const n=entName(e);if(!n)return null;
+  setCtx({k:e.k,id:e.id,topic:topic||null});
+  const ask={t:'',ctx:e.k==='deg'?'deg:'+e.id:e.k==='sp'?'sp:'+e.id:e.k==='mh'?'mh:'+e.id:'',inst:inst||''};
+  if(e.k==='deg'){
+    const d=BY[e.id];
+    if(topic){
+      const a=tryv(()=>dataAnswer(text,'deg:'+e.id,inst||'',topic),null), cards=cardsFrom(a,'deg-'+e.id);
+      if(!cards.length)return {t:`על זה אין לי נתון מסודר ב**${n}**${inst?' ב'+instName(inst):''} 🤔 סטודנטים מהשטח יודעים יותר:`,act:[['ask',JSON.stringify({...ask,t:text})]],go:['deg-'+e.id],chips:moreQs('deg',topic)};
+      let t=TOPIC_INTRO[topic](n)+(inst&&topic==='adm'?` (${instName(inst)})`:'');
+      const el=topic==='adm'?eligLine(d):'';
+      const extra=[];
+      if(topic==='adm'&&!tryv(()=>profileOK(),false))extra.push(['profile']);
+      if(el&&!cards[0].L.some(l=>l.startsWith('לפי הפרופיל')))cards[0].L.unshift(el);
+      return {t,cards,act:extra,chips:moreQs('deg',topic),pages:[{go:'deg-'+e.id,n:'לעמוד של '+n}]};
+    }
+    const F=degFacts(d), el=eligLine(d);if(el)F.L.push(el);
+    return {t:pick([`הנה **${n}** בקצרה:`,`**${n}**, בכמה מספרים:`]),cards:[{k:'deg',t:n,go:'deg-'+e.id,L:F.L,src:F.s?[['https://avodata.labor.gov.il/','עבודאטה']]:[]}],chips:moreQs('deg',null),pages:[{go:'deg-'+e.id,n:'לעמוד של '+n}]};
+  }
+  if(e.k==='occ'){
+    const o=OC[e.id], L=[];
+    if(topic==='study'||topic==='adm'){
+      const ed=(o.edu||[]).slice(0,4);
+      if(!ed.length)return {t:`אין לי פירוט של הדרך ל**${n}**, אבל בעמוד המקצוע יש עוד מידע:`,pages:[{go:'occ-'+e.id,n:'לעמוד של '+n}]};
+      const pages=[];
+      ed.forEach(x=>{L.push(`${x.n}${x.t?` (${x.t}${x.dur?', '+x.dur:''})`:''}`);const dd=tryv(()=>DEG.find(d=>norm(d.n)===norm(x.n)),null);if(dd&&pages.length<3)pages.push({go:'deg-'+dd.id,n:dd.n,kind:'תואר'})});
+      return {t:`רבים מהעוסקים ב**${n}** למדו את אלה:`,cards:[{k:'occ',t:n,go:'occ-'+e.id,L,src:[['https://avodata.labor.gov.il/','עבודאטה']]}],pages:[...pages,{go:'occ-'+e.id,n:'לעמוד של '+n}],chips:moreQs('occ','study')};
+    }
+    if(o.sal)L.push(`שכר ממוצע: ₪${nf(o.sal)} בחודש.`);
+    const h=tryv(()=>hotLine(o),'');if(h)L.push(h+'.');
+    if(o.d&&topic!=='jobs')L.push(firstSentence(o.d));
+    const ed=(o.edu||[]).slice(0,3).map(x=>x.n);if(ed.length)L.push('רבים מהעוסקים בו למדו: '+ed.join(', ')+'.');
+    return {t:topic==='jobs'?`כמה מרוויחים ב**${n}**:`:`**${n}** בקצרה:`,cards:[{k:'occ',t:n,go:'occ-'+e.id,L,src:[['https://avodata.labor.gov.il/','עבודאטה, משרד העבודה']]}],chips:moreQs('occ',topic),pages:[{go:'occ-'+e.id,n:'לעמוד של '+n}]};
+  }
+  const cx=(e.k==='mh'?'mh:':'sp:')+e.id;
+  const a=tryv(()=>dataAnswer(text,cx,'',topic||undefined),null), cards=cardsFrom(a,entGo(e));
+  if(!cards.length)return {t:`הנה העמוד של **${n}**:`,pages:[{go:entGo(e),n}]};
+  return {t:`**${n}**:`,cards,chips:moreQs(e.k,topic),pages:[{go:entGo(e),n:'לעמוד של '+n}],act:[['ask',JSON.stringify({...ask,t:text})]]};
+}
+
+function compareAnswer(ds){
+  ds=ds.slice(0,3);
+  const R=ds.map(d=>({d,F:degFacts(d)}));
+  const row=(h,f)=>`<tr><th scope="row">${h}</th>${R.map(x=>`<td>${f(x)}</td>`).join('')}</tr>`;
+  const html=`<div class="vb-cmp"><table><colgroup><col class="h">${R.map(()=>'<col>').join('')}</colgroup><thead><tr><th></th>${R.map(x=>`<th scope="col">${escH(x.d.n)}</th>`).join('')}</tr></thead><tbody>
+    ${row('משך',x=>x.F.du&&x.F.du.txt?escH(x.F.du.txt)+' שנים':'–')}
+    ${row('מוסדות',x=>String(x.F.nI))}
+    ${row('שכר',x=>x.F.ps?`<b>₪${nf(x.F.ps)}</b>`:x.F.s&&x.F.s.sal?`<b>₪${nf(x.F.s.sal)}</b>`:'–')}
+    ${row('תעסוקה',x=>x.F.s&&x.F.s.emp?x.F.s.emp+'%':'–')}
+    ${tryv(()=>profileOK()&&S.sc,false)?row(G('אני יכול/ה'),x=>{const e=tryv(()=>eligibility(x.d),null);return e&&e.now.size?`ב-${e.now.size} מוסדות`:'עוד לא'}):''}
+  </tbody></table></div>`;
+  setCtx({k:'deg',id:ds[0].id,topic:null});
+  return {t:`שמתי אותם זה לצד זה. השכר הוא ממוצע 5–6 שנים אחרי התואר, לפי עבודאטה:`,html,act:[['cmp',ds.map(d=>d.id).join(',')]],pages:ds.map(d=>({go:'deg-'+d.id,n:d.n}))};
+}
+
+function topPay(){
+  const L=tryv(()=>DEG.filter(d=>!d.pro&&d.of.length>=3).map(d=>({d,s:mainStat(fieldOf(d))})).filter(x=>x.s&&x.s.sal&&(d=>d.avHow==='exact')(x.d)).sort((a,b)=>b.s.sal-a.s.sal),[]);
+  const seen=new Set(),top=[];for(const x of L){if(seen.has(x.s.sal))continue;seen.add(x.s.sal);top.push(x);if(top.length>=5)break}
+  if(!top.length)return byKey('degrees');
+  return {t:'לפי עבודאטה, אלה התארים שהבוגרים שלהם מרוויחים הכי הרבה 5–6 שנים אחרי התואר. שכר הוא לא הכול, אבל זה נתון חשוב:',
+    cards:[{k:'deg',t:'השכר הגבוה ביותר',go:'degrees',L:top.map(x=>`${x.d.n}: ₪${nf(x.s.sal)} בחודש`),src:[['https://avodata.labor.gov.il/','עבודאטה']]}],
+    pages:top.slice(0,3).map(x=>({go:'deg-'+x.d.id,n:x.d.n})),go:['dir']};
+}
+function meAnswer(){
+  if(!tryv(()=>profileOK(),false))return {t:G('כדי לדעת לאן את/ה יכול/ה להתקבל, אני צריך להכיר אותך קצת: **פרופיל קצר**, פחות מדקה, עם תעודה, פסיכומטרי וציונים. אחרי זה אענה כאן בדיוק.'),act:[['profile']],go:['me']};
+  if(!tryv(()=>S.sc,null))return {t:G('הפרופיל מלא, אבל עוד אין בו ציונים. כשתוסיף/י ממוצע בגרות (אפשר לחשב אותו במחשבון) ופסיכומטרי, אדע להגיד לאן הם מספיקים.'),go:['calc','me'],act:[['profile']]};
+  const L=tryv(()=>DEG.map(d=>({d,n:eligibility(d).now.size})).filter(x=>x.n),[]);
+  if(!L.length)return {t:G('בינתיים לא מצאתי תואר שהנתונים שלך כבר מספיקים לו. זה לא סוף הדרך: אפשר לשפר בגרות, לגשת שוב לפסיכומטרי, ללמוד במכינה או להתחיל במוסד אחר ולעבור. "המסלול שלי" בונה לך תוכנית:'),go:['path','me']};
+  L.sort((a,b)=>b.n-a.n);
+  return {t:G(`לפי הפרופיל שלך, הנתונים שלך כבר מספיקים ל-**${L.length} תארים** לפחות במוסד אחד. כמה מהם:`),pages:L.slice(0,4).map(x=>({go:'deg-'+x.d.id,n:x.d.n,kind:x.n===1?'מוסד אחד':x.n+' מוסדות'})),go:['me']};
+}
+
+/* ================= more that Vecti knows =================
+   1. The forum's answered questions (over 1,400, written by the Vector team): a question that matches one gets its answer.
+   2. Scholarships and rights (SCH), by who they are for.
+   3. Official dates: the next psychometric sittings and the next bagrut exams (PSYD, BAGD).
+   4. Occupations that grow fastest, and the best paid ones.
+   5. Degrees by field (CATS), and what an institution teaches.
+   6. The visitor's own profile, a random idea, and actions: adding a degree to the comparison. */
+
+/* ---------- 1. the forum's answered questions ---------- */
+const FSTOP=new Set(['מה','זה','זו','זאת','את','של','על','עם','או','גם','אם','לי','יש','אין','אני','אנחנו','האם','איך','כמה','איפה','למה','מתי','הוא','היא','הם','כל','רק','אפשר','צריך','צריכה','כדאי','באמת','ממש','יותר','פחות','לא','כן','אז','שלי','אותי','בו','בה','שם','הזה','הזאת','מישהו','משהו','מי','איזה','איזו','אילו','וקטי','תגיד','תגידי','בבקשה'].map(norm));
+const fkeys=s=>[...new Set(norm(s).split(' ').filter(w=>w.length>1&&!FSTOP.has(w)&&!(w.length>2&&PFX.includes(w[0])&&FSTOP.has(w.slice(1)))).map(w=>key(w.length>=4&&PFX.includes(w[0])&&w[0]!=='מ'?w.slice(1):w)).filter(k=>k.length>=2))];
+let FQ=null;
+function faqIdx(){
+  if(FQ)return FQ;
+  const Q=tryv(()=>fIdx().Q.filter(q=>q.faq&&!q.daily),[]), df=new Map(), items=[];
+  for(const q of Q){const a=tryv(()=>fAns(q.key)[0],null);if(!a||!a.b)continue;const k=fkeys(q.t);if(!k.length)continue;
+    const ak=fkeys(a.b).filter(x=>!k.includes(x));items.push({q,a:a.b,k,ak});new Set([...k,...ak]).forEach(x=>df.set(x,(df.get(x)||0)+1))}
+  const N=items.length||1, idf=x=>{const v=Math.log(N/((df.get(x)||0)+1))+1;return v*v}; /* squared: rare words decide */
+  FQ={items,idf,N};return FQ;
+}
+const kMatch=(a,b)=>a===b||(a.length>=5&&b.length>=5&&lev(a,b,1)<=1);
+/* uc: how much of what I asked is in the question (a word only in the answer counts a third),
+   tc: how much of the question is what I asked. */
+function faqFind(t,ctxKey){
+  const {items,idf}=faqIdx(), U=fkeys(t);if(!U.length||!items.length)return [];
+  const uw=U.reduce((s,x)=>s+idf(x),0), out=[];
+  for(const it of items){
+    let mu=0,mt=0,any=false;
+    for(const u of U){if(it.k.some(k=>kMatch(u,k))){mu+=idf(u);any=true}else if(it.ak.some(k=>k===u))mu+=idf(u)*.33}
+    if(!any)continue;
+    for(const k of it.k)if(U.some(u=>kMatch(u,k)))mt+=idf(k);
+    const tw=it.k.reduce((s,x)=>s+idf(x),0), uc=mu/uw, tc=mt/tw;
+    let sc=uc*.7+tc*.3;
+    if(ctxKey&&it.q.ctx===ctxKey)sc+=.06;else if(it.q.ctx&&!ctxKey)sc-=.05; /* a general question first */
+    out.push({it,sc,uc,tc});
+  }
+  return out.sort((a,b)=>b.sc-a.sc).slice(0,4);
+}
+/* one word only: it must stand in the question as written, and must not simply be the name of a degree or an occupation */
+function faqOK(h,t){
+  if(!h)return false;
+  if(fkeys(t).length>=2)return true;
+  const w=contentWords(t).join(' '), nt=norm(h.it.q.t), nw=norm(w);
+  if(!nw||!(nt.includes(nw)||(nw.length>4&&PFX.includes(nw[0])&&nt.includes(nw.slice(1)))))return false;
+  return !tryv(()=>own(SYN,w)||DEG.some(d=>qScore(d,w)>=55)||OCLIST.some(o=>ocScore(o,w)>=70),false);
+}
+function faqAnswer(h,extra){
+  const q=h.it.q;
+  return {t:'זו שאלה ששאלו כבר בקהילה, והנה מה שענינו:',
+    cards:[{k:'faq',t:q.t,go:'q-'+q.key,L:[clip(h.it.a,430)],src:[]}],
+    pages:[{go:'q-'+q.key,n:'לשאלה המלאה בפורום'},...(extra||[])],mood:'happy'};
+}
+const relatedFaq=(ctxKey,n)=>tryv(()=>faqIdx().items.filter(i=>i.q.ctx===ctxKey).slice(0,n||2).map(i=>i.q.t),[]);
+
+/* ---------- 2. scholarships ---------- */
+const SCH_T=[
+  ['veteran',/חייל|משוחרר|לוחמ|צבא|שחרור/,'לחיילים משוחררים'],
+  ['reservist',/מילואים|מילואימ/,'למשרתי מילואים'],
+  ['region',/פריפריה|דרום|צפון|נגב|גליל|יישוב|ישוב|מגורים/,'לפי מקום מגורים'],
+  ['need',/מצב כלכלי|כלכלי|קשיים|הכנסה|נזקק|קשה כלכלית|כסף|מימון/,'לפי מצב כלכלי'],
+  ['volunteering',/התנדבות|מתנדב|פר"ח|פרח|קהילה/,'תמורת התנדבות'],
+  ['merit',/מצוינות|הצטיינות|מצטיינ|ציונים גבוהים/,'למצטיינים'],
+  ['excellence',/מצוינות|מחקר|מדעים/,'מצוינות ומחקר']
+];
+function schAnswer(t){
+  const L=tryv(()=>SCH,[]);if(!L.length)return byKey('sch');
+  const hit=SCH_T.filter(([,rx])=>rx.test(t)), types=new Set(hit.map(h=>h[0]));
+  let S2=types.size?L.filter(s=>types.has(s.type)||(s.also||[]).some(x=>types.has(x))):[];
+  if(/מכינה/.test(t))S2=L.filter(s=>/מכינ/.test(s.name+s.audience));
+  if(!S2.length){
+    const by={};L.forEach(s=>{by[s.type]=(by[s.type]||0)+1});
+    return {t:`יש באתר **${L.length} מלגות וזכויות**, כל אחת עם מקור רשמי. על איזה סוג לספר?`,chips:SCH_T.filter(([k])=>by[k]).slice(0,6).map(([k,,n])=>`מלגות ${n} (${by[k]})`),go:['sch']};
+  }
+  const top=S2.slice(0,4);
+  return {t:`מצאתי **${S2.length}** מלגות והטבות ${hit.length?hit.map(h=>h[2]).join(', '):'שמתאימות'}. הנה ${top.length===S2.length?'כולן':'הראשונות'}:`,
+    cards:top.map(s=>({k:'sch',t:s.name,go:'sch',L:[clip(s.audience,140),clip(s.sum,200)].filter(Boolean),src:s.url?[[s.url,clip(s.by||s.provider,40)]]:[]})),
+    go:['sch'],chips:SCH_T.filter(([k])=>!types.has(k)).slice(0,2).map(([,,n])=>'מלגות '+n)};
+}
+
+/* ---------- 3. official dates ---------- */
+const HEB_D=iso=>{const d=new Date(iso+'T12:00:00');return isNaN(d)?iso:d.toLocaleDateString('he-IL',{day:'numeric',month:'long',year:'numeric'})};
+const todayISO=()=>new Date().toISOString().slice(0,10);
+function datesAnswer(t){
+  const now=todayISO(), out=[];
+  if(/פסיכומטרי|פסיכו/.test(t)||!/בגרות|בחינ/.test(t)){
+    const P=tryv(()=>PSYD.filter(p=>(p.d2||p.d)>=now),[]);
+    if(P.length){const p=P[0];const L=[`המועד הבא: **${p.days}**.`,p.reg>=now?`ההרשמה נסגרת ב-${HEB_D(p.reg)}.`:'ההרשמה למועד הזה כבר נסגרה.',p.res?`הציונים יפורסמו בערך ב-${HEB_D(p.res)}.`:''].filter(Boolean);
+      if(P[1])L.push(`ואחריו: ${P.slice(1,3).map(x=>x.lbl).join(', ')}.`);
+      out.push({k:'date',t:'הפסיכומטרי הבא',go:'path',L:L.map(l=>l.replace(/\*\*/g,'')),src:[['https://www.nite.org.il/','מאל"ו']]})}
+  }
+  if(/בגרות|בחינ/.test(t)){
+    let B=tryv(()=>BAGD.filter(b=>(b[4]||b[2])>=now),[]);
+    const subj=B.filter(b=>{const n=norm(b[3]).split(' ')[0];return n.length>2&&norm(t).includes(n)});
+    if(subj.length)B=subj;
+    if(B.length)out.push({k:'date',t:subj.length?'בגרות ב'+subj[0][3]:'הבגרויות הקרובות',go:'path',L:B.slice(0,5).map(b=>`${b[3]}: ${HEB_D(b[2])}`),src:[['https://meyda.education.gov.il/','משרד החינוך']]});
+  }
+  if(!out.length)return {t:'לא מצאתי מועד קרוב במאגר. את כל המועדים אפשר לראות ביומן ב"המסלול שלי":',go:['path']};
+  return {t:'הנה המועדים הרשמיים הקרובים. כדאי לבדוק גם באתר הרשמי לפני שנרשמים:',cards:out,go:['path'],chips:[/בגרות/.test(t)?'מתי הפסיכומטרי?':'מתי הבגרות במתמטיקה?']};
+}
+
+/* ---------- 4. occupations: growing, and best paid ---------- */
+function hotJobs(){
+  const L=tryv(()=>OCLIST.filter(o=>occHot(o)).map(o=>({o,t:occTrend(o)})).sort((a,b)=>b.t.pct-a.t.pct),[]);
+  if(!L.length)return byKey('jobs');
+  return {t:`לפי עבודאטה, אלה המקצועות ה**חמים** בשוק: מספר העובדים בהם עולה מהר, והשכר גבוה מהממוצע. יש ${L.length} כאלה, הנה המובילים:`,
+    cards:[{k:'occ',t:'מקצועות חמים',go:'jobs',L:L.slice(0,6).map(x=>`${x.o.n}: +${x.t.pct}% עובדים (${x.t.y0}–${x.t.y1}), ₪${nf(x.o.sal)} בחודש`),src:[['https://avodata.labor.gov.il/','עבודאטה']]}],
+    pages:L.slice(0,3).map(x=>({go:'occ-'+x.o.id,n:x.o.n})),go:['jobs']};
+}
+function topJobs(){
+  const L=tryv(()=>OCLIST.filter(o=>o.sal).sort((a,b)=>b.sal-a.sal),[]);
+  return {t:'המקצועות עם השכר הממוצע הגבוה ביותר בישראל, לפי עבודאטה. שימו לב: לרובם מגיעים אחרי שנים של ניסיון.',
+    cards:[{k:'occ',t:'השכר הגבוה ביותר',go:'jobs',L:L.slice(0,6).map(o=>`${o.n}: ₪${nf(o.sal)} בחודש`),src:[['https://avodata.labor.gov.il/','עבודאטה']]}],
+    pages:L.slice(0,3).map(o=>({go:'occ-'+o.id,n:o.n})),chips:['ואילו תארים הכי משתלמים?','מה המקצועות החמים?']};
+}
+
+/* ---------- 5. fields and institutions ---------- */
+const CAT_RX=[['tech',/מחשב|תוכנה|תכנות|הייטק|סייבר|בינה מלאכותית|דאטה|נתונים/],['eng',/הנדסה|הנדסי|מהנדס/],['health',/בריאות|רפואה|רפואי|טיפול|פרה-?רפואי/],['science',/מדעים|מדעי הטבע|ביולוגיה|כימיה|פיזיקה|טבע/],['social',/חברה|משפט|התנהגות|פסיכולוג|סוציולוג/],['biz',/כלכלה|ניהול|עסקים|כספים|פיננס/],['design',/עיצוב|אמנות|אומנות|אדריכלות|יצירה|מוזיקה|קולנוע/],['hum',/רוח|היסטוריה|ספרות|פילוסופיה|שפות/],['teach',/הוראה|חינוך|מורה|גננ/]];
+function catAnswer(k){
+  const c=tryv(()=>CATS[k],null);if(!c)return null;
+  const D=DEG.filter(d=>d.c===k&&d.of.length).sort((a,b)=>new Set(b.of.map(o=>o.i)).size-new Set(a.of.map(o=>o.i)).size);
+  return {t:`בתחום **${c.n}** יש באתר **${D.length} תארים**. אלה שנלמדים בהכי הרבה מוסדות:`,pages:D.slice(0,6).map(d=>({go:'deg-'+d.id,n:d.n,kind:new Set(d.of.map(o=>o.i)).size+' מוסדות'})),act:[['cat',k]],chips:D.length>1?[`${D[0].n} או ${D[1].n}?`]:[]};
+}
+function instAnswer(i){
+  const I=INST[i];if(!I)return null;
+  const D=DEG.filter(d=>d.of.some(o=>o.i===i));
+  const by={};D.forEach(d=>{by[d.c]=(by[d.c]||0)+1});
+  const cats=Object.entries(by).sort((a,b)=>b[1]-a[1]).slice(0,4).map(([c,n])=>`${tryv(()=>CATS[c].n,c)} (${n})`);
+  const L=[`${D.length} תארים ראשונים.`,cats.length?'התחומים הגדולים: '+cats.join(', ')+'.':'',tryv(()=>THR[i],null)?`יש באתר ספי קבלה רשמיים של ${I.n} (${THR[i].year}).`:''].filter(Boolean);
+  return {t:`מה לומדים ב**${I.n.replace(/^ה(?=[א-ת])/,'')}**:`,cards:[{k:'inst',t:I.n,go:'degrees',L,src:I.site?[[I.site,'אתר המוסד']]:[]}],act:[['uni',i]],chips:D.slice(0,2).map(d=>`מה הסף ל${d.n} ב${I.n.split(/\s[–-]\s/)[0].replace(/^(אוניברסיטת|האוניברסיטה|המכללה האקדמית|מכללת)\s*/,'').replace(/^ה/,'')}?`)};
+}
+
+/* ---------- 6. me, an idea, and actions ---------- */
+function profileSummary(){
+  if(!tryv(()=>profileOK(),false))return {t:G('עוד לא מילאת פרופיל. זה לוקח פחות מדקה, ואחרי זה אדע להגיד לך לאן הנתונים שלך מספיקים.'),act:[['profile']]};
+  const p=S.prof,sc=S.sc||{},L=[];
+  const BAG={full:'תעודת בגרות מלאה',partial:'בגרות חלקית',none:'בלי בגרות',mechina:'תעודת מכינה',handesai:'תעודת הנדסאי',foreign:'תעודה מחו"ל'};
+  if(p.bag)L.push(BAG[p.bag]||p.bag);
+  if(sc.b)L.push(`ממוצע בגרות: ${sc.b}`);
+  if(sc.p)L.push(`פסיכומטרי: ${sc.p}`);else if(p.psy==='plan')L.push('מתכנן/ת לגשת לפסיכומטרי');
+  const n=tryv(()=>DEG.filter(d=>eligibility(d).now.size).length,0);
+  if(n)L.push(`הנתונים מספיקים כבר ל-${n} תארים`);
+  return {t:'זה מה שאני יודע עליך מהפרופיל (הוא נשמר בדפדפן שלך):',cards:[{k:'me',t:'הפרופיל שלי',go:'me',L:L.map(G),src:[]}],act:[['profile']],go:['me']};
+}
+function surprise(){
+  const D=tryv(()=>DEG.filter(d=>{const s=mainStat(fieldOf(d));return s&&s.sal&&d.avHow==='exact'&&new Set(d.of.map(o=>o.i)).size>=2}),[]);
+  if(!D.length)return byKey('dir');
+  const d=D[Math.floor(Math.random()*D.length)], r=entityAnswer({k:'deg',id:d.id},'', null,'');
+  r.t=pick(['בוא/י נגלה משהו חדש! מה דעתך על','הנה רעיון שאולי לא חשבת עליו:','שלפתי לך תואר מהכובע:'])+` **${d.n}**`;if(r.t.includes('דעתך'))r.t+='?';
+  r.chips=['עוד רעיון!',...(r.chips||[]).slice(0,2)];r.mood='happy';return r;
+}
+function cmpAdd(e){
+  const id=e.id;
+  tryv(()=>{if(!S.cmp.includes(id)){if(S.cmp.length>=3)S.cmp.shift();S.cmp.push(id)}if(typeof renderTray==='function')renderTray()});
+  const names=tryv(()=>S.cmp.map(x=>BY[x].n),[]);
+  return {t:`הוספתי את **${BY[id].n}** להשוואה. כרגע בהשוואה: ${names.join(', ')}.`,act:names.length>1?[['cmp',S.cmp.join(',')]]:[],chips:names.length<2?['להוסיף עוד תואר? כתבו: תוסיף ... להשוואה']:[]};
+}
+function skillsList(){
+  return {t:G('הנה מה שאני יודע לעשות. אפשר לכתוב לי בחופשיות:\n• **נתונים על תואר או מקצוע**: שכר, תעסוקה, משך, איפה לומדים.\n• **תנאי קבלה וספים** לפי מוסד, ומה מספיק לי לפי הפרופיל.\n• **השוואה** בין שני תארים.\n• **מלגות** לפי מי שאת/ה.\n• **מועדים**: פסיכומטרי ובגרויות.\n• **מקצועות חמים** ותארים משתלמים.\n• **מה לומדים במוסד** מסוים, או **תארים בתחום**.\n• **שאלות שכבר נענו בקהילה**: מעונות, עומס, מכינות ועוד.\n• ואם אין לך מושג, אפשר לבקש **רעיון**.'),
+    chips:['מתי הפסיכומטרי?','מלגות לחיילים משוחררים','מה המקצועות החמים?','מה לומדים בטכניון?','תפתיע אותי'],mood:'happy'};
+}
+function skills(t){
+  if(/מה (אתה|את) (יודע|יכול|מסוגל)|מה אפשר לשאול|מה (עוד )?אתה יודע לעשות|יכולות/.test(t))return skillsList();
+  if(/מתי|מועד|מועדים|תאריך|הרשמה ל/.test(t)&&/פסיכומטרי|פסיכו|בגרות|בחינ/.test(t))return datesAnswer(t);
+  if(/מלג|הטב(ה|ות)|זכויות|מענק|סיוע בשכר/.test(t)&&!/מה זה מלגת/.test(t))return schAnswer(t);
+  if(/מקצוע.{0,20}(חם|חמים|מבוקש|ביקוש|עתיד|צומח)|(חם|חמים|מבוקשים) בשוק|יש הכי הרבה ביקוש/.test(t))return hotJobs();
+  if(/מקצוע.{0,25}(הכי )?(משתלם|מרוויח|שכר הכי|משכורת הכי|רווחי)|(שכר|משכורת) הכי גבוה.{0,15}מקצוע/.test(t))return topJobs();
+  if(/שכר\s*ה?לימוד|כמה עולה (ה)?(תואר|ללמוד|שנת לימודים)/.test(t)){const h=faqFind(t)[0];if(h&&h.uc>=.5)return faqAnswer(h,[{go:'sch',n:'מלגות שיכולות לעזור'}]);return byKey('sch')}
+  const ps=t.match(/(?:^|\D)([2-8]\d\d)(?:\D|$)/);
+  if(ps&&/פסיכומטרי|פסיכו/.test(t)){const v=+ps[1];
+    return {t:G(`${v} בפסיכומטרי${v>=700?' זה ציון גבוה מאוד':v>=600?' זה ציון טוב':v>=500?' זה ציון בטווח הבינוני':' זה ציון שאפשר לשפר'}. אבל מה שקובע הוא השילוב עם ממוצע הבגרות (הסכם), וכל מוסד מחשב אותו אחרת.\nאם תכניס/י את הציון ואת הממוצע לפרופיל, אראה לך בדיוק לאן הם מספיקים, ומה אפשר לעשות כדי להגיע לשאר.`),act:[['profile']],go:['me'],chips:['איזה ציון בפסיכומטרי מספיק לקבלה?','מה עדיף לשפר: בגרות או פסיכומטרי?']}}
+  if(/תפתיע|הפתע|רעיון|עוד רעיון|משהו אקראי|תן לי כיוון/.test(t))return surprise();
+  if(/(מה|מה יש|תראה).{0,6}(ב)?פרופיל שלי|מה אתה יודע עליי|מה אתה יודע עלי/.test(t))return profileSummary();
+  const add=t.match(/(תוסיף|הוסף|תוסיפי|להוסיף|שים|תשים)(.+?)(ל|אל )?השוואה/);
+  if(add){const e=findEnts(add[2]).find(x=>x.k==='deg');if(e)return cmpAdd(e)}
+  if(/תארים|ללמוד|לימודים|חוגים/.test(t)&&/בתחום|תחום ה|קשור(ים)? ל|שקשור/.test(t)){const c=CAT_RX.find(([,rx])=>rx.test(t));if(c)return catAnswer(c[0])}
+  return null;
 }
 
 /* ================= THE ANSWER ================= */
-const CRISIS=/להתאבד|התאבדות|לא רוצה לחיות|לשים קץ|לפגוע בעצמי/;
 function answer(raw){
   const t=raw.trim().replace(/\s+/g,' ');
-  if(CRISIS.test(t))return {t:'אני ממש שמח שכתבת. לא חייבים לעבור את זה לבד 💛\n**ער"ן**: חיוג 1201, בכל שעה · **סה"ר**: sahar.org.il\nבסכנה מיידית: **מד"א 101**.'};
-  if(/^(היי+|הי|שלום|אהלן|הלו|בוקר טוב|ערב טוב)[\s!.]*$/.test(t))return {t:pick(['היי! 👋 מה מחפשים היום?','שלום! במה אפשר לעזור באתר?']),chips:MENU.slice(0,4),mood:'happy'};
-  if(/^(תודה|תנקס|מעולה|סבבה|אחלה)/.test(t)&&t.length<25)return {t:pick(['בכיף! 😊','שמח לעזור! בהצלחה 🍀']),mood:'happy'};
+  if(CRISIS.test(t))return {t:'אני ממש שמח שכתבת לי. מה שאת/ה מרגיש/ה חשוב, ולא חייבים לעבור את זה לבד 💛\nאפשר לדבר עכשיו, בכל שעה, עם מישהו שיקשיב:\n**ער"ן**: חיוג 1201 · **סה"ר**: sahar.org.il (צ\'אט)\nבסכנה מיידית: **מד"א 101**.',mood:'calm'};
+  if(STRESS.test(t))return {t:G('נשמע שזה תקופה לחוצה, וזה לגמרי מובן. כמעט תמיד יש עוד דרך: לשפר בגרות, לגשת שוב לפסיכומטרי, מכינה, מוסד אחר או תואר קרוב. בוא/י נסתכל על זה ביחד, צעד אחד בכל פעם.\nואם זה מרגיש כבד מדי, אפשר לדבר עם **ער"ן** בחיוג 1201, בכל שעה.'),go:['path','me'],mood:'calm'};
+  if(/^(היי+|הי|שלום|אהלן|הלו|בוקר טוב|ערב טוב|מה נשמע|מה קורה)[\s!.?]*$/.test(t))return {t:pick(['היי! 👋 על מה מדברים היום?','שלום! אפשר לשאול אותי על כל תואר, מקצוע או מלגה.']),chips:MENU().slice(0,4),mood:'happy'};
+  if(/^(תודה|תנקס|מעולה|סבבה|אחלה|יופי|מגניב)/.test(t)&&t.length<25)return {t:pick(['בכיף! 😊','שמח לעזור! בהצלחה 🍀','תמיד כאן, על הענף']),mood:'happy'};
 
-  const pages=findPage(t);
-  if(pages.length)return {t:pages.length===1?`מצאתי! הנה העמוד של ה${pages[0].kind} **${pages[0].n}**:`:'מצאתי כמה עמודים שמתאימים:',pages};
+  const sk=skills(t);if(sk)return sk;
+  const m=META.find(i=>i.rx.test(t));
+  if(m)return byKey(m.k);
+
+  const topic=topicOf(t), inst=oneInst(t), ents=findEnts(t);
+  const degs=ents.filter(e=>e.k==='deg').map(e=>BY[e.id]);
+
+  /* "בין X ל-Y", "X או Y": find each side on its own */
+  const sp=t.match(/(?:בין\s+)(.+?)\s+(?:לבין\s+|ל)(.+)/)||t.match(/(.+?)\s+(?:או|מול|לעומת|vs)\s+(.+)/);
+  if(sp&&CMP_RX.test(t)||sp&&/או|מול|לעומת/.test(t)){
+    const a=findEnts(sp[1]).find(e=>e.k==='deg'),b=findEnts(sp[2]).find(e=>e.k==='deg');
+    if(a&&b&&a.id!==b.id)return compareAnswer([BY[a.id],BY[b.id]]);
+  }
+  /* two degrees, or "X or the one we talked about" */
+  if(degs.length>=2&&(CMP_RX.test(t)||!topic))return compareAnswer(degs);
+  if(degs.length===1&&CMP_RX.test(t)&&ctx&&ctx.k==='deg'&&ctx.id!==degs[0].id&&BY[ctx.id])return compareAnswer([BY[ctx.id],degs[0]]);
+
+  /* a question the community already answered */
+  const e0=ents[0], ek=e0&&e0.k!=='occ'?e0.k+':'+e0.id:'', fctx=ek||(ctx&&ctx.k!=='occ'&&!ents.length?ctx.k+':'+ctx.id:'');
+  const own=contentWords(t).length>0||!ctx;
+  const beyond=e0?fkeys(t).filter(x=>!fkeys(entName(e0)).some(y=>kMatch(x,y))&&!ents.some(e=>fkeys(e.n||'').some(y=>kMatch(x,y)))).length:1; /* asked more than a name */
+  const fh=own&&beyond?faqFind(t,fctx)[0]:null;
+  if(fh&&fh.uc>=.78&&fh.tc>=.3&&!(ents.length&&(topic==='jobs'||topic==='adm')&&fh.tc<.7)&&faqOK(fh,t))
+    return faqAnswer(fh,e0&&e0.k!=='occ'?[{go:entGo(e0),n:entName(e0),kind:KIND[e0.k]}]:[]);
+
+  if(inst&&!ents.length&&!FOLLOW.test(t)&&/מה לומדים|אילו תארים|איזה תארים|מה יש ב|מה אפשר ללמוד|תארים יש/.test(t)){const r=instAnswer(inst);if(r)return r}
+
+  if(ents.length){
+    const r=entityAnswer(ents[0],t,topic||(inst?'adm':null),inst);
+    if(r&&ek){const rel=relatedFaq(ek,2);if(rel.length)r.chips=[...(r.chips||[]),...rel].slice(0,5)}
+    if(r&&ents.length>1){const more=ents.slice(1).map(e=>({go:entGo(e),n:entName(e),kind:KIND[e.k]}));r.pages=[...(r.pages||[]),...more]}
+    if(r)return r;
+  }
+
+  /* a follow-up about what we already talk about, or about the page I am on */
+  const base=(ctx&&entName(ctx)?ctx:null)||pageEnt(), general=/לאן|מה אני יכול/.test(t)||(ME_RX.test(t)&&!FOLLOW.test(t)&&!pageEnt());
+  if(base&&!general&&(topic||inst||FOLLOW.test(t))&&!contentWords(t).length){
+    const r=entityAnswer(base,t,topic||(inst?(ctx&&ctx.topic)||'adm':ctx&&ctx.topic)||null,inst);
+    if(r)return r;
+  }
+
+  if(/הכי (משתלם|מרוויח|רווחי|הרבה כסף|גבוה)|(שכר|משכורת) (הכי )?גבוה|הכי (טוב|שווה) (כלכלית|ללמוד)/.test(t))return topPay();
+  if(ME_RX.test(t))return meAnswer();
+
+  /* no name of a degree or occupation: a question the community answered comes before a guess */
+  if(fh&&(fh.uc>=.95&&fh.tc>=.12||fh.uc>=.8&&fh.tc>=.2)&&faqOK(fh,t))return faqAnswer(fh);
+  /* the site's own search, on what is left of the question */
+  const CW=contentWords(t);
+  for(const cw of [CW.join(' '),...(CW.length>1?CW:[])]){
+    if(cw.length<3)continue;
+    const os=tryv(()=>OCLIST.map(o=>[o,ocScore(o,cw)]).filter(x=>x[1]>=50).sort((a,b)=>b[1]-a[1]||(b[0].sal||0)-(a[0].sal||0)),[]);
+    const teach=/הורא|מורה|מורים/.test(t);const ds=tryv(()=>DEG.map(d=>[d,qScore(d,cw)-(!teach&&/הכשרה להוראה/.test(d.n)?30:0)]).filter(x=>x[1]>=55).sort((a,b)=>b[1]-a[1]||b[0].of.length-a[0].of.length),[]);
+    if(!os.length&&!ds.length)continue;
+    const wantJob=topic==='jobs'||/מקצוע|לעבוד|להיות/.test(t);
+    if(os.length&&(wantJob||!ds.length)){
+      const tie=os.filter(x=>x[1]===os[0][1]);
+      if(tie.length>1)return {t:`יש כמה מקצועות שמתאימים ל"${cw}". על איזה מהם?`,pages:tie.slice(0,4).map(([o])=>({go:'occ-'+o.id,n:o.n,kind:o.sal?'₪'+nf(o.sal):''})),chips:tie.slice(0,3).map(([o])=>`כמה מרוויחים ב${o.n}?`)};
+      return entityAnswer({k:'occ',id:os[0][0].id},t,topic,inst);
+    }
+    if(ds.length===1)return entityAnswer({k:'deg',id:ds[0][0].id},t,topic,inst);
+    if(ds.length>1)return {t:`מצאתי כמה תארים שמתאימים ל"${cw}":`,pages:ds.slice(0,5).map(([d])=>({go:'deg-'+d.id,n:d.n,kind:d.of.length===1?'מוסד אחד':d.of.length+' מוסדות'})),chips:ds.length>1?[`${ds[0][0].n} או ${ds[1][0].n}?`]:[]};
+  }
+
+  const syn=tryv(()=>Object.entries(SYN).find(([k])=>t.includes(k)),null);
+  if(syn){const ds=DEG.filter(d=>syn[1].includes(d.n)).slice(0,5);if(ds.length)return {t:`ל**${syn[0]}** מגיעים מכמה כיוונים. התארים הנפוצים:`,pages:ds.map(d=>({go:'deg-'+d.id,n:d.n,kind:'תואר'})),chips:[ds.length>1?`${ds[0].n} או ${ds[1].n}?`:null].filter(Boolean)}}
 
   const it=INTENTS.find(i=>i.rx.test(t));
+  if(fh&&fh.uc>=.6&&fh.tc>=.25&&(!it||it.k==='degrees'||it.k==='jobs')&&faqOK(fh,t))return faqAnswer(fh);
   if(it)return byKey(it.k);
-  return {t:'לא מצאתי את זה 🤔 נסו לכתוב שם של תואר או מקצוע (למשל "פסיכולוגיה" או "רואה חשבון"), או לבחור מהתפריט:',chips:MENU};
+  const near=own?faqFind(t,fctx).filter(h=>h.uc>=.4).slice(0,3):[];
+  if(near.length)return {t:'לא בטוח שהבנתי עד הסוף 🤔 אולי התכוונת לאחת מהשאלות האלה, שכבר נענו בקהילה?',chips:near.map(h=>h.it.q.t),act:[['ask',JSON.stringify({t})]]};
+  return miss(t);
+}
+function miss(t){
+  if(BOT_LOG_MISSES)tryv(()=>{if(typeof supaClient==='function')supaClient().then(c=>c&&c.rpc('bot_miss',{p_q:t.slice(0,200)})).catch(()=>{})});
+  return {t:G('את זה עוד לא למדתי 🤔 אפשר לנסות שם של תואר או מקצוע (למשל "פסיכולוגיה" או "כמה מרוויח רואה חשבון"), או לשאול את הקהילה. סטודנטים ובוגרים עונים שם:'),act:[['ask',JSON.stringify({t})]],chips:MENU().slice(0,4)};
 }
 function byKey(k){
-  if(k==='overview')return {t:'**וקטור** עוזר לבחור מה ללמוד ולהבין לאן זה מוביל, עם נתונים רשמיים ומקור לכל נתון. הנה החלקים העיקריים:',go:['degrees','jobs','tech','dir','me','path','sch','forum']};
-  if(k==='here'){const h=here();return {t:h.t,go:h.b}}
-  if(k==='who')return {t:'אני **וקטי** 🎓, המדריך של האתר. כתבו לי מה מחפשים, ואסביר איפה זה נמצא ואקח אתכם לשם.',chips:MENU.slice(0,4),mood:'happy'};
-  if(k==='tour')return {t:'בכיף! אני **אטוס איתכם סיבוב קצר** באתר ואסביר מה יש בכל מקום ובאיזה סדר כדאי להתחיל. אפשר לדלג בכל רגע.',act:['tour']};
-  if(k==='profile')return {t:'**הפרופיל** הוא כמה שאלות קצרות: באיזו כיתה את/ה, איזו תעודה, פסיכומטרי ושפה. הוא לוקח פחות מדקה, נשמר בדפדפן, וכל האתר משתמש בו: "המסלול שלי", "מה אני יכול/ה ללמוד" והמלגות.',act:['profile'],go:['path']};
-  if(k==='a11yset')return {t:'את **הגדרות הנגישות** (גודל טקסט, ניגודיות, עצירת אנימציות ועוד) פותחים מהכפתור עם סמל הנגישות בראש העמוד. אפשר גם מכאן:',act:['a11yset'],go:['a11y']};
+  if(k==='overview')return {t:'**וקטור** עוזר לבחור מה ללמוד ולהבין לאן זה מוביל, עם נתונים רשמיים ומקור לכל נתון. אפשר גם פשוט לשאול אותי, למשל "כמה מרוויחים בסיעוד?". הנה החלקים העיקריים:',go:['degrees','jobs','tech','dir','me','path','sch','forum']};
+  if(k==='here'){const h=here();return {t:h.t,go:h.b,chips:h.c}}
+  if(k==='who')return {t:G('אני **וקטי**, תוכי ארה אדום שטס בשמיים של וקטור ויודע הרבה על לימודים ועבודה בישראל. שאל/י אותי על תואר, מקצוע, שכר, תנאי קבלה, מלגות או מועדים, ואענה מהנתונים של האתר ומהשאלות שכבר נענו בקהילה.'),chips:MENU().slice(0,4),mood:'happy'};
+  if(k==='tour')return {t:'בכיף! אני **אטוס איתכם סיבוב קצר** באתר ואסביר מה יש בכל מקום ובאיזה סדר כדאי להתחיל. אפשר לדלג בכל רגע.',act:[['tour']]};
+  if(k==='profile')return {t:G('**הפרופיל** הוא כמה שאלות קצרות: באיזו כיתה את/ה, איזו תעודה, פסיכומטרי ושפה. הוא לוקח פחות מדקה, נשמר בדפדפן, ובזכותו אני יכול לענות לך גם "לאן אני יכול/ה להתקבל".'),act:[['profile']],go:['path']};
+  if(k==='a11yset')return {t:'את **הגדרות הנגישות** (גודל טקסט, ניגודיות, עצירת אנימציות ועוד) פותחים מהכפתור עם סמל הנגישות בראש העמוד. אפשר גם מכאן:',act:[['a11yset']],go:['a11y']};
   const s=SEC[k];
   const extra={degrees:['me'],jobs:['degrees'],dir:['me'],me:['calc','path'],calc:['me'],path:['dir'],sch:[],forum:[],specs:['degrees'],tech:['jobs']}[k]||[];
-  return {t:`${s.ic} **${s.n}**\n${s.d}`,go:[k,...extra]};
+  return {t:`${s.ic} **${G(s.n)}**\n${G(s.d)}`,go:[k,...extra]};
+}
+function here(){
+  const e=pageEnt();
+  if(e){const n=entName(e);
+    if(e.k==='deg')return {t:`זה העמוד של התואר **${n}**: מה לומדים, באילו מוסדות, ספי קבלה, שכר ותעסוקה של הבוגרים. אפשר לשאול אותי עליו ישירות:`,b:[],c:['כמה מרוויחים?','מה תנאי הקבלה?',G('אני יכול/ה להתקבל?')]};
+    if(e.k==='occ')return {t:`זה העמוד של המקצוע **${n}**: מה עושים בו, כמה מרוויחים, האם הוא חם בשוק, ואילו תארים מובילים אליו.`,b:[],c:['כמה מרוויחים?','איך מגיעים למקצוע?']};
+    if(e.k==='sp')return {t:`זה העמוד של ההתמחות **${n}**: משך ההתמחות, מה כוללת התוכנית ומספר המומחים.`,b:['specs'],c:['כמה זמן ההתמחות?']};
+    if(e.k==='mh')return {t:`זה העמוד של מגמת ההנדסאים **${n}**: איפה לומדים, מה לומדים והשכר של הבוגרים.`,b:['tech'],c:['כמה מרוויחים?','איפה לומדים?']};
+  }
+  const r=tryv(()=>S.route,{v:'home'})||{v:'home'};
+  if(r.v==='q')return {t:'זה עמוד של שאלה מהקהילה, עם התשובות שלה. אפשר לענות או לשאול שאלה משלך.',b:['forum']};
+  if(r.v==='home')return {t:'זה **דף הבית**. מכאן אפשר לחפש תואר, מקצוע או מגמת הנדסאים, או להתחיל מהשאלון "מה הכיוון שלי?".',b:['dir','degrees']};
+  const s=SEC[r.v];
+  return s?{t:`זה העמוד **${G(s.n)}**.\n${G(s.d)}`,b:[]}:{t:'כאן אפשר להתחיל מכל אחד מהחלקים של האתר:',b:['degrees','jobs','dir']};
 }
 
 /* ================= UI ================= */
+const IC={
+  close:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  full:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>',
+  small:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg>',
+  home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7M5 10v10h14V10"/></svg>',
+  send:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M21.5 2.5 2.8 10.3c-.8.3-.8 1.4 0 1.7l6.7 2.6 2.6 6.7c.3.8 1.4.8 1.7 0z" fill="currentColor" fill-opacity=".25"/><path d="m9.5 14.6 12-12.1"/></svg>'
+};
+/* ---------- the sky outside Vecti's window follows the visitor's clock ---------- */
+const SKY={dawn:{hi:'בוקר טוב',ic:'🌅'},day:{hi:'יום יפה בשמיים',ic:'☀️'},dusk:{hi:'ערב טוב',ic:'🌇'},night:{hi:'לילה טוב',ic:'🌙'}};
+const tod=()=>{const h=new Date().getHours();return h>=5&&h<8?'dawn':h>=8&&h<17?'day':h>=17&&h<20?'dusk':'night'};
+const FLY=()=>tryv(()=>vectiMacaw({variant:'full'}),'');
+const HEAD=()=>tryv(()=>vectiMacaw({variant:'head'}),'');
+const md=s=>String(s).split('\n').map(l=>`<p>${escH(l).replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>')}</p>`).join('');
+
 const root=document.createElement('div');root.className='vb';root.setAttribute('dir','rtl');root.setAttribute('lang','he');
 root.innerHTML=`
-<div class="vb-tip" role="status"><button class="vb-tip-x" type="button" aria-label="סגירת ההודעה">×</button>היי! אני <b>וקטי</b> 👋<br>צריכים עזרה למצוא משהו באתר?</div>
-<button class="vb-launch" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="vb-panel" aria-label="פתיחת וקטי, המדריך של האתר"><span class="vecti-wrap">${vectiMacaw({variant:'head'})}</span><span class="vb-dot" aria-hidden="true"></span></button>
-<section class="vb-panel" id="vb-panel" role="dialog" aria-modal="false" aria-label="וקטי, המדריך של האתר">
+<div class="vb-tip" role="status"><button class="vb-tip-x" type="button" aria-label="סגירת ההודעה">×</button><span class="vb-tip-b"></span></div>
+<button class="vb-launch" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="vb-panel" aria-label="פתיחת וקטי, המדריך של האתר"><span class="vb-puff" aria-hidden="true"></span><span class="vecti-wrap">${HEAD()}</span><span class="vb-dot" aria-hidden="true">?</span></button>
+<section class="vb-panel" id="vb-panel" role="dialog" aria-modal="false" aria-label="שיחה עם וקטי">
+  <div class="vb-sky" aria-hidden="true">
+    <i class="vb-stars"></i><i class="vb-sun"></i>
+    <div class="vb-cl c1"><i></i></div><div class="vb-cl c2"><i></i></div>
+    <i class="vb-birds"></i>
+    <i class="vb-shoot"></i>
+    <i class="vb-balloon"><svg viewBox="0 0 30 44"><path d="M15 1C7 1 2 7 2 14c0 7 6 12 10 17h6c4-5 10-10 10-17C28 7 23 1 15 1Z" fill="#E02424"/><path d="M15 1c-3 0-6 6-6 13 0 7 2 12 3 17h6c1-5 3-10 3-17 0-7-3-13-6-13Z" fill="#FBBF24"/><path d="M15 1c-1 0-2 6-2 13 0 7 0 12 1 17h2c1-5 1-10 1-17 0-7-1-13-2-13Z" fill="#1D6FE0"/><path d="M12 31l1 5M18 31l-1 5" stroke="#7A5230" stroke-width="1"/><rect x="11.5" y="36" width="7" height="6" rx="1.5" fill="#8B5A2B"/></svg></i>
+    <i class="vb-plane">${IC.send}</i>
+    <div class="vb-cl c3"><i></i></div>
+  </div>
   <header class="vb-head">
-    <div class="vb-av">${vectiMacaw({variant:'head'})}</div>
-    <div class="vb-ttl"><b>וקטי</b><small><i></i><span>המדריך שלך באתר</span></small></div>
-    <button class="vb-hb vb-home" type="button" aria-label="לתפריט הראשי" title="תפריט ראשי">${IC.home}</button>
+    <div class="vb-av">${FLY()}</div>
+    <div class="vb-ttl"><b>וקטי</b><small><span class="vb-hi"></span> · המדריך שלך בשמיים</small></div>
+    <button class="vb-hb vb-full" type="button" aria-pressed="false" aria-label="פתיחה על כל המסך" title="על כל המסך">${IC.full}</button>
+    <button class="vb-hb vb-home" type="button" aria-label="נושאים לשיחה" title="נושאים לשיחה">${IC.home}</button>
     <button class="vb-hb vb-close" type="button" aria-label="סגירה" title="סגירה">${IC.close}</button>
   </header>
   <div class="vb-log" role="log" aria-live="polite" aria-relevant="additions"></div>
   <form class="vb-form" autocomplete="off">
-    <label for="vb-in" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">מה מחפשים?</label>
-    <input class="vb-in" id="vb-in" type="text" maxlength="200" placeholder="מה מחפשים? למשל: פסיכולוגיה, מלגות…" enterkeyhint="send">
+    <label for="vb-in" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">מה רוצים לשאול את וקטי?</label>
+    <input class="vb-in" id="vb-in" type="text" maxlength="200" placeholder="שאלו את וקטי… למשל: שכר בסיעוד" enterkeyhint="send">
     <button class="vb-send" type="submit" aria-label="שליחה" disabled>${IC.send}</button>
   </form>
+  <button class="vb-minibar" type="button" aria-label="חזרה לשיחה עם וקטי"><span class="vb-mini-av">${HEAD()}</span><span class="vb-mini-t"><b>וקטי כאן למעלה</b><small class="vb-mini-s">לחצו כדי לחזור לשיחה</small></span><span class="vb-mini-up" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></span></button>
+  <button class="vb-mini-x" type="button" aria-label="סגירת וקטי">×</button>
+  <div class="vb-part l" aria-hidden="true"></div><div class="vb-part r" aria-hidden="true"></div>
 </section>`;
 document.body.appendChild(root);
 
-const launch=$('.vb-launch',root),log=$('.vb-log',root),form=$('.vb-form',root),inp=$('.vb-in',root),send=$('.vb-send',root),tip=$('.vb-tip',root),av=$('.vb-av',root);
+const launch=$('.vb-launch',root),log=$('.vb-log',root),form=$('.vb-form',root),inp=$('.vb-in',root),send=$('.vb-send',root),tip=$('.vb-tip',root),tipB=$('.vb-tip-b',root),av=$('.vb-av',root);
 let opened=false,busy=false;
+/* the panel changes shape smoothly: measure, change, and play the difference (FLIP) */
+function morph(change){
+  const p=$('.vb-panel',root),a=p.getBoundingClientRect();change();
+  if(RM()||!p.animate||!root.classList.contains('open'))return;
+  const b=p.getBoundingClientRect();if(!b.width||!b.height)return;
+  const dx=(a.left+a.width/2)-(b.left+b.width/2),dy=(a.top+a.height/2)-(b.top+b.height/2);
+  p.animate([{transformOrigin:'50% 50%',transform:`translate(${dx}px,${dy}px) scale(${a.width/b.width},${a.height/b.height})`},{transformOrigin:'50% 50%',transform:'none'}],{duration:560,easing:'cubic-bezier(.2,.9,.2,1)'});
+}
+/* after a link: Vecti flies up and becomes a small bar, so the page he opened can be seen */
+function setMini(on,label){
+  if(on===root.classList.contains('mini'))return;
+  if(on){const last=[...log.querySelectorAll('.vb-msg.bot')].pop();$('.vb-mini-s',root).textContent=label?'פתחתי: '+label+' · לחצו לחזרה':'לחצו כדי לחזור לשיחה';root.dataset.wasFull=root.classList.contains('full')?'1':''}
+  morph(()=>{root.classList.toggle('mini',on);if(on)root.classList.remove('full');else if(root.dataset.wasFull==='1'&&innerWidth>560)root.classList.add('full')});
+  if(!on)setTimeout(()=>{log.scrollTop=log.scrollHeight;if(!coarse())inp.focus()},300);
+}
+const fullB=$('.vb-full',root);
+function setFull(on){
+  on=!!on&&innerWidth>560;root.classList.toggle('full',on);ss.set('vb.full',on);
+  fullB.setAttribute('aria-pressed',String(on));fullB.innerHTML=on?IC.small:IC.full;
+  const l=on?'חזרה לחלון קטן':'פתיחה על כל המסך';fullB.setAttribute('aria-label',l);fullB.title=on?'חלון קטן':'על כל המסך';
+}
+$('.vb-minibar',root).addEventListener('click',()=>setMini(false));
+$('.vb-mini-x',root).addEventListener('click',()=>toggle(false));
+fullB.addEventListener('click',()=>{setFull(!root.classList.contains('full'));if(!coarse())inp.focus()});
+const sky=$('.vb-sky',root),hiEl=$('.vb-hi',root);
+function setSky(){const k=tod();root.dataset.sky=k;hiEl.textContent=SKY[k].ic+' '+SKY[k].hi}
+setSky();setInterval(setSky,10*60*1000);
+log.addEventListener('scroll',()=>{sky.style.setProperty('--py',Math.min(log.scrollTop,1200))},{passive:true});
+/* a feather from Vecti drifts down the sky now and then */
+function feather(){
+  if(RM()||!root.classList.contains('open'))return;
+  const f=document.createElement('i');f.className='vb-feather';
+  const c=['#E02424','#FBBF24','#1D6FE0','#22A06B'][Math.floor(Math.random()*4)];
+  f.style.cssText=`--x:${10+Math.random()*75}%;--d:${5+Math.random()*3}s;--r:${Math.random()*80-40}deg;--c:${c}`;
+  sky.appendChild(f);setTimeout(()=>f.remove(),9000);
+}
 const coarse=()=>tryv(()=>matchMedia('(pointer:coarse)').matches,false);
 
-function mood(m){const s=av.querySelector('svg');av.classList.remove('happy','think','wave');if(m)av.classList.add(m);vectiSet(s,m==='think'?'thinking':m==='happy'?'happy':'calm');if(m==='happy'||m==='wave')setTimeout(()=>{av.classList.remove(m);vectiSet(s,av.classList.contains('think')?'thinking':'calm')},1800)}
-function scroll(){requestAnimationFrame(()=>{log.scrollTop=log.scrollHeight})}
-function persist(){ss.set('vb.log',[...log.children].slice(-30).map(m=>m.outerHTML))}
-function addMsg(k,html){const m=document.createElement('div');m.className='vb-msg '+k;m.innerHTML=html;log.appendChild(m);scroll();return m}
+function mood(m){const s=av.querySelector('svg');if(!s)return;tryv(()=>vectiSet(s,m==='think'?'thinking':m==='happy'?'happy':'calm'));if(m==='happy')setTimeout(()=>tryv(()=>vectiSet(s,'calm')),1800)}
+function scroll(el){requestAnimationFrame(()=>{if(el&&el.offsetTop>log.clientHeight*.5)log.scrollTop=Math.max(log.scrollTop,el.offsetTop-12);else log.scrollTop=log.scrollHeight})}
+function persist(){ss.set('vb.log',[...log.children].slice(-40).map(m=>m.outerHTML))}
+function turn(){const w=document.createElement('div');w.className='vb-turn';w.innerHTML=`<span class="vb-mini" aria-hidden="true">${HEAD()}</span><div class="vb-col"></div>`;log.appendChild(w);return w}
+function addMe(q){const m=document.createElement('div');m.className='vb-msg me';m.textContent=q;log.appendChild(m);scroll()}
 
-/* one bot reply: text, then buttons that go somewhere, then suggestion chips */
+function cardHTML(c){
+  return `<div class="vb-card ${escH(c.k)}"><div class="vb-card-h"><button type="button" class="vb-card-t" data-go="${escH(c.go)}">${escH(c.t)}</button><span class="vb-kind">${escH(KIND[c.k]||'')}</span></div>
+    <ul>${c.L.map(l=>`<li>${escH(l)}</li>`).join('')}</ul>
+    ${c.src&&c.src.length?`<p class="vb-src">מקור: ${c.src.map(([u,l])=>`<a href="${escH(u)}" target="_blank" rel="noopener">${escH(l)}</a>`).join(' · ')}</p>`:''}</div>`;
+}
+/* one reply of Vecti: what he says, data cards, then buttons */
 function reply(r){
-  addMsg('bot',md(r.t));
+  const w=turn(),col=w.querySelector('.vb-col');
+  let h=`<div class="vb-msg bot">${md(G(r.t))}</div>`;
+  (r.cards||[]).forEach(c=>{h+=cardHTML(c)});
+  if(r.html)h+=r.html;
   const B=[];
-  const many=(r.pages||[]).length>1;
-  (r.pages||[]).forEach(p=>B.push(`<button type="button" class="vb-chip go" data-go="${escH(p.go)}">${escH(p.n)}${many?` (${escH(p.kind)})`:''} ←</button>`));
-  (r.go||[]).forEach(k=>{const s=SEC[k];if(s)B.push(`<button type="button" class="vb-chip go" data-go="${k}">${s.ic} ${escH(s.n)} ←</button>`)});
-  (r.act||[]).forEach(k=>B.push(`<button type="button" class="vb-chip go" data-act="${k}">${escH(ACTIONS[k].n)} ←</button>`));
+  (r.pages||[]).forEach(p=>B.push(`<button type="button" class="vb-chip go" data-go="${escH(p.go)}">${escH(p.n)}${p.kind?` <small>· ${escH(p.kind)}</small>`:''} ←</button>`));
+  (r.go||[]).forEach(k=>{const s=SEC[k];if(s)B.push(`<button type="button" class="vb-chip go" data-go="${k}">${s.ic} ${escH(G(s.n))} ←</button>`)});
+  (r.act||[]).forEach(([k,a])=>{if(ACTIONS[k])B.push(`<button type="button" class="vb-chip act" data-act="${k}"${a!=null?` data-arg="${escH(a)}"`:''}>${escH(ACTIONS[k].n)} ←</button>`)});
   (r.chips||[]).forEach(c=>B.push(`<button type="button" class="vb-chip" data-q="${escH(c)}">${escH(c)}</button>`));
-  if(B.length){const w=document.createElement('div');w.className='vb-chips';w.innerHTML=B.join('');log.appendChild(w);scroll()}
+  if(B.length)h+=`<div class="vb-chips">${B.join('')}</div>`;
+  col.innerHTML=h;
   if(r.mood)mood(r.mood);
-  persist();
+  if(Math.random()<.45||r.mood==='happy')feather();
+  scroll(w);persist();
 }
 async function ask(q){
   q=String(q||'').trim();if(!q||busy)return;busy=true;
-  addMsg('me',escH(q));inp.value='';send.disabled=true;mood('think');
-  const dots=addMsg('bot','<span class="vb-typing" aria-label="וקטי מקליד"><i></i><i></i><i></i></span>');
-  if(!RM())await new Promise(r=>setTimeout(r,450));
-  dots.remove();reply(answer(q));if(!av.classList.contains('happy'))mood('');
+  addMe(q);inp.value='';send.disabled=true;mood('think');
+  const w=turn();w.querySelector('.vb-col').innerHTML='<div class="vb-msg bot"><span class="vb-typing" aria-label="וקטי חושב"><i></i><i></i><i></i></span></div>';scroll();
+  if(!RM())await new Promise(r=>setTimeout(r,420+Math.min(q.length*6,300)));
+  let r;try{r=answer(q)}catch(e){r=miss(q)}
+  w.remove();reply(r);if(r.mood!=='happy')mood('');
   busy=false;if(!coarse())inp.focus();
 }
 function welcome(){
-  addMsg('bot',md('היי, אני **וקטי** 👋 המדריך של האתר.\nאפשר לבחור נושא, או לכתוב מה מחפשים ואקח אתכם לשם.'));
-  reply({t:'במה להתחיל?',chips:['מה יש בעמוד הזה?',...MENU]});
+  const e=pageEnt();
+  const hi=G(`${SKY[tod()].hi}! אני **וקטי**, ואני טס כאן מעל כל התארים והמקצועות בישראל.\n`+'אפשר לשאול אותי כמו שואלים חבר: "כמה מרוויחים בסיעוד?", "מה הסף למשפטים בחיפה?" או "מה ההבדל בין כלכלה לחשבונאות?". אענה מהנתונים הרשמיים באתר.');
+  reply({t:hi,chips:e?['מה יש בעמוד הזה?',...here().c||[]]:['מה יש בעמוד הזה?',...MENU()],mood:'happy'});
 }
-function goTo(h){
+function goTo(h,label){
   if(typeof go==='function')go(h);else location.hash=h;
-  if(innerWidth<=560)toggle(false);
+  setMini(true,label); /* show the page that was opened */
 }
 function toggle(open){
   open=open??!root.classList.contains('open');
+  if(!open)root.classList.remove('mini');
+  else if(root.classList.contains('mini')){setMini(false);return}
   root.classList.toggle('open',open);launch.setAttribute('aria-expanded',String(open));
-  if(open){hideTip(true);
-    if(!opened){opened=true;const saved=ss.get('vb.log',[]);if(saved.length){log.innerHTML=saved.join('');scroll()}else welcome();mood('wave')}
+  if(open){hideTip(true);setSky();setFull(ss.get('vb.full',false));
+    if(!RM()){root.classList.add('opening');clearTimeout(toggle.t);toggle.t=setTimeout(()=>root.classList.remove('opening'),1400);setTimeout(feather,900)}
+    if(!opened){opened=true;const saved=ss.get('vb.log',[]);if(saved.length){log.innerHTML=saved.join('');log.scrollTop=log.scrollHeight}else welcome()}
     setTimeout(()=>{if(!coarse())inp.focus()},120);
   }else launch.focus({preventScroll:true});
 }
 
 inp.addEventListener('input',()=>{send.disabled=busy||!inp.value.trim()});
-form.addEventListener('submit',e=>{e.preventDefault();ask(inp.value)});
+form.addEventListener('submit',e=>{e.preventDefault();if(!inp.value.trim())return;send.classList.remove('fly');void send.offsetWidth;send.classList.add('fly');setTimeout(()=>send.classList.remove('fly'),800);ask(inp.value)});
 launch.addEventListener('click',()=>toggle());
 $('.vb-close',root).addEventListener('click',()=>toggle(false));
-$('.vb-home',root).addEventListener('click',()=>{reply({t:'במה להתחיל?',chips:['מה יש בעמוד הזה?',...MENU]});mood('wave')});
+$('.vb-home',root).addEventListener('click',()=>{const e=pageEnt();reply({t:'על מה נדבר?',chips:e?['מה יש בעמוד הזה?',...(here().c||[]),...MENU().slice(0,3)]:['מה יש בעמוד הזה?',...MENU()]});mood('happy')});
 root.addEventListener('keydown',e=>{if(e.key==='Escape'&&root.classList.contains('open')){e.stopPropagation();toggle(false)}});
 log.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||busy)return;
-  if(b.dataset.go){goTo(b.dataset.go);return}
-  if(b.dataset.act){ACTIONS[b.dataset.act].run();if(innerWidth<=560)toggle(false);return}
+  if(b.dataset.go){goTo(b.dataset.go,b.textContent.replace(/[←·].*$/,'').replace(/^לעמוד של /,'').trim().slice(0,40));return}
+  if(b.dataset.act){const a=ACTIONS[b.dataset.act];if(!a)return;if(b.dataset.act!=='a11yset'||innerWidth<=560)toggle(false);else setFull(false);a.run(b.dataset.arg);return}
   if(b.dataset.q)ask(b.dataset.q)});
 
-/* the hello bubble: a few times per browser */
-function hideTip(forever){tip.classList.remove('show');if(forever)ls.set('vb.tip',9)}
-$('.vb-tip-x',tip).addEventListener('click',()=>hideTip(true));
-tip.addEventListener('click',e=>{if(!e.target.closest('.vb-tip-x'))toggle(true)});
-if(ls.get('vb.tip',0)<3&&!ss.get('vb.tipShown',false)){
-  setTimeout(()=>{if(root.classList.contains('open'))return;tip.classList.add('show');ss.set('vb.tipShown',true);ls.set('vb.tip',ls.get('vb.tip',0)+1);setTimeout(()=>hideTip(false),9000)},3500);
+/* ---------- the speech bubble: hello on the first visits, then a question that fits the page ---------- */
+let tipQ='',tipT1=0,tipT2=0;
+function hideTip(forSession){tip.classList.remove('show');clearTimeout(tipT1);clearTimeout(tipT2);if(forSession)ss.set('vb.tipOff',true)}
+function showTip(html,q,ms){
+  clearTimeout(tipT1);clearTimeout(tipT2);
+  tipT1=setTimeout(()=>{if(root.classList.contains('open')||ss.get('vb.tipOff',false))return;tipB.innerHTML=html;tipQ=q||'';tip.classList.add('show');tipT2=setTimeout(()=>hideTip(false),10000)},ms);
+}
+$('.vb-tip-x',tip).addEventListener('click',e=>{e.stopPropagation();hideTip(true);ls.set('vb.tip',9)});
+tip.addEventListener('click',e=>{if(e.target.closest('.vb-tip-x'))return;const q=tipQ;hideTip(false);toggle(true);if(q)setTimeout(()=>ask(q),250)});
+function pageTip(){
+  const e=pageEnt();if(!e)return null;const n=escH(entName(e));
+  if(e.k==='deg')return {h:G(`רוצה לדעת אם הציונים שלך מספיקים ל<b>${n}</b>?`),q:G(`אני יכול/ה להתקבל ל${entName(e)}?`)};
+  if(e.k==='occ')return {h:`רוצה לדעת איך מגיעים ל<b>${n}</b>?`,q:`איך מגיעים ל${entName(e)}?`};
+  if(e.k==='mh')return {h:`כמה מרוויחים בוגרי <b>${n}</b>? אפשר לשאול אותי`,q:`כמה מרוויחים ב${entName(e)}?`};
+  if(e.k==='sp')return {h:`כמה זמן לוקחת ההתמחות ב<b>${n}</b>?`,q:`כמה זמן ההתמחות ב${entName(e)}?`};
+  return null;
+}
+function onPage(){
+  hideTip(false);
+  const e=pageEnt();
+  if(e&&(!ctx||ctx.k!==e.k||ctx.id!==e.id))setCtx({k:e.k,id:e.id,topic:null}); /* the page I opened is what "it" means now */
+  const p=pageTip();if(!p)return;
+  const seen=ss.get('vb.tipSeen',[]),id=e.k+':'+e.id;
+  if(seen.length>=3||seen.includes(id))return;
+  ss.set('vb.tipSeen',[...seen,id]);
+  showTip(`${p.h}<span class="vb-tip-go">לשאול את וקטי ←</span>`,p.q,6000);
+}
+addEventListener('hashchange',()=>setTimeout(onPage,60));
+if(pageEnt())setTimeout(onPage,200);
+else if(ls.get('vb.tip',0)<3&&!ss.get('vb.tipShown',false)){
+  ss.set('vb.tipShown',true);ls.set('vb.tip',ls.get('vb.tip',0)+1);
+  showTip('היי! אני <b>וקטי</b><br>אפשר לשאול אותי על כל תואר, מקצוע או מלגה.','',3500);
 }
 
-
-window.vectorBot={open:()=>toggle(true),close:()=>toggle(false),ask:q=>{toggle(true);setTimeout(()=>ask(q),200)}};
+window.vectorBot={open:()=>toggle(true),close:()=>toggle(false),ask:q=>{toggle(true);setTimeout(()=>ask(q),200)},_answer:answer,_find:findEnts};
 })();
-
 </script>
 <!-- vector-bot:end -->
