@@ -4755,6 +4755,17 @@ html.hc .fq{background:#fff;border:2px solid #000}
 html body .cg-hero{background:linear-gradient(180deg,#fff,transparent)!important;border-radius:0}
 html body .cg-hero::before{display:none}
 .cg-t h1{font:600 clamp(2rem,4vw,3rem)/1.1 'Heebo',sans-serif}
+/* a plain white page for the lists and the detail pages, like the university site */
+html[data-sec="degrees"],html[data-sec="jobs"],html[data-sec="tech"],html[data-sec="forum"]{background:#fff}
+html[data-sec="degrees"] body::before,html[data-sec="jobs"] body::before,html[data-sec="tech"] body::before,html[data-sec="forum"] body::before{display:none}
+html[data-sec="degrees"] body,html[data-sec="jobs"] body,html[data-sec="tech"] body,html[data-sec="forum"] body{background:#fff}
+html[data-sec="degrees"] .cg-hero,html[data-sec="jobs"] .cg-hero,html[data-sec="tech"] .cg-hero{background:#fff!important}
+html[data-sec="degrees"] .cg-top,html[data-sec="jobs"] .cg-top,html[data-sec="tech"] .cg-top{box-shadow:0 1px 0 var(--v3-line);border-radius:0;background:#fff}
+html[data-sec="degrees"] .card.dgr:hover,html[data-sec="jobs"] .card.dgr:hover,html[data-sec="tech"] .card.dgr:hover{background:#FAFAFA}
+html[data-sec="degrees"] .cg-panel,html[data-sec="jobs"] .cg-panel,html[data-sec="tech"] .cg-panel{box-shadow:none;border:1px solid var(--v3-line)}
+html[data-sec="degrees"] .dpf,html[data-sec="jobs"] .dpf,html[data-sec="tech"] .dpf{background:#fff}
+html[data-sec="degrees"] footer,html[data-sec="jobs"] footer,html[data-sec="tech"] footer,html[data-sec="forum"] footer{background:#F6F6F6;box-shadow:none;border-radius:0;margin-top:0}
+.dp-hero .otitles *,.dp-hero .tag,.dp-hero .otl span{background:rgba(255,255,255,.14)!important;color:#fff!important}
 
 /* ================= v3.1: the home page ================= */
 .hm-hero{min-height:min(78vh,720px);display:flex;align-items:center}
