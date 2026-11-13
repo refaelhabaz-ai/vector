@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-0i0hLwQ5iQwB30gBkO6/DkatTg576JkTWo9lmD90DVQ=' 'sha256-3/2vZFZG4HL0lwpfVO+y83w2+57JpJ/yKU2ekKjx18I='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-uiEO4hChk39tnB7FQ9AcnE9bPGeSwOBGbc2EN3SiODo=' 'sha256-3/2vZFZG4HL0lwpfVO+y83w2+57JpJ/yKU2ekKjx18I='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -3827,7 +3827,7 @@ html.rm .ftile,html.rm .lp .card{transition:none}
   --fs-1:14px;--fs-2:16px;--fs-3:18px;--fs-4:clamp(20px,1.6vw,22px);--fs-5:clamp(24px,2.4vw,30px);--fs-6:clamp(32px,4.6vw,56px);
   --lh-body:1.6;--measure:36rem;
   /* shape and depth */
-  --r:10px;--r-pill:999px;--shadow-pop:0 8px 24px rgba(27,33,66,.16);
+  --r:10px;--r-pill:999px;--r-leaf:160px 24px 160px 24px;--r-leaf2:24px 160px 24px 160px;--shadow-pop:0 8px 24px rgba(27,33,66,.16);
   --ease-pop:cubic-bezier(.3,1.5,.5,1);--ease-out:cubic-bezier(.2,.8,.2,1);
   --v3-ease-pop:var(--ease-pop);--v3-ease-out:var(--ease-out);
   /* the accent of every page is the action colour (the old per-section accent is gone) */
@@ -4809,6 +4809,111 @@ html body .cg-side .cg-hero{background:#fff!important;border-radius:0}
 #app p,#app .fine{max-width:var(--measure)}
 html.hc{--action:#8A1F05;--action-deep:#000;--action-ink:#8A1F05;--action-soft:#fff;--text:#000;--line-strong:#000;--shadow-pop:none}
 #app .hm-sub,#app .vq-card p,#app td p,#app th p,#app .salbox p{max-width:none}
+
+/* ---------- home (v4): only the hero. Big headline, one search with its three tabs, the questionnaire entry, photos with Vekti ---------- */
+.hm4-hero{position:relative;overflow:hidden;padding:clamp(24px,3.2vw,56px) var(--v-gutter) clamp(72px,8vw,128px);min-height:calc(100vh - 76px)}
+.hm4-in{position:relative;z-index:2;max-width:1320px;margin-inline:auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,72px);align-items:center}
+.hm4-copy{min-width:0}
+.hm4-copy h1{font-size:clamp(52px,7.4vw,112px);line-height:1;margin:0;color:var(--ink)}
+.hm4-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-block:.06em .2em;margin-block-end:-.14em}
+.hm4-w>span{display:inline-block;transform:translateY(110%);animation:hm4up .9s var(--ease-out) forwards;animation-delay:calc(var(--i)*.12s + .1s)}
+.hm4-copy h1 em{font-style:normal;color:var(--action);position:relative}
+.hm4-copy h1 em::after{content:"";position:absolute;inset-inline:-2%;inset-block-end:.04em;height:.13em;border-radius:var(--r-pill);background:var(--w-forum);z-index:-1;transform:scaleX(0);transform-origin:right;animation:hm4line .8s var(--ease-out) 1s forwards}
+.hm4-or{margin:0 0 var(--v-s3);font:700 var(--fs-3)/1.2 var(--font-body);color:var(--muted)}
+.hm4-sup{margin-top:var(--v-s4);max-width:30ch;font-size:clamp(20px,2.1vw,28px);line-height:1.4;color:var(--text);animation:hm4fade .7s var(--ease-out) .9s both}
+.hm4-sup b{font:var(--display-wt) 1.25em/1 var(--font-head);color:var(--ink);font-variant-numeric:tabular-nums}
+.hm4-find{margin-top:var(--v-s7);animation:hm4fade .7s var(--ease-out) 1.05s both}
+.hm4 .hm-modes{display:flex;flex-wrap:wrap;gap:var(--v-s2);margin:0 0 var(--v-s3)}
+.hm4 .hm-modes button{min-height:44px;padding:0 20px;border:2px solid var(--line-strong);border-radius:var(--r-pill);background:var(--surface);color:var(--text);font:700 var(--fs-2)/1 var(--font-body);transition:background-color .15s,border-color .15s,color .15s}
+.hm4 .hm-modes button:hover{border-color:var(--ink)}
+.hm4 .hm-modes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.hm .hm4-search{position:relative;display:flex;align-items:center;gap:12px;height:clamp(64px,5.6vw,80px);margin:0;max-width:none;padding-inline:24px 10px;background:var(--surface);border:3px solid var(--ink);border-radius:var(--r-pill);box-shadow:0 8px 0 var(--w-deg);transition:box-shadow .2s var(--ease-out),transform .2s var(--ease-out)}
+.hm .hm4-search:focus-within{box-shadow:0 3px 0 var(--action);transform:translateY(5px)}
+.hm .hm4-search>svg{position:static;transform:none;flex:none;width:28px;height:28px;color:var(--ink)}
+.hm .hm4-search input{flex:1;min-width:0;height:100%;padding:0;border:0;background:none;border-radius:0;box-shadow:none;font:500 clamp(18px,1.7vw,22px)/1 var(--font-body);color:var(--ink)}
+.hm .hm4-search input:focus{outline:0;box-shadow:none}
+.hm .hm4-go{flex:none;display:grid;place-items:center;width:clamp(48px,4.4vw,58px);height:clamp(48px,4.4vw,58px);border-radius:50%;border:0;background:var(--action);color:#fff;transition:background-color .15s,transform .2s var(--ease-pop)}
+.hm .hm4-go:hover{background:var(--action-deep);transform:scale(1.07)}
+.hm .hm4-go svg{width:26px;height:26px}
+.hm .hm4-search .sugg{top:calc(100% + 14px);border:2px solid var(--ink);border-radius:var(--r);box-shadow:var(--shadow-pop)}
+.hm4-quiz{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:var(--v-s5);width:100%;max-width:640px;margin-top:var(--v-s6);padding:var(--v-s5) var(--v-s6);border:0;border-radius:var(--r);background:var(--action);color:#fff;text-align:start;box-shadow:0 8px 0 var(--action-deep);transition:transform .2s var(--ease-pop),box-shadow .2s var(--ease-out);animation:hm4fade .7s var(--ease-out) 1.2s both}
+.hm4-quiz:hover{transform:translateY(-3px);box-shadow:0 11px 0 var(--action-deep)}
+.hm4-quiz:active{transform:translateY(6px);box-shadow:0 2px 0 var(--action-deep)}
+.hm4-quiz:focus-visible{outline:3px solid var(--ink);outline-offset:5px}
+.hm4-qv{display:block;width:clamp(84px,8vw,112px);margin-block:-34px -22px}
+.hm4-qv svg{display:block;width:100%;height:auto;overflow:visible}
+.hm4-qt b{display:block;font:var(--display-wt) clamp(26px,2.6vw,36px)/1.1 var(--font-head)}
+.hm4-qt small{display:block;margin-top:6px;font-size:var(--fs-3);line-height:1.4}
+.hm4-qs{position:absolute;inset-block-start:-16px;inset-inline-end:24px;padding:6px 16px;border-radius:var(--r-pill);background:var(--w-forum);color:var(--ink);font:800 var(--fs-2)/1.2 var(--font-body);transform:rotate(4deg)}
+.hm4-art{position:relative;min-width:0;width:100%;max-width:700px;margin-inline:auto;aspect-ratio:1/1.04}
+.hm4-photos img{position:absolute;object-fit:cover;background:var(--w-deg-soft)}
+.hm4-photos .p1{inset-block-start:0;inset-inline:0;width:100%;height:90%;border-radius:var(--r-leaf);animation:hm4pop .9s var(--ease-out) .35s both}
+.hm4-photos .p2{inset-block-end:0;inset-inline-start:2%;width:34%;aspect-ratio:1;height:auto;border-radius:50%;border:10px solid var(--bg);z-index:3;animation:hm4pop .9s var(--ease-out) .55s both}
+.hm4-photos .p3{inset-block-start:-5%;inset-inline-start:-6%;width:36%;aspect-ratio:4/3;height:auto;border-radius:var(--r-leaf2);border:10px solid var(--bg);z-index:3;animation:hm4pop .9s var(--ease-out) .75s both}
+.hm4-guide{position:absolute;z-index:6;inset-block-end:-12%;inset-inline-end:-6%;display:flex;flex-direction:column;align-items:center;gap:8px;animation:hm4swoop 1.4s var(--ease-out) .5s both}
+.hm4 .hm-mascot{width:clamp(180px,20vw,300px);filter:drop-shadow(0 18px 14px rgba(18,24,56,.22))}
+.hm4 .hm-say{max-width:250px;min-height:0;background:var(--surface)}
+.hm4-feathers{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hm4-fe{position:absolute;width:clamp(220px,30vw,520px);height:auto}
+.hm4-fe.f1{inset-block-start:-8%;inset-inline-start:-6%;transform:rotate(25deg);color:var(--w-deg-soft)}
+.hm4-fe.f2{inset-block-end:-6%;inset-inline-end:34%;transform:rotate(-55deg) scale(.7);color:var(--action-soft)}
+.hm4-fe.f3{inset-block-start:4%;inset-inline-end:-5%;transform:rotate(140deg) scale(.75);color:var(--w-forum-soft)}
+@keyframes hm4up{to{transform:none}}
+@keyframes hm4line{to{transform:scaleX(1)}}
+@keyframes hm4fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes hm4pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+@keyframes hm4swoop{from{opacity:0;transform:translate(-260px,-180px) rotate(-16deg) scale(.7)}to{opacity:1;transform:none}}
+@media(max-width:1040px){.hm4-hero{min-height:0}.hm4-in{grid-template-columns:minmax(0,1fr)}.hm4-art{max-width:520px}}
+@media(max-width:760px){.hm4-hero{padding-bottom:96px}.hm4-art{max-width:340px;margin-top:var(--v-s5)}.hm4-quiz{padding:var(--v-s4) var(--v-s5)}.hm4-qv{width:76px}.hm4-qt b{font-size:24px}.hm4-qt small{font-size:var(--fs-2)}}
+@media(prefers-reduced-motion:reduce){.hm4 *,.hm4 *::before,.hm4 *::after{animation:none!important;transition:none!important}.hm4-w>span{transform:none}.hm4-copy h1 em::after{transform:none}}
+html:has(.hm4) .vb-launch,html:has(.hm4) .vb-tip{display:none!important}
+html.rm .hm4 *,html.rm .hm4 *::before,html.rm .hm4 *::after{animation:none!important}
+html.rm .hm4-w>span{transform:none}html.rm .hm4-copy h1 em::after{transform:none}
+
+/* ---------- degree, profession and track pages (v4): light and airy. White page, one sentence, big friendly numbers, a clear chapter bar; colour only as small accents ---------- */
+.dpc,.dp-body{--c1:var(--w-deg);--c2:#74A7FF;--c3:var(--w-deg-soft);--sun:var(--w-forum);--coral:#F46A52;--leaf:var(--w-tech)}
+.dp-hero{background:var(--bg)!important;border-radius:0}
+.dp-hero::after{display:none}
+.dpc .catpill,.dp-hero .ax-f{display:none!important}
+.dpc .dpc-top{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,4vw,64px);padding-block:clamp(24px,3vw,48px) 8px}
+.dpc h1{font-size:clamp(48px,7.2vw,112px);line-height:1;margin-block:8px 6px;letter-spacing:-.01em}
+.dpc .dp-lead{font-size:clamp(20px,1.8vw,26px);line-height:1.5;color:var(--text);max-width:34rem}
+.dpc .dp-lead[dir="ltr"]{font-size:var(--fs-3);color:var(--muted)}
+.dpc .dp-nodesc{font-size:var(--fs-3);color:var(--muted)}
+.dpc .dp-actions{margin-top:var(--v-s5);gap:var(--v-s3)}
+.dpc .dp-actions .btn{min-height:52px;padding:0 28px;font-size:var(--fs-3)}
+.dpc-art{margin:0}
+.dp-art:not(.dp-photo){background:var(--w-deg-soft);border-radius:var(--r-leaf);box-shadow:none}
+.dp-photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-leaf);border:8px solid var(--bg)}
+.ax{gap:var(--v-s5);padding-block:var(--v-s6) var(--v-s7)}
+.ax-c{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--v-s5) var(--v-s6);gap:var(--v-s2)}
+.ax-q{font:800 var(--fs-3)/1.3 var(--font-body);color:var(--ink)}
+.ax-v b{font:800 clamp(38px,3.8vw,56px)/1 var(--font-body);letter-spacing:-.01em;color:var(--w-deg-deep)}
+.ax-u,.ax-t{font:700 var(--fs-3)/1.4 var(--font-body)}
+.ax-lbl{font:800 var(--fs-2)/1.4 var(--font-body)}
+.ax-b{background:var(--action-soft);color:var(--action-ink)}
+.ax-cap{font-size:var(--fs-2);color:var(--text)}
+.ax-s{color:var(--muted)}
+.dp-tabs{position:sticky;top:var(--hh,76px);z-index:30;display:block;margin:0 0 var(--v-s5);padding:10px 0;background:var(--bg);border-bottom:1px solid var(--line);border-radius:0;box-shadow:none}
+.dp-tabs-in{display:flex;gap:var(--v-s2);overflow-x:auto;scrollbar-width:none}
+.dp-tabs-in::-webkit-scrollbar{display:none}
+.dp-tab{flex:none;min-height:52px;padding:0 24px;border:0;border-radius:var(--r-pill);background:var(--surface-2);color:var(--ink);font:800 var(--fs-3)/1 var(--font-body);transition:background-color .2s,color .2s,transform .2s var(--ease-pop)}
+.dp-tab:hover{background:var(--w-deg-soft)}
+.dp-tab.on{background:var(--w-deg);color:#fff;transform:scale(1.03)}
+.dp-panel{display:flex;flex-direction:column;gap:clamp(40px,5vw,72px);padding-block:var(--v-s5) var(--v-s8)}
+.dp-panel+.dp-panel{border-top:1px solid var(--line);padding-top:clamp(40px,5vw,72px)}
+.dp-body{gap:0}
+.dp-panel .blk{background:transparent;border:0;box-shadow:none;padding:0;border-radius:0}
+.dp-panel .blk>h2{font-size:clamp(30px,3.6vw,48px);line-height:1.1;margin-bottom:var(--v-s4)}
+.dp-panel .tip{margin:0;padding:0;border:0;background:none;box-shadow:none;border-radius:0;font-size:var(--fs-3)!important;line-height:1.75;max-width:var(--measure);color:var(--text);quotes:none}
+.dp-panel .tip::before,.dp-panel .tip::after{display:none}
+.blk.path .ck.no{background:var(--surface-2);border:0;color:var(--ink)}
+.blk.path .ck.no .cki{background:var(--w-deg-soft);color:var(--w-deg-deep)}
+.srcnote{background:transparent;border:0;color:var(--muted);padding:0}
+.qa-fab{display:none!important}
+.dp-panel .admit,.dp-panel section.admit{background:var(--w-deg-soft)!important;border:0!important;box-shadow:none!important}
+.ph-credit{margin-top:var(--v-s5);color:var(--muted);font-size:var(--fs-1)}
+.ph-credit a{color:var(--w-deg);text-decoration:underline}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -4819,7 +4924,7 @@ html.hc{--action:#8A1F05;--action-deep:#000;--action-ink:#8A1F05;--action-soft:#
     </button>
     <nav class="vn-links" id="links" aria-label="ניווט ראשי"></nav>
     <div class="tools">
-      <button type="button" class="vn-btn vn-tour" data-vtour id="tourBtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c5-1 7-4 9-8 1 3 3 5 6 6-3 1-5 3-6 6-2-4-5-5-9-4z" fill="currentColor"/></svg><span>סיור עם וקטי</span></button><button type="button" class="vn-btn" id="quizBtn"><span id="quizLabel">מילוי פרופיל</span></button>
+      <button type="button" class="vn-btn vn-tour" data-vtour id="tourBtn" aria-label="סיור עם וקטי"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12c5-1 7-4 9-8 1 3 3 5 6 6-3 1-5 3-6 6-2-4-5-5-9-4z" fill="currentColor"/></svg><span>סיור עם וקטי</span></button><button type="button" class="vn-btn" id="quizBtn"><span id="quizLabel">מילוי פרופיל</span></button>
       <button type="button" class="vn-ic vn-dots" data-vmenu aria-expanded="false" aria-controls="vmenu" aria-label="עוד אפשרויות"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></svg></button>
       <button type="button" class="vn-ic vn-burger" data-vmenu aria-expanded="false" aria-controls="vmenu" aria-label="תפריט"><svg class="i-b" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
@@ -4837,6 +4942,7 @@ html.hc{--action:#8A1F05;--action-deep:#000;--action-ink:#8A1F05;--action-soft:#
     <div><h2>חשוב לדעת</h2><p>ספי הקבלה משתנים במהלך ההרשמה, וכל מוסד מחשב ממוצע בגרות בדרכו. לפני החלטה יש לבדוק באתר המוסד. האיורים הם קישוט בלבד.</p></div>
     <div><h2>תקנון ונגישות</h2><ul class="flinks"><li><button class="linkbtn" data-go="terms">תקנון ותנאי שימוש</button></li><li><button class="linkbtn" data-go="privacy">מדיניות פרטיות</button></li><li><button class="linkbtn" data-go="a11y">הצהרת נגישות</button></li><li><button class="linkbtn" id="a11yFoot">הגדרות נגישות</button></li></ul></div>
   </div>
+  <div class="wrap"><p class="fine ph-credit">Photos provided by <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> and <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (free licenses). תמונות: Vitaly Gariev, Kindel Media, Anna Shvets, Mikhail Nilov, Ludovic Delot, Ron Lach, Yan Krukau.</p></div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="sr" id="live" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -14093,42 +14199,37 @@ function hmAlive(){
 function renderHome(){
   const md=S.mode==='occ'||S.mode==='tech'?S.mode:'deg';
   const tab=(k,l)=>`<button type="button" data-mode="${k}" aria-pressed="${md===k}">${l}</button>`;
-  const AR='<svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 18 6 6M6 15V6h9"/></svg>';
-  const tile=([k,v])=>{const n=DEG.filter(d=>d.c===k).length;return `<button type="button" class="hm-tile" data-hmc="${k}">${ill({id:'hm'+k,n:'',c:k}).replace('<svg class="ill"','<svg class="ill" preserveAspectRatio="xMidYMid slice"')}<span><span><b>${v.n}</b><small>${fmt(n)} תארים</small></span>${AR}</span></button>`};
   const lab=md==='occ'?'חיפוש מקצוע':md==='tech'?'חיפוש הנדסאים וטכנאים':'חיפוש תואר או מוסד';
   const resume=pathHomeHTML();
-  return `<div class="hm">
-  <aside class="hm-schbar" aria-label="מלגות"><span>רוצה לבדוק אם מגיעה לך מלגה?</span><button type="button" data-go="sch">לבדיקת מלגות</button></aside>
-  <section class="hm-hero" aria-labelledby="hmH1">
-    <div class="hm-hero-in">
-      <div class="hm-copy">
-        <h1 id="hmH1">בואו נגלה מה מדליק אתכם</h1>
-        <p class="hm-sub">תארים ומקצועות בישראל, עם שכר וספי קבלה ממקורות רשמיים.</p>
-        <div class="hm-cta"><button type="button" class="btn primary" data-go="path" data-tour="quiz">${dirDone()?'לתוצאות השאלון':'מתחילים בשאלון'}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><span class="hm-cta-note">שאלון קצר, בלי תשובות נכונות ולא נכונות</span></div>
-        <div class="hm-find">
+  const W=(t,i)=>`<span class="hm4-w"><span style="--i:${i}">${t}</span></span>`;
+  const FEA=c=>`<svg class="hm4-fe ${c}" viewBox="0 0 200 400" aria-hidden="true"><path fill="currentColor" d="M100 396C96 300 38 252 30 150 22 70 68 22 100 4c32 18 78 66 70 146-8 102-66 150-70 246Z"/><path d="M100 396V44M100 130l-46-34M100 190l-58-44M100 250l-50-38M100 130l46-34M100 190l58-44M100 250l50-38" stroke="#fff" stroke-opacity=".7" stroke-width="4" fill="none" stroke-linecap="round"/></svg>`;
+  const nD=DEG.length,nO=Object.keys(OC).length;
+  const done=dirDone();
+  return `<div class="hm hm4">
+  <section class="hm4-hero" aria-labelledby="hmH1">
+    <div class="hm4-feathers" aria-hidden="true">${FEA('f1')}${FEA('f2')}${FEA('f3')}</div>
+    <div class="hm4-in">
+      <div class="hm4-copy">
+        <h1 id="hmH1">${W('תנו',0)} ${W('ל<em>סקרנות</em>',1)} ${W('להוביל',2)}</h1>
+        <p class="hm4-sup"><b data-n="${nD}">${fmt(nD)}</b> תארים ו-<b data-n="${nO}">${fmt(nO)}</b> מקצועות. מתחילים ממה שמעניין אתכם.</p>
+        <button type="button" class="hm4-quiz" data-go="path" data-tour="quiz"><span class="hm4-qv" aria-hidden="true">${vfSVG({perch:true,cls:'vf-perch vf-idle vf-happy'})}</span><span class="hm4-qt"><b>${done?'לתוצאות השאלון שלכם':'גלו מה מתאים לכם'}</b><small>${done?'אפשר גם לעדכן את התשובות.':'שאלון קצר של 4 דקות. אין תשובות נכונות ולא נכונות.'}</small></span><span class="hm4-qs">${done?'נשמר':'4 דקות'}</span></button>
+        <div class="hm4-find">
+          <p class="hm4-or">או חפשו ישר:</p>
           <div class="hm-modes" role="group" aria-label="מה מחפשים">${tab('deg','תארים')}${tab('occ','מקצועות')}${tab('tech','הנדסאים וטכנאים')}</div>
-          <div class="hm-row"><div class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <input id="q" type="search" autocomplete="off" placeholder="${lab}" aria-label="${lab}" value=""><div class="sugg" id="sugg" hidden></div></div><button type="button" class="hm-go" id="hmGo">חיפוש</button></div>
+          <div class="hm4-search searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="q" type="search" autocomplete="off" placeholder="${lab}" aria-label="${lab}" value=""><button type="button" class="hm4-go" id="hmGo" aria-label="חיפוש"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><div class="sugg" id="sugg" hidden></div></div>
         </div>
       </div>
-      <div class="hm-guide">
-        <button type="button" class="hm-say" id="hmSay" data-hmbot>${HM_SAY[0]}</button>
-        <button type="button" class="hm-mascot" id="hmMascot" data-hmbot aria-label="וקטי, העוזר האישי. לפתיחת השיחה"></button>
+      <div class="hm4-art">
+        <div class="hm4-photos" aria-hidden="false">
+          <img class="p1" src="photos/hero-students.webp" width="1400" height="788" alt="סטודנטים לומדים יחד סביב מחשב נייד" fetchpriority="high">
+          <img class="p2" src="photos/hero-lab.webp" width="800" height="1067" alt="סטודנטית במעבדה עם משקפי מגן ומבחנות צבעוניות">
+          <img class="p3" src="photos/hero-studio.webp" width="1000" height="666" alt="שני צעירים יוצרים יחד עם סקיצות על הרצפה">
+        </div>
+        <div class="hm4-guide"><button type="button" class="hm-say" id="hmSay" data-hmbot>${HM_SAY[0]}</button><button type="button" class="hm-mascot" id="hmMascot" data-hmbot aria-label="וקטי, העוזר האישי. לפתיחת השיחה"></button></div>
       </div>
     </div>
   </section>
-  <section class="hm-enter" aria-labelledby="hmEn"><h2 id="hmEn">או קופצים ישר לאן שמעניין</h2><ul>
-    <li><button type="button" class="hm-en deg" data-go="degrees" data-tour="deg"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5M22 9v6"/></svg></span><b>תארים</b><small class="num">${fmt(DEG.length)} תארים ב-${DATA.inst.length} מוסדות</small><svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 18 6 6M6 15V6h9"/></svg></button></li>
-    <li><button type="button" class="hm-en jobs" data-go="jobs" data-tour="jobs"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 13h18"/></svg></span><b>מקצועות וקריירה</b><small class="num">${fmt(Object.keys(OC).length)} מקצועות, עם שכר</small><svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 18 6 6M6 15V6h9"/></svg></button></li>
-    <li><button type="button" class="hm-en tech" data-go="tech" data-tour="tech"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg></span><b>הנדסאים וטכנאים</b><small class="num">${MAHAT.length} מגמות במכללות טכנולוגיות</small><svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 18 6 6M6 15V6h9"/></svg></button></li>
-    <li><button type="button" class="hm-en forum" data-go="forum" data-tour="forum"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 9.5h7M8.5 12.5h4"/></svg></span><b>פורום וקטור</b><small>שואלים את מי שכבר עבר את זה</small><svg class="go" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 18 6 6M6 15V6h9"/></svg></button></li>
-  </ul></section>
-  <section class="hm-steps" aria-label="איך זה עובד"><ol>
-    <li><b>עונים על שאלון קצר</b><span>על מה שמעניין ובמה חזקים</span></li>
-    <li><b>מקבלים כיוונים</b><span>תחומים, מקצועות ותארים</span></li>
-    <li><b>בוחרים תואר ומקבלים מסלול</b><span>מפה צעד אחר צעד</span></li>
-    <li><b>רואים מה אפשר כבר עכשיו</b><span>צעדים קטנים להתחיל מהם</span></li>
-  </ol></section>
   ${resume?`<div class="hm-resume">${resume}</div>`:''}
 </div>`;
 }
@@ -14201,6 +14302,7 @@ function renderDegree(d){
         <div class="dpc-row"><button class="back" data-back>חזרה</button><span class="catpill">${esc(CATS[d.c].n)} · ${esc([...new Set(types.map(shortType))].join(' / '))}</span></div>
         <h1>${esc(d.n)}</h1>
         ${d.en&&!d.pro?`<p class="dp-lead" dir="ltr" style="text-align:right">${esc(d.en)}</p>`:''}
+        ${degLede(d)}
         ${d.pro==='md'?`<p class="dp-lead">התוכנית השש-שנתית לרפואה (M.D), שמתחילים אחרי התיכון. אחריה: סטאז', רישיון והתמחות.</p>`:''}
         ${d.tracks&&d.tracks.length?`<p class="dp-lead">${d.tracks.length===1?'מסלול':'מסלולים'}: ${d.tracks.map(esc).join(' · ')}</p>`:''}
         <div class="dp-actions">
@@ -14210,7 +14312,7 @@ function renderDegree(d){
         </div>
         ${dirBadge('deg',d.id)}
       </div>
-      <div class="dp-art dpc-art">${ill(d)}</div>
+      ${degArtHTML(d)}
     </div>
     ${safe(()=>axHTML(degAns(d)),'')}
   </div></section>
@@ -14226,6 +14328,14 @@ function renderDegree(d){
   </div></div>`;
 }
 
+/* the photo of a degree when we have one (self-hosted, credit in docs/photo-credits.md), otherwise the illustration in the macaw colours */
+/* one plain sentence about the field: the first sentence of the official Avodata text, taken as it is; a degree with no field says so quietly */
+function degLede(d){if(d.pro==='md'||d.pro==='dmd')return '';const f=fieldOf(d),t=f&&f.desc?f.desc.trim().split(/(?<=\.)\s+/)[0]:'';
+  return t?`<p class="dp-lead dp-desc">${esc(t)}</p>`:`<p class="dp-lead dp-desc dp-nodesc">אין תיאור רשמי לתואר הזה.</p>`}
+const DEG_PHOTO={d31:['degree-psychology','פסיכולוגית מקשיבה למטופל בשיחה בחדר טיפולים מואר',1400,788,'22% 50%']};
+const CAT_PHOTO={eng:['cat-eng','שתי סטודנטיות וסטודנטים בונים רובוט במשקפי מגן',1400,933],social:['cat-social','שלושה סטודנטים קוראים יחד ספר בספרייה',1400,933],arts:['cat-arts','אדריכל בונה מודל של שכונה בקנה מידה קטן',1400,933],teach:['cat-teach','מורה מחייך מול כיתה מוארת',1400,933]};
+function degArtHTML(d){const p=DEG_PHOTO[d.id]||CAT_PHOTO[d.c];
+  return p?`<figure class="dp-art dpc-art dp-photo"><img src="photos/${p[0]}.webp" width="${p[2]}" height="${p[3]}" alt="${esc(p[1])}" style="object-position:${p[4]||'50% 45%'}" fetchpriority="high"></figure>`:`<div class="dp-art dpc-art">${ill(d)}</div>`}
 /* ================= LIST ================= */
 const BACK=`<button class="back" data-back>חזרה</button>`;
 /* the title is text (escaped); the sub-title is HTML written in this file (links, gx forms): never put a person's text in it */
@@ -14841,7 +14951,7 @@ function render(){
   if(r.v!=='path')KP.labOpen=false;document.documentElement.classList.toggle('vx-lock',r.v==='path'&&!!KP.labOpen);
   app.innerHTML=`<div class="view ${S.navDir==='back'?'vw-ret':S.navDir==='fwd'?'vw-new':'vw-same'}">${html}</div>`;S.navDir='';
   renderTray();
-  if(r.v==='home'){bindSearch();hmAlive()}
+  if(r.v==='home'){bindSearch();hmAlive();hmCount()}
   if(r.v==='jobs')bindJobs();
   if(r.v==='degrees')bindDegrees();
   afterRender();
@@ -15155,10 +15265,10 @@ function vtSteps(){
     {id:'hi',el:q('#hmH1'),pad:16,say:'היי, אני וקטי! אני התוכי שמכיר פה כל פינה. בואו, אקפיץ אתכם סיבוב קצר ואסביר מה יש ואיפה.'},
     {id:'nav',el:()=>mob?document.querySelector('.vn-burger'):document.querySelector('#links'),pad:8,say:mob?'כאן התפריט הראשי. פותחים אותו כדי לעבור בין תארים, מקצועות, הנדסאים וטכנאים, המסלול שלכם והפורום.':'זה התפריט הראשי: תארים, מקצועות, הנדסאים וטכנאים, המסלול שלכם והפורום. מכאן קופצים לכל מקום באתר.'},
     {id:'quiz',el:q('[data-tour="quiz"]'),pad:10,say:'הכי כדאי להתחיל כאן: שאלון קצר שמכוון אתכם לתחומים שמתאימים לכם. אין תשובות נכונות ולא נכונות.'},
-    {id:'deg',el:q('[data-tour="deg"]'),pad:8,say:'אחרי השאלון מציצים בתארים: מחפשים לפי תחום או מוסד, ורואים שכר וספי קבלה ממקורות רשמיים.'},
-    {id:'jobs',el:q('[data-tour="jobs"]'),pad:8,say:'לא בטוחים שרוצים תואר? כאן המקצועות והקריירות: מה עושים ביום-יום, ומה השכר.'},
-    {id:'tech',el:q('[data-tour="tech"]'),pad:8,say:'הנדסאים וטכנאים: מסלולי לימוד מעשיים במכללות טכנולוגיות.'},
-    {id:'forum',el:q('[data-tour="forum"]'),pad:8,say:'יש שאלה שמטרידה אתכם? בפורום שואלים את מי שכבר עבר את זה: סטודנטים, בוגרים ויועצים.'},
+    {id:'deg',el:()=>mob?document.querySelector('.vn-burger'):document.querySelector('.vn-link[data-go="degrees"]'),pad:8,say:'אחרי השאלון מציצים בתארים: מחפשים לפי תחום או מוסד, ורואים שכר וספי קבלה ממקורות רשמיים.'},
+    {id:'jobs',el:()=>mob?document.querySelector('.vn-burger'):document.querySelector('.vn-link[data-go="jobs"]'),pad:8,say:'לא בטוחים שרוצים תואר? כאן המקצועות והקריירות: מה עושים ביום-יום, ומה השכר.'},
+    {id:'tech',el:()=>mob?document.querySelector('.vn-burger'):document.querySelector('.vn-link[data-go="tech"]'),pad:8,say:'הנדסאים וטכנאים: מסלולי לימוד מעשיים במכללות טכנולוגיות.'},
+    {id:'forum',el:()=>mob?document.querySelector('.vn-burger'):document.querySelector('.vn-link[data-go="forum"]'),pad:8,say:'יש שאלה שמטרידה אתכם? בפורום שואלים את מי שכבר עבר את זה: סטודנטים, בוגרים ויועצים.'},
     {id:'me',el:()=>mob?document.querySelector('.vn-burger'):(document.querySelector('#links .path-l')||document.querySelector('#links')),pad:8,say:'וכשתבחרו כיוון, "המסלול שלי" בונה לכם מפה צעד אחר צעד. ואני אטוס איתכם לאורך כל הדרך.'},
     {id:'end',el:null,final:true,say:'סיימנו! עכשיו תורכם. הכי טוב להתחיל בשאלון. ואם תרצו לראות הכול שוב, "סיור עם וקטי" מחכה בתפריט.'}
   ];
@@ -15509,12 +15619,20 @@ function dpClassify(sec){
 }
 function dpShow(key,{scroll=false}={}){
   const body=document.querySelector('#app .dp-body');if(!body)return;
-  const h=location.hash;DPT.tab[h]=key;
-  body.querySelectorAll('.dp-panel').forEach(p=>{p.hidden=p.id!=='dpp-'+key});
-  body.querySelectorAll('.dp-tab').forEach(b=>{const on=b.dataset.dpt===key;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1});
-  const bar=body.querySelector('.dp-tabs'),act=body.querySelector('.dp-tab[aria-selected="true"]');
-  if(bar&&act){const d=(act.getBoundingClientRect().left+act.offsetWidth/2)-(bar.getBoundingClientRect().left+bar.clientWidth/2);if(Math.abs(d)>2)bar.scrollBy({left:d,behavior:'instant'})} /* only the tab bar moves, never the page */
-  if(scroll&&bar){const hh=(document.getElementById('hdr')||{}).offsetHeight||72;window.scrollTo({top:Math.max(0,bar.getBoundingClientRect().top+scrollY-hh-10),behavior:vtReduce()?'instant':'smooth'})}
+  DPT.tab[location.hash]=key;
+  body.querySelectorAll('.dp-tab').forEach(b=>{const on=b.dataset.dpt===key;b.classList.toggle('on',on);if(on)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current')});
+  const bar=body.querySelector('.dp-tabs'),act=body.querySelector('.dp-tab.on');
+  if(bar&&act){const sc=bar.querySelector('.dp-tabs-in')||bar,d=(act.getBoundingClientRect().left+act.offsetWidth/2)-(sc.getBoundingClientRect().left+sc.clientWidth/2);if(Math.abs(d)>2)sc.scrollBy({left:d,behavior:'instant'})} /* only the chapter bar moves, never the page */
+  if(scroll){const p=document.getElementById('dpp-'+key);if(p){const hh=((document.getElementById('hdr')||{}).offsetHeight||76)+((bar&&bar.offsetHeight)||60)+8;window.scrollTo({top:Math.max(0,p.getBoundingClientRect().top+scrollY-hh),behavior:vtReduce()?'instant':'smooth'})}}
+}
+/* the chapter that is on screen lights up in the bar */
+let DPSPY=null;
+function dpSpy(){
+  if(DPSPY){DPSPY.disconnect();DPSPY=null}
+  const ps=[...document.querySelectorAll('#app .dp-panel')];if(!ps.length||!('IntersectionObserver' in window))return;
+  const hh=((document.getElementById('hdr')||{}).offsetHeight||76)+70;
+  DPSPY=new IntersectionObserver(es=>{const v=es.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];if(v)dpShow(v.target.id.slice(4))},{rootMargin:`-${hh}px 0px -55% 0px`,threshold:0});
+  ps.forEach(p=>DPSPY.observe(p));
 }
 function dpTabsInit(){
   const old=document.getElementById('dpbar'),body=document.querySelector('#app .dp-body');
@@ -15529,14 +15647,16 @@ function dpTabsInit(){
   const tabs=DP_TABS[kind].filter(([k])=>groups[k].length);if(tabs.length<2)return;
   body.dataset.dpt='1';
   const host=document.createElement('div');host.className='dp-panels';body.insertBefore(host,secs[0]);
-  tabs.forEach(([k])=>{const p=document.createElement('div');p.className='dp-panel';p.id='dpp-'+k;p.setAttribute('role','tabpanel');p.setAttribute('aria-labelledby','dpt-'+k);groups[k].forEach(s=>p.appendChild(s));host.appendChild(p)});
-  const nav=document.createElement('div');nav.className='dp-tabs';nav.setAttribute('role','tablist');nav.setAttribute('aria-label','חלקי העמוד');
-  nav.innerHTML=tabs.map(([k,l])=>`<button type="button" role="tab" class="dp-tab" id="dpt-${k}" data-dpt="${k}" aria-controls="dpp-${k}" aria-selected="false">${l}</button>`).join('');
+  tabs.forEach(([k])=>{const p=document.createElement('div');p.className='dp-panel';p.id='dpp-'+k;p.setAttribute('aria-labelledby','dpt-'+k);p.setAttribute('role','region');groups[k].forEach(s=>p.appendChild(s));host.appendChild(p)});
+  const nav=document.createElement('nav');nav.className='dp-tabs';nav.setAttribute('aria-label','חלקי העמוד');
+  nav.innerHTML='<div class="dp-tabs-in">'+tabs.map(([k,l])=>`<button type="button" class="dp-tab" id="dpt-${k}" data-dpt="${k}">${l}</button>`).join('')+'</div>';
   body.insertBefore(nav,host);
   /* which tab: the one I was on, the one that holds the section a link points to, or the first */
   let want=DPT.tab[location.hash];
   if(S.route.sec){const t=document.getElementById(S.route.sec);const p=t&&t.closest('.dp-panel');if(p)want=p.id.slice(4)}
   dpShow(tabs.some(([k])=>k===want)?want:tabs[0][0]);
+  dpSpy();
+  if(S.route.sec){const t=document.getElementById(S.route.sec);if(t)setTimeout(()=>t.scrollIntoView({block:'start'}),60)}
 }
 /* the actions of the page, kept under the thumb on a phone: the page's own buttons (target, comparison, where to study...) and Vecti. A copy at the level of the page, so nothing covers it */
 function dpBar(){
@@ -15554,7 +15674,7 @@ document.addEventListener('click',e=>{
 document.addEventListener('click',e=>{
   const b=e.target.closest&&e.target.closest('[data-scroll],[data-qajump]');if(!b)return;
   const t=document.getElementById(b.dataset.scroll||'qa'),p=t&&t.closest&&t.closest('.dp-panel');
-  if(p&&p.hidden)dpShow(p.id.slice(4));
+  if(p)dpShow(p.id.slice(4));
 },true);
 /* the keyboard on the tabs: arrows follow the reading direction (left is the next one), Home and End */
 document.addEventListener('keydown',e=>{
@@ -15893,6 +16013,14 @@ const techGridHTML=()=>{const L=techPool();return L.length?`<div class="cg-grid 
 
 /* the panel stays while the pointer is on its group, even when the list under it is drawn again after a choice */
 document.addEventListener('mouseout',e=>{const g=e.target.closest&&e.target.closest('.sb-g');if(g&&!(e.relatedTarget&&g.contains(e.relatedTarget))){S.sbHov='';g.classList.remove('hv')}});
+/* home: the two big numbers count up once (not with reduced motion) */
+function hmCount(){
+  if(RM())return;
+  document.querySelectorAll('.hm4-sup b[data-n]').forEach(b=>{const t=+b.dataset.n,t0=performance.now();b.textContent='0';
+    const f=ts=>{if(!b.isConnected)return;const p=Math.min(1,(ts-t0-900)/1300);if(p<0){requestAnimationFrame(f);return}const e=1-Math.pow(1-p,3);b.textContent=fmt(Math.round(t*e));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+}
+/* a photo that is missing is removed (the colour behind it stays); no inline handlers because of the CSP */
+document.addEventListener('error',e=>{const t=e.target;if(t&&t.tagName==='IMG'&&t.closest('.hm4-photos,.ph,.dp-photo'))t.remove()},true);
 /*@@V3-JS-END@@*/
 initAccounts();motionInit();a11yApply();S.route=parse();tourPrep();S.navDir='fwd';render();a11yRoute(false);initForum(); /* the first screen comes in like any new screen */
 /* no automatic tour and no automatic profile window: the tour starts only from "סיור עם וקטי", the profile from "מילוי פרופיל" */
