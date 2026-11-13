@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-g8oTslFg+b2TLHPMZDeVM7rLqTvUp54oP+GmNNsMHhc=' 'sha256-gE173DqRPTv8HMQsnxqBrnEDsNAYzoLLjiS+7onVwpY='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-0i0hLwQ5iQwB30gBkO6/DkatTg576JkTWo9lmD90DVQ=' 'sha256-3/2vZFZG4HL0lwpfVO+y83w2+57JpJ/yKU2ekKjx18I='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -3808,9 +3808,9 @@ html.rm .ftile,html.rm .lp .card{transition:none}
    Text colours were checked for WCAG AA (4.5:1): white on --action 5.2:1, --ink 14.7:1 and --text 11.7:1 on cream, --muted 5.7:1 on cream.
    Motion: transform/opacity only. html.rg (gentle) and html.rm (none) and prefers-reduced-motion switch the big movements off. */
 :root{
-  /* ink and ground: one warm off-white page, white cards with a 1px line */
+  /* ink and ground: a white page (colour comes from content and sections, never from the page), cool grey for the rare band */
   --ink:#1B2142;--text:#2E365C;--muted:#5A6182;--line:#E6D8C3;--line-strong:#767B96;
-  --bg:#FFF7EC;--surface:#FFFFFF;
+  --bg:#FFFFFF;--surface:#FFFFFF;--surface-2:#F7F8FA;
   /* the one action colour */
   --action:#C2410C;--action-deep:#9A3412;--action-soft:#FFEBDD;--action-ink:#9A3412;--action-on:#FFFFFF;--action-rgb:194,65,12;
   /* semantic colours: only these mean something */
@@ -3866,32 +3866,38 @@ h1,h2,h3{color:var(--ink);font-family:var(--font-head);font-weight:var(--display
 main:focus,h1[tabindex="-1"]:focus,h1[tabindex="-1"]:focus-visible,h2[tabindex="-1"]:focus-visible{outline:0}
 :focus-visible{outline:3px solid var(--action);outline-offset:3px;border-radius:var(--r)}
 
-/* ---------- the header: white, a 1px line, a shadow only once the page scrolls under it ---------- */
+/* ---------- the header: the old structure (logo, five links, tour, profile, login, the "..." menu), cleaner and roomier ---------- */
 header.hdr.vn,header.hdr.vn.scrolled{background:var(--surface);-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:1px solid var(--line);box-shadow:none}
 header.hdr.vn.scrolled{box-shadow:var(--shadow-pop)}
 header.hdr.vn::before{display:none}
-.vn-links{align-items:center;gap:clamp(2px,.6vw,10px)}
+.vn-in{gap:clamp(12px,1.5vw,28px)}
+header.hdr.vn .logo{color:var(--ink);font-size:30px}
+.vn-links{align-items:center;gap:2px;flex:1;min-width:0}
 header.hdr.vn #acctBtn>span:not(.av){max-width:11ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-header.hdr.vn .tools{flex:none}
-.vn-link{align-self:center;height:44px;padding:0 clamp(8px,1.15vw,16px);border-radius:var(--r-pill);font-weight:700;color:var(--ink);transition:background-color .18s,color .18s}
+header.hdr.vn .tools{flex:none;display:flex;align-items:center;gap:var(--s2)}
+.vn-link{align-self:center;white-space:nowrap;height:46px;padding:0 clamp(8px,.85vw,14px);border-radius:var(--r-pill);font:700 var(--fs-2)/1 var(--font-body);color:var(--ink);transition:background-color .15s,color .15s}
 .vn-link::after{display:none}
-.vn-link:hover{background:var(--action-soft);color:var(--action-ink)}
-.vn-link[aria-current="true"]{background:var(--action-soft);color:var(--action-ink);box-shadow:inset 0 -3px 0 var(--action)}
-header.hdr.vn .logo{color:var(--ink)}
-header.hdr.vn .tools .vn-btn,header.hdr.vn #acctBtn{border-radius:var(--r-pill);border:2px solid var(--ink);background:var(--surface);color:var(--ink);font-weight:700;box-shadow:none;transition:background-color .15s,color .15s}
-header.hdr.vn .tools .vn-btn:hover,header.hdr.vn #acctBtn:hover,header.hdr.vn #acctBtn:not(.in):hover{background:var(--action-soft);color:var(--ink)}
+.vn-link:hover{background:var(--w-deg-soft);color:var(--w-deg-deep)}
+.vn-link[aria-current="true"]{background:var(--w-deg);color:#fff;box-shadow:none}
+header.hdr.vn .tools .vn-btn,header.hdr.vn #acctBtn{flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:var(--s2);min-height:46px;padding:0 18px;border-radius:var(--r-pill);border:2px solid var(--line-strong);background:var(--surface);color:var(--ink);font:700 var(--fs-2)/1 var(--font-body);box-shadow:none;transition:background-color .15s,border-color .15s}
+header.hdr.vn .tools .vn-btn:hover,header.hdr.vn #acctBtn:hover,header.hdr.vn #acctBtn:not(.in):hover{background:var(--w-deg-soft);border-color:var(--w-deg);color:var(--ink)}
 header.hdr.vn .tools .vn-btn:active,header.hdr.vn #acctBtn:active{transform:translateY(1px)}
-.vn-ic{border-radius:var(--r-pill);border:2px solid var(--ink);background:var(--surface);color:var(--ink);box-shadow:none;transition:background-color .15s}
-.vn-ic:hover,.vn-ic[aria-expanded="true"]{background:var(--action-soft);color:var(--ink)}
+header.hdr.vn .tools .vn-tour{border-color:transparent;background:var(--action-soft)!important;color:var(--action-ink)}
+header.hdr.vn .tools .vn-tour:hover{background:var(--action-soft)!important;border-color:var(--action)}
+header.hdr.vn .vn-tour svg{width:18px;height:18px}
+.vn-ic{width:46px;height:46px;border-radius:50%;border:2px solid var(--line-strong);background:var(--surface);color:var(--ink);box-shadow:none;transition:background-color .15s,border-color .15s}
+.vn-ic:hover,.vn-ic[aria-expanded="true"]{background:var(--w-deg-soft);border-color:var(--w-deg);color:var(--ink)}
 .vn-ic:active{transform:translateY(1px)}
 .vn-ic svg{stroke-linecap:round}
 .vm{background:var(--surface);border:0;border-radius:0 0 var(--r) var(--r);box-shadow:var(--shadow-pop)}
 .vm-i{border-bottom-color:var(--line);border-radius:0}
-.vm-i:hover{background:var(--action-soft)}
-.vm-i[aria-current="true"]{border-inline-start-color:var(--action);background:var(--action-soft)}
+.vm-i:hover{background:var(--w-deg-soft)}
+.vm-i[aria-current="true"]{border-inline-start-color:var(--w-deg);background:var(--w-deg-soft)}
 .vm-main .vm-i{font:var(--display-wt) var(--fs-4)/1.2 var(--font-head)}
 .vm .fb2{border-radius:var(--r-pill);border:2px solid var(--line);box-shadow:none}
 .vm .fb2[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+@media(max-width:1359px){header.hdr.vn .tools .vn-tour span{display:none}header.hdr.vn .tools .vn-tour{padding:0;width:46px;justify-content:center}}
+@media(max-width:1080px){header.hdr.vn .tools .vn-tour{display:none}}
 @media(max-width:900px){.vm{inset-inline:0}}
 .a11y-fab{background:var(--ink);border-radius:0 var(--r) var(--r) 0;box-shadow:var(--shadow-pop)}
 html[dir="rtl"] .a11y-fab{border-radius:0 var(--r) var(--r) 0}
@@ -4142,10 +4148,7 @@ html.hc #vt-bubble{box-shadow:var(--shadow-pop)}
 html.hc #vt-spot{outline-color:#fff}
 @media(max-width:600px){.vt-say{font-size:var(--fs-3)}#vt-bubble{padding:16px 16px 12px;border-radius:var(--r)}.vt-btn{padding:0 16px}}
 /* the tour button in the header: wide screens only, the menu has it everywhere */
-header.hdr.vn .vn-tour{gap:8px;background:var(--v3-sun)!important;border-color:var(--v3-ink)}
 header.hdr.vn .vn-tour svg{width:18px;height:18px}
-header.hdr.vn .vn-tour:hover{background:#FFD45E!important}
-@media(max-width:1499px){header.hdr.vn .tools .vn-btn.vn-tour{display:none}}
 html.rg .vf-perch .vf-w,html.rm .vf-perch .vf-w{animation:none;transform:rotate(108deg) scale(.84)}
 @media all{html.rr .vf-perch .vf-w{animation:none;transform:rotate(108deg) scale(.84)}html.rr .vf-pose{transition:none}}
 html.vt-on .hdr.tuck,html.vt-on .hdr{transform:none!important}
@@ -5089,7 +5092,7 @@ function renderOcc(id){
     return `<div class="offer"><h3 style="margin:0">${title}</h3>${hbars(s.s,{fmtv:fn,share})}${notes.length?`<p class="sub" style="font-size:var(--fs-2)">${notes.join(' · ')}</p>`:''}</div>`};
   return `<div style="--c1:#3B5BDB;--c2:#74A7FF;--c3:#E6EEFF">
   <section class="dp-hero"><div class="wrap" style="padding-block:clamp(22px,3vw,36px) clamp(28px,4vw,48px);position:relative;z-index:1">
-    <button class="back" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>חזרה</button><br>
+    <button class="back" data-back>חזרה</button><br>
     <span class="catpill">תחום עיסוק</span><h1 style="font-size:var(--fs-6);margin-block:14px 12px">${esc(o.n)}</h1>
     ${desc?`<p class="dp-lead">${esc(desc)}</p>`:''}
     ${(o.titles||[]).length?`<div class="linkrow" style="margin-top:18px">${o.titles.map(t=>`<span class="lk" style="background:rgba(255,255,255,.75)">${esc(t)}</span>`).join('')}</div>`:''}
@@ -5547,7 +5550,7 @@ function renderMahat(i){
   const byArea={}; m.col.forEach(c=>(byArea[c.area||'אחר']=byArea[c.area||'אחר']||[]).push(c));
   return `<div style="${cv('eng')}"><section class="dp-hero dpc"><div class="wrap">
     <div class="dpc-top"><div class="dpc-tx">
-      <div class="dpc-row"><button class="back" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>חזרה</button><span class="catpill">${m.kind==='טכנאי'?'טכנאי מוסמך':m.kind==='מכינה'?'מכינה טכנולוגית':'הנדסאי'} · מה"ט</span></div><h1>${esc(m.n)}</h1>
+      <div class="dpc-row"><button class="back" data-back>חזרה</button><span class="catpill">${m.kind==='טכנאי'?'טכנאי מוסמך':m.kind==='מכינה'?'מכינה טכנולוגית':'הנדסאי'} · מה"ט</span></div><h1>${esc(m.n)}</h1>
       ${pg.a?`<p class="dp-lead">${esc(pg.a)}</p>`:''}
       <div class="dp-actions"><button class="btn primary" data-scroll="learn">איפה לומדים</button>${qaJumpBtn('mh:'+i,'שאלות ותשובות')}</div>
     </div><div class="dp-art dpc-art">${ill({id:'mh'+i,n:m.n,c:'eng'})}</div></div>
@@ -5979,7 +5982,7 @@ function renderSpec(id){
   const total=s.g==='base'&&s.yrs?6+0.75+s.yrs:null;
   const dsub={id:'sp'+s.id,n:s.n,of:[]};
   return `<div style="${cv('health')}"><section class="dp-hero"><div class="wrap dp-hero-in"><div>
-    <button class="back" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>חזרה</button><br>
+    <button class="back" data-back>חזרה</button><br>
     <span class="catpill">${s.g==='base'?'התמחות ברפואה · מקצוע בסיס':'התמחות ברפואה · תת-התמחות'}</span><h1>${esc(s.n)}</h1>
     <p class="dp-lead">${s.g==='sub'?`ממשיכים אליה אחרי תואר מומחה ב${esc(s.req||'מקצוע בסיס')}.`:`מתחילים בה אחרי לימודי הרפואה, הסטאז' והרישיון.${s.alsoSub?' יש לה גם מסלול למי שכבר מומחה/ית במקצוע אחר.':''}`}</p>
     </div><div class="dp-art">${ill({id:'sp'+s.id,n:'רפואה '+s.n,c:'health'})}</div></div></section>
@@ -6199,7 +6202,7 @@ function dataAnswer(text,ctx,inst,topic){
       const occ=((f&&f.occ)||[]).slice(0,3);if(occ.length&&!d.pro)L.push('במה הבוגרים עובדים: '+occ.map(o=>o.n).join(', ')+'.');
       if(f)add(AVURL+(d.av?'/Academic/'+d.av:''),'עבודאטה')}
     const p=PATHS.find(p=>p.test(d));
-    if(p&&(want('jobs')||want('study'))){L.push(`${p.t}: ${p.steps.join(' ← ')}`);add(p.src[0][0],p.src[0][1])}
+    if(p&&(want('jobs')||want('study'))){L.push(`${p.t}: ${p.steps.join(' ואז ')}`);add(p.src[0][0],p.src[0][1])}
     if(L.length)blocks.push({t:d.n,go:'deg-'+d.id,L});
   }
   const sp=[...(ctx&&ctx.startsWith('sp:')&&SPBY[ctx.slice(3)]?[SPBY[ctx.slice(3)]]:[]),...SPEC.filter(s=>text.includes(s.n))].filter((v,i,a)=>a.indexOf(v)===i).slice(0,2);
@@ -6219,7 +6222,7 @@ function dataAnswer(text,ctx,inst,topic){
 function dataAnswerHTML(a,waiting){
   if(!a)return '';
   return `<div class="dans"><div class="dans-h"><span class="dans-i" aria-hidden="true">${FIC.data}</span><div><b>מה כבר ידוע מנתוני וקטור</b><small>תשובה אוטומטית מתוך הנתונים הרשמיים באתר</small></div></div>
-    ${a.blocks.map(b=>`<div class="dblk"><button class="dblk-t" data-go="${b.go}">${esc(b.t)} ←</button><ul>${b.L.map(l=>`<li>${esc(l)}</li>`).join('')}</ul></div>`).join('')}
+    ${a.blocks.map(b=>`<div class="dblk"><button class="dblk-t" data-go="${b.go}">${esc(b.t)}</button><ul>${b.L.map(l=>`<li>${esc(l)}</li>`).join('')}</ul></div>`).join('')}
     ${a.none?`<p class="dnone">${esc(a.none)}</p>`:''}
     ${a.src.length?`<p class="dsrc">מקורות: ${a.src.map(([u,l])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a>`).join(' · ')}</p>`:''}
     ${waiting?'<p class="dwait">מחכה לתשובות מסטודנטים ובוגרים מהשטח.</p>':''}</div>`;
@@ -9657,7 +9660,7 @@ function hotWhyHTML(d){
 const qaCount=ctx=>FM.state==='ready'?fIdx().Q.filter(q=>inCtx(q,ctx)).length:0;
 const routeCtx=()=>{const r=S.route;return r.v==='deg'?'deg:'+r.id:r.v==='occ'?'occ:'+r.id:r.v==='mh'?'mh:'+r.id:''};
 function qaJumpBtn(ctx,label){const n=qaCount(ctx);return `<button class="btn qa-jump" data-qajump>${FIC.chat}<span>${label}</span>${n?`<b class="qa-n num">${n}</b>`:''}</button>`}
-function qaFab(){const n=qaCount(routeCtx());return `<button class="qa-fab" data-qajump aria-label="מעבר לשאלות ותשובות">${FIC.chat}<span>שאלות ותשובות</span>${n?`<b class="qa-n num">${n}</b>`:''}<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>`}
+function qaFab(){const n=qaCount(routeCtx());return `<button class="qa-fab" data-qajump aria-label="מעבר לשאלות ותשובות">${FIC.chat}<span>שאלות ותשובות</span>${n?`<b class="qa-n num">${n}</b>`:''}</button>`}
 
 addEventListener('scroll',()=>{const f=document.querySelector('.qa-fab');if(!f)return;const qa=document.getElementById('qa');
   f.classList.toggle('show',scrollY>380&&!!qa&&qa.getBoundingClientRect().top>innerHeight*.8)},{passive:true});
@@ -10355,7 +10358,7 @@ function vqResume(){vqLoad();VQU.t0=Date.now();VQU.preDone='';vqStep();vqPaint()
 /* ---------- screens ---------- */
 const vqBar=(st,nx)=>{
   const k=vqPhaseIdx(nx.phase),left=vqLeft(st,nx);
-  return `<div class="vq-top"><button class="back" data-vqback><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>${VQU.answers.length?'הקודם':'יציאה'}</button>
+  return `<div class="vq-top"><button class="back" data-vqback>${VQU.answers.length?'הקודם':'יציאה'}</button>
     <span class="vq-left num">עוד כ-${left} שאלות</span></div>
     <ol class="vq-steps" aria-label="התקדמות">${VQ_STAGES.map((s,i)=>`<li class="${i<k?'done':i===k?'cur':''}"${i===k?' aria-current="step"':''}><i></i><span>${s}</span></li>`).join('')}</ol>${vqFly(st,nx)}`;
 };
@@ -12822,7 +12825,7 @@ function labChanges(){
 /* saving: nothing is written until I say so, and I say whether the numbers are real or only expected */
 function saveHTML(X){
   const ch=labChanges(),s0=S.sc||{},out=[],f=(c,v)=>c.k==='b'?fmt(v,2):v;
-  const lines=ch.map(c=>`<li><span>${c.k==='p'?'פסיכומטרי':'ממוצע בגרות'}</span>${c.from!=null?`<s class="num">${f(c,c.from)}</s><i aria-hidden="true">←</i>`:''}<b class="num">${f(c,c.to)}</b>${c.from==null?'<em>חדש</em>':''}</li>`).join('');
+  const lines=ch.map(c=>`<li><span>${c.k==='p'?'פסיכומטרי':'ממוצע בגרות'}</span>${c.from!=null?`<s class="num">${f(c,c.from)}</s><i aria-hidden="true">ל־</i>`:''}<b class="num">${f(c,c.to)}</b>${c.from==null?'<em>חדש</em>':''}</li>`).join('');
   if(LAB.saving&&ch.length){
     const canEst=ch.some(c=>c.k==='p'?!(s0.p&&!s0.estP):!(s0.b&&!s0.est));
     out.push(`<div class="kp-sconf" role="group" aria-label="אישור שמירה"><b>לשמור בפרופיל?</b><ul class="kp-chg">${lines}</ul>
@@ -14195,7 +14198,7 @@ function renderDegree(d){
   <section class="dp-hero dpc"><div class="wrap">
     <div class="dpc-top">
       <div class="dpc-tx">
-        <div class="dpc-row"><button class="back" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>חזרה</button><span class="catpill">${esc(CATS[d.c].n)} · ${esc([...new Set(types.map(shortType))].join(' / '))}</span></div>
+        <div class="dpc-row"><button class="back" data-back>חזרה</button><span class="catpill">${esc(CATS[d.c].n)} · ${esc([...new Set(types.map(shortType))].join(' / '))}</span></div>
         <h1>${esc(d.n)}</h1>
         ${d.en&&!d.pro?`<p class="dp-lead" dir="ltr" style="text-align:right">${esc(d.en)}</p>`:''}
         ${d.pro==='md'?`<p class="dp-lead">התוכנית השש-שנתית לרפואה (M.D), שמתחילים אחרי התיכון. אחריה: סטאז', רישיון והתמחות.</p>`:''}
@@ -14224,7 +14227,7 @@ function renderDegree(d){
 }
 
 /* ================= LIST ================= */
-const BACK=`<button class="back" data-back><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>חזרה</button>`;
+const BACK=`<button class="back" data-back>חזרה</button>`;
 /* the title is text (escaped); the sub-title is HTML written in this file (links, gx forms): never put a person's text in it */
 function pageHead(t,s){return `<section class="hero" style="padding-bottom:10px"><div class="wrap">${BACK}<h1 style="font-size:var(--fs-6);margin-block:8px 10px">${esc(t)}</h1><p class="sub">${s}</p></div></section>`}
 /* how old the data is, and (when the watch has run) what changed in the sources since */
@@ -15143,7 +15146,7 @@ function vfCheer(msg){
    Reduced motion (the site's gentle / none, or the system setting): no flight, no trail: he fades in at each stop. The tour is skippable at any moment (the button, Esc).
    Seen once (store 'tourSeen'); replay from the menu, the accessibility sheet and the helper. The profile questions come after the tour, as they did on a first visit before. */
 const VT={on:false,i:0,steps:[],gen:0,pos:null,face:-1,first:false,opener:null,pending:false,el:null,raf:0,tilt:0};
-function tourPrep(){try{
+function tourPrep(){return;try{
   if(S.route&&S.route.v==='home'&&!store.get('seenProf',false)&&!profileOK()&&!store.get('tourSeen',0)){VT.pending=true;document.documentElement.classList.add('vt-pending');setTimeout(()=>{if(!VT.on)document.documentElement.classList.remove('vt-pending')},5000)}
 }catch(e){}}
 function vtSteps(){
@@ -15892,7 +15895,7 @@ const techGridHTML=()=>{const L=techPool();return L.length?`<div class="cg-grid 
 document.addEventListener('mouseout',e=>{const g=e.target.closest&&e.target.closest('.sb-g');if(g&&!(e.relatedTarget&&g.contains(e.relatedTarget))){S.sbHov='';g.classList.remove('hv')}});
 /*@@V3-JS-END@@*/
 initAccounts();motionInit();a11yApply();S.route=parse();tourPrep();S.navDir='fwd';render();a11yRoute(false);initForum(); /* the first screen comes in like any new screen */
-try{if(!store.get('seenProf',false)&&!profileOK()){store.set('seenProf',true);if(VT.pending)setTimeout(()=>vtStart({first:true}),900);else setTimeout(openProfile,600)}}catch(e){}
+/* no automatic tour and no automatic profile window: the tour starts only from "סיור עם וקטי", the profile from "מילוי פרופיל" */
 
 
 </script>
@@ -16904,9 +16907,9 @@ function reply(r){
   (r.cards||[]).forEach(c=>{h+=cardHTML(c)});
   if(r.html)h+=r.html;
   const B=[];
-  (r.pages||[]).forEach(p=>B.push(`<button type="button" class="vb-chip go" data-go="${escH(p.go)}">${escH(p.n)}${p.kind?` <small>· ${escH(p.kind)}</small>`:''} ←</button>`));
-  (r.go||[]).forEach(k=>{const s=SEC[k];if(s)B.push(`<button type="button" class="vb-chip go" data-go="${k}">${s.ic} ${escH(G(s.n))} ←</button>`)});
-  (r.act||[]).forEach(([k,a])=>{if(ACTIONS[k])B.push(`<button type="button" class="vb-chip act" data-act="${k}"${a!=null?` data-arg="${escH(a)}"`:''}>${escH(ACTIONS[k].n)} ←</button>`)});
+  (r.pages||[]).forEach(p=>B.push(`<button type="button" class="vb-chip go" data-go="${escH(p.go)}">${escH(p.n)}${p.kind?` <small>· ${escH(p.kind)}</small>`:''}</button>`));
+  (r.go||[]).forEach(k=>{const s=SEC[k];if(s)B.push(`<button type="button" class="vb-chip go" data-go="${k}">${s.ic} ${escH(G(s.n))}</button>`)});
+  (r.act||[]).forEach(([k,a])=>{if(ACTIONS[k])B.push(`<button type="button" class="vb-chip act" data-act="${k}"${a!=null?` data-arg="${escH(a)}"`:''}>${escH(ACTIONS[k].n)}</button>`)});
   (r.chips||[]).forEach(c=>B.push(`<button type="button" class="vb-chip" data-q="${escH(c)}">${escH(c)}</button>`));
   if(B.length)h+=`<div class="vb-chips">${B.join('')}</div>`;
   col.innerHTML=h;
@@ -16980,7 +16983,7 @@ function onPage(){
   const seen=ss.get('vb.tipSeen',[]),id=e.k+':'+e.id;
   if(seen.length>=3||seen.includes(id))return;
   ss.set('vb.tipSeen',[...seen,id]);
-  showTip(`${p.h}<span class="vb-tip-go">לשאול את וקטי ←</span>`,p.q,6000);
+  showTip(`${p.h}<span class="vb-tip-go">לשאול את וקטי</span>`,p.q,6000);
 }
 addEventListener('hashchange',()=>setTimeout(onPage,60));
 if(pageEnt())setTimeout(onPage,200);
