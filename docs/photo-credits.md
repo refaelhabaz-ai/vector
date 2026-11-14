@@ -24,5 +24,9 @@
 | `photos/deg-nursing.webp` | https://www.pexels.com/photo/person-in-blue-scrub-suit-holding-the-hand-of-a-patient-6129685/ | RDNE Stock project (https://www.pexels.com/@rdne/) | Pexels License (חופשי) | סיעוד והסבת אקדמאים לסיעוד. בלי פנים |
 | `photos/deg-civil.webp` | https://www.pexels.com/photo/man-in-blue-shirt-wearing-yellow-hard-hat-holding-white-paper-8961134/ | Mikael Blomkvist (https://www.pexels.com/@mikael-blomkvist/) | Pexels License (חופשי) | הנדסה אזרחית |
 | `photos/deg-economics.webp` | https://www.pexels.com/photo/statistics-on-a-desk-in-office-8124410/ | RDNE Stock project (https://www.pexels.com/@rdne/) | Pexels License (חופשי) | כלכלה. ידיים וגרפים בלבד |
+| `photos/deg-electronics.webp` | https://www.pexels.com/photo/close-up-photo-of-a-circuit-board-7174676/ | Rūdolfs Klintsons (https://www.pexels.com/@rudonni/) | Pexels License (חופשי) | הנדסת חשמל ואלקטרוניקה ומחשבים. רכיבים בלבד |
+| `photos/deg-chemistry.webp` | https://www.pexels.com/photo/colored-liquid-on-laboratory-glassware-8442647/ | Pavel Danilyuk (https://www.pexels.com/@pavel-danilyuk/) | Pexels License (חופשי) | כימיה. כלי זכוכית בלבד |
+| `photos/deg-math.webp` | https://www.pexels.com/photo/close-up-of-complicated-equations-written-on-a-blackboard-22690751/ | Vitaly Gariev (https://www.pexels.com/@silverkblack/) | Pexels License (חופשי) | מתמטיקה ופיזיקה |
+| `photos/deg-dentistry.webp` | https://www.pexels.com/photo/a-close-up-shot-of-dental-equipment-6627668/ | Karola G (https://www.pexels.com/@karola-g/) | Pexels License (חופשי) | רפואת שיניים. מכשירים בלבד |
 
 בחירת תמונות: אלה תמונות סצנה כלליות. אף אחת אינה מציגה סיפור, עדות או אדם מסוים כמייצג של וקטור. אין לוגואים או סימני מים.
