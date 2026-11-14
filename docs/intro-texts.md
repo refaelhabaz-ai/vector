@@ -306,3 +306,59 @@
 מקורות:
 - https://en.wikipedia.org/wiki/Logistics
 - https://www.bls.gov/ooh/business-and-financial/logisticians.htm
+
+## deg:h59 — הגיל הרך – הכשרה להוראה
+מה ילדים צעירים צריכים כדי לגדול ולהתפתח? חינוך בגיל הרך עוסק בשנים הראשונות של החיים, שבהן מתפתחים יחד הגוף, הרגש, היחסים עם אחרים, השפה והחשיבה. מי שעובד עם ילדים צעירים משתמש במשחק כדי ללמד על העולם: סיפורים וחרוזים מעשירים את אוצר המילים, וספירה בזמן בנייה בקוביות מלמדת מספרים. הוא גם מתבונן בכל ילד, ושם לב לסימנים להתפתחות שכדאי להביא לידיעת ההורים.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Early_childhood_education
+- https://www.bls.gov/ooh/education-training-and-library/preschool-teachers.htm
+
+## occ:2342 — חינוך קדם-יסודי
+בגיל הרך משחק הוא כלי הוראה: סיפורים וחרוזים מעשירים את השפה, ספירה בזמן בנייה בקוביות בונה מתמטיקה, ובניית "שכונה" בארגז חול מלמדת לעבוד יחד. מי שעובד עם ילדים צעירים מתכנן פעילויות, עוקב אחרי ההתפתחות של כל ילד ומעדכן את ההורים.
+
+מקורות:
+- https://www.bls.gov/ooh/education-training-and-library/preschool-teachers.htm
+- https://en.wikipedia.org/wiki/Early_childhood_education
+
+## deg:d120 — חינוך מיוחד (גילאי 6-21)
+איך מלמדים כשכל תלמיד לומד אחרת? חינוך מיוחד הוא הוראה שמתאימה את עצמה להבדלים בין תלמידים: קשיי למידה כמו דיסלקציה, הפרעות תקשורת, אוטיזם, מוגבלויות פיזיות והתפתחותיות. מתאימים שיטות הוראה, חומרים וסביבה, ולעיתים מוסיפים שירותים כמו קלינאות תקשורת וריפוי בעיסוק. בעולם יש מודלים שונים, מכיתות מיוחדות ועד שילוב התלמידים בכיתה הרגילה.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Special_education
+- https://www.bls.gov/ooh/education-training-and-library/special-education-teachers.htm
+
+## deg:h69 — חינוך מיוחד – הכשרה להוראה
+מורה לחינוך מיוחד לא מלמד "את אותו שיעור פחות": הוא בודק מה כל תלמיד כבר יודע, מתאים את החומר וקצב ההוראה, ובונה תוכנית אישית שנבדקת ומתעדכנת במהלך השנה. העבודה נעשית יחד עם מורים אחרים, אנשי מקצוע והורים, ולפעמים כוללת גם הקניית מיומנויות חיים בסיסיות.
+
+מקורות:
+- https://www.bls.gov/ooh/education-training-and-library/special-education-teachers.htm
+- https://en.wikipedia.org/wiki/Special_education
+
+## occ:2352 — הוראה בחינוך המיוחד
+מורה בחינוך המיוחד מלמד תלמידים עם מוגבלויות בלמידה, ברגש או בגוף, בכיתה, בקבוצות קטנות או אחד על אחד. הוא מתאים שיעורים ליכולות של כל תלמיד, עוקב אחרי ההתקדמות לפי תוכנית אישית, ועובד לצד מורים, מומחים והורים.
+
+מקורות:
+- https://www.bls.gov/ooh/education-training-and-library/special-education-teachers.htm
+- https://en.wikipedia.org/wiki/Special_education
+
+## occ:2514 — תכנות יישומים
+מתכנתים הופכים תכנון להוראות שמחשב יכול לבצע: כותבים קוד בשפות כמו C++ או Java, בודקים שהוא נותן את התוצאה הצפויה ומתקנים כשמשהו נשבר. גם אחרי שתוכנה יוצאת ממשיכים לעדכן ולהרחיב אותה.
+
+מקורות:
+- https://www.bls.gov/ooh/computer-and-information-technology/computer-programmers.htm
+- https://en.wikipedia.org/wiki/Computer_programming
+
+## deg:d106 — הסבת אקדמאים לסיעוד
+סיעוד משלב ידע מדעי עם טיפול באדם: מעריכים מצב, נותנים טיפול ותרופות, ומסבירים למטופל ולמשפחה מה לעשות אחרי הטיפול. אפשר לעבוד בבית חולים, במרפאה או בקהילה, ולהתמחות בתחומים כמו אונקולוגיה או טיפול נמרץ.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Nursing
+- https://www.bls.gov/ooh/healthcare/registered-nurses.htm
+
+## deg:d49 — ניהול
+ארגון מצליח כשהחלקים שלו עובדים יחד. לימודי ניהול מציגים איך מתכננים, מארגנים ומתאמים עבודה של אנשים, ואיך מקבלים החלטות על סמך נתונים. הם מפתחים חשיבה אסטרטגית, מנהיגות ופתרון בעיות, ונוגעים גם בייעוץ ארגוני: איך משפרים יעילות ומקטינים עלויות.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Business_administration
+- https://www.bls.gov/ooh/business-and-financial/management-analysts.htm
