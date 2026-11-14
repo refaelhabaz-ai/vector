@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-vl2fLb1YSCnYUYIhb1FdkXgZXem0orktsCenouKY504=' 'sha256-3/2vZFZG4HL0lwpfVO+y83w2+57JpJ/yKU2ekKjx18I='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-09djpBqWVVUYOcQa0cIIxuXMdgZJwxpyo/koEvvpokc=' 'sha256-3/2vZFZG4HL0lwpfVO+y83w2+57JpJ/yKU2ekKjx18I='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5033,6 +5033,29 @@ header.hdr.vn .vn-ic svg{width:22px;height:22px}
 @media(max-width:1359px){header.hdr.vn .tools .vn-tour span{display:inline}header.hdr.vn .tools .vn-tour{padding:0;width:auto}}
 @media(max-width:1180px){header.hdr.vn .tools .vn-tour{display:none}}
 @media(max-width:900px){.dp-hero::after{width:240px;height:240px}.em-grid{grid-template-columns:minmax(0,1fr)}}
+/* ---------- whole-site pass: leftovers of the old design ---------- */
+.back,.dpc .back{display:inline-flex;align-items:center;min-height:44px;padding:0;border:0;border-radius:0;background:none!important;box-shadow:none;color:var(--muted);font:400 var(--fs-2)/1 var(--font-body);text-decoration:underline;text-underline-offset:4px;margin-bottom:var(--v-s3)}
+.back:hover{color:var(--action)}
+.lk{padding:0;border:0;border-radius:0;background:none!important;box-shadow:none;color:var(--action);font:600 var(--fs-2)/1.5 var(--font-body);text-decoration:underline;text-underline-offset:4px}
+.lk:hover{color:var(--action-deep)}
+.dgr-tag{border:0;padding:0;background:none;font-weight:600}
+.cmp-sum{background:var(--surface-2)!important;border:0;box-shadow:none}
+.cmp-sum h3{font-weight:600}
+/* scholarships: the same airy language as the lists */
+.sc-sum{border:0;background:var(--surface-2);box-shadow:none;border-radius:var(--r)}
+.sc-q{border:0;background:var(--surface-2);box-shadow:none;border-radius:var(--r)}
+.sc-card{border:0!important;background:none!important;box-shadow:none!important;padding:0!important;border-radius:0}
+.sc-card:hover{transform:none;box-shadow:none}
+.chip.ftog{border:0;border-radius:0;background:none;padding:0 2px 8px;min-height:44px;font:400 var(--fs-3)/1 var(--font-body);color:var(--text);box-shadow:inset 0 -2px 0 transparent}
+.chip.ftog:hover{color:var(--action)}
+.chip.ftog[aria-pressed="true"],.chip.ftog.on{background:none;color:var(--ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--action)}
+.chip.ftog .dot,.chip.ftog i{display:none}
+.sc-card .btn.soft.sm,.sc-q .btn{background:none;border:0;padding:0;border-radius:0;box-shadow:none;color:var(--action);font:600 var(--fs-2)/1.5 var(--font-body);text-decoration:underline;text-underline-offset:4px;min-height:44px}
+.btn.sm::before,.chip.sm::before{content:none!important}
+.ki-ar{display:none}
+.cu-nb .ki-ar,.sm-sn .ki-ar{display:inline-block}
+.hm4-fe.f2{color:var(--w-tech-soft)}
+.hm4-fe.f3{color:var(--w-me-soft)}
 .tasks,.plain{margin:0;padding-inline-start:1.2em}
 .tasks li,.plain li{margin:0 0 12px;font-size:var(--fs-3);line-height:1.7}
 .muted-p{color:var(--muted);font-size:var(--fs-2);line-height:1.7}
@@ -12133,7 +12156,7 @@ const KI={expand:'<path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>',shrink:'<p
   cog:'<circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/>',
   bag:'<rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>',
   pin:'<path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/>'};
-const ki=(k,cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${KI[k]||KI.star}</svg>`;
+const ki=(k,cls='')=>`<svg class="${cls}${k==='arrow'?' ki-ar':''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${KI[k]||KI.star}</svg>`;
 const ring=(pct,sz=64,stroke=7,cls='',from=0)=>{const r=(sz-stroke)/2,c=2*Math.PI*r;return `<svg class="ring ${cls}" viewBox="0 0 ${sz} ${sz}" width="${sz}" height="${sz}" aria-hidden="true"><circle cx="${sz/2}" cy="${sz/2}" r="${r}" class="rbg" stroke-width="${stroke}"/><circle cx="${sz/2}" cy="${sz/2}" r="${r}" class="rfg" stroke-width="${stroke}" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${(c*(1-pct/100)).toFixed(1)}" style="--c:${c.toFixed(1)};--c0:${(c*(1-(from||0)/100)).toFixed(1)}"/></svg>`};
 const safe=(fn,fb='')=>{try{return fn()}catch(e){console.error('path:',e);return fb}};
 
