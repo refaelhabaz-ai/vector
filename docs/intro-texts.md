@@ -467,3 +467,101 @@
 מקורות:
 - https://en.wikipedia.org/wiki/Environmental_science
 - https://www.bls.gov/ooh/life-physical-and-social-science/environmental-scientists-and-specialists.htm
+
+## occ:2142 — הנדסה אזרחית
+מהנדסים אזרחיים מתכננים, מתאימים לתקנות ומפקחים על בנייה של גשרים, כבישים, מנהרות, מערכות מים וביוב, שדות תעופה וסכרים. לפני שבונים, בודקים אם הקרקע והחומרים חזקים מספיק.
+
+מקורות:
+- https://www.bls.gov/ooh/architecture-and-engineering/civil-engineers.htm
+- https://en.wikipedia.org/wiki/Civil_engineering
+
+## occ:2144 — הנדסת מכונות
+מהנדסי מכונות מתכננים ובודקים מכונות ומכשירים, ממכשירים רפואיים וסוללות ועד מחוללי חשמל, מעליות ומערכות מיזוג. כשציוד נכשל, הם חוקרים למה, ובונים אבות-טיפוס כדי לבדוק פתרון.
+
+מקורות:
+- https://www.bls.gov/ooh/architecture-and-engineering/mechanical-engineers.htm
+- https://en.wikipedia.org/wiki/Mechanical_engineering
+
+## occ:2151 — הנדסת חשמל
+מהנדסי חשמל ואלקטרוניקה מתכננים, מפתחים ובודקים ציוד ומערכות: מנועים חשמליים, מערכות ניווט ותקשורת, ציוד להפקת חשמל, וגם המערכות החשמליות במכוניות ובמטוסים.
+
+מקורות:
+- https://www.bls.gov/ooh/architecture-and-engineering/electrical-and-electronics-engineers.htm
+- https://en.wikipedia.org/wiki/Electrical_engineering
+
+## occ:2141 — הנדסת תעשייה וייצור
+מהנדסי תעשייה בונים מערכות יעילות שמשלבות עובדים, מכונות, חומרים ומידע, למשל כדי לקצר זמני המתנה בבית חולים או להעביר חלקים כבדים במפעל בצורה בטוחה. הם אוספים ומנתחים נתונים על תהליכים ומציגים להנהלה המלצות לשיפור.
+
+מקורות:
+- https://www.bls.gov/ooh/architecture-and-engineering/industrial-engineers.htm
+- https://en.wikipedia.org/wiki/Industrial_engineering
+
+## occ:2161 — אדריכלות בניין
+אדריכלים מתכננים בתים, מפעלים ומשרדים, ושוקלים יחד את צורכי הלקוח והתקציב, את התקנות ואת מערכות הבניין כמו חשמל, אוורור ואינסטלציה, וגם את המראה שלו.
+
+מקורות:
+- https://www.bls.gov/ooh/architecture-and-engineering/architects.htm
+- https://en.wikipedia.org/wiki/Architecture
+
+## occ:2166 — עיצוב גרפי ועיצוב מולטימדיה
+מעצבים גרפיים יוצרים מסרים חזותיים שמיועדים לקהל מסוים: לוגואים, אריזות, פרסומות, ספרים ואתרים. הם בוחרים צבעים, גופנים ותמונות ואת הדרך שבה הם מסודרים, מציגים רעיונות ללקוחות ומתקנים לפי משוב.
+
+מקורות:
+- https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm
+- https://en.wikipedia.org/wiki/Graphic_design
+
+## occ:2211 — רפואה כללית
+רופאים מאבחנים וטיפולים: לוקחים היסטוריה רפואית, בודקים, מזמינים ומפרשים בדיקות, כותבים תרופות ומתכננים טיפול. הם גם מייעצים על מניעה, למשל תזונה והיגיינה, ויש רופאים שעובדים במחקר או במדיניות ולא בטיפול ישיר.
+
+מקורות:
+- https://www.bls.gov/ooh/healthcare/physicians-and-surgeons.htm
+- https://en.wikipedia.org/wiki/Medicine
+
+## occ:2261 — רפואת שיניים
+רופאי שיניים מאבחנים ומטפלים בבעיות בשיניים, בחניכיים ובפה: מסירים עששת, ממלאים ומתקנים שיניים פגועות, ומייעצים לטיפול בבית. חלקם מתמחים, למשל בטיפולי שורש, ביישור שיניים או בטיפול בחניכיים.
+
+מקורות:
+- https://www.bls.gov/ooh/healthcare/dentists.htm
+- https://en.wikipedia.org/wiki/Dentistry
+
+## occ:2262 — רוקחוּת
+רוקחים מנפיקים תרופות ומסבירים למטופלים איך להשתמש בהן, בודקים אלרגיות ואינטראקציות עם תרופות אחרות, ומייעצים לרופאים. אפשר לעבוד בבית מרקחת בקהילה, בבית חולים, כיועץ או בתעשייה.
+
+מקורות:
+- https://www.bls.gov/ooh/healthcare/pharmacists.htm
+- https://en.wikipedia.org/wiki/Pharmacy
+
+## occ:2264 — פיזיותרפיה
+פיזיותרפיסטים עוזרים לאנשים עם פציעה או מחלה לשפר תנועה ולהפחית כאב: בודקים איך המטופל עומד והולך, בונים תוכנית אישית עם מטרות ומשלבים תרגילים, מתיחות וטיפול ידני.
+
+מקורות:
+- https://www.bls.gov/ooh/healthcare/physical-therapists.htm
+- https://en.wikipedia.org/wiki/Physical_therapy
+
+## occ:2268 — ריפוי בעיסוק
+מרפאים בעיסוק עוזרים לאנשים לחזור לעצמאות בפעולות היומיום. הם מעריכים את המטופל, מתכננים טיפול, ממליצים על ציוד עזר ובודקים אם הבית, בית הספר או מקום העבודה צריכים התאמות.
+
+מקורות:
+- https://www.bls.gov/ooh/healthcare/occupational-therapists.htm
+- https://en.wikipedia.org/wiki/Occupational_therapy
+
+## occ:2265 — דיאטה ותזונה
+דיאטנים ותזונאים מעריכים צרכים, מייעצים על הרגלי אכילה, בונים תפריטים שמתאימים לטעם ולתקציב של המטופל ועוקבים אחרי ההתקדמות. הם מסייעים במניעה ובטיפול במצבים כמו מחלות לב והשמנה.
+
+מקורות:
+- https://www.bls.gov/ooh/healthcare/dietitians-and-nutritionists.htm
+- https://en.wikipedia.org/wiki/Nutrition
+
+## occ:2634 — פסיכולוגיה
+פסיכולוגים חוקרים התנהגות ותפקוד המוח בתצפיות, בראיונות ובשאלונים, מאבחנים הפרעות ובונים תוכניות טיפול. יש מי שמתמחה בטיפול קליני וייעוצי, בארגונים, בבתי ספר, או בהיבטים פסיכולוגיים של תיקים משפטיים.
+
+מקורות:
+- https://www.bls.gov/ooh/life-physical-and-social-science/psychologists.htm
+- https://en.wikipedia.org/wiki/Psychology
+
+## occ:2120 — מתמטיקה, אקטואריה וסטטיסטיקה
+מתמטיקאים וסטטיסטיקאים מחליטים אילו נתונים צריך, מתכננים סקרים וניסויים, בונים מודלים ומנתחים נתונים, ומסבירים את התוצאות ואת מגבלותיהן גם למי שאינו איש מקצוע.
+
+מקורות:
+- https://www.bls.gov/ooh/math/mathematicians-and-statisticians.htm
+- https://en.wikipedia.org/wiki/Statistics
