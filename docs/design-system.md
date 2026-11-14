@@ -21,7 +21,7 @@
 |---|---|---|---|
 | טקסט ורקע | `--ink` / `--text` / `--muted` | `#1B2142` / `#2E365C` / `#5A6182` | 14.7 / 11.7 / 5.7 על הרקע |
 | | `--bg` / `--surface` / `--surface-2` | `#FFFFFF` / `#FFFFFF` / `#F7F8FA` | רקע העמוד / כרטיסים / פס אפור קר נדיר |
-| | `--line` / `--line-strong` | `#E6D8C3` / `#767B96` | מפרידים / גבול שדה (מעל 3:1) |
+| | `--line` / `--line-strong` | `#E4E7EE` / `#767B96` | מפרידים / גבול שדה (מעל 3:1) |
 | פעולה | `--action`, `--action-deep`, `--action-soft`, `--action-ink`, `--action-on` | `#C2410C`, `#9A3412`, `#FFEBDD`, `#9A3412`, `#FFF` | לבן על `--action`: 5.18:1 |
 | סמנטי | `--error`, `--warn` (+`-soft`, `--warn-line`), `--ok` (+`-soft`, `-ink`) | `#B91C1C`, `#7A4B00`, `#0B7F41` | |
 | עולמות | `--w-deg`, `--w-job`, `--w-tech`, `--w-forum`, `--w-path`, `--w-me` (כל אחד עם `-soft`, `-deep`, `-ink`, `-on`) | כחול, כתום, ירוק, צהוב, תכלת, סגול | `--world*` מציב את עולם העמוד לפי `html[data-sec]` |
