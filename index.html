@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-nMrXi5jlgUInnj2kNEiqhBIfisgxf8PeM6BhsnpNb28=' 'sha256-3/2vZFZG4HL0lwpfVO+y83w2+57JpJ/yKU2ekKjx18I='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-FdifH6EnIyn/QjPp6ukT3pMayzqwRYUNN0twZJY5DZM=' 'sha256-3/2vZFZG4HL0lwpfVO+y83w2+57JpJ/yKU2ekKjx18I='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -4908,7 +4908,9 @@ html.rm .hm4-w>span{transform:none}html.rm .hm4-copy h1 em::after{transform:none
 .dp-panel .blk .fine,.cav{font-size:var(--fs-2);line-height:1.6;color:var(--muted)}
 .dp-panel .tip{margin:0;padding:0;border:0;background:none;box-shadow:none;border-radius:0;font-size:var(--fs-3)!important;line-height:1.8;color:var(--text);quotes:none}
 .dp-panel .tip::before,.dp-panel .tip::after{display:none}
-.ax{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--v-s7);padding:0}
+.ax,.ax.ax-n2,.ax.ax-n3{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--v-s7);padding:0}
+.dp-panel .ax .ax-c,.dp-panel .ax .az{grid-column:auto!important}
+.dp-panel .ax .ax-wide{grid-column:1/-1!important}
 .ax-c{background:none;border:0;border-radius:0;padding:0;gap:var(--v-s2);box-shadow:none}
 .ax-q{font:600 var(--fs-3)/1.3 var(--font-body);color:var(--text)}
 .ax-v b{font:300 clamp(48px,5vw,76px)/1 var(--font-head);letter-spacing:-.01em;color:var(--ink)}
@@ -4950,10 +4952,28 @@ details.inst[open]>summary::after{transform:rotate(45deg)}
 .srcbox>summary{display:inline-block;color:var(--action);font:600 var(--fs-3)/1.5 var(--font-body);cursor:pointer;text-decoration:underline;text-underline-offset:4px;min-height:44px}
 .srcs-list{display:grid;gap:var(--v-s3);margin-top:var(--v-s4)}
 .srcs-list p,.srcs-list .ft-row{font-size:var(--fs-2);color:var(--muted);line-height:1.6;margin:0}
+.dp-panel .qa-band{background:none!important;border:0;box-shadow:none;padding:0;display:block}
+.dp-panel .qa-band p{margin:0 0 var(--v-s4);font-size:var(--fs-3);line-height:1.8;color:var(--text)}
+.dp-panel .qa-btns{display:flex;gap:var(--v-s3);flex-wrap:wrap;margin-bottom:var(--v-s5)}
+.occl button{text-decoration:none!important;color:var(--ink)}
+.occl li{margin:0;padding:0}
+/* list pages (degrees, professions, technicians): airy, items sit on the white page with space only */
+.cg-side .cg-body.sbl{column-gap:clamp(40px,5.5vw,80px);row-gap:var(--v-s6)}
+.cg-list{gap:clamp(32px,3vw,40px)}
+.card.dgr{border:0!important;border-radius:0;padding:0;margin:0;background:none!important;box-shadow:none!important}
+.card.dgr:hover{background:none!important}
+@media(max-width:900px){.cg-list{gap:32px}.card.dgr{padding:0}}
+.tasks,.plain{margin:0;padding-inline-start:1.2em}
+.tasks li,.plain li{margin:0 0 12px;font-size:var(--fs-3);line-height:1.7}
+.muted-p{color:var(--muted);font-size:var(--fs-2);line-height:1.7}
+.dp-panel .hotbox{background:none;border:0;box-shadow:none;padding:0;margin:0}
+.dp-panel .hotbox .hb-i{display:none}
+.dp-panel .hotbox h2{font:600 var(--fs-3)/1.4 var(--font-body)!important}
+.dp-panel .blk h3{font:600 var(--fs-3)/1.4 var(--font-body)!important;margin:var(--v-s5) 0 var(--v-s2)}
 .qa-fab{display:none!important}
 h1,h2,h3{font-weight:var(--display-wt)!important}
 header.hdr.vn .logo{font-weight:600!important}
-@media(max-width:900px){.dp-panel .blk{display:block}.dp-panel .blk>h2{margin-bottom:var(--v-s4);font-size:30px}.ax{grid-template-columns:minmax(0,1fr)}.dpc .dpc-top{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:900px){.dp-panel .blk{display:block}.dp-panel .blk>h2{margin-bottom:var(--v-s4);font-size:30px}.ax,.ax.ax-n2,.ax.ax-n3{grid-template-columns:minmax(0,1fr)}.dpc .dpc-top{grid-template-columns:minmax(0,1fr)}}
 .ph-credit{margin-top:var(--v-s5);color:var(--muted);font-size:var(--fs-1)}
 .ph-credit a{color:var(--w-deg);text-decoration:underline}
 /*@@V3-CSS-END@@*/
@@ -5700,23 +5720,33 @@ function renderMahat(i){
   const m=MAHAT[i]; if(!m)return renderTech();
   const pg=m.page||{}, av=mahatAvFor(m);
   const byArea={}; m.col.forEach(c=>(byArea[c.area||'אחר']=byArea[c.area||'אחר']||[]).push(c));
+  const AV='MahatEducation/'+(av?av.id:'');
+  const courses=pg.s?[...new Set(pg.s.split(/,\s*/).map(x=>x.replace(/\.$/,'').trim()).filter(Boolean))]:[];
   return `<div style="${cv('eng')}"><section class="dp-hero dpc"><div class="wrap">
     <div class="dpc-top"><div class="dpc-tx">
-      <div class="dpc-row"><button class="back" data-back>חזרה</button><span class="catpill">${m.kind==='טכנאי'?'טכנאי מוסמך':m.kind==='מכינה'?'מכינה טכנולוגית':'הנדסאי'} · מה"ט</span></div><h1>${esc(m.n)}</h1>
+      <div class="dpc-row"><button class="back" data-back>חזרה</button></div><h1>${esc(m.n)}</h1>
       ${pg.a?`<p class="dp-lead">${esc(pg.a)}</p>`:''}
       <div class="dp-actions"><button class="btn primary" data-scroll="learn">איפה לומדים</button>${qaJumpBtn('mh:'+i,'שאלות ותשובות')}</div>
     </div><div class="dp-art dpc-art">${ill({id:'mh'+i,n:m.n,c:'eng'})}</div></div>
-    ${safe(()=>axHTML(mhAns(m,i)),'')}
   </div></section>
   <div class="wrap dp-body">
-    ${pg.s?`<section class="blk"><h2>מה לומדים</h2><div class="courses">${pg.s.split(/,\s*/).map(x=>`<div class="course"><i><svg viewBox="0 0 24 24">${IC.book}</svg></i>${esc(x.replace(/\.$/,''))}</div>`).join('')}</div></section>`:''}
-    ${safe(()=>empMhHTML(m,i),'')}
-    ${safe(()=>rzHTML(rzSrcMh(m,i)),'')}
-    ${(pg.sub||[]).length?`<section class="blk"><h2>מגמות משנה</h2><div class="linkrow">${pg.sub.map(x=>`<span class="tag" style="font-size:var(--fs-2)">${esc(x)}</span>`).join('')}</div></section>`:''}
-    ${av&&av.curve&&av.curve.length?`<section class="blk"><h2>שכר הבוגרים לפי שנים מסיום הלימודים</h2><div class="salbox">${hbars(av.curve.map(x=>({x:'אחרי '+x.y,v:x.v})))}</div>${AVSRC('MahatEducation/'+av.id)}</section>`:''}
-    ${av&&av.adm&&av.adm.length&&!/לא ידוע/.test(av.adm[0])?`<section class="blk"><h2>תנאי קבלה בסיסיים</h2><div class="admin">${av.adm.map(x=>`<span class="tag" style="font-size:var(--fs-2)">${esc(x)}</span>`).join(' ')}</div>${AVSRC('MahatEducation/'+av.id)}</section>`:''}
-    <section class="blk" id="learn"><h2>איפה לומדים</h2><p class="fine">${MH_AREA_NOTE}</p><div class="offers">${Object.entries(byArea).map(([a,cs])=>`<div class="offer"><h3 style="margin:0">${esc(a)}</h3><div class="insts">${cs.map(c=>`<div class="inst" style="cursor:default"><b>${esc(c.n)}</b><span>${esc(c.city)}</span></div>`).join('')}</div></div>`).join('')}</div>
-      <p class="cite">מקור: <a href="${MAHAT_SRC}" target="_blank" rel="noopener">אתר דירוג מכללות מה"ט</a> (משרד העבודה). באתר זה מופיעים גם דירוגי שביעות רצון לכל מכללה.</p></section>
+    ${courses.length||(pg.sub||[]).length?`<section class="blk" id="learnsec"><h2>מה לומדים</h2>
+      ${courses.length?`<ul class="courses">${courses.slice(0,10).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${courses.length>10?`<details class="more"><summary>עוד ${courses.length-10} נושאים</summary><ul class="courses">${courses.slice(10).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>`:''}`:''}
+      ${(pg.sub||[]).length?`<p class="muted-p">מגמות משנה:</p><ul class="courses">${pg.sub.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+    </section>`:''}
+    <section class="blk admit" id="learn"><h2>איפה לומדים</h2>
+      <p class="intro">${m.col.length===1?'מכללה אחת מלמדת':m.col.length+' מכללות מלמדות'} את המגמה. פתחו אזור כדי לראות את המכללות.</p>
+      <ul class="inst-list">${Object.entries(byArea).map(([a,cs])=>`<li><details class="inst"><summary><b>${esc(a)}</b><span class="inst-st">${cs.length===1?'מכללה אחת':cs.length+' מכללות'}</span></summary><div class="inst-d"><ul class="plain">${cs.map(c=>`<li>${esc(c.n)}${c.city?` · ${esc(c.city)}`:''}</li>`).join('')}</ul></div></details></li>`).join('')}</ul>
+      ${av&&av.adm&&av.adm.length&&!/לא ידוע/.test(av.adm[0])?`<p class="muted-p">תנאי קבלה בסיסיים: ${av.adm.map(esc).join(' · ')}.</p>`:''}
+      <p class="fine">${MH_AREA_NOTE}</p>
+      <p class="cite">מקור: <a href="${MAHAT_SRC}" target="_blank" rel="noopener">אתר דירוג מכללות מה"ט</a> (משרד העבודה). באתר זה מופיעים גם דירוגי שביעות רצון לכל מכללה.</p>
+    </section>
+    <section class="blk" id="payn"><h2>שכר ועבודה</h2>${safe(()=>axHTML({...mhAns(m,i),rz:null,facts:[],src:''}),'')}</section>
+    ${av&&av.curve&&av.curve.length?`<section class="blk" id="paycurve"><h2>כך השכר משתנה</h2><p class="intro">שכר חודשי ממוצע של הבוגרים, לפי השנים מסיום הלימודים.</p><div class="salbox">${hbars(av.curve.map(x=>({x:'אחרי '+x.y,v:x.v})))}</div>${AVSRC(AV)}</section>`:''}
+    <section class="blk" id="leads"><h2>איפה עובדים</h2>
+      ${safe(()=>empMhHTML(m,i),'')?`<details class="more"><summary>באילו ארגונים ובאילו ענפים</summary>${safe(()=>empMhHTML(m,i),'')}</details>`:''}
+      ${safe(()=>rzHTML(rzSrcMh(m,i)),'')?`<details class="more"><summary>השכר והביקוש לפי אזור</summary>${safe(()=>rzHTML(rzSrcMh(m,i)),'')}</details>`:''}
+    </section>
     ${ctxQA('mh:'+i,m.n)}
     <div class="linkrow">${pg.pid||m.pid?lk(mahatPage(m.pid),'עמוד המגמה ב-gov.il','doc'):''}${lk(MAHAT_SRC,'חיפוש מכללות ודירוגים','search')}${lk(yt('הנדסאי '+m.n.replace(/^הנדסת |^הנדסה /,'')),'סרטונים ביוטיוב','yt','yt')}</div>
   </div></div>`;
@@ -6562,8 +6592,7 @@ function renderQ(key){
 /* ---------- contextual block on degree / specialty / technician pages ---------- */
 function ctxQA(ctx,label){
   const n=FM.state==='ready'?fIdx().Q.filter(q=>inCtx(q,ctx)).length:0;
-  return `<section class="blk" id="qa"><div class="qa-band"><div><span class="fkick">הקהילה</span><h2>שאלות ותשובות על ${esc(label)}${n?` <span class="cnt-b num">${n}</span>`:''}</h2>
-    <p>אשאל סטודנטים ובוגרים על מה שלא מופיע בנתונים: עומס, אווירה, עבודה תוך כדי לימודים.</p></div>
+  return `<section class="blk" id="qa"><h2>שאלות ותשובות${n?` <span class="cnt-b num">${n}</span>`:''}</h2><div class="qa-band"><div><p>אפשר לשאול סטודנטים ובוגרים על ${esc(label)}: עומס, אווירה, עבודה תוך כדי לימודים, כל מה שלא מופיע בנתונים.</p></div>
     <div class="qa-btns"><button class="btn ask" data-ask="${ctx}">${FIC.plus}לשאול</button><button class="btn soft" data-fctx="${ctx}">לכל השאלות</button></div></div>
     <div id="ctxQA" data-ctx="${ctx}">${ctxQAList(ctx)}</div></section>`;
 }
@@ -9020,39 +9049,48 @@ function renderOcc(id){
     return `<div class="offer"><h3 style="margin:0">${title}</h3>${hbars(s.s,{fmtv:fn,share})}${notes.length?`<p class="sub" style="font-size:var(--fs-2)">${notes.join(' · ')}</p>`:''}</div>`};
   const R=occDegs(id), mh=occMahat(o), tr=(o.edu||[]).filter(e=>e.kind==='TrainingEducation');
   const degGrid=(L,lim)=>`<div class="grid">${L.slice(0,lim).map((x,i)=>card(x.d,{delay:i*30,foot:admFoot(x.d)})).join('')}</div>`;
-  const road=`<section class="blk" id="road"><h2>איך מגיעים למקצוע הזה</h2>
-      <p class="intro">${o.eduLink&&LINKW[o.eduLink]?`לפי עבודאטה, הקשר בין המקצוע למסלולי הלימוד <b>${LINKW[o.eduLink]}</b>. `:''}${profileOK()?'ליד כל תואר כתוב אם אני '+gx('יכול','יכולה')+' להתקבל אליו לפי הפרופיל שלי.':''}</p>
-      ${!profileOK()&&(R.main.length||R.more.length)?`<div class="banner" style="background:linear-gradient(120deg,#FFE8DC,#FFF4D6);margin-bottom:18px"><div></div><div><h3 style="margin:0 0 4px">לאיזה מהתארים האלה אני ${gx('יכול','יכולה')} להתקבל?</h3><p style="color:var(--muted);margin:0">ממלאים פרופיל קצר פעם אחת, ובכל תואר רואים בירוק או באדום אם אפשר להתקבל ומה חסר.</p></div><button class="btn primary" data-prof>מילוי הפרופיל</button></div>`:''}
-      ${R.main.length?`<h3>התארים שרבים מהעוסקים במקצוע למדו</h3>${degGrid(R.main,9)}${R.main.length>9?`<p class="cite">ועוד ${R.main.length-9} תארים באותם תחומים. אפשר לחפש אותם בעמוד התארים.</p>`:''}`:''}
-      ${R.more.length?`<h3 style="margin-top:26px">תארים נוספים שבוגריהם עובדים בעיקר במקצוע הזה</h3>${degGrid(R.more,6)}`:''}
-      ${mh.length?`<h3 style="margin-top:26px">לימודי הנדסאים וטכנאים</h3><div class="grid">${mh.map(([m,i])=>mahatCard(m,i)).join('')}</div>`:''}
-      ${tr.length?`<h3 style="margin-top:26px">קורסים והכשרות מקצועיות</h3><div class="linkrow">${tr.map(e=>lk(`${AVURL}/${e.kind}/${e.id}`,e.n+(e.dur?' · '+e.dur:''),'doc')).join('')}</div>`:''}
+  const dl=L=>`<ul class="occl">${L.map(x=>`<li><button type="button" data-open="${x.d.id}"><span>${esc(x.d.n)}</span></button></li>`).join('')}</ul>`;
+  const A=occAns(id,o,cat), hours=(A.facts||[]).find(f=>/שעות עבודה/.test(f));
+  const road=`<section class="blk" id="road"><h2>איך מגיעים</h2>
+      <p class="intro">${o.eduLink&&LINKW[o.eduLink]?`לפי עבודאטה, הקשר בין המקצוע למסלולי הלימוד <b>${LINKW[o.eduLink]}</b>. `:''}לחצו על תואר לפרטים ולתנאי קבלה.</p>
+      ${R.main.length?`<h3>תארים שרבים מהעוסקים במקצוע למדו</h3>${dl(R.main.slice(0,9))}${R.main.length>9?`<details class="more"><summary>עוד ${R.main.length-9} תארים</summary>${dl(R.main.slice(9))}</details>`:''}`:''}
+      ${R.more.length?`<details class="more"><summary>תארים נוספים שבוגריהם עובדים בעיקר במקצוע הזה</summary>${dl(R.more)}</details>`:''}
+      ${mh.length?`<h3>לימודי הנדסאים וטכנאים</h3><ul class="occl">${mh.map(([m,i])=>`<li><button type="button" data-mh="${i}"><span>${esc(m.n)}</span></button></li>`).join('')}</ul>`:''}
+      ${tr.length?`<details class="more"><summary>קורסים והכשרות מקצועיות</summary><div class="linkrow">${tr.map(e=>lk(`${AVURL}/${e.kind}/${e.id}`,e.n+(e.dur?' · '+e.dur:''),'doc')).join('')}</div></details>`:''}
       ${!R.main.length&&!R.more.length&&!mh.length&&!tr.length?`<div class="nodata">עבודאטה לא מפרסמת מסלול לימודים מוביל למקצוע הזה. הרבה פעמים נכנסים אליו דרך ניסיון או הכשרה בעבודה.</div>`:''}
-      ${(o.edu||[]).length?`<details class="adm" style="margin-top:18px"><summary>מה למדו העוסקים במקצוע, לפי עבודאטה</summary><div class="jobs" style="margin-top:12px">${o.edu.map(e=>`<a class="job" href="${AVURL}/${e.kind}/${e.id}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;flex-direction:column;align-items:flex-start;gap:6px"><span style="display:flex;gap:12px;align-items:center"><i><svg viewBox="0 0 24 24">${IC.book}</svg></i>${esc(e.n)}</span><span class="sub" style="font-weight:400;font-size:var(--fs-1)">${esc(e.t)}${e.dur?' · '+esc(e.dur):''}</span>${e.sal?`<span class="tag m num">שכר בוגרים ממוצע: ${shek(e.sal)}</span>`:''}</a>`).join('')}</div>${AVSRC('isco_group/'+id,o.src)}</details>`:''}
+      ${profileOK()?`<p class="fine">ליד כל תואר אפשר לראות אם ${gx('אני יכול','אני יכולה')} להתקבל אליו, בעמוד התואר.</p>`:''}
     </section>`;
+  const cmpAll=OCC_SECTIONS.some(s=>g[s[0]]&&g[s[0]].s&&g[s[0]].s.some(x=>x.v));
   return `<div style="${cv(cat)}">
   <section class="dp-hero dpc"><div class="wrap">
     <div class="dpc-top"><div class="dpc-tx">
-      <div class="dpc-row">${BACK}<span class="catpill">מקצוע · ${esc(OGN[grp])}</span></div><h1>${esc(o.n)}</h1>
+      <div class="dpc-row">${BACK}</div><h1>${esc(o.n)}</h1>
       ${o.d?`<p class="dp-lead">${esc(o.d)}</p>`:''}
-      ${(o.titles||[]).length?`<div class="otitles">${o.titles.map(t=>`<span>${esc(t)}</span>`).join('')}</div>`:''}
       <div class="dp-actions"><button class="btn primary" data-scroll="road">איך מגיעים לזה</button>${qaJumpBtn('occ:'+id,'שאלות ותשובות')}</div>
       ${dirBadge('occ',id)}
     </div><div class="dp-art dpc-art">${ocIll(o)}</div></div>
-    ${safe(()=>axHTML(occAns(id,o,cat)),'')}
   </div></section>
   <div class="wrap dp-body">
-    ${occTrendHTML(o)}
-    ${facts.length?`<div class="linkrow">${facts.filter(t=>!/צומח/.test(t)).map(t=>`<span class="tag" style="font-size:var(--fs-2);padding:8px 14px;background:#fff;box-shadow:var(--shadow)">${esc(t)}</span>`).join('')}</div>`:''}
-    ${(o.tasks||[]).length?`<section class="blk"><h2>מה עושים בעבודה</h2><div class="courses">${o.tasks.map(t=>`<div class="course" style="font-weight:500"><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>${esc(t)}</div>`).join('')}</div></section>`:''}
+    <section class="blk" id="aboutsec"><h2>על המקצוע</h2>
+      ${(o.tasks||[]).length?`<ul class="tasks">${o.tasks.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:(o.d?`<p>${esc(o.d)}</p>`:'')}
+      ${(o.titles||[]).length?`<p class="muted-p">שמות נוספים של המקצוע: ${o.titles.map(esc).join(' · ')}</p>`:''}
+    </section>
     ${road}
-    ${safe(()=>empOccHTML(o),'')}${safe(()=>rzHTML(rzSrcOcc(id,o,cat)),'')}
-    ${trend.length?`<section class="blk"><h2>השכר והמועסקים לאורך השנים</h2><div class="two"><div class="offer"><h3 style="margin:0">שכר חודשי ממוצע</h3>${hbars(trend,{max:Math.max(...trend.map(x=>x.v))*1.1})}</div>
-      ${emp.length?`<div class="offer"><h3 style="margin:0">מספר המועסקים בתחום</h3>${hbars(emp,{fmtv:v=>fmt(v),max:Math.max(...emp.map(x=>x.v))*1.1})}</div>`:''}</div></section>`:''}
-    ${OCC_SECTIONS.some(s=>g[s[0]]&&g[s[0]].s&&g[s[0]].s.some(x=>x.v))?`<section class="blk"><h2>השוואות בתוך המקצוע</h2><div class="offers">${OCC_SECTIONS.map(sect).join('')}</div>
-      ${o.cal?`<p class="fine">הפירוט לפי קבוצות הותאם באותו יחס כמו הממוצע של המקצוע.${calSeeSrc}</p>`:''}
-      ${(g.Anaf||[]).some(x=>x.v)?`<h3>באילו ענפים עובדים</h3><div class="salbox">${hbars(g.Anaf.filter(x=>x.v),{share:true})}</div>`:''}
-      <p class="cite">* נתון בעל מהימנות נמוכה לפי עבודאטה.</p></section>`:''}
+    <section class="blk" id="payn"><h2>שכר ועבודה</h2>${safe(()=>axHTML({...A,rz:null,facts:[],src:''}),'')}
+      ${hours?`<p>${hours}</p>`:''}
+      ${safe(()=>occTrendHTML(o),'')?`<details class="more"><summary>${occHot(o)?'למה המקצוע חם בשוק':'מה קורה בשוק במקצוע הזה'}</summary>${safe(()=>occTrendHTML(o),'')}</details>`:''}
+    </section>
+    ${trend.length?`<section class="blk" id="paycurve"><h2>כך זה משתנה לאורך השנים</h2><div class="offer"><h3>שכר חודשי ממוצע</h3>${hbars(trend,{max:Math.max(...trend.map(x=>x.v))*1.1})}</div>
+      ${emp.length?`<div class="offer"><h3>מספר המועסקים בתחום</h3>${hbars(emp,{fmtv:v=>fmt(v),max:Math.max(...emp.map(x=>x.v))*1.1})}</div>`:''}</section>`:''}
+    <section class="blk" id="leads"><h2>איפה עובדים</h2>
+      <p class="intro">איפה העוסקים במקצוע עובדים ואיפה השכר גבוה יותר.</p>
+      ${safe(()=>empOccHTML(o),'')?`<details class="more"><summary>באילו ארגונים ובאילו ענפים</summary>${safe(()=>empOccHTML(o),'')}</details>`:''}
+      ${safe(()=>rzHTML(rzSrcOcc(id,o,cat)),'')?`<details class="more"><summary>השכר והביקוש לפי אזור</summary>${safe(()=>rzHTML(rzSrcOcc(id,o,cat)),'')}</details>`:''}
+      ${cmpAll?`<details class="more"><summary>השוואות בתוך המקצוע</summary><div class="offers">${OCC_SECTIONS.map(sect).join('')}</div>
+        ${o.cal?`<p class="fine">הפירוט לפי קבוצות הותאם באותו יחס כמו הממוצע של המקצוע.${calSeeSrc}</p>`:''}
+        ${(g.Anaf||[]).some(x=>x.v)?`<h3>באילו ענפים עובדים</h3><div class="salbox">${hbars(g.Anaf.filter(x=>x.v),{share:true})}</div>`:''}
+        <p class="cite">* נתון בעל מהימנות נמוכה לפי עבודאטה.</p></details>`:''}
+    </section>
     ${ctxQA('occ:'+id,o.n)}
     <div class="linkrow">${lk(AVURL+'/isco_group/'+id,'העמוד המלא בעבודאטה','doc')}${lk(yt(o.n+' יום בחיים של'),'סרטונים ביוטיוב','yt','yt')}${lk(gg('משרות '+o.n),'חיפוש משרות','search')}</div>
     ${AVSRC('isco_group/'+id,o.src)}
@@ -15656,6 +15694,7 @@ function dpClassify(sec){
   if(id==='qa')return 'qa';
   if(id==='srcs')return 'src';
   if(id==='payn'||id==='paycurve'||id==='leads')return 'pay';
+  if(id==='learnsec'||id==='aboutsec')return 'ov';
   if(sec.classList.contains('admit')||id==='learn'||/תנאי קבלה/.test(h))return 'adm';
   if(id==='road')return 'road';
   if(id==='employers'||id==='regmap'||/כמה מרוויחים|לאן זה מוביל|שכר|השוואות/.test(h))return 'pay';
