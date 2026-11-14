@@ -5273,6 +5273,13 @@ html.vx button.ft-chip{text-decoration:underline;text-underline-offset:3px;text-
 .qfull .qh{font-weight:600}
 .qg{grid-template-columns:minmax(0,840px) minmax(260px,320px);gap:clamp(24px,4vw,56px);justify-content:center}
 @media(max-width:960px){.qg{grid-template-columns:minmax(0,1fr)}}
+
+/* real phone (390): the map's hint line is dropped (the "how to read" fold carries it), the sheet's close button no longer sits on the top line, the login note is plain */
+@media(max-width:900px){
+  .vx-vtip{display:none}
+  .vx-stage .vx-side.open .vx-sidein{padding-top:56px}
+}
+.loginbox{background:#fff!important;border:1px solid var(--line);border-radius:var(--r);box-shadow:none}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
