@@ -16,6 +16,7 @@ const T=[
   ['accounts, stage 3: the questionnaire in the account (page)','../accounts/stage3.js',300],
   ['accounts, stage 4: download, delete, texts, live-check script (page)','../accounts/stage4.js',300],
   ['legal pages: privacy.html and terms.html are what index.html produces (tools/build-legal.js)','../../tools/build-legal.js',60,['--check']],
+  ['intro texts: index.html is what docs/intro-texts.md produces (tools/build-intros.js)','../../tools/build-intros.js',60,['--check']],
   ['security: CSP in the browser, what it blocks, the frame guard','../security/csp.js',120],
   ['security: XSS fuzz (every place a person\'s text lives, every page)','../security/xss-fuzz.js',300],
   ['screens: personas through the page at 1280 and 360 (page)','ui.js',420],
