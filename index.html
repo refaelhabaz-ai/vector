@@ -4974,6 +4974,13 @@ details.inst[open]>summary::after{transform:rotate(45deg)}
 .vq-o.vq-sel,.vq-o.vq-sel:nth-child(n){background:var(--action-soft);border:2px solid var(--action);color:var(--ink)}
 .vq-o.vq-sel .vq-ic{background:none;color:var(--action)}
 .vq-o.vq-sel::after{background:var(--action);color:#fff}
+/* results: the selected direction is marked with an orange outline, not a dark fill */
+.vr-tab{border:1px solid var(--line);border-radius:var(--r);transform:none!important}
+.vr-tab:hover{border-color:var(--line-strong)}
+.vr-tab[aria-selected="true"]{background:var(--action-soft);border:2px solid var(--action)}
+.vr-tab[aria-selected="true"] .vr-tt b{color:var(--ink)}
+.vr-tab[aria-selected="true"] .vr-tt small{color:var(--action-ink)}
+.vr-tab[aria-selected="true"] .vr-ti{background:#fff;color:var(--action)}
 .tasks,.plain{margin:0;padding-inline-start:1.2em}
 .tasks li,.plain li{margin:0 0 12px;font-size:var(--fs-3);line-height:1.7}
 .muted-p{color:var(--muted);font-size:var(--fs-2);line-height:1.7}
