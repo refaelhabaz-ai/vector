@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-JUI0uM/7OwVWyDfd1XJaKgNg9Hz8lfriizuAbPRCgAM=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-LRppc87hOxilq+Xc7hO7XU+9ULL9pkbErA57PdkUgDQ=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5069,6 +5069,31 @@ details.fgroup{border-bottom:1px solid var(--line);border-radius:0}
 .cu-nb .ki-ar,.sm-sn .ki-ar{display:inline-block}
 .hm4-fe.f2{color:var(--w-tech-soft)}
 .hm4-fe.f3{color:var(--w-me-soft)}
+/* ---------- profile page and the admitted-to view ---------- */
+.prof-cta{display:flex;flex-wrap:wrap;gap:var(--v-s3) var(--v-s5);align-items:center;margin:var(--v-s5) 0 var(--v-s6)}
+.prof-cta .btn{min-height:52px;padding:0 28px;font-size:var(--fs-3)}
+.prof-cta span{color:var(--text);font-size:var(--fs-3)}
+.pf-h{font:var(--display-wt) clamp(36px,4.4vw,56px)/1.1 var(--font-head);margin:0 0 var(--v-s3)}
+.pf-rows{list-style:none;margin:var(--v-s6) 0 var(--v-s6);padding:0;max-width:760px}
+.pf-r{display:grid;grid-template-columns:minmax(120px,1fr) minmax(0,1.4fr) auto;gap:var(--v-s4);align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.pf-r:first-child{border-top:1px solid var(--line)}
+.pf-l{color:var(--muted);font-size:var(--fs-3)}
+.pf-v{font-size:var(--fs-4);color:var(--ink);font-weight:600}
+.pf-v.none{color:var(--muted);font-weight:400}
+.pf-a{display:flex;gap:var(--v-s4);justify-content:flex-end;flex-wrap:wrap}
+.pf-acts{display:flex;flex-wrap:wrap;gap:var(--v-s4) var(--v-s6);align-items:center}
+.pf-acts .linkbtn,.pf-a .linkbtn{font-size:var(--fs-3);min-height:44px}
+.pf-empty{max-width:640px;margin-top:var(--v-s6)}
+.pf-empty p{font-size:var(--fs-3);line-height:1.7;margin-bottom:var(--v-s5)}
+.admit-tog{max-width:var(--cgw,1240px);margin:0 auto;padding:0 clamp(16px,4vw,40px) var(--v-s4);display:flex;gap:var(--v-s4);align-items:center;flex-wrap:wrap}
+.admit-b{border:0;background:none;padding:0 2px 8px;min-height:44px;font:400 var(--fs-3)/1 var(--font-body);color:var(--text);box-shadow:inset 0 -2px 0 transparent;cursor:pointer}
+.admit-b:hover{color:var(--action)}
+.admit-b.on{color:var(--ink);font-weight:600;box-shadow:inset 0 -2px 0 var(--action)}
+.admit-s{color:var(--muted);font-size:var(--fs-2)}
+.admn{max-width:46rem;margin:0 0 var(--v-s6)}
+.admn p{font-size:var(--fs-3);line-height:1.8}
+.admn h3{font:600 var(--fs-4)/1.3 var(--font-body);margin:0 0 var(--v-s2)}
+@media(max-width:640px){.pf-r{grid-template-columns:1fr auto;row-gap:2px}.pf-l{grid-column:1/-1}.pf-v{grid-column:1}}
 .tasks,.plain{margin:0;padding-inline-start:1.2em}
 .tasks li,.plain li{margin:0 0 12px;font-size:var(--fs-3);line-height:1.7}
 .muted-p{color:var(--muted);font-size:var(--fs-2);line-height:1.7}
@@ -5114,6 +5139,140 @@ html.rg .vf2.vf-perch .vf-w,html.rm .vf2.vf-perch .vf-w{transform:rotate(160deg)
 html.rg .vf2.vf-perch .vf-w.wf,html.rm .vf2.vf-perch .vf-w.wf{transform:rotate(168deg) scale(.86)}
 @media (prefers-reduced-motion:reduce){.vf2 *{animation:none!important}}
 
+
+/* ---------- feedback 3: the hub of my route (white, large, one main action per goal) ---------- */
+.kp-hubtop{padding-block:14px 0}
+.kp-hubtop .kp-hub-h{font-size:var(--fs-6);margin:10px 0 6px;font-weight:300}
+.kp-hubtop .sub{font-size:var(--fs-3);max-width:70ch;margin:0 0 6px;color:var(--v3-text)}
+.kp-hubtop .sub b{font-weight:600}
+.kp-hubh{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:26px}
+.kp-hubh h2{margin:0;font-size:var(--fs-5);font-weight:300}
+.kp-hubh .btn{min-height:52px;padding:0 28px;font-size:var(--fs-3)}
+.kp-addnote{margin:4px 0 18px;color:var(--muted);font-size:var(--fs-2)}
+.hq{grid-template-columns:auto minmax(0,1fr) auto;gap:8px 32px;padding:clamp(16px,2.4vw,28px) 0;margin:12px 0 0;border-block:1px solid var(--line);border-radius:0;background:#fff}
+.hq-v{width:clamp(130px,14vw,190px);margin-block:-10px}
+.hq-k{font-size:var(--fs-2)}
+.hq-b h2{font-size:var(--fs-5);font-weight:300;margin:2px 0}
+.hq-s{font-size:var(--fs-3)}
+.hq-a .btn{min-height:54px;padding:0 30px;font-size:var(--fs-3)}
+.kp-hub{grid-template-columns:repeat(auto-fill,minmax(min(100%,480px),1fr));gap:22px;padding-top:12px}
+.kp-hc{padding:clamp(20px,2.4vw,30px);gap:18px;border:1px solid var(--line);border-radius:var(--r)}
+.kp-hc.cur{border-color:var(--cta)}
+.kp-hcr .kp-ring{width:124px;height:124px}.kp-hcr .kp-rin b{font-size:var(--fs-5)}.kp-hcr .kp-rin small{font-size:var(--fs-1)}
+.kp-hct>b{font-size:var(--fs-5);font-weight:600}.kp-hct>span{font-size:var(--fs-3)}
+.kp-hctags .kp-tag{background:none;padding:0;border-radius:0;color:var(--muted);font-size:var(--fs-1)}
+.kp-hcs b{font-size:var(--fs-4)}.kp-hcs small{font-size:var(--fs-2)}
+.kp-hcn{font-size:var(--fs-2)}
+.kp-hca .btn{min-height:54px;padding:0 32px;font-size:var(--fs-3)}
+.kp-hca .linkbtn{font-size:var(--fs-2)}
+@media(max-width:760px){.hq{grid-template-columns:auto minmax(0,1fr)}.hq-a{grid-column:1/-1}.hq-a .btn{width:100%}.kp-hubh{flex-wrap:wrap}.kp-hubh .btn{width:100%}.kp-hub{grid-template-columns:minmax(0,1fr)}.kp-hcr .kp-ring{width:104px;height:104px}}
+/* the route pages follow the site: white base, macaw accents (no blue wash) */
+html.vx{--bg:#fff;--surface2:#F7F8FB;--line:#E4E7F1;--tint:#F3F4F9;--ink:#1F2544;--ink2:#3B4262;--muted:#5E6582;--primary:#D6401D;--primary-dark:#B9361A;--primary-soft:#FFEAE4;--accent-ink:#B9361A;--cta:#D6401D;--cta-dark:#B9361A;--cta-grad:linear-gradient(#D6401D,#D6401D);--shadow:none;--shadow-h:none}
+html.vx body{background:#fff}
+html.vx .kp-nav{background:#fff}
+html.vx .kp-seg3{background:#F3F4F9}
+html.vx .kp-ind{background:var(--cta)}
+
+/* ---------- feedback 4: the road page. The map runs across the full width on top, the work area is wide under it, one quiet top line ---------- */
+.vx-nl{border-radius:0;background:none;padding:0 0 12px;border-bottom:1px solid var(--line);color:var(--ink);font-weight:400;font-size:var(--fs-3);gap:6px 28px}
+.vx-nl b{font-weight:600}
+.vx-nl-p{background:none;padding:0;color:var(--cta);font-weight:700}
+.vx-nl .linkbtn{color:var(--cta);font-weight:600}
+.vx-vtip{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:0;color:var(--ink2);font-size:var(--fs-2)}
+.vx-vtip b{font-weight:600}
+.vx-vtip.out{opacity:0;transition:opacity .3s}
+.vx-mapcard{border:0;padding:0;gap:10px}
+.vx-mapcard,.vx-mapcard .jn-w,.vx-mapcard #kpJ{min-width:0;max-width:100%}
+.vx-mapcard .jn-w{overflow-x:auto;overflow-y:hidden;border-radius:var(--r);scrollbar-width:thin}
+.vx-mapcard .jn-w .sm{margin:0}
+.vx-mh h2{font-weight:300}
+.ft-chip{border-radius:0}
+html.vx .ft-chip,html.vx .ft-chip.verified,html.vx .ft-chip.unverified,html.vx .ft-chip.conflict{background:none;border:0;padding:0;min-height:0;margin-inline-start:6px;display:inline;font-size:var(--fs-1);color:var(--muted);font-weight:400}
+html.vx .ft-chip .ft-i{display:none}
+html.vx .ft-chip.unverified{color:#7A4B00}html.vx .ft-chip.conflict{color:#8E2418}
+html.vx button.ft-chip{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+@media(min-width:901px){
+  .vx-stage{display:flex;flex-direction:column;gap:16px;min-width:0;max-width:100%}
+  .vx-stage>*,.vx-stage .vx-sidein>*{min-width:0;max-width:100%}
+  .vx-stage .vx-side{display:contents;position:static}
+  .vx-stage .vx-side .vx-sidein{display:contents}
+  .vx-stage .vx-sidein .vx-nl{order:-3}
+  .vx-stage .vx-mapcard{order:-2}
+  .vx-stage .vx-sidein #kpStep{order:-1;max-width:none;width:100%}
+  .vx-stage .vx-sidein #smStage{order:0}
+  .vx-stage .vx-side .kp-fhow p,.vx-stage .vx-side .kp-fhow li{font-size:var(--fs-3)}
+}
+.kp-fdone,.kp-focus .btn.primary{min-height:52px}
+
+/* ---------- feedback 2: the forum as a forum (a narrow column of questions, a side column, rooms, sort tabs) ---------- */
+.fm{padding-block:28px 56px}
+.fm-in{max-width:1220px;margin-inline:auto;padding-inline:clamp(16px,3vw,32px)}
+.fm-host{display:flex;align-items:center;gap:clamp(14px,2.4vw,28px);padding:14px 0 18px}
+.fm-hv{width:clamp(84px,9vw,120px);flex:none}.fm-hv svg{width:100%;height:auto;display:block}
+.fm-ht h1{font-size:var(--fs-6);font-weight:300;margin:0 0 6px}
+.fm-ht p{margin:0;font-size:var(--fs-3);color:var(--ink2);max-width:62ch}
+.fm-ht .fstats{margin-top:8px;font-size:var(--fs-2);color:var(--muted)}
+.fm-grid{display:grid;grid-template-columns:minmax(0,840px) minmax(260px,320px);gap:clamp(24px,4vw,56px);justify-content:center;align-items:start}
+.fm-main{min-width:0}
+.fm-find{margin:0 0 12px}.fm-search{max-width:none;width:100%}.fm-search input{font-size:var(--fs-3);min-height:56px}
+.fm-ask{display:flex;gap:10px;align-items:center;margin:0 0 22px}
+.fm-ask input{flex:1;min-width:0;min-height:54px;padding:0 18px;border:1px solid var(--line);border-radius:var(--r);font:inherit;font-size:var(--fs-3);background:#fff;color:var(--ink)}
+.fm-ask input:focus{outline:2px solid var(--cta);outline-offset:1px;border-color:var(--cta)}
+.fm-ask .btn{min-height:54px;padding:0 30px;font-size:var(--fs-3)}
+.fm-rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));gap:10px;margin:0 0 22px}
+.fm-room{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r);background:#fff;text-align:start;transition:border-color .2s,background-color .2s,transform .2s}
+.fm-room:hover{border-color:var(--rc);transform:translateY(-2px);background:color-mix(in srgb,var(--rc) 6%,#fff)}
+.fm-room:active{transform:translateY(0) scale(.99)}
+.fm-room[aria-pressed="true"]{border-color:var(--rc);background:color-mix(in srgb,var(--rc) 10%,#fff);box-shadow:inset 0 0 0 1px var(--rc)}
+.fm-ri{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--rc) 14%,#fff);color:var(--rc);flex:none;transition:transform .25s}
+.fm-room:hover .fm-ri{transform:rotate(-8deg) scale(1.08)}
+.fm-ri svg{width:22px;height:22px}
+.fm-rt{display:flex;flex-direction:column;min-width:0}.fm-rt b{font-weight:600;font-size:var(--fs-2);line-height:1.25}.fm-rt small{color:var(--muted);font-size:var(--fs-1)}
+.fm-bar{border-bottom:1px solid var(--line);margin-bottom:6px}
+.fm-tabs{display:flex;gap:4px 22px;flex-wrap:wrap}
+.fm-tab{padding:12px 2px;font:600 var(--fs-3) var(--head);color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;cursor:pointer;background:none}
+.fm-tab:hover{color:var(--ink)}.fm-tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--cta)}
+.fm-more{margin:6px 0 10px}.fm-more summary{cursor:pointer;color:var(--muted);font-size:var(--fs-2);padding:6px 0}
+.fm-mp{display:grid;gap:12px;padding:8px 0 12px}
+.fm-cnt{margin:14px 0 4px;color:var(--muted);font-size:var(--fs-2)}.fm-cnt b{color:var(--ink)}
+.fm-list{display:flex;flex-direction:column}
+.fq2{position:relative;padding:18px 4px 16px;border-bottom:1px solid var(--line);transition:background-color .2s}
+.fq2:hover{background:#FBFBFD}
+.fq2 .hit{position:absolute;inset:0;z-index:1;background:none;cursor:pointer}
+.fq2 h3{margin:0 0 6px;font-size:var(--fs-4);font-weight:600;line-height:1.35}
+.fq2:hover h3{color:var(--cta)}
+.fq2-p{margin:0 0 8px;color:var(--ink2);font-size:var(--fs-2);line-height:1.6}
+.fq2-m{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;margin:0 0 6px;color:var(--muted);font-size:var(--fs-1)}
+.fq2-c{color:var(--rc);font-weight:700}
+.fq2-a{display:flex;gap:4px 18px;flex-wrap:wrap;margin:0;position:relative;z-index:2}
+.fq2-a .linkbtn{font-size:var(--fs-2);color:var(--ink2);min-height:36px;text-decoration:none;font-weight:600}
+.fq2-a .linkbtn:hover{color:var(--cta);text-decoration:underline}
+.fq2-a .linkbtn[aria-pressed="true"]{color:var(--cta)}
+.fm-sidecol{display:flex;flex-direction:column;gap:26px;position:sticky;top:calc(var(--hh,72px) + 16px)}
+.fm-side{border-top:2px solid var(--ink);padding-top:12px}
+.fm-side h3{margin:0 0 10px;font-size:var(--fs-3);font-weight:600}
+.fm-side .wlist,.fm-hot{display:flex;flex-direction:column;gap:2px;list-style:none;margin:0;padding:0}
+.fm-hr,.fm-side .wrow{display:block;width:100%;text-align:start;padding:9px 0;border-bottom:1px solid var(--line);font-size:var(--fs-2);line-height:1.45;color:var(--ink);background:none;border-radius:0}
+.fm-hr:hover,.fm-side .wrow:hover{color:var(--cta)}
+.fm-hr small,.fm-side .wrow small{display:block;color:var(--muted);font-size:var(--fs-1)}
+.fm-day{border-top-color:var(--cta)}
+.fm-dq{font:600 var(--fs-4)/1.4 var(--head);margin:0 0 6px}
+.fm-dm{display:flex;gap:10px;align-items:center;margin:0 0 10px;color:var(--muted);font-size:var(--fs-1)}
+.fm-da{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin:0 0 8px}
+.fm-da .linkbtn{font-size:var(--fs-2);color:var(--ink2)}
+.fm-da .fq-want[aria-pressed="true"]{background:none;border:0;color:var(--cta)}
+.fm-dn{margin:0;color:var(--muted);font-size:var(--fs-1)}
+.fm-sidecol .side{border:0;border-top:2px solid var(--ink);border-radius:0;background:none;box-shadow:none;padding:12px 0 0;margin:0}
+.fm-sidecol .side h3{font-size:var(--fs-3);font-weight:600;margin:0 0 10px}
+.fm-sidecol .side .wrow{padding:9px 0;border-radius:0;background:none;border:0;border-bottom:1px solid var(--line);font-size:var(--fs-2)}
+.fm-side.how ol{margin:0;padding-inline-start:18px;font-size:var(--fs-2);color:var(--ink2);line-height:1.6}
+@media(max-width:960px){.fm-grid{grid-template-columns:minmax(0,1fr)}.fm-sidecol{position:static}}
+@media(max-width:560px){.fm-host{flex-direction:column;align-items:flex-start}.fm-ask{flex-direction:column;align-items:stretch}.fm-rooms{display:flex;overflow-x:auto;scrollbar-width:thin;padding-bottom:6px}.fm-room{flex:0 0 200px;padding:10px}.fm-ri{width:36px;height:36px}.fq2 h3{font-size:var(--fs-3)}}
+/* the question page: a narrow thread with the side column */
+.qfull-top{background:none!important;border-radius:0;padding-inline:0;border-bottom:1px solid var(--line)}
+.qfull .qh{font-weight:600}
+.qg{grid-template-columns:minmax(0,840px) minmax(260px,320px);gap:clamp(24px,4vw,56px);justify-content:center}
+@media(max-width:960px){.qg{grid-template-columns:minmax(0,1fr)}}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -5762,45 +5921,40 @@ function meFiltersHTML(){
 function refreshMe(){const f=$('#mefilters');if(!f)return;const top0=f.getBoundingClientRect().top;f.innerHTML=meFiltersHTML();$('#meHost').innerHTML=meListHTML();
   const d=f.getBoundingClientRect().top-top0;if(Math.abs(d)>2)window.scrollBy({top:d,behavior:'instant'})}
 function renderMe(){
-  if(!profileOK())return pageHead('התארים שאני '+gx('יכול','יכולה')+' להתקבל אליהם','ממלאים כמה שאלות קצרות, ורואים רק את התארים שהנתונים שלי מספיקים להם.')+
-    `<section class="sec"><div class="wrap"><div class="empty"><h3 aria-level="2">עוד לא מילאתי פרופיל</h3><p>זה לוקח פחות מדקה. גם מי שאין לו תעודה או פסיכומטרי יקבל כאן מסלול ברור להתחלה.</p><div style="margin-top:18px"><button class="btn primary" data-prof>מילוי הפרופיל</button></div></div></div></section>`;
-  const p=S.prof, sc=S.sc||{};
-  const open=DEG.filter(d=>uniOK(d)&&d.of.some(o=>o.i==='open'));
-  const lim=S.meShown||{};
-  const sec=(id,t,s,list)=>{if(!list.length)return '';const n=lim[id]||12;
-    return `<section class="sec"><div class="wrap"><div class="sec-h"><div><h2>${t} <span class="cnt-b num">${fmt(list.length)}</span></h2><p>${s}</p></div></div><div class="grid">${list.slice(0,n).map((d,i)=>card(d,{delay:Math.min(i,12)*30})).join('')}</div>${list.length>n?`<div class="more"><button class="btn soft" data-memore="${id}">להציג עוד (${fmt(list.length-n)})</button></div>`:''}</div></section>`};
-  const gen=[];
-  gen.push(BAG_EQUIV(p)?{s:'yes',t:p.bag==='mechina'?'תעודת מכינה':'תעודת בגרות'}:{s:'no',t:p.bag==='handesai'?'בגרות או הכרה בתעודת הנדסאי':p.bag==='foreign'?'הכרה בתעודה מחו"ל':p.bag==='partial'?'השלמת בגרות':'בגרות או מכינה'});
-  if(p.y12==='no')gen.push({s:'no',t:'12 שנות לימוד'});
-  gen.push(p.psy==='has'?{s:'yes',t:'פסיכומטרי'+(sc.p?' '+sc.p:'')}:{s:'no',t:'פסיכומטרי'});
-  if(p.bag==='full')gen.push(sc.b?{s:'yes',t:'ממוצע בגרות '+fmt(sc.b,2)}:{s:'no',t:'ממוצע בגרות',go:'calc',gl:'לחישוב במחשבון'});
-  gen.push(p.heb==='he'?{s:'yes',t:'עברית'}:{s:'no',t:'בחינת יע"ל'});
-  const scored=!!(sc.p||sc.b);
-  let main='';
+  if(!profileOK())return `<section class="hero"><div class="wrap">${BACK}<h1 class="pf-h">הפרופיל שלי</h1><p class="sub">כמה שאלות קצרות, ואז כל מוסד יגיד לי אם אפשר להתקבל אליו.</p>
+    <div class="pf-empty"><p>עוד לא מילאתי פרופיל. זה לוקח פחות מדקה, וגם מי שאין לו תעודה או פסיכומטרי יקבל מסלול ברור להתחלה.</p><button class="btn primary" data-prof>מילוי הפרופיל</button></div></div></section>`;
+  const p=S.prof, sc=S.sc||{}, B=Object.fromEntries(PROF_Q[0].o), ST=Object.fromEntries(STAGES);
+  const rows=[
+    ['איפה אני עכשיו',ST[p.stage]||'',''],
+    ['תעודה',B[p.bag]||'',''],
+    ...(NO_CERT(p.bag)?[['12 שנות לימוד',p.y12==='yes'?'כן':p.y12==='no'?'לא':'',''],['גיל',p.age==='30'?'30 ומעלה':p.age==='u30'?'מתחת ל-30':'','']]:[]),
+    ['פסיכומטרי',p.psy==='has'?(sc.p?String(sc.p):'יש, בלי ציון'):p.psy==='plan'?'מתכונן להיבחן'+(sc.p&&sc.estP?' (ציון צפוי '+sc.p+')':''):'בלי פסיכומטרי',''],
+    ...(p.bag==='full'?[['ממוצע בגרות',sc.b?fmt(sc.b,2)+(sc.est?' (צפוי)':''):'','calc']]:[]),
+    ['שפת לימוד בתיכון',{he:'עברית',ar:'ערבית',other:'שפה אחרת'}[p.heb]||'',''],
+    ['מוסד מועדף',S.uni?INST[S.uni].n:'','']
+  ];
+  const row=([l,v,go])=>`<li class="pf-r"><span class="pf-l">${esc(l)}</span><span class="pf-v${v?'':' none'}">${v?esc(v):'חסר'}</span><span class="pf-a"><button type="button" class="linkbtn" data-prof>${v?'עריכה':'הוספה'}</button>${go&&!v?`<button type="button" class="linkbtn" data-go="${go}">חישוב במחשבון</button>`:''}</span></li>`;
+  return `<section class="hero"><div class="wrap">${BACK}<h1 class="pf-h">הפרופיל שלי</h1>
+    <p class="sub">הפרטים האלה נשמרים בדפדפן שלי ומשמשים לבדוק לאן אפשר להתקבל. אפשר לשנות אותם בכל רגע.</p>
+    <ul class="pf-rows">${rows.map(row).join('')}</ul>
+    <div class="pf-acts"><button class="btn primary" data-prof>עריכת הפרופיל</button>${p.bag==='full'?'<button type="button" class="linkbtn" data-go="calc">מחשבון ממוצע בגרות</button>':''}<button type="button" class="linkbtn" data-admitview>התארים שאפשר להתקבל אליהם</button><button type="button" class="linkbtn" data-go="path">המסלול שלי</button></div></div></section>`;
+}
+/* "degrees I can be admitted to": the degrees list, filtered; with a note about where to begin when the certificate is not enough */
+function admitNoteHTML(){
+  if(!profileOK()||!S.f.elig)return '';
+  const p=S.prof,sc=S.sc||{},scored=!!(sc.p||sc.b),open=DEG.filter(d=>uniOK(d)&&d.of.some(o=>o.i==='open'));
   if(BAG_EQUIV(p)){
-    const n=meAdmit().length;
-    main=n?`<section class="sec"><div class="wrap"><div class="sec-h"><div><h2>אני ${gx('יכול','יכולה')} להתקבל אליהם <span class="cnt-b num">${fmt(n)}</span></h2><p>תארים שבהם הציונים שלי עומדים בתנאים שפורסמו, לפחות במוסד אחד. בעמוד של כל תואר רואים באיזה מוסד בדיוק, ומה עוד צריך שם (אנגלית, יחידות מתמטיקה, ראיון וכו').</p></div></div>
-      <div class="filters" id="mefilters">${meFiltersHTML()}</div><div id="meHost" class="gridhost">${meListHTML()}</div></div></section>`
-      :`<section class="sec"><div class="wrap"><div class="empty"><h3 aria-level="2">${scored?'לא נמצאו תארים שבהם הציונים שלי עומדים בתנאים שנאספו':'כדי לבדוק לאן אפשר להתקבל, חסרים ציונים'}</h3><p>${scored?'אפשר לשפר בגרות או פסיכומטרי (ב"המסלול שלי" רואים בדיוק בכמה), להתחיל באוניברסיטה הפתוחה (למטה), או ללמוד הנדסאות. חשוב לדעת: לא מכל המוסדות נאספו ספים, ולכן כדאי לבדוק גם בעמוד של כל תואר.':(p.bag==='mechina'?'מוסדות ממירים ציוני מכינה לפי כללים משלהם, ולכן אפשר לבדוק כאן רק מסלולים שמפרסמים סף פסיכומטרי בלבד. מוסיפים ציון פסיכומטרי בפרופיל.':'מוסיפים בפרופיל ציון פסיכומטרי ו/או ממוצע בגרות. את הממוצע אפשר לחשב במחשבון שלנו.')}</p><div style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn primary" data-prof>עריכת הפרופיל</button>${scored?'<button class="btn soft" data-go="path">למסלול שלי</button>':''}${p.bag==='full'&&!sc.b?'<button class="btn soft" data-go="calc">למחשבון הממוצע</button>':''}</div></div></div></section>`;
-  } else {
-    const first=p.bag==='handesai'?{t:'לבדוק הכרה בתעודת ההנדסאי',d:'מוסדות רבים מקבלים הנדסאים בתנאים מיוחדים. בעמוד של כל תואר, השורות שרלוונטיות להנדסאים מודגשות בתנאי הקבלה של כל מוסד.'}
-      :p.bag==='foreign'?{t:'הכרה בתעודה מחו"ל',d:'בכל מוסד התנאים שונים, ובעמוד של כל תואר הם מודגשים עבורי.'}
-      :{t:p.bag==='partial'?'השלמת הבגרות או מכינה קדם-אקדמית':'בגרות או מכינה קדם-אקדמית',d:(p.y12==='no'?'צריך קודם להשלים 12 שנות לימוד. ':'')+'מכינות קדם-אקדמיות מציעות מסלולים להשלמת בגרות ומסלולים ייעודיים לתואר, ומשוחררי צה"ל עשויים להיות זכאים למימון.'+(p.age==='30'?' לבני 30 ומעלה יש במוסדות רבים מסלולים נפרדים, והם מודגשים בעמודי התארים.':''),f:'mod.prep',src:NEED_SRC.mod,sl:'משרד הביטחון: מכינות קדם אקדמיות'};
-    main=`<section class="sec"><div class="wrap"><div class="sec-h"><div><h2>מאיפה מתחילים</h2><p>גם בלי בגרות ופסיכומטרי יש כמה דרכים להתחיל ללמוד כבר עכשיו.</p></div></div><div class="cklist">
-      ${ckHTML({s:'yes',t:'אפשר להתחיל כבר עכשיו: האוניברסיטה הפתוחה',d:`ההרשמה פתוחה לכולם, בלי בגרות ובלי פסיכומטרי. ${fmt(open.length)} תארים מופיעים כאן למטה.`,src:NEED_SRC.openu,sl:'ידיעון האוניברסיטה הפתוחה'})}
-      ${ckHTML({s:'yes',t:'אפשר גם: לימודי הנדסאים וטכנאים',d:'לימודים מעשיים במכללות הטכנולוגיות של מה"ט. מי שחסרים לו מקצועות יכול להתחיל במכינה טכנולוגית.',go:'tech',gl:'להנדסאים וטכנאים'})}
-      ${ckHTML({s:'no',t:'לתואר במוסדות האחרים: '+first.t,d:first.d,src:first.src,sl:first.sl})}
-    </div></div></section>`;
+    return `<div class="admn"><p>תארים שבהם הציונים שלי עומדים בתנאים שפורסמו, לפחות במוסד אחד. בעמוד של כל תואר רואים באיזה מוסד בדיוק, ומה עוד צריך שם (אנגלית, יחידות מתמטיקה, ראיון וכו'). לא מכל המוסדות נאספו ספים, ולכן כדאי לבדוק גם בעמוד של כל תואר. עמידה בתנאים אינה מבטיחה קבלה.</p>
+      ${scored?'':`<p><b>כדי לבדוק לאן אפשר להתקבל, חסרים ציונים.</b> ${p.bag==='mechina'?'מוסדות ממירים ציוני מכינה לפי כללים משלהם, ולכן אפשר לבדוק כאן רק מסלולים שמפרסמים סף פסיכומטרי בלבד. ':''}<button type="button" class="linkbtn" data-prof>הוספת ציונים בפרופיל</button>${p.bag==='full'&&!sc.b?' <button type="button" class="linkbtn" data-go="calc">מחשבון הממוצע</button>':''}</p>`}</div>`;
   }
-  return `<section class="hero" style="padding-bottom:6px"><div class="wrap">${BACK}<br><span class="kicker" style="margin-top:10px">הפרופיל שלי</span>
-    <h1 style="font-size:var(--fs-6);margin-block:12px 8px">התארים שאני ${gx('יכול','יכולה')} להתקבל אליהם</h1>
-    <p class="sub" style="max-width:none">${esc(profileSummary())}${S.uni?' · מוסד: '+esc(INST[S.uni].n):''}</p>
-    <div class="cklist row">${gen.map(x=>`<div class="ck ${x.s} sm"><span class="cki" aria-hidden="true">${CKI[x.s]}</span><b>${esc(x.t)}</b>${x.go?`<button class="linkbtn" data-go="${x.go}">${esc(x.gl)}</button>`:''}</div>`).join('')}</div>
-    <div class="hero-btns" style="margin-top:18px"><button class="btn primary" data-prof>עריכת הפרופיל</button>${p.bag==='full'?'<button class="btn soft" data-go="calc">מחשבון ממוצע בגרות</button>':''}<button class="btn soft" data-go="path">המסלול שלי</button></div></div></section>
-  ${main}
-  ${sec('open','האוניברסיטה הפתוחה: בלי תנאי קבלה (לפי הידיעון)','לפי הידיעון, ההרשמה לאוניברסיטה הפתוחה אינה מותנית בבגרות או בפסיכומטרי, ולכן גם התארים האלה פתוחים בפניי.',open)}
-  ${BAG_EQUIV(p)?'':`<section class="sec"><div class="wrap"><div class="sec-h"><div><h2>הנדסאים וטכנאים</h2><p>לימודי מה"ט במכללות הטכנולוגיות, כולל מכינה טכנולוגית למי שחסרים לו מקצועות</p></div>${arrows('s-metech')}</div><div class="strip" id="s-metech">${MAHAT.map((m,i)=>[m,i]).sort((a,b)=>(b[0].kind==='מכינה')-(a[0].kind==='מכינה')).slice(0,12).map(([m,i])=>mahatCard(m,i)).join('')}</div><div class="more" style="margin-top:12px"><button class="btn soft" data-go="tech">לכל המגמות</button></div></div></section>`}
-  <section class="sec"><div class="wrap"><p class="fine">הרשימה מבוססת רק על תנאי קבלה שפורסמו באתרי המוסדות ונאספו כאן. מוסדות שלא נאספו מהם ספים (למשל בר-אילן) לא נכללים בבדיקה. עמידה בתנאים אינה מבטיחה קבלה.</p></div></section>`;
+  const first=p.bag==='handesai'?{t:'לבדוק הכרה בתעודת ההנדסאי',d:'מוסדות רבים מקבלים הנדסאים בתנאים מיוחדים. בעמוד של כל תואר, השורות שרלוונטיות להנדסאים מודגשות בתנאי הקבלה של כל מוסד.'}
+    :p.bag==='foreign'?{t:'הכרה בתעודה מחו"ל',d:'בכל מוסד התנאים שונים, ובעמוד של כל תואר הם מודגשים עבורי.'}
+    :{t:p.bag==='partial'?'השלמת הבגרות או מכינה קדם-אקדמית':'בגרות או מכינה קדם-אקדמית',d:(p.y12==='no'?'צריך קודם להשלים 12 שנות לימוד. ':'')+'מכינות קדם-אקדמיות מציעות מסלולים להשלמת בגרות ומסלולים ייעודיים לתואר, ומשוחררי צה"ל עשויים להיות זכאים למימון.'+(p.age==='30'?' לבני 30 ומעלה יש במוסדות רבים מסלולים נפרדים, והם מודגשים בעמודי התארים.':''),src:NEED_SRC.mod,sl:'משרד הביטחון: מכינות קדם אקדמיות'};
+  return `<div class="admn"><h3>מאיפה מתחילים</h3><p>גם בלי בגרות ופסיכומטרי יש כמה דרכים להתחיל ללמוד כבר עכשיו.</p><div class="cklist">
+    ${ckHTML({s:'yes',t:'אפשר להתחיל כבר עכשיו: האוניברסיטה הפתוחה',d:`ההרשמה פתוחה לכולם, בלי בגרות ובלי פסיכומטרי. ${fmt(open.length)} תארים מופיעים בסינון "בלי תנאי קבלה".`,src:NEED_SRC.openu,sl:'ידיעון האוניברסיטה הפתוחה'})}
+    ${ckHTML({s:'yes',t:'אפשר גם: לימודי הנדסאים וטכנאים',d:'לימודים מעשיים במכללות הטכנולוגיות של מה"ט. מי שחסרים לו מקצועות יכול להתחיל במכינה טכנולוגית.',go:'tech',gl:'להנדסאים וטכנאים'})}
+    ${ckHTML({s:'no',t:'לתואר במוסדות האחרים: '+first.t,d:first.d,src:first.src,sl:first.sl})}
+  </div></div>`;
 }
 const REL={none:/ללא תעודת בגרות|אין.{0,10}תעודת בגרות|מכינ|30/,partial:/מכינ|השלמ|חסר|30/,foreign:/חו"ל|חו״ל|שקילות|עולים/,handesai:/הנדסאי/,mechina:/מכינ/};
 function relevantLine(l){
@@ -6089,6 +6243,7 @@ function instChecklist(d,iid){
   const s=items.some(x=>x.s==='no')?'no':items.some(x=>x.s==='na')?'na':'yes';
   return {s,items};
 }
+const profCtaHTML=()=>`<div class="prof-cta"><button type="button" class="btn primary" data-prof>מילוי פרופיל קצר</button><span>בפחות מדקה. אחר כך כל מוסד יגיד לי אם אפשר להתקבל אליו.</span></div>`;
 function admitSectionHTML(d,offerHTML){
   const prof=profileOK(),f=fieldOf(d),st0=(f&&mainStat(f))||{};
   const avg=st0.psy&&(d.avHow==='exact'||d.pro)?`<p class="fine">ממוצעי המתקבלים (עבודאטה): פסיכומטרי ${fmt(st0.psy)}${st0.bagrut?`, ממוצע בגרות ${st0.bagrut}`:''}.</p>`:'';
@@ -6099,7 +6254,8 @@ function admitSectionHTML(d,offerHTML){
     return d.th[x.o.i]?{c:'th',t:'יש סף קבלה מפורסם'}:{c:'na',t:'אין לנו סף מפורסם, בדקו באתר המוסד'}};
   const items=L.map(x=>{const t=status(x);return `<li><details class="inst" id="ic-${x.o.i}"><summary><b>${esc(INST[x.o.i].n)}</b><span class="inst-st ${t.c}">${esc(t.t)}</span></summary><div class="inst-d">${x.c?`<ul class="ckl">${x.c.items.map(row).join('')}</ul>`:''}${offerHTML(x.o)}</div></details></li>`});
   return `<section class="blk admit" id="admit"><h2>איך מתקבלים</h2>
-    <p class="intro">${prof?`לפי הפרופיל שלכם: ${esc(profileSummary())}. <button class="linkbtn" data-prof>עריכת הפרופיל</button>`:`כל מוסד קובע לבד. פתחו מוסד כדי לראות מה הסף ומה צריך. <button class="linkbtn" data-prof>מלאו פרופיל קצר</button> וכל מוסד יגיד אם אפשר להתקבל אליו.`}</p>
+    <p class="intro">${prof?`לפי הפרופיל שלכם: ${esc(profileSummary())}. <button class="linkbtn" data-prof>עריכת הפרופיל</button>`:`כל מוסד קובע לבד. פתחו מוסד כדי לראות מה הסף ומה צריך.`}</p>
+    ${prof?'':profCtaHTML()}
     ${xpItems(items,6,`הצגת עוד ${items.length-6} מוסדות`,'inst-list')}${avg}</section>`;
 }
 
@@ -6585,6 +6741,7 @@ function fFiltered(){
   if(FF.f==='open')L=L.filter(q=>!fAns(q.key).length);
   if(FF.f==='mine')L=L.filter(q=>q.uid===FM.me);
   if(FF.f==='follow')L=L.filter(q=>FM.priv.follow&&FM.priv.follow[q.key]);
+  if(FF.f==='saved'){const sv=fSaved();L=L.filter(q=>sv[q.key])}
   if(FF.f==='myinst')L=myInst?L.filter(q=>q.inst===myInst):[];
   if(FF.f==='pop')L=[...L].sort((a,b)=>hotScore(b)-hotScore(a));
   if(FF.q&&FF.q.trim()){const ok=similarQs(FF.q,'',100000);const rank=new Map(ok.map((q,i)=>[q.key,i]));L=L.filter(q=>rank.has(q.key)).sort((a,b)=>rank.get(a.key)-rank.get(b.key))}
@@ -6598,24 +6755,24 @@ document.addEventListener('toggle',e=>{const d=e.target;if(!d.classList||!d.clas
 document.addEventListener('click',e=>{const m=e.target.closest('[data-fgmore]');if(!m)return;const k=m.dataset.fgmore;FF.gn=FF.gn||{};FF.gn[k]=((FF.gn[k])||15)+15;const b=m.closest('.fgbody');if(b)b.innerHTML=fgBody(k);const t=b&&b.querySelector('[data-fgmore]');if(t)t.focus({preventScroll:true})});
 function fMainHTML(){
   if(FM.state!=='ready')return writeNote()||`<div class="fnote">טוען…</div>`;
-  const all=fIdx().Q, L=fFiltered(), filtering=FF.ctx||FF.topic||FF.inst||FF.cat||FF.f!=='all'||(FF.q&&FF.q.trim());
+  const all=fIdx().Q, L=fFiltered();
   if(!all.length)return `<div class="fempty"><div class="fe-art">${vfSVG({decor:true,cls:'vf-perch vf-idle vf-happy'})}</div>
     <h3>הפורום מחכה לשאלה הראשונה</h3><p>אפשר לשאול את מה שבאמת מעניין אותי: עומס, אווירה, עבודה תוך כדי לימודים, איך אחרים התקבלו. צוות וקטור יענה.</p>
     <div class="ideas">${IDEAS.map(t=>`<button class="idea" data-ask data-at="${esc(t)}">${esc(t)}</button>`).join('')}</div>
     <p class="sub" style="margin-top:10px">אלה רעיונות לשאלות. לחיצה פותחת טופס עם השאלה, ואפשר לשנות אותה.</p></div>`;
-  let h='';
-  if(!filtering&&all.length>=4){
-    const hot=[...all].sort((a,b)=>hotScore(b)-hotScore(a)).slice(0,3);
-    h+=`<div class="fsec"><div class="fsec-h"><h2><span class="fi">${FIC.fire}</span>שאלות חמות</h2></div><div class="hotgrid">${hot.map(q=>hotCard(q,false)).join('')}</div></div>`;
-  }
-  const grouped=L.length&&!(FF.q&&FF.q.trim())&&!FF.cat;
-  h+=`<div class="fsec"><div class="fsec-h"><h2>${FF.q&&FF.q.trim()?'שאלות שמתאימות לחיפוש':'כל השאלות'}${L.length?` <span class="cnt-b num">${fmt(L.length)}</span>`:""}</h2></div>`;
-  if(grouped){const G=new Map();L.forEach(q=>{const k=q.bc||'other';if(!G.has(k))G.set(k,[]);G.get(k).push(q)});
-    h+='<div class="fgroups">'+[...G.entries()].sort((a,b)=>b[1].length-a[1].length).map(([k,A])=>`<details class="fgroup" data-fg="${k}"${FF.gopen&&FF.gopen[k]?' open':''}><summary><b>${esc(QA_CAT[k]||'אחר')}</b><span class="num">${fmt(A.length)} שאלות</span></summary><div class="fgbody">${FF.gopen&&FF.gopen[k]?fgBody(k):''}</div></details>`).join('')+'</div>';
-  }else if(L.length)h+=`<div class="qlist2">${L.slice(0,FF.shown||30).map(qRow).join('')}</div>${L.length>(FF.shown||30)?`<div class="more"><button class="btn soft" data-fmore>להציג עוד שאלות</button></div>`:''}`;
-  else h+=`<div class="fnote">${FF.f==='mine'?'עוד לא שאלתי שאלות.':FF.f==='follow'?'אני עדיין לא עוקב/ת אחרי שאלות.':'אין עדיין שאלות כאן.'} <button class="linkbtn" data-fall>להציג את כל השאלות</button>${canWrite()||FM.local?' · <button class="linkbtn" data-ask>לשאול שאלה</button>':''}</div>`;
-  h+='</div>';
-  return h;
+  const n=FF.shown||30,srch=FF.q&&FF.q.trim();
+  const head=`<p class="fm-cnt"><b class="num">${fmt(L.length)}</b> ${srch?'שאלות שמתאימות לחיפוש':FF.cat?'שאלות בחדר '+esc(QA_CAT[FF.cat]||''):'שאלות'}</p>`;
+  if(!L.length)return head+`<div class="fnote">${FF.f==='mine'?'עוד לא שאלתי שאלות.':FF.f==='follow'?'אני עדיין לא עוקב/ת אחרי שאלות.':FF.f==='saved'?'עוד לא שמרתי שאלות.':'אין עדיין שאלות כאן.'} <button class="linkbtn" data-fall>להציג את כל השאלות</button> · <button class="linkbtn" data-ask data-at="${esc(srch?FF.q.trim():'')}">לשאול שאלה</button></div>`;
+  return head+`<div class="fm-list">${L.slice(0,n).map(qRow2).join('')}</div>${L.length>n?`<div class="more"><button class="btn soft" data-fmore>להציג עוד שאלות</button></div>`:''}`;
+}
+/* a row of the list: the title, a line of the first answer, the room, and three small actions */
+function qRow2(q){
+  const A=fAns(q.key),n=A.length,a=A.slice().sort((x,y)=>x.ts-y.ts)[0],fl=FM.priv.follow&&FM.priv.follow[q.key],sv=fSaved()[q.key];
+  const pv=a?(a.uid===FAQ_UID?'תשובת צוות וקטור: ':'')+cgClip(a.b,140):(q.b?cgClip(q.b,140):''),bc=q.bc||'life';
+  return `<article class="fq2"><button class="hit" data-qo="${esc(q.key)}" aria-label="${esc(q.t)}"></button>
+    <h3>${esc(q.t)}</h3>${pv?`<p class="fq2-p">${esc(pv)}</p>`:''}
+    <p class="fq2-m"><span class="fq2-c" style="--rc:${FM_COL[bc]||'#495A85'}">${esc(QA_CAT[bc]||'')}</span>${q.inst&&INST[q.inst]?`<span>${esc(INST[q.inst].n)}</span>`:''}<span class="num">${n?(n===1?'תשובה אחת':n+' תשובות'):'עוד אין תשובות'}</span><span>${ago(q.ts)}</span></p>
+    <p class="fq2-a"><button type="button" class="linkbtn" data-fwant="${esc(q.key)}" aria-pressed="${!!fl}">${fl?'✓ אני רוצה לדעת':'גם אני רוצה לדעת'}</button><button type="button" class="linkbtn" data-fqans="${esc(q.key)}">לענות</button><button type="button" class="linkbtn" data-fsave="${esc(q.key)}" aria-pressed="${!!sv}">${sv?'✓ שמרתי':'לשמור'}</button></p></article>`;
 }
 function leaderboard(){
   if(FM.state!=='ready')return '';
@@ -6658,37 +6815,49 @@ function fStats(){
 }
 
 /* ---------- forum page ---------- */
+const FM_ICON={tech:'globe',health:'shield',exact:'rocket',biz:'bag',social:'chat',arts:'pen',mahat:'bolt',voc:'doc',life:'compass'};
+const FM_COL={tech:'#3B5BDB',health:'#D6336C',exact:'#7048E8',biz:'#E67700',social:'#0B8A63',arts:'#AE3EC9',mahat:'#D6401D',voc:'#0C8599',life:'#495A85'};
+const fSaved=()=>{try{return store.get('fsave',{})||{}}catch(e){return {}}};
+/* the rooms: the fields of the questions, with their real counts */
+function fRoomsHTML(){
+  if(FM.state!=='ready')return '';
+  const C={};fIdx().Q.forEach(q=>{const k=q.bc||'life';C[k]=(C[k]||0)+1});
+  return `<div class="fm-rooms" role="group" aria-label="חדרים לפי תחום">${Object.entries(QA_CAT).map(([k,l])=>`<button type="button" class="fm-room" data-fcat="${FF.cat===k?'':k}" aria-pressed="${FF.cat===k}" style="--rc:${FM_COL[k]||'#495A85'}"><span class="fm-ri">${ki(FM_ICON[k]||'compass')}</span><span class="fm-rt"><b>${esc(l)}</b><small class="num">${fmt(C[k]||0)} שאלות</small></span></button>`).join('')}</div>`}
+/* sort tabs; "mine", "following" and "saved" only for a person who has some */
+function fTabsHTML(){
+  const sv=Object.keys(fSaved()).length,T=[['pop','חמות'],['all','חדשות'],['open','בלי תשובה']];
+  if(FM.me){T.push(['mine','השאלות שלי'],['follow','שאני עוקב/ת'])}
+  if(sv||FF.f==='saved')T.push(['saved','שמרתי']);
+  return `<div class="fm-tabs" role="tablist" aria-label="סדר הצגה">${T.map(([k,l])=>`<button type="button" class="fm-tab" role="tab" data-ff="${k}" aria-selected="${FF.f===k}">${l}</button>`).join('')}</div>`}
+function fHotBox(){
+  if(FM.state!=='ready')return '';
+  const L=[...fIdx().Q].sort((a,b)=>hotScore(b)-hotScore(a)).slice(0,5);
+  return L.length?`<div class="fm-side"><h3>הכי מעניין עכשיו</h3><ol class="fm-hot">${L.map(q=>`<li><button type="button" class="fm-hr" data-qo="${esc(q.key)}">${esc(q.t)}<small>${fAns(q.key).length===1?'תשובה אחת':fAns(q.key).length+' תשובות'}</small></button></li>`).join('')}</ol></div>`:''}
+function fHostHTML(){
+  const nm=FM.me&&FM.names[FM.me]?String(FM.names[FM.me]).split(' ')[0]:'';
+  return `<div class="fm-host"><div class="fm-hv" aria-hidden="true">${vfSVG({decor:true,cls:'vf-perch vf-idle vf-happy'})}</div>
+    <div class="fm-ht"><h1>שאלות ותשובות</h1>
+      <p>${nm?`היי ${esc(nm)}, מה מעניין אותך היום?`:'היי, אני וקטי. כאן שואלים על לימודים, קבלה, עבודה וחיים בקמפוס.'} התשובות נכתבות בידי צוות וקטור, לפי מקורות רשמיים וידע מקובל.</p>
+      <div id="fStats">${fStats()}</div></div></div>`}
 function renderForum(){
   if(!FF.keep){FF.f='all';FF.topic='';FF.inst='';FF.ctx='';FF.cat='';FF.q='';FF.shown=30}FF.keep=false;
-  const insts=[...DATA.inst].sort((a,b)=>a.n.localeCompare(b.n,'he'));
-  const chips=[['all','הכל'],['open','שלא נענו'],['pop','הכי פופולרי'],['myinst','המוסד שלי'],['follow','שאני עוקב/ת'],['mine','השאלות שלי']];
-  return `<section class="fhero"><div class="wrap">${BACK}
-    <div class="fhero-in"><div class="fhero-t"><span class="fkick">הקהילה של וקטור</span><h1>שאלות ותשובות</h1>
-      <p>שאלות על תנאי קבלה, עומס, אווירה ועבודה תוך כדי לימודים. התשובות כאן נכתבות בידי צוות וקטור על סמך מקורות רשמיים וידע מקובל, לא בידי סטודנטים או בוגרים.</p>
-      <div id="fStats">${fStats()}</div></div>
-      <div class="fhero-art">${vfSVG({perch:true,flip:true,cls:'vf-perch vf-idle vf-happy'})}</div></div>
-    <div class="fsearch"><div class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="fsq" type="search" autocomplete="off" placeholder="חיפוש שאלות שכבר נשאלו" value="${esc(FF.q)}" aria-label="חיפוש בשאלות"><div class="sugg" id="fsugg" hidden></div></div>
-      <button class="btn ask" data-ask>${FIC.plus}שאלה חדשה</button></div>
-  </div></section>
-  <section class="sec fsx"><div class="wrap">
-    <div id="fDaily">${fDailyHTML()}</div>
-    <div id="fStatus">${localNote()}</div>
-    <div id="fInstant"></div>
-    <div id="fSuggest">${fSuggest()}</div>
-    ${fTopicsHTML()}
-    <details class="ffilt" id="fFilt"${(FF.topic||FF.cat||FF.inst||FF.ctx||FF.f!=='all')?' open':''}><summary><span>סינון</span>${(FF.topic||FF.cat||FF.inst||FF.ctx||FF.f!=='all')?'<span class="fm-n">פעיל</span>':''}</summary>
-    <div class="fpanel">
-      <div class="fprow"><span class="fpl">נושא</span><div class="fbtns" role="group" aria-label="נושאים"><button class="fb2" data-ftopic="" aria-pressed="${!FF.topic}">הכל</button>${Object.entries(TOPICS).map(([k,l])=>`<button class="fb2" data-ftopic="${k}" aria-pressed="${FF.topic===k}" style="--tc:${TOPIC_C[k]}"><i></i>${l}</button>`).join('')}</div></div>
-      ${QA_I.length?`<div class="fprow"><span class="fpl">תחום</span><div class="fbtns" role="group" aria-label="תחומים"><button class="fb2" data-fcat="" aria-pressed="${!FF.cat}">הכל</button>${Object.entries(QA_CAT).map(([k,l])=>`<button class="fb2" data-fcat="${k}" aria-pressed="${FF.cat===k}">${esc(l)}</button>`).join('')}</div></div>`:''}
-      <div class="fprow"><span class="fpl">הצגה</span><div class="fbtns" role="group" aria-label="סינון">${chips.map(([k,l])=>`<button class="fb2" data-ff="${k}" aria-pressed="${FF.f===k}">${l}</button>`).join('')}
-        ${FF.ctx?`<span class="qchip">${esc(ctxLabel(FF.ctx))}<button data-fctxclr aria-label="הסרת הסינון">✕</button></span>`:''}
-        <label class="fsel"><span>מוסד</span><select id="finst"><option value="">כל המוסדות</option>${insts.map(i=>`<option value="${i.id}" ${FF.inst===i.id?'selected':''}>${esc(i.n)}</option>`).join('')}</select></label></div></div>
-    </div></details>
-    <div class="fgrid"><div id="fMain">${fMainHTML()}</div>
-      <aside><div id="fSideW">${waitingBox()}</div><div id="fModH">${fMod()}</div>
-        <div class="side how"><h3>איך זה עובד</h3><ol><li>שואלים ומתייגים תואר, מוסד ונושא.</li><li>נכנסים לשאלה, קוראים את התשובות או עונים בעצמנו.</li><li>מי ששאל/ה כותב/ת ליד כל תשובה אם היא עזרה.</li><li>כדי לשאול ולענות מתחברים לחשבון, ואפשר לכתוב בעילום שם.</li></ol></div></aside></div>
-  </div></section>`;
+  const insts=[...DATA.inst].sort((a,b)=>a.n.localeCompare(b.n,'he')),filt=(FF.topic||FF.inst||FF.ctx);
+  return `<div class="fm"><div class="fm-in">${BACK}
+    ${fHostHTML()}
+    <div class="fm-grid"><div class="fm-main">
+      <div class="fm-find"><div class="searchbox fm-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="fsq" type="search" autocomplete="off" placeholder="חיפוש בשאלות שכבר נשאלו" value="${esc(FF.q)}" aria-label="חיפוש בשאלות"><div class="sugg" id="fsugg" hidden></div></div></div>
+      <form class="fm-ask" id="fAskBox" aria-label="שאלה חדשה"><label class="sr" for="faskin">השאלה שלי</label><input id="faskin" type="text" autocomplete="off" maxlength="160" placeholder="יש לי שאלה: מה אני רוצה לדעת על לימודים?"><button type="submit" class="btn primary">לשאול</button></form>
+      <div id="fStatus">${localNote()}</div><div id="fInstant"></div><div id="fSuggest">${fSuggest()}</div>
+      <div id="fRooms">${fRoomsHTML()}</div>
+      <div class="fm-bar"><div id="fTabs">${fTabsHTML()}</div>
+        <details class="fm-more" id="fFilt"${filt?' open':''}><summary>סינון לפי נושא ומוסד${filt?' · פעיל':''}</summary><div class="fm-mp">
+          <div class="fbtns" role="group" aria-label="נושאים"><button class="fb2" data-ftopic="" aria-pressed="${!FF.topic}">כל הנושאים</button>${Object.entries(TOPICS).map(([k,l])=>`<button class="fb2" data-ftopic="${k}" aria-pressed="${FF.topic===k}" style="--tc:${TOPIC_C[k]}"><i></i>${l}</button>`).join('')}</div>
+          <label class="fsel"><span>מוסד</span><select id="finst"><option value="">כל המוסדות</option>${insts.map(i=>`<option value="${i.id}" ${FF.inst===i.id?'selected':''}>${esc(i.n)}</option>`).join('')}</select></label>
+          ${FF.ctx?`<span class="qchip">${esc(ctxLabel(FF.ctx))}<button data-fctxclr aria-label="הסרת הסינון">✕</button></span>`:''}</div></details></div>
+      <div id="fMain">${fMainHTML()}</div></div>
+    <aside class="fm-sidecol" aria-label="עוד בפורום"><div id="fDaily">${fDailyHTML()}</div><div id="fHot">${fHotBox()}</div><div id="fSideW">${waitingBox()}</div><div id="fModH">${fMod()}</div>
+      <div class="fm-side how"><h3>איך זה עובד</h3><ol><li>שואלים, ומתייגים תואר, מוסד ונושא.</li><li>קוראים את התשובות, או עונים בעצמנו.</li><li>מי ששאל/ה כותב/ת ליד כל תשובה אם היא עזרה.</li><li>כדי לשאול ולענות מתחברים, ואפשר בעילום שם.</li></ol></div></aside></div></div></div>`;
 }
 
 /* ---------- a question thread ---------- */
@@ -6841,12 +7010,24 @@ function fRefresh(namesOnly){
   fBell();
   const r=S.route; if(!r)return;
   const set=(id,h)=>{const e=document.getElementById(id);if(e)e.innerHTML=h};
-  if(r.v==='forum'){set('fStatus',localNote());set('fStats',fStats());set('fMain',fMainHTML());set('fSideW',waitingBox());set('fModH',fMod());if(!namesOnly)set('fSuggest',fSuggest())}
+  if(r.v==='forum'){set('fStatus',localNote());set('fStats',fStats());set('fMain',fMainHTML());set('fSideW',waitingBox());set('fHot',fHotBox());set('fRooms',fRoomsHTML());set('fTabs',fTabsHTML());set('fModH',fMod());if(!namesOnly)set('fSuggest',fSuggest())}
   else if(r.v==='q'){set('qThread',qThreadHTML(r.id));set('qRel',relatedQs(r.id));
     const f=document.getElementById('aFormH');if(f&&!f.contains(document.activeElement)&&!(f.querySelector('#atext')||{}).value)f.innerHTML=FM.state==='ready'&&fIdx().QB[r.id]?answerFormHTML(r.id):''}
   else{const c=document.getElementById('ctxQA');if(c)c.innerHTML=ctxQAList(c.dataset.ctx)}
 }
 
+/* the small actions on a row: "me too", save for later; the ask box on top of the page */
+document.addEventListener('click',async e=>{
+  const w=e.target.closest&&e.target.closest('[data-fwant],[data-fsave]');if(!w)return;
+  if(w.dataset.fwant!==undefined){const k=w.dataset.fwant;
+    if(!FM.me){toast('כדי לסמן "גם אני רוצה לדעת" צריך להתחבר');openAuth();return}
+    FM.priv.follow={...(FM.priv.follow||{})};if(FM.priv.follow[k])delete FM.priv.follow[k];else FM.priv.follow[k]=1;
+    const on=!!FM.priv.follow[k];w.setAttribute('aria-pressed',on);w.textContent=on?'✓ אני רוצה לדעת':'גם אני רוצה לדעת';try{await savePriv()}catch(err){toast(fErr(err))}if(FF.f==='follow'){const m=$('#fMain');if(m)m.innerHTML=fMainHTML()}}
+  else{const k=w.dataset.fsave,m={...fSaved()};if(m[k])delete m[k];else m[k]=1;const keep=Object.keys(m).slice(-200),o={};keep.forEach(x=>o[x]=1);store.set('fsave',o);
+    const on=!!o[k];w.setAttribute('aria-pressed',on);w.textContent=on?'✓ שמרתי':'לשמור';if(on)toast('נשמר ברשימה "שמרתי"');
+    const t=$('#fTabs');if(t)t.innerHTML=fTabsHTML();if(FF.f==='saved'){const mm=$('#fMain');if(mm)mm.innerHTML=fMainHTML()}}
+});
+document.addEventListener('submit',e=>{const f=e.target;if(!f||f.id!=='fAskBox')return;e.preventDefault();const v=(document.getElementById('faskin').value||'').trim();openAsk({t:v})});
 /* ---------- events ---------- */
 document.addEventListener('click',async e=>{
   const el=e.target.closest('[data-qo],[data-fall],[data-fmore],[data-ask],[data-fctx],[data-fctxclr],[data-ff],[data-ftopic],[data-fcat],[data-cqmore],[data-fb],[data-follow],[data-report],[data-fdel],[data-bell],[data-role],[data-actxp],[data-atp]');
@@ -6857,8 +7038,8 @@ document.addEventListener('click',async e=>{
   else if(ds.ask!==undefined){openAsk({ctx:ds.ask||'',inst:ds.ainst,topic:ds.atopic,t:ds.at})}
   else if(ds.fctx!==undefined){FF.ctx=ds.fctx;FF.f='all';FF.keep=true;go('forum')}
   else if(ds.fctxclr!==undefined){FF.ctx='';render()}
-  else if(ds.ff!==undefined){FF.f=ds.ff;document.querySelectorAll('[data-ff]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.ff===FF.f));$('#fMain').innerHTML=fMainHTML()}
-  else if(ds.fcat!==undefined){FF.cat=ds.fcat;FF.shown=30;document.querySelectorAll('[data-fcat]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.fcat===FF.cat));$('#fMain').innerHTML=fMainHTML()}
+  else if(ds.ff!==undefined){FF.f=ds.ff;FF.shown=30;const t=$('#fTabs');if(t)t.innerHTML=fTabsHTML();$('#fMain').innerHTML=fMainHTML()}
+  else if(ds.fcat!==undefined){FF.cat=ds.fcat;FF.shown=30;const r=$('#fRooms');if(r)r.innerHTML=fRoomsHTML();$('#fMain').innerHTML=fMainHTML()}
   else if(ds.cqmore!==undefined){CQ[ds.cqmore]=!CQ[ds.cqmore];const c=document.getElementById('ctxQA');if(c)c.innerHTML=ctxQAList(c.dataset.ctx)}
   else if(ds.ftopic!==undefined){FF.topic=ds.ftopic;document.querySelectorAll('[data-ftopic]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.ftopic===FF.topic));$('#fMain').innerHTML=fMainHTML()}
   else if(ds.atp!==undefined){ASK.topic=ds.atp;el.closest('.pick').querySelectorAll('[data-atp]').forEach(b=>b.setAttribute('aria-pressed',b===el));askPreview()}
@@ -9218,7 +9399,7 @@ function renderOcc(id){
       ${mh.length?`<h3>לימודי הנדסאים וטכנאים</h3><ul class="occl">${mh.map(([m,i])=>`<li><button type="button" data-mh="${i}"><span>${esc(m.n)}</span></button></li>`).join('')}</ul>`:''}
       ${tr.length?`<h3>קורסים והכשרות מקצועיות</h3>${xpItems(tr.map(e=>`<li>${lk(`${AVURL}/${e.kind}/${e.id}`,e.n+(e.dur?' · '+e.dur:''),'doc')}</li>`),4,`עוד ${tr.length-4} הכשרות`,'plain tlist')}`:''}
       ${!R.main.length&&!R.more.length&&!mh.length&&!tr.length?`<div class="nodata">עבודאטה לא מפרסמת מסלול לימודים מוביל למקצוע הזה. הרבה פעמים נכנסים אליו דרך ניסיון או הכשרה בעבודה.</div>`:''}
-      ${profileOK()?`<p class="fine">ליד כל תואר אפשר לראות אם ${gx('אני יכול','אני יכולה')} להתקבל אליו, בעמוד התואר.</p>`:''}
+      ${profileOK()?`<p class="fine">ליד כל תואר אפשר לראות אם ${gx('אני יכול','אני יכולה')} להתקבל אליו, בעמוד התואר.</p>`:(R.main.length||R.more.length)?profCtaHTML():''}
     </section>`;
   const cmpAll=OCC_SECTIONS.some(s=>g[s[0]]&&g[s[0]].s&&g[s[0]].s.some(x=>x.v));
   return `<div style="${cv(cat)}">
@@ -11048,7 +11229,7 @@ const factGet=id=>FACTM.get(id)||null;
 function fact(id,raw){const f=factGet(id);if(!f)return '';if(raw)return f.v;if(f.hide)return f.alt||'לפי האתר הרשמי';
   return (typeof f.v==='number'?fmt(f.v):f.v)+(f.unit?' '+f.unit:'')}
 const ftDate=iso=>{const [y,m,d]=iso.split('-');return `${+d}.${+m}.${y}`};
-const factLabel=f=>f.status==='verified'?`הוצלב מול ${f.by||'מקור רשמי'} · ${ftDate(f.checked)}`:f.status==='conflict'?'מקורות סותרים, בדקו באתר':'לא אומת, בדקו באתר';
+const factLabel=f=>f.status==='verified'?`נבדק מול ${f.by||'מקור רשמי'}, ${ftDate(f.checked)}`:f.status==='conflict'?'מקורות סותרים, בדקו באתר':'לא אומת, בדקו באתר';
 /* the small badge: icon + words (never color alone). o.lg = a stand-alone row (40px tall); o.static = no button (inside a sheet that must stay open); o.pre = a prefix */
 function factChip(id,o){o=o||{};const f=factGet(id);if(!f)return '';
   const lbl=(o.pre||o.named?(o.pre||f.t)+': ':'')+factLabel(f),cl=`ft-chip ${f.status}${o.lg?' lg':''}`,inner=`<span class="ft-i" aria-hidden="true">${FT_IC[f.status]}</span><span>${esc(lbl)}</span>`;
@@ -12243,8 +12424,8 @@ function smSeg(p0,c1,c2,p3){
   for(let i=1;i<=28;i++){const t=i/28,u=1-t,x=u*u*u*p0.x+3*u*u*t*c1.x+3*u*t*t*c2.x+t*t*t*p3.x,y=u*u*u*p0.y+3*u*u*t*c1.y+3*u*t*t*c2.y+t*t*t*p3.y;L+=Math.hypot(x-px,y-py);T.push([L,x,y]);px=x;py=y}
   return {p0,c1,c2,p3,T,L}}
 /* the whole road for n stops on a card W wide: where each stop stands, the pieces between them, and how far along the road each stop is */
-function smGeo(W,n){
-  const cols=smCols(W),gut=Math.round(Math.max(34,Math.min(58,W*.085))),cw=(W-2*gut)/cols,rows=Math.ceil(n/cols),out=(gut+cw/2-22)/.75;
+function smGeo(W,n,one){
+  const cols=one?n:smCols(W),gut=Math.round(Math.max(34,Math.min(58,W*.085))),cw=(W-2*gut)/cols,rows=Math.ceil(n/cols),out=(gut+cw/2-22)/.75;
   const pts=[];for(let k=0;k<n;k++){const r=Math.floor(k/cols),c=k%cols,rtl=r%2===0,col=rtl?cols-1-c:c;pts.push({x:Math.round(gut+cw*(col+.5)),y:Math.round(SM_TOP+r*SM_RH+42+Math.sin(k*1.9)*12),r,rtl})}
   const segs=[],ln=[0];
   for(let k=0;k<n-1;k++){const a=pts[k],b=pts[k+1];let c1,c2;
@@ -12252,7 +12433,7 @@ function smGeo(W,n){
     else{const s=a.rtl?-1:1;c1={x:a.x+s*out,y:a.y};c2={x:b.x+s*out,y:b.y}} /* the hairpin: out past the last stop of the row, and back in to the first of the next */
     const sg=smSeg(a,c1,c2,b);segs.push(sg);ln.push(ln[k]+sg.L)}
   let d=`M${pts[0].x} ${pts[0].y}`;segs.forEach(s=>{d+=`C${s.c1.x.toFixed(1)} ${s.c1.y.toFixed(1)} ${s.c2.x.toFixed(1)} ${s.c2.y.toFixed(1)} ${s.p3.x} ${s.p3.y}`});
-  return {W,cols,gut,cw,rows,H:SM_TOP+rows*SM_RH+30,pts,segs,ln,d,total:ln[n-1]}}
+  return {W,cols,gut,cw,rows,H:SM_TOP+rows*SM_RH+(one?4:30),pts,segs,ln,d,total:ln[n-1]}}
 /* the place s along the road, and which way the road goes there */
 function smPt(g,s){
   s=Math.max(0,Math.min(g.total,s));let k=0;while(k<g.segs.length-1&&s>g.ln[k+1])k++;
@@ -12266,7 +12447,11 @@ const smStopS=(g,I,k)=>Math.max(0,g.ln[k]-(k===0?0:smOff(I[k].k)));
 function smPlace(car,g,s){
   const p=smPt(g,s);let f=+car.dataset.f||1;if(Math.abs(p.tx)>.2)f=p.tx<0?1:-1;
   const ang=Math.max(-28,Math.min(28,Math.atan2(p.ty,Math.max(Math.abs(p.tx),.35))*180/Math.PI));
-  car.style.left=p.x.toFixed(1)+'px';car.style.top=p.y.toFixed(1)+'px';car.style.setProperty('--f',f);car.style.setProperty('--a',(-f*ang).toFixed(1)+'deg');car.dataset.f=f;car.dataset.s=s}
+  car.style.left=p.x.toFixed(1)+'px';car.style.top=p.y.toFixed(1)+'px';smFollow(car,p.x);car.style.setProperty('--f',f);car.style.setProperty('--a',(-f*ang).toFixed(1)+'deg');car.dataset.f=f;car.dataset.s=s}
+/* the map is wider than its card: keep the car in view (the page is right to left, so scrollLeft is 0 at the right end and negative to the left) */
+function smFollow(car,x,center){const jw=car.closest&&car.closest('.jn-w'),m=car.parentElement;if(!jw||!m)return;const hw=jw.clientWidth,mw=m.offsetWidth;if(mw<=hw+2)return;
+  const lo=-(mw-hw),want=Math.max(lo,Math.min(0,x-hw/2-(mw-hw))),cur=jw.scrollLeft,vl=cur+(mw-hw);
+  if(center||x<vl+90||x>vl+hw-90)jw.scrollLeft=want}
 /* drive to s (forwards or in reverse): an easy start and stop, the wheels turn, and every stop the car passes gives a little jump */
 function smDrive(toS,car,then){
   car=car||$('#jnCar');if(!car||!car.isConnected){if(then)then();return}cancelAnimationFrame(KP.carRaf);clearTimeout(KP.carTm);
@@ -12297,7 +12482,8 @@ function smStageHTML(pl,t){
 function journeyHTML(pl,t,o){
   o=o||{};
   const fz=t?t.z:pl.cur,I=jItems(pl,fz),nx=pl.next?pl.next.id:'',sel=t?t.id:'',W=Math.max(300,Math.round(KP.smW||Math.min(innerWidth-48,720)));
-  const g=smGeo(W,I.length);SMG.cur=g;
+  const CWMIN=W<520?124:140,MW=Math.max(W,Math.ceil(I.length*CWMIN+2*Math.round(Math.max(34,Math.min(58,W*.085)))));
+  const g=smGeo(MW,I.length,true);SMG.cur=g;
   const intro=!KP.jnSeen;KP.jnSeen=1;
   const u=W<520?.5:W<760?.58:.66;
   let gn=0;const zn={};pl.zones.forEach(z=>zn[z.id]=++gn);
@@ -12322,21 +12508,21 @@ function journeyHTML(pl,t,o){
   else if(o.fromZ){const fi=I.findIndex(x=>x.k==='g'&&x.z.id===o.fromZ);if(fi>=0)from=smStopS(g,I,fi)}
   else if(o.fromS!=null)from=Math.min(g.total,o.fromS);
   const drive=Math.abs(from-to)>=2,p0=smPt(g,from),tip=!store.get('jnTip',0);
-  const car=`<div class="jn-car sm-car" id="jnCar" data-s="${from.toFixed(1)}" data-f="1" data-to="${drive?to.toFixed(1):''}" style="left:${p0.x.toFixed(1)}px;top:${p0.y.toFixed(1)}px" aria-hidden="true">${CAR_SVG}<i class="jn-pf a"></i><i class="jn-pf b"></i><i class="jn-pf c"></i>${tip?`<div class="jn-tip sm-tip${p0.y<200?' below':''}" role="note"><b>זה אני!</b><span>וקטי הוא אני. לוחצים על ענן של צעד, ווקטי טס אליו. לוחצים על שלב כדי לפתוח אותו, ואם הוא מאחוריי, ווקטי טס אחורה.</span><button type="button" class="btn sm" data-kjtip>הבנתי</button></div>`:''}</div>`;
+  const car=`<div class="jn-car sm-car" id="jnCar" data-s="${from.toFixed(1)}" data-f="1" data-to="${drive?to.toFixed(1):''}" style="left:${p0.x.toFixed(1)}px;top:${p0.y.toFixed(1)}px" aria-hidden="true">${CAR_SVG}<i class="jn-pf a"></i><i class="jn-pf b"></i><i class="jn-pf c"></i>${false?`<div class="jn-tip sm-tip${p0.y<200?' below':''}" role="note"><b>זה אני!</b><span>וקטי הוא אני. לוחצים על ענן של צעד, ווקטי טס אליו. לוחצים על שלב כדי לפתוח אותו, ואם הוא מאחוריי, ווקטי טס אחורה.</span><button type="button" class="btn sm" data-kjtip>הבנתי</button></div>`:''}</div>`;
   const hue=Math.max(0,Math.min(1,pl.pct/100));
-  return `<div class="sm${intro?' sm-intro':''}" id="kpTrail" data-w="${W}" data-drive="${drive?1:0}" data-wait="${intro?900:o.wait||120}" style="--u:${u};width:${W}px;height:${g.H}px;--wm:${hue.toFixed(2)};--hz:${SM_TOP-18}px">
+  return `<div class="sm${intro?' sm-intro':''}" id="kpTrail" data-w="${W}" data-drive="${drive?1:0}" data-wait="${intro?900:o.wait||120}" style="--u:${u};width:${g.W}px;height:${g.H}px;--wm:${hue.toFixed(2)};--hz:${SM_TOP-18}px">
     ${smScene(g,boxes,pl.pct)}
-    <svg class="sm-svg" width="${W}" height="${g.H}" viewBox="0 0 ${W} ${g.H}" aria-hidden="true" focusable="false"><path class="sm-edge" d="${g.d}"/><path class="sm-yl" d="${g.d}"/><path class="sm-bed" d="${g.d}"/><path class="sm-base" d="${g.d}"/><path class="sm-prog" d="${g.d}" stroke-dasharray="${lit.toFixed(1)} ${(g.total+50).toFixed(1)}"/></svg>
+    <svg class="sm-svg" width="${g.W}" height="${g.H}" viewBox="0 0 ${g.W} ${g.H}" aria-hidden="true" focusable="false"><path class="sm-edge" d="${g.d}"/><path class="sm-yl" d="${g.d}"/><path class="sm-bed" d="${g.d}"/><path class="sm-base" d="${g.d}"/><path class="sm-prog" d="${g.d}" stroke-dasharray="${lit.toFixed(1)} ${(g.total+50).toFixed(1)}"/></svg>
     <ol class="sm-nodes" aria-label="תחנות הדרך">${nodes}</ol>${car}</div>`}
 /* the car drives to where it parks once the card is on the page; the card is drawn again once if the page gives it another width */
 function smScan(){
   const m=document.querySelector('.sm:not([data-i])');if(!m)return;m.dataset.i=1;
   const host=m.parentElement,w=host?Math.round(host.getBoundingClientRect().width):0;
   if(w>=240&&Math.abs(w-(+m.dataset.w))>14&&host.id==='kpJ'){KP.smW=w;const pl=safe(plan);if(pl){KP.jnSeen=m.classList.contains('sm-intro')?0:1;host.innerHTML=journeyHTML(pl,focusTask(pl));return}}
-  const car=m.querySelector('.jn-car');if(car){car._g=SMG.cur;if(car.dataset.to)setTimeout(()=>{if(car.isConnected)smDrive(+car.dataset.to,car)},+m.dataset.wait||0)}}
+  const car=m.querySelector('.jn-car');if(car){car._g=SMG.cur;smFollow(car,parseFloat(car.style.left)||0,true);if(car.dataset.to)setTimeout(()=>{if(car.isConnected)smDrive(+car.dataset.to,car)},+m.dataset.wait||0)}}
 new MutationObserver(smScan).observe(document.getElementById('app'),{childList:true,subtree:true});
 /* the bubble over the car goes away for good once I say I got it */
-document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-kjtip]');if(!b)return;store.set('jnTip',1);const t=b.closest('.jn-tip');if(t){t.classList.add('out');setTimeout(()=>t.remove(),300)}});
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-kjtip]');if(!b)return;store.set('jnTip',1);const t=b.closest('.jn-tip,.vx-vtip');if(t){t.classList.add('out');setTimeout(()=>t.remove(),300)}});
 /* a tap on a stop: that step opens beside the map. Inside the open stage only the markers change. A stop of another stage opens that stage: forwards the car drives on,
    and back to an earlier stage it drives backwards along the road to its gate first, and then the stage unfolds */
 function jSelect(id){
@@ -12421,14 +12607,16 @@ function hubCard(x,P){
     ${gauge}
     <div class="kp-lane" aria-hidden="true"><i style="width:${pct}%"><span>${miniCar(cc)}</span></i><em>${ki('flag')}</em></div>
     <div class="kp-hcn"><span>${done} מתוך ${total} צעדים</span>${next?`<span>הצעד הבא: <b>${esc(next.t)}</b>${next.due?` · ${dueN(next)}`:''}</span>`:'<span>הדרך הושלמה</span>'}</div>
-    <div class="kp-hca">${ask?`<span class="kp-ask">להסיר את היעד הזה?</span><button class="btn soft sm" data-krmok="${esc(t.id)}">כן, להסיר</button><button class="linkbtn" data-krmno>ביטול</button>`:`<button class="btn primary" data-ktgt="${esc(t.id)}">להמשיך במסלול${ki('arrow')}</button><button class="linkbtn" data-krm="${t.id}">הסרה</button>`}</div></article>`}
+    <div class="kp-hca">${ask?`<span class="kp-ask">להסיר את היעד הזה?</span><button class="btn soft sm" data-krmok="${esc(t.id)}">כן, להסיר</button><button class="linkbtn" data-krmno>ביטול</button>`:`<button class="btn primary" data-ktgt="${esc(t.id)}">להמשיך במסלול</button><button class="linkbtn" data-krm="${t.id}">הסרה</button>`}</div></article>`}
 function hubPageHTML(){
   const P=pth(),L=tInfos(),best=L.length>1?L.slice().sort((a,b)=>b.pct-a.pct)[0]:null;
-  return `<section class="hero kp-hero kp-hubhero"><div class="wrap">${BACK}<span class="kicker" style="margin-top:10px">${ki('map')}המסלול שלי</span>
-      <h1 class="kp-hub-h">היעדים שלי</h1>
-      <p class="sub">${L.length>1?'כל יעד הוא טיסה משלו: וקטי של כל יעד מראה כמה מהדרך כבר עשיתי, ומתחת רואים את מצב הציונים מול הסף. בוחרים יעד כדי להמשיך בדרך שלו. כל היעדים נשארים.':'היעד שהצבתי, וכמה אחוזים מהדרך עשיתי. אפשר להוסיף עוד יעד ולהשוות: אותו תואר במוסד אחר, או תואר אחר.'}</p>
-      ${best&&best.pct>0?`<p class="kp-hubbest">${ki('star')}<span>הכי מתקדם עכשיו: <b>${esc(best.d.n)}</b> ${esc(bIn(best.I.n))} (${best.pct}%)</span></p>`:''}</div></section>
-    <div class="wrap kp-body">${hubQuizHTML()}<div class="kp-hub">${L.map(x=>hubCard(x,P)).join('')}${L.length<MAXT?`<button class="kp-hc add" data-kadd><span class="kp-addi">${FIC.plus}</span><b>הוספת יעד</b><small>תואר אחר, או אותו תואר במוסד אחר. כך אפשר להשוות כמה אני קרוב לכל אחד</small></button>`:''}</div>
+  return `<section class="kp-hubtop"><div class="wrap">${BACK}
+      <h1 class="kp-hub-h">המסלול שלי</h1>
+      <p class="sub">${L.length>1?'כל יעד הוא מסלול משלו: רואים כמה מהדרך כבר עשיתי ואיפה הציונים שלי מול הסף. בוחרים יעד כדי להמשיך בדרך שלו. כל היעדים נשארים.':'היעד שהצבתי וכמה מהדרך כבר עשיתי. אפשר להוסיף עוד יעד ולהשוות: אותו תואר במוסד אחר, או תואר אחר.'}${best&&best.pct>0?` הכי מתקדם עכשיו: <b>${esc(best.d.n)}</b> ${esc(bIn(best.I.n))}, ${best.pct}%.`:''}</p></div></section>
+    <div class="wrap kp-body">${hubQuizHTML()}
+      <div class="kp-hubh"><h2>היעדים שלי</h2>${L.length<MAXT?`<button type="button" class="btn soft kp-addbtn" data-kadd>הוספת יעד</button>`:''}</div>
+      ${L.length<MAXT?`<p class="kp-addnote">אפשר להוסיף תואר אחר, או אותו תואר במוסד אחר, כדי להשוות כמה אני קרוב לכל אחד.</p>`:''}
+      <div class="kp-hub">${L.map(x=>hubCard(x,P)).join('')}</div>
       <details class="adm dmeth kp-adm"><summary>איך מחושב האחוז?</summary><div class="admb"><p>האחוז הוא כמה מהצעדים בדרך ליעד כבר עשיתי. צעדים שאני מסמן ✓ נספרים, וגם צעדים שהמערכת מסמנת לפי הנתונים שלי (למשל, שיש לי ציון פסיכומטרי). כשאני קרוב לסף הקבלה, נספר גם חלק מהצעד "לעבור את סף הקבלה". זה לא סיכוי להתקבל: אין לנו נתונים רשמיים על סיכוי, והמוסד הוא שמחליט.</p></div></details></div>`}
 
 /* ---------- the gauge: my score against the threshold (the roads screen and the progress view) ---------- */
@@ -12938,8 +13126,8 @@ function nowHTML(pl){
         <li><i class="n" aria-hidden="true"></i><span><b>ענן אדום</b> הוא הצעד הבא: מה הכי כדאי לעשות עכשיו.</span></li>
         <li><i class="d" aria-hidden="true"></i><span><b>שובל צהוב</b> הוא הדרך שכבר טסתי.</span></li>
         <li class="jn-hint"><span>האחוז הוא כמה מהצעדים עשיתי, ולא סיכוי להתקבל.</span></li></ul></details></div></div>
-    <div class="jn-w" id="kpJw"><div id="kpJ">${journeyHTML(pl,t)}</div></div></section>`;
-  const nl=nx?`<p class="vx-nl"><span class="vx-nl-p num">${p}% מהדרך</span><span>הצעד הבא: <button type="button" class="linkbtn" data-kstop="${nx.id}">${esc(nx.t)}</button>${nx.due?` · ${esc(dueText(nx))}`:''}</span></p>`:`<p class="vx-nl"><span class="vx-nl-p num">${p}% מהדרך</span><span>כל הצעדים בדרך הושלמו</span></p>`;
+    ${!store.get('jnTip',0)?`<p class="vx-vtip"><span><b>זה אני:</b> וקטי הוא אני. לוחצים על ענן של צעד, ווקטי טס אליו. לוחצים על שלב כדי לפתוח אותו, ואם הוא מאחוריי, ווקטי טס אחורה.</span><button type="button" class="linkbtn" data-kjtip>הבנתי</button></p>`:''}<div class="jn-w" id="kpJw"><div id="kpJ">${journeyHTML(pl,t)}</div></div></section>`;
+  const nl=nx?`<p class="vx-nl"><span>אני כאן: <b>${esc(cz.t)}</b></span><span class="vx-nl-p num">${p}% מהדרך</span><span>הצעד הבא: <button type="button" class="linkbtn" data-kstop="${nx.id}">${esc(nx.t)}</button>${nx.due?` · ${esc(dueText(nx))}`:''}</span></p>`:`<p class="vx-nl"><span>אני כאן: <b>${esc(cz.t)}</b></span><span class="vx-nl-p num">${p}% מהדרך</span><span>כל הצעדים בדרך הושלמו</span></p>`;
   const side=`<aside class="vx-side" aria-label="הסבר על הצעד"><button type="button" class="vx-peekbtn" data-vxpeek aria-expanded="false" aria-label="פתיחת המידע על השלב"></button><span class="vx-grab" aria-hidden="true"></span><button type="button" class="vx-sclose" data-vxpeek aria-label="סגירה"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button><div class="vx-sidein">${nl}
       <div id="smStage">${safe(()=>smStageHTML(pl,t),'')}</div>
       <div class="kp-main" id="kpStep">${t?focusHTML(pl,t):doneHTML(pl)}</div></div></aside>`;
@@ -14342,6 +14530,7 @@ function refreshExplore(){
   if(sh)sh.hidden=hide;
   const eh=$('#exploreH');if(eh)eh.innerHTML=exploreHead();
   $('#filters').innerHTML=filtersHTML(); $('#gridHost').innerHTML=gridHTML();
+  const at=$('#admitTog');if(at)at.innerHTML=admitTogHTML();
   if(f&&!flip){const dy=f.getBoundingClientRect().top-top0;if(Math.abs(dy)>1)window.scrollBy({top:dy,behavior:'instant'})}
 }
 const exploreHead=()=>`<div><h2>${S.q?'תוצאות החיפוש':'כל התארים'}</h2><p>${S.q?'התארים שמתאימים למה שחיפשתי. אפשר לסנן ולמיין.':'כל התארים הראשונים בישראל. אפשר לחפש, לסנן ולמיין.'}</p></div>`;
@@ -15778,9 +15967,9 @@ function cgEmpty(title,text,clearHtml){
 /* ---------- degrees ---------- */
 function gridHTML(){
   const P=explorePool(),some=Object.values(S.f).some(Boolean)||S.cat!=='all';
-  if(!P.length)return cgEmpty('לא נמצאו תארים',`${some?'אפשר להסיר חלק מהסינונים, או ':''}לנסות מילה אחרת, שם של מקצוע (למשל "מתכנת") או שם של מוסד.`,some?'<button class="btn soft" data-fclear>ניקוי הסינון</button>':'');
+  if(!P.length)return admitNoteHTML()+cgEmpty('לא נמצאו תארים',`${some?'אפשר להסיר חלק מהסינונים, או ':''}לנסות מילה אחרת, שם של מקצוע (למשל "מתכנת") או שם של מוסד.`,some?'<button class="btn soft" data-fclear>ניקוי הסינון</button>':'');
   const shown=P.slice(0,S.shown);
-  return `<div class="cg-grid cg-list">${shown.map((d,i)=>card(d,{delay:Math.min(i%48,12)*30,row:true})).join('')}</div>${P.length>S.shown?`<div class="more"><button class="btn soft" data-more>להציג עוד (${P.length-S.shown} נוספים)</button></div>`:''}`;
+  return admitNoteHTML()+`<div class="cg-grid cg-list">${shown.map((d,i)=>card(d,{delay:Math.min(i%48,12)*30,row:true})).join('')}</div>${P.length>S.shown?`<div class="more"><button class="btn soft" data-more>להציג עוד (${P.length-S.shown} נוספים)</button></div>`:''}`;
 }
 /* a degree card: the field and the badges, the name, the types, and three facts in a fixed place */
 function card(d,opt={}){
@@ -16082,21 +16271,11 @@ function fDailyHTML(){
   const n=fqNow(),[q,tp]=fqPick(n.day),want=(store.get('fqWant',{})||{})[n.key],key=fqRef(n.day);
   const dateTxt=new Intl.DateTimeFormat('he-IL',{timeZone:'Asia/Jerusalem',weekday:'long',day:'numeric',month:'long'}).format(new Date());
   let ans=[];try{if(FM.state==='ready')ans=fAns(key)}catch(e){}
-  const last=ans.slice().sort((a,b)=>b.ts-a.ts)[0];
-  return `<section class="fq" aria-labelledby="fqH">
-    <div class="fq-v" aria-hidden="true">${vfSVG({decor:true,cls:'vf-perch vf-idle vf-happy'})}</div>
-    <div class="fq-b">
-      <p class="fq-k"><span>וקטי שואל</span><time>${dateTxt}</time></p>
-      <h2 class="fq-q" id="fqH">${esc(q)}</h2>
-      <div class="fq-t">${topicTag(tp)}<span class="fq-c">${FIC.chat}${ans.length?ans.length+(ans.length===1?' תשובה':' תשובות')+' עד עכשיו':'אפשר להיות הראשונים לענות'}</span></div>
-      ${last?`<p class="fq-last"><b>${esc(who(last.uid,last.anon))}:</b> ${esc(last.b.length>110?last.b.slice(0,110)+'…':last.b)}</p>`:''}
-      <div class="fq-a">
-        <button type="button" class="btn primary" data-fqans="${esc(key)}">לענות על השאלה</button>
-        <button type="button" class="btn soft" data-qo="${esc(key)}">לקרוא את התשובות</button>
-        <button type="button" class="btn soft fq-want" data-fqwant aria-pressed="${!!want}"><span class="fq-heart" aria-hidden="true"></span>גם אני רוצה לדעת</button>
-      </div>
-      <p class="fq-n">השאלה הבאה בעוד <b class="num" id="fqCD">${fqCD(n.left)}</b>. אותה שאלה לכולם, כל יום מחדש.</p>
-    </div></section>`;
+  return `<section class="fm-side fm-day" aria-labelledby="fqH"><h3>וקטי שואל · <time>${dateTxt}</time></h3>
+    <p class="fm-dq" id="fqH">${esc(q)}</p>
+    <p class="fm-dm">${topicTag(tp)} <span>${ans.length?ans.length+(ans.length===1?' תשובה':' תשובות'):'אפשר להיות הראשונים לענות'}</span></p>
+    <p class="fm-da"><button type="button" class="btn primary sm" data-fqans="${esc(key)}">לענות</button><button type="button" class="linkbtn" data-qo="${esc(key)}">לקרוא את התשובות</button><button type="button" class="linkbtn fq-want" data-fqwant aria-pressed="${!!want}">גם אני רוצה לדעת</button></p>
+    <p class="fm-dn">השאלה הבאה בעוד <b class="num" id="fqCD">${fqCD(n.left)}</b></p></section>`;
 }
 /* the countdown: it only ticks while the card is on the page */
 let FQ_T=0;
@@ -16168,7 +16347,7 @@ function filtersHTML(){
   if(f.sal)act.push(cgChip('שכר מעל ₪'+fmt(f.sal/1000)+'K','data-fset="d|sal|0"'));
   if(S.uni)act.push(cgChip(INST[S.uni].n,'data-uni=""'));
   if(f.grow)act.push(cgChip('חם בשוק','data-ftog="grow"'));
-  if(f.elig&&profileOK())act.push(cgChip('אפשר להתקבל עכשיו','data-ftog="elig"'));
+  if(f.elig&&profileOK())act.push(cgChip('תארים שאפשר להתקבל אליהם','data-ftog="elig"'));
   if(f.open)act.push(cgChip('בלי תנאי קבלה','data-ftog="open"'));
   const groups=[
     sbGrp('cat','תחום',S.cat==='all'?'הכל':CATS[S.cat].n,sbOpt('data-cat','all','כל התחומים',base.length,S.cat==='all')+Object.entries(CATS).map(([c,v])=>sbOpt('data-cat',c,v.n,base.filter(d=>d.c===c).length,S.cat===c,c)).join('')),
@@ -16228,8 +16407,11 @@ function cgRowHTML({attr,id,tag,name,desc,meta,badges,style,delay}){
 }
 function renderDegrees(){
   return `<div class="cg cg-deg cg-side">${cgHero({title:'תארים',sub:`${fmt(DEG.length)} תארים ב-${DATA.inst.length} מוסדות, לפי המל"ג`,inputId:'dq',ph:'חיפוש תואר או מוסד',aria:'חיפוש תואר או מוסד',val:S.q})}
+  <div class="admit-tog" id="admitTog">${admitTogHTML()}</div>
   <div class="cg-body sbl"><div id="filters">${filtersHTML()}</div><div id="gridHost">${gridHTML()}</div></div></div>`;
 }
+function admitTogHTML(){return profileOK()?`<button type="button" class="admit-b${S.f.elig?' on':''}" data-ftog="elig" aria-pressed="${!!S.f.elig}">תארים שאפשר להתקבל אליהם</button><span class="admit-s">לפי הפרופיל שלי</span>`:`<button type="button" class="linkbtn" data-prof>מלאו פרופיל קצר ותראו לאילו תארים אפשר להתקבל</button>`}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-admitview]');if(!b)return;S.f.elig=true;S.q='';S.shown=48;go('degrees')});
 document.addEventListener('click',e=>{
   const t=e.target.closest&&e.target.closest('[data-sbt]');
   if(t&&!matchMedia('(max-width:900px)').matches)return;   /* on a wide screen the group opens by pointing at it, and closes when the pointer leaves */
