@@ -29,5 +29,8 @@
 | `photos/deg-math.webp` | https://www.pexels.com/photo/close-up-of-complicated-equations-written-on-a-blackboard-22690751/ | Vitaly Gariev (https://www.pexels.com/@silverkblack/) | Pexels License (חופשי) | מתמטיקה ופיזיקה |
 | `photos/deg-dentistry.webp` | https://www.pexels.com/photo/a-close-up-shot-of-dental-equipment-6627668/ | Karola G (https://www.pexels.com/@karola-g/) | Pexels License (חופשי) | רפואת שיניים. מכשירים בלבד |
 | `photos/deg-aerospace.webp` | https://www.pexels.com/photo/view-of-white-airplane-wing-over-the-clouds-7902906/ | Vlada Karpovich (https://www.pexels.com/@vlada-karpovich/) | Pexels License (חופשי) | הנדסת אוירונוטיקה וחלל. בלי אנשים |
+| `photos/deg-architecture.webp` | https://www.pexels.com/photo/an-architect-s-work-table-with-tools-and-blueprints-6894105/ | Mikhail Nilov (https://www.pexels.com/@mikhail-nilov/) | Pexels License (חופשי) | אדריכלות. ידיים בלבד |
+| `photos/deg-music.webp` | https://www.pexels.com/photo/close-up-photo-of-a-piano-keys-and-sheet-music-10222321/ | cottonbro studio (https://www.pexels.com/@cottonbro/) | Pexels License (חופשי) | מוזיקה |
+| `photos/deg-art.webp` | https://www.pexels.com/photo/a-white-easel-with-paint-brushes-and-a-canvas-15405967/ | Bade Saba (https://www.pexels.com/@badesaba/) | Pexels License (חופשי) | אמנות |
 
 בחירת תמונות: אלה תמונות סצנה כלליות. אף אחת אינה מציגה סיפור, עדות או אדם מסוים כמייצג של וקטור. אין לוגואים או סימני מים.
