@@ -4963,6 +4963,17 @@ details.inst[open]>summary::after{transform:rotate(45deg)}
 .card.dgr{border:0!important;border-radius:0;padding:0;margin:0;background:none!important;box-shadow:none!important}
 .card.dgr:hover{background:none!important}
 @media(max-width:900px){.cg-list{gap:32px}.card.dgr{padding:0}}
+/* questionnaire: one accent colour, thin lines, no colour per option, no gradient bar */
+.vq-card::before{display:none}
+.vq-card{border:0;background:none;box-shadow:none}
+.dq-sec{background:none;padding:0;color:var(--muted);font-weight:600}
+.vq-o,.vq-o:nth-child(n){--oc:var(--action);--os:var(--action-soft);border:1px solid var(--line);font-weight:500;transform:none}
+.vq-o:hover,.vq-o:nth-child(n):hover{background:var(--surface-2);border-color:var(--line-strong);transform:none}
+.vq-o:active{transform:scale(.99)}
+.vq-ic{background:none;color:var(--text);width:auto;height:auto}
+.vq-o.vq-sel,.vq-o.vq-sel:nth-child(n){background:var(--action-soft);border:2px solid var(--action);color:var(--ink)}
+.vq-o.vq-sel .vq-ic{background:none;color:var(--action)}
+.vq-o.vq-sel::after{background:var(--action);color:#fff}
 .tasks,.plain{margin:0;padding-inline-start:1.2em}
 .tasks li,.plain li{margin:0 0 12px;font-size:var(--fs-3);line-height:1.7}
 .muted-p{color:var(--muted);font-size:var(--fs-2);line-height:1.7}
@@ -5036,7 +5047,7 @@ html.rg .vf2.vf-perch .vf-w.wf,html.rm .vf2.vf-perch .vf-w.wf{transform:rotate(1
     <div><h2>חשוב לדעת</h2><p>ספי הקבלה משתנים במהלך ההרשמה, וכל מוסד מחשב ממוצע בגרות בדרכו. לפני החלטה יש לבדוק באתר המוסד. האיורים הם קישוט בלבד.</p></div>
     <div><h2>תקנון ונגישות</h2><ul class="flinks"><li><button class="linkbtn" data-go="terms">תקנון ותנאי שימוש</button></li><li><button class="linkbtn" data-go="privacy">מדיניות פרטיות</button></li><li><button class="linkbtn" data-go="a11y">הצהרת נגישות</button></li><li><button class="linkbtn" id="a11yFoot">הגדרות נגישות</button></li></ul></div>
   </div>
-  <div class="wrap"><p class="fine ph-credit">Photos provided by <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> and <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (free licenses). תמונות: Vitaly Gariev, Kindel Media, Anna Shvets, Mikhail Nilov, Ludovic Delot, Ron Lach, Yan Krukau.</p></div>
+  <div class="wrap"><p class="fine ph-credit">Photos provided by <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> and <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (free licenses). תמונות: Vitaly Gariev, Kindel Media, Anna Shvets, Mikhail Nilov, Ludovic Delot, Ron Lach, Yan Krukau, Monstera Production, Sahil Singh.</p></div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="sr" id="live" role="status" aria-live="polite" aria-atomic="true"></div>
