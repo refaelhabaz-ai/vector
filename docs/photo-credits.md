@@ -18,5 +18,11 @@
 | `photos/cat-biz.webp` | https://www.pexels.com/photo/coworkers-looking-at-a-laptop-in-a-meeting-7698802/ | Yan Krukau (https://www.pexels.com/@yankrukov/) | Pexels License (חופשי) | קטגוריית כלכלה, ניהול ועסקים |
 | `photos/cat-hum.webp` | https://www.pexels.com/photo/man-and-woman-standing-holding-books-in-a-library-and-talking-8199629/ | Yan Krukau (https://www.pexels.com/@yankrukov/) | Pexels License (חופשי) | קטגוריית מדעי הרוח. נחתכה מריבוע ליחס 3:2 |
 | `photos/cat-science.webp` | https://www.pexels.com/photo/a-scientist-looking-through-a-microscope-9243737/ | Mikhail Nilov (https://www.pexels.com/@mikhail-nilov/) | Pexels License (חופשי) | קטגוריית מדעים וטבע |
+| `photos/deg-cs.webp` | https://www.pexels.com/photo/crop-faceless-programmer-working-on-laptop-in-studio-5926393/ | Sora Shimazaki (https://www.pexels.com/@sora-shimazaki/) | Pexels License (חופשי) | מדעי המחשב, הנדסת תוכנה, מערכות מידע. הוקטנה ל-1400px, בלי פנים מזוהות |
+| `photos/deg-law.webp` | https://www.pexels.com/photo/justice-scales-and-gavel-on-wooden-surface-5668882/ | Sora Shimazaki (https://www.pexels.com/@sora-shimazaki/) | Pexels License (חופשי) | משפטים. חפצים בלבד |
+| `photos/deg-medicine.webp` | https://www.pexels.com/photo/doctor-checking-the-heart-of-a-woman-5214992/ | Antoni Shkraba (https://www.pexels.com/@shkrabaanthony/) | Pexels License (חופשי) | רפואה |
+| `photos/deg-nursing.webp` | https://www.pexels.com/photo/person-in-blue-scrub-suit-holding-the-hand-of-a-patient-6129685/ | RDNE Stock project (https://www.pexels.com/@rdne/) | Pexels License (חופשי) | סיעוד והסבת אקדמאים לסיעוד. בלי פנים |
+| `photos/deg-civil.webp` | https://www.pexels.com/photo/man-in-blue-shirt-wearing-yellow-hard-hat-holding-white-paper-8961134/ | Mikael Blomkvist (https://www.pexels.com/@mikael-blomkvist/) | Pexels License (חופשי) | הנדסה אזרחית |
+| `photos/deg-economics.webp` | https://www.pexels.com/photo/statistics-on-a-desk-in-office-8124410/ | RDNE Stock project (https://www.pexels.com/@rdne/) | Pexels License (חופשי) | כלכלה. ידיים וגרפים בלבד |
 
 בחירת תמונות: אלה תמונות סצנה כלליות. אף אחת אינה מציגה סיפור, עדות או אדם מסוים כמייצג של וקטור. אין לוגואים או סימני מים.
