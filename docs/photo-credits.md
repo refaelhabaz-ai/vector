@@ -13,5 +13,10 @@
 | `photos/cat-social.webp` | https://www.pexels.com/photo/a-group-of-students-sitting-in-a-library-and-studying-16420457/ | Ludovic Delot (https://www.pexels.com/@delot/) | Pexels License (חופשי) | קטגוריית חברה, משפט והתנהגות |
 | `photos/cat-arts.webp` | https://www.pexels.com/photo/architect-working-on-architectural-model-9618453/ | Ron Lach (https://www.pexels.com/@ron-lach/) | Pexels License (חופשי) | קטגוריית עיצוב, אמנויות ואדריכלות |
 | `photos/cat-teach.webp` | https://www.pexels.com/photo/teacher-smiling-with-his-students-8617993/ | Yan Krukau (https://www.pexels.com/@yankrukov/) | Pexels License (חופשי) | קטגוריית הוראה וחינוך |
+| `photos/cat-tech.webp` | https://www.pexels.com/photo/multiethnic-students-gathering-around-table-with-laptop-6238170/ | Monstera Production (https://www.pexels.com/@gabby-k/) | Pexels License (חופשי) | קטגוריית מחשבים, מידע ובינה מלאכותית. הוקטנה ל-1400px |
+| `photos/cat-health.webp` | https://www.pexels.com/photo/medical-training-simulation-with-mannequin-and-student-35645532/ | Sahil Singh (https://www.pexels.com/@sahilcaptures/) | Pexels License (חופשי) | קטגוריית רפואה ובריאות |
+| `photos/cat-biz.webp` | https://www.pexels.com/photo/coworkers-looking-at-a-laptop-in-a-meeting-7698802/ | Yan Krukau (https://www.pexels.com/@yankrukov/) | Pexels License (חופשי) | קטגוריית כלכלה, ניהול ועסקים |
+| `photos/cat-hum.webp` | https://www.pexels.com/photo/man-and-woman-standing-holding-books-in-a-library-and-talking-8199629/ | Yan Krukau (https://www.pexels.com/@yankrukov/) | Pexels License (חופשי) | קטגוריית מדעי הרוח. נחתכה מריבוע ליחס 3:2 |
+| `photos/cat-science.webp` | https://www.pexels.com/photo/a-scientist-looking-through-a-microscope-9243737/ | Mikhail Nilov (https://www.pexels.com/@mikhail-nilov/) | Pexels License (חופשי) | קטגוריית מדעים וטבע |
 
 בחירת תמונות: אלה תמונות סצנה כלליות. אף אחת אינה מציגה סיפור, עדות או אדם מסוים כמייצג של וקטור. אין לוגואים או סימני מים.
