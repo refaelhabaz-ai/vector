@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-9ZxR4DNMAcyCmHxvrxwi+zIqFSvIJ6zWqqQ73U0r1bU=' 'sha256-3/2vZFZG4HL0lwpfVO+y83w2+57JpJ/yKU2ekKjx18I='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-59RT4qFlMO+nSbkT0ntvCf9evV2xlOtQPICtkZc/lQk=' 'sha256-3/2vZFZG4HL0lwpfVO+y83w2+57JpJ/yKU2ekKjx18I='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -4981,6 +4981,7 @@ details.inst[open]>summary::after{transform:rotate(45deg)}
 .vr-tab[aria-selected="true"] .vr-tt b{color:var(--ink)}
 .vr-tab[aria-selected="true"] .vr-tt small{color:var(--action-ink)}
 .vr-tab[aria-selected="true"] .vr-ti{background:#fff;color:var(--action)}
+.intro-hook{font-size:var(--fs-4)!important;line-height:1.65!important;color:var(--ink)!important;font-weight:400}
 .tasks,.plain{margin:0;padding-inline-start:1.2em}
 .tasks li,.plain li{margin:0 0 12px;font-size:var(--fs-3);line-height:1.7}
 .muted-p{color:var(--muted);font-size:var(--fs-2);line-height:1.7}
@@ -5277,13 +5278,14 @@ function careerSections(d){
 }
 /* "מה לומדים": the official text of the field, without its first sentence (that one is in the top of the page), the courses as plain chips, long text behind "קראו עוד" */
 function degLearnHTML(d,f){
-  const t=f&&f.desc?f.desc.trim():'';if(!t)return '';
+  const hook=introHTML('deg',d.id),t=f&&f.desc?f.desc.trim():'';if(!t&&!hook)return '';
+  if(!t)return `<section class="blk" id="learnsec"><h2>מה לומדים</h2>${hook}</section>`;
   let lead=t,courses=[];const m=t.match(/בין הקורסים[^:]{0,40}:\s*([\s\S]+?)\.?$/);
   if(m){lead=t.slice(0,m.index).trim();courses=[...new Set(m[1].split(/,\s*/).map(x=>x.trim().replace(/\.$/,'')).filter(x=>x&&x!=='ועוד'))]}
   const rest=lead.split(/(?<=\.)\s+/).slice(1).join(' ').trim();
   const para=rest?(rest.length>260?`<p>${esc(rest.slice(0,rest.lastIndexOf(' ',220)))}…</p><details class="more"><summary>קראו עוד</summary><p>${esc(rest)}</p></details>`:`<p>${esc(rest)}</p>`):'';
   const chips=courses.length?`<ul class="courses">${courses.slice(0,10).map(c=>`<li>${esc(c)}</li>`).join('')}${courses.length>10||m?'<li class="etc">ועוד</li>':''}</ul>${courses.length>10?`<details class="more"><summary>כל הקורסים ברשימה</summary><ul class="courses">${courses.slice(10).map(c=>`<li>${esc(c)}</li>`).join('')}</ul></details>`:''}`:'';
-  return `<section class="blk" id="learnsec"><h2>מה לומדים</h2>${para}${chips}${AVSRC('Academic/'+d.av)}</section>`;
+  return `<section class="blk" id="learnsec"><h2>מה לומדים</h2>${hook}${para}${chips}${AVSRC('Academic/'+d.av)}</section>`;
 }
 /* ---------- occupation deep-dive page ---------- */
 function snapParts(L){
@@ -5780,7 +5782,8 @@ function renderMahat(i){
     </div><div class="dp-art dpc-art">${ill({id:'mh'+i,n:m.n,c:'eng'})}</div></div>
   </div></section>
   <div class="wrap dp-body">
-    ${courses.length||(pg.sub||[]).length?`<section class="blk" id="learnsec"><h2>מה לומדים</h2>
+    ${courses.length||(pg.sub||[]).length||INTRO.mh[i]?`<section class="blk" id="learnsec"><h2>מה לומדים</h2>
+      ${introHTML('mh',i)}
       ${courses.length?`<ul class="courses">${courses.slice(0,10).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${courses.length>10?`<details class="more"><summary>עוד ${courses.length-10} נושאים</summary><ul class="courses">${courses.slice(10).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>`:''}`:''}
       ${(pg.sub||[]).length?`<p class="muted-p">מגמות משנה:</p><ul class="courses">${pg.sub.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
     </section>`:''}
@@ -9122,6 +9125,7 @@ function renderOcc(id){
   </div></section>
   <div class="wrap dp-body">
     <section class="blk" id="aboutsec"><h2>על המקצוע</h2>
+      ${introHTML('occ',id)}
       ${(o.tasks||[]).length?`<ul class="tasks">${o.tasks.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:(o.d?`<p>${esc(o.d)}</p>`:'')}
       ${(o.titles||[]).length?`<p class="muted-p">שמות נוספים של המקצוע: ${o.titles.map(esc).join(' · ')}</p>`:''}
     </section>
@@ -14462,6 +14466,9 @@ function renderDegree(d){
 /* one plain sentence about the field: the first sentence of the official Avodata text, taken as it is; a degree with no field says so quietly */
 function degLede(d){if(d.pro==='md'||d.pro==='dmd')return '';const f=fieldOf(d),t=f&&f.desc?f.desc.trim().split(/(?<=\.)\s+/)[0]:'';
   return t?`<p class="dp-lead dp-desc">${esc(t)}</p>`:`<p class="dp-lead dp-desc dp-nodesc">אין תיאור רשמי לתואר הזה.</p>`}
+/*@@INTRO@@*/const INTRO={"deg":{"d20":"מה אפשר לפתור בעזרת מחשב, וכמה זמן וזיכרון זה ידרוש? מדעי המחשב מתחילים משאלות כאלה, ומשם מגיעים אל דברים שאנחנו פוגשים כל יום: הצפנה שמגינה על התקשורת שלנו, זיהוי דיבור, גרפיקה של משחקים וסרטים ומערכות שלומדות ומסתגלות. בתואר לומדים איך מתכננים אלגוריתמים, איך מארגנים מידע ואיך בונים מערכות שעובדות.","d31":"למה אנחנו שמים לב לדברים מסוימים ומתעלמים מאחרים? איך אדם משתנה לאורך החיים? ומה קורה בנפש מעבר למה שאנחנו מודעים אליו? הפסיכולוגיה חוקרת חשיבה, רגש והתנהגות בדרכים מדעיות, עם ניסויים, תצפיות וניתוח נתונים. היא רחבה מאוד: מתפקוד המוח ועד יחסים בין אנשים, ומי שלומד אותה מתרגל לשאול שאלות על בני אדם ולבדוק את התשובות.","d10":"איך גורמים לבית חולים לקצר את זמני ההמתנה, או למפעל להעביר חלקים כבדים בצורה בטוחה ויעילה? הנדסת תעשייה היא הנדסה של מערכות שלמות, שבהן אנשים, מכונות, חומרים ומידע צריכים לעבוד יחד. בתואר משלבים מתמטיקה, סטטיסטיקה וחשיבה על ארגונים כדי לתכנן, למדוד ולשפר את הדרך שבה דברים נעשים.","d28":"מה עושים כשאדם, משפחה או קהילה שלמה נתקעים בקושי שקשה לצאת ממנו לבד? עבודה סוציאלית היא מקצוע ותחום אקדמי שעוסק בדיוק בזה: ללוות אנשים בקשיי החיים, לחזק את הרווחה שלהם, ולצד זה לפעול לשינוי חברתי. העבודה נעשית ברמת הפרט והמשפחה, בקבוצות ובקהילות, ולפעמים גם בקביעת מדיניות. בבסיס המקצוע בעולם עומדים ערכים כמו צדק חברתי, זכויות אדם וכבוד לכל אדם.","d239":"חוקים הם כללי המשחק שחברה כותבת לעצמה: מה מותר, מה קורה כשמפרים הסכם, ואיך מכריעים כשיש מחלוקת. לימודי משפטים מלמדים לקרוא את הכללים האלה, להבין מאיפה הם באים (חקיקה, החלטות של שופטים, חוקה) ולהשתמש בהם כדי לטעון, לייעץ ולנסח. התחום רחב: הוא נוגע בחוזים, ברכוש, במשפחה, בקניין רוחני ובמשפט פלילי, ועוד.","d14":"למה אנשים בוחרים בדבר אחד ולא באחר? איך חברות וממשלות מחליטות מה לעשות עם משאבים מוגבלים? כלכלה חוקרת איך אנשים, ארגונים ומדינות מקבלים החלטות כשיש פחות ממה שרוצים, ומה יוצא מהמפגש ביניהם. במיקרו-כלכלה מסתכלים על אנשים ושווקים, ובמקרו-כלכלה על כלכלה שלמה: צמיחה, אינפלציה ומדיניות. בעשורים האחרונים תופסת מקום גדול יותר גם ההתנהגות האמיתית של אנשים, לא רק מה שהם \"אמורים\" לעשות בתיאוריה.","d38":"אפליקציה שנראית פשוטה היא תוצאה של הרבה החלטות: מה בדיוק היא צריכה לעשות, איך מחלקים אותה לחלקים שמדברים זה עם זה, איך בודקים שהיא עובדת, ואיך ממשיכים לתחזק ולשפר אותה אחרי שיצאה. הנדסת תוכנה מיישמת עקרונות הנדסיים על בניית תוכנה אמינה שעונה על צרכי המשתמשים. חלק מהאתגר הוא עבודה בצוותים, לפעמים רחוקים זה מזה, על מערכות שממשיכות להשתנות.","d7":"הטלפון בכיס, ה-GPS, בקרת השיוט במכונית ורשת החשמל שמגיעה לכל בית: מאחורי כולם עומדת הנדסת חשמל. התחום עוסק בחשמל, באלקטרוניקה ובאלקטרומגנטיות: איך מייצרים ומעבירים אנרגיה, איך שולחים מידע בכבלים, בסיבים אופטיים ובאוויר, ואיך מתכננים מעגלים ומערכות בקרה שגורמים למכשירים להתנהג כמו שרוצים.","d0":"סיעוד משלב ידע מדעי עם טיפול באדם עצמו: לא רק לתת תרופות, אלא להעריך את מצבו, ללמד אותו ואת משפחתו איך להתמודד, ולתאם עם שאר אנשי הצוות. אחיות ואחים עובדים בבתי חולים, במרפאות, בקהילה ובבתי מטופלים, ועוסקים גם בקידום בריאות ובמניעת מחלות. את יסודות המקצוע המודרני הניחה פלורנס נייטינגייל, שהדגישה תברואה וניקיון והשתמשה בסטטיסטיקה כדי לחקור אותה.","d24":"בניגוד לרוב המדעים, במתמטיקה לא בודקים בניסוי אם משהו נכון: מוכיחים אותו, צעד אחר צעד, מתוך הנחות ברורות. מי שלומד מתמטיקה עוסק במספרים, בצורות, בפונקציות ובהסתברות, ומגלה שהמבנים המופשטים האלה מסתתרים מאחורי הצפנה של מידע, מבנה ההיגיון של מחשבים ומודלים שמשמשים מדענים ומהנדסים. זה תואר של חשיבה מדויקת: לנסח שאלה היטב ולבנות טיעון שאי אפשר לסתור."},"occ":{},"mh":{}};/*@@INTRO-END@@*/
+const INTRO_NOTE='הפתיח נכתב בידי צוות וקטור על סמך ידע מקובל על התחום, ונבדק מול מקורות אמינים. כל המספרים והנתונים בעמוד מגיעים ממקורות רשמיים.';
+const introHTML=(k,id)=>INTRO[k]&&INTRO[k][id]?`<p class="intro-hook">${esc(INTRO[k][id])}</p><p class="fine">${INTRO_NOTE}</p>`:'';
 const DEG_PHOTO={d31:['degree-psychology','פסיכולוגית מקשיבה למטופל בשיחה בחדר טיפולים מואר',1400,788,'22% 50%']};
 const CAT_PHOTO={tech:['cat-tech','ארבעה סטודנטים עובדים יחד על פרויקט עם מחשב נייד סביב שולחן',1400,934],health:['cat-health','סטודנטית לרפואה מתרגלת בדיקה על בובת הדמיה בחדר לימוד',1400,934],science:['cat-science','מדען במדי מגן מביט במיקרוסקופ במעבדה',1400,934],biz:['cat-biz','צוות סביב שולחן מנתח נתונים פיננסיים במחשב נייד',1400,934],hum:['cat-hum','שני סטודנטים משוחחים בין מדפי ספרייה',1400,934],eng:['cat-eng','שתי סטודנטיות וסטודנטים בונים רובוט במשקפי מגן',1400,933],social:['cat-social','שלושה סטודנטים קוראים יחד ספר בספרייה',1400,933],design:['cat-arts','אדריכל בונה מודל של שכונה בקנה מידה קטן',1400,933],teach:['cat-teach','מורה מחייך מול כיתה מוארת',1400,933]};
 function degArtHTML(d){const p=DEG_PHOTO[d.id]||CAT_PHOTO[d.c];
