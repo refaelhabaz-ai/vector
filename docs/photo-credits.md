@@ -28,5 +28,6 @@
 | `photos/deg-chemistry.webp` | https://www.pexels.com/photo/colored-liquid-on-laboratory-glassware-8442647/ | Pavel Danilyuk (https://www.pexels.com/@pavel-danilyuk/) | Pexels License (חופשי) | כימיה. כלי זכוכית בלבד |
 | `photos/deg-math.webp` | https://www.pexels.com/photo/close-up-of-complicated-equations-written-on-a-blackboard-22690751/ | Vitaly Gariev (https://www.pexels.com/@silverkblack/) | Pexels License (חופשי) | מתמטיקה ופיזיקה |
 | `photos/deg-dentistry.webp` | https://www.pexels.com/photo/a-close-up-shot-of-dental-equipment-6627668/ | Karola G (https://www.pexels.com/@karola-g/) | Pexels License (חופשי) | רפואת שיניים. מכשירים בלבד |
+| `photos/deg-aerospace.webp` | https://www.pexels.com/photo/view-of-white-airplane-wing-over-the-clouds-7902906/ | Vlada Karpovich (https://www.pexels.com/@vlada-karpovich/) | Pexels License (חופשי) | הנדסת אוירונוטיקה וחלל. בלי אנשים |
 
 בחירת תמונות: אלה תמונות סצנה כלליות. אף אחת אינה מציגה סיפור, עדות או אדם מסוים כמייצג של וקטור. אין לוגואים או סימני מים.
