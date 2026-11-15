@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-aCX3PfKbRRQB0NPyCYmAF9x/rHrl9if+XvkK1BnlkTQ=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Y4KR9O3lqPJlKN4leFOY9A7NyacYmQuT11dC3ATULrY=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5511,6 +5511,25 @@ html.rg .hm7-ph,html.rm .hm7-ph{animation:none}
   .hm7-one img{display:block;width:100%;height:100%;object-fit:cover;max-width:none}
 }
 @media(max-width:640px){.hm7-one{width:62%;aspect-ratio:1/1}}
+
+/* ---------- the top and the close with one large photo behind the content (hm8) ---------- */
+.hm8{isolation:isolate}
+.hm8>.hm8-bg{position:absolute;inset-block:0;left:0;right:auto;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 22%;max-width:none;animation:hm8in 1.8s ease-out both}
+@keyframes hm8in{from{opacity:0;transform:scale(1.05)}to{opacity:1;transform:none}}
+html.rg .hm8>.hm8-bg,html.rm .hm8>.hm8-bg{animation:none}
+/* the veil: light, so the headline, the search and the card stay readable; the photo shows at the edges and fades into white below */
+.hm8::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 58% 72% at 50% 52%,rgba(255,255,255,.93) 0%,rgba(255,255,255,.82) 58%,rgba(255,255,255,.18) 100%),linear-gradient(180deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 70%,#fff 100%)}
+.hm8.hm6-end::after{background:radial-gradient(ellipse 62% 72% at 50% 50%,rgba(255,255,255,.93) 0%,rgba(255,255,255,.82) 55%,rgba(255,255,255,.34) 100%),linear-gradient(180deg,#fff 0%,rgba(255,255,255,0) 22%,rgba(255,255,255,0) 78%,#fff 100%)}
+.hm8.hm6-hero>.hm8-bg{width:128%;object-position:50% 6%}
+.hm8.hm6-hero{margin-bottom:0}
+.hm8.hm6-end{border-top:0}
+@media(max-width:1179px){
+  .hm8>.hm8-bg,.hm8.hm6-hero>.hm8-bg{width:100%;object-position:52% 24%}
+  .hm8.hm6-end>.hm8-bg{object-position:72% 50%}
+  .hm8::after{background:linear-gradient(180deg,rgba(255,255,255,.84) 0%,rgba(255,255,255,.74) 55%,rgba(255,255,255,.3) 80%,#fff 100%)}
+  .hm8.hm6-hero{padding-bottom:clamp(110px,22vw,200px)}
+  .hm8.hm6-end::after{background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.78) 22%,rgba(255,255,255,.78) 70%,#fff 100%)}
+}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -5539,7 +5558,7 @@ html.rg .hm7-ph,html.rm .hm7-ph{animation:none}
     <div><h2>חשוב לדעת</h2><p>ספי הקבלה משתנים במהלך ההרשמה, וכל מוסד מחשב ממוצע בגרות בדרכו. לפני החלטה יש לבדוק באתר המוסד. האיורים הם קישוט בלבד.</p></div>
     <div><h2>תקנון ונגישות</h2><ul class="flinks"><li><button class="linkbtn" data-go="terms">תקנון ותנאי שימוש</button></li><li><button class="linkbtn" data-go="privacy">מדיניות פרטיות</button></li><li><button class="linkbtn" data-go="a11y">הצהרת נגישות</button></li><li><button class="linkbtn" id="a11yFoot">הגדרות נגישות</button></li></ul></div>
   </div>
-  <div class="wrap"><p class="fine ph-credit">Photos provided by <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> and <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (free licenses). תמונות: Vitaly Gariev, Kindel Media, Anna Shvets, Mikhail Nilov, Ludovic Delot, Ron Lach, Yan Krukau, Monstera Production, Sahil Singh, Sora Shimazaki, Antoni Shkraba, RDNE Stock project, Mikael Blomkvist, Rūdolfs Klintsons, Pavel Danilyuk, Karola G, Vlada Karpovich, cottonbro studio, Bade Saba.</p></div>
+  <div class="wrap"><p class="fine ph-credit">Photos provided by <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> and <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a> (free licenses). תמונות: Vitaly Gariev, Kindel Media, Anna Shvets, Mikhail Nilov, Ludovic Delot, Ron Lach, Yan Krukau, Monstera Production, Sahil Singh, Sora Shimazaki, Antoni Shkraba, RDNE Stock project, Mikael Blomkvist, Rūdolfs Klintsons, Pavel Danilyuk, Karola G, Vlada Karpovich, cottonbro studio, Bade Saba, ThisIsEngineering.</p></div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="sr" id="live" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -14902,8 +14921,8 @@ function renderHome(){
   const resume=pathHomeHTML(),nD=DEG.length,nO=Object.keys(OC).length,nM=(MAHAT||[]).length,nI=DATA.inst.length,done=dirDone();
   const ph=n=>`photos/${n}.webp`;
   return `<div class="hm hm5">
-  <section class="hm6-hero" aria-labelledby="hmH1">
-    <figure class="hm7-ph l"><img src="${ph('cat-hum')}" width="1400" height="934" alt="שני סטודנטים קוראים יחד בספרייה" fetchpriority="high"></figure>
+  <section class="hm6-hero hm8" aria-labelledby="hmH1">
+    <img class="hm8-bg" src="${ph('home-hero')}" width="1800" height="1200" alt="מהנדסת צעירה מחייכת בסדנה" fetchpriority="high">
     <div class="hm6-mid">
       <h1 id="hmH1" class="hm6-h1">כל התארים, המקצועות ומסלולי ההנדסאים בישראל, <span class="hm5-curio"><em>במקום אחד</em></span></h1>
       <div class="hm5-find">
@@ -14913,8 +14932,6 @@ function renderHome(){
       </div>
       <button type="button" class="hm5-quiz" data-go="path" data-tour="quiz"><span class="hm5-qv" aria-hidden="true">${ki('compass')}</span><span class="hm5-qt"><b>${done?'לתוצאות השאלון שלכם':'לא יודעים מה לחפש? גלו מה מתאים לכם'}</b><small>${done?'אפשר גם לעדכן את התשובות.':'שאלון של 4 דקות. אין תשובות נכונות ולא נכונות.'}</small></span><span class="hm5-qgo">${done?'לתוצאות':'מתחילים'}</span></button>
     </div>
-    <figure class="hm7-ph r"><img src="${ph('cat-arts')}" width="1400" height="933" alt="יד מרכיבה דגם אדריכלי קטן" fetchpriority="high"></figure>
-    <figure class="hm7-one" aria-hidden="true"><img src="${ph('cat-hum')}" width="1400" height="934" alt="" loading="lazy"></figure>
   </section>
   ${resume?`<div class="hm-resume">${resume}</div>`:''}
   <section class="hm5-s2" aria-labelledby="hmH2">
@@ -14928,15 +14945,13 @@ function renderHome(){
       ${hmFeature('f5','#7A4B00','לא שוכחים את הכסף',`${fmt(SCH.length)} מלגות ומימונים, עם התנאים והמועדים.`,hmVisSch(),'sch','למלגות')}
     </div>
   </section>
-  <section class="hm6-end" aria-labelledby="hmH3">
-    <figure class="hm7-ph l" aria-hidden="true"><img src="${ph('deg-architecture')}" width="1400" height="788" alt="" loading="lazy"></figure>
+  <section class="hm6-end hm8" aria-labelledby="hmH3">
+    <img class="hm8-bg" src="${ph('home-end')}" width="1600" height="1067" alt="" loading="lazy">
     <div class="hm6-mid hm6-emid">
       <h2 id="hmH3">מוכנים <span class="hm5-curio"><em>להתחיל</em></span>?</h2>
       <p>ארבע דקות של שאלון, ויש לכם כיוון. או חפשו ישר מה שמעניין אתכם.</p>
       <p class="hm5-ea"><button type="button" class="btn primary" data-go="path">${done?'לתוצאות השאלון':'גלו מה מתאים לכם'}</button><button type="button" class="linkbtn" data-hmtop>לחיפוש</button></p>
     </div>
-    <figure class="hm7-ph r" aria-hidden="true"><img src="${ph('cat-health')}" width="1400" height="934" alt="" loading="lazy"></figure>
-    <figure class="hm7-one" aria-hidden="true"><img src="${ph('deg-architecture')}" width="1400" height="788" alt="" loading="lazy"></figure>
   </section>
 </div>`;
 }

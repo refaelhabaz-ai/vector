@@ -32,5 +32,7 @@
 | `photos/deg-architecture.webp` | https://www.pexels.com/photo/an-architect-s-work-table-with-tools-and-blueprints-6894105/ | Mikhail Nilov (https://www.pexels.com/@mikhail-nilov/) | Pexels License (חופשי) | אדריכלות. ידיים בלבד |
 | `photos/deg-music.webp` | https://www.pexels.com/photo/close-up-photo-of-a-piano-keys-and-sheet-music-10222321/ | cottonbro studio (https://www.pexels.com/@cottonbro/) | Pexels License (חופשי) | מוזיקה |
 | `photos/deg-art.webp` | https://www.pexels.com/photo/a-white-easel-with-paint-brushes-and-a-canvas-15405967/ | Bade Saba (https://www.pexels.com/@badesaba/) | Pexels License (חופשי) | אמנות |
+| `photos/home-hero.webp` | https://www.pexels.com/photo/female-engineer-standing-in-workshop-3862614/ | ThisIsEngineering (https://www.pexels.com/@thisisengineering/) | Pexels License (חופשי) | הוקטנה ל-1800px; רקע החלק העליון של דף הבית |
+| `photos/home-end.webp` | https://www.pexels.com/photo/students-studying-inside-the-library-8199659/ | Yan Krukau (https://www.pexels.com/@yankrukov/) | Pexels License (חופשי) | הוקטנה ל-1600px; רקע החלק התחתון של דף הבית |
 
 בחירת תמונות: אלה תמונות סצנה כלליות. אף אחת אינה מציגה סיפור, עדות או אדם מסוים כמייצג של וקטור. אין לוגואים או סימני מים.
