@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-KkghNE44UWrJWFjsnXK3CcIIMFRkHgtVuV6ssdALKEQ=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Bwg1S0r7EqnbVh8yTIQ3a5J/lPWXb0M9pEY9pbe6Q4w=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5417,6 +5417,82 @@ html[dir=rtl] .hm5-vk{inset-inline-start:auto;inset-inline-end:calc(100% - (var(
 .hm5 .hm-modes:not(.ind-on) button[aria-pressed="true"]{box-shadow:inset 0 -3px 0 var(--ho)}
 html.rg .hm5-ind,html.rm .hm5-ind{transition:none}
 @media(max-width:640px){.hm5-endin{grid-template-columns:minmax(0,1fr)}.hm5-qv{width:48px}}
+
+/* ---------- the top and the close of the home page (hm6): centred, the search is the hero, photos and colour on both sides ---------- */
+.hm6-hero,.hm6-end{position:relative;display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,780px) minmax(150px,1fr);align-items:center;overflow-x:clip;box-sizing:border-box}
+.hm6-hero{min-height:calc(100svh - var(--hh,84px));padding:clamp(22px,2.6vw,40px) clamp(16px,2vw,32px) clamp(24px,3vw,44px)}
+.hm6-mid{grid-column:2;grid-row:1;position:relative;z-index:3;min-width:0;text-align:center}
+/* the page reads right to left: the first grid column is the right one */
+.hm6-side.r{grid-column:1;grid-row:1}.hm6-side.l{grid-column:3;grid-row:1}
+.hm6-side{position:relative;align-self:stretch;min-height:440px;min-width:0}
+.hm6-side .f{position:absolute;z-index:2;object-fit:cover;height:auto;max-width:none;background:#E8EEFB;animation:hm6in .9s var(--ease-out,cubic-bezier(.2,.8,.2,1)) both;animation-delay:calc(var(--i,0)*.14s + .1s)}
+.hm6-side .f.b{animation-delay:.3s}.hm6-side .f.c{animation-delay:.5s}
+.hm6-side .sh{position:absolute;z-index:1;display:block}
+@keyframes hm6in{from{opacity:0;transform:translateY(20px) scale(.94)}to{opacity:1;transform:none}}
+/* left column of photos */
+.hm6-side.l .f.a{width:78%;aspect-ratio:3/4;left:4%;top:2%;border-radius:var(--r-leaf)}
+.hm6-side.l .f.b{width:62%;aspect-ratio:1;right:0;top:44%;border-radius:50%;border:8px solid #fff}
+.hm6-side.l .f.c{width:42%;aspect-ratio:2/3;left:10%;bottom:1%;border-radius:999px 999px 14px 14px}
+.hm6-side.l .sh.a{width:58%;aspect-ratio:1;left:-4%;top:12%;background:#D6E4FF;border-radius:var(--r-leaf2)}
+.hm6-side.l .sh.b{width:44%;aspect-ratio:1;right:-4%;top:44%;background:var(--ho);border-radius:50%}
+.hm6-side.l .sh.c{width:18%;aspect-ratio:1;left:4%;bottom:10%;background:#12A26B;border-radius:50%}
+/* right column of photos */
+.hm6-side.r .f.a{width:96%;aspect-ratio:4/3;right:2%;top:3%;border-radius:var(--r-leaf2)}
+.hm6-side.r .f.b{width:58%;aspect-ratio:1;left:0;top:42%;border-radius:50%;border:8px solid #fff}
+.hm6-side.r .f.c{width:44%;aspect-ratio:2/3;right:10%;bottom:1%;border-radius:var(--r-leaf)}
+.hm6-side.r .sh.a{width:62%;aspect-ratio:1;right:-4%;top:-2%;background:#FFD9CE;border-radius:var(--r-leaf)}
+.hm6-side.r .sh.b{width:30%;aspect-ratio:1;left:-2%;top:40%;background:var(--hy);border-radius:50%}
+.hm6-side.r .sh.c{width:22%;aspect-ratio:1;right:6%;bottom:6%;background:var(--hb);border-radius:50%}
+/* the headline: big, light, one phrase in colour with the hand-drawn underline */
+.hm6-h1{font:300 clamp(32px,4.5vw,68px)/1.12 var(--font-head);color:var(--ink);margin:0 auto clamp(40px,4.4vw,64px);text-wrap:balance}
+.hm6-h1 .hm5-curio em{color:var(--ho)}
+/* tabs and the search: the search is the hero */
+.hm6-mid .hm5-find{max-width:780px;margin:clamp(14px,1.6vw,22px) auto 0}
+.hm6-mid .hm-modes{justify-content:center}
+.hm6-mid .hm5-search{min-height:84px;padding:0 12px 0 26px;border:2px solid var(--hb);box-shadow:-10px 10px 0 #CFE0FF;background:#fff;text-align:start;transition:box-shadow .2s,border-color .2s}
+.hm6-mid .hm5-search:focus-within{border-color:var(--ink);box-shadow:-14px 14px 0 #BBD1FF}
+.hm6-mid .hm5 .hm5-search input,.hm5 .hm6-mid .hm5-search input{height:80px;font-size:clamp(19px,1.8vw,24px)}
+.hm6-mid .hm5-go{width:64px;height:64px}.hm6-mid .hm5-search>svg{width:28px;height:28px}
+/* the questionnaire: secondary, centred under the search */
+.hm6-mid .hm5-quiz{width:auto;max-width:640px;margin:clamp(26px,3vw,40px) auto 0;border:1px solid var(--line);background:#fff}
+.hm6-mid .hm5-qgo{background:#fff;color:var(--ho);border:2px solid var(--ho);padding:11px 22px}
+.hm6-mid .hm5-quiz:hover .hm5-qgo{background:var(--ho);color:#fff}
+/* the strip of photos for narrower screens */
+.hm6-strip{display:none}
+html.rg .hm6-side .f,html.rm .hm6-side .f{animation:none}
+@media(max-width:1179px){
+  .hm6-hero,.hm6-end{grid-template-columns:minmax(0,1fr)}
+  .hm6-hero{min-height:0;align-items:start}
+  .hm6-side{display:none}
+  .hm6-mid{grid-column:1}
+  .hm6-strip{display:block;grid-column:1;grid-row:2;position:relative;height:clamp(120px,24vw,230px);margin-top:clamp(26px,4vw,40px)}
+  .hm6-strip img{position:absolute;object-fit:cover;height:auto;max-width:none;background:#E8EEFB}
+  .hm6-strip .a{width:20%;aspect-ratio:3/4;right:3%;bottom:0;border-radius:var(--r-leaf);z-index:2}
+  .hm6-strip .b{width:34%;aspect-ratio:4/3;right:21%;top:0;border-radius:var(--r-leaf2);z-index:2}
+  .hm6-strip .c{width:22%;aspect-ratio:1;right:53%;bottom:0;border-radius:50%;border:5px solid #fff;z-index:3}
+  .hm6-strip .d{width:19%;aspect-ratio:1;right:73%;top:2%;border-radius:var(--r-leaf);z-index:2}
+  .hm6-strip::before,.hm6-strip::after{content:"";position:absolute;border-radius:50%;z-index:1}
+  .hm6-strip::before{width:15%;aspect-ratio:1;right:12%;top:-6%;background:var(--ho)}
+  .hm6-strip::after{width:11%;aspect-ratio:1;right:47%;top:4%;background:#12A26B}
+}
+@media(max-width:640px){
+  .hm6-hero{padding-top:24px}.hm6-h1{font-size:30px;margin-bottom:22px}
+  .hm6-mid .hm5-search{min-height:68px;padding-left:8px}.hm6-mid .hm5 .hm5-search input,.hm5 .hm6-mid .hm5-search input{height:64px;font-size:17px}.hm6-mid .hm5-go{width:50px;height:50px}
+  .hm6-mid .hm5-search{box-shadow:-6px 6px 0 #CFE0FF}
+  .hm6-mid .hm5-quiz{text-align:start}
+}
+/* the close: the same composition as the top, with other photos and the colours turned round */
+.hm6-end{min-height:clamp(480px,50vw,660px);padding:clamp(56px,7vw,104px) clamp(16px,2vw,32px);border-top:1px solid var(--line)}
+.hm6-emid h2{font:300 clamp(40px,5.8vw,88px)/1.04 var(--font-head);color:var(--ink);margin:0 0 14px}
+.hm6-emid h2 .hm5-curio em{color:var(--ho)}
+.hm6-emid p{margin:0 auto 24px;max-width:34ch;font-size:clamp(18px,1.6vw,22px);color:var(--ink2)}
+.hm6-emid .hm5-ea{justify-content:center;margin:0}
+.hm6-emid .hm5-ea .btn{min-height:64px;padding:0 44px;font-size:var(--fs-4)}
+.hm6-end .hm6-side .f{animation:none}
+.hm6-end .hm6-side.l .sh.a{background:#D3F1E5}.hm6-end .hm6-side.r .sh.a{background:#D6E4FF}
+.hm6-end .hm6-side.l .sh.b{background:var(--hb)}.hm6-end .hm6-side.l .sh.c{background:var(--hy)}
+.hm6-end .hm6-side.r .sh.b{background:var(--ho)}.hm6-end .hm6-side.r .sh.c{background:#12A26B}
+@media(max-width:1179px){.hm6-end{min-height:0;text-align:center}}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -14808,25 +14884,29 @@ function renderHome(){
   const resume=pathHomeHTML(),nD=DEG.length,nO=Object.keys(OC).length,nM=(MAHAT||[]).length,nI=DATA.inst.length,done=dirDone();
   const ph=n=>`photos/${n}.webp`;
   return `<div class="hm hm5">
-  <section class="hm5-hero" aria-labelledby="hmH1">
-    <div class="hm5-in">
-      <div class="hm5-copy">
-        <h1 id="hmH1">כל התארים, המקצועות ומסלולי ההנדסאים בישראל, במקום אחד</h1>
-        <div class="hm5-find">
-          <div class="hm-modes" role="group" aria-label="מה מחפשים">${tab('deg','תארים')}${tab('occ','מקצועות')}${tab('tech','הנדסאים וטכנאים')}<span class="hm5-ind" aria-hidden="true"></span></div>
-          <div class="hm5-search searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <input id="q" type="search" autocomplete="off" placeholder="${lab}" aria-label="${lab}" value=""><button type="button" class="hm5-go" id="hmGo" aria-label="חיפוש"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><div class="sugg" id="sugg" hidden></div></div>
-        </div>
-        <button type="button" class="hm5-quiz" data-go="path" data-tour="quiz"><span class="hm5-qv" aria-hidden="true">${ki('compass')}</span><span class="hm5-qt"><b>${done?'לתוצאות השאלון שלכם':'לא יודעים מה לחפש? גלו מה מתאים לכם'}</b><small>${done?'אפשר גם לעדכן את התשובות.':'שאלון של 4 דקות. אין תשובות נכונות ולא נכונות.'}</small></span><span class="hm5-qgo">${done?'לתוצאות':'מתחילים'}</span></button>
-      </div>
-      <div class="hm5-art">
-        <div class="hm4-photos" aria-hidden="false">
-          <img class="p1" src="${ph('hero-students')}" width="1400" height="788" alt="סטודנטים לומדים יחד סביב מחשב נייד" fetchpriority="high">
-          <img class="p2" src="${ph('hero-lab')}" width="800" height="1067" alt="סטודנטית במעבדה עם משקפי מגן ומבחנות צבעוניות">
-          <img class="p3" src="${ph('hero-studio')}" width="1000" height="666" alt="שני צעירים יוצרים יחד עם סקיצות על הרצפה">
-        </div>
-      </div>
+  <section class="hm6-hero" aria-labelledby="hmH1">
+    <div class="hm6-side l" role="group" aria-label="תמונות מעולמות הלימוד">
+      <i class="sh a" aria-hidden="true"></i><i class="sh b" aria-hidden="true"></i><i class="sh c" aria-hidden="true"></i>
+      <img class="f a" src="${ph('hero-lab')}" width="800" height="1067" alt="סטודנטית במעבדה עם מבחנות צבעוניות" fetchpriority="high">
+      <img class="f b" src="${ph('cat-eng')}" width="1400" height="933" alt="שני צעירים מרכיבים מנוע בסדנה">
+      <img class="f c" src="${ph('deg-civil')}" width="933" height="1400" alt="שני בוני אתר עם תוכנית בנייה">
     </div>
+    <div class="hm6-mid">
+      <h1 id="hmH1" class="hm6-h1">כל התארים, המקצועות ומסלולי ההנדסאים בישראל, <span class="hm5-curio"><em>במקום אחד</em></span></h1>
+      <div class="hm5-find">
+        <div class="hm-modes" role="group" aria-label="מה מחפשים">${tab('deg','תארים')}${tab('occ','מקצועות')}${tab('tech','הנדסאים וטכנאים')}<span class="hm5-ind" aria-hidden="true"></span></div>
+        <div class="hm5-search searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" autocomplete="off" placeholder="${lab}" aria-label="${lab}" value=""><button type="button" class="hm5-go" id="hmGo" aria-label="חיפוש"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><div class="sugg" id="sugg" hidden></div></div>
+      </div>
+      <button type="button" class="hm5-quiz" data-go="path" data-tour="quiz"><span class="hm5-qv" aria-hidden="true">${ki('compass')}</span><span class="hm5-qt"><b>${done?'לתוצאות השאלון שלכם':'לא יודעים מה לחפש? גלו מה מתאים לכם'}</b><small>${done?'אפשר גם לעדכן את התשובות.':'שאלון של 4 דקות. אין תשובות נכונות ולא נכונות.'}</small></span><span class="hm5-qgo">${done?'לתוצאות':'מתחילים'}</span></button>
+    </div>
+    <div class="hm6-side r">
+      <i class="sh a" aria-hidden="true"></i><i class="sh b" aria-hidden="true"></i><i class="sh c" aria-hidden="true"></i>
+      <img class="f a" src="${ph('hero-studio')}" width="1000" height="666" alt="שני צעירים יוצרים יחד עם סקיצות על הרצפה" fetchpriority="high">
+      <img class="f b" src="${ph('cat-health')}" width="1400" height="934" alt="אחות בודקת מטופל במיטה">
+      <img class="f c" src="${ph('deg-chemistry')}" width="935" height="1400" alt="בקבוקי כימיה צבעוניים">
+    </div>
+    <div class="hm6-strip" aria-hidden="true"><img class="a" src="${ph('hero-lab')}" width="800" height="1067" alt=""><img class="b" src="${ph('hero-studio')}" width="1000" height="666" alt=""><img class="c" src="${ph('cat-eng')}" width="1400" height="933" alt=""><img class="d" src="${ph('cat-health')}" width="1400" height="934" alt=""></div>
   </section>
   ${resume?`<div class="hm-resume">${resume}</div>`:''}
   <section class="hm5-s2" aria-labelledby="hmH2">
@@ -14840,11 +14920,26 @@ function renderHome(){
       ${hmFeature('f5','#7A4B00','לא שוכחים את הכסף',`${fmt(SCH.length)} מלגות ומימונים, עם התנאים והמועדים.`,hmVisSch(),'sch','למלגות')}
     </div>
   </section>
-  <section class="hm5-end" aria-labelledby="hmH3"><div class="hm5-w hm5-endin">
-    <div><h2 id="hmH3">מוכנים להתחיל?</h2><p>ארבע דקות של שאלון, ויש לכם כיוון. או חפשו ישר מה שמעניין אתכם.</p>
-      <p class="hm5-ea"><button type="button" class="btn primary" data-go="path">${done?'לתוצאות השאלון':'גלו מה מתאים לכם'}</button><button type="button" class="linkbtn" data-hmtop>לחיפוש</button></p></div>
-    <img class="hm5-ep" src="${ph('hero-lab')}" width="800" height="1067" alt="" loading="lazy" aria-hidden="true">
-  </div></section>
+  <section class="hm6-end" aria-labelledby="hmH3">
+    <div class="hm6-side l" aria-hidden="true">
+      <i class="sh a"></i><i class="sh b"></i><i class="sh c"></i>
+      <img class="f a" src="${ph('cat-biz')}" width="1400" height="934" alt="" loading="lazy">
+      <img class="f b" src="${ph('cat-hum')}" width="1400" height="934" alt="" loading="lazy">
+      <img class="f c" src="${ph('deg-art')}" width="986" height="1400" alt="" loading="lazy">
+    </div>
+    <div class="hm6-mid hm6-emid">
+      <h2 id="hmH3">מוכנים <span class="hm5-curio"><em>להתחיל</em></span>?</h2>
+      <p>ארבע דקות של שאלון, ויש לכם כיוון. או חפשו ישר מה שמעניין אתכם.</p>
+      <p class="hm5-ea"><button type="button" class="btn primary" data-go="path">${done?'לתוצאות השאלון':'גלו מה מתאים לכם'}</button><button type="button" class="linkbtn" data-hmtop>לחיפוש</button></p>
+    </div>
+    <div class="hm6-side r" aria-hidden="true">
+      <i class="sh a"></i><i class="sh b"></i><i class="sh c"></i>
+      <img class="f a" src="${ph('cat-social')}" width="1400" height="933" alt="" loading="lazy">
+      <img class="f b" src="${ph('cat-science')}" width="1400" height="934" alt="" loading="lazy">
+      <img class="f c" src="${ph('deg-architecture')}" width="1400" height="788" alt="" loading="lazy">
+    </div>
+    <div class="hm6-strip" aria-hidden="true"><img class="a" src="${ph('cat-biz')}" width="1400" height="934" alt="" loading="lazy"><img class="b" src="${ph('cat-social')}" width="1400" height="933" alt="" loading="lazy"><img class="c" src="${ph('cat-science')}" width="1400" height="934" alt="" loading="lazy"><img class="d" src="${ph('deg-art')}" width="986" height="1400" alt="" loading="lazy"></div>
+  </section>
 </div>`;
 }
 
