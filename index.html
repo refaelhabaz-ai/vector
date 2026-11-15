@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-jmASaRh2COM4uY9Tyj1EwMgQzS4CYCi2fMRchkPsTJY=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-oRcd9XSNIt0vwktSOOpfn4DBAmKOYTYVd3LWF/a9RNU=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5561,6 +5561,27 @@ html.rg .hm8>.hm8-bg,html.rm .hm8>.hm8-bg{animation:none}
 }
 @keyframes dtIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1!important;transform:none!important;transition:none!important}.hm5-fv{opacity:1!important;transform:none!important;transition:none!important}details[open]>:not(summary){animation:none!important}}
+
+/* ---------- page transitions: the view fades out, the next one fades in with a slight rise; the header and the fixed buttons stay ---------- */
+#hdr{view-transition-name:hdr}
+#a11yBtn{view-transition-name:a11yfab}
+.vb-launch{view-transition-name:botfab}
+::view-transition-group(hdr),::view-transition-group(a11yfab),::view-transition-group(botfab){animation-duration:0s}
+::view-transition-old(hdr),::view-transition-new(hdr),::view-transition-old(a11yfab),::view-transition-new(a11yfab),::view-transition-old(botfab),::view-transition-new(botfab){animation:none;mix-blend-mode:normal}
+::view-transition-old(root){animation:pgOut .18s cubic-bezier(.4,0,1,1) both;mix-blend-mode:normal}
+::view-transition-new(root){animation:pgIn .42s cubic-bezier(.2,.8,.2,1) .14s both;mix-blend-mode:normal}
+@keyframes pgOut{to{opacity:0}}
+@keyframes pgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* without the View Transitions API: the new view fades in with the same rise */
+.view.pg-in{animation:pgIn .42s cubic-bezier(.2,.8,.2,1) both}
+@media (prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root){animation:none}.view.pg-in{animation:none}}
+html.rg ::view-transition-old(root),html.rg ::view-transition-new(root),html.rm ::view-transition-old(root),html.rm ::view-transition-new(root){animation:none}
+html.rg .view.pg-in,html.rm .view.pg-in{animation:none}
+/* sheets and dialogs: a gentle fade and rise */
+@media (prefers-reduced-motion:no-preference){
+  html:not(.rg):not(.rm) .ov .sheet{opacity:0;transform:translateY(12px);transition:transform .42s cubic-bezier(.2,.8,.2,1),opacity .34s ease-out}
+  html:not(.rg):not(.rm) .ov.show .sheet{opacity:1;transform:none}
+}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -15737,12 +15758,17 @@ function onRoute(){
   S.route=parse();S.navDir=rest?'back':'fwd';NAVT=Date.now();
   if(S.route.v==='degrees'){if(!back&&!S.keepQ)degReset();S.keepQ=false}
   if(rest&&S.route.v==='forum')FF.keep=true; /* going back to the Q&A keeps the filters I chose */if((S.route.v==='dir'||(S.route.v==='path'&&!hasGoal()&&!dirDone()))&&!['q','guess','day','trans'].includes(VQU.mode)&&!VQU.keepRes)VQU.mode='intro';VQU.keepRes=0;
-  const swap=()=>{closeOv(true);render();
+  const run=()=>{closeOv(true);render();
     /* back: the previous screen at the exact same place, set before it is painted (and once more after, in case something grew) */
     if(rest){const y=NAV.y[h];window.scrollTo({top:y,left:0,behavior:'instant'});requestAnimationFrame(()=>{if(Math.abs(scrollY-y)>2)window.scrollTo({top:y,left:0,behavior:'instant'})})}
     else window.scrollTo({top:0,left:0,behavior:'instant'});
     a11yRoute(newScreen)};
-  swap()}
+  /* a new screen: the old one fades out, the new one fades in with a slight rise; the scroll is set while it is hidden. The header and the fixed buttons keep their place (they have their own transition names). The search tabs, expanders and a repeated link do not come here as a new screen. */
+  if(newScreen&&!pgReduced()&&!(typeof VT!=='undefined'&&VT.on)){
+    if(document.startViewTransition){try{document.startViewTransition(run);return}catch(e){}}
+    run();const v=document.querySelector('#app .view');if(v)v.classList.add('pg-in');return}
+  run()}
+const pgReduced=()=>{const c=document.documentElement.classList;return c.contains('rm')||c.contains('rg')||matchMedia('(prefers-reduced-motion: reduce)').matches};
 let ROUTE_H=location.hash.slice(1);
 function go(h){
   NAV.y[location.hash.slice(1)]=scrollY;
@@ -15751,6 +15777,37 @@ function go(h){
 }
 function goBack(){NAV.y[location.hash.slice(1)]=scrollY; if(NAV.stack.length>1)history.back(); else go('')}
 addEventListener('hashchange',onRoute);
+
+/* ================= smooth, soft wheel scrolling (mouse wheel and trackpad; not touch) =================
+   The wheel moves a target position; the page eases toward it with an exponential curve. SW_TAU is the softness (seconds; the page is 95% there after 3*tau, 99% after 4.6*tau),
+   SW_MULT is how far one wheel step goes compared with the browser's own (1 = the same). The scrollbar, the keyboard, links, a modal, an inner scroll area and the tour keep the native scroll. */
+const SW_TAU=.28,SW_MULT=.9;
+const SW={cur:0,t:0,raf:0,last:0};
+const swOff=()=>{const de=document.documentElement,c=de.classList;
+  return !matchMedia('(pointer: fine)').matches||pgReduced()||c.contains('vt-on')||c.contains('vx-lock')||document.body.style.overflow==='hidden'||!!document.getElementById('ov')||!!document.querySelector('#kpJ.is-full,.vx-sheet.open,.dp-sheet.open')};
+/* an inner area that can still scroll that way keeps the wheel */
+function swInner(el,d){
+  for(;el&&el!==document.body&&el!==document.documentElement;el=el.parentElement){
+    if(el.tagName==='TEXTAREA'||el.tagName==='SELECT'){if(el.scrollHeight>el.clientHeight+1)return true;continue}
+    const o=getComputedStyle(el).overflowY;
+    if((o==='auto'||o==='scroll')&&el.scrollHeight>el.clientHeight+1){const top=el.scrollTop<=0,bot=el.scrollTop+el.clientHeight>=el.scrollHeight-1;if((d<0&&!top)||(d>0&&!bot))return true}}
+  return false}
+function swStep(ts){
+  const dt=Math.min(.064,Math.max(.001,(ts-SW.last)/1000));SW.last=ts;
+  SW.cur+=(SW.t-SW.cur)*(1-Math.exp(-dt/SW_TAU));
+  if(Math.abs(SW.t-SW.cur)<.4){SW.cur=SW.t;window.scrollTo({top:SW.cur,left:0,behavior:'instant'});SW.raf=0;return}
+  window.scrollTo({top:SW.cur,left:0,behavior:'instant'});SW.raf=requestAnimationFrame(swStep)}
+addEventListener('wheel',e=>{
+  if(e.ctrlKey||e.metaKey||e.defaultPrevented||e.deltaY===0||Math.abs(e.deltaX)>Math.abs(e.deltaY)||swOff())return;
+  if(swInner(e.target,e.deltaY))return;
+  e.preventDefault();
+  let d=e.deltaY;if(e.deltaMode===1)d*=34;else if(e.deltaMode===2)d*=innerHeight;
+  const max=document.documentElement.scrollHeight-innerHeight;
+  if(!SW.raf){SW.cur=scrollY;SW.t=scrollY;SW.last=performance.now()}
+  SW.t=Math.max(0,Math.min(max,SW.t+d*SW_MULT));
+  if(!SW.raf)SW.raf=requestAnimationFrame(swStep)},{passive:false});
+/* anything else that moved the page (scrollbar, keyboard, a link, back) takes over: the target follows it */
+addEventListener('scroll',()=>{if(Math.abs(scrollY-SW.cur)>2){SW.cur=SW.t=scrollY;if(SW.raf){cancelAnimationFrame(SW.raf);SW.raf=0}}},{passive:true});
 
 /* ================= SEARCH ================= */
 let sugIdx=-1;
