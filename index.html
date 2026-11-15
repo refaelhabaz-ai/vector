@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-SqkhKpw+WxadyowLflGh4oYeeA6d4Geo9d9AygZmb58=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-KkghNE44UWrJWFjsnXK3CcIIMFRkHgtVuV6ssdALKEQ=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5402,6 +5402,21 @@ html[dir=rtl] .hm5-vk{inset-inline-start:auto;inset-inline-end:calc(100% - (var(
   .hm5-st span{font-size:12px}.hm5-st i{width:30px;height:30px}.hm5-st::before{inset-block-start:14px}
   .hm5-endin{grid-template-columns:minmax(0,1fr)}.hm5-ev{width:110px}.hm5-ep{display:none}
 }
+
+/* the small label above a title: plain text on its own line, clear of "חזרה" */
+.kicker{display:block;width:fit-content;margin:20px 0 6px!important;padding:0;border-radius:0;background:none;color:var(--action-ink,#B9361A);font:600 var(--fs-1)/1.3 var(--font-body)}
+.kicker svg{display:inline-block;vertical-align:-3px;margin-inline-end:6px}
+/* the home page without Vekti: the questionnaire card carries a plain compass, the close is text and a photo */
+.hm5-qv{display:grid;place-items:center;width:clamp(52px,4.4vw,64px);aspect-ratio:1;margin:0;border-radius:50%;background:#fff;border:2px solid var(--ho);color:var(--ho)}
+.hm5-qv svg{width:56%;height:56%}
+.hm5-endin{grid-template-columns:minmax(0,1fr) auto}
+.hm5-here{position:absolute;inset-block-start:-26px;font:700 var(--fs-1)/1 var(--font-body);font-style:normal;color:var(--ho);white-space:nowrap}
+.hm5 .hm-modes{position:relative}
+.hm5 .hm-modes button{border-bottom:0;transition:color .25s}
+.hm5-ind{position:absolute;inset-block-end:0;height:3px;width:0;background:var(--ho);transition:left .32s cubic-bezier(.4,0,.2,1),width .32s cubic-bezier(.4,0,.2,1)}
+.hm5 .hm-modes:not(.ind-on) button[aria-pressed="true"]{box-shadow:inset 0 -3px 0 var(--ho)}
+html.rg .hm5-ind,html.rm .hm5-ind{transition:none}
+@media(max-width:640px){.hm5-endin{grid-template-columns:minmax(0,1fr)}.hm5-qv{width:48px}}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -10256,7 +10271,7 @@ document.addEventListener('click',e=>{
   const el=e.target.closest('[data-mode],[data-techq],[data-jobsq],[data-shelfall],[data-jg],[data-jt],[data-jclear],[data-jclearq],[data-jmore],[data-tk],[data-tclear],[data-tclearq],[data-auth],[data-signout],#acctBtn');
   if(!el)return;const ds=el.dataset;
   if(el.id==='acctBtn'){ACC.cur()?openAcct():openAuth({})}
-  else if(ds.mode!==undefined){if(S.mode===ds.mode)return;const v=($('#q')||{}).value||'';S.mode=ds.mode;store.set('mode',S.mode);
+  else if(ds.mode!==undefined){if(S.mode===ds.mode)return;if(S.route&&S.route.v==='home'&&document.querySelector('.hm5 .hm-modes')){hmMode(ds.mode);return}const v=($('#q')||{}).value||'';S.mode=ds.mode;store.set('mode',S.mode);
     render();const q=$('#q');if(q){q.value=v;if(v){q.focus({preventScroll:true});q.dispatchEvent(new Event('input'))}else{const t=document.querySelector('[data-mode="'+ds.mode+'"]');if(t)t.focus({preventScroll:true})}}}
   else if(ds.techq!==undefined){TF.q=(($('#q')||{}).value||'').trim();TF.kind='';go('tech')}
   else if(ds.jobsq!==undefined){JOBF.q=(($('#q')||{}).value||'').trim();JOBF.sort='';JOBF.shown=36;go('jobs')}
@@ -14734,24 +14749,35 @@ function hmReveal(){
   if(RM()||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('on'));return}
   const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}}),{threshold:.35});els.forEach(e=>io.observe(e))}
 document.addEventListener('click',e=>{if(!e.target.closest||!e.target.closest('[data-hmtop]'))return;scrollTo({top:0,behavior:RM()?'auto':'smooth'});setTimeout(()=>{const q=document.getElementById('q');if(q)q.focus({preventScroll:true})},RM()?0:450)});
-function hmAlive(){
-  hmReveal();
-  const m=document.getElementById('hmMascot');if(!m)return;
-  if(!m.firstChild){m.innerHTML=vfSVG({perch:true,flip:true,cls:'vf-perch vf-idle'});setTimeout(()=>vfWave(m.querySelector('svg')),900)}
-  clearInterval(HM.h);HM.h=setInterval(()=>{if(!m.isConnected){clearInterval(HM.h);return}vfHop(m.querySelector('svg'))},7500);
-  const say=document.getElementById('hmSay');
-  if(RM())return;
-  let n=0;clearInterval(HM.t);HM.t=setInterval(()=>{if(!say.isConnected){hmStop();return}n=(n+1)%HM_SAY.length;say.classList.add('fade');setTimeout(()=>{say.textContent=HM_SAY[n];say.classList.remove('fade')},350)},6000);
+/* the tab underline: it slides to the selected tab. Set without a transition when the page is drawn */
+function hmInd(anim){
+  const g=document.querySelector('.hm5 .hm-modes');if(!g)return;const on=g.querySelector('[aria-pressed="true"]'),ind=g.querySelector('.hm5-ind');if(!on||!ind||!on.offsetWidth)return;
+  if(!anim)ind.style.transition='none';
+  ind.style.left=on.offsetLeft+'px';ind.style.width=on.offsetWidth+'px';g.classList.add('ind-on');
+  if(!anim){void ind.offsetWidth;ind.style.transition=''}}
+addEventListener('resize',()=>hmInd(false));
+/* a tab was chosen: only the state, the placeholder and the underline change. The page is not drawn again */
+function hmMode(k){
+  if(S.mode===k)return;const q=document.getElementById('q'),v=q?q.value:'';
+  S.mode=k;store.set('mode',S.mode);
+  document.querySelectorAll('.hm5 .hm-modes [data-mode]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===k));
+  const lab=k==='occ'?'חיפוש מקצוע':k==='tech'?'חיפוש הנדסאים וטכנאים':'חיפוש תואר או מוסד';
+  if(q){q.setAttribute('aria-label',lab);q.placeholder=lab;const sg=document.getElementById('sugg');if(sg){sg.hidden=true;sg.innerHTML=''}}
+  hmInd(true);hmPh();
+  if(q&&v)q.dispatchEvent(new Event('input'))}
+/* the search box shows examples being typed (the examples follow the tab) */
+function hmPh(){
+  clearInterval(HM.p);if(RM())return;
   const q=document.getElementById('q');if(!q)return;
   const md=S.mode==='occ'||S.mode==='tech'?S.mode:'deg',L=HM_EX[md],base=q.getAttribute('aria-label');let w=0,c=0,hold=0,dir=1;
-  clearInterval(HM.p);HM.p=setInterval(()=>{
+  HM.p=setInterval(()=>{
     if(!q.isConnected){hmStop();return}
     if(document.activeElement===q||q.value){q.placeholder=base;return}
     if(hold>0){hold--;return}
     const word=L[w];c+=dir;q.placeholder=base+': '+word.slice(0,c);
     if(dir>0&&c>=word.length){hold=16;dir=-1}else if(dir<0&&c<=0){dir=1;w=(w+1)%L.length;hold=3}
-  },90);
-}
+  },90)}
+function hmAlive(){hmReveal();hmInd(false);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>hmInd(false));hmPh()}
 /* ---------- the home page: what Vector is (one line), the search, the questionnaire; below, what you do here, shown with the real product ---------- */
 function hmSampleDeg(){
   const ids=['d20','d13','d1'],c=ids.map(i=>BY[i]).filter(Boolean).concat(DEG).filter(d=>d&&d.avHow==='exact'&&salOf(d)>0&&fieldOf(d)&&fieldOf(d).desc);
@@ -14767,8 +14793,8 @@ function hmVisQuiz(){
   return `<div class="hm5-qz"><ul class="hm5-wl" aria-label="הכיוונים שהשאלון מכיר">${W.map((w,i)=>`<li style="--wc:${['#1D4FC4','#C23A1B','#0A7455'][i%3]}"><i>${ki(VQW_IC[w.id]||'compass')}</i><span>${esc(w.n)}</span></li>`).join('')}</ul></div>`}
 function hmVisMap(){
   const Z=['g10','g11','g12','svc','prep','reg','go'],at=4;
-  return `<div class="hm5-mp"><ol class="hm5-st" style="--n:${Z.length}">${Z.map((z,i)=>`<li class="${i<at?'d':i===at?'c':''}"><i>${i<at?ki('check'):i+1}</i><span>${esc(ZSH[z])}</span></li>`).join('')}</ol>
-    <div class="hm5-vk" style="--at:${at}" aria-hidden="true">${vfSVG({decor:true,cls:'vf-perch vf-idle vf-happy'})}</div><p class="hm5-mpn">דוגמה: כך נראית המפה, עם סימון "אני כאן"</p></div>`}
+  return `<div class="hm5-mp"><ol class="hm5-st" style="--n:${Z.length}">${Z.map((z,i)=>`<li class="${i<at?'d':i===at?'c':''}">${i===at?'<em class="hm5-here">אני כאן</em>':''}<i>${i<at?ki('check'):i+1}</i><span>${esc(ZSH[z])}</span></li>`).join('')}</ol>
+<p class="hm5-mpn">דוגמה: כך נראית המפה, עם סימון "אני כאן"</p></div>`}
 function hmVisForum(){
   const L=(typeof IDEAS!=='undefined'?IDEAS:[]).slice(0,3);
   return `<div class="hm5-fq"><p class="hm5-cap">דוגמאות לשאלות שאפשר לשאול</p><ul>${L.map(t=>`<li><button type="button" data-ask data-at="${esc(t)}">${esc(t)}</button></li>`).join('')}</ul></div>`}
@@ -14787,11 +14813,11 @@ function renderHome(){
       <div class="hm5-copy">
         <h1 id="hmH1">כל התארים, המקצועות ומסלולי ההנדסאים בישראל, במקום אחד</h1>
         <div class="hm5-find">
-          <div class="hm-modes" role="group" aria-label="מה מחפשים">${tab('deg','תארים')}${tab('occ','מקצועות')}${tab('tech','הנדסאים וטכנאים')}</div>
+          <div class="hm-modes" role="group" aria-label="מה מחפשים">${tab('deg','תארים')}${tab('occ','מקצועות')}${tab('tech','הנדסאים וטכנאים')}<span class="hm5-ind" aria-hidden="true"></span></div>
           <div class="hm5-search searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
             <input id="q" type="search" autocomplete="off" placeholder="${lab}" aria-label="${lab}" value=""><button type="button" class="hm5-go" id="hmGo" aria-label="חיפוש"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><div class="sugg" id="sugg" hidden></div></div>
         </div>
-        <button type="button" class="hm5-quiz" data-go="path" data-tour="quiz"><span class="hm5-qv" aria-hidden="true">${vfSVG({perch:true,cls:'vf-perch vf-idle vf-happy'})}</span><span class="hm5-qt"><b>${done?'לתוצאות השאלון שלכם':'לא יודעים מה לחפש? גלו מה מתאים לכם'}</b><small>${done?'אפשר גם לעדכן את התשובות.':'שאלון של 4 דקות. אין תשובות נכונות ולא נכונות.'}</small></span><span class="hm5-qgo">${done?'לתוצאות':'מתחילים'}</span></button>
+        <button type="button" class="hm5-quiz" data-go="path" data-tour="quiz"><span class="hm5-qv" aria-hidden="true">${ki('compass')}</span><span class="hm5-qt"><b>${done?'לתוצאות השאלון שלכם':'לא יודעים מה לחפש? גלו מה מתאים לכם'}</b><small>${done?'אפשר גם לעדכן את התשובות.':'שאלון של 4 דקות. אין תשובות נכונות ולא נכונות.'}</small></span><span class="hm5-qgo">${done?'לתוצאות':'מתחילים'}</span></button>
       </div>
       <div class="hm5-art">
         <div class="hm4-photos" aria-hidden="false">
@@ -14799,7 +14825,6 @@ function renderHome(){
           <img class="p2" src="${ph('hero-lab')}" width="800" height="1067" alt="סטודנטית במעבדה עם משקפי מגן ומבחנות צבעוניות">
           <img class="p3" src="${ph('hero-studio')}" width="1000" height="666" alt="שני צעירים יוצרים יחד עם סקיצות על הרצפה">
         </div>
-        <div class="hm5-guide"><button type="button" class="hm-say" id="hmSay" data-hmbot>${HM_SAY[0]}</button><button type="button" class="hm-mascot" id="hmMascot" data-hmbot aria-label="וקטי, העוזר האישי. לפתיחת השיחה"></button></div>
       </div>
     </div>
   </section>
@@ -14816,7 +14841,6 @@ function renderHome(){
     </div>
   </section>
   <section class="hm5-end" aria-labelledby="hmH3"><div class="hm5-w hm5-endin">
-    <div class="hm5-ev" aria-hidden="true">${vfSVG({decor:true,cls:'vf-perch vf-idle vf-happy'})}</div>
     <div><h2 id="hmH3">מוכנים להתחיל?</h2><p>ארבע דקות של שאלון, ויש לכם כיוון. או חפשו ישר מה שמעניין אתכם.</p>
       <p class="hm5-ea"><button type="button" class="btn primary" data-go="path">${done?'לתוצאות השאלון':'גלו מה מתאים לכם'}</button><button type="button" class="linkbtn" data-hmtop>לחיפוש</button></p></div>
     <img class="hm5-ep" src="${ph('hero-lab')}" width="800" height="1067" alt="" loading="lazy" aria-hidden="true">
@@ -16036,9 +16060,8 @@ function vtStart({first=false,replay=false}={}){
   vtDOM();
   ['#hdr','#app','footer','#a11yBtn','#trayHost'].forEach(s=>{const e=document.querySelector(s);if(e)e.inert=true});document.querySelectorAll('.vb').forEach(e=>e.inert=true);
   const W=vtBirdW(),H=W*VF_FOOT.ratio;
-  /* the first time he flies in from outside the screen; on a replay he takes off from where he sits in the hero */
-  const m=document.getElementById('hmMascot'),mr=m?m.getBoundingClientRect():null;
-  VT.pos=mr&&replay&&mr.width>0?[mr.left+mr.width/2,mr.top+mr.height/2]:[innerWidth+W,-H];
+  /* he flies in from outside the screen (he is not on the page before the tour) */
+  VT.pos=[innerWidth+W,-H];
   vtDOM();if(vtReduce())VT.pos=null;
   document.addEventListener('keydown',vtKey,true);document.addEventListener('click',vtClick,true);addEventListener('resize',vtResize);addEventListener('hashchange',vtHash);
   vtGo(0,{entrance:true});
@@ -16067,9 +16090,9 @@ async function vtEnd(why,quick){
   const bub=vtQ('#vt-bubble');if(bub)bub.classList.remove('on');
   const sp=vtQ('#vt-spot');if(sp)sp.classList.remove('on');const dim=vtQ('#vt-dim');if(dim)dim.classList.remove('on');const sf=vtQ('#vt-skipfly');if(sf)sf.classList.remove('on');
   /* on his way out he flies home to the hero, where he sits on the page */
-  const m=document.getElementById('hmMascot'),mr=m&&why!=='go'?m.getBoundingClientRect():null;
-  if(!reduce&&mr&&mr.width>0&&VT.pos&&vtQ('#vt-bird')){
-    const W=vtBirdW(),H=W*VF_FOOT.ratio,to=[mr.left+mr.width/2,mr.top+mr.height/2];
+  /* he is only on the page during the tour: a finished tour sends him out of the screen */
+  if(!reduce&&why==='done'&&VT.pos&&vtQ('#vt-bird')){
+    const W=vtBirdW(),H=W*VF_FOOT.ratio,to=[-W*1.5,-H];
     vtPose('takeoff');await new Promise(r=>setTimeout(r,200));
     if(g===VT.gen)await vtFly(vtRoute(VT.pos,to),{dur:1300,face:to[0]<VT.pos[0]?-1:1,gen:g});
   }
