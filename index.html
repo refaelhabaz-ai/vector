@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-FTVK8mrN7OQMD1yrcw1zQp1bTlt7oDW6QUXSfZkBiKA=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-xBGLRr1UVIMiyAoEr9LrRQPiAtr/WNGaNRSL8cUJUg4=' 'sha256-VadFl0qcAHG7zmUSMDqeaHiVpuPyBwgaGAeYLWIFIXI='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5561,24 +5561,6 @@ html.rg .hm8>.hm8-bg,html.rm .hm8>.hm8-bg{animation:none}
 }
 @keyframes dtIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 
-/* ---------- page transitions: the view fades out, the next one fades in with a slight rise; the header and the fixed buttons stay ---------- */
-#hdr{view-transition-name:hdr}
-#a11yBtn{view-transition-name:a11yfab}
-.vb-launch{view-transition-name:botfab}
-::view-transition-group(hdr),::view-transition-group(a11yfab),::view-transition-group(botfab){animation-duration:0s}
-::view-transition-old(hdr),::view-transition-new(hdr),::view-transition-old(a11yfab),::view-transition-new(a11yfab),::view-transition-old(botfab),::view-transition-new(botfab){animation:none;mix-blend-mode:normal}
-::view-transition-old(root){animation:pgOut .18s cubic-bezier(.4,0,1,1) both;mix-blend-mode:normal}
-::view-transition-new(root){animation:pgIn .42s cubic-bezier(.2,.8,.2,1) .14s both;mix-blend-mode:normal}
-@keyframes pgOut{to{opacity:0}}
-@keyframes pgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-/* without the View Transitions API: the new view fades in with the same rise */
-.view.pg-in{animation:pgIn .42s cubic-bezier(.2,.8,.2,1) both}
-/* gentle: fades only, nothing rises; none: nothing */
-@keyframes pgFade{from{opacity:0}to{opacity:1}}
-html.rg::view-transition-new(root){animation:pgFade .35s ease-out .12s both}
-html.rm::view-transition-old(root),html.rm::view-transition-new(root){animation:none}
-html.rg .view.pg-in{animation:pgFade .35s ease-out both}
-html.rm .view.pg-in{animation:none}
 /* sheets and dialogs: a gentle fade and rise */
 @media all{
   html:not(.rg):not(.rm) .ov .sheet{opacity:0;transform:translateY(12px);transition:transform .42s cubic-bezier(.2,.8,.2,1),opacity .34s ease-out}
@@ -15765,14 +15747,9 @@ function onRoute(){
     if(rest){const y=NAV.y[h];window.scrollTo({top:y,left:0,behavior:'instant'});requestAnimationFrame(()=>{if(Math.abs(scrollY-y)>2)window.scrollTo({top:y,left:0,behavior:'instant'})})}
     else window.scrollTo({top:0,left:0,behavior:'instant'});
     a11yRoute(newScreen)};
-  /* a new screen: the old one fades out, the new one fades in with a slight rise; the scroll is set while it is hidden. The header and the fixed buttons keep their place (they have their own transition names). The search tabs, expanders and a repeated link do not come here as a new screen. */
-  if(newScreen&&!pgReduced()&&!(typeof VT!=='undefined'&&VT.on)){
-    if(document.startViewTransition){try{const tr=document.startViewTransition(run);/* a quick second navigation skips the first transition: that is not an error */[tr.ready,tr.finished].forEach(pm=>pm&&pm.catch&&pm.catch(()=>{}));return}catch(e){}}
-    run();const v=document.querySelector('#app .view');if(v)v.classList.add('pg-in');return}
   run()}
-/* the site's own rule (see "motion and flow"): the computer's "reduce motion" setting does not decide; the site's state does. Full: every effect. Gentle (html.rg): fades only, nothing moves across the screen. None (html.rm): nothing. */
+/* the site's own rule (see "motion and flow"): the computer's "reduce motion" setting does not decide; the site's state does. Full: every effect. Gentle (html.rg) and none (html.rm): no smoothing of the wheel. */
 const motionLevel=()=>{const c=document.documentElement.classList;return c.contains('rm')?'off':c.contains('rg')?'gentle':'full'};
-const pgReduced=()=>motionLevel()==='off';
 let ROUTE_H=location.hash.slice(1);
 function go(h){
   NAV.y[location.hash.slice(1)]=scrollY;
@@ -15785,7 +15762,7 @@ addEventListener('hashchange',onRoute);
 /* ================= smooth, soft wheel scrolling (mouse wheel and trackpad; not touch) =================
    The wheel moves a target position; the page eases toward it with an exponential curve. SW_TAU is the softness (seconds; the page is 95% there after 3*tau, 99% after 4.6*tau),
    SW_MULT is how far one wheel step goes compared with the browser's own (1 = the same). The scrollbar, the keyboard, links, a modal, an inner scroll area and the tour keep the native scroll. */
-const SW_TAU=.28,SW_MULT=.9;
+const SW_TAU=.10,SW_MULT=.95,SW_SNAP=.5; /* TAU: seconds the page needs to cover 63% of the gap (it is 95% there after 3*tau = 0.3 s and snaps exactly after about 5*tau). MULT: one wheel step compared with native. SNAP: px left at which it lands exactly and the loop stops. */
 const SW={cur:0,t:0,raf:0,last:0};
 const swOff=()=>{const de=document.documentElement,c=de.classList;
   return motionLevel()!=='full'||c.contains('vt-on')||c.contains('vx-lock')||document.body.style.overflow==='hidden'||!!document.getElementById('ov')||!!document.querySelector('#kpJ.is-full,.vx-sheet.open,.dp-sheet.open')};
@@ -15799,25 +15776,33 @@ function swInner(el,d){
 function swStep(ts){
   const dt=Math.min(.064,Math.max(.001,(ts-SW.last)/1000));SW.last=ts;
   SW.cur+=(SW.t-SW.cur)*(1-Math.exp(-dt/SW_TAU));
-  if(Math.abs(SW.t-SW.cur)<.4){SW.cur=SW.t;window.scrollTo({top:SW.cur,left:0,behavior:'instant'});SW.raf=0;return}
+  if(Math.abs(SW.t-SW.cur)<SW_SNAP){SW.cur=SW.t;window.scrollTo({top:SW.cur,left:0,behavior:'instant'});SW.raf=0;return}
   window.scrollTo({top:SW.cur,left:0,behavior:'instant'});if(SW_DBG)swDbg(`smooth wheel\ntarget  ${SW.t.toFixed(1)}\ncurrent ${SW.cur.toFixed(1)}\nscrollY ${scrollY.toFixed(1)}`);SW.raf=requestAnimationFrame(swStep)}
 /* ?motiondebug=1 in the address shows the target and the current position on the screen and logs them; motionStatus() in the console says why the effects are on or off */
 const SW_DBG=/[?&]motiondebug/.test(location.search);
-function motionStatus(){const o={level:motionLevel(),siteMotionSetting:store.get('motion','on'),osReduceMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,pointerFine:matchMedia('(pointer: fine)').matches,anyPointerFine:matchMedia('(any-pointer: fine)').matches,viewTransitions:!!document.startViewTransition,smoothWheelOff:swOff(),modalOpen:!!document.getElementById('ov'),bodyOverflow:document.body.style.overflow,tourOn:document.documentElement.classList.contains('vt-on'),SW_TAU,SW_MULT};console.log('[motion]',o);return o}
+function motionStatus(){const o={level:motionLevel(),siteMotionSetting:store.get('motion','on'),osReduceMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,pointerFine:matchMedia('(pointer: fine)').matches,anyPointerFine:matchMedia('(any-pointer: fine)').matches,smoothWheelOff:swOff(),modalOpen:!!document.getElementById('ov'),bodyOverflow:document.body.style.overflow,tourOn:document.documentElement.classList.contains('vt-on'),SW_TAU,SW_MULT,SW_SNAP};console.log('[motion]',o);return o}
 window.motionStatus=motionStatus;
 let SW_BOX=null;
 function swDbg(msg){if(!SW_DBG)return;if(!SW_BOX){SW_BOX=document.createElement('pre');SW_BOX.id='swDbg';SW_BOX.style.cssText='position:fixed;z-index:99999;left:8px;bottom:8px;margin:0;padding:8px 10px;background:rgba(20,24,48,.92);color:#9fe3b3;font:12px/1.4 monospace;direction:ltr;text-align:left;pointer-events:none;border-radius:6px;white-space:pre';document.body.appendChild(SW_BOX)}
   SW_BOX.textContent=msg}
+/* a classic mouse wheel (notches) is smoothed; a trackpad (many small deltas) and a high-resolution wheel stay native: a smoothing layer on top of their own inertia feels loose and keeps gliding after the fingers stop */
+function swIsWheel(e){
+  if(e.deltaMode!==0)return true; /* lines or pages: a wheel */
+  const a=Math.abs(e.deltaY),wd=e.wheelDeltaY;
+  return typeof wd==='number'&&wd!==0&&Math.abs(wd)%120===0&&a>=40} /* a notch: the legacy wheelDelta is a multiple of 120 and the step is large */
+function swStop(){if(SW.raf){cancelAnimationFrame(SW.raf);SW.raf=0}SW.cur=SW.t=scrollY}
 addEventListener('wheel',e=>{
-  if(SW_DBG&&!e.__swSeen){e.__swSeen=1;if(swOff()||e.ctrlKey||e.metaKey||e.deltaY===0||Math.abs(e.deltaX)>Math.abs(e.deltaY)||swInner(e.target,e.deltaY))swDbg(`wheel native (dy=${e.deltaY})\nlevel=${motionLevel()} off=${swOff()}`)}
-  if(e.ctrlKey||e.metaKey||e.defaultPrevented||e.deltaY===0||Math.abs(e.deltaX)>Math.abs(e.deltaY)||swOff())return;
-  if(swInner(e.target,e.deltaY))return;
+  const skip=e.ctrlKey||e.metaKey||e.defaultPrevented||e.deltaY===0||Math.abs(e.deltaX)>Math.abs(e.deltaY)||swOff()||!swIsWheel(e)||swInner(e.target,e.deltaY);
+  if(skip){if(SW.raf)swStop();if(SW_DBG)swDbg(`native wheel (dy=${e.deltaY}, wheelDeltaY=${e.wheelDeltaY}, mode=${e.deltaMode})\nlevel=${motionLevel()} off=${swOff()} wheel=${swIsWheel(e)}`);return}
   e.preventDefault();
   let d=e.deltaY;if(e.deltaMode===1)d*=34;else if(e.deltaMode===2)d*=innerHeight;
+  d*=SW_MULT;
   const max=document.documentElement.scrollHeight-innerHeight;
   if(!SW.raf){SW.cur=scrollY;SW.t=scrollY;SW.last=performance.now()}
-  SW.t=Math.max(0,Math.min(max,SW.t+d*SW_MULT));
-  if(!SW.raf)SW.raf=requestAnimationFrame(swStep);
+  /* turning round: the old distance is dropped, so it answers at once instead of fighting the old movement */
+  else if(Math.sign(d)!==Math.sign(SW.t-SW.cur)&&Math.abs(SW.t-SW.cur)>1)SW.t=SW.cur;
+  SW.t=Math.max(0,Math.min(max,SW.t+d));
+  if(!SW.raf){SW.last=performance.now();SW.raf=requestAnimationFrame(swStep)}
   if(SW_DBG){console.log(`[smooth] wheel dy=${e.deltaY} target=${SW.t.toFixed(1)} current=${SW.cur.toFixed(1)}`);swDbg(`smooth wheel dy=${e.deltaY}\ntarget  ${SW.t.toFixed(1)}\ncurrent ${SW.cur.toFixed(1)}\nlevel=${motionLevel()}`)}},{passive:false});
 /* anything else that moved the page (scrollbar, keyboard, a link, back) takes over: the target follows it */
 addEventListener('scroll',()=>{if(Math.abs(scrollY-SW.cur)>2){SW.cur=SW.t=scrollY;if(SW.raf){cancelAnimationFrame(SW.raf);SW.raf=0}}},{passive:true});
