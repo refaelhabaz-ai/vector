@@ -3982,9 +3982,7 @@ html body .vb-launch .vecti-wrap{background:var(--surface);box-shadow:var(--shad
 
 /* ---------- small joy ---------- */
 @keyframes v3-pop{0%{opacity:0;transform:translateY(14px) scale(.96)}70%{opacity:1;transform:translateY(-3px) scale(1.01)}100%{transform:none}}
-@media all{
-  html:not(.rg):not(.rm):not(.rr) .view>*{animation:v3-pop .5s var(--v3-ease-out) backwards} /* backwards only: a filled transform would make this a containing block for every position:fixed inside */
-}
+/* (the bouncing entrance of every new screen was removed: a new screen only fades in softly, see .pg-soft) */
 
 /* ---------- home ---------- */
 html body .hm-schbar{background:var(--action-soft);color:var(--ink);font-weight:700;border-radius:0 0 var(--r) var(--r);margin-inline:clamp(12px,6vw,120px)}
@@ -5568,8 +5566,8 @@ html.rg .hm8>.hm8-bg,html.rm .hm8>.hm8-bg{animation:none}
 }
 
 /* a new screen: a soft fade-in, opacity only (nothing rises, nothing slides) */
-.pg-soft{animation:pgSoft .38s cubic-bezier(.25,.1,.25,1) both}
-@keyframes pgSoft{from{opacity:0}to{opacity:1}}
+.pg-soft{animation:pgSoft .34s cubic-bezier(.25,.1,.25,1) both}
+@keyframes pgSoft{from{opacity:.25}to{opacity:1}}
 /*@@V3-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
