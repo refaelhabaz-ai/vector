@@ -4387,7 +4387,6 @@ html:has(.hdr.tuck) .dp-tabs{top:10px}
   .dp-mbar .btn{flex:1 1 0;min-width:0;min-height:48px;padding:0 8px;font-size:var(--fs-1)}
   main:has(.dp-hero){padding-bottom:96px}
   .qa-fab{display:none!important}
-  html:has(.dp-hero) .vb-launch,html:has(.dp-hero) .vb-tip{display:none!important}
   html:has(.dp-hero) .a11y-fab{bottom:96px}
   html:has(.dp-hero) .to-top{bottom:150px}
   .dp-tabs{margin-inline:-4px}
@@ -4464,7 +4463,6 @@ html:has(.hdr.tuck) .dp-tabs{top:10px}
   .vx-sbk{display:block;position:fixed;z-index:57;inset:0;background:rgba(27,33,66,.5);opacity:0;pointer-events:none;transition:opacity .3s}
   .vx-sbk.on{opacity:1;pointer-events:auto}
   .kp-body{padding-bottom:310px}
-  html.vx .vb-launch,html.vx .vb-tip{display:none!important}
   html.vx .a11y-fab{bottom:306px}
   html.vx .to-top{bottom:310px}
   .bey .tn-g{grid-template-columns:1fr 1fr;gap:10px}
@@ -4658,7 +4656,6 @@ html.rg .kp-lane>i>span .vf-w,html.rm .kp-lane>i>span .vf-w{animation:none;trans
   .vr-bar .btn.soft{flex:1 1 0;min-height:42px;padding:0 8px;font-size:var(--fs-1)}
   .vr-again{margin:0;flex:0 0 auto;min-height:42px;font-size:var(--fs-1);text-align:center}
   .vr-bar{padding-top:8px}
-  html:has(.vr) .vb-launch,html:has(.vr) .vb-tip{display:none!important}
   html:has(.vr) .a11y-fab{bottom:150px}
 }
 @media all{html:not(.rg):not(.rm):not(.rr) .vr-pn:not([hidden]) .vr-oc{animation:v3-pop .45s var(--v3-ease-out) backwards}html:not(.rg):not(.rm):not(.rr) .vr-pn:not([hidden]) .vr-oc:nth-child(2){animation-delay:.08s}html:not(.rg):not(.rm):not(.rr) .vr-pn:not([hidden]) .vr-oc:nth-child(3){animation-delay:.16s}}
@@ -4867,7 +4864,6 @@ html.hc{--action:#8A1F05;--action-deep:#000;--action-ink:#8A1F05;--action-soft:#
 @media(max-width:1040px){.hm4-hero{min-height:0}.hm4-in{grid-template-columns:minmax(0,1fr)}.hm4-art{max-width:520px}}
 @media(max-width:760px){.hm4-hero{padding-bottom:96px}.hm4-art{max-width:340px;margin-top:var(--v-s5)}.hm4-quiz{grid-template-columns:auto minmax(0,1fr);padding:var(--v-s4) var(--v-s5)}.hm4-qgo{grid-column:1/-1;text-align:center}.hm4-qv{width:72px}.hm4-qt b{font-size:22px}}
 @media(prefers-reduced-motion:reduce){.hm4 *,.hm4 *::before,.hm4 *::after{animation:none!important;transition:none!important}.hm4-w>span{transform:none}.hm4-copy h1 em::after{transform:none}}
-html:has(.hm4) .vb-launch,html:has(.hm4) .vb-tip{display:none!important}
 html.rm .hm4 *,html.rm .hm4 *::before,html.rm .hm4 *::after{animation:none!important}
 html.rm .hm4-w>span{transform:none}html.rm .hm4-copy h1 em::after{transform:none}
 
@@ -17034,6 +17030,18 @@ body:has(.tray) .to-top{bottom:186px}
   .vb.open .vb-launch{opacity:0;pointer-events:none}
   .vb-in{font-size:var(--fs-2)} /* below 16px iOS zooms the page */
   .vb-full{display:none!important}
+}
+
+/* pages with their own bar at the bottom of a phone screen: Vecti sits just above it, never on it */
+@media(max-width:760px){
+  html body:has(.dp-hero) .vb-launch{bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+  html body:has(.dp-hero) .vb-tip{bottom:calc(110px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:900px){
+  html body:has(.vr) .vb-launch{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+  html body:has(.vr) .vb-tip{bottom:calc(106px + env(safe-area-inset-bottom,0px))}
+  html.vx body .vb-launch{bottom:calc(306px + env(safe-area-inset-bottom,0px))}
+  html.vx body .vb-tip{bottom:calc(320px + env(safe-area-inset-bottom,0px))}
 }
 
 @media (prefers-reduced-motion:reduce){.vb *,.vb *::before,.vb *::after{animation:none!important;transition:none!important}}
