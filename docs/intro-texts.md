@@ -4461,3 +4461,108 @@
 - https://en.wikipedia.org/wiki/Anthropology
 - https://www.bls.gov/ooh/life-physical-and-social-science/sociologists.htm
 - https://www.bls.gov/ooh/life-physical-and-social-science/anthropologists-and-archeologists.htm
+
+## mh:13 — (כמו mh:11)
+איך גורמים לבית חולים לקצר את זמני ההמתנה, או למפעל להעביר חלקים כבדים בצורה בטוחה ויעילה? הנדסת תעשייה היא הנדסה של מערכות שלמות, שבהן אנשים, מכונות, חומרים ומידע צריכים לעבוד יחד. בתואר משלבים מתמטיקה, סטטיסטיקה וחשיבה על ארגונים כדי לתכנן, למדוד ולשפר את הדרך שבה דברים נעשים.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Industrial_engineering
+- https://www.bls.gov/ooh/architecture-and-engineering/industrial-engineers.htm
+
+## mh:21 — (כמו mh:11)
+איך גורמים לבית חולים לקצר את זמני ההמתנה, או למפעל להעביר חלקים כבדים בצורה בטוחה ויעילה? הנדסת תעשייה היא הנדסה של מערכות שלמות, שבהן אנשים, מכונות, חומרים ומידע צריכים לעבוד יחד. בתואר משלבים מתמטיקה, סטטיסטיקה וחשיבה על ארגונים כדי לתכנן, למדוד ולשפר את הדרך שבה דברים נעשים.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Industrial_engineering
+- https://www.bls.gov/ooh/architecture-and-engineering/industrial-engineers.htm
+
+## mh:25 — (כמו mh:11)
+איך גורמים לבית חולים לקצר את זמני ההמתנה, או למפעל להעביר חלקים כבדים בצורה בטוחה ויעילה? הנדסת תעשייה היא הנדסה של מערכות שלמות, שבהן אנשים, מכונות, חומרים ומידע צריכים לעבוד יחד. בתואר משלבים מתמטיקה, סטטיסטיקה וחשיבה על ארגונים כדי לתכנן, למדוד ולשפר את הדרך שבה דברים נעשים.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Industrial_engineering
+- https://www.bls.gov/ooh/architecture-and-engineering/industrial-engineers.htm
+
+## mh:28 — (כמו mh:11)
+איך גורמים לבית חולים לקצר את זמני ההמתנה, או למפעל להעביר חלקים כבדים בצורה בטוחה ויעילה? הנדסת תעשייה היא הנדסה של מערכות שלמות, שבהן אנשים, מכונות, חומרים ומידע צריכים לעבוד יחד. בתואר משלבים מתמטיקה, סטטיסטיקה וחשיבה על ארגונים כדי לתכנן, למדוד ולשפר את הדרך שבה דברים נעשים.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Industrial_engineering
+- https://www.bls.gov/ooh/architecture-and-engineering/industrial-engineers.htm
+
+## mh:17 — (כמו mh:12)
+מה צריך לקרות כדי שמכונית תהיה גם חזקה, גם חסכונית וגם בטוחה בהתנגשות? הנדסת רכב משלבת הנדסת מכונות, חשמל, אלקטרוניקה, תוכנה ובטיחות בתכנון, בייצור ובתפעול של כלי רכב. בפועל מאזנים בין ביצועי מנוע לחיסכון בדלק, מדמים התנגשויות במחשב ובמבחנים, עובדים על הפחתת רעש ורעידות לא רצויים ועל שיטות ייצור. התחום מתאים למי שאוהב להבין איך מערכות מורכבות עובדות יחד.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Automotive_engineering
+- https://warwick.ac.uk/fac/sci/eng/undergraduate/automotive_engineering
+
+## mh:38 — (כמו mh:12)
+מה צריך לקרות כדי שמכונית תהיה גם חזקה, גם חסכונית וגם בטוחה בהתנגשות? הנדסת רכב משלבת הנדסת מכונות, חשמל, אלקטרוניקה, תוכנה ובטיחות בתכנון, בייצור ובתפעול של כלי רכב. בפועל מאזנים בין ביצועי מנוע לחיסכון בדלק, מדמים התנגשויות במחשב ובמבחנים, עובדים על הפחתת רעש ורעידות לא רצויים ועל שיטות ייצור. התחום מתאים למי שאוהב להבין איך מערכות מורכבות עובדות יחד.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Automotive_engineering
+- https://warwick.ac.uk/fac/sci/eng/undergraduate/automotive_engineering
+
+## mh:19 — (כמו mh:2)
+מנועים חשמליים, מערכות ניווט ותקשורת, והמערכות החשמליות במכונית ובמטוס: כולם תוצר של עבודה בחשמל ובאלקטרוניקה. התחום עוסק בתכנון, בפיתוח ובבדיקה של ציוד ומערכות חשמל ואלקטרוניקה, כולל בדיקת אמינות ובטיחות ופיקוח על הייצור או ההתקנה שלהם.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Electrical_engineering
+- https://www.bls.gov/ooh/architecture-and-engineering/electrical-and-electronics-engineers.htm
+
+## mh:41 — (כמו mh:2)
+מנועים חשמליים, מערכות ניווט ותקשורת, והמערכות החשמליות במכונית ובמטוס: כולם תוצר של עבודה בחשמל ובאלקטרוניקה. התחום עוסק בתכנון, בפיתוח ובבדיקה של ציוד ומערכות חשמל ואלקטרוניקה, כולל בדיקת אמינות ובטיחות ופיקוח על הייצור או ההתקנה שלהם.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Electrical_engineering
+- https://www.bls.gov/ooh/architecture-and-engineering/electrical-and-electronics-engineers.htm
+
+## mh:29 — (כמו mh:10)
+איך שרטוט במחשב הופך לחלק מתכת מדויק? בתכנון וייצור ממוחשב מתחילים במודל במחשב (CAD), ותוכנת CAM ממירה אותו לקוד שמפעיל את מכונות ה-CNC, כך שהייצור מהיר ומדויק יותר ופחות חומר הולך לאיבוד. לומדים גם קריאת שרטוטים, תכנות והפעלת מכונות כרסום וחריטה ומדידה מדויקת, ומי שמסיים עובד בבתי מלאכה ובמפעלים כטכנאי עיבוד שבבי ומתכנת.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Computer-aided_manufacturing
+- https://www.nccommunitycolleges.edu/students/what-we-offer/programs/computer-integrated-machining/
+
+## mh:30 — (כמו mh:10)
+איך שרטוט במחשב הופך לחלק מתכת מדויק? בתכנון וייצור ממוחשב מתחילים במודל במחשב (CAD), ותוכנת CAM ממירה אותו לקוד שמפעיל את מכונות ה-CNC, כך שהייצור מהיר ומדויק יותר ופחות חומר הולך לאיבוד. לומדים גם קריאת שרטוטים, תכנות והפעלת מכונות כרסום וחריטה ומדידה מדויקת, ומי שמסיים עובד בבתי מלאכה ובמפעלים כטכנאי עיבוד שבבי ומתכנת.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Computer-aided_manufacturing
+- https://www.nccommunitycolleges.edu/students/what-we-offer/programs/computer-integrated-machining/
+
+## mh:31 — (כמו mh:10)
+איך שרטוט במחשב הופך לחלק מתכת מדויק? בתכנון וייצור ממוחשב מתחילים במודל במחשב (CAD), ותוכנת CAM ממירה אותו לקוד שמפעיל את מכונות ה-CNC, כך שהייצור מהיר ומדויק יותר ופחות חומר הולך לאיבוד. לומדים גם קריאת שרטוטים, תכנות והפעלת מכונות כרסום וחריטה ומדידה מדויקת, ומי שמסיים עובד בבתי מלאכה ובמפעלים כטכנאי עיבוד שבבי ומתכנת.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Computer-aided_manufacturing
+- https://www.nccommunitycolleges.edu/students/what-we-offer/programs/computer-integrated-machining/
+
+## mh:33 — (כמו mh:0)
+מה הופך בניין למקום שנעים לחיות ולעבוד בו? אדריכלות היא תכנון של מבנים, בעיקר כאלה שאנשים חיים בהם, ושוקלת יחד תועלת, יציבות ויופי, ובעשורים האחרונים גם קיימוּת. מי שמתכנן לוקח בחשבון את צורכי הלקוח ואת התקציב, מערכות כמו חשמל, אוורור ואינסטלציה, ותקנות כמו תקני בנייה ונגישות.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Architecture
+- https://www.bls.gov/ooh/architecture-and-engineering/architects.htm
+
+## mh:34 — (כמו mh:18)
+אפשר לגרום לחיידקים, לשמרים ולתאים לייצר חומרים שימושיים. ביוטכנולוגיה משלבת מדעי הטבע והנדסה כדי להשתמש ביצורים חיים ובחלקיהם לייצור מוצרים ושירותים: תרופות, גידולים מהונדסים, מזון מותסס, תוספים לתעשייה וניקוי אתרים מזוהמים. בפועל מבודדים ומנתחים מולקולות כמו חלבונים ו-DNA, ובודקים איך תרופות ורכיבי תזונה משפיעים על תאים.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Biotechnology
+- https://www.bls.gov/ooh/life-physical-and-social-science/biochemists-and-biophysicists.htm
+
+## mh:35 — (כמו mh:18)
+אפשר לגרום לחיידקים, לשמרים ולתאים לייצר חומרים שימושיים. ביוטכנולוגיה משלבת מדעי הטבע והנדסה כדי להשתמש ביצורים חיים ובחלקיהם לייצור מוצרים ושירותים: תרופות, גידולים מהונדסים, מזון מותסס, תוספים לתעשייה וניקוי אתרים מזוהמים. בפועל מבודדים ומנתחים מולקולות כמו חלבונים ו-DNA, ובודקים איך תרופות ורכיבי תזונה משפיעים על תאים.
+
+מקורות:
+- https://en.wikipedia.org/wiki/Biotechnology
+- https://www.bls.gov/ooh/life-physical-and-social-science/biochemists-and-biophysicists.htm
+
+## mh:36 — (כמו occ:2263)
+איך נראה מקום עבודה בטוח, ומי בודק שהוא באמת כזה? מומחי בטיחות ובריאות תעסוקתית אוספים ומנתחים נתונים על סביבת העבודה ועל תהליכי העבודה ומתכננים שיפורים: מבקרים במפעלים, באתרי בנייה ובמשרדים, בודקים עמידה בכללי בטיחות, בריאות וסביבה, מפעילים תוכניות, מדריכים עובדים, חוקרים תאונות וכותבים דוחות. משתמשים במכשירים לבדיקת איכות האוויר ובציוד מגן. התחום קשור לרפואה תעסוקתית ולגיהות.
+
+מקורות:
+- https://www.bls.gov/ooh/healthcare/occupational-health-and-safety-specialists-and-technicians.htm
+- https://en.wikipedia.org/wiki/Occupational_safety_and_health
