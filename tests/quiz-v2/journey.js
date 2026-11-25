@@ -50,5 +50,27 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   console.log('== phones: the rail and the profile fit');
   const m=await fresh(390);await m.click('[data-vqstart]');await m.waitForTimeout(400);
   ok(await m.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no sideways scroll at 390');
+  console.log('== phase 3: the three work days');
+  for(const w of [1280,390]){
+    const ctx3=await b.newContext({viewport:{width:w,height:900}}),d=await ctx3.newPage();d.setDefaultTimeout(8000);const errs3=[];d.on('pageerror',e=>errs3.push(String(e)));
+    await d.goto(URL);await d.evaluate(()=>{localStorage.setItem('kivun3.jrn',JSON.stringify({p:1}))});await d.goto(URL+'#dir');await d.reload();await d.waitForTimeout(600);
+    await d.evaluate(()=>{const st=VQE.init(vqEnv()),ans=[];for(let g=0;g<40;g++){const nx=VQE.next(st);if(nx.done||nx.id==='DAY')break;const Q=VQE.Q[nx.id];const a={q:nx.id,picks:Q.fmt==='multi'?Q.options.slice(0,Q.maxPick).map(o=>o.id):[Q.options[0].id]};if(nx.w)a.w=nx.w;VQE.apply(st,a);ans.push(a)}VQU.answers=ans;vqSave();VQU.preDone='';vqStep();vqPaint()});
+    for(let g=0;g<3&&(await d.evaluate(()=>VQU.mode))==='trans';g++){await d.click('[data-vqcont]');await d.waitForTimeout(200)}
+    ok(await d.evaluate(()=>VQU.mode)==='day',`@${w}: the day screen opens`);
+    const info=await d.evaluate(()=>{const cs=[...document.querySelectorAll('.vq-day')];return {n:cs.length,rows:cs.map(c=>c.querySelectorAll('.vd-row').length),icons:cs.map(c=>c.querySelectorAll('.vd-i svg').length),hidden:cs.every(c=>!c.querySelector('.vq-rvn')),
+      real:cs.every((c,i)=>[...c.querySelectorAll('.vd-t span:last-child')].every(s=>{const o=VQU.dayCards[i].occ,tasks=(OC[o].tasks||[]).map(x=>x.replace(/\s+\S*$/,'').slice(0,40));return tasks.some(x=>s.textContent.startsWith(x.slice(0,30)))||(OC[o].tasks||[]).some(x=>x.startsWith(s.textContent.replace(/…$/,'').slice(0,40)))})),sw:document.documentElement.scrollWidth<=innerWidth+1}});
+    ok(info.n===3&&info.rows.every(r=>r>=1)&&info.icons.every(n=>n>=1),`@${w}: three days, each with a timeline and a drawing for every task: rows ${info.rows} icons ${info.icons}`);
+    ok(info.hidden,`@${w}: the profession names are hidden before the choice`);
+    ok(info.real,`@${w}: every task on a card is a task of the occupation behind it (the official data)`);
+    ok(info.sw,`@${w}: no sideways scroll on the page`);
+    const more=await d.$('[data-vqdayopen="0"]');
+    if(more){const before=await d.evaluate(()=>document.querySelectorAll('.vq-day')[0].querySelectorAll('.vd-t').length);await more.click();await d.waitForTimeout(200);
+      const after=await d.evaluate(()=>document.querySelectorAll('.vq-day')[0].querySelectorAll('.vd-t').length);ok(after>before,`@${w}: "more from this day" shows more tasks (${before} to ${after})`)}
+    await d.click('[data-vqday]');await d.waitForTimeout(500);
+    const rv=await d.evaluate(()=>({names:[...document.querySelectorAll('.vq-rvn b')].map(x=>x.textContent),why:document.querySelectorAll('.vd-why').length}));
+    ok(rv.names.length===3&&rv.names.every(Boolean),`@${w}: after the choice the three professions are shown: ${rv.names.join(' / ')}`);
+    ok(rv.why===3,`@${w}: each one says why it was in the set`);
+    if(w===390)ok(await d.evaluate(()=>{const e=document.querySelector('.vq-days');return getComputedStyle(e).overflowX==='auto'&&getComputedStyle(e).scrollSnapType.includes('x')}),'on a phone the three days slide sideways and snap');
+    ok(errs3.length===0,`@${w}: no page errors ${errs3[0]||''}`);await ctx3.close()}
   console.log(fails?`\n${fails} FAILED`:'\nall checks passed');await b.close();process.exit(fails?1:0);
 })();
