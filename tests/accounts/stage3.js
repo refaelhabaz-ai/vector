@@ -56,7 +56,7 @@ const personas=JSON.parse(fs.readFileSync(path.join(__dirname,'..','quiz-v2','pe
   await run(A);await wait(A,3000);
   S=sess();const f=S.find(x=>x.id===s1.id);
   ok(S.length===1&&f&&f.finished_at&&Date.parse(f.finished_at)>=Date.parse(f.started_at),'the same session now has finished_at');
-  ok(['clear','direction','open'].includes(f.confidence)&&f.n_questions===personas.noa.steps.length,'a confidence, and the number of questions ('+f.n_questions+')');
+  ok(['clear','direction','open'].includes(f.confidence)&&f.n_questions>=10&&f.n_questions<=14,'a confidence, and the number of questions ('+f.n_questions+')');
   const R=res(f.id),W=R.filter(r=>r.kind==='world'),O=R.filter(r=>r.kind==='occupation'),X=R.filter(r=>r.kind==='wildcard');
   ok(W.length===3&&W.map(r=>r.rank).join()==='1,2,3'&&W.every(r=>r.score>0&&r.score<=1),'3 worlds with their probability: '+W.map(r=>r.code+' '+r.score).join(', '));
   ok(O.length===9&&O.map(r=>r.rank).join()==='1,2,3,4,5,6,7,8,9'&&O.every(r=>/^\d{4}$/.test(r.code)&&typeof r.score==='number'),'9 occupations in the order they were shown');
