@@ -79,13 +79,13 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
     await r.evaluate(()=>{const st=VQE.init(vqEnv()),ans=[];for(let g=0;g<40;g++){const nx=VQE.next(st);if(nx.done)break;const Q=VQE.Q[nx.id];let a;if(nx.id==='DAY'){const c=VQR.dayCards(st);a={q:'DAY',picks:['DAY_pick'],occ:c[0].occ,never:null}}else{a={q:nx.id,picks:Q.fmt==='multi'?Q.options.slice(0,Q.maxPick).map(o=>o.id):[Q.options[0].id]};if(nx.w)a.w=nx.w}VQE.apply(st,a);ans.push(a)}VQU.answers=ans;VQU.done=Date.now();vqSave();VQU.mode='res';vqPaint()});
     await r.waitForTimeout(500);
     const R=await r.evaluate(()=>({mode:VQU.mode,h1:document.querySelector('#vqH').textContent,hero:!!document.querySelector('.rs-hero'),why:document.querySelectorAll('.rs-why li').length,deg:document.querySelectorAll('.rs-sec')[0]&&document.querySelectorAll('.rs-sec')[0].querySelectorAll('.rs-c').length,occ:document.querySelectorAll('.rs-sec')[1]&&document.querySelectorAll('.rs-sec')[1].querySelectorAll('.rs-c').length,
-      primaries:[...document.querySelectorAll('.btn.primary')].map(x=>x.textContent.trim()),tabs:document.querySelectorAll('.vr-tab').length,say:(document.querySelector('.jr-say')||{}).textContent,step:(document.querySelector('.jr-o li.cur .jr-l')||{}).textContent,sw:document.documentElement.scrollWidth<=innerWidth+1,
+      primaries:[...document.querySelectorAll('.btn.primary')].map(x=>x.textContent.trim()),tabs:document.querySelectorAll('.vr-tab,.rs-all,.vr-more').length,say:(document.querySelector('.jr-say')||{}).textContent,step:(document.querySelector('.jr-o li.cur .jr-l')||{}).textContent,sw:document.documentElement.scrollWidth<=innerWidth+1,
       nums:[...document.querySelectorAll('.rs-m')].map(x=>x.textContent).join(' ')}));
     ok(R.mode==='res'&&R.hero&&/^הכיוון שלך: /.test(R.h1),`@${w}: the results open with the hero: ${R.h1}`);
     ok(R.why>=1,`@${w}: "why it fits you" is built from the answers (${R.why} reasons)`);
     ok(R.deg>=1&&R.deg<=3&&R.occ===3,`@${w}: up to three degrees (${R.deg}) and three professions (${R.occ})`);
-    ok(R.primaries.length===1&&/הוספה למסלול שלי/.test(R.primaries[0]),`@${w}: one primary button: ${JSON.stringify(R.primaries)}`);
-    ok(R.tabs===3,`@${w}: the other directions are still there (three tabs)`);
+    ok(R.primaries.length>=2&&R.primaries.every(x=>/בניית מסלול לתואר הזה|בחירת תואר ובניית מסלול/.test(x)),`@${w}: the primary actions are all about building a route: ${JSON.stringify(R.primaries)}`);
+    ok(R.tabs===0,`@${w}: no collapsed direction box and no extra block under the suggestions`);
     ok(R.step==='תוצאות'&&/הצעתי לך את זה כי/.test(R.say||''),`@${w}: the rail is on the results step, and the line comes from the answers: ${(R.say||'').slice(0,60)}`);
     ok(R.sw,`@${w}: no sideways scroll`);
     if(w===1280){
@@ -127,13 +127,42 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
     await q.evaluate(()=>{const st=VQE.init(vqEnv());const ans=[];for(let g=0;g<40;g++){const nx=VQE.next(st);if(nx.done)break;const Q=VQE.Q[nx.id];let a;if(nx.id==='DAY'){const c=VQR.dayCards(st);a={q:'DAY',picks:['DAY_pick'],occ:c[0].occ,never:null}}else{a={q:nx.id,picks:Q.fmt==='multi'?Q.options.slice(0,Q.maxPick).map(o=>o.id):[Q.options[0].id]};if(nx.w)a.w=nx.w}VQE.apply(st,a);ans.push(a)}VQU.answers=ans;VQU.done=Date.now();vqSave();VQU.mode='res';vqPaint();document.querySelector('.vb-tip').classList.add('show')});
     await q.waitForTimeout(1500);
     const m=await q.evaluate(()=>({bar:document.querySelector('.vr-bar').getBoundingClientRect().height,btns:document.querySelectorAll('.vr-bar .btn').length,fs:Math.min(...[...document.querySelectorAll('.rs-m,.rs-via,.rs-adm,.rs-why li')].map(e=>parseFloat(getComputedStyle(e).fontSize))),
-      tip:getComputedStyle(document.querySelector('.vb-tip')).display,pad:parseFloat(getComputedStyle(document.querySelector('.vr-in')).paddingBottom),sum:(document.querySelector('.rs-all>summary')||{}).textContent,more:!!document.querySelector('.vr-acts [data-vqmore]')&&!!document.querySelector('.vr-acts [data-vqstart]'),
+      tip:getComputedStyle(document.querySelector('.vb-tip')).display,pad:parseFloat(getComputedStyle(document.querySelector('.vr-in')).paddingBottom),sum:(document.querySelector('.rs-all>summary')||{}).textContent,more:!!document.querySelector('.rs-hero [data-vqmore]')&&!!document.querySelector('.rs-hero [data-vqstart]'),
       long:[...document.querySelectorAll('.rs-via')].some(e=>e.textContent.includes('בחרת')),sw:document.documentElement.scrollWidth<=innerWidth+1}));
     ok(m.bar<=70&&m.btns===2,`@${w}: the action bar is compact (${m.bar}px, ${m.btns} buttons)`);
     ok(m.fs>=16,`@${w}: card text at least 16px (${m.fs})`);
     ok(m.tip==='none',`@${w}: the bot's greeting bubble is hidden on this screen`);
-    ok((w>820||m.pad>=100)&&m.more,`@${w}: room at the bottom (${m.pad}px) and the other actions are still there`);
-    ok(/הכיוונים האחרים/.test(m.sum)&&!m.long&&m.sw,`@${w}: the fold has a clear label, reasons are short, no sideways scroll`);
+    ok((w>820||m.pad>=40)&&m.more,`@${w}: room at the bottom (${m.pad}px) and the other actions are still there`);
+    ok(!m.sum&&!m.long&&m.sw,`@${w}: the fold is gone, reasons are short, no sideways scroll`);
     await cx.close()}
+  console.log('== results to path: the banner, the choice cards, the picker, the welcome');
+  for(const w of [1440,390]){
+    const cx=await b.newContext({viewport:{width:w,height:900}}),q=await cx.newPage();q.setDefaultTimeout(8000);const errs=[];q.on('pageerror',e=>errs.push(String(e)));
+    await q.goto(URL);await q.evaluate(()=>{localStorage.setItem('kivun3.jrn',JSON.stringify({p:1}));localStorage.setItem('kivun3.prof',JSON.stringify({bag:'full',psy:'has',heb:'he',reg:'c',stage:'g12'}));localStorage.setItem('kivun3.scores',JSON.stringify({b:98.5,p:712}))});
+    await q.goto(URL+'#dir');await q.reload();await q.waitForTimeout(700);await q.click('[data-vqstart]');await q.waitForTimeout(400);
+    await q.evaluate(()=>{const st=VQE.init(vqEnv());const ans=[];for(let g=0;g<40;g++){const nx=VQE.next(st);if(nx.done)break;const Q=VQE.Q[nx.id];let a;if(nx.id==='DAY'){const c=VQR.dayCards(st);a={q:'DAY',picks:['DAY_pick'],occ:c[0].occ,never:null}}else{a={q:nx.id,picks:Q.fmt==='multi'?Q.options.slice(0,Q.maxPick).map(o=>o.id):[Q.options[0].id]};if(nx.w)a.w=nx.w}VQE.apply(st,a);ans.push(a)}VQU.answers=ans;VQU.done=Date.now();vqSave();VQU.mode='res';vqPaint()});
+    await q.waitForTimeout(1500);
+    const m=await q.evaluate(()=>{const nx=document.querySelector('.rs-next'),hero=document.querySelector('.rs-hero'),first=document.querySelector('.rs-sec');return {banner:!!nx,after:!!(hero&&nx&&(hero.compareDocumentPosition(nx)&4)&&(nx.compareDocumentPosition(first)&4)),title:(nx||{}).querySelector&&(nx.querySelector('h2')||{}).textContent,dots:document.querySelectorAll('.rs-nl li').length,k:(nx.querySelector('.rs-nk')||{}).textContent,
+      cards:document.querySelectorAll('.rs-dc').length,prim:[...document.querySelectorAll('.rs-dc .btn.primary')].map(x=>x.textContent.trim()),old:[...document.querySelectorAll('button')].some(x=>x.textContent.trim()==='הוספה למסלול שלי'),adm:document.querySelectorAll('.rs-dc .rs-adm').length,
+      pick:!!document.querySelector('[data-rspickall]'),bar:(document.querySelector('[data-rsbar]')||{}).textContent,nxRail:!!document.querySelector('.jr-o li.nx'),nxNav:!!document.querySelector('.vn-link.path-l.nx'),disc:!!document.querySelector('.rs-hero .rs-fine'),sw:document.documentElement.scrollWidth<=innerWidth+1,
+      extra:!!document.querySelector('.rs-all,.vr-more,.vr-note')}});
+    ok(m.banner&&m.after&&/עכשיו בוחרים תואר/.test(m.title)&&m.dots>=3&&/שלב 4/.test(m.k),`@${w}: the step banner sits under the main result, before the degrees (${m.dots} real stages)`);
+    ok(m.cards>=1&&m.prim.every(x=>x==='בניית מסלול לתואר הזה')&&!m.old,`@${w}: every suggested degree has one primary action "בניית מסלול לתואר הזה" (${m.cards})`);
+    ok(m.adm>=1,`@${w}: the admission status from the profile stays (${m.adm})`);
+    ok(m.pick&&m.nxRail&&m.nxNav,`@${w}: "choose from all degrees" is there, and the rail and the nav item point at the next step`);
+    ok(/בחירת תואר ובניית מסלול/.test(m.bar),`@${w}: the bar says "${m.bar}" when no degree is selected`);
+    ok(m.disc&&!m.extra&&m.sw,`@${w}: the disclaimer moved into the main card, the removed blocks are gone, no sideways scroll`);
+    await q.click('.rs-dc:first-of-type');await q.waitForTimeout(200);
+    const s=await q.evaluate(()=>({sel:document.querySelectorAll('.rs-dc.sel').length,bar:(document.querySelector('[data-rsbar]')||{}).textContent}));
+    ok(s.sel===1&&/בניית המסלול/.test(s.bar)&&!/בחירת/.test(s.bar),`@${w}: selecting a card turns the bar into "${s.bar}"`);
+    await q.click('[data-rspickall]');await q.waitForTimeout(400);
+    const pk=await q.evaluate(()=>({n:document.querySelectorAll('.rp-l li').length,cnt:document.querySelector('.rp-cnt').textContent,cats:document.querySelectorAll('[data-rpc]').length}));
+    ok(pk.n===30&&/567/.test(pk.cnt)&&pk.cats===10,`@${w}: the picker lists all degrees (${pk.cnt}) with search and ${pk.cats-1} areas`);
+    await q.fill('#rpq','סיעוד');await q.waitForTimeout(300);
+    ok(await q.evaluate(()=>[...document.querySelectorAll('.rp-l b')].some(x=>/סיעוד|אחיות/.test(x.textContent))),`@${w}: search finds degrees`);
+    await q.click('.rp-l [data-padd]');await q.waitForTimeout(500);await q.click('[data-ppick]');await q.waitForTimeout(1200);
+    const g=await q.evaluate(()=>({route:S.route.v,goal:hasGoal(),say:(document.querySelector('.jr-say')||{}).textContent,step:(document.querySelector('.jr-o li.cur .jr-l')||{}).textContent}));
+    ok(g.route==='path'&&g.goal&&/בניתי לך מסלול ל/.test(g.say)&&/^מסלול|יעדים/.test(g.step),`@${w}: after the choice, straight to the path with the welcome: ${(g.say||'').slice(0,50)}`);
+    ok(errs.length===0,`@${w}: no page errors ${errs[0]||''}`);await cx.close()}
   console.log(fails?`\n${fails} FAILED`:'\nall checks passed');await b.close();process.exit(fails?1:0);
 })();

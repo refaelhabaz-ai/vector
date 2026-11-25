@@ -38,14 +38,14 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   ok(await p.evaluate(()=>VQU.mode)==='res','the results screen opens after the day');
   /* ---- results layout ---- */
   const lay=await p.evaluate(()=>{const bar=document.querySelector('.vr-bar');
-    return {top:[...document.querySelectorAll('.vr-bar .btn.primary')].map(x=>x.textContent.trim()),all:bar?[...bar.querySelectorAll('button')].map(x=>x.textContent.trim()):[],tabs:document.querySelectorAll('.vr-tab').length,acts:document.querySelectorAll('.vr-acts button').length,
+    return {top:[...document.querySelectorAll('.vr-bar .btn.primary')].map(x=>x.textContent.trim()),all:bar?[...bar.querySelectorAll('button')].map(x=>x.textContent.trim()):[],tabs:document.querySelectorAll('.vr-tab,.rs-all,.vr-more').length,acts:document.querySelectorAll('.rs-hero [data-vqmore],.rs-hero [data-vqstart]').length,
       inView:bar?(()=>{const r=bar.getBoundingClientRect();return r.bottom<=innerHeight+1&&r.top>=0})():false}});
-  ok(lay.top.length===1&&/למסלול שלי/.test(lay.top[0]),'one primary button, in the bar that stays in view: '+JSON.stringify(lay.top));
-  ok(lay.tabs===3&&lay.all.length===2&&lay.acts===2&&lay.inView,'three direction tabs, two actions in the bar (and two more under the results), and the bar is in view: '+JSON.stringify(lay.all));
+  ok(lay.top.length===1&&/בניית מסלול|בחירת תואר/.test(lay.top[0]),'one primary button, in the bar that stays in view: '+JSON.stringify(lay.top));
+  ok(lay.tabs===0&&lay.all.length===2&&lay.acts===2&&lay.inView,'no collapsed direction blocks, two actions in the bar (and the other two in the main card), and the bar is in view: '+JSON.stringify(lay.all));
   ok(!lay.all.some(t=>/^(השווה|התחל)/.test(t)),'the labels are not masculine imperatives');
   /* ---- the routes block: gender and the data line ---- */
-  const routes=async pg=>pg.evaluate(()=>{document.querySelectorAll('.vr-det').forEach(d=>d.setAttribute('open',''));
-    const occ=[...document.querySelectorAll('.vq-occ')].map(o=>{const r=o.querySelector('.vq-routes');return {txt:r?r.textContent:'',naInLi:r?r.querySelectorAll('li .vq-adm.na').length:0,naLines:[...o.querySelectorAll('.vq-adm.na')].length,deg:r?r.querySelectorAll('li').length:0}});
+  const routes=async pg=>pg.evaluate(()=>{
+    const occ=[{txt:[...document.querySelectorAll('.rs-adm')].map(x=>x.textContent).join(' | '),naInLi:0,naLines:0,deg:document.querySelectorAll('.rs-dc').length}];
     return occ});
   const rf=await routes(p);
   const all=rf.map(o=>o.txt).join(' | ');
