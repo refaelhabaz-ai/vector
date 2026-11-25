@@ -22,6 +22,7 @@ const T=[
   ['screens: personas through the page at 1280 and 360 (page)','ui.js',420],
   ['questionnaire length: the short run against the long run, 1,200 simulated users','shorten.js',120],
   ['journey: the rail, the profile as step 1 (page)','journey.js',120],
+  ['forum: my activity area (page)','forum.js',120],
 ];
 const rows=[];let bad=0;const t0=Date.now();
 for(const [name,file,limit,args] of T){

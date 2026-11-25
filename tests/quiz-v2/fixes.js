@@ -38,10 +38,10 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   ok(await p.evaluate(()=>VQU.mode)==='res','the results screen opens after the day');
   /* ---- results layout ---- */
   const lay=await p.evaluate(()=>{const bar=document.querySelector('.vr-bar');
-    return {top:[...document.querySelectorAll('.vr-bar .btn.primary')].map(x=>x.textContent.trim()),all:bar?[...bar.querySelectorAll('button')].map(x=>x.textContent.trim()):[],tabs:document.querySelectorAll('.vr-tab').length,
+    return {top:[...document.querySelectorAll('.vr-bar .btn.primary')].map(x=>x.textContent.trim()),all:bar?[...bar.querySelectorAll('button')].map(x=>x.textContent.trim()):[],tabs:document.querySelectorAll('.vr-tab').length,acts:document.querySelectorAll('.vr-acts button').length,
       inView:bar?(()=>{const r=bar.getBoundingClientRect();return r.bottom<=innerHeight+1&&r.top>=0})():false}});
   ok(lay.top.length===1&&/למסלול שלי/.test(lay.top[0]),'one primary button, in the bar that stays in view: '+JSON.stringify(lay.top));
-  ok(lay.tabs===3&&lay.all.length===4&&lay.inView,'three direction tabs, four actions in the bar, and the bar is in view: '+JSON.stringify(lay.all));
+  ok(lay.tabs===3&&lay.all.length===2&&lay.acts===2&&lay.inView,'three direction tabs, two actions in the bar (and two more under the results), and the bar is in view: '+JSON.stringify(lay.all));
   ok(!lay.all.some(t=>/^(השווה|התחל)/.test(t)),'the labels are not masculine imperatives');
   /* ---- the routes block: gender and the data line ---- */
   const routes=async pg=>pg.evaluate(()=>{document.querySelectorAll('.vr-det').forEach(d=>d.setAttribute('open',''));

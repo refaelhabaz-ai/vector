@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-IRk17ob2XvHPUNDW+jp6huI3J0f+CO9O1cnTWuJsomE=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-072siT6+/rwPvVgtTRFJ0p1TbvapKpxzoco8+1/hhEA=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5776,6 +5776,15 @@ html:has(.vr) .vb-tip{display:none!important}
 .rs-all[open]{padding-bottom:18px}
 .rs-via{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 @media(max-width:820px){.rs-m,.rs-via,.rs-adm,.rs-why li{font-size:17px;line-height:1.5}.rs-c h3{font-size:19px}.rs-c .btn{min-height:44px}html:has(.vr) .a11y-fab{bottom:96px}html:has(.vr) .vb-fab,html:has(.vr) #vbRoot{bottom:84px}}
+.fq2-mine{box-shadow:inset 4px 0 0 var(--action,#c2410c);padding-inline-start:16px;background:linear-gradient(90deg,rgba(194,65,12,.05),transparent 60%)}
+.fq2-me{display:block;font-size:var(--fs-1);font-weight:600;color:var(--action-ink,#9a3412);margin-bottom:2px}
+.fm-mine{border-top-color:var(--jr-ink,#12204a)}
+.fm-ml{list-style:none;margin:8px 0 0;padding:0}
+.fm-mr{display:flex;justify-content:space-between;align-items:center;width:100%;min-height:44px;padding:6px 2px;border:0;border-bottom:1px solid var(--line);background:none;font:inherit;font-size:var(--fs-2);color:var(--text);cursor:pointer;text-align:start}
+.fm-mr:hover b{color:var(--action-ink,#9a3412)}.fm-mr b{font-size:var(--fs-3)}
+.fm-mn{margin:10px 0 0;font-size:var(--fs-2);color:var(--muted)}
+.fm-side.how>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-size:var(--fs-3);font-weight:600;list-style:none}
+.fm-side.how>summary::-webkit-details-marker{display:none}
 /*@@JOURNEY-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -7244,6 +7253,7 @@ function fFiltered(){
   if(FF.f==='open')L=L.filter(q=>!fAns(q.key).length);
   if(FF.f==='mine')L=L.filter(q=>q.uid===FM.me);
   if(FF.f==='follow')L=L.filter(q=>FM.priv.follow&&FM.priv.follow[q.key]);
+  if(FF.f==='ans')L=L.filter(q=>fAns(q.key).some(a=>a.uid===FM.me));
   if(FF.f==='saved'){const sv=fSaved();L=L.filter(q=>sv[q.key])}
   if(FF.f==='myinst')L=myInst?L.filter(q=>q.inst===myInst):[];
   if(FF.f==='pop')L=[...L].sort((a,b)=>hotScore(b)-hotScore(a));
@@ -7265,15 +7275,16 @@ function fMainHTML(){
     <p class="sub" style="margin-top:10px">אלה רעיונות לשאלות. לחיצה פותחת טופס עם השאלה, ואפשר לשנות אותה.</p></div>`;
   const n=FF.shown||30,srch=FF.q&&FF.q.trim();
   const head=`<p class="fm-cnt"><b class="num">${fmt(L.length)}</b> ${srch?'שאלות שמתאימות לחיפוש':FF.cat?'שאלות בחדר '+esc(QA_CAT[FF.cat]||''):'שאלות'}</p>`;
-  if(!L.length)return head+`<div class="fnote">${FF.f==='mine'?'עוד לא שאלתי שאלות.':FF.f==='follow'?'אני עדיין לא עוקב/ת אחרי שאלות.':FF.f==='saved'?'עוד לא שמרתי שאלות.':'אין עדיין שאלות כאן.'} <button class="linkbtn" data-fall>להציג את כל השאלות</button> · <button class="linkbtn" data-ask data-at="${esc(srch?FF.q.trim():'')}">לשאול שאלה</button></div>`;
+  if(!L.length)return head+`<div class="fnote">${FF.f==='mine'?'עוד לא שאלתי שאלות.':FF.f==='ans'?'עוד לא עניתי על שאלות.':FF.f==='follow'?'אני עדיין לא עוקב/ת אחרי שאלות.':FF.f==='saved'?'עוד לא שמרתי שאלות.':'אין עדיין שאלות כאן.'} <button class="linkbtn" data-fall>להציג את כל השאלות</button> · <button class="linkbtn" data-ask data-at="${esc(srch?FF.q.trim():'')}">לשאול שאלה</button></div>`;
   return head+`<div class="fm-list">${L.slice(0,n).map(qRow2).join('')}</div>${L.length>n?`<div class="more"><button class="btn soft" data-fmore>להציג עוד שאלות</button></div>`:''}`;
 }
 /* a row of the list: the title, a line of the first answer, the room, and three small actions */
 function qRow2(q){
   const A=fAns(q.key),n=A.length,a=A.slice().sort((x,y)=>x.ts-y.ts)[0],fl=FM.priv.follow&&FM.priv.follow[q.key],sv=fSaved()[q.key];
   const pv=a?(a.uid===FAQ_UID?'תשובת צוות וקטור: ':'')+cgClip(a.b,140):(q.b?cgClip(q.b,140):''),bc=q.bc||'life';
-  return `<article class="fq2"><button class="hit" data-qo="${esc(q.key)}" aria-label="${esc(q.t)}"></button>
-    <h3>${esc(q.t)}</h3>${pv?`<p class="fq2-p">${esc(pv)}</p>`:''}
+  const mine=FM.me&&q.uid===FM.me,gotA=mine&&n>0;
+  return `<article class="fq2${mine?' fq2-mine':''}"><button class="hit" data-qo="${esc(q.key)}" aria-label="${esc(q.t)}"></button>
+    <h3>${mine?'<span class="fq2-me">השאלה שלי</span>':''}${esc(q.t)}</h3>${pv?`<p class="fq2-p">${esc(pv)}</p>`:''}
     <p class="fq2-m"><span class="fq2-c" style="--rc:${FM_COL[bc]||'#495A85'}">${esc(QA_CAT[bc]||'')}</span>${q.inst&&INST[q.inst]?`<span>${esc(INST[q.inst].n)}</span>`:''}<span class="num">${n?(n===1?'תשובה אחת':n+' תשובות'):'עוד אין תשובות'}</span><span>${ago(q.ts)}</span></p>
     <p class="fq2-a"><button type="button" class="linkbtn" data-fwant="${esc(q.key)}" aria-pressed="${!!fl}">${fl?'✓ אני רוצה לדעת':'גם אני רוצה לדעת'}</button><button type="button" class="linkbtn" data-fqans="${esc(q.key)}">לענות</button><button type="button" class="linkbtn" data-fsave="${esc(q.key)}" aria-pressed="${!!sv}">${sv?'✓ שמרתי':'לשמור'}</button></p></article>`;
 }
@@ -7329,9 +7340,16 @@ function fRoomsHTML(){
 /* sort tabs; "mine", "following" and "saved" only for a person who has some */
 function fTabsHTML(){
   const sv=Object.keys(fSaved()).length,T=[['pop','חמות'],['all','חדשות'],['open','בלי תשובה']];
-  if(FM.me){T.push(['mine','השאלות שלי'],['follow','שאני עוקב/ת'])}
+  if(FM.me){T.push(['mine','השאלות שלי'],['ans','עניתי'],['follow','שאני עוקב/ת'])}
   if(sv||FF.f==='saved')T.push(['saved','שמרתי']);
   return `<div class="fm-tabs" role="tablist" aria-label="סדר הצגה">${T.map(([k,l])=>`<button type="button" class="fm-tab" role="tab" data-ff="${k}" aria-selected="${FF.f===k}">${l}</button>`).join('')}</div>`}
+function fMineBox(){
+  if(FM.state!=='ready'||!FM.me)return '';
+  const Q=fIdx().Q,mine=Q.filter(q=>q.uid===FM.me),ans=Q.filter(q=>fAns(q.key).some(a=>a.uid===FM.me)).length,fl=Q.filter(q=>FM.priv.follow&&FM.priv.follow[q.key]).length,sv=Q.filter(q=>fSaved()[q.key]).length;
+  const got=mine.filter(q=>fAns(q.key).length).length,row=(k,l,n)=>`<li><button type="button" class="fm-mr" data-ff="${k}"><span>${l}</span><b class="num">${n}</b></button></li>`;
+  return `<div class="fm-side fm-mine"><h3>הפעילות שלי</h3>
+    <ul class="fm-ml">${row('mine','שאלות ששאלתי',mine.length)}${row('ans','שאלות שעניתי עליהן',ans)}${row('follow','שאלות שאני עוקב/ת אחריהן',fl)}${row('saved','שאלות ששמרתי',sv)}</ul>
+    ${mine.length?`<p class="fm-mn">${got?`על ${got} מתוך ${mine.length} מהשאלות שלי כבר ענו.`:'עוד לא ענו על השאלות שלי.'}</p>`:`<p class="fm-mn">עוד לא שאלתי. אפשר להתחיל בתיבה למעלה.</p>`}</div>`}
 function fHotBox(){
   if(FM.state!=='ready')return '';
   const L=[...fIdx().Q].sort((a,b)=>hotScore(b)-hotScore(a)).slice(0,5);
@@ -7359,8 +7377,8 @@ function renderForum(){
           <label class="fsel"><span>מוסד</span><select id="finst"><option value="">כל המוסדות</option>${insts.map(i=>`<option value="${i.id}" ${FF.inst===i.id?'selected':''}>${esc(i.n)}</option>`).join('')}</select></label>
           ${FF.ctx?`<span class="qchip">${esc(ctxLabel(FF.ctx))}<button data-fctxclr aria-label="הסרת הסינון">✕</button></span>`:''}</div></details></div>
       <div id="fMain">${fMainHTML()}</div></div>
-    <aside class="fm-sidecol" aria-label="עוד בפורום"><div id="fDaily">${fDailyHTML()}</div><div id="fHot">${fHotBox()}</div><div id="fSideW">${waitingBox()}</div><div id="fModH">${fMod()}</div>
-      <div class="fm-side how"><h3>איך זה עובד</h3><ol><li>שואלים, ומתייגים תואר, מוסד ונושא.</li><li>קוראים את התשובות, או עונים בעצמנו.</li><li>מי ששאל/ה כותב/ת ליד כל תשובה אם היא עזרה.</li><li>כדי לשאול ולענות מתחברים, ואפשר בעילום שם.</li></ol></div></aside></div></div></div>`;
+    <aside class="fm-sidecol" aria-label="עוד בפורום"><div id="fMineBox">${fMineBox()}</div><div id="fDaily">${fDailyHTML()}</div><div id="fHot">${fHotBox()}</div><div id="fSideW">${waitingBox()}</div><div id="fModH">${fMod()}</div>
+      <details class="fm-side how"><summary>איך זה עובד</summary><ol><li>שואלים, ומתייגים תואר, מוסד ונושא.</li><li>קוראים את התשובות, או עונים בעצמנו.</li><li>מי ששאל/ה כותב/ת ליד כל תשובה אם היא עזרה.</li><li>כדי לשאול ולענות מתחברים, ואפשר בעילום שם.</li></ol></details></aside></div></div></div>`;
 }
 
 /* ---------- a question thread ---------- */
@@ -7513,7 +7531,7 @@ function fRefresh(namesOnly){
   fBell();
   const r=S.route; if(!r)return;
   const set=(id,h)=>{const e=document.getElementById(id);if(e)e.innerHTML=h};
-  if(r.v==='forum'){set('fStatus',localNote());set('fStats',fStats());set('fMain',fMainHTML());set('fSideW',waitingBox());set('fHot',fHotBox());set('fRooms',fRoomsHTML());set('fTabs',fTabsHTML());set('fModH',fMod());if(!namesOnly)set('fSuggest',fSuggest())}
+  if(r.v==='forum'){set('fStatus',localNote());set('fStats',fStats());set('fMineBox',fMineBox());set('fMain',fMainHTML());set('fSideW',waitingBox());set('fHot',fHotBox());set('fRooms',fRoomsHTML());set('fTabs',fTabsHTML());set('fModH',fMod());if(!namesOnly)set('fSuggest',fSuggest())}
   else if(r.v==='q'){set('qThread',qThreadHTML(r.id));set('qRel',relatedQs(r.id));
     const f=document.getElementById('aFormH');if(f&&!f.contains(document.activeElement)&&!(f.querySelector('#atext')||{}).value)f.innerHTML=FM.state==='ready'&&fIdx().QB[r.id]?answerFormHTML(r.id):''}
   else{const c=document.getElementById('ctxQA');if(c)c.innerHTML=ctxQAList(c.dataset.ctx)}
