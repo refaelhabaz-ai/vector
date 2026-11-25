@@ -119,5 +119,21 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
     if(w===1440){const k=await q5.evaluate(()=>{const f=document.querySelector('.st-card [data-kmark]');return f?f.dataset.kmark:null});
       if(k){const before=await q5.evaluate(()=>plan().done);await q5.click(`.st-card [data-kmark="${k}"]`);await q5.waitForTimeout(500);const after=await q5.evaluate(()=>plan().done);ok(after>before,`@${w}: "done" marks the step and the page moves on in place (${before} to ${after})`)}}
     ok(errs5.length===0,`@${w}: no page errors ${errs5[0]||''}`);await ctx5.close()}
+  console.log('== results screen: compact bar, readable cards, a clear fold');
+  for(const w of [1440,390]){
+    const cx=await b.newContext({viewport:{width:w,height:800}}),q=await cx.newPage();q.setDefaultTimeout(8000);
+    await q.goto(URL);await q.evaluate(()=>{localStorage.setItem('kivun3.jrn',JSON.stringify({p:1}));localStorage.setItem('kivun3.prof',JSON.stringify({bag:'full',psy:'has',heb:'he',reg:'c',stage:'g12'}));localStorage.setItem('kivun3.scores',JSON.stringify({b:98.5,p:712}))});
+    await q.goto(URL+'#dir');await q.reload();await q.waitForTimeout(700);await q.click('[data-vqstart]');await q.waitForTimeout(400);
+    await q.evaluate(()=>{const st=VQE.init(vqEnv());const ans=[];for(let g=0;g<40;g++){const nx=VQE.next(st);if(nx.done)break;const Q=VQE.Q[nx.id];let a;if(nx.id==='DAY'){const c=VQR.dayCards(st);a={q:'DAY',picks:['DAY_pick'],occ:c[0].occ,never:null}}else{a={q:nx.id,picks:Q.fmt==='multi'?Q.options.slice(0,Q.maxPick).map(o=>o.id):[Q.options[0].id]};if(nx.w)a.w=nx.w}VQE.apply(st,a);ans.push(a)}VQU.answers=ans;VQU.done=Date.now();vqSave();VQU.mode='res';vqPaint();document.querySelector('.vb-tip').classList.add('show')});
+    await q.waitForTimeout(1500);
+    const m=await q.evaluate(()=>({bar:document.querySelector('.vr-bar').getBoundingClientRect().height,btns:document.querySelectorAll('.vr-bar .btn').length,fs:Math.min(...[...document.querySelectorAll('.rs-m,.rs-via,.rs-adm,.rs-why li')].map(e=>parseFloat(getComputedStyle(e).fontSize))),
+      tip:getComputedStyle(document.querySelector('.vb-tip')).display,pad:parseFloat(getComputedStyle(document.querySelector('.vr-in')).paddingBottom),sum:(document.querySelector('.rs-all>summary')||{}).textContent,more:!!document.querySelector('.vr-acts [data-vqmore]')&&!!document.querySelector('.vr-acts [data-vqstart]'),
+      long:[...document.querySelectorAll('.rs-via')].some(e=>e.textContent.includes('בחרת')),sw:document.documentElement.scrollWidth<=innerWidth+1}));
+    ok(m.bar<=70&&m.btns===2,`@${w}: the action bar is compact (${m.bar}px, ${m.btns} buttons)`);
+    ok(m.fs>=16,`@${w}: card text at least 16px (${m.fs})`);
+    ok(m.tip==='none',`@${w}: the bot's greeting bubble is hidden on this screen`);
+    ok((w>820||m.pad>=100)&&m.more,`@${w}: room at the bottom (${m.pad}px) and the other actions are still there`);
+    ok(/הכיוונים האחרים/.test(m.sum)&&!m.long&&m.sw,`@${w}: the fold has a clear label, reasons are short, no sideways scroll`);
+    await cx.close()}
   console.log(fails?`\n${fails} FAILED`:'\nall checks passed');await b.close();process.exit(fails?1:0);
 })();
