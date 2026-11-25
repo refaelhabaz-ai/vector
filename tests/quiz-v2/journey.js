@@ -72,5 +72,27 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
     ok(rv.why===3,`@${w}: each one says why it was in the set`);
     if(w===390)ok(await d.evaluate(()=>{const e=document.querySelector('.vq-days');return getComputedStyle(e).overflowX==='auto'&&getComputedStyle(e).scrollSnapType.includes('x')}),'on a phone the three days slide sideways and snap');
     ok(errs3.length===0,`@${w}: no page errors ${errs3[0]||''}`);await ctx3.close()}
+  console.log('== phase 4: the results');
+  for(const w of [1280,390]){
+    const ctx4=await b.newContext({viewport:{width:w,height:900}}),r=await ctx4.newPage();r.setDefaultTimeout(8000);const errs4=[];r.on('pageerror',e=>errs4.push(String(e)));
+    await r.goto(URL);await r.evaluate(()=>{localStorage.setItem('kivun3.jrn',JSON.stringify({p:1}));localStorage.setItem('kivun3.prof',JSON.stringify({bag:'full',psy:'has',heb:'he',reg:'c',stage:'g12'}));localStorage.setItem('kivun3.scores',JSON.stringify({b:98.5,p:712}))});await r.goto(URL+'#dir');await r.reload();await r.waitForTimeout(600);
+    await r.evaluate(()=>{const st=VQE.init(vqEnv()),ans=[];for(let g=0;g<40;g++){const nx=VQE.next(st);if(nx.done)break;const Q=VQE.Q[nx.id];let a;if(nx.id==='DAY'){const c=VQR.dayCards(st);a={q:'DAY',picks:['DAY_pick'],occ:c[0].occ,never:null}}else{a={q:nx.id,picks:Q.fmt==='multi'?Q.options.slice(0,Q.maxPick).map(o=>o.id):[Q.options[0].id]};if(nx.w)a.w=nx.w}VQE.apply(st,a);ans.push(a)}VQU.answers=ans;VQU.done=Date.now();vqSave();VQU.mode='res';vqPaint()});
+    await r.waitForTimeout(500);
+    const R=await r.evaluate(()=>({mode:VQU.mode,h1:document.querySelector('#vqH').textContent,hero:!!document.querySelector('.rs-hero'),why:document.querySelectorAll('.rs-why li').length,deg:document.querySelectorAll('.rs-sec')[0]&&document.querySelectorAll('.rs-sec')[0].querySelectorAll('.rs-c').length,occ:document.querySelectorAll('.rs-sec')[1]&&document.querySelectorAll('.rs-sec')[1].querySelectorAll('.rs-c').length,
+      primaries:[...document.querySelectorAll('.btn.primary')].map(x=>x.textContent.trim()),tabs:document.querySelectorAll('.vr-tab').length,say:(document.querySelector('.jr-say')||{}).textContent,step:(document.querySelector('.jr-o li.cur .jr-l')||{}).textContent,sw:document.documentElement.scrollWidth<=innerWidth+1,
+      nums:[...document.querySelectorAll('.rs-m')].map(x=>x.textContent).join(' ')}));
+    ok(R.mode==='res'&&R.hero&&/^הכיוון שלך: /.test(R.h1),`@${w}: the results open with the hero: ${R.h1}`);
+    ok(R.why>=1,`@${w}: "why it fits you" is built from the answers (${R.why} reasons)`);
+    ok(R.deg>=1&&R.deg<=3&&R.occ===3,`@${w}: up to three degrees (${R.deg}) and three professions (${R.occ})`);
+    ok(R.primaries.length===1&&/הוספה למסלול שלי/.test(R.primaries[0]),`@${w}: one primary button: ${JSON.stringify(R.primaries)}`);
+    ok(R.tabs===3,`@${w}: the other directions are still there (three tabs)`);
+    ok(R.step==='תוצאות'&&/הצעתי לך את זה כי/.test(R.say||''),`@${w}: the rail is on the results step, and the line comes from the answers: ${(R.say||'').slice(0,60)}`);
+    ok(R.sw,`@${w}: no sideways scroll`);
+    if(w===1280){
+      const before=await r.evaluate(()=>JSON.parse(localStorage.getItem('kivun3.path')||'null'));
+      await r.click('.rs-sec .rs-c [data-padd]');await r.waitForTimeout(600);
+      const after=await r.evaluate(()=>({ov:!!document.querySelector('.ov.show, .ov[aria-hidden="false"], #ov.show'),txt:(document.querySelector('.ov.show')||document.querySelector('.ov')||{}).textContent||'',route:location.hash}));
+      ok(after.ov||after.route!=='#dir',`@${w}: "add to my path" on a degree continues (the picker of the institution opens): ${after.route} ${after.ov}`)}
+    ok(errs4.length===0,`@${w}: no page errors ${errs4[0]||''}`);await ctx4.close()}
   console.log(fails?`\n${fails} FAILED`:'\nall checks passed');await b.close();process.exit(fails?1:0);
 })();
