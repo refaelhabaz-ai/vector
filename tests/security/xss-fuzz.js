@@ -3,7 +3,7 @@
    the name Google sends, interests, and the address bar) is filled with a payload that runs code if it is ever put into the page unescaped, then every page and sheet
    that can be reached is opened. A payload that runs, an attribute that was broken out of, or a javascript: link is reported with the place it came from.
    It is a review aid with the coverage of what it opens (it cannot prove there is no hole elsewhere).   Run: node tests/security/xss-fuzz.js [--verbose]   */
-const {chromium}=require('playwright');const path=require('path');
+require('../quiz-v2/jrn-patch.js');const {chromium}=require('playwright');const path=require('path');
 const {installMock,createBackend,serve}=require('../accounts/mock.js');
 const VERBOSE=process.argv.includes('--verbose');
 /* the payload: breaks out of a text node, of "..." and '...' attributes, and of a JS string; each place gets its own label */

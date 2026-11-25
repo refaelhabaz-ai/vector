@@ -1,5 +1,5 @@
 /* Shared helpers for the account tests: a served site, "devices" (separate browser contexts) that can share one fake server, and the Google round trip. */
-const {chromium}=require('playwright');const {installMock,createBackend,serve}=require('./mock.js');
+require('../quiz-v2/jrn-patch.js');const {chromium}=require('playwright');const {installMock,createBackend,serve}=require('./mock.js');
 const USERS={dana:{id:'11111111-2222-3333-4444-555555555555',email:'dana@example.com',full_name:'דנה כהן'},omer:{id:'99999999-8888-7777-6666-444444444444',email:'omer@example.com',full_name:'עומר לוי'}};
 async function start(){const web=await serve(),b=await chromium.launch();
   const T={web,b,URL:web.url,fails:0,ok:(c,m)=>{if(!c)T.fails++;console.log((c?'  ok   ':'  FAIL ')+m);return c},backend:createBackend()};

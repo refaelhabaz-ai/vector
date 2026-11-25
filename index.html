@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-7sbYRBlkf/irthKQWSUEsy6v2FkUhCQagoDtzlS9D6U=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-3wr0CFvDhltfn/zmYLiM2Z7hWr5mF9jCWm6xfzc1IXI=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5565,6 +5565,51 @@ html.rg .hm8>.hm8-bg,html.rm .hm8>.hm8-bg{animation:none}
 .pg-soft{animation:pgSoft .34s cubic-bezier(.25,.1,.25,1) both}
 @keyframes pgSoft{from{opacity:.25}to{opacity:1}}
 /*@@V3-CSS-END@@*/
+/*@@JOURNEY-CSS@@*/
+/* ================= the journey: one slim rail over the profile, the questionnaire, the results, the goals and the path ================= */
+:root{--jr-ink:#12204A;--jr-tint:#EEF2FA;--jr-band:#E2E9F6;--jr-line:#CBD6EB;--jr-card:#fff}
+html.jr-on{background:var(--jr-tint)}
+html.jr-on body{background:var(--jr-tint)}
+.jr{max-width:1180px;margin:0 auto;padding:14px 20px 0}
+.jr-o{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.jr-o li{position:relative;text-align:center;font-size:var(--fs-1);color:var(--muted)}
+.jr-o li::before{content:'';position:absolute;top:13px;inset-inline:-50% 50%;height:2px;background:var(--jr-line)}
+.jr-o li:first-child::before{display:none}
+.jr-o li.done::before,.jr-o li.cur::before{background:var(--jr-ink)}
+.jr-b{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;font:inherit;color:inherit;position:relative;z-index:1;cursor:default}
+button.jr-b{cursor:pointer}
+.jr-d{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--jr-tint);border:2px solid var(--jr-line);font-size:13px;font-weight:600;color:var(--muted);box-sizing:border-box}
+.jr-o li.done .jr-d{background:var(--jr-ink);border-color:var(--jr-ink);color:#fff}
+.jr-o li.cur .jr-d{background:#fff;border-color:var(--action);color:var(--action-ink);box-shadow:0 0 0 4px rgba(var(--action-rgb),.14)}
+.jr-o li.cur{color:var(--jr-ink);font-weight:600}
+.jr-o li.done{color:var(--jr-ink)}
+.jr-d svg{width:14px;height:14px}
+.jr-say{margin:12px auto 0;max-width:var(--measure);text-align:center;font-size:var(--fs-2);color:var(--text)}
+.jr-say b{font-weight:600;color:var(--jr-ink)}
+@media(max-width:640px){.jr{padding:10px 14px 0}.jr-o li span.jr-l{display:none}.jr-o li.cur span.jr-l{display:block;position:absolute;top:34px;inset-inline:-30px;white-space:nowrap}.jr-say{margin-top:30px}}
+/* the profile, step 1 */
+.jr-pf{padding:34px 0 70px}
+.jr-w{max-width:760px}
+.jr-h{font-weight:300;font-size:var(--fs-6);line-height:1.15;color:var(--jr-ink);margin:0 0 10px}
+.jr-sub{font-size:var(--fs-3);color:var(--text);margin:0 0 26px;max-width:var(--measure)}
+.jr-fields{display:grid;gap:14px}
+.jr-f{background:var(--jr-card);border-radius:var(--r);padding:20px 22px;border:1px solid var(--jr-line)}
+.jr-f.ok{border-color:#9BB1DD}
+.jr-f h2{font-size:var(--fs-3);font-weight:600;color:var(--jr-ink);margin:0 0 4px}
+.jr-f p{margin:0 0 12px;font-size:var(--fs-1);color:var(--muted)}
+.jr-ch{display:flex;flex-wrap:wrap;gap:8px}
+.jr-c{font:inherit;font-size:var(--fs-2);padding:10px 16px;border-radius:var(--r);border:1.5px solid var(--jr-line);background:#fff;color:var(--text);cursor:pointer;min-height:44px;transition:background .15s,border-color .15s}
+.jr-c:hover{border-color:var(--jr-ink)}
+.jr-c[aria-pressed="true"]{background:var(--jr-ink);border-color:var(--jr-ink);color:#fff}
+.jr-c.q{border-style:dashed;color:var(--muted)}
+.jr-c.q[aria-pressed="true"]{background:var(--jr-band);border-color:var(--jr-line);color:var(--jr-ink);border-style:solid}
+.jr-sub-f{margin-top:14px;padding-top:14px;border-top:1px solid var(--jr-band)}
+.jr-sub-f label{display:block;font-size:var(--fs-2);color:var(--jr-ink);margin-bottom:8px}
+.jr-in{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.jr-in input{font:inherit;font-size:var(--fs-3);padding:10px 14px;border:1.5px solid var(--jr-line);border-radius:var(--r);width:9em;background:#fff;color:var(--jr-ink)}
+.jr-cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.jr-err{color:var(--error);font-size:var(--fs-2);margin:10px 0 0}
+/*@@JOURNEY-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
 <header class="hdr vn" id="hdr">
@@ -11164,6 +11209,8 @@ function vqSay(){
 }
 function vqFocus(){const h=$('#vqH');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}
 function vqStart(entry){vqLoad();VQU.answers=[];VQU.more=0;VQU.done=0;VQU.sid=quizUuid();VQU.st=Date.now();VQU.preDone='';VQU.t0=Date.now();vqSave();vqProfSync();vqTrack('vq_start',{entry:entry||'header'});vqStep();vqPaint()}
+/* the buttons that start the questionnaire go through step 1: a person without a profile is asked the four short questions first */
+function vqStartGate(entry){vqLoad();if(!jrnProfDone()){JP.ready=0;VQU.mode='prof';vqTrack('jrn_profile',{entry:entry||'header'});vqPaint();return}vqStart(entry)}
 function vqResume(){vqLoad();VQU.t0=Date.now();VQU.preDone='';vqStep();vqPaint()}
 /* ---------- screens ---------- */
 const vqBar=(st,nx)=>{
@@ -11267,6 +11314,7 @@ function vqRender(){
   if(VQU.mode==='res'&&!VQU.done&&!VQU.answers.length)VQU.mode='intro';
   if(VQU.mode==='intro'&&VQU.done&&VQU.answers.length&&VQU.entered===undefined)VQU.entered=1;
   const m=VQU.mode;
+  if(m==='prof')return jrnProfileHTML();
   if(m==='trans')return vqTrans();
   if(m==='guess'){VQU.guessSeen=1;return vqGuess()}
   if(m==='day')return vqDay();
@@ -11278,7 +11326,7 @@ function vqRender(){
 document.addEventListener('click',e=>{
   const el=e.target.closest('[data-vqstart],[data-vqresume],[data-vqres],[data-vqo],[data-vqnext],[data-vqskip],[data-vqwhy],[data-vqback],[data-vqcont],[data-vqday],[data-vqnever],[data-vqmore],[data-vqreg]');
   if(!el||!vqHere())return;const ds=el.dataset;
-  if(ds.vqstart!==undefined)vqStart('header');
+  if(ds.vqstart!==undefined)vqStartGate('header');
   else if(ds.vqresume!==undefined)vqResume();
   else if(ds.vqres!==undefined){vqLoad();VQU.mode='res';vqPaint()}
   else if(ds.vqback!==undefined)vqBack();
@@ -11341,6 +11389,98 @@ function vqProfSync(){
 }
 /* ---------- the names the rest of the site reads (the first questionnaire's) ---------- */
 const dirDone=()=>vqDone();
+/* ================= THE JOURNEY: the rail, and step 1 (the profile) =================
+   One slim rail over every screen of the path: 1 profile, 2 questionnaire, 3 results, 4 goals, 5 path. A finished step can be opened again.
+   Step 1 is a single short page. It writes to the profile the site already has (S.prof, S.sc, localStorage "prof" and "scores", synced when signed in), so nothing is stored twice.
+   Every field has "I don't know", so it never blocks; the answers that were left out are remembered (localStorage "jrn") and not asked again on this page. */
+const JRN_STEPS=[['profile','פרופיל'],['quiz','שאלון'],['res','תוצאות'],['goals','יעדים'],['path','מסלול']];
+const JRN_SAY={profile:'כדי לא לשאול אותך מה שאנחנו כבר יודעים.',quiz:'כל תשובה מצמצמת את המפה. אין תשובות נכונות.',res:'הצעתי את הכיוונים האלה לפי התשובות שלך. אפשר לחזור ולשנות.',goals:'בחרו יעד, ואני אבנה לכם את הדרך אליו.',path:'הצעד הבא מחכה לך.'};
+const jrnStore=()=>store.get('jrn',null)||{};
+const jrnProfDone=()=>!!jrnStore().p||(typeof profileOK==='function'&&profileOK()&&!!(S.prof&&S.prof.reg)); /* a profile that exists already counts: nobody is sent back to step 1 */
+const JP={reg:'',bag:'',avg:'',psy:'',pscore:'',heb:'',unk:{},ready:0};
+function jrnPfInit(){const p=S.prof||{},sc=S.sc||{},j=jrnStore();
+  JP.reg=p.reg||'';JP.bag=p.bag||'';JP.avg=sc.b?String(sc.b):'';JP.psy=p.psy||'';JP.pscore=sc.p?String(sc.p):'';JP.heb=p.heb||'';JP.unk=Object.assign({},j.unk||{});JP.err='';JP.ready=1}
+const jrnFields=()=>[
+  {k:'reg',q:gx('איפה אני גר','איפה אני גרה','איפה אני גר/ה')+'?',h:'לפי זה נראה לך מה קרוב.',o:Object.entries(REGN)},
+  {k:'bag',q:'איזו תעודה יש לי?',h:'',o:PROF_Q.find(q=>q.k==='bag').o},
+  {k:'psy',q:'יש לי ציון פסיכומטרי?',h:'',o:PROF_Q.find(q=>q.k==='psy').o},
+  {k:'heb',q:'באיזו שפה למדתי בתיכון?',h:'',o:PROF_Q.find(q=>q.k==='heb').o}];
+const jrnNum=(s,a,b)=>{const n=Number(String(s).replace(',','.'));return s!==''&&n>=a&&n<=b?n:0};
+const jrnDecided=k=>!!JP[k]||!!JP.unk[k];
+function jrnPfOK(){
+  if(!['reg','bag','psy','heb'].every(jrnDecided))return false;
+  if(JP.bag==='full'&&!(JP.avg!==''||JP.unk.avg))return false;   /* a number that is out of range is refused with a message when the button is pressed */
+  if(JP.psy==='has'&&!(JP.pscore!==''||JP.unk.pscore))return false;
+  return true}
+function jrnChip(k,v,l,on,q){return `<button type="button" class="jr-c${q?' q':''}" data-jp="${k}:${v}" aria-pressed="${on}">${esc(l)}</button>`}
+function jrnFieldsHTML(){
+  return jrnFields().map(f=>{const dec=jrnDecided(f.k);
+    const sub=f.k==='bag'&&JP.bag==='full'?`<div class="jr-sub-f"><label for="jrAvg">מה ממוצע הבגרות שלי?</label><div class="jr-in"><input id="jrAvg" type="text" inputmode="decimal" autocomplete="off" placeholder="למשל 98.5" value="${esc(JP.avg)}" data-jpin="avg" aria-describedby="jrAvgH">${jrnChip('avg','?','לא יודע/ת את הממוצע',!!JP.unk.avg,1)}</div></div>`
+      :f.k==='psy'&&JP.psy==='has'?`<div class="jr-sub-f"><label for="jrPsy">מה הציון הכללי?</label><div class="jr-in"><input id="jrPsy" type="text" inputmode="numeric" autocomplete="off" placeholder="200 עד 800" value="${esc(JP.pscore)}" data-jpin="pscore">${jrnChip('pscore','?','לא יודע/ת את הציון',!!JP.unk.pscore,1)}</div></div>`:'';
+    return `<div class="jr-f${dec?' ok':''}" role="group" aria-labelledby="jrq-${f.k}"><h2 id="jrq-${f.k}">${esc(vqT(f.q))}</h2>${f.h?`<p>${esc(f.h)}</p>`:''}
+      <div class="jr-ch">${f.o.map(([v,l])=>jrnChip(f.k,v,l,JP[f.k]===v)).join('')}${jrnChip(f.k,'?','לא יודע/ת',!!JP.unk[f.k]&&!JP[f.k],1)}</div>${sub}</div>`}).join('')}
+function jrnProfileHTML(){
+  if(!JP.ready)jrnPfInit();
+  const edit=VQU.answers.length>0;
+  return `<section class="jr-pf"><div class="wrap jr-w">
+    <h1 class="jr-h" id="vqH">${vqT('בוא/י נכיר, ואז נתחיל')}</h1>
+    <p class="jr-sub">${vqT('ארבע שאלות קצרות, בערך חצי דקה. הן חוסכות מאיתנו לשאול אותך אחר כך על מה שכבר ידוע, והשאלון יתאים את עצמו אליך. אפשר תמיד לענות "לא יודע/ת".')}</p>
+    <div class="jr-fields" id="jrFields">${jrnFieldsHTML()}</div>
+    <p class="jr-err" id="jrErr" role="alert" hidden></p>
+    <div class="jr-cta"><button class="btn primary xl" data-jrnstart${jrnPfOK()?'':' disabled'}>${edit?'שמירה והמשך':'להתחיל את השאלון'}</button>${edit?'<button class="linkbtn" data-jrncancel>חזרה בלי לשמור</button>':''}</div>
+    <p class="fine" style="margin-top:16px">המידע נשמר בדפדפן${typeof acctSynced==='function'&&acctSynced()?' ובחשבון שלי':''} ומשמש רק להתאמה של האתר אלייך. אפשר לשנות אותו בכל רגע בעמוד "הפרופיל שלי".</p>
+  </div></section>`}
+function jrnPfPaint(focusSel){
+  const f=$('#jrFields');if(!f)return;f.innerHTML=jrnFieldsHTML();
+  const b=$('[data-jrnstart]');if(b)b.disabled=!jrnPfOK();
+  const e=$('#jrErr');if(e)e.hidden=true;
+  if(focusSel){const x=$(focusSel);if(x)x.focus({preventScroll:true})}}
+function jrnPfSave(){
+  const e=$('#jrErr'),err=m=>{if(e){e.textContent=m;e.hidden=false}return false};
+  if(JP.bag==='full'&&JP.avg&&!jrnNum(JP.avg,55,120))return err('ממוצע בגרות צריך להיות בין 55 ל-120.');
+  if(JP.psy==='has'&&JP.pscore&&!jrnNum(JP.pscore,200,800))return err('ציון פסיכומטרי צריך להיות בין 200 ל-800.');
+  const prof={...(S.prof||{})},sc={...(S.sc||{})};
+  for(const k of ['reg','bag','psy','heb'])if(JP[k])prof[k]=JP[k];
+  const avg=JP.bag==='full'?jrnNum(JP.avg,55,120):0,ps=JP.psy==='has'?jrnNum(JP.pscore,200,800):0;
+  if(avg)sc.b=Math.round(avg*100)/100;if(ps)sc.p=Math.round(ps);
+  S.prof=prof;S.sc=(sc.b||sc.p)?sc:S.sc;store.set('prof',S.prof);if(S.sc)store.set('scores',S.sc);try{PLC=null}catch(x){}
+  const j=jrnStore();store.set('jrn',{...j,p:Date.now(),unk:JP.unk});
+  return true}
+function jrnPfStartQuiz(){if(!jrnPfSave())return;JP.ready=0;
+  if(VQU.answers.length&&!VQU.done){vqResume();return}
+  if(VQU.done){VQU.mode='res';vqPaint();return}
+  vqStart('journey')}
+/* the rail: where I am (from the screen), what is done, and what a click leads to */
+function jrnStepNow(r){
+  const busy=['q','guess','day','trans','res','prof'].includes(VQU.mode);
+  if(r.v==='path'&&hasGoal()&&!KP.wiz.active)return curView()==='hub'?'goals':'path';
+  if(r.v==='path'&&!(!dirDone()||(KP.quizOn&&busy)))return 'goals';
+  const m=VQU.mode;return m==='prof'||(m==='intro'&&!jrnProfDone()&&!VQU.answers.length)?'profile':m==='res'?'res':'quiz'}
+function jrnRail(r){
+  const cur=jrnStepNow(r),ci=JRN_STEPS.findIndex(s=>s[0]===cur);
+  const items=JRN_STEPS.map(([k,l],i)=>{const d=i<ci,c=i===ci,can=d&&(k!=='path'||hasGoal());
+    const dot=d?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>':String(i+1);
+    const inner=`<span class="jr-d">${dot}</span><span class="jr-l">${l}</span>`;
+    return `<li class="${d?'done':c?'cur':''}"${c?' aria-current="step"':''}>${can?`<button type="button" class="jr-b" data-jrn="${k}" aria-label="${l}, שלב ${i+1} מתוך 5, הושלם. לחיצה פותחת אותו שוב">${inner}</button>`:`<span class="jr-b">${inner}</span>`}</li>`}).join('');
+  return `<nav class="jr" aria-label="המסע שלי"><ol class="jr-o">${items}</ol><p class="jr-say"><b>וקטי:</b> ${esc(JRN_SAY[cur])}</p></nav>`}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-jp],[data-jrnstart],[data-jrncancel],[data-jrn]');if(!t)return;const ds=t.dataset;
+  if(ds.jp!==undefined){const i=ds.jp.indexOf(':'),k=ds.jp.slice(0,i),v=ds.jp.slice(i+1);
+    if(v==='?'){JP.unk[k]=JP.unk[k]&&!JP[k]?0:1;if(k==='avg'||k==='pscore'){if(JP.unk[k])JP[k]=''}else{JP[k]='';if(k==='bag'){JP.avg='';JP.unk.avg=0}if(k==='psy'){JP.pscore='';JP.unk.pscore=0}}}
+    else{JP[k]=v;JP.unk[k]=0;if(k==='bag'&&v!=='full'){JP.avg='';JP.unk.avg=0}if(k==='psy'&&v!=='has'){JP.pscore='';JP.unk.pscore=0}}
+    jrnPfPaint(`[data-jp="${ds.jp}"]`);return}
+  if(ds.jrnstart!==undefined){jrnPfStartQuiz();return}
+  if(ds.jrncancel!==undefined){JP.ready=0;if(VQU.done){VQU.mode='res'}else vqResume&&vqResume();vqPaint();return}
+  if(ds.jrn!==undefined){const k=ds.jrn;
+    if(k==='profile'){JP.ready=0;VQU.mode='prof';if(S.route.v!=='dir'&&S.route.v!=='path'){go('dir');return}vqPaint();return}
+    if(k==='quiz'){vqLoad();if(VQU.answers.length&&!VQU.done){vqResume();return}VQU.mode=VQU.done?'intro':'intro';go('dir');render();return}
+    if(k==='res'){vqLoad();VQU.mode='res';if(S.route.v==='dir'||S.route.v==='path'){vqPaint()}else go('dir');return}
+    if(k==='goals'){KP.view='hub';KP.quizOn=false;VQU.mode='intro';go('path');render();return}
+    if(k==='path'){go('path');return}}
+});
+document.addEventListener('input',e=>{const t=e.target.closest('[data-jpin]');if(!t)return;JP[t.dataset.jpin]=t.value.trim();JP.unk[t.dataset.jpin]=0;
+  const b=$('[data-jrnstart]');if(b)b.disabled=!jrnPfOK();const q=document.querySelector(`[data-jp="${t.dataset.jpin}:?"]`);if(q)q.setAttribute('aria-pressed','false')});
+
 let VQ_RC=null,VQ_RK='';
 /* the result as the pages that read it expect it: per occupation and per degree {t: the score, top: the place in percent (1 = the best), pct}, the ranks, and the leading worlds */
 function dirResult(){
@@ -15711,6 +15851,8 @@ function render(){
   else if(r.v==='a11y')html=renderA11y();
   else if(r.v==='sch')html=renderSch();
   else html=renderHome();
+  if(r.v==='dir'||r.v==='path')html=safe(()=>jrnRail(r),'')+html;
+  document.documentElement.classList.toggle('jr-on',r.v==='dir'||r.v==='path');
   if(r.v==='deg'||r.v==='occ'||r.v==='mh')html+=qaFab();
   document.documentElement.classList.toggle('vx',r.v==='path'&&hasGoal()&&!KP.wiz.active);
   if(r.v!=='path')KP.labOpen=false;document.documentElement.classList.toggle('vx-lock',r.v==='path'&&!!KP.labOpen);
@@ -16563,7 +16705,7 @@ function hubQuizHTML(){
 document.addEventListener('click',e=>{
   const b=e.target.closest&&e.target.closest('[data-hqres],[data-hqstart],[data-hqnew],[data-hqnewok]');if(!b)return;const d=b.dataset;
   if(d.hqres!==undefined){vqLoad();VQU.mode='res';VQU.keepRes=1;go('dir')}
-  else if(d.hqstart!==undefined||d.hqnewok!==undefined){closeOv(true);vqLoad();VQU.keepRes=1;go('dir');setTimeout(()=>vqStart('hub'),150)}
+  else if(d.hqstart!==undefined||d.hqnewok!==undefined){closeOv(true);vqLoad();VQU.keepRes=1;go('dir');setTimeout(()=>vqStartGate('hub'),150)}
   else if(d.hqnew!==undefined){openOv(`<h2>להתחיל את השאלון מחדש?</h2><p class="s">התשובות והתוצאות הנוכחיות יוחלפו בחדשות. המסלולים שלי לא ישתנו.</p><div class="kp-btns"><button type="button" class="btn primary" data-hqnewok>כן, מתחילים מחדש</button><button type="button" class="btn soft" data-close>ביטול</button></div>`)}
 });
 

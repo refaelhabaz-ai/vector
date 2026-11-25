@@ -5,7 +5,7 @@
    - the results screen: one button at the top, the other three below the directions;
    - the "how to get there" block: gender forms for a female and a male profile, the "not enough data" line once per occupation and never per degree.
    Run: node tests/quiz-v2/fixes.js */
-const {chromium}=require('playwright');const path=require('path'),fs=require('fs');
+const {chromium}=require('./jrn-patch.js')&&require('playwright');const path=require('path'),fs=require('fs');
 const personas=JSON.parse(fs.readFileSync(path.join(__dirname,'personas.json'),'utf8'));
 const URL='file://'+path.join(__dirname,'..','..','index.html');
 let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m);return c};

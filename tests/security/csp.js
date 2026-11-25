@@ -5,7 +5,7 @@
       and the policy really blocks: an injected inline script, an inline event handler, a request to another site, eval;
    3. another site cannot show this site in a frame (the page stops and shows a link), a direct visit is untouched, and the allow-list accepts only claude.ai.
    Run: node tests/security/csp.js        */
-const {chromium}=require('playwright');const fs=require('fs'),path=require('path'),http=require('http');
+require('../quiz-v2/jrn-patch.js');const {chromium}=require('playwright');const fs=require('fs'),path=require('path'),http=require('http');
 const {analyse,write}=require('../../tools/csp-hash.js');const {installMock,serve}=require('../accounts/mock.js');
 let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m);return c};
 (async()=>{

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* Screenshots of the account screens (docs/accounts/screens/, 360 wide) against the fake Supabase. Run: node tests/accounts/screens.js */
-const {chromium}=require('playwright');const path=require('path'),fs=require('fs');const {installMock,serve}=require('./mock.js');
+require('../quiz-v2/jrn-patch.js');const {chromium}=require('playwright');const path=require('path'),fs=require('fs');const {installMock,serve}=require('./mock.js');
 const OUT=path.join(__dirname,'..','..','docs','accounts','screens');fs.mkdirSync(OUT,{recursive:true});
 (async()=>{const web=await serve(),b=await chromium.launch();
   const ctx=await b.newContext({viewport:{width:360,height:740},deviceScaleFactor:2}),m=await installMock(ctx),p=await ctx.newPage();p.setDefaultTimeout(8000);

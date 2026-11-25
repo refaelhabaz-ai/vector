@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Stage 4 tests: the rest of the site reads the new result (the old dirResult / dirDone names), the profile and the backup. In a browser.
    Run: node tests/quiz-v2/integration.js */
-const {chromium}=require('playwright');const path=require('path'),fs=require('fs');
+const {chromium}=require('./jrn-patch.js')&&require('playwright');const path=require('path'),fs=require('fs');
 const personas=JSON.parse(fs.readFileSync(path.join(__dirname,'personas.json'),'utf8'));
 const URL='file://'+path.join(__dirname,'..','..','index.html');
 let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m);return c};

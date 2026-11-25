@@ -20,6 +20,7 @@ const T=[
   ['security: CSP in the browser, what it blocks, the frame guard','../security/csp.js',120],
   ['security: XSS fuzz (every place a person\'s text lives, every page)','../security/xss-fuzz.js',300],
   ['screens: personas through the page at 1280 and 360 (page)','ui.js',420],
+  ['journey: the rail, the profile as step 1 (page)','journey.js',120],
 ];
 const rows=[];let bad=0;const t0=Date.now();
 for(const [name,file,limit,args] of T){

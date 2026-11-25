@@ -4,7 +4,7 @@
    the Google redirect (PKCE, redirect URL, return hash); coming back (consents written, name asked, URL cleaned, hash restored); a stored session at start
    (works offline); sign-out; Supabase down / slow / rate-limited (friendly message, the site goes on); an extra consent item (e.g. minimum age) later.
    The Google page itself cannot be automated: see docs/accounts/README.md for the manual check.   Run: node tests/accounts/stage1.js */
-const {chromium}=require('playwright');const path=require('path');
+require('../quiz-v2/jrn-patch.js');const {chromium}=require('playwright');const path=require('path');
 const {installMock,serve}=require('./mock.js');
 let URL='';
 let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m);return c};
