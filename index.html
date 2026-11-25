@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-rqYIZrgUg4fpUL5kQpS8PgvSBlKMDDyYAVcJxQeZgjk=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-/yCR1krhE/4CTUKhldCABa8tJIBg2RFJlLjRDh7XH4o=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -6397,7 +6397,7 @@ function pfAdvance(){if(!PF)return;const s=pfSeq(),i=s.indexOf(PF.key),nx=i<0?s.
 function pfFinish(){const o=PF.opt,mode=PF.mode;PF=null;
   if(mode==='page'){jrnPfDone();return}
   closeOv(true);toast('הפרופיל נשמר');
-  if(o.path){if(o.then)o.then();else if(S.route.v==='path')render()}else if(S.route.v==='path')keepY(render);else go('me')}
+  if(o.path){if(o.then)o.then();else if(S.route.v==='path')render()}else keepY(render)} /* stay where I was (a degree page, a list): it now shows what the profile makes possible */
 function pfNum(){const k=PF.key,d=PF_Q(k,PF.cur),el=$('#pfNum'),err=$('#pfErr'),raw=(el?el.value:'').trim(),n=Number(raw.replace(',','.'));
   const bad=m=>{if(err){err.textContent=m;err.hidden=false}if(el)el.focus({preventScroll:true})};
   if(!raw)return bad('אפשר לכתוב מספר, או לבחור "לא יודע/ת".');
@@ -6416,7 +6416,8 @@ document.addEventListener('click',e=>{
 document.addEventListener('keydown',e=>{if(PF&&e.key==='Enter'&&e.target&&e.target.id==='pfNum'){e.preventDefault();pfNum()}});
 /* the profile window: the same component as the journey's first step, opened over the page. at: a question to start at; only: just these questions (the road asks for the stage alone) */
 function openProfile(opt){
-  opt=opt||{};pfInit({mode:'modal',path:!!opt.path,only:opt.only,at:opt.at,then:opt.then,more:!opt.only});
+  opt=opt||{};const moreOnly=opt.at==='more'; /* the optional extras (how to address me, language, housing, work) are a screen of their own, opened from the profile page */
+  pfInit({mode:'modal',path:!!opt.path,only:moreOnly?[]:opt.only,at:opt.at,then:opt.then,more:moreOnly});
   openOv(`<h2>${opt.only?'שאלה אחת לפני המסלול':opt.path?'קודם הפרופיל שלי, ואז המסלול':'הפרופיל שלי'}</h2>${opt.only?'':'<p class="s">שאלה אחת בכל פעם. כל תשובה נשמרת, ואפשר לשנות בכל רגע.</p>'}<div id="pfMount">${pfHTML()}</div>`,'wide');
   setTimeout(()=>{const e=document.querySelector('#pfMount .pf-q');if(e)e.focus({preventScroll:true})},60)}
 function profileSummary(){
@@ -6515,7 +6516,7 @@ function renderMe(){
   return `<section class="hero"><div class="wrap">${BACK}<h1 class="pf-h">הפרופיל שלי</h1>
     <p class="sub">הפרטים האלה נשמרים בדפדפן שלי ומשמשים לבדוק לאן אפשר להתקבל. אפשר לשנות אותם בכל רגע.</p>
     <ul class="pf-rows">${rows.map(row).join('')}</ul>
-    <div class="pf-acts"><button class="btn primary" data-prof>עריכת הפרופיל</button>${p.bag==='full'?'<button type="button" class="linkbtn" data-go="calc">מחשבון ממוצע בגרות</button>':''}<button type="button" class="linkbtn" data-admitview>התארים שאפשר להתקבל אליהם</button><button type="button" class="linkbtn" data-go="path">המסלול שלי</button></div></div></section>`;
+    <div class="pf-acts"><button class="btn primary" data-prof>עריכת הפרופיל</button>${p.bag==='full'?'<button type="button" class="linkbtn" data-go="calc">מחשבון ממוצע בגרות</button>':''}<button type="button" class="linkbtn" data-prof="more">עוד פרטים עליי (לא חובה)</button><button type="button" class="linkbtn" data-admitview>התארים שאפשר להתקבל אליהם</button><button type="button" class="linkbtn" data-go="path">המסלול שלי</button></div></div></section>`;
 }
 /* "degrees I can be admitted to": the degrees list, filtered; with a note about where to begin when the certificate is not enough */
 function admitNoteHTML(){

@@ -259,5 +259,20 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
     ok(await q.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1&&[...document.querySelectorAll('#ov .pf-o')].every(o=>o.getBoundingClientRect().height>=54)),'@390: rows are comfortable and nothing scrolls sideways');
     await q.cx.close();
   }
+  console.log('== finishing the profile keeps me where I was');
+  {
+    const cx=await b.newContext({viewport:{width:1200,height:900}}),q=await cx.newPage();q.setDefaultTimeout(8000);const errs=[];q.on('pageerror',e=>errs.push(String(e)));
+    await q.goto(URL);await q.evaluate(()=>{localStorage.setItem('kivun3.jrn',JSON.stringify({p:1}));localStorage.setItem('kivun3.seenProf','true');localStorage.setItem('kivun3.jnTip','1')});
+    await q.goto(URL+'#deg-d20');await q.reload();await q.waitForTimeout(900);
+    const before=await q.evaluate(()=>({hash:location.hash,cta:!!document.querySelector('[data-prof]')}));
+    await q.evaluate(()=>openProfile());await q.waitForTimeout(400);
+    for(const v of ['after','c','full','?','no','he']){await q.click(`#ov [data-pfv="${v}"]`);await q.waitForTimeout(520)}
+    await q.waitForTimeout(500);
+    const after=await q.evaluate(()=>({hash:location.hash,route:S.route.v,ov:!!document.querySelector('#ov #pf'),ok:profileOK(),title:(document.querySelector('h1')||{}).textContent}));
+    ok(before.hash==='#deg-d20'&&after.hash==='#deg-d20'&&after.route==='deg'&&!after.ov&&after.ok,`after the last answer I am still on the degree page, with the profile saved (${after.hash}, ${after.title})`);
+    await q.evaluate(()=>openProfile({at:'more'}));await q.waitForTimeout(400);
+    ok(await q.evaluate(()=>/עוד קצת עליי/.test((document.querySelector('#ov #pf .pf-q')||{}).textContent||'')&&!!document.querySelector('#ov [data-pffinish]')),'the optional extras are a screen of their own, opened on request');
+    ok(errs.length===0,'no page errors '+(errs[0]||''));await cx.close();
+  }
   console.log(fails?`\n${fails} FAILED`:'\nall checks passed');await b.close();process.exit(fails?1:0);
 })();
