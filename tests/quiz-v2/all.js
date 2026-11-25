@@ -23,6 +23,7 @@ const T=[
   ['questionnaire length: the short run against the long run, 1,200 simulated users','shorten.js',120],
   ['journey: the rail, the profile as step 1 (page)','journey.js',120],
   ['forum: my activity area (page)','forum.js',120],
+  ['photos: every page has a photo that exists, is small and is credited (page)','photos.js',60],
 ];
 const rows=[];let bad=0;const t0=Date.now();
 for(const [name,file,limit,args] of T){
