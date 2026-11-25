@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-73Amy7OxvakxDZMj4fj+7JFIJzZtR+zHTWDlfc/Q2bs=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-MHVOPpK7962NEOL0FHAaz9F6wNOqAYJHM7jqmdb1qfM=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5813,6 +5813,31 @@ html body:has(.vr) .vb-launch{bottom:calc(18px + env(safe-area-inset-bottom,0px)
 .rp-l .btn{flex:0 0 auto;min-height:44px}
 @media(max-width:820px){.rs-next{grid-template-columns:minmax(0,1fr);gap:18px;padding:18px 16px}.rs-ntx{font-size:13px}.rs-dc .btn.primary{min-height:48px}.rs-other{flex-direction:column;align-items:stretch}.rs-other .rs-ob,.rs-other .btn{width:100%}.rp-l li{flex-wrap:wrap}.rp-l .btn{width:100%}}
 .rs-ha{display:flex;flex-wrap:wrap;gap:10px}.rs-ha .btn{min-height:44px}
+.pf{max-width:680px;margin-inline:auto}
+.pf-top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:36px}
+.pf-back{border:0;background:none;padding:6px 2px;font:600 var(--fs-2)/1 var(--font,'Assistant',sans-serif);color:var(--jr-ink);text-decoration:underline;text-underline-offset:4px;cursor:pointer;min-height:44px}
+.pf-prog{margin-inline-start:auto;font-size:var(--fs-1);color:var(--muted)}
+.pf-bar{height:4px;background:var(--jr-line);border-radius:2px;overflow:hidden;margin:4px 0 22px}
+.pf-bar i{display:block;height:100%;background:var(--action);transition:width .35s var(--ease-out,ease)}
+.pf-card{animation:pfIn .32s var(--ease-out,ease) both}
+@keyframes pfIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+html.rm .pf-card,html.rg .pf-card{animation:none}
+.pf-q{margin:0 0 8px;font-size:var(--fs-5);font-weight:300;line-height:1.25;color:var(--jr-ink);outline:0}
+.pf-h{margin:0 0 18px;font-size:var(--fs-2);color:var(--muted);line-height:1.5}
+.pf-opts{display:grid;gap:10px}
+.pf-o{display:flex;align-items:center;width:100%;min-height:58px;padding:0 20px;text-align:start;background:#fff;border:1.5px solid var(--jr-line);border-radius:var(--r);font:500 var(--fs-3)/1.3 var(--font,'Assistant',sans-serif);color:var(--jr-ink);cursor:pointer;transition:border-color .15s,background-color .15s,box-shadow .15s}
+.pf-o:hover{border-color:var(--jr-ink);background:var(--jr-tint,#EEF2FA)}
+.pf-o:focus-visible,.pf-in:focus-visible{outline:3px solid rgba(var(--action-rgb),.45);outline-offset:2px}
+.pf-o[aria-pressed="true"]{background:var(--action);border-color:var(--action);color:#fff;font-weight:600}
+.pf-o.unk{border-style:dashed;color:var(--muted);background:transparent}
+.pf-o.unk[aria-pressed="true"]{color:#fff;background:var(--jr-ink);border-color:var(--jr-ink)}
+.pf-num{margin-bottom:14px}
+.pf-in{box-sizing:border-box;width:100%;min-height:58px;padding:0 18px;font:500 var(--fs-4)/1 var(--font,'Assistant',sans-serif);color:var(--jr-ink);background:#fff;border:1.5px solid var(--jr-line);border-radius:var(--r)}
+.pf-err{display:block;margin-top:8px;color:var(--err-ink,#b91c1c);font-size:var(--fs-2)}
+.pf-act{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px}
+.pf-act .btn{min-height:50px}
+.pf-page{padding:6px 0 10px}
+@media(max-width:640px){.pf-o{min-height:56px;padding:0 16px;font-size:17px}.pf-q{font-size:24px}}
 /*@@JOURNEY-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -6298,92 +6323,102 @@ const NO_CERT=b=>b==='partial'||b==='none';
 const PROF_NEED=p=>['bag'].concat(p&&NO_CERT(p.bag)?['y12','age']:[],['psy','heb']);
 function profileOK(){return !!S.prof&&PROF_NEED(S.prof).every(k=>S.prof[k])}
 /* a road is built only from the profile: without the answers it needs (and the grade I am in) the site asks for the profile first */
-const pathReady=()=>profileOK()&&!!(S.prof&&S.prof.stage);
-function needProf(then){if(pathReady())return false;openProfile({path:true,then});return true}
+const pathReady=()=>!!(S.prof&&S.prof.stage); /* the road needs ONE thing: where I am now. Everything else the profile can still learn, but the road never waits for it */
+function needProf(then){if(pathReady())return false;openProfile({path:true,only:['stage'],then});return true}
+
+/* ================= the profile flow: ONE component wherever a profile is built =================
+   The profile window, the first step of the journey and the single question the road may still need all use it. One question at a time; which questions apply is decided in
+   PF_RULES (the only place that says so); every answer is saved at once, so closing loses nothing and the next visit continues where it stopped; any answer can be changed later. */
+const PF_SCHOOL=s=>s==='g10'||s==='g11'||s==='g12';
+const PF_RULES=[
+  {k:'stage',ask:c=>true},                                                   /* required: the road is built from it, so no "I don't know" */
+  {k:'reg',ask:c=>true},
+  {k:'bag',ask:c=>!PF_SCHOOL(c.stage)},                                      /* in school there is no certificate yet: it is assumed to be a full one */
+  {k:'bagavg',num:1,ask:c=>c.stage==='g12'||(!PF_SCHOOL(c.stage)&&c.bag==='full')}, /* grade 12: an estimate; grade 10-11: none yet; later: only with a full certificate */
+  {k:'y12',ask:c=>!PF_SCHOOL(c.stage)&&NO_CERT(c.bag)},
+  {k:'age',ask:c=>!PF_SCHOOL(c.stage)&&NO_CERT(c.bag)},
+  {k:'psy',ask:c=>true},
+  {k:'pscore',num:1,ask:c=>c.psy==='has'},                                  /* a score only for someone who has one */
+  {k:'heb',ask:c=>true}];
+const PF_REQ=['stage'];
+const PF_Q=(k,c)=>{
+  const Q=Object.fromEntries(PROF_Q.map(q=>[q.k,q]));
+  if(k==='stage')return {q:'איפה אני עכשיו?',h:'לפי זה נבנה המסלול, והשאלות הבאות מתאימות אליו.',o:STAGES};
+  if(k==='reg')return {q:gx('איפה אני גר','איפה אני גרה','איפה אני גר/ה')+'?',h:'לפי זה נראה מה קרוב.',o:Object.entries(REGN)};
+  if(k==='bagavg')return {num:{min:55,max:120,dec:1,ph:'למשל 98.5'},calc:1,q:c.stage==='g12'?'מה הממוצע שאני מצפה לקבל בבגרות?':'מה ממוצע הבגרות שלי?',h:c.stage==='g12'?'הערכה מספיקה. כשיהיו ציונים סופיים אפשר לעדכן.':'ממוצע כללי. לא בטוח? אפשר לחשב במחשבון.'};
+  if(k==='pscore')return {num:{min:200,max:800,dec:0,ph:'למשל 712'},q:'מה הציון הכללי בפסיכומטרי?',h:''};
+  const q=Q[k];return {q:q.q,h:q.h||'',o:q.o}};
+let PF=null;
+const pfList=c=>PF_RULES.filter(r=>(!PF.only||PF.only.includes(r.k))&&r.ask(c)).map(r=>r.k);
+const pfSeq=()=>{const L=pfList(PF.cur);return PF.more?L.concat('more'):L};
+const pfAnswered=(k,c)=>k==='bagavg'?!!(c.b||c.unk.bagavg):k==='pscore'?!!(c.p||c.unk.pscore):!!(c[k]||c.unk[k]);
+function pfLoad(){const p=S.prof||{},sc=S.sc||{},j=jrnStore(),u={...(j.unk||{})};if(u.avg&&!u.bagavg)u.bagavg=u.avg;delete u.avg;
+  return {stage:p.stage||'',reg:p.reg||'',bag:p.bag||'',y12:p.y12||'',age:p.age||'',psy:p.psy||'',heb:p.heb||'',b:sc.b||'',p:sc.p||'',unk:u,auto:!!j.ba,sex:p.sex||'',nat:p.nat||'',house:p.house||'',work:p.work||''}}
+function pfInit(opt){opt=opt||{};PF={mode:opt.mode||'modal',opt,cur:pfLoad(),only:opt.only||null,more:!!opt.more,key:''};
+  const L=pfList(PF.cur);PF.key=opt.at&&(L.includes(opt.at)||opt.at==='more'&&PF.more)?opt.at:(L.find(k=>!pfAnswered(k,PF.cur))||L[0])}
+/* an answer is saved the moment it is given: the profile, the scores and the "I don't know" marks */
+function pfSave(){
+  const c=PF.cur,prof={...(S.prof||{})},old=prof.stage;
+  ['stage','reg','bag','y12','age','psy','heb'].forEach(k=>{if(c[k])prof[k]=c[k];else delete prof[k]});
+  ['sex','nat','house','work'].forEach(k=>{if(c[k])prof[k]=c[k]});
+  if(!NO_CERT(prof.bag)){delete prof.y12;delete prof.age}
+  if(prof.stage&&prof.stage!==old)prof.stageAt=Date.now();
+  S.prof=prof;store.set('prof',prof);
+  const sc={...(S.sc||{})},b=Number(String(c.b).replace(',','.')),ps=Number(c.p);
+  if(c.b&&b>=55&&b<=120){sc.b=Math.round(b*100)/100;if(c.stage==='g12')sc.est=true}else if(c.unk.bagavg)delete sc.b;
+  if(c.psy==='has'&&c.p&&ps>=200&&ps<=800)sc.p=Math.round(ps);else if(c.psy==='no'||c.unk.pscore)delete sc.p;
+  S.sc=(sc.b||sc.p)?sc:null;store.set('scores',S.sc);
+  store.set('jrn',{...jrnStore(),unk:c.unk,ba:c.auto?1:0});PLC=null}
+function pfSet(k,v){const c=PF.cur;
+  if(v==='?'){c.unk[k]=1;if(k==='bagavg')c.b='';else if(k==='pscore')c.p='';else c[k]=''}
+  else if(k==='bagavg'){c.b=v;delete c.unk.bagavg}else if(k==='pscore'){c.p=v;delete c.unk.pscore}else{c[k]=v;delete c.unk[k]}
+  if(k==='stage'&&v!=='?'){if(PF_SCHOOL(v)){if(!c.bag||c.auto){c.bag='full';c.auto=true;delete c.unk.bag}c.y12='';c.age=''}else if(c.auto){c.bag='';c.auto=false}}
+  if(k==='bag'){c.auto=false;if(v!=='full'){c.b='';delete c.unk.bagavg}if(!NO_CERT(v)){c.y12='';c.age=''}}
+  if(k==='psy'&&v!=='has'){c.p='';delete c.unk.pscore}
+  pfSave()}
+function pfMoreHTML(){const p=S.prof||{};
+  return `<details class="kp-more-me" ${p.sex||p.nat?'open':''}><summary>עליי <small>(ניסוח, מועדי פסיכומטרי)</small></summary>${meFieldsHTML('prof',['sex','nat'])}<p class="fine">${menote()}</p></details>
+    <details class="kp-more-me" ${p.house||p.work?'open':''}><summary>שאלות קצרות מהמסלול <small>(לא חובה)</small></summary>${meFieldsHTML('prof',['house','work'])}<p class="fine">${menote()}</p></details>`}
+function pfHTML(){
+  const c=PF.cur,seq=pfSeq(),k=PF.key,i=Math.max(0,seq.indexOf(k)),N=PF.more?seq.length-1:seq.length,ans=pfAnswered(k,c);
+  const prog=k==='more'?'אחרון, לא חובה':(k==='stage'&&!c.stage)?'שאלה ראשונה':`שאלה ${i+1} מתוך ${N}`,pct=Math.round(100*i/Math.max(1,seq.length));
+  let body;
+  if(k==='more')body=`<h2 class="pf-q" tabindex="-1">עוד קצת עליי</h2><p class="pf-h">לא חובה. זה מדייק את הניסוח, המועדים והמסלול.</p>${pfMoreHTML()}<div class="pf-act"><button type="button" class="btn primary" data-pffinish>${PF.opt.path?'שמירה והמשך לבניית המסלול':'שמירה'}</button>${S.prof||S.sc?'<button type="button" class="linkbtn" data-profclear>מחיקת הפרופיל</button>':''}</div>`;
+  else{const d=PF_Q(k,c),unk=!PF_REQ.includes(k);
+    const cur=k==='bagavg'?c.b:k==='pscore'?c.p:c[k];
+    if(d.num)body=`<h2 class="pf-q" tabindex="-1">${esc(d.q)}</h2>${d.h?`<p class="pf-h">${esc(d.h)}</p>`:''}<div class="pf-num"><input id="pfNum" class="pf-in num" type="text" inputmode="${d.num.dec?'decimal':'numeric'}" autocomplete="off" placeholder="${d.num.ph}" aria-label="${esc(d.q)}" value="${esc(cur||'')}"><span class="pf-err" id="pfErr" role="alert" hidden></span></div>
+      <div class="pf-act"><button type="button" class="btn primary" data-pfnum>המשך</button>${unk?`<button type="button" class="btn soft" data-pfv="?">לא יודע/ת</button>`:''}${d.calc?'<button type="button" class="linkbtn" data-pftocalc>חישוב במחשבון</button>':''}</div>`;
+    else body=`<h2 class="pf-q" tabindex="-1">${esc(d.q)}</h2>${d.h?`<p class="pf-h">${esc(d.h)}</p>`:''}<div class="pf-opts" role="group" aria-label="${esc(d.q)}">${d.o.map(([v,l])=>`<button type="button" class="pf-o" data-pfv="${esc(v)}" aria-pressed="${String(cur)===String(v)}">${esc(l)}</button>`).join('')}${unk?`<button type="button" class="pf-o unk" data-pfv="?" aria-pressed="${!!c.unk[k]&&!cur}">לא יודע/ת</button>`:''}</div>${ans&&seq[i+1]?'<div class="pf-act"><button type="button" class="btn soft" data-pfskip>להמשיך בלי לשנות</button></div>':''}`}
+  return `<div class="pf pf-${PF.mode}" id="pf"><div class="pf-top"><button type="button" class="pf-back" data-pfback${i===0?' hidden':''}>חזרה</button><span class="pf-prog num" aria-live="polite">${prog}</span></div><div class="pf-bar" aria-hidden="true"><i style="width:${pct}%"></i></div><div class="pf-card" id="pfCard">${body}</div></div>`}
+function pfPaint(focus){const m=document.getElementById('pfMount');if(!m||!PF)return;m.innerHTML=pfHTML();
+  if(focus){const e=m.querySelector('.pf-q');if(e)e.focus({preventScroll:true})}}
+function pfGo(k){PF.key=k;pfPaint(true)}
+function pfAdvance(){if(!PF)return;const s=pfSeq(),i=s.indexOf(PF.key),nx=i<0?s.find(k=>!pfAnswered(k,PF.cur)):s[i+1];if(nx)pfGo(nx);else pfFinish()}
+function pfFinish(){const o=PF.opt,mode=PF.mode;PF=null;
+  if(mode==='page'){jrnPfDone();return}
+  closeOv(true);toast('הפרופיל נשמר');
+  if(o.path){if(o.then)o.then();else if(S.route.v==='path')render()}else if(S.route.v==='path')keepY(render);else go('me')}
+function pfNum(){const k=PF.key,d=PF_Q(k,PF.cur),el=$('#pfNum'),err=$('#pfErr'),raw=(el?el.value:'').trim(),n=Number(raw.replace(',','.'));
+  const bad=m=>{if(err){err.textContent=m;err.hidden=false}if(el)el.focus({preventScroll:true})};
+  if(!raw)return bad('אפשר לכתוב מספר, או לבחור "לא יודע/ת".');
+  if(!(n>=d.num.min&&n<=d.num.max))return bad(`המספר צריך להיות בין ${d.num.min} ל-${d.num.max}.`);
+  pfSet(k,String(d.num.dec?Math.round(n*100)/100:Math.round(n)));pfAdvance()}
+document.addEventListener('click',e=>{
+  if(!PF)return;const t=e.target.closest&&e.target.closest('[data-pfv],[data-pfback],[data-pfskip],[data-pfnum],[data-pffinish],[data-pftocalc],[data-pq],[data-profclear]');if(!t||!t.closest('#pf'))return;const d=t.dataset;
+  if(d.pfv!==undefined){pfSet(PF.key,d.pfv);t.parentNode.querySelectorAll('[data-pfv]').forEach(x=>x.setAttribute('aria-pressed',x===t));setTimeout(pfAdvance,200);return}
+  if(d.pfback!==undefined){const s=pfSeq(),i=s.indexOf(PF.key);if(i>0)pfGo(s[i-1]);return}
+  if(d.pfskip!==undefined){pfAdvance();return}
+  if(d.pfnum!==undefined){pfNum();return}
+  if(d.pffinish!==undefined){pfFinish();return}
+  if(d.pftocalc!==undefined){const m=PF.mode;PF=null;if(m!=='page')closeOv(true);go('calc');return}
+  if(d.pq!==undefined){PF.cur[d.pq]=d.pv;pfSave();t.closest('.pick').querySelectorAll('[data-pq]').forEach(x=>x.setAttribute('aria-pressed',x===t));return}
+  if(d.profclear!==undefined){S.prof=null;S.sc=null;['prof','scores'].forEach(k=>store.set(k,null));if(S.sort==='fit')S.sort='many';PF=null;closeOv(true);render();toast('הפרופיל נמחק')}});
+document.addEventListener('keydown',e=>{if(PF&&e.key==='Enter'&&e.target&&e.target.id==='pfNum'){e.preventDefault();pfNum()}});
+/* the profile window: the same component as the journey's first step, opened over the page. at: a question to start at; only: just these questions (the road asks for the stage alone) */
 function openProfile(opt){
-  opt=opt&&opt.path?opt:{};
-  const p=S.prof||{}, sc=S.sc||{}, Q=Object.fromEntries(PROF_Q.map(q=>[q.k,q]));
-  const qf=(k,extra='')=>{const q=Q[k];return `<div class="field pstep" id="pq-${k}" hidden><label>${q.q}</label>${q.h?`<span class="hint">${q.h}</span>`:''}<div class="pick">${q.o.map(([v,l])=>`<button type="button" class="chip" data-pq="${q.k}" data-pv="${v}" aria-pressed="${p[q.k]===v}" style="--c2:#FF8A65"><i></i>${l}</button>`).join('')}</div>${extra}</div>`};
-  openOv(`<h2>${opt.path?'קודם הפרופיל שלי, ואז המסלול':'הפרופיל שלי'}</h2><p class="s">${opt.path?'המסלול נבנה מהתשובות האלה. אפשר לשנות בכל רגע.':'כמה שאלות קצרות, שאלה אחת בכל פעם. אפשר לשנות בכל רגע.'}</p>
-   <form class="form" id="pform" novalidate>
-   <div id="pq-stage" class="pstep">${meFieldsHTML('prof',['stage']).replace('איפה אני עכשיו?','איפה אני עכשיו?'+(opt.path?' (חובה לפתיחת מסלול)':' (לא חובה, אבל מדייק את המסלול)'))}</div>
-   ${qf('bag')}
-   <div class="field pstep" id="fbagw" hidden><label for="pbag">מה ממוצע הבגרות שלי?</label>
-     <span class="hint">${sc.bi?'הממוצע חושב במחשבון שלנו, וכל אוניברסיטה מקבלת את הממוצע שלה לפי הכללים שלה. ':''}לא בטוח מה הממוצע? <button type="button" class="linkbtn" data-tocalc style="color:var(--primary-dark);text-decoration:underline">אחשב אותו במחשבון</button> והוא יישמר כאן. אפשר גם להשאיר ריק.</span>
-     <input id="pbag" type="number" inputmode="decimal" min="55" max="120" step="0.01" value="${esc(sc.b||'')}" placeholder="למשל 98.5">${sc.est?'<label class="check" style="font-family:var(--body);font-weight:400"><input type="checkbox" id="pbagreal"> הממוצע הזה כבר אמיתי (שמרתי אותו קודם כצפוי)</label>':''}
-     <label class="check" style="font-family:var(--body);font-weight:400"><input type="checkbox" id="preali" ${sc.reali?'checked':''}> יש לי 5 יח"ל מתמטיקה ו-5 יח"ל פיזיקה בציון 55 לפחות</label></div>
-   <div class="nodata pstep" id="faltw" hidden>כל מוסד ממיר את ציוני המכינה או ההנדסאות לפי כללים משלו, ולכן לא אבקש כאן ממוצע. בעמוד של כל תואר יודגשו התנאים שרלוונטיים עבורי.</div>
-   ${qf('y12')}${qf('age')}
-   ${qf('psy',`<div id="fpsyw" class="pstep sub-f" hidden><label for="ppsy">מה הציון הכללי בפסיכומטרי?</label><input id="ppsy" type="number" inputmode="numeric" min="200" max="800" value="${esc(sc.p||'')}" placeholder="למשל 640"><span class="hint">הבחינה עד סתיו 2026 רב-תחומית, ומדצמבר 2026 דו-תחומית. ציונים ישנים נשארים תקפים, ובדרך כלל לפחות 7 שנים, לפי מדיניות המוסד. ${factChip('psy.rename',{static:1})}</span></div>${sc.estP&&sc.p?`<span class="hint">שמרתי ציון צפוי: ${esc(sc.p)}. הוא נשאר בפרופיל עד שיהיה ציון אמיתי.</span>`:''}`)}
-   ${qf('heb')}
-   <div id="pq-more" class="pstep" hidden>${profMoreHTML()}</div>
-   <span class="err" id="perr" hidden></span>
-   <div class="pnav"><span class="pprog num" id="pprog" aria-live="polite"></span><div class="pbtns"><button type="button" class="btn soft" id="pback">הקודם</button><button type="button" class="btn soft" id="pskip" hidden>דלג</button><button type="button" class="btn primary" id="pnext" hidden>המשך</button><button class="btn primary" type="submit" id="psave" hidden>${opt.path?'שמירה והמשך לבניית המסלול':'שמירה והצגת התארים שאני '+gx('יכול','יכולה')+' להתקבל אליהם'}</button>${S.prof||S.sc?'<button type="button" class="btn soft" data-profclear>מחיקת הפרופיל</button>':''}</div></div></form>`,'wide');
-  const f=$('#pform'), cur={...p};
-  /* one question at a time: the list depends on my answers (a student in school is not asked about a certificate or an average they do not have yet), a pick moves on by itself */
-  const inSchool=c=>['g10','g11','g12'].includes(c.stage);
-  /* opened from the path: what the profile page (or an earlier visit) already answered is not asked again */
-  const known=new Set();if(opt.path){if(p.stage)known.add('stage');if(p.bag){known.add('bag');if(p.bag!=='full'||sc.b)known.add('bagavg')}if(p.y12)known.add('y12');if(p.age)known.add('age');if(p.psy)known.add('psy');if(p.heb)known.add('heb');known.add('more')}
-  const stepList=c=>{const L=['stage'];if(!inSchool(c)){L.push('bag');if(c.bag==='full')L.push('bagavg');if(NO_CERT(c.bag))L.push('y12','age')}L.push('psy','heb','more');const F=L.filter(k=>!known.has(k));return F.length?F:['stage']};
-  const SID={stage:'pq-stage',bag:'pq-bag',bagavg:'fbagw',y12:'pq-y12',age:'pq-age',psy:'pq-psy',heb:'pq-heb',more:'pq-more'};
-  let idx=0;
-  const cur0=()=>stepList(cur)[Math.min(idx,stepList(cur).length-1)];
-  const draw=()=>{
-    const L=stepList(cur);if(idx>=L.length)idx=L.length-1;const st=L[idx];
-    Object.values(SID).forEach(id=>{const e=$('#'+id);if(e)e.hidden=true});
-    const e=$('#'+SID[st]);e.hidden=false;e.classList.remove('reveal');void e.offsetWidth;e.classList.add('reveal');
-    $('#faltw').hidden=!(st==='bag'&&(cur.bag==='mechina'||cur.bag==='handesai'));
-    const fp=$('#fpsyw');if(fp)fp.hidden=!(st==='psy'&&cur.psy==='has');
-    const optional=st==='stage'&&!opt.path||st==='bagavg';
-    const lastQ=opt.path&&!L.includes('more')&&idx===L.length-1; /* opened from the path with only a few questions left: the last one saves */
-    $('#pprog').textContent=st==='more'?'אחרון, לא חובה':'שאלה '+(idx+1)+' מתוך '+(L.length-(L.includes('more')?1:0));
-    $('#pback').hidden=idx===0;
-    $('#pskip').hidden=!optional;
-    $('#pnext').hidden=!(st==='bagavg'||st==='psy'&&cur.psy==='has')||lastQ;
-    $('#psave').hidden=!(st==='more'||lastQ);
-    $('#perr').hidden=true;
-    const first=e.querySelector('input:not([type=checkbox]),.chip');if(first&&st!=='more')first.focus({preventScroll:true});
-  };
-  const go2=n=>{idx=Math.max(0,Math.min(n,stepList(cur).length-1));draw()};
-  const next=()=>go2(idx+1);
-  draw();
-  $('#pback').addEventListener('click',()=>go2(idx-1));
-  $('#pnext').addEventListener('click',next);
-  $('#pskip').addEventListener('click',next);
-  f.querySelectorAll('[data-pq]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.pq;cur[k]=b.dataset.pv;f.querySelectorAll(`[data-pq="${k}"]`).forEach(x=>x.setAttribute('aria-pressed',x===b));
-    if(k==='stage'&&inSchool(cur))cur.bag='full';
-    const st=cur0();
-    if(k!==st&&!(k==='psy'&&st==='psy'))return;
-    if(k==='psy'&&cur.psy==='has'){draw();return}
-    if(k==='psy'&&cur.psy!=='has')cur.psy=b.dataset.pv;
-    setTimeout(()=>{const L=stepList(cur);if(opt.path&&!L.includes('more')&&idx>=L.length-1){if(f.requestSubmit)f.requestSubmit();else f.dispatchEvent(new Event('submit',{cancelable:true}))}else next()},220)}));
-  f.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'&&e.target.type!=='checkbox'){e.preventDefault();const n=$('#pnext');if(!n.hidden)n.click()}});
-  const relevant=c=>Object.fromEntries(PROF_NEED(c).concat(PROF_OPT).filter(k=>c[k]).map(k=>[k,c[k]]));
-  f.querySelector('[data-tocalc]').addEventListener('click',()=>{
-    const P=Number($('#ppsy').value);
-    S.prof=relevant({...cur,bag:'full'}); store.set('prof',S.prof);
-    if(cur.psy==='has'&&P>=200&&P<=800){S.sc={...(S.sc||{}),p:Math.round(P)};store.set('scores',S.sc)}
-    closeOv(true); go('calc');
-  });
-  const clr=f.querySelector('[data-profclear]');
-  if(clr)clr.addEventListener('click',()=>{S.prof=null;S.sc=null;['prof','scores'].forEach(k=>store.set(k,null));if(S.sort==='fit')S.sort='many';closeOv(true);render();toast('הפרופיל נמחק')});
-  f.addEventListener('submit',e=>{e.preventDefault();
-    const err=m=>{$('#perr').textContent=m;$('#perr').hidden=false};
-    if(opt.path&&!cur.stage){go2(0);return err('צריך לבחור איפה אני עכשיו, כדי לבנות את המסלול')}
-    {const miss=PROF_NEED(cur).find(k=>!cur[k]);if(miss){const i=stepList(cur).indexOf(miss);go2(i<0?0:i);return err('נשארה שאלה בלי תשובה')}}
-    const P=Number($('#ppsy').value), B=Number($('#pbag').value);
-    if(cur.psy==='has'&&(!P||P<200||P>800))return err('ציון פסיכומטרי צריך להיות בין 200 ל-800');
-    if(cur.bag==='full'&&B&&(B<55||B>120))return err('ממוצע בגרות צריך להיות בין 55 ל-120');
-    if(cur.stage&&cur.stage!==p.stage)cur.stageAt=Date.now();
-    const old=S.sc||{}, sc={}, prof=relevant(cur);
-    if(cur.psy==='has')sc.p=Math.round(P);
-    else if(cur.psy==='plan'&&old.estP&&old.p){sc.p=old.p;sc.estP=true}
-    if(cur.bag==='full'&&B){sc.b=Math.round(B*100)/100; sc.reali=$('#preali').checked; if(old.bi&&old.b===sc.b)sc.bi=old.bi; if(old.est&&old.b===sc.b&&!($('#pbagreal')&&$('#pbagreal').checked))sc.est=true}
-    S.prof=prof; S.sc=(sc.p||sc.b)?sc:null;
-    store.set('prof',prof);store.set('scores',S.sc);
-    closeOv(true);toast('הפרופיל נשמר');if(opt.path){if(opt.then)opt.then();else if(S.route.v==='path')render()}else if(S.route.v==='path')keepY(render);else go('me');
-  });
-}
+  opt=opt||{};pfInit({mode:'modal',path:!!opt.path,only:opt.only,at:opt.at,then:opt.then,more:!opt.only});
+  openOv(`<h2>${opt.only?'שאלה אחת לפני המסלול':opt.path?'קודם הפרופיל שלי, ואז המסלול':'הפרופיל שלי'}</h2>${opt.only?'':'<p class="s">שאלה אחת בכל פעם. כל תשובה נשמרת, ואפשר לשנות בכל רגע.</p>'}<div id="pfMount">${pfHTML()}</div>`,'wide');
+  setTimeout(()=>{const e=document.querySelector('#pfMount .pf-q');if(e)e.focus({preventScroll:true})},60)}
 function profileSummary(){
   if(!profileOK())return '';
   const p=S.prof, B=Object.fromEntries(PROF_Q[0].o);
@@ -6468,15 +6503,15 @@ function renderMe(){
     <div class="pf-empty"><p>עוד לא מילאתי פרופיל. זה לוקח פחות מדקה, וגם מי שאין לו תעודה או פסיכומטרי יקבל מסלול ברור להתחלה.</p><button class="btn primary" data-prof>מילוי הפרופיל</button></div></div></section>`;
   const p=S.prof, sc=S.sc||{}, B=Object.fromEntries(PROF_Q[0].o), ST=Object.fromEntries(STAGES);
   const rows=[
-    ['איפה אני עכשיו',ST[p.stage]||'',''],
-    ['תעודה',B[p.bag]||'',''],
-    ...(NO_CERT(p.bag)?[['12 שנות לימוד',p.y12==='yes'?'כן':p.y12==='no'?'לא':'',''],['גיל',p.age==='30'?'30 ומעלה':p.age==='u30'?'מתחת ל-30':'','']]:[]),
-    ['פסיכומטרי',p.psy==='has'?(sc.p?String(sc.p):'יש, בלי ציון'):p.psy==='plan'?'מתכונן להיבחן'+(sc.p&&sc.estP?' (ציון צפוי '+sc.p+')':''):'בלי פסיכומטרי',''],
-    ...(p.bag==='full'?[['ממוצע בגרות',sc.b?fmt(sc.b,2)+(sc.est?' (צפוי)':''):'','calc']]:[]),
-    ['שפת לימוד בתיכון',{he:'עברית',ar:'ערבית',other:'שפה אחרת'}[p.heb]||'',''],
+    ['איפה אני עכשיו',ST[p.stage]||'','','stage'],
+    ['תעודה',B[p.bag]||'','','bag'],
+    ...(NO_CERT(p.bag)?[['12 שנות לימוד',p.y12==='yes'?'כן':p.y12==='no'?'לא':'','','y12'],['גיל',p.age==='30'?'30 ומעלה':p.age==='u30'?'מתחת ל-30':'','','age']]:[]),
+    ['פסיכומטרי',p.psy==='has'?(sc.p?String(sc.p):'יש, בלי ציון'):p.psy==='plan'?'מתכונן להיבחן'+(sc.p&&sc.estP?' (ציון צפוי '+sc.p+')':''):'בלי פסיכומטרי','','psy'],
+    ...(p.bag==='full'?[['ממוצע בגרות',sc.b?fmt(sc.b,2)+(sc.est?' (צפוי)':''):'','calc','bagavg']]:[]),
+    ['שפת לימוד בתיכון',{he:'עברית',ar:'ערבית',other:'שפה אחרת'}[p.heb]||'','','heb'],
     ['מוסד מועדף',S.uni?INST[S.uni].n:'','']
   ];
-  const row=([l,v,go])=>`<li class="pf-r"><span class="pf-l">${esc(l)}</span><span class="pf-v${v?'':' none'}">${v?esc(v):'חסר'}</span><span class="pf-a"><button type="button" class="linkbtn" data-prof>${v?'עריכה':'הוספה'}</button>${go&&!v?`<button type="button" class="linkbtn" data-go="${go}">חישוב במחשבון</button>`:''}</span></li>`;
+  const row=([l,v,go,key])=>`<li class="pf-r"><span class="pf-l">${esc(l)}</span><span class="pf-v${v?'':' none'}">${v?esc(v):'חסר'}</span><span class="pf-a"><button type="button" class="linkbtn" data-prof="${key||''}">${v?'עריכה':'הוספה'}</button>${go&&!v?`<button type="button" class="linkbtn" data-go="${go}">חישוב במחשבון</button>`:''}</span></li>`;
   return `<section class="hero"><div class="wrap">${BACK}<h1 class="pf-h">הפרופיל שלי</h1>
     <p class="sub">הפרטים האלה נשמרים בדפדפן שלי ומשמשים לבדוק לאן אפשר להתקבל. אפשר לשנות אותם בכל רגע.</p>
     <ul class="pf-rows">${rows.map(row).join('')}</ul>
@@ -11650,61 +11685,24 @@ const JRN_STEPS=[['profile','פרופיל'],['quiz','שאלון'],['res','תוצ
 const JRN_SAY={profile:'כדי לא לשאול אותך מה שאנחנו כבר יודעים.',quiz:'כל תשובה מצמצמת את המפה. אין תשובות נכונות.',res:'הצעתי את הכיוונים האלה לפי התשובות שלך. אפשר לחזור ולשנות.',goals:'בחרו יעד, ואני אבנה לכם את הדרך אליו.',path:'הצעד הבא מחכה לך.'};
 const jrnStore=()=>store.get('jrn',null)||{};
 const jrnProfDone=()=>!!jrnStore().p||(typeof profileOK==='function'&&profileOK()&&!!(S.prof&&S.prof.reg)); /* a profile that exists already counts: nobody is sent back to step 1 */
-const JP={stage:'',reg:'',bag:'',avg:'',psy:'',pscore:'',heb:'',unk:{},ready:0};
-function jrnPfInit(){const p=S.prof||{},sc=S.sc||{},j=jrnStore();
-  JP.stage=p.stage||'';JP.reg=p.reg||'';JP.bag=p.bag||'';JP.avg=sc.b?String(sc.b):'';JP.psy=p.psy||'';JP.pscore=sc.p?String(sc.p):'';JP.heb=p.heb||'';JP.unk=Object.assign({},j.unk||{});JP.err='';JP.ready=1}
-const jrnFields=()=>[
-  {k:'stage',q:'איפה אני עכשיו?',h:'לפי זה נבנה המסלול.',o:STAGES,noUnk:1},
-  {k:'reg',q:gx('איפה אני גר','איפה אני גרה','איפה אני גר/ה')+'?',h:'לפי זה נראה לך מה קרוב.',o:Object.entries(REGN)},
-  {k:'bag',q:'איזו תעודה יש לי?',h:'',o:PROF_Q.find(q=>q.k==='bag').o},
-  {k:'psy',q:'יש לי ציון פסיכומטרי?',h:'',o:PROF_Q.find(q=>q.k==='psy').o},
-  {k:'heb',q:'באיזו שפה למדתי בתיכון?',h:'',o:PROF_Q.find(q=>q.k==='heb').o}];
-const jrnNum=(s,a,b)=>{const n=Number(String(s).replace(',','.'));return s!==''&&n>=a&&n<=b?n:0};
-const jrnDecided=k=>!!JP[k]||!!JP.unk[k];
-function jrnPfOK(){
-  if(!['stage','reg','bag','psy','heb'].every(jrnDecided))return false;
-  if(JP.bag==='full'&&!(JP.avg!==''||JP.unk.avg))return false;   /* a number that is out of range is refused with a message when the button is pressed */
-  if(JP.psy==='has'&&!(JP.pscore!==''||JP.unk.pscore))return false;
-  return true}
-function jrnChip(k,v,l,on,q){return `<button type="button" class="jr-c${q?' q':''}" data-jp="${k}:${v}" aria-pressed="${on}">${esc(l)}</button>`}
-function jrnFieldsHTML(){
-  return jrnFields().map(f=>{const dec=jrnDecided(f.k);
-    const sub=f.k==='bag'&&JP.bag==='full'?`<div class="jr-sub-f"><label for="jrAvg">מה ממוצע הבגרות שלי?</label><div class="jr-in"><input id="jrAvg" type="text" inputmode="decimal" autocomplete="off" placeholder="למשל 98.5" value="${esc(JP.avg)}" data-jpin="avg" aria-describedby="jrAvgH">${jrnChip('avg','?','לא יודע/ת את הממוצע',!!JP.unk.avg,1)}</div></div>`
-      :f.k==='psy'&&JP.psy==='has'?`<div class="jr-sub-f"><label for="jrPsy">מה הציון הכללי?</label><div class="jr-in"><input id="jrPsy" type="text" inputmode="numeric" autocomplete="off" placeholder="200 עד 800" value="${esc(JP.pscore)}" data-jpin="pscore">${jrnChip('pscore','?','לא יודע/ת את הציון',!!JP.unk.pscore,1)}</div></div>`:'';
-    return `<div class="jr-f${dec?' ok':''}" role="group" aria-labelledby="jrq-${f.k}"><h2 id="jrq-${f.k}">${esc(vqT(f.q))}</h2>${f.h?`<p>${esc(f.h)}</p>`:''}
-      <div class="jr-ch">${f.o.map(([v,l])=>jrnChip(f.k,v,l,JP[f.k]===v)).join('')}${f.noUnk?'':jrnChip(f.k,'?','לא יודע/ת',!!JP.unk[f.k]&&!JP[f.k],1)}</div>${sub}</div>`}).join('')}
+const JP={ready:0};
+function jrnPfInit(){pfInit({mode:'page'});JP.ready=1}
 function jrnProfileHTML(){
   if(!JP.ready)jrnPfInit();
   const edit=VQU.answers.length>0;
   return `<section class="jr-pf"><div class="wrap jr-w">
     <h1 class="jr-h" id="vqH">${vqT('בוא/י נכיר, ואז נתחיל')}</h1>
-    <p class="jr-sub">${vqT('חמש שאלות קצרות, בערך חצי דקה. הן חוסכות מאיתנו לשאול אותך אחר כך על מה שכבר ידוע, והשאלון יתאים את עצמו אליך. אפשר תמיד לענות "לא יודע/ת".')}</p>
-    <div class="jr-fields" id="jrFields">${jrnFieldsHTML()}</div>
-    <p class="jr-err" id="jrErr" role="alert" hidden></p>
-    <div class="jr-cta"><button class="btn primary xl" data-jrnstart${jrnPfOK()?'':' disabled'}>${edit?'שמירה והמשך':'להתחיל את השאלון'}</button>${edit?'<button class="linkbtn" data-jrncancel>חזרה בלי לשמור</button>':''}</div>
+    <p class="jr-sub">${vqT('כמה שאלות קצרות, אחת בכל פעם. הן חוסכות מאיתנו לשאול אותך אחר כך על מה שכבר ידוע, והשאלון יתאים את עצמו אלייך. אפשר תמיד לענות "לא יודע/ת".')}</p>
+    <div id="pfMount">${pfHTML()}</div>
+    ${edit?'<div class="jr-cta"><button class="linkbtn" data-jrncancel>חזרה בלי לשמור</button></div>':''}
     <p class="fine" style="margin-top:16px">המידע נשמר בדפדפן${typeof acctSynced==='function'&&acctSynced()?' ובחשבון שלי':''} ומשמש רק להתאמה של האתר אלייך. אפשר לשנות אותו בכל רגע בעמוד "הפרופיל שלי".</p>
   </div></section>`}
-function jrnPfPaint(focusSel){
-  const f=$('#jrFields');if(!f)return;f.innerHTML=jrnFieldsHTML();
-  const b=$('[data-jrnstart]');if(b)b.disabled=!jrnPfOK();
-  const e=$('#jrErr');if(e)e.hidden=true;
-  if(focusSel){const x=$(focusSel);if(x)x.focus({preventScroll:true})}}
-function jrnPfSave(){
-  const e=$('#jrErr'),err=m=>{if(e){e.textContent=m;e.hidden=false}return false};
-  if(JP.bag==='full'&&JP.avg&&!jrnNum(JP.avg,55,120))return err('ממוצע בגרות צריך להיות בין 55 ל-120.');
-  if(JP.psy==='has'&&JP.pscore&&!jrnNum(JP.pscore,200,800))return err('ציון פסיכומטרי צריך להיות בין 200 ל-800.');
-  const prof={...(S.prof||{})},sc={...(S.sc||{})};
-  for(const k of ['reg','bag','psy','heb'])if(JP[k])prof[k]=JP[k];
-  if(JP.stage&&JP.stage!==prof.stage){prof.stage=JP.stage;prof.stageAt=Date.now()}
-  const avg=JP.bag==='full'?jrnNum(JP.avg,55,120):0,ps=JP.psy==='has'?jrnNum(JP.pscore,200,800):0;
-  if(avg)sc.b=Math.round(avg*100)/100;if(ps)sc.p=Math.round(ps);
-  S.prof=prof;S.sc=(sc.b||sc.p)?sc:S.sc;store.set('prof',S.prof);if(S.sc)store.set('scores',S.sc);try{PLC=null}catch(x){}
-  const j=jrnStore();store.set('jrn',{...j,p:Date.now(),unk:JP.unk});
-  return true}
-function jrnPfStartQuiz(){if(!jrnPfSave())return;JP.ready=0;
+/* the last question of the first step: the step is remembered, and the questionnaire starts (or continues, or shows the result) */
+function jrnPfDone(){store.set('jrn',{...jrnStore(),p:Date.now()});JP.ready=0;
   if(VQU.answers.length&&!VQU.done){vqResume();return}
   if(VQU.done){VQU.mode='res';vqPaint();return}
   vqStart('journey')}
+const jrnNum=(s,a,b)=>{const n=Number(String(s).replace(',','.'));return s!==''&&n>=a&&n<=b?n:0};
 /* the rail: where I am (from the screen), what is done, and what a click leads to */
 function jrnStepNow(r){
   const busy=['q','guess','day','trans','res','prof'].includes(VQU.mode);
@@ -11726,12 +11724,7 @@ function jrnSay(cur){
   if(cur==='path'){try{const pl=plan();if(pl&&pl.next)return 'הצעד הבא שלך: '+pl.next.t+'.'}catch(e){}}
   return JRN_SAY[cur]}
 document.addEventListener('click',e=>{
-  const t=e.target.closest('[data-jp],[data-jrnstart],[data-jrncancel],[data-jrn]');if(!t)return;const ds=t.dataset;
-  if(ds.jp!==undefined){const i=ds.jp.indexOf(':'),k=ds.jp.slice(0,i),v=ds.jp.slice(i+1);
-    if(v==='?'){JP.unk[k]=JP.unk[k]&&!JP[k]?0:1;if(k==='avg'||k==='pscore'){if(JP.unk[k])JP[k]=''}else{JP[k]='';if(k==='bag'){JP.avg='';JP.unk.avg=0}if(k==='psy'){JP.pscore='';JP.unk.pscore=0}}}
-    else{JP[k]=v;JP.unk[k]=0;if(k==='bag'&&v!=='full'){JP.avg='';JP.unk.avg=0}if(k==='psy'&&v!=='has'){JP.pscore='';JP.unk.pscore=0}}
-    jrnPfPaint(`[data-jp="${ds.jp}"]`);return}
-  if(ds.jrnstart!==undefined){jrnPfStartQuiz();return}
+  const t=e.target.closest('[data-jrncancel],[data-jrn]');if(!t)return;const ds=t.dataset;
   if(ds.jrncancel!==undefined){JP.ready=0;if(VQU.done){VQU.mode='res'}else vqResume&&vqResume();vqPaint();return}
   if(ds.jrn!==undefined){const k=ds.jrn;
     if(k==='profile'){JP.ready=0;VQU.mode='prof';if(S.route.v!=='dir'&&S.route.v!=='path'){go('dir');return}vqPaint();return}
@@ -11740,9 +11733,6 @@ document.addEventListener('click',e=>{
     if(k==='goals'){KP.view='hub';KP.quizOn=false;VQU.mode='intro';go('path');render();return}
     if(k==='path'){go('path');return}}
 });
-document.addEventListener('input',e=>{const t=e.target.closest('[data-jpin]');if(!t)return;JP[t.dataset.jpin]=t.value.trim();JP.unk[t.dataset.jpin]=0;
-  const b=$('[data-jrnstart]');if(b)b.disabled=!jrnPfOK();const q=document.querySelector(`[data-jp="${t.dataset.jpin}:?"]`);if(q)q.setAttribute('aria-pressed','false')});
-
 let VQ_RC=null,VQ_RK='';
 /* the result as the pages that read it expect it: per occupation and per degree {t: the score, top: the place in percent (1 = the best), pct}, the ranks, and the leading worlds */
 function dirResult(){
@@ -14841,12 +14831,10 @@ function instPick(d,attr,withAuto){
       return `<button class="kp-pi ${x.st?x.st.s:''}" ${attr(x.i)}><b>${esc(INST[x.i].n)}</b><small>${sub}</small><span class="kp-pt2"><span class="kp-tag ${near?'ok':''}">${near?'באזור שלי · ':''}${x.reg==='a'?'ארצי / מקוון':REGN[x.reg]||''}</span>${b&&b.p?`<span class="kp-tag">ממוצע מתקבלים: ${fmt(b.p)}</span>`:''}${tList().some(t=>t.d===d.id&&t.i===x.i)?'<span class="kp-tag ok">כבר ביעדים שלי</span>':''}</span></button>`}).join('')}</div>`}
 /* no road without a profile: what is still missing, and one button that opens the profile */
 function profileGateHTML(){
-  const p=S.prof||{},need=[['stage','איפה אני עכשיו (כיתה, שירות או אחר)'],...PROF_NEED(p).map(k=>[k,{bag:'איזו תעודה יש לי',y12:'12 שנות לימוד',age:'הגיל שלי',psy:'פסיכומטרי',heb:'שפת הלימוד בתיכון'}[k]])];
   return `<section class="hero pth-hero wiz kp-wizhero"><div class="wrap">${BACK}<span class="kicker" style="margin-top:10px">${ki('map')}המסלול שלי</span>
-    <h1 class="pth-h1">קודם מכירים: הפרופיל שלי</h1>
-    <div class="wz-card"><h2>המסלול נבנה מהפרופיל שלי</h2><p class="sub">כדי שהמסלול, המועדים והבדיקות יתאימו לי, הוא נבנה מהנתונים שבפרופיל: הכיתה שאני בה, התעודה, הפסיכומטרי והשפה. כך כל האתר משתמש באותו מידע, ואין צורך לענות שוב על אותן שאלות. זה לוקח פחות מדקה, והכול ${acctSynced()?'נשמר בחשבון שלי ובדפדפן הזה':'נשמר רק בדפדפן הזה'}.</p>
-      <ul class="kp-gate">${need.map(([k,l])=>`<li class="${p[k]?'ok':''}"><i aria-hidden="true">${p[k]?ki('check'):''}</i>${l}</li>`).join('')}</ul>
-      <div class="wz-nav"><button class="btn primary xl" data-kprofgo>${profileOK()||p.stage?'השלמת הפרופיל':'למילוי הפרופיל'}</button></div></div></div></section>`}
+    <h1 class="pth-h1">שאלה אחת לפני המסלול</h1>
+    <div class="wz-card"><h2>איפה אני עכשיו?</h2><p class="sub">המסלול נבנה לפי המקום שבו אני נמצא: כיתה, שירות או אחר. כל שאר מה שכבר סיפרתי באתר נשמר ולא נשאל שוב.</p>
+      <div class="wz-nav"><button class="btn primary xl" data-kprofgo>לענות על השאלה</button></div></div></div></section>`}
 function wizardHTML(){
   const W=KP.wiz,s=W.step||1,P=pth()||pthNew(),R=dirResult();
   let body='';
@@ -14927,7 +14915,7 @@ document.addEventListener('click',e=>{
   else if(ds.kwauto!==undefined){const d=BY[KP.wiz.d];wizPick(d.id,autoInst(d),true)}
   else if(ds.kwb!==undefined){if((KP.wiz.step||1)===1){KP.wiz.active=false;KP.wiz.add=false}else KP.wiz.step--;render();top0()}
   else if(ds.kwdone!==undefined)finishWizard();
-  else if(ds.kprofgo!==undefined)openProfile({path:true,then:()=>{if(S.route.v==='path'){render();top0()}}});
+  else if(ds.kprofgo!==undefined)openProfile({path:true,only:['stage'],then:()=>{if(S.route.v==='path'){render();top0()}}});
   /* about me */
   else if(ds.kme!==undefined){
     if(ds.kme===''){openMe();return}
@@ -16334,7 +16322,7 @@ document.addEventListener('click',e=>{
   else if(ds.ftog!==undefined){S.f[ds.ftog]=!S.f[ds.ftog];S.shown=48;refreshExplore()}
   else if(ds.fclear!==undefined){S.f={dur:'',sal:0,grow:false,elig:false,open:false};S.cat='all';S.shown=48;refreshExplore()}
   else if(ds.memore!==undefined){const m=S.meShown=S.meShown||{};m[ds.memore]=(m[ds.memore]||(ds.memore==='adm'?24:12))+24;if(ds.memore==='adm'){$('#meHost').innerHTML=meListHTML()}else{const y=scrollY;render();window.scrollTo({top:y,behavior:'instant'})}}
-  else if(ds.prof!==undefined){openProfile()}
+  else if(ds.prof!==undefined){openProfile(ds.prof?{at:ds.prof}:undefined)}
   else if(ds.calc!==undefined){runCalc()}
   else if(ds.cadd!==undefined){readCalc();CALC_ROWS.push({k:'other',u:2,g:''});$('#crows').innerHTML=calcRowsHTML()}
   else if(ds.crm!==undefined){readCalc();CALC_ROWS.splice(+ds.crm,1);$('#crows').innerHTML=calcRowsHTML()}
