@@ -6358,3 +6358,52 @@
 - https://www.onetonline.org/link/summary/51-3093.00
 - https://www.onetonline.org/link/summary/51-3091.00
 - https://en.wikipedia.org/wiki/Food_processing
+
+## occ:2353 — הוראת שפות מחוץ למערכת חינוך
+איך אדם בוגר לומד שפה חדשה כדי להסתדר במדינה זרה, בעבודה או סתם מתוך סקרנות? מורים לשפות מחוץ לבית הספר פוגשים לומדים מכל הגילאים, מעריכים איפה כל אחד נמצא ומה הוא רוצה להשיג, ובונים לו מסלול לימוד מותאם. הם מתכננים שיעורים וסדנאות לקבוצות או ליחידים, מכינים חומרי לימוד ועוקבים אחרי ההתקדמות.
+
+מקורות:
+- https://www.ilo.org/sites/default/files/wcmsp5/groups/public/@dgreports/@dcomm/@publ/documents/publication/wcms_172572.pdf
+- https://www.onetonline.org/link/summary/25-3011.00
+
+## occ:2356 — הדרכה בתחום טכנולוגיות המידע
+מה גורם לתוכנה מסובכת להפוך פתאום למובנת? מדריכי טכנולוגיות מידע מלמדים אנשים וארגונים להשתמש במחשבים ובמערכות מחשוב, מחוץ למסגרת בית הספר והאקדמיה. הם בודקים מה המשתמשים צריכים ללמוד, בונים מדריכים, הדגמות וחומרי עזר, מעבירים הדרכות ומשתפרים לפי התוצאות. מעבר לידע טכנולוגי, חשוב להם גם לדעת ללמד.
+
+מקורות:
+- https://www.ilo.org/sites/default/files/wcmsp5/groups/public/@dgreports/@dcomm/@publ/documents/publication/wcms_172572.pdf
+- https://en.wikipedia.org/wiki/Technical_trainer
+
+## occ:3339 — תיווך למכירת שירותים עסקיים
+מי דואג שמופע יגיע לבמה, שספר יראה אור או שחברה תמצא מקום פרסום מתאים? מתווכים למכירת שירותים עסקיים מחברים בין מי שמציע שירות לבין מי שצריך אותו. הם בודקים מה הלקוח מחפש, מנהלים משא ומתן על התנאים, ומוודאים שהשירות שנמכר אכן מגיע בזמן ובמתכונת שהוסכמה.
+
+מקורות:
+- https://www.ilo.org/sites/default/files/wcmsp5/groups/public/@dgreports/@dcomm/@publ/documents/publication/wcms_172572.pdf
+- https://www.onetonline.org/link/summary/41-3091.00
+
+## occ:3351 — פיקוח מכס וגבולות
+מה קורה בדיוק ברגע שמישהו או משהו חוצה גבול בין מדינות? מפקחי מכס וגבולות בודקים אנשים, כלי רכב, מסמכי נסיעה והובלה וסחורות, כדי לוודא שהכללים והחוקים נשמרים. הם גם בודקים הצהרות ותשלומים, ובמקרה של חשד לעבירה עובדים יחד עם גורמי אכיפה נוספים ומתעדים את הממצאים.
+
+מקורות:
+- https://www.ilo.org/sites/default/files/wcmsp5/groups/public/@dgreports/@dcomm/@publ/documents/publication/wcms_172572.pdf
+- https://en.wikipedia.org/wiki/Customs
+
+## occ:3353 — פקידות ממשלה לענייני הטבות סוציאליות
+איך המדינה מחליטה מי זכאי לסיוע, ובאיזה היקף? פקידי הטבות סוציאליות בוחנים בקשות לתוכניות כספיות ולשירותים ציבוריים, אוספים ומאמתים מידע, ומחליטים לפי החוק והתקנות אם הפונה זכאי. הם גם מסבירים לאנשים מה זכויותיהם וחובותיהם, ומעבירים מקרים חריגים לגורמים בכירים.
+
+מקורות:
+- https://www.ilo.org/sites/default/files/wcmsp5/groups/public/@dgreports/@dcomm/@publ/documents/publication/wcms_172572.pdf
+- https://www.onetonline.org/link/summary/43-4061.00
+
+## occ:5165 — הוראת נהיגה
+איך מלמדים מישהו לנהוג בביטחון בתוך תנועה אמיתית של כבישים? מורי נהיגה יושבים לצד התלמיד ברכב אמיתי, מסבירים ומדגימים איך מפעילים את הרכב, ומלמדים חוקי תנועה, התנהגות בדרך ובטיחות. הם גם מעריכים מתי התלמיד מוכן ללכת למבחן הנהיגה.
+
+מקורות:
+- https://www.ilo.org/sites/default/files/wcmsp5/groups/public/@dgreports/@dcomm/@publ/documents/publication/wcms_172572.pdf
+- https://en.wikipedia.org/wiki/Driving_instructor
+
+## occ:8321 — נהיגה באופנועים
+איך חבילה או מסמך דחוף מגיעים מצד אחד של העיר לצד השני בזמן? נהגי אופנוע מובילים חבילות, הודעות, סחורות ולעיתים נוסעים, תוך ציות לחוקי התנועה ולתמרורים. הם גם מנהלים רישום של נסיעותיהם ודואגים לניקיון הרכב ולתחזוקה קלה שלו. יש מי שעובדים כשכירים בארגון, ויש מי שמקבלים משלוחים דרך חברות שליחויות.
+
+מקורות:
+- https://www.ilo.org/sites/default/files/wcmsp5/groups/public/@dgreports/@dcomm/@publ/documents/publication/wcms_172572.pdf
+- https://en.wikipedia.org/wiki/Motorcycle_courier
