@@ -16,10 +16,10 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   ok(await p.evaluate(()=>document.querySelector('.jr-o li.cur .jr-l').textContent)==='פרופיל','on the first screen the current step is the profile');
   await p.click('[data-vqstart]');await p.waitForTimeout(400);
   ok(await p.evaluate(()=>VQU.mode)==='prof','starting the questionnaire without a profile opens the profile step');
-  ok(await p.evaluate(()=>document.querySelectorAll('.jr-f').length)===4,'four questions');
-  ok(await p.evaluate(()=>[...document.querySelectorAll('.jr-f')].every(f=>f.querySelector('.jr-c.q'))),'every question has "I don\'t know"');
+  ok(await p.evaluate(()=>document.querySelectorAll('.jr-f').length)===5,'five questions (where I am now, region, certificate, psychometric, language)');
+  ok(await p.evaluate(()=>[...document.querySelectorAll('.jr-f')].filter(f=>!f.querySelector('[data-jp^="stage:"]')).every(f=>f.querySelector('.jr-c.q'))&&!document.querySelector('[data-jp="stage:?"]')),'every question has "I don\'t know", except where I am now (the road needs it)');
   ok(await p.evaluate(()=>document.querySelector('[data-jrnstart]').disabled),'the start button waits');
-  await p.click('[data-jp="reg:?"]');await p.click('[data-jp="bag:full"]');
+  await p.click('[data-jp="stage:g12"]');await p.click('[data-jp="reg:?"]');await p.click('[data-jp="bag:full"]');
   ok(await p.evaluate(()=>!!document.querySelector('#jrAvg')),'a full certificate asks for the average');
   await p.click('[data-jp="avg:?"]');await p.click('[data-jp="psy:has"]');
   ok(await p.evaluate(()=>!!document.querySelector('#jrPsy')),'a psychometric score asks for the number');
@@ -31,7 +31,7 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   await p.click('[data-jrnstart]');await p.waitForTimeout(700);
   const st=await p.evaluate(()=>({mode:VQU.mode,prof:S.prof,sc:S.sc,jrn:JSON.parse(localStorage.getItem('kivun3.jrn')||'null')}));
   ok(st.mode==='q','the questionnaire starts after the profile');
-  ok(st.prof&&st.prof.bag==='full'&&st.prof.psy==='has'&&!st.prof.reg&&!st.prof.heb,'known answers are in the profile; "I don\'t know" leaves the field empty: '+JSON.stringify(st.prof));
+  ok(st.prof&&st.prof.stage==='g12'&&st.prof.bag==='full'&&st.prof.psy==='has'&&!st.prof.reg&&!st.prof.heb,'known answers are in the profile; "I don\'t know" leaves the field empty: '+JSON.stringify(st.prof));
   ok(st.sc&&st.sc.p===712&&!st.sc.b,'the score is saved, the unknown average is not: '+JSON.stringify(st.sc));
   ok(st.jrn&&st.jrn.p>0,'the step is remembered');
   ok(await p.evaluate(()=>document.querySelector('.jr-o li.cur .jr-l').textContent)==='שאלון','on a question the current step is the questionnaire');
@@ -126,13 +126,13 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
     await q.goto(URL+'#dir');await q.reload();await q.waitForTimeout(700);await q.click('[data-vqstart]');await q.waitForTimeout(400);
     await q.evaluate(()=>{const st=VQE.init(vqEnv());const ans=[];for(let g=0;g<40;g++){const nx=VQE.next(st);if(nx.done)break;const Q=VQE.Q[nx.id];let a;if(nx.id==='DAY'){const c=VQR.dayCards(st);a={q:'DAY',picks:['DAY_pick'],occ:c[0].occ,never:null}}else{a={q:nx.id,picks:Q.fmt==='multi'?Q.options.slice(0,Q.maxPick).map(o=>o.id):[Q.options[0].id]};if(nx.w)a.w=nx.w}VQE.apply(st,a);ans.push(a)}VQU.answers=ans;VQU.done=Date.now();vqSave();VQU.mode='res';vqPaint();document.querySelector('.vb-tip').classList.add('show')});
     await q.waitForTimeout(1500);
-    const m=await q.evaluate(()=>({bar:document.querySelector('.vr-bar').getBoundingClientRect().height,btns:document.querySelectorAll('.vr-bar .btn').length,fs:Math.min(...[...document.querySelectorAll('.rs-m,.rs-via,.rs-adm,.rs-why li')].map(e=>parseFloat(getComputedStyle(e).fontSize))),
+    const m=await q.evaluate(()=>({bar:document.querySelectorAll('.vr-bar').length,fs:Math.min(...[...document.querySelectorAll('.rs-m,.rs-via,.rs-adm,.rs-why li')].map(e=>parseFloat(getComputedStyle(e).fontSize))),
       tip:getComputedStyle(document.querySelector('.vb-tip')).display,pad:parseFloat(getComputedStyle(document.querySelector('.vr-in')).paddingBottom),sum:(document.querySelector('.rs-all>summary')||{}).textContent,more:!!document.querySelector('.rs-hero [data-vqmore]')&&!!document.querySelector('.rs-hero [data-vqstart]'),
       long:[...document.querySelectorAll('.rs-via')].some(e=>e.textContent.includes('בחרת')),sw:document.documentElement.scrollWidth<=innerWidth+1}));
-    ok(m.bar<=70&&m.btns===2,`@${w}: the action bar is compact (${m.bar}px, ${m.btns} buttons)`);
+    ok(m.bar===0,`@${w}: there is no bottom bar on the results screen`);
     ok(m.fs>=16,`@${w}: card text at least 16px (${m.fs})`);
     ok(m.tip==='none',`@${w}: the bot's greeting bubble is hidden on this screen`);
-    ok((w>820||m.pad>=40)&&m.more,`@${w}: room at the bottom (${m.pad}px) and the other actions are still there`);
+    ok((w>820||m.pad>=24)&&m.more,`@${w}: room at the bottom (${m.pad}px) and the other actions are still there`);
     ok(!m.sum&&!m.long&&m.sw,`@${w}: the fold is gone, reasons are short, no sideways scroll`);
     await cx.close()}
   console.log('== results to path: the banner, the choice cards, the picker, the welcome');
@@ -144,17 +144,14 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
     await q.waitForTimeout(1500);
     const m=await q.evaluate(()=>{const nx=document.querySelector('.rs-next'),hero=document.querySelector('.rs-hero'),first=document.querySelector('.rs-sec');return {banner:!!nx,after:!!(hero&&nx&&(hero.compareDocumentPosition(nx)&4)&&(nx.compareDocumentPosition(first)&4)),title:(nx||{}).querySelector&&(nx.querySelector('h2')||{}).textContent,dots:document.querySelectorAll('.rs-nl li').length,k:(nx.querySelector('.rs-nk')||{}).textContent,
       cards:document.querySelectorAll('.rs-dc').length,prim:[...document.querySelectorAll('.rs-dc .btn.primary')].map(x=>x.textContent.trim()),old:[...document.querySelectorAll('button')].some(x=>x.textContent.trim()==='הוספה למסלול שלי'),adm:document.querySelectorAll('.rs-dc .rs-adm').length,
-      pick:!!document.querySelector('[data-rspickall]'),bar:(document.querySelector('[data-rsbar]')||{}).textContent,nxRail:!!document.querySelector('.jr-o li.nx'),nxNav:!!document.querySelector('.vn-link.path-l.nx'),disc:!!document.querySelector('.rs-hero .rs-fine'),sw:document.documentElement.scrollWidth<=innerWidth+1,
+      pick:!!document.querySelector('[data-rspickall]')&&!!document.querySelector('.rs-other [data-go="degrees"]'),bar:document.querySelectorAll('.vr-bar,[data-rsbar]').length,nxRail:!!document.querySelector('.jr-o li.nx'),nxNav:!!document.querySelector('.vn-link.path-l.nx'),disc:!!document.querySelector('.rs-hero .rs-fine'),sw:document.documentElement.scrollWidth<=innerWidth+1,
       extra:!!document.querySelector('.rs-all,.vr-more,.vr-note')}});
     ok(m.banner&&m.after&&/עכשיו בוחרים תואר/.test(m.title)&&m.dots>=3&&/שלב 4/.test(m.k),`@${w}: the step banner sits under the main result, before the degrees (${m.dots} real stages)`);
     ok(m.cards>=1&&m.prim.every(x=>x==='בניית מסלול לתואר הזה')&&!m.old,`@${w}: every suggested degree has one primary action "בניית מסלול לתואר הזה" (${m.cards})`);
     ok(m.adm>=1,`@${w}: the admission status from the profile stays (${m.adm})`);
     ok(m.pick&&m.nxRail&&m.nxNav,`@${w}: "choose from all degrees" is there, and the rail and the nav item point at the next step`);
-    ok(/בחירת תואר ובניית מסלול/.test(m.bar),`@${w}: the bar says "${m.bar}" when no degree is selected`);
+    ok(m.bar===0,`@${w}: no bottom bar; "compare degrees" sits next to "choose from all degrees"`);
     ok(m.disc&&!m.extra&&m.sw,`@${w}: the disclaimer moved into the main card, the removed blocks are gone, no sideways scroll`);
-    await q.click('.rs-dc:first-of-type');await q.waitForTimeout(200);
-    const s=await q.evaluate(()=>({sel:document.querySelectorAll('.rs-dc.sel').length,bar:(document.querySelector('[data-rsbar]')||{}).textContent}));
-    ok(s.sel===1&&/בניית המסלול/.test(s.bar)&&!/בחירת/.test(s.bar),`@${w}: selecting a card turns the bar into "${s.bar}"`);
     await q.click('[data-rspickall]');await q.waitForTimeout(400);
     const pk=await q.evaluate(()=>({n:document.querySelectorAll('.rp-l li').length,cnt:document.querySelector('.rp-cnt').textContent,cats:document.querySelectorAll('[data-rpc]').length}));
     ok(pk.n===30&&/567/.test(pk.cnt)&&pk.cats===10,`@${w}: the picker lists all degrees (${pk.cnt}) with search and ${pk.cats-1} areas`);
@@ -164,5 +161,30 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
     const g=await q.evaluate(()=>({route:S.route.v,goal:hasGoal(),say:(document.querySelector('.jr-say')||{}).textContent,step:(document.querySelector('.jr-o li.cur .jr-l')||{}).textContent}));
     ok(g.route==='path'&&g.goal&&/בניתי לך מסלול ל/.test(g.say)&&/^מסלול|יעדים/.test(g.step),`@${w}: after the choice, straight to the path with the welcome: ${(g.say||'').slice(0,50)}`);
     ok(errs.length===0,`@${w}: no page errors ${errs[0]||''}`);await cx.close()}
+  console.log('== one set of answers: the path does not ask again what the profile already has');
+  {
+    const mk=async(prof,sc)=>{const cx=await b.newContext({viewport:{width:1200,height:900}}),q=await cx.newPage();q.setDefaultTimeout(8000);const errs=[];q.on('pageerror',e=>errs.push(String(e)));
+      await q.goto(URL);await q.evaluate(([p,s])=>{localStorage.setItem('kivun3.jrn',JSON.stringify({p:1}));localStorage.setItem('kivun3.seenProf','true');localStorage.setItem('kivun3.jnTip','1');localStorage.setItem('kivun3.prof',JSON.stringify(p));if(s)localStorage.setItem('kivun3.scores',JSON.stringify(s))},[prof,sc]);
+      await q.goto(URL+'#');await q.reload();await q.waitForTimeout(700);q.errs=errs;q.cx=cx;return q};
+    const full={bag:'full',psy:'has',heb:'he',reg:'c'};
+    let q=await mk(full,{b:98.5,p:712});
+    let m=await q.evaluate(()=>{const need=!pathReady();if(need)openProfile({path:true});return {need,steps:[...document.querySelectorAll('#ov .pstep:not([hidden])')].map(e=>e.id)}});
+    ok(m.need&&m.steps.join()==='pq-stage','a profile from step 1 without the stage: the path asks only "where I am now" ('+m.steps+')');
+    await q.click('#ov [data-pq="stage"][data-pv="g12"]');await q.waitForTimeout(700);
+    m=await q.evaluate(()=>({ov:!!document.querySelector('#ov .pstep'),prof:S.prof,ready:pathReady()}));
+    ok(!m.ov&&m.prof.stage==='g12'&&m.prof.bag==='full'&&m.prof.reg==='c'&&m.ready,'the answer saves at once, the rest of the profile is untouched, the path is open');
+    ok(q.errs.length===0,'no page errors '+(q.errs[0]||''));await q.cx.close();
+    q=await mk({...full,stage:'g12'},{b:98.5,p:712});
+    m=await q.evaluate(()=>({ready:pathReady(),need:needProf(()=>{})}));
+    ok(m.ready&&!m.need&&!await q.evaluate(()=>!!document.querySelector('#ov .pstep')),'a complete profile: the path opens without any question');
+    await q.evaluate(()=>{go('dir')});await q.waitForTimeout(400);await q.evaluate(()=>{VQU.mode='prof';JP.ready=0;vqPaint()});await q.waitForTimeout(400);
+    m=await q.evaluate(()=>({on:[...document.querySelectorAll('.jr-f .jr-c[aria-pressed="true"]')].map(x=>x.dataset.jp)}));
+    ok(['stage:g12','reg:c','bag:full','psy:has','heb:he'].every(x=>m.on.includes(x)),'the profile page shows every answer already given anywhere: '+m.on.join(','));
+    await q.cx.close();
+    q=await mk({stage:'g12'});
+    m=await q.evaluate(()=>{openProfile({path:true});return [...document.querySelectorAll('#ov .pstep:not([hidden])')].map(e=>e.id)});
+    ok(m.join()==='pq-psy','an answered stage is not asked again; the first missing question is ('+m+')');
+    await q.cx.close();
+  }
   console.log(fails?`\n${fails} FAILED`:'\nall checks passed');await b.close();process.exit(fails?1:0);
 })();
