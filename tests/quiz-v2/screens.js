@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Takes the screenshots of docs/quiz-v2/screens/ (360 wide): intro, a regular question, a multi-select question, a transition, the guess,
    a day in the life before and after the reveal, and the results (first direction open, and all collapsed). Run: node tests/quiz-v2/screens.js */
-const {chromium}=require('playwright');const path=require('path'),fs=require('fs');
+const {chromium}=require('./jrn-patch.js')&&require('playwright');const path=require('path'),fs=require('fs');
 const personas=JSON.parse(fs.readFileSync(path.join(__dirname,'personas.json'),'utf8'));
 const URL='file://'+path.join(__dirname,'..','..','index.html'),OUT=path.join(__dirname,'..','..','docs','quiz-v2','screens');
 fs.mkdirSync(OUT,{recursive:true});

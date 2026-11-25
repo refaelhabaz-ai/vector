@@ -2,7 +2,7 @@
 /* First-person masculine forms ("אני יכול להתקבל", "אני עומד בתנאים") anywhere on the site go through gx. For a woman, a man and a profile with no gender,
    it visits the degrees page, "what can I study", jobs, the Q&A, a degree page, an occupation page, the comparison and the terms page, and reads the visible text.
    It also checks that no template placeholder ("${") leaked into a text, and that the page raised no error.   Run: node tests/quiz-v2/gender-site.js */
-const {chromium}=require('playwright');const path=require('path');
+const {chromium}=require('./jrn-patch.js')&&require('playwright');const path=require('path');
 const URL='file://'+path.join(__dirname,'..','..','index.html');
 let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m);return c};
 const MASC=/(^|[^א-ת])ש?אני (יכול|עומד)(?![א-ת/])/g, FEM=/(^|[^א-ת])ש?אני (יכולה|עומדת)(?![א-ת])/g, BOTH=/(^|[^א-ת])ש?אני (יכול\/ה|עומד\/ת)/g;

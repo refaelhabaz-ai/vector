@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Stage 3 tests: the screens, in a browser. Answers a persona through the page (clicks and keys), at 1280 and at 360 wide.
    Run: node tests/quiz-v2/ui.js [--shots dir] */
-const {chromium}=require('playwright');const path=require('path'),fs=require('fs');
+const {chromium}=require('./jrn-patch.js')&&require('playwright');const path=require('path'),fs=require('fs');
 const personas=JSON.parse(fs.readFileSync(path.join(__dirname,'personas.json'),'utf8'));
 const shots=process.argv.includes('--shots')?process.argv[process.argv.indexOf('--shots')+1]:null;
 const URL='file://'+path.join(__dirname,'..','..','index.html');
