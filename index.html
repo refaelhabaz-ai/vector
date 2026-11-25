@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Kl/3duCVTRVQ923G5BBe67zFVs0Ni5p+aKHL76wL/eU=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-J/AEPtN8icPx89SPga3+Co3xP56FzjaiDzp0GJxiMxg=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -5713,6 +5713,52 @@ html:not(.rg):not(.rm) .rs-in{animation:rsIn .7s var(--ease-out) both;animation-
 .rs-hero[data-w="health"] .rs-ic{background:rgba(185,28,28,.5)}.rs-hero[data-w="care"] .rs-ic{background:rgba(106,68,201,.5)}.rs-hero[data-w="edu"] .rs-ic{background:rgba(201,143,0,.5)}.rs-hero[data-w="biz"] .rs-ic{background:rgba(7,90,46,.55)}
 .rs-hero[data-w="law"] .rs-ic{background:rgba(74,45,148,.55)}.rs-hero[data-w="create"] .rs-ic{background:rgba(154,52,18,.55)}.rs-hero[data-w="nature"] .rs-ic{background:rgba(11,107,58,.55)}.rs-hero[data-w="field"] .rs-ic{background:rgba(18,53,143,.55)}
 @media(max-width:820px){.rs-grid{grid-template-columns:minmax(0,1fr)}.rs-body{grid-template-columns:minmax(0,1fr)}.rs-hd{flex-direction:column;gap:12px}.rs-ic{width:52px;height:52px}}
+
+/* ----- phase 5: the road page as steps ----- */
+.st-sec{padding-top:6px}
+.st-here{display:flex;justify-content:flex-start;gap:20px;flex-wrap:wrap;margin:18px 0 10px;font-size:var(--fs-3);color:var(--jr-ink)}
+.st-here b{font-weight:600}.st-here .num{color:var(--muted)}
+.st-tl{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(124px,1fr);gap:0;overflow-x:auto;scrollbar-width:thin}
+.st-z{position:relative;text-align:center}
+.st-z::before{content:'';position:absolute;top:15px;inset-inline:-50% 50%;height:2px;background:var(--jr-line)}
+.st-z:first-child::before{display:none}
+.st-z.done::before,.st-z.cur::before,.st-z.past::before{background:var(--jr-ink)}
+.st-zb{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:4px;width:100%;background:none;border:0;font:inherit;color:var(--muted);cursor:pointer;padding:0 4px 4px}
+.st-zb[disabled]{cursor:default}
+.st-d{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--jr-line);background:var(--jr-tint);font-weight:600;font-size:14px;box-sizing:border-box}
+.st-d svg{width:15px;height:15px}
+.st-z.done .st-d,.st-z.past .st-d{background:var(--jr-ink);border-color:var(--jr-ink);color:#fff}
+.st-z.cur .st-d{background:#fff;border-color:var(--action);color:var(--action-ink);box-shadow:0 0 0 4px rgba(var(--action-rgb),.14)}
+.st-z b{font-weight:400;font-size:var(--fs-2)}
+.st-z.cur b,.st-z.done b,.st-z.past b{color:var(--jr-ink)}.st-z.cur b{font-weight:600}
+.st-z small{font-size:var(--fs-1);color:var(--muted)}
+.st-zb:hover .st-d{border-color:var(--jr-ink)}
+.st-card{background:#fff;border:1.5px solid var(--jr-line);border-radius:var(--r);padding:clamp(14px,3vw,30px)}
+.st-card .kp-focus{border:0;box-shadow:none;background:transparent;padding:0;margin:0;max-width:none}
+.st-card .kp-focus::before{display:none}
+.st-card .kp-ftop h2,.st-card .kp-focus h2{font-weight:300;font-size:var(--fs-5);color:var(--jr-ink)}
+.st-card .kp-fhow{margin-top:12px;background:none;border:0;padding:0;box-shadow:none}
+.st-card .ck{background:#fff;border:1px solid var(--jr-line)}.st-card .ck.na{background:var(--jr-tint)}
+.st-tools{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.st-tool{display:flex;gap:12px;align-items:center;width:100%;text-align:start;background:#fff;border:1.5px solid var(--jr-line);border-radius:var(--r);padding:14px 16px;font:inherit;cursor:pointer;color:var(--jr-ink);transition:border-color .2s,box-shadow .25s,transform .25s}
+.st-tool:hover{border-color:var(--jr-ink);box-shadow:0 10px 22px rgba(18,32,74,.1);transform:translateY(-2px)}
+.st-tool i{flex:none;width:40px;height:40px;border-radius:var(--r);background:var(--jr-tint);display:grid;place-items:center}.st-tool i svg{width:22px;height:22px}
+.st-tool b{display:block;font-weight:600;font-size:var(--fs-2)}.st-tool small{display:block;color:var(--muted);font-size:var(--fs-1)}
+.st-fold{margin-top:14px;background:#fff;border:1.5px solid var(--jr-line);border-radius:var(--r);padding:2px 18px}
+.st-fold>summary{cursor:pointer;min-height:54px;display:flex;align-items:center;color:var(--jr-ink);font-size:var(--fs-3);list-style:none}
+.st-fold>summary::-webkit-details-marker{display:none}
+.st-fold ol{margin:0;padding:0 0 12px;list-style:none;display:grid;gap:6px}
+.st-fold li{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}.st-fold .linkbtn{font:inherit;color:var(--jr-ink);text-align:start;padding:6px 0;min-height:36px}
+.st-fold small{color:var(--muted)}
+.st-map{margin:18px 0 0}
+.st-soon{margin:0 0 22px}
+.st-soon h2{font-size:var(--fs-4);font-weight:300;color:var(--jr-ink);margin:0 0 10px}
+.st-soon ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.st-soonb{display:flex;justify-content:space-between;gap:14px;align-items:center;width:100%;text-align:start;background:#fff;border:1.5px solid var(--jr-line);border-radius:var(--r);padding:14px 18px;font:inherit;cursor:pointer;color:var(--jr-ink);transition:border-color .2s,box-shadow .25s}
+.st-soonb:hover{border-color:var(--jr-ink);box-shadow:0 10px 22px rgba(18,32,74,.1)}
+.st-sg b{display:block;font-weight:600}.st-sg small{display:block;color:var(--muted)}
+.st-sd{flex:none;color:var(--action-ink);font-weight:600}
+@media(max-width:640px){.st-tl{grid-auto-columns:minmax(104px,1fr)}}
 /*@@JOURNEY-CSS-END@@*/
 </style>
 <button type="button" class="skip" id="skipLnk">דלג לתוכן הראשי</button>
@@ -11606,6 +11652,7 @@ function jrnRail(r){
 /* the line of the results step is built from the person's own answers: the first reason the top profession fits */
 function jrnSay(cur){
   if(cur==='res'){try{const st=vqSt(),R=VQR.results(st),w=VQR.why(st,R.dirs[0].occs[0].id,1)[0];if(w)return 'הצעתי לך את זה כי '+(w.k==='world'?`התשובות שלך הצביעו על "${w.text}"`:`בשאלה "${w.title}" בחרת: ${w.text}`)+'.'}catch(e){}}
+  if(cur==='path'){try{const pl=plan();if(pl&&pl.next)return 'הצעד הבא שלך: '+pl.next.t+'.'}catch(e){}}
   return JRN_SAY[cur]}
 document.addEventListener('click',e=>{
   const t=e.target.closest('[data-jp],[data-jrnstart],[data-jrncancel],[data-jrn]');if(!t)return;const ds=t.dataset;
@@ -13122,7 +13169,7 @@ function jSelect(id){
 function jnReset(){}
 /* the card follows the width the page gives it */
 let jnRT=0;addEventListener('resize',()=>{clearTimeout(jnRT);jnRT=setTimeout(()=>{
-  const m=document.querySelector('#kpJ .sm'),host=$('#kpJ');if(!m||!host||S.route.v!=='path'||KP.tab!=='now')return;
+  const m=document.querySelector('#kpJ .sm'),host=$('#kpJ');if(!m||!host||S.route.v!=='path'||KP.tab!=='map')return;
   const w=Math.round(host.getBoundingClientRect().width);if(Math.abs(w-(+m.dataset.w))<14&&smCols(w)===smCols(+m.dataset.w))return;
   const pl=safe(plan);if(!pl)return;KP.smW=w;host.innerHTML=journeyHTML(pl,focusTask(pl),{wait:0})},180)});
 /* ================= programs for high-school students (tn-) =================
@@ -13183,12 +13230,42 @@ function hubCard(x,P){
     <div class="kp-lane" aria-hidden="true"><i style="width:${pct}%"><span>${miniCar(cc)}</span></i><em>${ki('flag')}</em></div>
     <div class="kp-hcn"><span>${done} מתוך ${total} צעדים</span>${next?`<span>הצעד הבא: <b>${esc(next.t)}</b>${next.due?` · ${dueN(next)}`:''}</span>`:'<span>הדרך הושלמה</span>'}</div>
     <div class="kp-hca">${ask?`<span class="kp-ask">להסיר את היעד הזה?</span><button class="btn soft sm" data-krmok="${esc(t.id)}">כן, להסיר</button><button class="linkbtn" data-krmno>ביטול</button>`:`<button class="btn primary" data-ktgt="${esc(t.id)}">להמשיך במסלול</button><button class="linkbtn" data-krm="${t.id}">הסרה</button>`}</div></article>`}
+
+/* ================= the road page as steps (phase 5): a slim timeline of the stages, ONE large card for the step I am on, the tools of this stage, the rest folded =================
+   The map is still there as an overview ("מבט על המסלול", a tool that opens on demand and returns to where I was). Every step, date and link is the plan's own (plan(), focusHTML). */
+const ST_TOOL={lab:['chart','בדיקת ציונים','כמה חסר לי ואיך סוגרים','data-vxlab'],opt:['compass','מה עוד אפשר?','מוסדות ותארים נוספים לפי הציונים','data-ktab="opt"'],sch:['coin','מלגות','מה מתאים לי ומה המועדים','data-kgoto="sch"'],teen:['star','הרחבת אופקים','תוכניות והתנסויות שמתאימות לי','data-kteen'],map:['map','מבט על המסלול','כל השלבים והצעדים במפה','data-ktab="map"']};
+const ST_BY={g10:['teen','lab'],g11:['teen','lab'],g12:['lab','opt'],svc:['teen','sch'],prep:['lab','opt'],reg:['opt','sch','lab'],go:['sch']};
+function stepsHTML(pl){
+  const t=focusTask(pl),cur=t?t.z:pl.cur,zi=pl.zones.findIndex(z=>z.id===cur),hs=/^g1[012]$/.test(pl.X.stg);
+  const extra=safe(()=>stepsNoteHTML(),'')+safe(()=>welcomeHTML(pl),'');
+  const CK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+  const tl=`<ol class="st-tl" aria-label="השלבים בדרך">${pl.zones.map((z,i)=>{const n=z.tasks.length,d=z.tasks.filter(x=>x.done).length,s=n&&d===n?'done':z.id===cur?'cur':i<zi?'past':'next',f=z.tasks.find(x=>!x.done)||z.tasks[0];
+    return `<li class="st-z ${s}"><button type="button" class="st-zb" ${f?`data-stfocus="${esc(f.id)}"`:'disabled'}${s==='cur'?' aria-current="step"':''}><span class="st-d">${s==='done'?CK:i+1}</span><b>${esc(z.t)}</b><small class="num">${d} מתוך ${n}</small></button></li>`}).join('')}</ol>`;
+  const tools=(ST_BY[cur]||['lab','opt']).filter(k=>k!=='teen'||hs).map(k=>ST_TOOL[k]);
+  const tl2=`<ul class="st-tools" aria-label="כלים שמתאימים לשלב הזה">${tools.map(([ic,n,s,a])=>`<li><button type="button" class="st-tool" ${a}><i>${ki(ic)}</i><span><b>${n}</b><small>${s}</small></span></button></li>`).join('')}</ul>`;
+  const ix=t?pl.tasks.indexOf(t):-1,up=pl.tasks.slice(ix+1).filter(x=>!x.done),dn=pl.tasks.filter(x=>x.done);
+  const li=x=>`<li><button type="button" class="linkbtn" data-stfocus="${esc(x.id)}">${esc(x.t)}</button>${x.due&&!x.done?` <small class="num">${esc(dueN(x))}</small>`:''}</li>`;
+  const fold=(n,title,L)=>L.length?`<details class="st-fold"><summary>${title} (${L.length})</summary><ol>${L.slice(0,n).map(li).join('')}</ol>${L.length>n?`<p class="fine">ועוד ${L.length-n}. אפשר לראות את כולם במבט על המסלול.</p>`:''}</details>`:'';
+  const nz=(ZN[cur]||{}).t||'';
+  return `<section class="st-sec">${extra?`<div class="vx-notes">${extra}</div>`:''}
+    <p class="st-here"><span>אני כאן: <b>${esc(nz)}</b></span><span class="num">${Math.max(0,Math.min(100,pl.pct))}% מהדרך</span></p>
+    ${tl}
+    <div class="st-card" id="kpStep">${t?focusHTML(pl,t):doneHTML(pl)}</div>
+    ${tl2}
+    ${fold(14,'הצעדים הבאים',up)}${fold(14,'מה כבר עשיתי',dn)}
+    <p class="st-map"><button type="button" class="btn soft" data-ktab="map">מבט על המסלול</button></p>
+    ${hs?`<div id="kpBeyond">${safe(()=>beyondHTML(pl),'')}</div>`:''}<section class="wy" id="kpWhy">${safe(()=>whyHTML(pl),'')}</section></section>${labSheetHTML(pl)}`}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-stfocus]');if(b&&b.dataset.stfocus)focusOn(b.dataset.stfocus)});
+/* the home of my goals: what comes next across all of them */
+function hubSoonHTML(){
+  const L=tInfos().filter(x=>x.next);if(!L.length)return '';
+  return `<section class="st-soon" aria-labelledby="stSoonH"><h2 id="stSoonH">מה מחכה לי בקרוב</h2><ul>${L.slice(0,3).map(x=>`<li><button type="button" class="st-soonb" data-ktgt="${esc(x.t.id)}"><span class="st-sg"><b>${esc(x.next.t)}</b><small>${esc(x.d.n)} ${esc(bIn(x.I.n))}</small></span>${x.next.due&&!x.next.done?`<span class="st-sd num">${esc(dueN(x.next))}</span>`:''}</button></li>`).join('')}</ul></section>`}
 function hubPageHTML(){
   const P=pth(),L=tInfos(),best=L.length>1?L.slice().sort((a,b)=>b.pct-a.pct)[0]:null;
   return `<section class="kp-hubtop"><div class="wrap">${BACK}
       <h1 class="kp-hub-h">המסלול שלי</h1>
       <p class="sub">${L.length>1?'כל יעד הוא מסלול משלו: רואים כמה מהדרך כבר עשיתי ואיפה הציונים שלי מול הסף. בוחרים יעד כדי להמשיך בדרך שלו. כל היעדים נשארים.':'היעד שהצבתי וכמה מהדרך כבר עשיתי. אפשר להוסיף עוד יעד ולהשוות: אותו תואר במוסד אחר, או תואר אחר.'}${best&&best.pct>0?` הכי מתקדם עכשיו: <b>${esc(best.d.n)}</b> ${esc(bIn(best.I.n))}, ${best.pct}%.`:''}</p></div></section>
-    <div class="wrap kp-body">${hubQuizHTML()}
+    <div class="wrap kp-body">${hubQuizHTML()}${safe(hubSoonHTML,'')}
       <div class="kp-hubh"><h2>היעדים שלי</h2>${L.length<MAXT?`<button type="button" class="btn soft kp-addbtn" data-kadd>הוספת יעד</button>`:''}</div>
       ${L.length<MAXT?`<p class="kp-addnote">אפשר להוסיף תואר אחר, או אותו תואר במוסד אחר, כדי להשוות כמה אני קרוב לכל אחד.</p>`:''}
       <div class="kp-hub">${L.map(x=>hubCard(x,P)).join('')}</div>
@@ -13716,7 +13793,7 @@ const button=(attr,label,ic='')=>`<button class="linkbtn kp-lnk" ${attr}>${label
 
 /* ================= the three views, and the tools beside them ================= */
 const TABS=[['now','המסלול','map','מסלול'],['prog','ההתקדמות','chart','התקדמות'],['cal','היומן','cal','יומן']];
-const TOOLS=[['opt','מה עוד אפשר?','compass'],['more','עליי והגדרות','user']];
+const TOOLS=[['opt','מה עוד אפשר?','compass'],['map','מבט על המסלול','map'],['more','עליי והגדרות','user']];
 const TKEYS=[...TABS.map(t=>t[0]),...TOOLS.map(t=>t[0])];
 const KALIAS={road:'now',why:'now',dates:'cal',lab:'now'}; /* the names the page's own buttons used before the three views */
 const TABOF={now:'now',road:'now',lab:'lab',opt:'opt',why:'now',dates:'cal',more:'more',prog:'prog',cal:'cal'};
@@ -13740,7 +13817,7 @@ function navSync(){
   if(bk0){const bk=bk0.querySelector('.kp-back');if(bk){bk.hidden=!tool;bk.dataset.ktab=KP.back||'now';const sp=bk.querySelector('span');if(sp)sp.textContent='חזרה '+backName()}}
   if(tl)tl.querySelectorAll('.kp-tool').forEach(b=>{const on=b.dataset.ktab===KP.tab;b.classList.toggle('act',on);b.setAttribute('aria-pressed',on)});
   const tp=$('#kpTab');if(tp)tp.setAttribute('aria-labelledby',(isView(KP.tab)?'kptab-':'kptool-')+KP.tab)}
-const TABF={now:nowHTML,prog:progHTML,cal:calHTML,lab:pl=>labHTML(pl),opt:()=>'<div id="kpOpt"><div class="kp-ld">טוען אפשרויות…</div></div>',more:pl=>moreHTML(pl)};
+const TABF={now:stepsHTML,map:nowHTML,prog:progHTML,cal:calHTML,lab:pl=>labHTML(pl),opt:()=>'<div id="kpOpt"><div class="kp-ld">טוען אפשרויות…</div></div>',more:pl=>moreHTML(pl)};
 const tabInner=pl=>`<section class="kp-sec" id="kp-${KP.tab}">${safe(()=>(TABF[KP.tab]||TABF.now)(pl))}</section>`;
 
 /* ---------- the page ---------- */
