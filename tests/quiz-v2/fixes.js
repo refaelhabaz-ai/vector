@@ -37,12 +37,11 @@ let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'  ok   ':'  FAIL ')+m
   await p.click('[data-vqnext]');await p.waitForTimeout(500);
   ok(await p.evaluate(()=>VQU.mode)==='res','the results screen opens after the day');
   /* ---- results layout ---- */
-  const lay=await p.evaluate(()=>{const bar=document.querySelector('.vr-bar');
-    return {top:[...document.querySelectorAll('.vr-bar .btn.primary')].map(x=>x.textContent.trim()),all:bar?[...bar.querySelectorAll('button')].map(x=>x.textContent.trim()):[],tabs:document.querySelectorAll('.vr-tab,.rs-all,.vr-more').length,acts:document.querySelectorAll('.rs-hero [data-vqmore],.rs-hero [data-vqstart]').length,
-      inView:bar?(()=>{const r=bar.getBoundingClientRect();return r.bottom<=innerHeight+1&&r.top>=0})():false}});
-  ok(lay.top.length===1&&/בניית מסלול|בחירת תואר/.test(lay.top[0]),'one primary button, in the bar that stays in view: '+JSON.stringify(lay.top));
-  ok(lay.tabs===0&&lay.all.length===2&&lay.acts===2&&lay.inView,'no collapsed direction blocks, two actions in the bar (and the other two in the main card), and the bar is in view: '+JSON.stringify(lay.all));
-  ok(!lay.all.some(t=>/^(השווה|התחל)/.test(t)),'the labels are not masculine imperatives');
+  const lay=await p.evaluate(()=>{const bar=document.querySelectorAll('.vr-bar').length;
+    return {bar,cardBtns:document.querySelectorAll('.rs-dc .btn').length,cardPrimary:document.querySelectorAll('.rs-dc .btn.primary').length,cmp:!!document.querySelector('.rs-other [data-go="degrees"]'),all:[],tabs:document.querySelectorAll('.vr-tab,.rs-all,.vr-more').length,acts:document.querySelectorAll('.rs-hero [data-vqmore],.rs-hero [data-vqstart]').length,}});
+  ok(lay.bar===0&&lay.cardBtns>=1&&lay.cardBtns===lay.cardPrimary,'no bottom bar; every degree card has one primary action ('+lay.cardBtns+')');
+  ok(lay.tabs===0&&lay.acts===2&&lay.cmp,'no collapsed direction blocks; "more questions" and "start again" are in the main card; "compare degrees" is next to "all degrees"');
+  
   /* ---- the routes block: gender and the data line ---- */
   const routes=async pg=>pg.evaluate(()=>{
     const occ=[{txt:[...document.querySelectorAll('.rs-adm')].map(x=>x.textContent).join(' | '),naInLi:0,naLines:0,deg:document.querySelectorAll('.rs-dc').length}];
