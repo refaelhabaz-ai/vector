@@ -31,13 +31,15 @@ async function drive(browser,width,name,sex){
   await p.waitForTimeout(300);await shot('res');
   const R=await p.evaluate(()=>({n:VQU.answers.length,order:VQU.answers.map(a=>a.q),dirs:[...document.querySelectorAll('.vr-tab b')].map(b=>b.textContent),h1:document.querySelector('#vqH').textContent,saved:JSON.parse(localStorage.getItem('kivun3.dir2')||'null'),sw:document.documentElement.scrollWidth<=innerWidth+1,text:document.body.innerText}));
   console.log(`${label}: ${R.n} questions · ${R.h1} · ${R.dirs.join(' / ')}`);
-  ok(R.n<=20,label+': more than 20 answers');ok(R.sw,label+': horizontal scroll on the results');
+  ok(R.n>=10&&R.n<=14,label+': between 10 and 14 questions expected, got '+R.n);ok(R.sw,label+': horizontal scroll on the results');
   ok(R.saved&&R.saved.v===2&&R.saved.answers.length===R.n&&R.saved.done&&R.saved.ts,label+': dir2 was not saved as {v,answers,ctx,done,ts}');
   ok(R.dirs.length===3,label+': three directions expected');
   if(sex)ok(!/[א-ת]+\/[א-ת]+/.test(R.text.replace(/\n[^\n]*(מתמטיקה\/פיזיקה)[^\n]*/g,'')),label+': a double form is left in the text for a known gender');
   ok(errs.length===0,label+': page errors: '+errs.join(' | '));
-  const doc=per.steps.map(s=>s.q).filter(q=>q!=='DAY'),got=R.order.filter(q=>q!=='DAY');
-  ok(got.join()===doc.join(),`${name}@${width}: the screens asked a different order than the document: ${got.join(' ')}`);
+  /* since the shorter questionnaire (docs/journey-plan.md, phase 2) the order is the engine's, not the document's: the screens must follow the engine step by step, start with A1-A3 and end with the three days */
+  const follows=await p.evaluate(()=>{const st=VQE.init(vqEnv());for(const a of VQU.answers){const nx=VQE.next(st);if(nx.id!==a.q)return a.q+' (the engine asked '+nx.id+')';VQE.apply(st,a)}return ''});
+  ok(follows==='',`${name}@${width}: the screens followed the engine: ${follows||R.order.join(' ')}`);
+  ok(R.order.slice(0,3).join()==='A1,A2,A3'&&R.order[R.order.length-1]==='DAY',`${name}@${width}: the run starts with A1-A3 and ends with the three days`);
   await ctx.close();
 }
 (async()=>{
