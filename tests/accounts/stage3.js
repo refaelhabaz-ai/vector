@@ -60,8 +60,8 @@ const personas=JSON.parse(fs.readFileSync(path.join(__dirname,'..','quiz-v2','pe
   const R=res(f.id),W=R.filter(r=>r.kind==='world'),O=R.filter(r=>r.kind==='occupation'),X=R.filter(r=>r.kind==='wildcard');
   ok(W.length===3&&W.map(r=>r.rank).join()==='1,2,3'&&W.every(r=>r.score>0&&r.score<=1),'3 worlds with their probability: '+W.map(r=>r.code+' '+r.score).join(', '));
   ok(O.length===9&&O.map(r=>r.rank).join()==='1,2,3,4,5,6,7,8,9'&&O.every(r=>/^\d{4}$/.test(r.code)&&typeof r.score==='number'),'9 occupations in the order they were shown');
-  const shown=await A.evaluate(()=>({w:document.querySelector('h1').textContent,occ:[...document.querySelectorAll('.vq-occ [data-occ]')].map(b=>b.dataset.occ)}));
-  ok(JSON.stringify(shown.occ)===JSON.stringify(O.map(r=>r.code)),'the occupations are the ones on the screen: '+shown.occ.join(','));
+  const shown=await A.evaluate(()=>({w:document.querySelector('h1').textContent,occ:[...document.querySelectorAll('.rs-oh [data-occ]')].map(b=>b.dataset.occ)}));
+  ok(JSON.stringify(shown.occ)===JSON.stringify(O.slice(0,3).map(r=>r.code)),'the three professions on the screen are the first three that were saved: '+shown.occ.join(','));
   ok(JSON.stringify(f.top_worlds)===JSON.stringify(W.map(r=>r.code))&&shown.w.includes(await A.evaluate(c=>VQW[c].n,W[0].code)),'the first world is the one on the screen, and top_worlds agrees');
   ok(X.length<=1,'the surprise ('+(X[0]?X[0].code:'none')+')');
   const af=ans(f.id),g=af.find(a=>a.question_id==='G'),day=af.find(a=>a.question_id==='DAY');

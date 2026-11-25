@@ -29,11 +29,11 @@ async function drive(browser,width,name,sex){
   }
   ok(await p.evaluate(()=>VQU.mode)==='res',`${label}: did not reach the results`);
   await p.waitForTimeout(300);await shot('res');
-  const R=await p.evaluate(()=>({n:VQU.answers.length,order:VQU.answers.map(a=>a.q),dirs:[...document.querySelectorAll('.vr-tab b')].map(b=>b.textContent),h1:document.querySelector('#vqH').textContent,saved:JSON.parse(localStorage.getItem('kivun3.dir2')||'null'),sw:document.documentElement.scrollWidth<=innerWidth+1,text:document.body.innerText}));
+  const R=await p.evaluate(()=>({n:VQU.answers.length,order:VQU.answers.map(a=>a.q),dirs:[...document.querySelectorAll('.rs-c h3')].map(b=>b.textContent),h1:document.querySelector('#vqH').textContent,saved:JSON.parse(localStorage.getItem('kivun3.dir2')||'null'),sw:document.documentElement.scrollWidth<=innerWidth+1,text:document.body.innerText}));
   console.log(`${label}: ${R.n} questions · ${R.h1} · ${R.dirs.join(' / ')}`);
   ok(R.n>=10&&R.n<=14,label+': between 10 and 14 questions expected, got '+R.n);ok(R.sw,label+': horizontal scroll on the results');
   ok(R.saved&&R.saved.v===2&&R.saved.answers.length===R.n&&R.saved.done&&R.saved.ts,label+': dir2 was not saved as {v,answers,ctx,done,ts}');
-  ok(R.dirs.length===3,label+': three directions expected');
+  ok(R.dirs.length>=3,label+': degree and profession suggestions expected');
   if(sex)ok(!/[א-ת]+\/[א-ת]+/.test(R.text.replace(/\n[^\n]*(מתמטיקה\/פיזיקה)[^\n]*/g,'')),label+': a double form is left in the text for a known gender');
   ok(errs.length===0,label+': page errors: '+errs.join(' | '));
   /* since the shorter questionnaire (docs/journey-plan.md, phase 2) the order is the engine's, not the document's: the screens must follow the engine step by step, start with A1-A3 and end with the three days */

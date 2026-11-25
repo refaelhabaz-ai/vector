@@ -10,7 +10,8 @@ if(!pw.chromium.__jrn){
       /* Chromium sometimes starts a reload before a localStorage write has reached the new page (file:// pages, more often when the machine is busy). The tests write the state they need
          and reload at once, so a reload here puts back any key that went missing and reloads once more. */
       pg.reload=async(o)=>{const snap=await pg.evaluate(()=>Object.assign({},localStorage)).catch(()=>null);const r=await rl(o);
-        if(snap){const lost=await pg.evaluate(s=>{let n=0;try{for(const k in s)if(localStorage.getItem(k)==null){localStorage.setItem(k,s[k]);n++}}catch(e){}return n},snap).catch(()=>0);if(lost)await rl(o)}
+        /* up to three more reloads: the second one can lose a key as well */
+        if(snap)for(let k=0;k<3;k++){const lost=await pg.evaluate(s=>{let n=0;try{for(const k in s)if(localStorage.getItem(k)==null){localStorage.setItem(k,s[k]);n++}}catch(e){}return n},snap).catch(()=>0);if(!lost)break;await rl(o)}
         return r};return pg};
     const npg=(c)=>{const np=c.newPage.bind(c);c.newPage=async(...x)=>wrap(await np(...x));return c};
     b.newContext=async(...x)=>{const c=await nc(...x);await c.addInitScript(init);return npg(c)};
