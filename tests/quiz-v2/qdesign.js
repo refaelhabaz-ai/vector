@@ -145,6 +145,22 @@ const noScroll = p => p.evaluate(() => document.documentElement.scrollWidth <= i
     ok(p.errs.length === 0, 'no page errors ' + (p.errs[0] || ''));
     await p.ctx.close();
   }
+  /* the questionnaire as the first step of the path (#path) has the same colours, and the line from Vekti above it is gone */
+  for (const w of [1440, 390]) {
+    const ctx = await b.newContext({ viewport: { width: w, height: w < 500 ? 844 : 900 } });
+    const p = await ctx.newPage();
+    p.errs = [];
+    p.on('pageerror', e => p.errs.push(String(e)));
+    await p.addInitScript(() => { try { localStorage.setItem('kivun3.seenProf', 'true'); localStorage.setItem('kivun3.jnTip', '1'); } catch (e) {} });
+    await p.goto(URL + '#path');
+    await p.waitForTimeout(1200);
+    const P2 = await p.evaluate(() => { const h = document.querySelector('.qi-h'); const app = getComputedStyle(document.getElementById('app')); return { qs: document.documentElement.dataset.qs, h: h ? getComputedStyle(h).color : '', bg: app.backgroundImage, say: document.querySelector('.jr-say') ? getComputedStyle(document.querySelector('.jr-say')).display : 'none', q1: getComputedStyle(document.documentElement).getPropertyValue('--q1').trim() }; });
+    ok(P2.qs === 'intro' && /gradient/.test(P2.bg) && parse(P2.h).join() === '255,255,255', `@${w} #path: the start screen is orange with a white headline (not white on white)`);
+    ok(contrastWhite(parse(P2.q1)) >= 4.5, `@${w} #path: the headline contrast is ${contrastWhite(parse(P2.q1)).toFixed(2)}:1`);
+    ok(P2.say === 'none', `@${w}: the line from Vekti above the questionnaire is gone`);
+    ok(await noScroll(p) && p.errs.length === 0, `@${w} #path: no sideways scroll, no page errors`);
+    await ctx.close();
+  }
   /* a started questionnaire: continue is primary, start again is secondary, in the same design */
   {
     const p = await setup(b, 1440);
