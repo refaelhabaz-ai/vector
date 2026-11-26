@@ -25,6 +25,7 @@ const T=[
   ['forum: my activity area (page)','forum.js',120],
   ['photos: every page has a photo that exists, is small and is credited (page)','photos.js',60],
   ['perf: scrolling stays on the browser\'s fast path (page)','perf.js',90],
+  ['questionnaire design: the colour journey, start screen, three days, arrival (page)','qdesign.js',240],
 ];
 const rows=[];let bad=0;const t0=Date.now();
 for(const [name,file,limit,args] of T){
