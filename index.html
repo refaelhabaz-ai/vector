@@ -1,4 +1,4 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-/yCR1krhE/4CTUKhldCABa8tJIBg2RFJlLjRDh7XH4o=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="he" dir="rtl"><head><meta charset=utf8><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-y53LNxBr0WPw0br1ND2gGmgcKV3KVlZiwt71kMVH6dg=' 'sha256-VTM3Q+dMuAiJhVyGZ/BBRRx5XL79Eyl4BybeKTRW+ik='; style-src 'unsafe-inline'; img-src 'self' data:; font-src data:; connect-src https://wgarkvjbwzmpdvvrsrni.supabase.co; base-uri 'none'; form-action 'self'; object-src 'none'"><!-- CSP: the one inline script is allowed by its hash. After ANY edit of the script run `node tools/csp-hash.js --write` (docs/accounts/README.md); without it the browser blocks the site. --><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>וקטור | הכוונה ללימודים וקריירה בישראל</title>
 <meta name="description" content="וקטור: הכוונה ללימודים וקריירה בישראל, עם נתונים רשמיים ומקורות לכל נתון">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%231D4FC4'/%3E%3Cpath d='M28.5 28.5 13.5 13.5M13.5 22.5V13.5h9' fill='none' stroke='%23fff' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='28.5' cy='28.5' r='2.6' fill='%23fff'/%3E%3C/svg%3E">
@@ -10769,8 +10769,9 @@ const routeCtx=()=>{const r=S.route;return r.v==='deg'?'deg:'+r.id:r.v==='occ'?'
 function qaJumpBtn(ctx,label){const n=qaCount(ctx);return `<button class="btn qa-jump" data-qajump>${FIC.chat}<span>${label}</span>${n?`<b class="qa-n num">${n}</b>`:''}</button>`}
 function qaFab(){const n=qaCount(routeCtx());return `<button class="qa-fab" data-qajump aria-label="מעבר לשאלות ותשובות">${FIC.chat}<span>שאלות ותשובות</span>${n?`<b class="qa-n num">${n}</b>`:''}</button>`}
 
-addEventListener('scroll',()=>{const f=document.querySelector('.qa-fab');if(!f)return;const qa=document.getElementById('qa');
-  f.classList.toggle('show',scrollY>380&&!!qa&&qa.getBoundingClientRect().top>innerHeight*.8)},{passive:true});
+let QAT=0;addEventListener('scroll',()=>{if(QAT)return;QAT=requestAnimationFrame(()=>{QAT=0;const f=document.querySelector('.qa-fab');if(!f)return;
+  if(scrollY<=380){f.classList.remove('show');return}
+  const qa=document.getElementById('qa');f.classList.toggle('show',!!qa&&qa.getBoundingClientRect().top>innerHeight*.8)})},{passive:true});
 
 /* ---------- comparison: the things that actually change the decision ---------- */
 function cmpInfo(d){
@@ -10882,7 +10883,7 @@ document.getElementById('a11yFoot').addEventListener('click',openA11y);
 document.getElementById('skipLnk').addEventListener('click',()=>{const m=document.getElementById('app');m.focus({preventScroll:true});m.scrollIntoView({block:'start'})});
 /* every screen gets its own page title; on a new screen the heading takes focus, so keyboard and screen-reader users start at its top */
 const RT_FALLBACK={home:'תארים',degrees:'תארים',jobs:'מקצועות וקריירה',dir:'מה הכיוון שלי?',path:'המסלול שלי',sch:'מלגות',get me(){return 'מה אני '+gx('יכול','יכולה')+' ללמוד'},forum:'שאלות ותשובות',tech:'הנדסאים וטכנאים',calc:'מחשבון ממוצע בגרות',src:'תקנון',terms:'תקנון',a11y:'הצהרת נגישות'};
-function a11yRoute(move){const app=$('#app');if(!app)return;const h1=app.querySelector('h1'),v=S.route.v,t=((h1&&h1.textContent)||'').replace(/\s+/g,' ').trim()||RT_FALLBACK[v]||'';
+function a11yRoute(move){scMx=0;const app=$('#app');if(!app)return;const h1=app.querySelector('h1'),v=S.route.v,t=((h1&&h1.textContent)||'').replace(/\s+/g,' ').trim()||RT_FALLBACK[v]||'';
   document.title=(v==='home'||!t?'':t+' | ')+'וקטור'+(v==='home'||!t?' | הכוונה ללימודים וקריירה בישראל':'');
   if(move){const f=h1||app;if(!f.hasAttribute('tabindex'))f.tabIndex=-1;f.focus({preventScroll:true})}}
 
@@ -16198,6 +16199,10 @@ addEventListener('hashchange',onRoute);
 /* ================= smooth, soft wheel scrolling (mouse wheel and trackpad; not touch) =================
    The wheel moves a target position; the page eases toward it with an exponential curve. SW_TAU is the softness (seconds; the page is 95% there after 3*tau, 99% after 4.6*tau),
    SW_MULT is how far one wheel step goes compared with the browser's own (1 = the same). The scrollbar, the keyboard, links, a modal, an inner scroll area and the tour keep the native scroll. */
+/* The site's own smooth wheel scrolling is OFF by default. It cancelled every wheel event and moved the page with a script on the main thread, so the page stuck whenever the
+   main thread was busy, and it asked the browser for the style of every ancestor on every wheel tick. The browser's own scrolling runs off the main thread and is smooth already.
+   To try the old one: localStorage kivun3.smoothWheel = true, or ?smoothwheel=1 in the address. */
+const SW_ON=/[?&]smoothwheel/.test(location.search)||store.get('smoothWheel',false)===true;
 const SW_TAU=.28,SW_MULT=.9;
 const SW={cur:0,t:0,raf:0,last:0};
 const swOff=()=>{const de=document.documentElement,c=de.classList;
@@ -16221,7 +16226,7 @@ window.motionStatus=motionStatus;
 let SW_BOX=null;
 function swDbg(msg){if(!SW_DBG)return;if(!SW_BOX){SW_BOX=document.createElement('pre');SW_BOX.id='swDbg';SW_BOX.style.cssText='position:fixed;z-index:99999;left:8px;bottom:8px;margin:0;padding:8px 10px;background:rgba(20,24,48,.92);color:#9fe3b3;font:12px/1.4 monospace;direction:ltr;text-align:left;pointer-events:none;border-radius:6px;white-space:pre';document.body.appendChild(SW_BOX)}
   SW_BOX.textContent=msg}
-addEventListener('wheel',e=>{
+if(SW_ON)addEventListener('wheel',e=>{
   if(SW_DBG&&!e.__swSeen){e.__swSeen=1;if(swOff()||e.ctrlKey||e.metaKey||e.deltaY===0||Math.abs(e.deltaX)>Math.abs(e.deltaY)||swInner(e.target,e.deltaY))swDbg(`wheel native (dy=${e.deltaY})\nlevel=${motionLevel()} off=${swOff()}`)}
   if(e.ctrlKey||e.metaKey||e.defaultPrevented||e.deltaY===0||Math.abs(e.deltaX)>Math.abs(e.deltaY)||swOff())return;
   if(swInner(e.target,e.deltaY))return;
@@ -16233,7 +16238,7 @@ addEventListener('wheel',e=>{
   if(!SW.raf)SW.raf=requestAnimationFrame(swStep);
   if(SW_DBG){console.log(`[smooth] wheel dy=${e.deltaY} target=${SW.t.toFixed(1)} current=${SW.cur.toFixed(1)}`);swDbg(`smooth wheel dy=${e.deltaY}\ntarget  ${SW.t.toFixed(1)}\ncurrent ${SW.cur.toFixed(1)}\nlevel=${motionLevel()}`)}},{passive:false});
 /* anything else that moved the page (scrollbar, keyboard, a link, back) takes over: the target follows it */
-addEventListener('scroll',()=>{if(Math.abs(scrollY-SW.cur)>2){SW.cur=SW.t=scrollY;if(SW.raf){cancelAnimationFrame(SW.raf);SW.raf=0}}},{passive:true});
+if(SW_ON)addEventListener('scroll',()=>{if(Math.abs(scrollY-SW.cur)>2){SW.cur=SW.t=scrollY;if(SW.raf){cancelAnimationFrame(SW.raf);SW.raf=0}}},{passive:true});
 
 /* ================= SEARCH ================= */
 let sugIdx=-1;
@@ -16387,9 +16392,15 @@ document.getElementById('hdr').addEventListener('focusout',e=>{if(VM.open&&e.rel
 $('#quizBtn').addEventListener('click',()=>profileOK()?go('me'):openProfile());
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeOv()});
 /* the header turns to glass once the page moves, a hairline under it shows how far down I am, and the hero's soft colour glows drift a little slower than the page */
-let scT=0;addEventListener('scroll',()=>{const h=document.getElementById('hdr');h.classList.toggle('scrolled',scrollY>8);if(scT)return;
-  scT=requestAnimationFrame(()=>{scT=0;const de=document.documentElement,mx=de.scrollHeight-innerHeight;h.style.setProperty('--sp',(mx>0?Math.min(100,scrollY/mx*100):0).toFixed(1)+'%');
-    const hero=RM()?null:document.querySelector('#app .hero');if(hero&&scrollY<1000)hero.style.setProperty('--sy',scrollY)})},{passive:true});
+var scT=0,scOn=false,scMx=0,scSp=-1,scI=0; /* scMx: how far the page can scroll, measured once per scroll, not on every frame */
+addEventListener('resize',()=>{scMx=0},{passive:true});
+addEventListener('scroll',()=>{const y=scrollY,on=y>8;
+  if(on!==scOn){scOn=on;document.getElementById('hdr').classList.toggle('scrolled',on)}
+  clearTimeout(scI);scI=setTimeout(()=>{scMx=0},300);
+  if(scT)return;
+  scT=requestAnimationFrame(()=>{scT=0;if(!scMx)scMx=document.documentElement.scrollHeight-innerHeight;
+    const v=Math.round((scMx>0?Math.min(100,scrollY/scMx*100):0)*2)/2;
+    if(v!==scSp){scSp=v;document.getElementById('hdr').style.setProperty('--sp',v.toFixed(1)+'%')}})},{passive:true});
 
 /*@@V3-JS@@*/
 /* ================= v3: Vecti the scarlet macaw, drawn in parts so that he can move =================
